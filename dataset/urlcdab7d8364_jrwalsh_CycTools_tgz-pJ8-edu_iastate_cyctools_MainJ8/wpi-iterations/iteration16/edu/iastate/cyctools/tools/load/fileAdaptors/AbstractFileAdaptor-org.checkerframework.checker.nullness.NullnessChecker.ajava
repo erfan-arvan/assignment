@@ -1,0 +1,33 @@
+package edu.iastate.cyctools.tools.load.fileAdaptors;
+
+import java.util.ArrayList;
+import javax.swing.table.TableModel;
+import edu.iastate.cyctools.tools.load.model.AbstractFrameEdit;
+
+@org.checkerframework.framework.qual.AnnotatedFor("org.checkerframework.checker.nullness.NullnessChecker")
+public abstract class AbstractFileAdaptor {
+
+     @org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.NonNull boolean append = true;
+
+     @org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.NonNull boolean ignoreDuplicates = true;
+
+    @org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.NonNull String multipleValueDelimiter = "$";
+
+    @org.checkerframework.dataflow.qual.Impure
+    public void setAppend( @org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.NonNull boolean append) {
+        this.append = append;
+    }
+
+    @org.checkerframework.dataflow.qual.Impure
+    public void setIgnoreDuplicates( @org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.NonNull boolean ignoreDuplicates) {
+        this.ignoreDuplicates = ignoreDuplicates;
+    }
+
+    @org.checkerframework.dataflow.qual.Impure
+    public void setMultipleValueDelimiter(@org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.NonNull String multipleValueDelimiter) {
+        this.multipleValueDelimiter = multipleValueDelimiter;
+    }
+
+    @org.checkerframework.dataflow.qual.Impure
+    public abstract @org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.NonNull ArrayList<AbstractFrameEdit> tableToFrameUpdates(@org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.Nullable TableModel tb);
+}

@@ -1,0 +1,49 @@
+package edu.iastate.cyctools.tools.load.model;
+
+import java.util.ArrayList;
+import edu.iastate.javacyco.JavacycConnection;
+import edu.iastate.javacyco.PtoolsErrorException;
+
+// This class is intended to represent any changes to an existing frame, but more specifically not used to create or remove frames.
+@org.checkerframework.framework.qual.AnnotatedFor("org.checkerframework.checker.nullness.NullnessChecker")
+public abstract class AbstractFrameDataEdit extends AbstractFrameEdit {
+
+    protected  @org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.NonNull boolean append;
+
+    protected  @org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.NonNull boolean ignoreDuplicates;
+
+    @org.checkerframework.dataflow.qual.Impure
+    public @org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.NonNull String getValuesAsLispArray() {
+        ArrayList<String> values = this.getValues();
+        if (values == null || values.size() == 0)
+            return "";
+        else if (values.size() == 1)
+            return values.get(0);
+        else
+            return JavacycConnection.ArrayList2LispList(values);
+    }
+
+    @org.checkerframework.dataflow.qual.Impure
+    protected  @org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.NonNull boolean checkRemoteValueEmpty(JavacycConnection conn) throws PtoolsErrorException {
+        ArrayList<String> remoteValues = this.getRemoteValues(conn);
+        if (remoteValues == null || remoteValues.isEmpty()) {
+            return true;
+        } else
+            return false;
+    }
+
+    @org.checkerframework.dataflow.qual.Impure
+    protected  @org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.NonNull boolean checkRemoteValueDuplicate(JavacycConnection conn) throws PtoolsErrorException {
+        ArrayList<String> remoteValues = this.getRemoteValues(conn);
+        if (remoteValues.containsAll(this.getValues())) {
+            return true;
+        } else
+            return false;
+    }
+
+    @org.checkerframework.dataflow.qual.Pure
+    protected abstract @org.checkerframework.checker.initialization.qual.UnknownInitialization(java.lang.Object.class) @org.checkerframework.checker.nullness.qual.Nullable ArrayList<String> getValues();
+
+    @org.checkerframework.dataflow.qual.Impure
+    protected abstract @org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.NonNull ArrayList<String> getRemoteValues(@org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.NonNull JavacycConnection conn) throws PtoolsErrorException;
+}

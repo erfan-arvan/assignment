@@ -1,0 +1,143 @@
+// Copyright 2024 Ben Manes. All Rights Reserved.
+//
+// Licensed under the Apache License, Version 2.0 (the "License");
+// you may not use this file except in compliance with the License.
+// You may obtain a copy of the License at
+//
+//     http://www.apache.org/licenses/LICENSE-2.0
+//
+// Unless required by applicable law or agreed to in writing, software
+// distributed under the License is distributed on an "AS IS" BASIS,
+// WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+// See the License for the specific language governing permissions and
+// limitations under the License.
+package com.github.benmanes.caffeine.cache;
+
+import java.lang.invoke.MethodHandles;
+import java.lang.invoke.VarHandle;
+import java.lang.ref.ReferenceQueue;
+
+/**
+ * <em>WARNING: GENERATED CODE</em>
+ *
+ * <p>A cache entry that provides the following features:
+ *
+ * <ul>
+ *   <li>ExpireWrite
+ *   <li>StrongKeys (inherited)
+ *   <li>StrongValues (inherited)
+ * </ul>
+ *
+ * @author ben.manes@gmail.com (Ben Manes)
+ */
+@org.checkerframework.framework.qual.AnnotatedFor("org.checkerframework.checker.nullness.NullnessChecker")
+class PSW<K, V> extends PS<K, V> {
+
+    protected static final @org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.NonNull VarHandle WRITE_TIME;
+
+    static {
+        MethodHandles.Lookup lookup = MethodHandles.lookup();
+        try {
+            WRITE_TIME = lookup.findVarHandle(PSW.class, NodeFactory.WRITE_TIME, long.class);
+        } catch (ReflectiveOperationException e) {
+            throw new ExceptionInInitializerError(e);
+        }
+    }
+
+    volatile long writeTime;
+
+    @org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.MonotonicNonNull Node<K, V> previousInWriteOrder;
+
+    @org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.MonotonicNonNull Node<K, V> nextInWriteOrder;
+
+    @org.checkerframework.dataflow.qual.Impure
+    PSW() {
+    }
+
+    @org.checkerframework.dataflow.qual.Impure
+    PSW(K key, @org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.NonNull ReferenceQueue<K> keyReferenceQueue, V value, @org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.NonNull ReferenceQueue<V> valueReferenceQueue,  @org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.NonNull int weight,  @org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.NonNull long now) {
+        super(key, keyReferenceQueue, value, valueReferenceQueue, weight, now);
+        WRITE_TIME.set(this, now & ~1L);
+    }
+
+    @org.checkerframework.dataflow.qual.Impure
+    PSW(@org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.NonNull Object keyReference, V value, @org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.NonNull ReferenceQueue<V> valueReferenceQueue,  @org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.NonNull int weight,  @org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.NonNull long now) {
+        super(keyReference, value, valueReferenceQueue, weight, now);
+        WRITE_TIME.set(this, now & ~1L);
+    }
+
+    @org.checkerframework.dataflow.qual.Pure
+    public @org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.NonNull Node<K, V> getPreviousInVariableOrder(@org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.NonNull PSW<K, V> this) {
+        return previousInWriteOrder;
+    }
+
+    @org.checkerframework.dataflow.qual.Impure
+    public void setPreviousInVariableOrder(@org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.NonNull PSW<K, V> this, @org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.Nullable Node<K, V> previousInWriteOrder) {
+        this.previousInWriteOrder = previousInWriteOrder;
+    }
+
+    @org.checkerframework.dataflow.qual.Pure
+    public @org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.NonNull Node<K, V> getNextInVariableOrder(@org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.NonNull PSW<K, V> this) {
+        return nextInWriteOrder;
+    }
+
+    @org.checkerframework.dataflow.qual.Impure
+    public void setNextInVariableOrder(@org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.NonNull PSW<K, V> this, @org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.Nullable Node<K, V> nextInWriteOrder) {
+        this.nextInWriteOrder = nextInWriteOrder;
+    }
+
+    @org.checkerframework.dataflow.qual.Impure
+    public  @org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.NonNull long getVariableTime(@org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.NonNull PSW<K, V> this) {
+        return (long) WRITE_TIME.getOpaque(this);
+    }
+
+    @org.checkerframework.dataflow.qual.Impure
+    public void setVariableTime(@org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.NonNull PSW<K, V> this,  @org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.NonNull long writeTime) {
+        WRITE_TIME.setOpaque(this, writeTime);
+    }
+
+    @org.checkerframework.dataflow.qual.Impure
+    public  @org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.NonNull boolean casVariableTime(@org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.NonNull PSW<K, V> this,  @org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.NonNull long expect,  @org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.NonNull long update) {
+        return (writeTime == expect) && WRITE_TIME.compareAndSet(this, expect, update);
+    }
+
+    @org.checkerframework.dataflow.qual.Impure
+    public final  @org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.NonNull long getWriteTime(@org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.NonNull PSW<K, V> this) {
+        return (long) WRITE_TIME.getOpaque(this);
+    }
+
+    @org.checkerframework.dataflow.qual.Impure
+    public final void setWriteTime(@org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.NonNull PSW<K, V> this,  @org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.NonNull long writeTime) {
+        WRITE_TIME.set(this, writeTime);
+    }
+
+    @org.checkerframework.dataflow.qual.Pure
+    public final @org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.NonNull Node<K, V> getPreviousInWriteOrder(@org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.NonNull PSW<K, V> this) {
+        return previousInWriteOrder;
+    }
+
+    @org.checkerframework.dataflow.qual.Impure
+    public final void setPreviousInWriteOrder(@org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.NonNull PSW<K, V> this, @org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.Nullable Node<K, V> previousInWriteOrder) {
+        this.previousInWriteOrder = previousInWriteOrder;
+    }
+
+    @org.checkerframework.dataflow.qual.Pure
+    public final @org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.NonNull Node<K, V> getNextInWriteOrder(@org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.NonNull PSW<K, V> this) {
+        return nextInWriteOrder;
+    }
+
+    @org.checkerframework.dataflow.qual.Impure
+    public final void setNextInWriteOrder(@org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.NonNull PSW<K, V> this, @org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.Nullable Node<K, V> nextInWriteOrder) {
+        this.nextInWriteOrder = nextInWriteOrder;
+    }
+
+    @org.checkerframework.dataflow.qual.Pure
+    public @org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.NonNull Node<K, V> newNode(@org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.NonNull PSW<K, V> this, K key, @org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.NonNull ReferenceQueue<K> keyReferenceQueue, V value, @org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.NonNull ReferenceQueue<V> valueReferenceQueue,  @org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.NonNull int weight,  @org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.NonNull long now) {
+        return new PSW<>(key, keyReferenceQueue, value, valueReferenceQueue, weight, now);
+    }
+
+    @org.checkerframework.dataflow.qual.Pure
+    public @org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.NonNull Node<K, V> newNode(@org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.NonNull PSW<K, V> this, @org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.NonNull Object keyReference, V value, @org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.NonNull ReferenceQueue<V> valueReferenceQueue,  @org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.NonNull int weight,  @org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.NonNull long now) {
+        return new PSW<>(keyReference, value, valueReferenceQueue, weight, now);
+    }
+}

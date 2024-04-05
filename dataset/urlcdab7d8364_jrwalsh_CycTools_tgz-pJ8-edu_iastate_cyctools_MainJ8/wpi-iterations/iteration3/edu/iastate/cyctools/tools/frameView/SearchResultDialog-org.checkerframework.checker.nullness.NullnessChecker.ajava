@@ -1,0 +1,150 @@
+package edu.iastate.cyctools.tools.frameView;
+
+import javax.swing.DefaultListCellRenderer;
+import javax.swing.JDialog;
+import javax.swing.JFrame;
+import javax.swing.JPanel;
+import java.awt.BorderLayout;
+import java.awt.Component;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+import java.util.ArrayList;
+import java.util.Map;
+import javax.swing.GroupLayout;
+import javax.swing.GroupLayout.Alignment;
+import javax.swing.JButton;
+import javax.swing.LayoutStyle.ComponentPlacement;
+import javax.swing.JLabel;
+import javax.swing.JList;
+import javax.swing.JScrollPane;
+import javax.swing.event.ListSelectionListener;
+import javax.swing.event.ListSelectionEvent;
+import edu.iastate.cyctools.CycToolsError;
+import edu.iastate.cyctools.externalSourceCode.KeyValueComboboxModel;
+import edu.iastate.javacyco.Frame;
+import edu.iastate.javacyco.PtoolsErrorException;
+
+// Design based on example code at http://darksleep.com/player/DialogExample/CustomDialog.java.html
+@org.checkerframework.framework.qual.AnnotatedFor("org.checkerframework.checker.nullness.NullnessChecker")
+public class SearchResultDialog extends JDialog implements ActionListener {
+
+    private @org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.NonNull JList listMatches;
+
+    private @org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.NonNull JList listExact;
+
+    private @org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.Nullable String selectedFrameID;
+
+    private @org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.NonNull JButton btnNewButton;
+
+    private @org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.NonNull JButton btnNewButton_1;
+
+    @org.checkerframework.dataflow.qual.Impure
+    private SearchResultDialog(@org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.Nullable JFrame parentFrame, @org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.NonNull KeyValueComboboxModel exactMatch, @org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.NonNull KeyValueComboboxModel matchingFrames) {
+        super(parentFrame, true);
+        setTitle("Search Results");
+        JPanel panel = new JPanel();
+        getContentPane().add(panel, BorderLayout.CENTER);
+        btnNewButton = new JButton("Cancel");
+        btnNewButton.addActionListener(this);
+        btnNewButton_1 = new JButton("OK");
+        btnNewButton_1.addActionListener(this);
+        JLabel lblExactMatch = new JLabel("Exact Match");
+        listExact = new JList();
+        listExact.addListSelectionListener(new ListSelectionListener() {
+
+            @org.checkerframework.dataflow.qual.Impure
+            public void valueChanged(@org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.NonNull ListSelectionEvent arg0) {
+                listMatches.clearSelection();
+            }
+        });
+        listExact.setCellRenderer(new DefaultListCellRenderer() {
+
+            @org.checkerframework.dataflow.qual.Impure
+            public @org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.NonNull Component getListCellRendererComponent(final @org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.NonNull JList list, @org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.Nullable Object value, final  @org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.NonNull int index, final  @org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.NonNull boolean isSelected, final  @org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.NonNull boolean cellHasFocus) {
+                if (value != null)
+                    value = "(" + value.toString().replace("=", ") ");
+                return super.getListCellRendererComponent(list, value, index, isSelected, cellHasFocus);
+            }
+        });
+        listExact.setModel(exactMatch);
+        if (exactMatch.isEmpty())
+            listExact.setEnabled(false);
+        JLabel lblPossibleMatches = new JLabel("Possible Matches");
+        JScrollPane scrollPane = new JScrollPane();
+        GroupLayout gl_panel = new GroupLayout(panel);
+        gl_panel.setHorizontalGroup(gl_panel.createParallelGroup(Alignment.TRAILING).addGroup(gl_panel.createSequentialGroup().addContainerGap().addGroup(gl_panel.createParallelGroup(Alignment.LEADING).addComponent(listExact, Alignment.TRAILING, GroupLayout.DEFAULT_SIZE, 626, Short.MAX_VALUE).addGroup(Alignment.TRAILING, gl_panel.createSequentialGroup().addComponent(btnNewButton_1).addPreferredGap(ComponentPlacement.RELATED).addComponent(btnNewButton)).addComponent(scrollPane, GroupLayout.DEFAULT_SIZE, 626, Short.MAX_VALUE).addComponent(lblPossibleMatches).addComponent(lblExactMatch)).addContainerGap()));
+        gl_panel.setVerticalGroup(gl_panel.createParallelGroup(Alignment.TRAILING).addGroup(gl_panel.createSequentialGroup().addContainerGap().addComponent(lblExactMatch).addPreferredGap(ComponentPlacement.RELATED).addComponent(listExact, GroupLayout.PREFERRED_SIZE, 21, GroupLayout.PREFERRED_SIZE).addGap(11).addComponent(lblPossibleMatches).addPreferredGap(ComponentPlacement.RELATED).addComponent(scrollPane, GroupLayout.DEFAULT_SIZE, 128, Short.MAX_VALUE).addGap(15).addGroup(gl_panel.createParallelGroup(Alignment.BASELINE).addComponent(btnNewButton).addComponent(btnNewButton_1)).addContainerGap()));
+        listMatches = new JList();
+        listMatches.addListSelectionListener(new ListSelectionListener() {
+
+            @org.checkerframework.dataflow.qual.Impure
+            public void valueChanged(@org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.NonNull ListSelectionEvent arg0) {
+                listExact.clearSelection();
+            }
+        });
+        listMatches.setCellRenderer(new DefaultListCellRenderer() {
+
+            @org.checkerframework.dataflow.qual.Impure
+            public @org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.NonNull Component getListCellRendererComponent(final @org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.NonNull JList list, @org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.Nullable Object value, final  @org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.NonNull int index, final  @org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.NonNull boolean isSelected, final  @org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.NonNull boolean cellHasFocus) {
+                if (value != null)
+                    value = "(" + value.toString().replace("=", ") ");
+                return super.getListCellRendererComponent(list, value, index, isSelected, cellHasFocus);
+            }
+        });
+        listMatches.setModel(matchingFrames);
+        if (matchingFrames.isEmpty())
+            listMatches.setEnabled(false);
+        scrollPane.setViewportView(listMatches);
+        panel.setLayout(gl_panel);
+        pack();
+        setLocationRelativeTo(parentFrame);
+        setVisible(true);
+    }
+
+    @org.checkerframework.dataflow.qual.Impure
+    public static @org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.NonNull SearchResultDialog showResults(@org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.Nullable JFrame parentFrame, @org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.Nullable Frame exactMatch, @org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.NonNull ArrayList<Frame> matchingFrames) {
+        ArrayList<Frame> exactMatchList = new ArrayList<Frame>();
+        if (exactMatch != null)
+            exactMatchList.add(exactMatch);
+        SearchResultDialog dialog = new SearchResultDialog(parentFrame, convertToModel(exactMatchList), convertToModel(matchingFrames));
+        return dialog;
+    }
+
+    @org.checkerframework.dataflow.qual.Pure
+    public @org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.Nullable String getSelection() {
+        return selectedFrameID;
+    }
+
+    @org.checkerframework.dataflow.qual.Impure
+    private static @org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.NonNull KeyValueComboboxModel convertToModel(@org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.NonNull ArrayList<Frame> frames) {
+        KeyValueComboboxModel model = new KeyValueComboboxModel();
+        if (frames == null || frames.isEmpty())
+            return model;
+        for (Frame frame : frames) {
+            try {
+                model.put(frame.getLocalID(), frame.getCommonName());
+            } catch (PtoolsErrorException e) {
+                model.put(frame.getLocalID(), frame.getLocalID());
+            }
+        }
+        return model;
+    }
+
+    @org.checkerframework.dataflow.qual.Impure
+    public void actionPerformed(@org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.NonNull SearchResultDialog this, @org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.NonNull ActionEvent e) {
+        if (btnNewButton_1 == e.getSource()) {
+            selectedFrameID = null;
+            if (!listExact.isSelectionEmpty())
+                selectedFrameID = ((Map.Entry<String, String>) listExact.getSelectedValue()).getKey();
+            else if (!listMatches.isSelectionEmpty())
+                selectedFrameID = ((Map.Entry<String, String>) listMatches.getSelectedValue()).getKey();
+            if (selectedFrameID == null)
+                CycToolsError.showError("Please select a frame", "No Selection");
+            else
+                setVisible(false);
+        } else if (btnNewButton == e.getSource()) {
+            selectedFrameID = null;
+            setVisible(false);
+        }
+    }
+}

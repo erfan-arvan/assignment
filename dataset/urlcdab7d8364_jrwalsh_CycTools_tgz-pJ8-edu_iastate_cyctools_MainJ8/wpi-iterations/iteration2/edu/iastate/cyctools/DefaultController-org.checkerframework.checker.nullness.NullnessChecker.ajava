@@ -1,0 +1,542 @@
+package edu.iastate.cyctools;
+
+import java.awt.event.WindowAdapter;
+import java.awt.event.WindowEvent;
+import java.beans.PropertyChangeEvent;
+import java.beans.PropertyChangeListener;
+import java.io.File;
+import java.util.ArrayList;
+import javax.swing.JFrame;
+import javax.swing.JOptionPane;
+import javax.swing.WindowConstants;
+import javax.swing.table.DefaultTableModel;
+import edu.iastate.cyctools.InternalStateModel.State;
+import edu.iastate.cyctools.externalSourceCode.AbstractViewPanel;
+import edu.iastate.cyctools.tools.load.fileAdaptors.AbstractFileAdaptor;
+import edu.iastate.cyctools.tools.load.model.AbstractFrameEdit;
+import edu.iastate.cyctools.tools.load.model.DocumentModel;
+import edu.iastate.cyctools.view.MenuBar;
+import edu.iastate.cyctools.view.StatusPanel;
+import edu.iastate.cyctools.view.ToolPanel;
+import edu.iastate.javacyco.Frame;
+import edu.iastate.javacyco.JavacycConnection;
+import edu.iastate.javacyco.OrgStruct;
+
+@org.checkerframework.framework.qual.AnnotatedFor("org.checkerframework.checker.nullness.NullnessChecker")
+public class DefaultController implements PropertyChangeListener {
+
+    private @org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.Nullable CycDataBaseAccess dataAccess;
+
+    private @org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.NonNull InternalStateModel state;
+
+    private @org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.NonNull ArrayList<AbstractViewPanel> registeredViews;
+
+    public static @org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.MonotonicNonNull JFrame mainJFrame;
+
+    public @org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.MonotonicNonNull ToolPanel toolPanel;
+
+    public @org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.MonotonicNonNull StatusPanel statusPanel;
+
+    public @org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.MonotonicNonNull MenuBar menuPanel;
+
+    private @org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.MonotonicNonNull DocumentModel documentModel;
+
+    private @org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.MonotonicNonNull WindowAdapter winAdaptor;
+
+    public static @org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.NonNull String DOCUMENT_FILEPATH_PROPERTY = "FilePath";
+
+    public static @org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.NonNull String DOCUMENT_TABLEMODEL_PROPERTY = "TableModel";
+
+    public static @org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.NonNull String BROWSER_STATE_PROPERTY = "State";
+
+    public static @org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.NonNull String REPORT_PROPERTY_FRAME_EDITS_PROCESSED = "FrameEditsProcessed";
+
+    public static @org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.NonNull String REPORT_PROPERTY_FRAME_EDITS_SUCCESS = "FrameEditsSuccess";
+
+    public static @org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.NonNull String REPORT_PROPERTY_FRAME_EDITS_FAIL = "FrameEditsFail";
+
+    @org.checkerframework.framework.qual.EnsuresQualifier(expression = { "this.dataAccess" }, qualifier = org.checkerframework.checker.initialization.qual.FBCBottom.class)
+    @org.checkerframework.framework.qual.EnsuresQualifier(expression = { "this.documentModel" }, qualifier = org.checkerframework.checker.initialization.qual.FBCBottom.class)
+    @org.checkerframework.framework.qual.EnsuresQualifier(expression = { "this.documentModel" }, qualifier = org.checkerframework.checker.nullness.qual.Nullable.class)
+    @org.checkerframework.dataflow.qual.SideEffectFree
+    public DefaultController(@org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.NonNull InternalStateModel state) {
+        this.dataAccess = null;
+        this.documentModel = null;
+        this.state = state;
+        this.registeredViews = new ArrayList<AbstractViewPanel>();
+    }
+
+    // Getters and Setters
+    @org.checkerframework.framework.qual.EnsuresQualifier(expression = { "edu.iastate.cyctools.DefaultController.mainJFrame" }, qualifier = org.checkerframework.checker.nullness.qual.Nullable.class)
+    @org.checkerframework.framework.qual.EnsuresQualifier(expression = { "this.documentModel" }, qualifier = org.checkerframework.checker.nullness.qual.Nullable.class)
+    @org.checkerframework.framework.qual.EnsuresQualifier(expression = { "this.menuPanel" }, qualifier = org.checkerframework.checker.nullness.qual.Nullable.class)
+    @org.checkerframework.framework.qual.EnsuresQualifier(expression = { "this.statusPanel" }, qualifier = org.checkerframework.checker.nullness.qual.Nullable.class)
+    @org.checkerframework.framework.qual.EnsuresQualifier(expression = { "this.toolPanel" }, qualifier = org.checkerframework.checker.nullness.qual.Nullable.class)
+    @org.checkerframework.framework.qual.EnsuresQualifier(expression = { "this.winAdaptor" }, qualifier = org.checkerframework.checker.nullness.qual.Nullable.class)
+    @org.checkerframework.dataflow.qual.Impure
+    public void addView(@org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.NonNull AbstractViewPanel view) {
+        this.registeredViews.add(view);
+    }
+
+    @org.checkerframework.framework.qual.EnsuresQualifier(expression = { "edu.iastate.cyctools.DefaultController.mainJFrame" }, qualifier = org.checkerframework.checker.nullness.qual.Nullable.class)
+    @org.checkerframework.framework.qual.EnsuresQualifier(expression = { "this.documentModel" }, qualifier = org.checkerframework.checker.nullness.qual.Nullable.class)
+    @org.checkerframework.framework.qual.EnsuresQualifier(expression = { "this.menuPanel" }, qualifier = org.checkerframework.checker.nullness.qual.Nullable.class)
+    @org.checkerframework.framework.qual.EnsuresQualifier(expression = { "this.statusPanel" }, qualifier = org.checkerframework.checker.nullness.qual.Nullable.class)
+    @org.checkerframework.framework.qual.EnsuresQualifier(expression = { "this.toolPanel" }, qualifier = org.checkerframework.checker.nullness.qual.Nullable.class)
+    @org.checkerframework.framework.qual.EnsuresQualifier(expression = { "this.winAdaptor" }, qualifier = org.checkerframework.checker.nullness.qual.Nullable.class)
+    @org.checkerframework.dataflow.qual.Impure
+    public void removeView(AbstractViewPanel view) {
+        this.registeredViews.remove(view);
+    }
+
+    @org.checkerframework.checker.nullness.qual.EnsuresNonNull({ "this.documentModel" })
+    @org.checkerframework.framework.qual.EnsuresQualifier(expression = { "edu.iastate.cyctools.DefaultController.mainJFrame" }, qualifier = org.checkerframework.checker.nullness.qual.Nullable.class)
+    @org.checkerframework.framework.qual.EnsuresQualifier(expression = { "this.menuPanel" }, qualifier = org.checkerframework.checker.nullness.qual.Nullable.class)
+    @org.checkerframework.framework.qual.EnsuresQualifier(expression = { "this.statusPanel" }, qualifier = org.checkerframework.checker.nullness.qual.Nullable.class)
+    @org.checkerframework.framework.qual.EnsuresQualifier(expression = { "this.toolPanel" }, qualifier = org.checkerframework.checker.nullness.qual.Nullable.class)
+    @org.checkerframework.framework.qual.EnsuresQualifier(expression = { "this.winAdaptor" }, qualifier = org.checkerframework.checker.nullness.qual.Nullable.class)
+    @org.checkerframework.dataflow.qual.Impure
+    public void setDocumentModel(@org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.NonNull DocumentModel documentModel) {
+        this.documentModel = documentModel;
+    }
+
+    @org.checkerframework.checker.nullness.qual.EnsuresNonNull({ "this.documentModel" })
+    @org.checkerframework.framework.qual.EnsuresQualifier(expression = { "edu.iastate.cyctools.DefaultController.mainJFrame" }, qualifier = org.checkerframework.checker.nullness.qual.Nullable.class)
+    @org.checkerframework.framework.qual.EnsuresQualifier(expression = { "this.menuPanel" }, qualifier = org.checkerframework.checker.nullness.qual.Nullable.class)
+    @org.checkerframework.framework.qual.EnsuresQualifier(expression = { "this.statusPanel" }, qualifier = org.checkerframework.checker.nullness.qual.Nullable.class)
+    @org.checkerframework.framework.qual.EnsuresQualifier(expression = { "this.toolPanel" }, qualifier = org.checkerframework.checker.nullness.qual.Nullable.class)
+    @org.checkerframework.framework.qual.EnsuresQualifier(expression = { "this.winAdaptor" }, qualifier = org.checkerframework.checker.nullness.qual.Nullable.class)
+    @org.checkerframework.dataflow.qual.Impure
+    public void changeDocumentFile(@org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.NonNull File newFile, @org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.NonNull String delimiter) {
+        this.documentModel.setFile(newFile, delimiter);
+    }
+
+    @org.checkerframework.framework.qual.EnsuresQualifier(expression = { "edu.iastate.cyctools.DefaultController.mainJFrame" }, qualifier = org.checkerframework.checker.nullness.qual.Nullable.class)
+    @org.checkerframework.framework.qual.EnsuresQualifier(expression = { "this.documentModel" }, qualifier = org.checkerframework.checker.nullness.qual.Nullable.class)
+    @org.checkerframework.framework.qual.EnsuresQualifier(expression = { "this.menuPanel" }, qualifier = org.checkerframework.checker.nullness.qual.Nullable.class)
+    @org.checkerframework.framework.qual.EnsuresQualifier(expression = { "this.statusPanel" }, qualifier = org.checkerframework.checker.nullness.qual.Nullable.class)
+    @org.checkerframework.framework.qual.EnsuresQualifier(expression = { "this.toolPanel" }, qualifier = org.checkerframework.checker.nullness.qual.Nullable.class)
+    @org.checkerframework.framework.qual.EnsuresQualifier(expression = { "this.winAdaptor" }, qualifier = org.checkerframework.checker.nullness.qual.Nullable.class)
+    @org.checkerframework.dataflow.qual.Pure
+    public @org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.Nullable DocumentModel getDocumentModel() {
+        return this.documentModel;
+    }
+
+    @org.checkerframework.checker.nullness.qual.EnsuresNonNull({ "edu.iastate.cyctools.DefaultController.mainJFrame" })
+    @org.checkerframework.framework.qual.EnsuresQualifier(expression = { "this.documentModel" }, qualifier = org.checkerframework.checker.nullness.qual.Nullable.class)
+    @org.checkerframework.framework.qual.EnsuresQualifier(expression = { "this.menuPanel" }, qualifier = org.checkerframework.checker.nullness.qual.Nullable.class)
+    @org.checkerframework.framework.qual.EnsuresQualifier(expression = { "this.statusPanel" }, qualifier = org.checkerframework.checker.nullness.qual.Nullable.class)
+    @org.checkerframework.framework.qual.EnsuresQualifier(expression = { "this.toolPanel" }, qualifier = org.checkerframework.checker.nullness.qual.Nullable.class)
+    @org.checkerframework.framework.qual.EnsuresQualifier(expression = { "this.winAdaptor" }, qualifier = org.checkerframework.checker.nullness.qual.Nullable.class)
+    @org.checkerframework.dataflow.qual.Impure
+    public void setMainJFrame(@org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.NonNull JFrame jframe) {
+        DefaultController.mainJFrame = jframe;
+    }
+
+    @org.checkerframework.checker.nullness.qual.EnsuresNonNull({ "this.toolPanel" })
+    @org.checkerframework.framework.qual.EnsuresQualifier(expression = { "edu.iastate.cyctools.DefaultController.mainJFrame" }, qualifier = org.checkerframework.checker.nullness.qual.Nullable.class)
+    @org.checkerframework.framework.qual.EnsuresQualifier(expression = { "this.documentModel" }, qualifier = org.checkerframework.checker.nullness.qual.Nullable.class)
+    @org.checkerframework.framework.qual.EnsuresQualifier(expression = { "this.menuPanel" }, qualifier = org.checkerframework.checker.nullness.qual.Nullable.class)
+    @org.checkerframework.framework.qual.EnsuresQualifier(expression = { "this.statusPanel" }, qualifier = org.checkerframework.checker.nullness.qual.Nullable.class)
+    @org.checkerframework.framework.qual.EnsuresQualifier(expression = { "this.winAdaptor" }, qualifier = org.checkerframework.checker.nullness.qual.Nullable.class)
+    @org.checkerframework.dataflow.qual.Impure
+    public void setToolPanel(@org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.NonNull ToolPanel toolPanel) {
+        this.toolPanel = toolPanel;
+    }
+
+    @org.checkerframework.checker.nullness.qual.EnsuresNonNull({ "this.statusPanel" })
+    @org.checkerframework.framework.qual.EnsuresQualifier(expression = { "edu.iastate.cyctools.DefaultController.mainJFrame" }, qualifier = org.checkerframework.checker.nullness.qual.Nullable.class)
+    @org.checkerframework.framework.qual.EnsuresQualifier(expression = { "this.documentModel" }, qualifier = org.checkerframework.checker.nullness.qual.Nullable.class)
+    @org.checkerframework.framework.qual.EnsuresQualifier(expression = { "this.menuPanel" }, qualifier = org.checkerframework.checker.nullness.qual.Nullable.class)
+    @org.checkerframework.framework.qual.EnsuresQualifier(expression = { "this.toolPanel" }, qualifier = org.checkerframework.checker.nullness.qual.Nullable.class)
+    @org.checkerframework.framework.qual.EnsuresQualifier(expression = { "this.winAdaptor" }, qualifier = org.checkerframework.checker.nullness.qual.Nullable.class)
+    @org.checkerframework.dataflow.qual.Impure
+    public void setStatusPanel(@org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.NonNull StatusPanel statusPanel) {
+        this.statusPanel = statusPanel;
+    }
+
+    @org.checkerframework.checker.nullness.qual.EnsuresNonNull({ "this.menuPanel" })
+    @org.checkerframework.framework.qual.EnsuresQualifier(expression = { "edu.iastate.cyctools.DefaultController.mainJFrame" }, qualifier = org.checkerframework.checker.nullness.qual.Nullable.class)
+    @org.checkerframework.framework.qual.EnsuresQualifier(expression = { "this.documentModel" }, qualifier = org.checkerframework.checker.nullness.qual.Nullable.class)
+    @org.checkerframework.framework.qual.EnsuresQualifier(expression = { "this.statusPanel" }, qualifier = org.checkerframework.checker.nullness.qual.Nullable.class)
+    @org.checkerframework.framework.qual.EnsuresQualifier(expression = { "this.toolPanel" }, qualifier = org.checkerframework.checker.nullness.qual.Nullable.class)
+    @org.checkerframework.framework.qual.EnsuresQualifier(expression = { "this.winAdaptor" }, qualifier = org.checkerframework.checker.nullness.qual.Nullable.class)
+    @org.checkerframework.dataflow.qual.Impure
+    public void setMenuPanel(@org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.NonNull MenuBar menuPanel) {
+        this.menuPanel = menuPanel;
+    }
+
+    @org.checkerframework.checker.nullness.qual.EnsuresNonNull({ "this.dataAccess" })
+    @org.checkerframework.framework.qual.EnsuresQualifier(expression = { "edu.iastate.cyctools.DefaultController.mainJFrame" }, qualifier = org.checkerframework.checker.nullness.qual.Nullable.class)
+    @org.checkerframework.framework.qual.EnsuresQualifier(expression = { "this.documentModel" }, qualifier = org.checkerframework.checker.nullness.qual.Nullable.class)
+    @org.checkerframework.framework.qual.EnsuresQualifier(expression = { "this.menuPanel" }, qualifier = org.checkerframework.checker.nullness.qual.Nullable.class)
+    @org.checkerframework.framework.qual.EnsuresQualifier(expression = { "this.statusPanel" }, qualifier = org.checkerframework.checker.nullness.qual.Nullable.class)
+    @org.checkerframework.framework.qual.EnsuresQualifier(expression = { "this.toolPanel" }, qualifier = org.checkerframework.checker.nullness.qual.Nullable.class)
+    @org.checkerframework.framework.qual.EnsuresQualifier(expression = { "this.winAdaptor" }, qualifier = org.checkerframework.checker.nullness.qual.Nullable.class)
+    @org.checkerframework.dataflow.qual.Pure
+    public @org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.NonNull JavacycConnection getConnection() {
+        return dataAccess.getConnection();
+    }
+
+    // Actions
+    @org.checkerframework.framework.qual.EnsuresQualifier(expression = { "edu.iastate.cyctools.DefaultController.mainJFrame" }, qualifier = org.checkerframework.checker.nullness.qual.Nullable.class)
+    @org.checkerframework.framework.qual.EnsuresQualifier(expression = { "this.documentModel" }, qualifier = org.checkerframework.checker.nullness.qual.Nullable.class)
+    @org.checkerframework.framework.qual.EnsuresQualifier(expression = { "this.menuPanel" }, qualifier = org.checkerframework.checker.nullness.qual.Nullable.class)
+    @org.checkerframework.framework.qual.EnsuresQualifier(expression = { "this.statusPanel" }, qualifier = org.checkerframework.checker.nullness.qual.Nullable.class)
+    @org.checkerframework.framework.qual.EnsuresQualifier(expression = { "this.toolPanel" }, qualifier = org.checkerframework.checker.nullness.qual.Nullable.class)
+    @org.checkerframework.framework.qual.EnsuresQualifier(expression = { "this.winAdaptor" }, qualifier = org.checkerframework.checker.nullness.qual.Nullable.class)
+    @org.checkerframework.dataflow.qual.Impure
+    public void showMainScreen() {
+        state.setState(State.SHOW_MAIN_SCREEN);
+    }
+
+    @org.checkerframework.framework.qual.EnsuresQualifier(expression = { "edu.iastate.cyctools.DefaultController.mainJFrame" }, qualifier = org.checkerframework.checker.nullness.qual.Nullable.class)
+    @org.checkerframework.framework.qual.EnsuresQualifier(expression = { "this.documentModel" }, qualifier = org.checkerframework.checker.nullness.qual.Nullable.class)
+    @org.checkerframework.framework.qual.EnsuresQualifier(expression = { "this.menuPanel" }, qualifier = org.checkerframework.checker.nullness.qual.Nullable.class)
+    @org.checkerframework.framework.qual.EnsuresQualifier(expression = { "this.statusPanel" }, qualifier = org.checkerframework.checker.nullness.qual.Nullable.class)
+    @org.checkerframework.framework.qual.EnsuresQualifier(expression = { "this.toolPanel" }, qualifier = org.checkerframework.checker.nullness.qual.Nullable.class)
+    @org.checkerframework.framework.qual.EnsuresQualifier(expression = { "this.winAdaptor" }, qualifier = org.checkerframework.checker.nullness.qual.Nullable.class)
+    @org.checkerframework.dataflow.qual.Impure
+    public void setState(@org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.NonNull State state) {
+        // Changing program state propagates this change to all DefaultController listeners.  Listeners are responsible for complying with the current state of the program.
+        this.state.setState(state);
+    }
+
+    @org.checkerframework.framework.qual.EnsuresQualifier(expression = { "edu.iastate.cyctools.DefaultController.mainJFrame" }, qualifier = org.checkerframework.checker.nullness.qual.Nullable.class)
+    @org.checkerframework.framework.qual.EnsuresQualifier(expression = { "this.documentModel" }, qualifier = org.checkerframework.checker.nullness.qual.Nullable.class)
+    @org.checkerframework.framework.qual.EnsuresQualifier(expression = { "this.menuPanel" }, qualifier = org.checkerframework.checker.nullness.qual.Nullable.class)
+    @org.checkerframework.framework.qual.EnsuresQualifier(expression = { "this.statusPanel" }, qualifier = org.checkerframework.checker.nullness.qual.Nullable.class)
+    @org.checkerframework.framework.qual.EnsuresQualifier(expression = { "this.toolPanel" }, qualifier = org.checkerframework.checker.nullness.qual.Nullable.class)
+    @org.checkerframework.framework.qual.EnsuresQualifier(expression = { "this.winAdaptor" }, qualifier = org.checkerframework.checker.nullness.qual.Nullable.class)
+    @org.checkerframework.dataflow.qual.Impure
+    public void connect(@org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.NonNull String host,  @org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.NonNull int port, @org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.Nullable String userName, @org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.Nullable String password) {
+        try {
+            dataAccess = new CycDataBaseAccess(host, port, userName, password);
+            if (dataAccess.testConnection())
+                state.setState(State.SHOW_MAIN_SCREEN);
+            else {
+                dataAccess = null;
+                state.setState(State.NOT_CONNECTED);
+                CycToolsError.showError("Unable to connect to server", "Unable to connect");
+            }
+        } catch (Exception e) {
+            dataAccess = null;
+            state.setState(State.NOT_CONNECTED);
+            CycToolsError.checkForConnectionError(e);
+        }
+    }
+
+    @org.checkerframework.checker.nullness.qual.EnsuresNonNull({ "edu.iastate.cyctools.DefaultController.mainJFrame" })
+    @org.checkerframework.checker.nullness.qual.EnsuresNonNull({ "this.toolPanel" })
+    @org.checkerframework.checker.nullness.qual.EnsuresNonNull({ "this.winAdaptor" })
+    @org.checkerframework.framework.qual.EnsuresQualifier(expression = { "this.documentModel" }, qualifier = org.checkerframework.checker.nullness.qual.Nullable.class)
+    @org.checkerframework.framework.qual.EnsuresQualifier(expression = { "this.menuPanel" }, qualifier = org.checkerframework.checker.nullness.qual.Nullable.class)
+    @org.checkerframework.framework.qual.EnsuresQualifier(expression = { "this.statusPanel" }, qualifier = org.checkerframework.checker.nullness.qual.Nullable.class)
+    @org.checkerframework.dataflow.qual.Impure
+    public void lockDatabaseOperation() {
+        toolPanel.lockToolBar();
+        mainJFrame.setDefaultCloseOperation(JFrame.DO_NOTHING_ON_CLOSE);
+        winAdaptor = new WindowAdapter() {
+
+            public void windowClosing(WindowEvent e) {
+                if (JOptionPane.showConfirmDialog(mainJFrame, "The changes to the databae have not been saved yet!  Do you want to quit without saving changes?") == JOptionPane.OK_OPTION) {
+                    mainJFrame.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
+                    mainJFrame.setVisible(false);
+                    mainJFrame.dispose();
+                }
+            }
+        };
+        mainJFrame.addWindowListener(winAdaptor);
+    }
+
+    @org.checkerframework.checker.nullness.qual.EnsuresNonNull({ "edu.iastate.cyctools.DefaultController.mainJFrame" })
+    @org.checkerframework.checker.nullness.qual.EnsuresNonNull({ "this.toolPanel" })
+    @org.checkerframework.checker.nullness.qual.EnsuresNonNull({ "this.winAdaptor" })
+    @org.checkerframework.framework.qual.EnsuresQualifier(expression = { "this.documentModel" }, qualifier = org.checkerframework.checker.nullness.qual.Nullable.class)
+    @org.checkerframework.framework.qual.EnsuresQualifier(expression = { "this.menuPanel" }, qualifier = org.checkerframework.checker.nullness.qual.Nullable.class)
+    @org.checkerframework.framework.qual.EnsuresQualifier(expression = { "this.statusPanel" }, qualifier = org.checkerframework.checker.nullness.qual.Nullable.class)
+    @org.checkerframework.dataflow.qual.Impure
+    public void unlockDatabaseOperation() {
+        toolPanel.unLockToolBar();
+        mainJFrame.setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
+        mainJFrame.removeWindowListener(winAdaptor);
+    }
+
+    @org.checkerframework.framework.qual.EnsuresQualifier(expression = { "edu.iastate.cyctools.DefaultController.mainJFrame" }, qualifier = org.checkerframework.checker.nullness.qual.Nullable.class)
+    @org.checkerframework.framework.qual.EnsuresQualifier(expression = { "this.dataAccess" }, qualifier = org.checkerframework.checker.initialization.qual.FBCBottom.class)
+    @org.checkerframework.framework.qual.EnsuresQualifier(expression = { "this.documentModel" }, qualifier = org.checkerframework.checker.nullness.qual.Nullable.class)
+    @org.checkerframework.framework.qual.EnsuresQualifier(expression = { "this.menuPanel" }, qualifier = org.checkerframework.checker.nullness.qual.Nullable.class)
+    @org.checkerframework.framework.qual.EnsuresQualifier(expression = { "this.statusPanel" }, qualifier = org.checkerframework.checker.nullness.qual.Nullable.class)
+    @org.checkerframework.framework.qual.EnsuresQualifier(expression = { "this.toolPanel" }, qualifier = org.checkerframework.checker.nullness.qual.Nullable.class)
+    @org.checkerframework.framework.qual.EnsuresQualifier(expression = { "this.winAdaptor" }, qualifier = org.checkerframework.checker.nullness.qual.Nullable.class)
+    @org.checkerframework.dataflow.qual.Impure
+    public void disconnect() {
+        dataAccess = null;
+        state.setState(State.NOT_CONNECTED);
+    }
+
+    @org.checkerframework.checker.nullness.qual.EnsuresNonNull({ "this.dataAccess" })
+    @org.checkerframework.framework.qual.EnsuresQualifier(expression = { "edu.iastate.cyctools.DefaultController.mainJFrame" }, qualifier = org.checkerframework.checker.nullness.qual.Nullable.class)
+    @org.checkerframework.framework.qual.EnsuresQualifier(expression = { "this.documentModel" }, qualifier = org.checkerframework.checker.nullness.qual.Nullable.class)
+    @org.checkerframework.framework.qual.EnsuresQualifier(expression = { "this.menuPanel" }, qualifier = org.checkerframework.checker.nullness.qual.Nullable.class)
+    @org.checkerframework.framework.qual.EnsuresQualifier(expression = { "this.statusPanel" }, qualifier = org.checkerframework.checker.nullness.qual.Nullable.class)
+    @org.checkerframework.framework.qual.EnsuresQualifier(expression = { "this.toolPanel" }, qualifier = org.checkerframework.checker.nullness.qual.Nullable.class)
+    @org.checkerframework.framework.qual.EnsuresQualifier(expression = { "this.winAdaptor" }, qualifier = org.checkerframework.checker.nullness.qual.Nullable.class)
+    @org.checkerframework.dataflow.qual.Impure
+    public void selectOrganism(@org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.NonNull String organism) {
+        dataAccess.selectOrganism(organism);
+    }
+
+    // Queries
+    @org.checkerframework.checker.nullness.qual.EnsuresNonNull({ "this.dataAccess" })
+    @org.checkerframework.framework.qual.EnsuresQualifier(expression = { "edu.iastate.cyctools.DefaultController.mainJFrame" }, qualifier = org.checkerframework.checker.nullness.qual.Nullable.class)
+    @org.checkerframework.framework.qual.EnsuresQualifier(expression = { "this.documentModel" }, qualifier = org.checkerframework.checker.nullness.qual.Nullable.class)
+    @org.checkerframework.framework.qual.EnsuresQualifier(expression = { "this.menuPanel" }, qualifier = org.checkerframework.checker.nullness.qual.Nullable.class)
+    @org.checkerframework.framework.qual.EnsuresQualifier(expression = { "this.statusPanel" }, qualifier = org.checkerframework.checker.nullness.qual.Nullable.class)
+    @org.checkerframework.framework.qual.EnsuresQualifier(expression = { "this.toolPanel" }, qualifier = org.checkerframework.checker.nullness.qual.Nullable.class)
+    @org.checkerframework.framework.qual.EnsuresQualifier(expression = { "this.winAdaptor" }, qualifier = org.checkerframework.checker.nullness.qual.Nullable.class)
+    @org.checkerframework.dataflow.qual.Impure
+    public @org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.NonNull ArrayList<OrgStruct> getAvailableOrganisms() {
+        return dataAccess.getAvailableOrganisms();
+    }
+
+    @org.checkerframework.checker.nullness.qual.RequiresNonNull({ "edu.iastate.cyctools.DefaultController.mainJFrame" })
+    @org.checkerframework.checker.nullness.qual.EnsuresNonNull({ "this.dataAccess" })
+    @org.checkerframework.framework.qual.EnsuresQualifier(expression = { "edu.iastate.cyctools.DefaultController.mainJFrame" }, qualifier = org.checkerframework.checker.nullness.qual.Nullable.class)
+    @org.checkerframework.framework.qual.EnsuresQualifier(expression = { "this.documentModel" }, qualifier = org.checkerframework.checker.nullness.qual.Nullable.class)
+    @org.checkerframework.framework.qual.EnsuresQualifier(expression = { "this.menuPanel" }, qualifier = org.checkerframework.checker.nullness.qual.Nullable.class)
+    @org.checkerframework.framework.qual.EnsuresQualifier(expression = { "this.statusPanel" }, qualifier = org.checkerframework.checker.nullness.qual.Nullable.class)
+    @org.checkerframework.framework.qual.EnsuresQualifier(expression = { "this.toolPanel" }, qualifier = org.checkerframework.checker.nullness.qual.Nullable.class)
+    @org.checkerframework.framework.qual.EnsuresQualifier(expression = { "this.winAdaptor" }, qualifier = org.checkerframework.checker.nullness.qual.Nullable.class)
+    @org.checkerframework.dataflow.qual.Impure
+    public @org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.Nullable String frameToString(@org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.NonNull String frameID) {
+        return dataAccess.frameToString(frameID);
+    }
+
+    @org.checkerframework.checker.nullness.qual.EnsuresNonNull({ "this.dataAccess" })
+    @org.checkerframework.framework.qual.EnsuresQualifier(expression = { "edu.iastate.cyctools.DefaultController.mainJFrame" }, qualifier = org.checkerframework.checker.nullness.qual.Nullable.class)
+    @org.checkerframework.framework.qual.EnsuresQualifier(expression = { "this.documentModel" }, qualifier = org.checkerframework.checker.nullness.qual.Nullable.class)
+    @org.checkerframework.framework.qual.EnsuresQualifier(expression = { "this.menuPanel" }, qualifier = org.checkerframework.checker.nullness.qual.Nullable.class)
+    @org.checkerframework.framework.qual.EnsuresQualifier(expression = { "this.statusPanel" }, qualifier = org.checkerframework.checker.nullness.qual.Nullable.class)
+    @org.checkerframework.framework.qual.EnsuresQualifier(expression = { "this.toolPanel" }, qualifier = org.checkerframework.checker.nullness.qual.Nullable.class)
+    @org.checkerframework.framework.qual.EnsuresQualifier(expression = { "this.winAdaptor" }, qualifier = org.checkerframework.checker.nullness.qual.Nullable.class)
+    @org.checkerframework.dataflow.qual.Impure
+    public @org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.Nullable String frameToString(@org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.Nullable Frame frame) {
+        return dataAccess.frameToString(frame);
+    }
+
+    @org.checkerframework.checker.nullness.qual.EnsuresNonNull({ "this.dataAccess" })
+    @org.checkerframework.framework.qual.EnsuresQualifier(expression = { "edu.iastate.cyctools.DefaultController.mainJFrame" }, qualifier = org.checkerframework.checker.nullness.qual.Nullable.class)
+    @org.checkerframework.framework.qual.EnsuresQualifier(expression = { "this.documentModel" }, qualifier = org.checkerframework.checker.nullness.qual.Nullable.class)
+    @org.checkerframework.framework.qual.EnsuresQualifier(expression = { "this.menuPanel" }, qualifier = org.checkerframework.checker.nullness.qual.Nullable.class)
+    @org.checkerframework.framework.qual.EnsuresQualifier(expression = { "this.statusPanel" }, qualifier = org.checkerframework.checker.nullness.qual.Nullable.class)
+    @org.checkerframework.framework.qual.EnsuresQualifier(expression = { "this.toolPanel" }, qualifier = org.checkerframework.checker.nullness.qual.Nullable.class)
+    @org.checkerframework.framework.qual.EnsuresQualifier(expression = { "this.winAdaptor" }, qualifier = org.checkerframework.checker.nullness.qual.Nullable.class)
+    @org.checkerframework.dataflow.qual.Impure
+    public @org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.NonNull ArrayList<Frame> substringSearch(@org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.NonNull String text, @org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.NonNull String type) {
+        return dataAccess.substringSearch(text, type);
+    }
+
+    @org.checkerframework.checker.nullness.qual.EnsuresNonNull({ "this.dataAccess" })
+    @org.checkerframework.framework.qual.EnsuresQualifier(expression = { "edu.iastate.cyctools.DefaultController.mainJFrame" }, qualifier = org.checkerframework.checker.nullness.qual.Nullable.class)
+    @org.checkerframework.framework.qual.EnsuresQualifier(expression = { "this.documentModel" }, qualifier = org.checkerframework.checker.nullness.qual.Nullable.class)
+    @org.checkerframework.framework.qual.EnsuresQualifier(expression = { "this.menuPanel" }, qualifier = org.checkerframework.checker.nullness.qual.Nullable.class)
+    @org.checkerframework.framework.qual.EnsuresQualifier(expression = { "this.statusPanel" }, qualifier = org.checkerframework.checker.nullness.qual.Nullable.class)
+    @org.checkerframework.framework.qual.EnsuresQualifier(expression = { "this.toolPanel" }, qualifier = org.checkerframework.checker.nullness.qual.Nullable.class)
+    @org.checkerframework.framework.qual.EnsuresQualifier(expression = { "this.winAdaptor" }, qualifier = org.checkerframework.checker.nullness.qual.Nullable.class)
+    @org.checkerframework.dataflow.qual.Impure
+    public @org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.NonNull ArrayList<Frame> getFramesOfType(String type) {
+        return dataAccess.getFramesOfType(type);
+    }
+
+    @org.checkerframework.checker.nullness.qual.EnsuresNonNull({ "this.dataAccess" })
+    @org.checkerframework.framework.qual.EnsuresQualifier(expression = { "edu.iastate.cyctools.DefaultController.mainJFrame" }, qualifier = org.checkerframework.checker.nullness.qual.Nullable.class)
+    @org.checkerframework.framework.qual.EnsuresQualifier(expression = { "this.documentModel" }, qualifier = org.checkerframework.checker.nullness.qual.Nullable.class)
+    @org.checkerframework.framework.qual.EnsuresQualifier(expression = { "this.menuPanel" }, qualifier = org.checkerframework.checker.nullness.qual.Nullable.class)
+    @org.checkerframework.framework.qual.EnsuresQualifier(expression = { "this.statusPanel" }, qualifier = org.checkerframework.checker.nullness.qual.Nullable.class)
+    @org.checkerframework.framework.qual.EnsuresQualifier(expression = { "this.toolPanel" }, qualifier = org.checkerframework.checker.nullness.qual.Nullable.class)
+    @org.checkerframework.framework.qual.EnsuresQualifier(expression = { "this.winAdaptor" }, qualifier = org.checkerframework.checker.nullness.qual.Nullable.class)
+    @org.checkerframework.dataflow.qual.Impure
+    public  @org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.NonNull int printFramesToXML(String path, String type) {
+        return dataAccess.printFramesToXML(path, type);
+    }
+
+    @org.checkerframework.checker.nullness.qual.EnsuresNonNull({ "this.dataAccess" })
+    @org.checkerframework.framework.qual.EnsuresQualifier(expression = { "edu.iastate.cyctools.DefaultController.mainJFrame" }, qualifier = org.checkerframework.checker.nullness.qual.Nullable.class)
+    @org.checkerframework.framework.qual.EnsuresQualifier(expression = { "this.documentModel" }, qualifier = org.checkerframework.checker.nullness.qual.Nullable.class)
+    @org.checkerframework.framework.qual.EnsuresQualifier(expression = { "this.menuPanel" }, qualifier = org.checkerframework.checker.nullness.qual.Nullable.class)
+    @org.checkerframework.framework.qual.EnsuresQualifier(expression = { "this.statusPanel" }, qualifier = org.checkerframework.checker.nullness.qual.Nullable.class)
+    @org.checkerframework.framework.qual.EnsuresQualifier(expression = { "this.toolPanel" }, qualifier = org.checkerframework.checker.nullness.qual.Nullable.class)
+    @org.checkerframework.framework.qual.EnsuresQualifier(expression = { "this.winAdaptor" }, qualifier = org.checkerframework.checker.nullness.qual.Nullable.class)
+    @org.checkerframework.dataflow.qual.Impure
+    public  @org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.NonNull int printFramesToCSV(String path, String type) {
+        return dataAccess.printFramesToCSV(path, type);
+    }
+
+    @org.checkerframework.checker.nullness.qual.EnsuresNonNull({ "this.dataAccess" })
+    @org.checkerframework.framework.qual.EnsuresQualifier(expression = { "edu.iastate.cyctools.DefaultController.mainJFrame" }, qualifier = org.checkerframework.checker.nullness.qual.Nullable.class)
+    @org.checkerframework.framework.qual.EnsuresQualifier(expression = { "this.documentModel" }, qualifier = org.checkerframework.checker.nullness.qual.Nullable.class)
+    @org.checkerframework.framework.qual.EnsuresQualifier(expression = { "this.menuPanel" }, qualifier = org.checkerframework.checker.nullness.qual.Nullable.class)
+    @org.checkerframework.framework.qual.EnsuresQualifier(expression = { "this.statusPanel" }, qualifier = org.checkerframework.checker.nullness.qual.Nullable.class)
+    @org.checkerframework.framework.qual.EnsuresQualifier(expression = { "this.toolPanel" }, qualifier = org.checkerframework.checker.nullness.qual.Nullable.class)
+    @org.checkerframework.framework.qual.EnsuresQualifier(expression = { "this.winAdaptor" }, qualifier = org.checkerframework.checker.nullness.qual.Nullable.class)
+    @org.checkerframework.dataflow.qual.Impure
+    public @org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.NonNull DefaultTableModel getSearchResultsTable(String text, String type) {
+        return dataAccess.getSearchResultsTable(text, type);
+    }
+
+    @org.checkerframework.checker.nullness.qual.EnsuresNonNull({ "this.dataAccess" })
+    @org.checkerframework.framework.qual.EnsuresQualifier(expression = { "edu.iastate.cyctools.DefaultController.mainJFrame" }, qualifier = org.checkerframework.checker.nullness.qual.Nullable.class)
+    @org.checkerframework.framework.qual.EnsuresQualifier(expression = { "this.documentModel" }, qualifier = org.checkerframework.checker.nullness.qual.Nullable.class)
+    @org.checkerframework.framework.qual.EnsuresQualifier(expression = { "this.menuPanel" }, qualifier = org.checkerframework.checker.nullness.qual.Nullable.class)
+    @org.checkerframework.framework.qual.EnsuresQualifier(expression = { "this.statusPanel" }, qualifier = org.checkerframework.checker.nullness.qual.Nullable.class)
+    @org.checkerframework.framework.qual.EnsuresQualifier(expression = { "this.toolPanel" }, qualifier = org.checkerframework.checker.nullness.qual.Nullable.class)
+    @org.checkerframework.framework.qual.EnsuresQualifier(expression = { "this.winAdaptor" }, qualifier = org.checkerframework.checker.nullness.qual.Nullable.class)
+    @org.checkerframework.dataflow.qual.Impure
+    public @org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.NonNull ArrayList<String> getPGDBChildrenOfFrame(String rootGFPtype) {
+        return dataAccess.getPGDBChildrenOfFrame(rootGFPtype);
+    }
+
+    @org.checkerframework.checker.nullness.qual.EnsuresNonNull({ "this.dataAccess" })
+    @org.checkerframework.framework.qual.EnsuresQualifier(expression = { "edu.iastate.cyctools.DefaultController.mainJFrame" }, qualifier = org.checkerframework.checker.nullness.qual.Nullable.class)
+    @org.checkerframework.framework.qual.EnsuresQualifier(expression = { "this.documentModel" }, qualifier = org.checkerframework.checker.nullness.qual.Nullable.class)
+    @org.checkerframework.framework.qual.EnsuresQualifier(expression = { "this.menuPanel" }, qualifier = org.checkerframework.checker.nullness.qual.Nullable.class)
+    @org.checkerframework.framework.qual.EnsuresQualifier(expression = { "this.statusPanel" }, qualifier = org.checkerframework.checker.nullness.qual.Nullable.class)
+    @org.checkerframework.framework.qual.EnsuresQualifier(expression = { "this.toolPanel" }, qualifier = org.checkerframework.checker.nullness.qual.Nullable.class)
+    @org.checkerframework.framework.qual.EnsuresQualifier(expression = { "this.winAdaptor" }, qualifier = org.checkerframework.checker.nullness.qual.Nullable.class)
+    @org.checkerframework.dataflow.qual.Impure
+    public @org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.NonNull DefaultTableModel getPGDBStructure(String rootGFPtype, boolean includeInstances, boolean directionForward) {
+        return dataAccess.getPGDBStructureTable(rootGFPtype, includeInstances, directionForward);
+    }
+
+    @org.checkerframework.checker.nullness.qual.EnsuresNonNull({ "this.dataAccess" })
+    @org.checkerframework.checker.nullness.qual.EnsuresNonNull({ "this.documentModel" })
+    @org.checkerframework.framework.qual.EnsuresQualifier(expression = { "edu.iastate.cyctools.DefaultController.mainJFrame" }, qualifier = org.checkerframework.checker.nullness.qual.Nullable.class)
+    @org.checkerframework.framework.qual.EnsuresQualifier(expression = { "this.menuPanel" }, qualifier = org.checkerframework.checker.nullness.qual.Nullable.class)
+    @org.checkerframework.framework.qual.EnsuresQualifier(expression = { "this.statusPanel" }, qualifier = org.checkerframework.checker.nullness.qual.Nullable.class)
+    @org.checkerframework.framework.qual.EnsuresQualifier(expression = { "this.toolPanel" }, qualifier = org.checkerframework.checker.nullness.qual.Nullable.class)
+    @org.checkerframework.framework.qual.EnsuresQualifier(expression = { "this.winAdaptor" }, qualifier = org.checkerframework.checker.nullness.qual.Nullable.class)
+    @org.checkerframework.dataflow.qual.Impure
+    public void submitTable(AbstractFileAdaptor interpreter) {
+        ArrayList<AbstractFrameEdit> frameUpdates = interpreter.tableToFrameUpdates(documentModel.getTableModel());
+        dataAccess.commitFrameUpdates(frameUpdates);
+    }
+
+    @org.checkerframework.checker.nullness.qual.EnsuresNonNull({ "this.dataAccess" })
+    @org.checkerframework.framework.qual.EnsuresQualifier(expression = { "edu.iastate.cyctools.DefaultController.mainJFrame" }, qualifier = org.checkerframework.checker.nullness.qual.Nullable.class)
+    @org.checkerframework.framework.qual.EnsuresQualifier(expression = { "this.documentModel" }, qualifier = org.checkerframework.checker.nullness.qual.Nullable.class)
+    @org.checkerframework.framework.qual.EnsuresQualifier(expression = { "this.menuPanel" }, qualifier = org.checkerframework.checker.nullness.qual.Nullable.class)
+    @org.checkerframework.framework.qual.EnsuresQualifier(expression = { "this.statusPanel" }, qualifier = org.checkerframework.checker.nullness.qual.Nullable.class)
+    @org.checkerframework.framework.qual.EnsuresQualifier(expression = { "this.toolPanel" }, qualifier = org.checkerframework.checker.nullness.qual.Nullable.class)
+    @org.checkerframework.framework.qual.EnsuresQualifier(expression = { "this.winAdaptor" }, qualifier = org.checkerframework.checker.nullness.qual.Nullable.class)
+    @org.checkerframework.dataflow.qual.Impure
+    public @org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.Nullable Frame updateLocalFrame(String frameID, ArrayList<AbstractFrameEdit> frameUpdates) {
+        return dataAccess.updateLocalFrame(frameID, frameUpdates);
+    }
+
+    @org.checkerframework.checker.nullness.qual.EnsuresNonNull({ "this.dataAccess" })
+    @org.checkerframework.framework.qual.EnsuresQualifier(expression = { "edu.iastate.cyctools.DefaultController.mainJFrame" }, qualifier = org.checkerframework.checker.nullness.qual.Nullable.class)
+    @org.checkerframework.framework.qual.EnsuresQualifier(expression = { "this.documentModel" }, qualifier = org.checkerframework.checker.nullness.qual.Nullable.class)
+    @org.checkerframework.framework.qual.EnsuresQualifier(expression = { "this.menuPanel" }, qualifier = org.checkerframework.checker.nullness.qual.Nullable.class)
+    @org.checkerframework.framework.qual.EnsuresQualifier(expression = { "this.statusPanel" }, qualifier = org.checkerframework.checker.nullness.qual.Nullable.class)
+    @org.checkerframework.framework.qual.EnsuresQualifier(expression = { "this.toolPanel" }, qualifier = org.checkerframework.checker.nullness.qual.Nullable.class)
+    @org.checkerframework.framework.qual.EnsuresQualifier(expression = { "this.winAdaptor" }, qualifier = org.checkerframework.checker.nullness.qual.Nullable.class)
+    @org.checkerframework.dataflow.qual.Impure
+    public void revertDataBase() {
+        dataAccess.revertDataBase();
+    }
+
+    @org.checkerframework.checker.nullness.qual.EnsuresNonNull({ "this.dataAccess" })
+    @org.checkerframework.framework.qual.EnsuresQualifier(expression = { "edu.iastate.cyctools.DefaultController.mainJFrame" }, qualifier = org.checkerframework.checker.nullness.qual.Nullable.class)
+    @org.checkerframework.framework.qual.EnsuresQualifier(expression = { "this.documentModel" }, qualifier = org.checkerframework.checker.nullness.qual.Nullable.class)
+    @org.checkerframework.framework.qual.EnsuresQualifier(expression = { "this.menuPanel" }, qualifier = org.checkerframework.checker.nullness.qual.Nullable.class)
+    @org.checkerframework.framework.qual.EnsuresQualifier(expression = { "this.statusPanel" }, qualifier = org.checkerframework.checker.nullness.qual.Nullable.class)
+    @org.checkerframework.framework.qual.EnsuresQualifier(expression = { "this.toolPanel" }, qualifier = org.checkerframework.checker.nullness.qual.Nullable.class)
+    @org.checkerframework.framework.qual.EnsuresQualifier(expression = { "this.winAdaptor" }, qualifier = org.checkerframework.checker.nullness.qual.Nullable.class)
+    @org.checkerframework.dataflow.qual.Impure
+    public void saveDataBase() {
+        dataAccess.saveDataBase();
+    }
+
+    @org.checkerframework.checker.nullness.qual.EnsuresNonNull({ "this.dataAccess" })
+    @org.checkerframework.framework.qual.EnsuresQualifier(expression = { "edu.iastate.cyctools.DefaultController.mainJFrame" }, qualifier = org.checkerframework.checker.nullness.qual.Nullable.class)
+    @org.checkerframework.framework.qual.EnsuresQualifier(expression = { "this.documentModel" }, qualifier = org.checkerframework.checker.nullness.qual.Nullable.class)
+    @org.checkerframework.framework.qual.EnsuresQualifier(expression = { "this.menuPanel" }, qualifier = org.checkerframework.checker.nullness.qual.Nullable.class)
+    @org.checkerframework.framework.qual.EnsuresQualifier(expression = { "this.statusPanel" }, qualifier = org.checkerframework.checker.nullness.qual.Nullable.class)
+    @org.checkerframework.framework.qual.EnsuresQualifier(expression = { "this.toolPanel" }, qualifier = org.checkerframework.checker.nullness.qual.Nullable.class)
+    @org.checkerframework.framework.qual.EnsuresQualifier(expression = { "this.winAdaptor" }, qualifier = org.checkerframework.checker.nullness.qual.Nullable.class)
+    @org.checkerframework.dataflow.qual.Impure
+    public @org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.NonNull String getSelectedOrganism() {
+        return dataAccess.getSelectedOrganism();
+    }
+
+    @org.checkerframework.checker.nullness.qual.EnsuresNonNull({ "this.dataAccess" })
+    @org.checkerframework.framework.qual.EnsuresQualifier(expression = { "edu.iastate.cyctools.DefaultController.mainJFrame" }, qualifier = org.checkerframework.checker.nullness.qual.Nullable.class)
+    @org.checkerframework.framework.qual.EnsuresQualifier(expression = { "this.documentModel" }, qualifier = org.checkerframework.checker.nullness.qual.Nullable.class)
+    @org.checkerframework.framework.qual.EnsuresQualifier(expression = { "this.menuPanel" }, qualifier = org.checkerframework.checker.nullness.qual.Nullable.class)
+    @org.checkerframework.framework.qual.EnsuresQualifier(expression = { "this.statusPanel" }, qualifier = org.checkerframework.checker.nullness.qual.Nullable.class)
+    @org.checkerframework.framework.qual.EnsuresQualifier(expression = { "this.toolPanel" }, qualifier = org.checkerframework.checker.nullness.qual.Nullable.class)
+    @org.checkerframework.framework.qual.EnsuresQualifier(expression = { "this.winAdaptor" }, qualifier = org.checkerframework.checker.nullness.qual.Nullable.class)
+    @org.checkerframework.dataflow.qual.Impure
+    public @org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.NonNull String getOrganismCommonName(String organismID) {
+        return dataAccess.getOrganismCommonName(organismID);
+    }
+
+    @org.checkerframework.checker.nullness.qual.EnsuresNonNull({ "this.toolPanel" })
+    @org.checkerframework.framework.qual.EnsuresQualifier(expression = { "edu.iastate.cyctools.DefaultController.mainJFrame" }, qualifier = org.checkerframework.checker.nullness.qual.Nullable.class)
+    @org.checkerframework.framework.qual.EnsuresQualifier(expression = { "this.documentModel" }, qualifier = org.checkerframework.checker.nullness.qual.Nullable.class)
+    @org.checkerframework.framework.qual.EnsuresQualifier(expression = { "this.menuPanel" }, qualifier = org.checkerframework.checker.nullness.qual.Nullable.class)
+    @org.checkerframework.framework.qual.EnsuresQualifier(expression = { "this.statusPanel" }, qualifier = org.checkerframework.checker.nullness.qual.Nullable.class)
+    @org.checkerframework.framework.qual.EnsuresQualifier(expression = { "this.winAdaptor" }, qualifier = org.checkerframework.checker.nullness.qual.Nullable.class)
+    @org.checkerframework.dataflow.qual.Impure
+    public void lockToolBarOrganismSelect() {
+        toolPanel.lockToolBarOrganismSelect();
+    }
+
+    @org.checkerframework.checker.nullness.qual.EnsuresNonNull({ "this.toolPanel" })
+    @org.checkerframework.framework.qual.EnsuresQualifier(expression = { "edu.iastate.cyctools.DefaultController.mainJFrame" }, qualifier = org.checkerframework.checker.nullness.qual.Nullable.class)
+    @org.checkerframework.framework.qual.EnsuresQualifier(expression = { "this.documentModel" }, qualifier = org.checkerframework.checker.nullness.qual.Nullable.class)
+    @org.checkerframework.framework.qual.EnsuresQualifier(expression = { "this.menuPanel" }, qualifier = org.checkerframework.checker.nullness.qual.Nullable.class)
+    @org.checkerframework.framework.qual.EnsuresQualifier(expression = { "this.statusPanel" }, qualifier = org.checkerframework.checker.nullness.qual.Nullable.class)
+    @org.checkerframework.framework.qual.EnsuresQualifier(expression = { "this.winAdaptor" }, qualifier = org.checkerframework.checker.nullness.qual.Nullable.class)
+    @org.checkerframework.dataflow.qual.Impure
+    public void unLockToolBarOrganismSelect() {
+        toolPanel.unLockToolBarOrganismSelect();
+    }
+
+    @org.checkerframework.framework.qual.EnsuresQualifier(expression = { "edu.iastate.cyctools.DefaultController.mainJFrame" }, qualifier = org.checkerframework.checker.nullness.qual.Nullable.class)
+    @org.checkerframework.framework.qual.EnsuresQualifier(expression = { "this.documentModel" }, qualifier = org.checkerframework.checker.nullness.qual.Nullable.class)
+    @org.checkerframework.framework.qual.EnsuresQualifier(expression = { "this.menuPanel" }, qualifier = org.checkerframework.checker.nullness.qual.Nullable.class)
+    @org.checkerframework.framework.qual.EnsuresQualifier(expression = { "this.statusPanel" }, qualifier = org.checkerframework.checker.nullness.qual.Nullable.class)
+    @org.checkerframework.framework.qual.EnsuresQualifier(expression = { "this.toolPanel" }, qualifier = org.checkerframework.checker.nullness.qual.Nullable.class)
+    @org.checkerframework.framework.qual.EnsuresQualifier(expression = { "this.winAdaptor" }, qualifier = org.checkerframework.checker.nullness.qual.Nullable.class)
+    @org.checkerframework.dataflow.qual.Impure
+    public void propertyChange(@org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.NonNull DefaultController this, @org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.NonNull PropertyChangeEvent evt) {
+        for (AbstractViewPanel view : registeredViews) {
+            view.modelPropertyChange(evt);
+        }
+    }
+
+    @org.checkerframework.checker.nullness.qual.EnsuresNonNull({ "this.dataAccess" })
+    @org.checkerframework.framework.qual.EnsuresQualifier(expression = { "edu.iastate.cyctools.DefaultController.mainJFrame" }, qualifier = org.checkerframework.checker.nullness.qual.Nullable.class)
+    @org.checkerframework.framework.qual.EnsuresQualifier(expression = { "this.documentModel" }, qualifier = org.checkerframework.checker.nullness.qual.Nullable.class)
+    @org.checkerframework.framework.qual.EnsuresQualifier(expression = { "this.menuPanel" }, qualifier = org.checkerframework.checker.nullness.qual.Nullable.class)
+    @org.checkerframework.framework.qual.EnsuresQualifier(expression = { "this.statusPanel" }, qualifier = org.checkerframework.checker.nullness.qual.Nullable.class)
+    @org.checkerframework.framework.qual.EnsuresQualifier(expression = { "this.toolPanel" }, qualifier = org.checkerframework.checker.nullness.qual.Nullable.class)
+    @org.checkerframework.framework.qual.EnsuresQualifier(expression = { "this.winAdaptor" }, qualifier = org.checkerframework.checker.nullness.qual.Nullable.class)
+    @org.checkerframework.dataflow.qual.Impure
+    public  @org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.NonNull boolean isKBModified(@org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.NonNull String kb) {
+        return dataAccess.isCurrentKBModified(kb);
+    }
+
+    @org.checkerframework.checker.nullness.qual.EnsuresNonNull({ "this.menuPanel" })
+    @org.checkerframework.framework.qual.EnsuresQualifier(expression = { "edu.iastate.cyctools.DefaultController.mainJFrame" }, qualifier = org.checkerframework.checker.nullness.qual.Nullable.class)
+    @org.checkerframework.framework.qual.EnsuresQualifier(expression = { "this.documentModel" }, qualifier = org.checkerframework.checker.nullness.qual.Nullable.class)
+    @org.checkerframework.framework.qual.EnsuresQualifier(expression = { "this.statusPanel" }, qualifier = org.checkerframework.checker.nullness.qual.Nullable.class)
+    @org.checkerframework.framework.qual.EnsuresQualifier(expression = { "this.toolPanel" }, qualifier = org.checkerframework.checker.nullness.qual.Nullable.class)
+    @org.checkerframework.framework.qual.EnsuresQualifier(expression = { "this.winAdaptor" }, qualifier = org.checkerframework.checker.nullness.qual.Nullable.class)
+    @org.checkerframework.dataflow.qual.Impure
+    public void setDisconnectActionEnabled( @org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.NonNull boolean enabled) {
+        menuPanel.setDisconnectActionEnabled(enabled);
+    }
+}

@@ -1,0 +1,49 @@
+package edu.iastate.cyctools.tools.load.model;
+
+import java.util.ArrayList;
+import java.util.HashMap;
+import edu.iastate.javacyco.Frame;
+import edu.iastate.javacyco.JavacycConnection;
+import edu.iastate.javacyco.PtoolsErrorException;
+
+@org.checkerframework.framework.qual.AnnotatedFor("org.checkerframework.checker.nullness.NullnessChecker")
+public class FrameCreate extends AbstractFrameEdit {
+
+    private @org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.NonNull String frameType;
+
+    private @org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.NonNull ArrayList<AbstractFrameDataEdit> dataEdits;
+
+    @org.checkerframework.dataflow.qual.Impure
+    public FrameCreate(String frameID, String frameType, ArrayList<AbstractFrameDataEdit> dataEdits) {
+        this.frameID = frameID;
+        this.frameType = frameType;
+        this.dataEdits = dataEdits;
+    }
+
+    @org.checkerframework.checker.nullness.qual.EnsuresNonNull({ "#1" })
+    @org.checkerframework.dataflow.qual.Impure
+    public  @org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.NonNull boolean commit(@org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.NonNull FrameCreate this, @org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.Nullable JavacycConnection conn) throws PtoolsErrorException {
+        if (frameExistsInKB(conn)) {
+        }
+        // TODO Auto-generated method stub
+        return true;
+    }
+
+    @org.checkerframework.dataflow.qual.Pure
+    public @org.checkerframework.checker.initialization.qual.FBCBottom @org.checkerframework.checker.nullness.qual.Nullable Frame commitLocal(@org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.NonNull FrameCreate this, @org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.Nullable Frame frame) throws PtoolsErrorException {
+        // TODO Auto-generated method stub
+        return null;
+    }
+
+    @org.checkerframework.dataflow.qual.Pure
+    public  @org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.NonNull boolean modifiesFrame(@org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.NonNull FrameCreate this, @org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.NonNull JavacycConnection conn, @org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.NonNull Frame aFrame) throws PtoolsErrorException {
+        // TODO Auto-generated method stub
+        return false;
+    }
+
+    @org.checkerframework.dataflow.qual.Pure
+    public @org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.NonNull String toString(@org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.NonNull FrameCreate this) {
+        // TODO Auto-generated method stub
+        return "creating frame: " + frameID;
+    }
+}

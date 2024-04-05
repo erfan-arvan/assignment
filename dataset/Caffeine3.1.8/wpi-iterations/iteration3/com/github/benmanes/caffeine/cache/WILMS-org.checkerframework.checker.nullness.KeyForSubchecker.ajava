@@ -1,0 +1,214 @@
+// Copyright 2024 Ben Manes. All Rights Reserved.
+//
+// Licensed under the Apache License, Version 2.0 (the "License");
+// you may not use this file except in compliance with the License.
+// You may obtain a copy of the License at
+//
+//     http://www.apache.org/licenses/LICENSE-2.0
+//
+// Unless required by applicable law or agreed to in writing, software
+// distributed under the License is distributed on an "AS IS" BASIS,
+// WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+// See the License for the specific language governing permissions and
+// limitations under the License.
+package com.github.benmanes.caffeine.cache;
+
+import org.checkerframework.checker.nullness.qual.Nullable;
+
+/**
+ * <em>WARNING: GENERATED CODE</em>
+ *
+ * <p>A cache that provides the following features:
+ *
+ * <ul>
+ *   <li>MaximumSize
+ *   <li>WeakKeys (inherited)
+ *   <li>InfirmValues (inherited)
+ *   <li>Listening (inherited)
+ * </ul>
+ *
+ * @author ben.manes@gmail.com (Ben Manes)
+ */
+@org.checkerframework.framework.qual.AnnotatedFor("org.checkerframework.checker.nullness.KeyForSubchecker")
+class WILMS<K, V> extends WIL<K, V> {
+
+    static final  LocalCacheFactory FACTORY = WILMS::new;
+
+      long maximum;
+
+      long weightedSize;
+
+      long windowMaximum;
+
+      long windowWeightedSize;
+
+      long mainProtectedMaximum;
+
+      long mainProtectedWeightedSize;
+
+      double stepSize;
+
+      long adjustment;
+
+      int hitsInSample;
+
+      int missesInSample;
+
+      double previousSampleHitRate;
+
+    final  FrequencySketch<K> sketch;
+
+    final  AccessOrderDeque<Node<K, V>> accessOrderWindowDeque;
+
+    final  AccessOrderDeque<Node<K, V>> accessOrderProbationDeque;
+
+    final  AccessOrderDeque<Node<K, V>> accessOrderProtectedDeque;
+
+    @org.checkerframework.dataflow.qual.Impure
+    WILMS( Caffeine<K, V> builder,  AsyncCacheLoader<? super K, V> cacheLoader,   boolean async) {
+        super(builder, cacheLoader, async);
+        this.sketch = new FrequencySketch<K>();
+        if (builder.hasInitialCapacity()) {
+            long capacity = Math.min(builder.getMaximum(), builder.getInitialCapacity());
+            this.sketch.ensureCapacity(capacity);
+        }
+        this.accessOrderWindowDeque = builder.evicts() || builder.expiresAfterAccess() ? new AccessOrderDeque<Node<K, V>>() : null;
+        this.accessOrderProbationDeque = new AccessOrderDeque<Node<K, V>>();
+        this.accessOrderProtectedDeque = new AccessOrderDeque<Node<K, V>>();
+    }
+
+    @org.checkerframework.dataflow.qual.Pure
+    protected final   boolean evicts( WILMS<K, V> this) {
+        return true;
+    }
+
+    @org.checkerframework.dataflow.qual.Pure
+    protected final   long maximum( WILMS<K, V> this) {
+        return maximum;
+    }
+
+    @org.checkerframework.dataflow.qual.Impure
+    protected final void setMaximum( WILMS<K, V> this,   long maximum) {
+        this.maximum = maximum;
+    }
+
+    @org.checkerframework.dataflow.qual.Pure
+    protected final   long weightedSize( WILMS<K, V> this) {
+        return weightedSize;
+    }
+
+    @org.checkerframework.dataflow.qual.Impure
+    protected final void setWeightedSize( WILMS<K, V> this,   long weightedSize) {
+        this.weightedSize = weightedSize;
+    }
+
+    @org.checkerframework.dataflow.qual.Pure
+    protected final   long windowMaximum( WILMS<K, V> this) {
+        return windowMaximum;
+    }
+
+    @org.checkerframework.dataflow.qual.Impure
+    protected final void setWindowMaximum( WILMS<K, V> this,   long windowMaximum) {
+        this.windowMaximum = windowMaximum;
+    }
+
+    @org.checkerframework.dataflow.qual.Pure
+    protected final   long windowWeightedSize( WILMS<K, V> this) {
+        return windowWeightedSize;
+    }
+
+    @org.checkerframework.dataflow.qual.Impure
+    protected final void setWindowWeightedSize( WILMS<K, V> this,   long windowWeightedSize) {
+        this.windowWeightedSize = windowWeightedSize;
+    }
+
+    @org.checkerframework.dataflow.qual.Pure
+    protected final   long mainProtectedMaximum( WILMS<K, V> this) {
+        return mainProtectedMaximum;
+    }
+
+    @org.checkerframework.dataflow.qual.Impure
+    protected final void setMainProtectedMaximum( WILMS<K, V> this,   long mainProtectedMaximum) {
+        this.mainProtectedMaximum = mainProtectedMaximum;
+    }
+
+    @org.checkerframework.dataflow.qual.Pure
+    protected final   long mainProtectedWeightedSize( WILMS<K, V> this) {
+        return mainProtectedWeightedSize;
+    }
+
+    @org.checkerframework.dataflow.qual.Impure
+    protected final void setMainProtectedWeightedSize( WILMS<K, V> this,   long mainProtectedWeightedSize) {
+        this.mainProtectedWeightedSize = mainProtectedWeightedSize;
+    }
+
+    @org.checkerframework.dataflow.qual.Pure
+    protected final   double stepSize( WILMS<K, V> this) {
+        return stepSize;
+    }
+
+    @org.checkerframework.dataflow.qual.Impure
+    protected final void setStepSize( WILMS<K, V> this,   double stepSize) {
+        this.stepSize = stepSize;
+    }
+
+    @org.checkerframework.dataflow.qual.Pure
+    protected final   long adjustment( WILMS<K, V> this) {
+        return adjustment;
+    }
+
+    @org.checkerframework.dataflow.qual.Impure
+    protected final void setAdjustment( WILMS<K, V> this,   long adjustment) {
+        this.adjustment = adjustment;
+    }
+
+    @org.checkerframework.dataflow.qual.Pure
+    protected final   int hitsInSample( WILMS<K, V> this) {
+        return hitsInSample;
+    }
+
+    @org.checkerframework.dataflow.qual.Impure
+    protected final void setHitsInSample( WILMS<K, V> this,   int hitsInSample) {
+        this.hitsInSample = hitsInSample;
+    }
+
+    @org.checkerframework.dataflow.qual.Pure
+    protected final   int missesInSample( WILMS<K, V> this) {
+        return missesInSample;
+    }
+
+    @org.checkerframework.dataflow.qual.Impure
+    protected final void setMissesInSample( WILMS<K, V> this,   int missesInSample) {
+        this.missesInSample = missesInSample;
+    }
+
+    @org.checkerframework.dataflow.qual.Pure
+    protected final   double previousSampleHitRate( WILMS<K, V> this) {
+        return previousSampleHitRate;
+    }
+
+    @org.checkerframework.dataflow.qual.Impure
+    protected final void setPreviousSampleHitRate( WILMS<K, V> this,   double previousSampleHitRate) {
+        this.previousSampleHitRate = previousSampleHitRate;
+    }
+
+    @org.checkerframework.dataflow.qual.Pure
+    protected final  FrequencySketch<K> frequencySketch( WILMS<K, V> this) {
+        return sketch;
+    }
+
+    @org.checkerframework.dataflow.qual.Pure
+    protected final  AccessOrderDeque<Node<K, V>> accessOrderWindowDeque( WILMS<K, V> this) {
+        return accessOrderWindowDeque;
+    }
+
+    @org.checkerframework.dataflow.qual.Pure
+    protected final  AccessOrderDeque<Node<K, V>> accessOrderProbationDeque( WILMS<K, V> this) {
+        return accessOrderProbationDeque;
+    }
+
+    @org.checkerframework.dataflow.qual.Pure
+    protected final  AccessOrderDeque<Node<K, V>> accessOrderProtectedDeque( WILMS<K, V> this) {
+        return accessOrderProtectedDeque;
+    }
+}

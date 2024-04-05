@@ -1,0 +1,69 @@
+package edu.iastate.cyctools.tools.load.model;
+
+import edu.iastate.javacyco.Frame;
+import edu.iastate.javacyco.JavacycConnection;
+import edu.iastate.javacyco.PtoolsErrorException;
+
+// Any change that can be committed to the database must be coded as an AbstractFrameEdit or a child class.
+@org.checkerframework.framework.qual.AnnotatedFor("org.checkerframework.checker.nullness.NullnessChecker")
+public abstract class AbstractFrameEdit {
+
+    protected @org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.MonotonicNonNull String frameID;
+
+    protected  @org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.NonNull int @org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.MonotonicNonNull [] associatedRows;
+
+    @org.checkerframework.framework.qual.EnsuresQualifier(expression = { "this.associatedRows" }, qualifier = org.checkerframework.checker.nullness.qual.Nullable.class)
+    @org.checkerframework.framework.qual.EnsuresQualifier(expression = { "this.frameID" }, qualifier = org.checkerframework.checker.nullness.qual.Nullable.class)
+    @org.checkerframework.dataflow.qual.Pure
+    public @org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.Nullable String getFrameID() {
+        return frameID;
+    }
+
+    @org.checkerframework.checker.nullness.qual.RequiresNonNull({ "this.frameID" })
+    @org.checkerframework.checker.nullness.qual.EnsuresNonNull({ "this.frameID" })
+    @org.checkerframework.framework.qual.EnsuresQualifier(expression = { "this.associatedRows" }, qualifier = org.checkerframework.checker.nullness.qual.Nullable.class)
+    @org.checkerframework.dataflow.qual.Impure
+    public @org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.NonNull Frame getFrame(@org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.NonNull JavacycConnection conn) throws PtoolsErrorException {
+        return Frame.load(conn, frameID);
+    }
+
+    @org.checkerframework.framework.qual.EnsuresQualifier(expression = { "this.associatedRows" }, qualifier = org.checkerframework.checker.nullness.qual.Nullable.class)
+    @org.checkerframework.framework.qual.EnsuresQualifier(expression = { "this.frameID" }, qualifier = org.checkerframework.checker.nullness.qual.Nullable.class)
+    @org.checkerframework.dataflow.qual.Pure
+    public  @org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.NonNull int @org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.Nullable [] getAssociatedRows() {
+        return associatedRows;
+    }
+
+    @org.checkerframework.checker.nullness.qual.EnsuresNonNull({ "this.associatedRows" })
+    @org.checkerframework.framework.qual.EnsuresQualifier(expression = { "this.frameID" }, qualifier = org.checkerframework.checker.nullness.qual.Nullable.class)
+    @org.checkerframework.dataflow.qual.Pure
+    public @org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.NonNull String getAssociatedRowsString() {
+        String associatedRowsString = "";
+        for (int i = 0; i < associatedRows.length; i++) {
+            associatedRowsString += associatedRows[i] + ", ";
+        }
+        if (associatedRowsString.length() > 2)
+            associatedRowsString = associatedRowsString.substring(0, associatedRowsString.length() - 2);
+        return associatedRowsString;
+    }
+
+    @org.checkerframework.checker.nullness.qual.EnsuresNonNull({ "#1" })
+    @org.checkerframework.checker.nullness.qual.EnsuresNonNull({ "this.frameID" })
+    @org.checkerframework.framework.qual.EnsuresQualifier(expression = { "this.associatedRows" }, qualifier = org.checkerframework.checker.nullness.qual.Nullable.class)
+    @org.checkerframework.dataflow.qual.Impure
+    protected  @org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.NonNull boolean frameExistsInKB(@org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.Nullable JavacycConnection conn) throws PtoolsErrorException {
+        return conn.frameExists(frameID);
+    }
+
+    @org.checkerframework.dataflow.qual.Impure
+    public abstract  @org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.NonNull boolean modifiesFrame(@org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.Nullable JavacycConnection conn, @org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.NonNull Frame aFrame) throws PtoolsErrorException;
+
+    @org.checkerframework.dataflow.qual.Impure
+    public abstract  @org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.NonNull boolean commit(@org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.Nullable JavacycConnection conn) throws PtoolsErrorException;
+
+    @org.checkerframework.dataflow.qual.Impure
+    public abstract @org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.Nullable Frame commitLocal(@org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.Nullable Frame frame) throws PtoolsErrorException;
+
+    @org.checkerframework.dataflow.qual.SideEffectFree
+    public abstract @org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.NonNull String toString();
+}

@@ -1,0 +1,214 @@
+// Copyright 2024 Ben Manes. All Rights Reserved.
+//
+// Licensed under the Apache License, Version 2.0 (the "License");
+// you may not use this file except in compliance with the License.
+// You may obtain a copy of the License at
+//
+//     http://www.apache.org/licenses/LICENSE-2.0
+//
+// Unless required by applicable law or agreed to in writing, software
+// distributed under the License is distributed on an "AS IS" BASIS,
+// WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+// See the License for the specific language governing permissions and
+// limitations under the License.
+package com.github.benmanes.caffeine.cache;
+
+import org.checkerframework.checker.nullness.qual.Nullable;
+
+/**
+ * <em>WARNING: GENERATED CODE</em>
+ *
+ * <p>A cache that provides the following features:
+ *
+ * <ul>
+ *   <li>MaximumSize
+ *   <li>StrongKeys (inherited)
+ *   <li>InfirmValues (inherited)
+ *   <li>Stats (inherited)
+ * </ul>
+ *
+ * @author ben.manes@gmail.com (Ben Manes)
+ */
+@org.checkerframework.framework.qual.AnnotatedFor("org.checkerframework.checker.nullness.KeyForSubchecker")
+class SISMS<K, V> extends SIS<K, V> {
+
+    static final  LocalCacheFactory FACTORY = SISMS::new;
+
+      long maximum;
+
+      long weightedSize;
+
+      long windowMaximum;
+
+      long windowWeightedSize;
+
+      long mainProtectedMaximum;
+
+      long mainProtectedWeightedSize;
+
+      double stepSize;
+
+      long adjustment;
+
+      int hitsInSample;
+
+      int missesInSample;
+
+      double previousSampleHitRate;
+
+    final  FrequencySketch<K> sketch;
+
+    final  AccessOrderDeque<Node<K, V>> accessOrderWindowDeque;
+
+    final  AccessOrderDeque<Node<K, V>> accessOrderProbationDeque;
+
+    final  AccessOrderDeque<Node<K, V>> accessOrderProtectedDeque;
+
+    @org.checkerframework.dataflow.qual.Impure
+    SISMS( Caffeine<K, V> builder,  AsyncCacheLoader<? super K, V> cacheLoader,   boolean async) {
+        super(builder, cacheLoader, async);
+        this.sketch = new FrequencySketch<K>();
+        if (builder.hasInitialCapacity()) {
+            long capacity = Math.min(builder.getMaximum(), builder.getInitialCapacity());
+            this.sketch.ensureCapacity(capacity);
+        }
+        this.accessOrderWindowDeque = builder.evicts() || builder.expiresAfterAccess() ? new AccessOrderDeque<Node<K, V>>() : null;
+        this.accessOrderProbationDeque = new AccessOrderDeque<Node<K, V>>();
+        this.accessOrderProtectedDeque = new AccessOrderDeque<Node<K, V>>();
+    }
+
+    @org.checkerframework.dataflow.qual.Pure
+    protected final   boolean evicts( SISMS<K, V> this) {
+        return true;
+    }
+
+    @org.checkerframework.dataflow.qual.Pure
+    protected final   long maximum( SISMS<K, V> this) {
+        return maximum;
+    }
+
+    @org.checkerframework.dataflow.qual.Impure
+    protected final void setMaximum( SISMS<K, V> this,   long maximum) {
+        this.maximum = maximum;
+    }
+
+    @org.checkerframework.dataflow.qual.Pure
+    protected final   long weightedSize( SISMS<K, V> this) {
+        return weightedSize;
+    }
+
+    @org.checkerframework.dataflow.qual.Impure
+    protected final void setWeightedSize( SISMS<K, V> this,   long weightedSize) {
+        this.weightedSize = weightedSize;
+    }
+
+    @org.checkerframework.dataflow.qual.Pure
+    protected final   long windowMaximum( SISMS<K, V> this) {
+        return windowMaximum;
+    }
+
+    @org.checkerframework.dataflow.qual.Impure
+    protected final void setWindowMaximum( SISMS<K, V> this,   long windowMaximum) {
+        this.windowMaximum = windowMaximum;
+    }
+
+    @org.checkerframework.dataflow.qual.Pure
+    protected final   long windowWeightedSize( SISMS<K, V> this) {
+        return windowWeightedSize;
+    }
+
+    @org.checkerframework.dataflow.qual.Impure
+    protected final void setWindowWeightedSize( SISMS<K, V> this,   long windowWeightedSize) {
+        this.windowWeightedSize = windowWeightedSize;
+    }
+
+    @org.checkerframework.dataflow.qual.Pure
+    protected final   long mainProtectedMaximum( SISMS<K, V> this) {
+        return mainProtectedMaximum;
+    }
+
+    @org.checkerframework.dataflow.qual.Impure
+    protected final void setMainProtectedMaximum( SISMS<K, V> this,   long mainProtectedMaximum) {
+        this.mainProtectedMaximum = mainProtectedMaximum;
+    }
+
+    @org.checkerframework.dataflow.qual.Pure
+    protected final   long mainProtectedWeightedSize( SISMS<K, V> this) {
+        return mainProtectedWeightedSize;
+    }
+
+    @org.checkerframework.dataflow.qual.Impure
+    protected final void setMainProtectedWeightedSize( SISMS<K, V> this,   long mainProtectedWeightedSize) {
+        this.mainProtectedWeightedSize = mainProtectedWeightedSize;
+    }
+
+    @org.checkerframework.dataflow.qual.Pure
+    protected final   double stepSize( SISMS<K, V> this) {
+        return stepSize;
+    }
+
+    @org.checkerframework.dataflow.qual.Impure
+    protected final void setStepSize( SISMS<K, V> this,   double stepSize) {
+        this.stepSize = stepSize;
+    }
+
+    @org.checkerframework.dataflow.qual.Pure
+    protected final   long adjustment( SISMS<K, V> this) {
+        return adjustment;
+    }
+
+    @org.checkerframework.dataflow.qual.Impure
+    protected final void setAdjustment( SISMS<K, V> this,   long adjustment) {
+        this.adjustment = adjustment;
+    }
+
+    @org.checkerframework.dataflow.qual.Pure
+    protected final   int hitsInSample( SISMS<K, V> this) {
+        return hitsInSample;
+    }
+
+    @org.checkerframework.dataflow.qual.Impure
+    protected final void setHitsInSample( SISMS<K, V> this,   int hitsInSample) {
+        this.hitsInSample = hitsInSample;
+    }
+
+    @org.checkerframework.dataflow.qual.Pure
+    protected final   int missesInSample( SISMS<K, V> this) {
+        return missesInSample;
+    }
+
+    @org.checkerframework.dataflow.qual.Impure
+    protected final void setMissesInSample( SISMS<K, V> this,   int missesInSample) {
+        this.missesInSample = missesInSample;
+    }
+
+    @org.checkerframework.dataflow.qual.Pure
+    protected final   double previousSampleHitRate( SISMS<K, V> this) {
+        return previousSampleHitRate;
+    }
+
+    @org.checkerframework.dataflow.qual.Impure
+    protected final void setPreviousSampleHitRate( SISMS<K, V> this,   double previousSampleHitRate) {
+        this.previousSampleHitRate = previousSampleHitRate;
+    }
+
+    @org.checkerframework.dataflow.qual.Pure
+    protected final  FrequencySketch<K> frequencySketch( SISMS<K, V> this) {
+        return sketch;
+    }
+
+    @org.checkerframework.dataflow.qual.Pure
+    protected final  AccessOrderDeque<Node<K, V>> accessOrderWindowDeque( SISMS<K, V> this) {
+        return accessOrderWindowDeque;
+    }
+
+    @org.checkerframework.dataflow.qual.Pure
+    protected final  AccessOrderDeque<Node<K, V>> accessOrderProbationDeque( SISMS<K, V> this) {
+        return accessOrderProbationDeque;
+    }
+
+    @org.checkerframework.dataflow.qual.Pure
+    protected final  AccessOrderDeque<Node<K, V>> accessOrderProtectedDeque( SISMS<K, V> this) {
+        return accessOrderProtectedDeque;
+    }
+}

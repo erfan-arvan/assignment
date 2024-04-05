@@ -1,0 +1,143 @@
+// Copyright 2024 Ben Manes. All Rights Reserved.
+//
+// Licensed under the Apache License, Version 2.0 (the "License");
+// you may not use this file except in compliance with the License.
+// You may obtain a copy of the License at
+//
+//     http://www.apache.org/licenses/LICENSE-2.0
+//
+// Unless required by applicable law or agreed to in writing, software
+// distributed under the License is distributed on an "AS IS" BASIS,
+// WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+// See the License for the specific language governing permissions and
+// limitations under the License.
+package com.github.benmanes.caffeine.cache;
+
+import java.lang.invoke.MethodHandles;
+import java.lang.invoke.VarHandle;
+import java.lang.ref.ReferenceQueue;
+
+/**
+ * <em>WARNING: GENERATED CODE</em>
+ *
+ * <p>A cache entry that provides the following features:
+ *
+ * <ul>
+ *   <li>ExpireWrite
+ *   <li>StrongKeys (inherited)
+ *   <li>SoftValues (inherited)
+ * </ul>
+ *
+ * @author ben.manes@gmail.com (Ben Manes)
+ */
+@org.checkerframework.framework.qual.AnnotatedFor("org.checkerframework.checker.nullness.KeyForSubchecker")
+class PDW<K, V> extends PD<K, V> {
+
+    protected static final  VarHandle WRITE_TIME;
+
+    static {
+        MethodHandles.Lookup lookup = MethodHandles.lookup();
+        try {
+            WRITE_TIME = lookup.findVarHandle(PDW.class, NodeFactory.WRITE_TIME, long.class);
+        } catch (ReflectiveOperationException e) {
+            throw new ExceptionInInitializerError(e);
+        }
+    }
+
+    volatile long writeTime;
+
+     Node<K, V> previousInWriteOrder;
+
+     Node<K, V> nextInWriteOrder;
+
+    @org.checkerframework.dataflow.qual.Impure
+    PDW() {
+    }
+
+    @org.checkerframework.dataflow.qual.Impure
+    PDW(K key,  ReferenceQueue<K> keyReferenceQueue, V value,  ReferenceQueue<V> valueReferenceQueue,   int weight,   long now) {
+        super(key, keyReferenceQueue, value, valueReferenceQueue, weight, now);
+        WRITE_TIME.set(this, now & ~1L);
+    }
+
+    @org.checkerframework.dataflow.qual.Impure
+    PDW( Object keyReference, V value,  ReferenceQueue<V> valueReferenceQueue,   int weight,   long now) {
+        super(keyReference, value, valueReferenceQueue, weight, now);
+        WRITE_TIME.set(this, now & ~1L);
+    }
+
+    @org.checkerframework.dataflow.qual.Pure
+    public  Node<K, V> getPreviousInVariableOrder( PDW<K, V> this) {
+        return previousInWriteOrder;
+    }
+
+    @org.checkerframework.dataflow.qual.Impure
+    public void setPreviousInVariableOrder( PDW<K, V> this,  Node<K, V> previousInWriteOrder) {
+        this.previousInWriteOrder = previousInWriteOrder;
+    }
+
+    @org.checkerframework.dataflow.qual.Pure
+    public  Node<K, V> getNextInVariableOrder( PDW<K, V> this) {
+        return nextInWriteOrder;
+    }
+
+    @org.checkerframework.dataflow.qual.Impure
+    public void setNextInVariableOrder( PDW<K, V> this,  Node<K, V> nextInWriteOrder) {
+        this.nextInWriteOrder = nextInWriteOrder;
+    }
+
+    @org.checkerframework.dataflow.qual.Impure
+    public   long getVariableTime( PDW<K, V> this) {
+        return (long) WRITE_TIME.getOpaque(this);
+    }
+
+    @org.checkerframework.dataflow.qual.Impure
+    public void setVariableTime( PDW<K, V> this,   long writeTime) {
+        WRITE_TIME.setOpaque(this, writeTime);
+    }
+
+    @org.checkerframework.dataflow.qual.Impure
+    public   boolean casVariableTime( PDW<K, V> this,   long expect,   long update) {
+        return (writeTime == expect) && WRITE_TIME.compareAndSet(this, expect, update);
+    }
+
+    @org.checkerframework.dataflow.qual.Impure
+    public final   long getWriteTime( PDW<K, V> this) {
+        return (long) WRITE_TIME.getOpaque(this);
+    }
+
+    @org.checkerframework.dataflow.qual.Impure
+    public final void setWriteTime( PDW<K, V> this,   long writeTime) {
+        WRITE_TIME.set(this, writeTime);
+    }
+
+    @org.checkerframework.dataflow.qual.Pure
+    public final  Node<K, V> getPreviousInWriteOrder( PDW<K, V> this) {
+        return previousInWriteOrder;
+    }
+
+    @org.checkerframework.dataflow.qual.Impure
+    public final void setPreviousInWriteOrder( PDW<K, V> this,  Node<K, V> previousInWriteOrder) {
+        this.previousInWriteOrder = previousInWriteOrder;
+    }
+
+    @org.checkerframework.dataflow.qual.Pure
+    public final  Node<K, V> getNextInWriteOrder( PDW<K, V> this) {
+        return nextInWriteOrder;
+    }
+
+    @org.checkerframework.dataflow.qual.Impure
+    public final void setNextInWriteOrder( PDW<K, V> this,  Node<K, V> nextInWriteOrder) {
+        this.nextInWriteOrder = nextInWriteOrder;
+    }
+
+    @org.checkerframework.dataflow.qual.Pure
+    public  Node<K, V> newNode( PDW<K, V> this, K key,  ReferenceQueue<K> keyReferenceQueue, V value,  ReferenceQueue<V> valueReferenceQueue,   int weight,   long now) {
+        return new PDW<>(key, keyReferenceQueue, value, valueReferenceQueue, weight, now);
+    }
+
+    @org.checkerframework.dataflow.qual.Pure
+    public  Node<K, V> newNode( PDW<K, V> this,  Object keyReference, V value,  ReferenceQueue<V> valueReferenceQueue,   int weight,   long now) {
+        return new PDW<>(keyReference, value, valueReferenceQueue, weight, now);
+    }
+}

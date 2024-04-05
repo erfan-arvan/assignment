@@ -1,0 +1,41 @@
+package edu.iastate.cyctools.tools.load.model;
+
+@org.checkerframework.framework.qual.AnnotatedFor("org.checkerframework.checker.nullness.KeyForSubchecker")
+public class GOAnnotation {
+
+    private  String pubmedID;
+
+    private  String evCode;
+
+    private  String timeStampString;
+
+    private  String curator;
+
+    @org.checkerframework.dataflow.qual.SideEffectFree
+    public GOAnnotation( String pubmedID,  String evCode,  String timeStampString,  String curator) {
+        this.pubmedID = pubmedID;
+        this.evCode = evCode;
+        this.timeStampString = timeStampString;
+        this.curator = curator;
+    }
+
+    @org.checkerframework.dataflow.qual.Pure
+    public  String getPubmedID( GOAnnotation this) {
+        return pubmedID;
+    }
+
+    @org.checkerframework.dataflow.qual.Pure
+    public  String getEvCode( GOAnnotation this) {
+        return evCode;
+    }
+
+    @org.checkerframework.dataflow.qual.Pure
+    public  String getTimeStampString( GOAnnotation this) {
+        return timeStampString;
+    }
+
+    @org.checkerframework.dataflow.qual.Pure
+    public  String getCurator( GOAnnotation this) {
+        return curator;
+    }
+}

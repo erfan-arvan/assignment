@@ -1,0 +1,98 @@
+// Copyright 2024 Ben Manes. All Rights Reserved.
+//
+// Licensed under the Apache License, Version 2.0 (the "License");
+// you may not use this file except in compliance with the License.
+// You may obtain a copy of the License at
+//
+//     http://www.apache.org/licenses/LICENSE-2.0
+//
+// Unless required by applicable law or agreed to in writing, software
+// distributed under the License is distributed on an "AS IS" BASIS,
+// WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+// See the License for the specific language governing permissions and
+// limitations under the License.
+package com.github.benmanes.caffeine.cache;
+
+import org.checkerframework.checker.nullness.qual.Nullable;
+
+/**
+ * <em>WARNING: GENERATED CODE</em>
+ *
+ * <p>A cache that provides the following features:
+ *
+ * <ul>
+ *   <li>ExpireAccess
+ *   <li>StrongKeys (inherited)
+ *   <li>InfirmValues (inherited)
+ *   <li>MaximumWeight (inherited)
+ *   <li>Listening (inherited)
+ *   <li>Stats (inherited)
+ * </ul>
+ *
+ * @author ben.manes@gmail.com (Ben Manes)
+ */
+@org.checkerframework.framework.qual.AnnotatedFor("org.checkerframework.checker.nullness.KeyForSubchecker")
+class SILSMWA<K, V> extends SILSMW<K, V> {
+
+    static final  LocalCacheFactory FACTORY = SILSMWA::new;
+
+    final  Ticker ticker;
+
+    final  Expiry<K, V> expiry;
+
+    final  TimerWheel<K, V> timerWheel;
+
+    volatile   long expiresAfterAccessNanos;
+
+    final  Pacer pacer;
+
+    @org.checkerframework.dataflow.qual.Impure
+    SILSMWA( Caffeine<K, V> builder,  AsyncCacheLoader<? super K, V> cacheLoader,   boolean async) {
+        super(builder, cacheLoader, async);
+        this.ticker = builder.getTicker();
+        this.expiry = builder.getExpiry(isAsync);
+        this.timerWheel = builder.expiresVariable() ? new TimerWheel<K, V>() : null;
+        this.expiresAfterAccessNanos = builder.getExpiresAfterAccessNanos();
+        this.pacer = (builder.getScheduler() == Scheduler.disabledScheduler()) ? null : new Pacer(builder.getScheduler());
+    }
+
+    @org.checkerframework.dataflow.qual.Pure
+    public final  Ticker expirationTicker( SILSMWA<K, V> this) {
+        return ticker;
+    }
+
+    @org.checkerframework.dataflow.qual.Pure
+    protected final   boolean expiresVariable( SILSMWA<K, V> this) {
+        return (timerWheel != null);
+    }
+
+    @org.checkerframework.dataflow.qual.Pure
+    public final  Expiry<K, V> expiry( SILSMWA<K, V> this) {
+        return expiry;
+    }
+
+    @org.checkerframework.dataflow.qual.Pure
+    protected final  TimerWheel<K, V> timerWheel( SILSMWA<K, V> this) {
+        return timerWheel;
+    }
+
+    @org.checkerframework.dataflow.qual.Pure
+    protected final   boolean expiresAfterAccess( SILSMWA<K, V> this) {
+        return (timerWheel == null);
+    }
+
+    @org.checkerframework.dataflow.qual.Pure
+    protected final   long expiresAfterAccessNanos( SILSMWA<K, V> this) {
+        return expiresAfterAccessNanos;
+    }
+
+    @org.checkerframework.dataflow.qual.Impure
+    protected final void setExpiresAfterAccessNanos( SILSMWA<K, V> this,   long expiresAfterAccessNanos) {
+        this.expiresAfterAccessNanos = expiresAfterAccessNanos;
+    }
+
+    @org.checkerframework.dataflow.qual.Pure
+    public final  Pacer pacer( SILSMWA<K, V> this) {
+        return pacer;
+    }
+}

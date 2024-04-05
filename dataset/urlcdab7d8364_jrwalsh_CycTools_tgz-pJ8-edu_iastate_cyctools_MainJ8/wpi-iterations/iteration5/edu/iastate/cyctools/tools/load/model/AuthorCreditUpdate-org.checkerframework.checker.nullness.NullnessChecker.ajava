@@ -1,0 +1,89 @@
+package edu.iastate.cyctools.tools.load.model;
+
+import java.util.ArrayList;
+import edu.iastate.javacyco.Frame;
+import edu.iastate.javacyco.JavacycConnection;
+import edu.iastate.javacyco.PtoolsErrorException;
+
+@org.checkerframework.framework.qual.AnnotatedFor("org.checkerframework.checker.nullness.NullnessChecker")
+public class AuthorCreditUpdate extends AbstractFrameEdit {
+
+    private @org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.NonNull String author;
+
+    private @org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.NonNull String organization;
+
+    private @org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.NonNull String lispTimeStamp;
+
+    @org.checkerframework.dataflow.qual.Impure
+    public AuthorCreditUpdate(@org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.NonNull String frameID, @org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.NonNull String author, @org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.NonNull String organization, @org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.NonNull String lispTimeStamp,  @org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.NonNull int @org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.NonNull [] associatedRows) {
+        this.frameID = frameID;
+        this.author = author;
+        this.organization = organization;
+        this.lispTimeStamp = lispTimeStamp;
+        this.associatedRows = associatedRows;
+    }
+
+    @org.checkerframework.dataflow.qual.Impure
+    public  @org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.NonNull boolean modifiesFrame(@org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.NonNull AuthorCreditUpdate this, @org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.NonNull JavacycConnection conn, @org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.NonNull Frame aFrame) throws PtoolsErrorException {
+        Frame frameToModify = aFrame.copy(aFrame.getLocalID());
+        commitLocal(frameToModify);
+        // If the frames are not equal, a change has been made to the database.
+        boolean isModified = !aFrame.equalBySlotValues(frameToModify);
+        return isModified;
+    }
+
+    @org.checkerframework.checker.nullness.qual.EnsuresNonNull({ "#1" })
+    @org.checkerframework.dataflow.qual.Impure
+    public  @org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.NonNull boolean commit(@org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.NonNull AuthorCreditUpdate this, @org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.Nullable JavacycConnection conn) throws PtoolsErrorException {
+        if (!conn.frameExists(frameID)) {
+            return false;
+        }
+        conn.addCredit(frameID, author, organization);
+        return true;
+    }
+
+    @org.checkerframework.checker.nullness.qual.EnsuresNonNull({ "#1" })
+    @org.checkerframework.dataflow.qual.Impure
+    public @org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.NonNull Frame commitLocal(@org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.NonNull AuthorCreditUpdate this, @org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.Nullable Frame frame) throws PtoolsErrorException {
+        // These are a special case of frame edits, since the logic for doing the import is largely in a built in lisp function already.  Since the import
+        // is not innately obvious slot/annotation updates, we will translate them to slot/annottion updates here.  Note that future updates to the API could
+        // break this commitLocal function even though the commit function still works.  This is a consequence of imagining all databases changes as either low level
+        // slot or low level annotation updates, while this AuthorCreditUpdate is both a slot and annotation update at once, yet neither since it has its own high level
+        // lisp function.
+        // Also, this is currently specific to updating a "Revised" annotation, not a "Created" or "Reviewed" author credit.
+        // Slot Component
+        ArrayList<String> newSlotValues = new ArrayList<String>();
+        String slotLabel = "CREDITS";
+        newSlotValues.addAll(frame.getSlotValues(slotLabel));
+        if (!newSlotValues.contains(author) && author.length() > 0)
+            newSlotValues.add(author);
+        if (!newSlotValues.contains(organization) && organization.length() > 0)
+            newSlotValues.add(organization);
+        frame.putSlotValues(slotLabel, newSlotValues);
+        // Annotation Component
+        ArrayList<String> newAnnotationValuesAuthor = new ArrayList<String>();
+        ArrayList<String> newAnnotationValuesOrganization = new ArrayList<String>();
+        String annotationLabel = "REVISED";
+        newAnnotationValuesAuthor.addAll(frame.getAnnotations(slotLabel, author, annotationLabel));
+        if (author.length() > 0)
+            newAnnotationValuesAuthor.add(lispTimeStamp);
+        newAnnotationValuesOrganization.addAll(frame.getAnnotations(slotLabel, organization, annotationLabel));
+        if (organization.length() > 0)
+            newAnnotationValuesOrganization.add(lispTimeStamp);
+        frame.putLocalSlotValueAnnotations(slotLabel, author, annotationLabel, newAnnotationValuesAuthor);
+        frame.putLocalSlotValueAnnotations(slotLabel, organization, annotationLabel, newAnnotationValuesOrganization);
+        return frame;
+    }
+
+    @org.checkerframework.dataflow.qual.Pure
+    public @org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.NonNull String toString(@org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.NonNull AuthorCreditUpdate this) {
+        if (author.length() > 0 && organization.length() > 0)
+            return "add author: " + author + " and organization: " + organization + " to credits on frame: " + frameID;
+        else if (author.length() > 0)
+            return "add author: " + author + " to credits on frame: " + frameID;
+        else if (organization.length() > 0)
+            return "add organization: " + organization + " to credits on frame: " + frameID;
+        else
+            return "attempted to add author or organization credits to frame: " + frameID + ", but no author or organization provided... skipped";
+    }
+}

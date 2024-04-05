@@ -1,0 +1,65 @@
+package edu.iastate.cyctools.tools.load.model;
+
+import edu.iastate.javacyco.Frame;
+import edu.iastate.javacyco.JavacycConnection;
+import edu.iastate.javacyco.PtoolsErrorException;
+
+@org.checkerframework.framework.qual.AnnotatedFor("org.checkerframework.checker.nullness.NullnessChecker")
+public class NewRegulation extends AbstractFrameEdit {
+
+    private @org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.NonNull String regulator;
+
+    private @org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.NonNull String regulatee;
+
+    private @org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.NonNull String mode;
+
+    @org.checkerframework.dataflow.qual.Impure
+    public NewRegulation(@org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.NonNull String frameID, @org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.NonNull String regulator, @org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.NonNull String regulatee, @org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.NonNull String mode,  @org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.NonNull int @org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.NonNull [] associatedRows) {
+        this.frameID = frameID;
+        this.regulator = regulator;
+        this.regulatee = regulatee;
+        this.mode = mode;
+        this.associatedRows = associatedRows;
+    }
+
+    @org.checkerframework.dataflow.qual.Pure
+    public  @org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.NonNull boolean modifiesFrame(@org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.NonNull NewRegulation this, @org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.NonNull JavacycConnection conn, @org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.NonNull Frame aFrame) throws PtoolsErrorException {
+        //TODO check if this regulation event already exists?  I can guarantee that creating a new frame will always be a "change" so I return true
+        return true;
+    }
+
+    @org.checkerframework.dataflow.qual.Impure
+    public  @org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.NonNull boolean commit(@org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.NonNull NewRegulation this, @org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.Nullable JavacycConnection conn) throws PtoolsErrorException {
+        frameID = conn.createInstanceWGeneratedId("|Regulation-of-Transcription|");
+        Frame regulationFrame = Frame.load(conn, frameID);
+        if (!conn.frameExists(regulator)) {
+            return false;
+        }
+        if (!conn.frameExists(regulatee)) {
+            return false;
+        }
+        if (mode == null)
+            mode = "";
+        if (!mode.equalsIgnoreCase("-") && !mode.equalsIgnoreCase("+") && !mode.equalsIgnoreCase("")) {
+            return false;
+        }
+        regulationFrame.putSlotValue("regulator", regulator);
+        regulationFrame.putSlotValue("regulated-entity", regulatee);
+        regulationFrame.putSlotValue("mode", "\"+\"");
+        regulationFrame.commit();
+        return true;
+    }
+
+    @org.checkerframework.dataflow.qual.Impure
+    public @org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.NonNull Frame commitLocal(@org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.NonNull NewRegulation this, @org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.Nullable Frame frame) throws PtoolsErrorException {
+        frame.putSlotValue("REGULATOR", regulator);
+        frame.putSlotValue("REGULATED-ENTITY", regulatee);
+        frame.putSlotValue("MODE", mode);
+        return frame;
+    }
+
+    @org.checkerframework.dataflow.qual.Pure
+    public @org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.NonNull String toString(@org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.NonNull NewRegulation this) {
+        return "creating regulation frame " + frameID + " with regulator: " + regulator + ", regulatee: " + regulatee + ", and regulation mode: " + mode;
+    }
+}

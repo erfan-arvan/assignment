@@ -1,0 +1,130 @@
+package edu.iastate.cyctools.externalSourceCode;
+
+/*
+ * KeyValueComboboxModel.java
+ *
+ * Borrowed from http://stackoverflow.com/questions/2095140/need-flexible-java-key-value-collection-class-for-jcombobox
+ * Modified for my purposes.      - Jesse Walsh
+ */
+import java.util.ArrayList;
+import java.util.Collection;
+import java.util.Iterator;
+import java.util.List;
+import java.util.Map;
+import java.util.Set;
+import java.util.TreeMap;
+import javax.swing.AbstractListModel;
+import javax.swing.ComboBoxModel;
+
+// Note that the default toString of a TreeMap.Entry object is to concat "key=value".  This can be changed by extending the combobox renderer
+@org.checkerframework.framework.qual.AnnotatedFor("org.checkerframework.checker.nullness.NullnessChecker")
+public class KeyValueComboboxModel extends AbstractListModel implements ComboBoxModel, Map<String, String> {
+
+    private @org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.NonNull TreeMap<String, String> values = new TreeMap<String, String>();
+
+    private Map.@org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.MonotonicNonNull Entry<String, String> selectedItem = null;
+
+    @org.checkerframework.framework.qual.EnsuresQualifier(expression = { "this.selectedItem" }, qualifier = org.checkerframework.checker.nullness.qual.Nullable.class)
+    @org.checkerframework.dataflow.qual.Pure
+    public @org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.Nullable Object getSelectedItem(@org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.NonNull KeyValueComboboxModel this) {
+        return selectedItem;
+    }
+
+    @org.checkerframework.checker.nullness.qual.EnsuresNonNull({ "this.selectedItem" })
+    @org.checkerframework.dataflow.qual.Impure
+    public void setSelectedItem(@org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.NonNull KeyValueComboboxModel this, @org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.NonNull Object anItem) {
+        this.selectedItem = (java.util.Map.Entry<String, String>) anItem;
+        fireContentsChanged(this, -1, -1);
+    }
+
+    @org.checkerframework.framework.qual.EnsuresQualifier(expression = { "this.selectedItem" }, qualifier = org.checkerframework.checker.nullness.qual.Nullable.class)
+    @org.checkerframework.dataflow.qual.Pure
+    public @org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.NonNull Object getElementAt(@org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.NonNull KeyValueComboboxModel this,  @org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.NonNull int index) {
+        List<Map.Entry<String, String>> list = new ArrayList<Map.Entry<String, String>>(values.entrySet());
+        return list.get(index);
+    }
+
+    @org.checkerframework.framework.qual.EnsuresQualifier(expression = { "this.selectedItem" }, qualifier = org.checkerframework.checker.nullness.qual.Nullable.class)
+    @org.checkerframework.dataflow.qual.Pure
+    public  @org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.NonNull int getSize(@org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.NonNull KeyValueComboboxModel this) {
+        return values.size();
+    }
+
+    @org.checkerframework.framework.qual.EnsuresQualifier(expression = { "this.selectedItem" }, qualifier = org.checkerframework.checker.nullness.qual.Nullable.class)
+    @org.checkerframework.dataflow.qual.Impure
+    public void clear(@org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.NonNull KeyValueComboboxModel this) {
+        values.clear();
+    }
+
+    @org.checkerframework.framework.qual.EnsuresQualifier(expression = { "this.selectedItem" }, qualifier = org.checkerframework.checker.nullness.qual.Nullable.class)
+    @org.checkerframework.dataflow.qual.Pure
+    public  @org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.NonNull boolean containsKey(@org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.NonNull KeyValueComboboxModel this, @org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.NonNull Object key) {
+        return values.containsKey(key);
+    }
+
+    @org.checkerframework.framework.qual.EnsuresQualifier(expression = { "this.selectedItem" }, qualifier = org.checkerframework.checker.nullness.qual.Nullable.class)
+    @org.checkerframework.dataflow.qual.Pure
+    public  @org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.NonNull boolean containsValue(@org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.NonNull KeyValueComboboxModel this, @org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.NonNull Object value) {
+        return values.containsValue(value);
+    }
+
+    @org.checkerframework.framework.qual.EnsuresQualifier(expression = { "this.selectedItem" }, qualifier = org.checkerframework.checker.nullness.qual.Nullable.class)
+    @org.checkerframework.dataflow.qual.Pure
+    public @org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.NonNull Set<java.util.Map.Entry<String, String>> entrySet(@org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.NonNull KeyValueComboboxModel this) {
+        return values.entrySet();
+    }
+
+    @org.checkerframework.framework.qual.EnsuresQualifier(expression = { "this.selectedItem" }, qualifier = org.checkerframework.checker.nullness.qual.Nullable.class)
+    @org.checkerframework.dataflow.qual.Pure
+    public @org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.Nullable String get(@org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.NonNull KeyValueComboboxModel this, @org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.NonNull Object key) {
+        return values.get(key);
+    }
+
+    @org.checkerframework.framework.qual.EnsuresQualifier(expression = { "this.selectedItem" }, qualifier = org.checkerframework.checker.nullness.qual.Nullable.class)
+    @org.checkerframework.dataflow.qual.Pure
+    public @org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.NonNull Set<String> keySet(@org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.NonNull KeyValueComboboxModel this) {
+        return values.keySet();
+    }
+
+    @org.checkerframework.framework.qual.EnsuresQualifier(expression = { "this.selectedItem" }, qualifier = org.checkerframework.checker.nullness.qual.Nullable.class)
+    @org.checkerframework.dataflow.qual.Impure
+    public @org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.Nullable String put(@org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.NonNull KeyValueComboboxModel this, @org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.NonNull String key, @org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.NonNull String value) {
+        return values.put(key, value);
+    }
+
+    @org.checkerframework.framework.qual.EnsuresQualifier(expression = { "this.selectedItem" }, qualifier = org.checkerframework.checker.nullness.qual.Nullable.class)
+    @org.checkerframework.dataflow.qual.Impure
+    public @org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.Nullable String remove(@org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.NonNull KeyValueComboboxModel this, @org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.NonNull Object key) {
+        return values.remove(key);
+    }
+
+    @org.checkerframework.framework.qual.EnsuresQualifier(expression = { "this.selectedItem" }, qualifier = org.checkerframework.checker.nullness.qual.Nullable.class)
+    @org.checkerframework.dataflow.qual.Pure
+    public  @org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.NonNull int size(@org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.NonNull KeyValueComboboxModel this) {
+        return values.size();
+    }
+
+    @org.checkerframework.framework.qual.EnsuresQualifier(expression = { "this.selectedItem" }, qualifier = org.checkerframework.checker.nullness.qual.Nullable.class)
+    @org.checkerframework.dataflow.qual.Pure
+    public @org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.NonNull Collection<String> values(@org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.NonNull KeyValueComboboxModel this) {
+        return values.values();
+    }
+
+    @org.checkerframework.framework.qual.EnsuresQualifier(expression = { "this.selectedItem" }, qualifier = org.checkerframework.checker.nullness.qual.Nullable.class)
+    @org.checkerframework.dataflow.qual.Pure
+    public  @org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.NonNull boolean isEmpty(@org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.NonNull KeyValueComboboxModel this) {
+        return values.isEmpty();
+    }
+
+    @org.checkerframework.framework.qual.EnsuresQualifier(expression = { "this.selectedItem" }, qualifier = org.checkerframework.checker.nullness.qual.Nullable.class)
+    @org.checkerframework.dataflow.qual.Impure
+    public void putAll(@org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.NonNull KeyValueComboboxModel this, @org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.NonNull Map<? extends String, ? extends String> m) {
+        values.putAll(m);
+    }
+
+    @org.checkerframework.dataflow.qual.Pure
+    private static @org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.NonNull String entryToString(Map.Entry<String, String> entry) {
+        String str = "" + entry.getKey() + "->" + entry.getValue();
+        return str;
+    }
+}

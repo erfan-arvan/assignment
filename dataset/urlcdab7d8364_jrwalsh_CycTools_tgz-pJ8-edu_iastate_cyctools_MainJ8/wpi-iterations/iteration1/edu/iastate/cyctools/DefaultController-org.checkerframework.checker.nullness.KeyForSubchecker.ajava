@@ -1,0 +1,290 @@
+package edu.iastate.cyctools;
+
+import java.awt.event.WindowAdapter;
+import java.awt.event.WindowEvent;
+import java.beans.PropertyChangeEvent;
+import java.beans.PropertyChangeListener;
+import java.io.File;
+import java.util.ArrayList;
+import javax.swing.JFrame;
+import javax.swing.JOptionPane;
+import javax.swing.WindowConstants;
+import javax.swing.table.DefaultTableModel;
+import edu.iastate.cyctools.InternalStateModel.State;
+import edu.iastate.cyctools.externalSourceCode.AbstractViewPanel;
+import edu.iastate.cyctools.tools.load.fileAdaptors.AbstractFileAdaptor;
+import edu.iastate.cyctools.tools.load.model.AbstractFrameEdit;
+import edu.iastate.cyctools.tools.load.model.DocumentModel;
+import edu.iastate.cyctools.view.MenuBar;
+import edu.iastate.cyctools.view.StatusPanel;
+import edu.iastate.cyctools.view.ToolPanel;
+import edu.iastate.javacyco.Frame;
+import edu.iastate.javacyco.JavacycConnection;
+import edu.iastate.javacyco.OrgStruct;
+
+@org.checkerframework.framework.qual.AnnotatedFor("org.checkerframework.checker.nullness.KeyForSubchecker")
+public class DefaultController implements PropertyChangeListener {
+
+    private  CycDataBaseAccess dataAccess;
+
+    private  InternalStateModel state;
+
+    private  ArrayList<AbstractViewPanel> registeredViews;
+
+    public static  JFrame mainJFrame;
+
+    public  ToolPanel toolPanel;
+
+    public  StatusPanel statusPanel;
+
+    public  MenuBar menuPanel;
+
+    private  DocumentModel documentModel;
+
+    private  WindowAdapter winAdaptor;
+
+    public static  String DOCUMENT_FILEPATH_PROPERTY = "FilePath";
+
+    public static  String DOCUMENT_TABLEMODEL_PROPERTY = "TableModel";
+
+    public static  String BROWSER_STATE_PROPERTY = "State";
+
+    public static  String REPORT_PROPERTY_FRAME_EDITS_PROCESSED = "FrameEditsProcessed";
+
+    public static  String REPORT_PROPERTY_FRAME_EDITS_SUCCESS = "FrameEditsSuccess";
+
+    public static  String REPORT_PROPERTY_FRAME_EDITS_FAIL = "FrameEditsFail";
+
+    @org.checkerframework.dataflow.qual.SideEffectFree
+    public DefaultController( InternalStateModel state) {
+        this.dataAccess = null;
+        this.documentModel = null;
+        this.state = state;
+        this.registeredViews = new ArrayList<AbstractViewPanel>();
+    }
+
+    // Getters and Setters
+    @org.checkerframework.dataflow.qual.Impure
+    public void addView( DefaultController this,  AbstractViewPanel view) {
+        this.registeredViews.add(view);
+    }
+
+    @org.checkerframework.dataflow.qual.Impure
+    public void removeView(AbstractViewPanel view) {
+        this.registeredViews.remove(view);
+    }
+
+    @org.checkerframework.dataflow.qual.Impure
+    public void setDocumentModel( DefaultController this,  DocumentModel documentModel) {
+        this.documentModel = documentModel;
+    }
+
+    @org.checkerframework.dataflow.qual.Impure
+    public void changeDocumentFile( DefaultController this,  File newFile,  String delimiter) {
+        this.documentModel.setFile(newFile, delimiter);
+    }
+
+    @org.checkerframework.dataflow.qual.Pure
+    public  DocumentModel getDocumentModel( DefaultController this) {
+        return this.documentModel;
+    }
+
+    @org.checkerframework.dataflow.qual.Impure
+    public void setMainJFrame( DefaultController this,  JFrame jframe) {
+        DefaultController.mainJFrame = jframe;
+    }
+
+    @org.checkerframework.dataflow.qual.Impure
+    public void setToolPanel( DefaultController this,  ToolPanel toolPanel) {
+        this.toolPanel = toolPanel;
+    }
+
+    @org.checkerframework.dataflow.qual.Impure
+    public void setStatusPanel( DefaultController this,  StatusPanel statusPanel) {
+        this.statusPanel = statusPanel;
+    }
+
+    @org.checkerframework.dataflow.qual.Impure
+    public void setMenuPanel( DefaultController this,  MenuBar menuPanel) {
+        this.menuPanel = menuPanel;
+    }
+
+    @org.checkerframework.dataflow.qual.Impure
+    public  JavacycConnection getConnection( DefaultController this) {
+        return dataAccess.getConnection();
+    }
+
+    // Actions
+    @org.checkerframework.dataflow.qual.Impure
+    public void showMainScreen( DefaultController this) {
+        state.setState(State.SHOW_MAIN_SCREEN);
+    }
+
+    @org.checkerframework.dataflow.qual.Impure
+    public void setState( DefaultController this,  State state) {
+        // Changing program state propagates this change to all DefaultController listeners.  Listeners are responsible for complying with the current state of the program.
+        this.state.setState(state);
+    }
+
+    @org.checkerframework.dataflow.qual.Impure
+    public void connect( DefaultController this,  String host,   int port,  String userName,  String password) {
+        try {
+            dataAccess = new CycDataBaseAccess(host, port, userName, password);
+            if (dataAccess.testConnection())
+                state.setState(State.SHOW_MAIN_SCREEN);
+            else {
+                dataAccess = null;
+                state.setState(State.NOT_CONNECTED);
+                CycToolsError.showError("Unable to connect to server", "Unable to connect");
+            }
+        } catch (Exception e) {
+            dataAccess = null;
+            state.setState(State.NOT_CONNECTED);
+            CycToolsError.checkForConnectionError(e);
+        }
+    }
+
+    @org.checkerframework.dataflow.qual.Impure
+    public void lockDatabaseOperation( DefaultController this) {
+        toolPanel.lockToolBar();
+        mainJFrame.setDefaultCloseOperation(JFrame.DO_NOTHING_ON_CLOSE);
+        winAdaptor = new WindowAdapter() {
+
+            public void windowClosing(WindowEvent e) {
+                if (JOptionPane.showConfirmDialog(mainJFrame, "The changes to the databae have not been saved yet!  Do you want to quit without saving changes?") == JOptionPane.OK_OPTION) {
+                    mainJFrame.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
+                    mainJFrame.setVisible(false);
+                    mainJFrame.dispose();
+                }
+            }
+        };
+        mainJFrame.addWindowListener(winAdaptor);
+    }
+
+    @org.checkerframework.dataflow.qual.Impure
+    public void unlockDatabaseOperation( DefaultController this) {
+        toolPanel.unLockToolBar();
+        mainJFrame.setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
+        mainJFrame.removeWindowListener(winAdaptor);
+    }
+
+    @org.checkerframework.dataflow.qual.Impure
+    public void disconnect() {
+        dataAccess = null;
+        state.setState(State.NOT_CONNECTED);
+    }
+
+    @org.checkerframework.dataflow.qual.Impure
+    public void selectOrganism( DefaultController this,  String organism) {
+        dataAccess.selectOrganism(organism);
+    }
+
+    // Queries
+    @org.checkerframework.dataflow.qual.Impure
+    public  ArrayList<OrgStruct> getAvailableOrganisms( DefaultController this) {
+        return dataAccess.getAvailableOrganisms();
+    }
+
+    @org.checkerframework.dataflow.qual.Impure
+    public  String frameToString( DefaultController this,  String frameID) {
+        return dataAccess.frameToString(frameID);
+    }
+
+    @org.checkerframework.dataflow.qual.Impure
+    public  String frameToString( DefaultController this,  Frame frame) {
+        return dataAccess.frameToString(frame);
+    }
+
+    @org.checkerframework.dataflow.qual.Impure
+    public  ArrayList<Frame> substringSearch( DefaultController this,  String text,  String type) {
+        return dataAccess.substringSearch(text, type);
+    }
+
+    @org.checkerframework.dataflow.qual.Impure
+    public  ArrayList<Frame> getFramesOfType(String type) {
+        return dataAccess.getFramesOfType(type);
+    }
+
+    @org.checkerframework.dataflow.qual.Impure
+    public   int printFramesToXML(String path, String type) {
+        return dataAccess.printFramesToXML(path, type);
+    }
+
+    @org.checkerframework.dataflow.qual.Impure
+    public   int printFramesToCSV(String path, String type) {
+        return dataAccess.printFramesToCSV(path, type);
+    }
+
+    @org.checkerframework.dataflow.qual.Impure
+    public  DefaultTableModel getSearchResultsTable(String text, String type) {
+        return dataAccess.getSearchResultsTable(text, type);
+    }
+
+    @org.checkerframework.dataflow.qual.Impure
+    public  ArrayList<String> getPGDBChildrenOfFrame(String rootGFPtype) {
+        return dataAccess.getPGDBChildrenOfFrame(rootGFPtype);
+    }
+
+    @org.checkerframework.dataflow.qual.Impure
+    public  DefaultTableModel getPGDBStructure(String rootGFPtype, boolean includeInstances, boolean directionForward) {
+        return dataAccess.getPGDBStructureTable(rootGFPtype, includeInstances, directionForward);
+    }
+
+    @org.checkerframework.dataflow.qual.Impure
+    public void submitTable(AbstractFileAdaptor interpreter) {
+        ArrayList<AbstractFrameEdit> frameUpdates = interpreter.tableToFrameUpdates(documentModel.getTableModel());
+        dataAccess.commitFrameUpdates(frameUpdates);
+    }
+
+    @org.checkerframework.dataflow.qual.Impure
+    public  Frame updateLocalFrame(String frameID, ArrayList<AbstractFrameEdit> frameUpdates) {
+        return dataAccess.updateLocalFrame(frameID, frameUpdates);
+    }
+
+    @org.checkerframework.dataflow.qual.Impure
+    public void revertDataBase( DefaultController this) {
+        dataAccess.revertDataBase();
+    }
+
+    @org.checkerframework.dataflow.qual.Impure
+    public void saveDataBase( DefaultController this) {
+        dataAccess.saveDataBase();
+    }
+
+    @org.checkerframework.dataflow.qual.Impure
+    public  String getSelectedOrganism( DefaultController this) {
+        return dataAccess.getSelectedOrganism();
+    }
+
+    @org.checkerframework.dataflow.qual.Impure
+    public  String getOrganismCommonName(String organismID) {
+        return dataAccess.getOrganismCommonName(organismID);
+    }
+
+    @org.checkerframework.dataflow.qual.Impure
+    public void lockToolBarOrganismSelect( DefaultController this) {
+        toolPanel.lockToolBarOrganismSelect();
+    }
+
+    @org.checkerframework.dataflow.qual.Impure
+    public void unLockToolBarOrganismSelect( DefaultController this) {
+        toolPanel.unLockToolBarOrganismSelect();
+    }
+
+    @org.checkerframework.dataflow.qual.Impure
+    public void propertyChange( DefaultController this,  PropertyChangeEvent evt) {
+        for (AbstractViewPanel view : registeredViews) {
+            view.modelPropertyChange(evt);
+        }
+    }
+
+    @org.checkerframework.dataflow.qual.Impure
+    public   boolean isKBModified( DefaultController this,  String kb) {
+        return dataAccess.isCurrentKBModified(kb);
+    }
+
+    @org.checkerframework.dataflow.qual.Impure
+    public void setDisconnectActionEnabled( DefaultController this,   boolean enabled) {
+        menuPanel.setDisconnectActionEnabled(enabled);
+    }
+}

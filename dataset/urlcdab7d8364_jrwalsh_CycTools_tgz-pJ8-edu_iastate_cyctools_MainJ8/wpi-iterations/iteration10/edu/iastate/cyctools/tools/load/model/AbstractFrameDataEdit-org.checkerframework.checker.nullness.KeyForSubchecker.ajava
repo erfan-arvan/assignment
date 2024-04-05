@@ -1,0 +1,49 @@
+package edu.iastate.cyctools.tools.load.model;
+
+import java.util.ArrayList;
+import edu.iastate.javacyco.JavacycConnection;
+import edu.iastate.javacyco.PtoolsErrorException;
+
+// This class is intended to represent any changes to an existing frame, but more specifically not used to create or remove frames.
+@org.checkerframework.framework.qual.AnnotatedFor("org.checkerframework.checker.nullness.KeyForSubchecker")
+public abstract class AbstractFrameDataEdit extends AbstractFrameEdit {
+
+    protected   boolean append;
+
+    protected   boolean ignoreDuplicates;
+
+    @org.checkerframework.dataflow.qual.Impure
+    public  String getValuesAsLispArray() {
+        ArrayList<String> values = this.getValues();
+        if (values == null || values.size() == 0)
+            return "";
+        else if (values.size() == 1)
+            return values.get(0);
+        else
+            return JavacycConnection.ArrayList2LispList(values);
+    }
+
+    @org.checkerframework.dataflow.qual.Impure
+    protected   boolean checkRemoteValueEmpty(JavacycConnection conn) throws PtoolsErrorException {
+        ArrayList<String> remoteValues = this.getRemoteValues(conn);
+        if (remoteValues == null || remoteValues.isEmpty()) {
+            return true;
+        } else
+            return false;
+    }
+
+    @org.checkerframework.dataflow.qual.Impure
+    protected   boolean checkRemoteValueDuplicate(JavacycConnection conn) throws PtoolsErrorException {
+        ArrayList<String> remoteValues = this.getRemoteValues(conn);
+        if (remoteValues.containsAll(this.getValues())) {
+            return true;
+        } else
+            return false;
+    }
+
+    @org.checkerframework.dataflow.qual.Pure
+    protected abstract  ArrayList<String> getValues( AbstractFrameDataEdit this);
+
+    @org.checkerframework.dataflow.qual.Impure
+    protected abstract  ArrayList<String> getRemoteValues( AbstractFrameDataEdit this,  JavacycConnection conn) throws PtoolsErrorException;
+}

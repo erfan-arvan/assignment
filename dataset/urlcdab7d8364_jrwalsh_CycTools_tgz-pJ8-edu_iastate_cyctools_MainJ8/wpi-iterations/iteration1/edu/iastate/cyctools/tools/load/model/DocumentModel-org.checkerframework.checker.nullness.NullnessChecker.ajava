@@ -1,0 +1,103 @@
+package edu.iastate.cyctools.tools.load.model;
+
+import edu.iastate.cyctools.DefaultController;
+import edu.iastate.cyctools.externalSourceCode.AbstractModel;
+import java.io.BufferedReader;
+import java.io.File;
+import java.io.FileNotFoundException;
+import java.io.FileReader;
+import java.io.IOException;
+import java.util.ArrayList;
+import javax.swing.table.DefaultTableModel;
+import javax.swing.table.TableModel;
+
+@org.checkerframework.framework.qual.AnnotatedFor("org.checkerframework.checker.nullness.NullnessChecker")
+public class DocumentModel extends AbstractModel {
+
+    private @org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.Nullable File file;
+
+    private @org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.MonotonicNonNull TableModel tableModel;
+
+    private @org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.MonotonicNonNull String delimiter;
+
+    @org.checkerframework.dataflow.qual.Impure
+    public DocumentModel() {
+    }
+
+    @org.checkerframework.dataflow.qual.Impure
+    public void initDefault() {
+        setFile(null, ",");
+        setTableModel(null);
+    }
+
+    // Accessors
+    @org.checkerframework.dataflow.qual.Pure
+    public @org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.NonNull File getFile() {
+        return file;
+    }
+
+    @org.checkerframework.dataflow.qual.Impure
+    public void setFile(@org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.Nullable File file, @org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.NonNull String delimiter) {
+        File oldFile = this.file;
+        this.file = file;
+        this.delimiter = delimiter;
+        readFile();
+        firePropertyChange(DefaultController.DOCUMENT_FILEPATH_PROPERTY, oldFile, file);
+    }
+
+    @org.checkerframework.dataflow.qual.Pure
+    public @org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.NonNull TableModel getTableModel() {
+        return tableModel;
+    }
+
+    @org.checkerframework.dataflow.qual.Impure
+    private void setTableModel(@org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.Nullable TableModel tableModel) {
+        TableModel oldTableModel = this.tableModel;
+        this.tableModel = tableModel;
+        firePropertyChange(DefaultController.DOCUMENT_TABLEMODEL_PROPERTY, oldTableModel, tableModel);
+    }
+
+    // Utilities
+    @org.checkerframework.dataflow.qual.Impure
+    private void readFile() {
+        if (file == null || !file.exists() || !file.canRead()) {
+            file = null;
+            return;
+        }
+        BufferedReader reader = null;
+        try {
+            reader = new BufferedReader(new FileReader(file));
+            String text = null;
+            String headerLine = reader.readLine();
+            ArrayList<String> dataRows = new ArrayList<String>();
+            while ((text = reader.readLine()) != null) {
+                dataRows.add(text);
+            }
+            Object[] header = headerLine.split(delimiter);
+            Object[][] data = new Object[dataRows.size()][dataRows.get(0).split(delimiter).length];
+            for (int i = 0; i < dataRows.size(); i++) {
+                data[i] = dataRows.get(i).split(delimiter);
+            }
+            DefaultTableModel dtm = new DefaultTableModel(data, header);
+            setTableModel(dtm);
+        } catch (FileNotFoundException exception) {
+            exception.printStackTrace();
+        } catch (IOException exception) {
+            exception.printStackTrace();
+        } catch (Exception exception) {
+            exception.printStackTrace();
+        } finally {
+            try {
+            } catch (Exception exception) {
+                exception.printStackTrace();
+            }
+            try {
+                if (reader != null) {
+                    reader.close();
+                }
+            } catch (IOException exception) {
+                exception.printStackTrace();
+            }
+        }
+    }
+}

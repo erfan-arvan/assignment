@@ -1,0 +1,56 @@
+package edu.iastate.cyctools;
+
+import edu.iastate.cyctools.externalSourceCode.AbstractModel;
+
+@org.checkerframework.framework.qual.AnnotatedFor("org.checkerframework.checker.nullness.NullnessChecker")
+public class InternalStateModel extends AbstractModel {
+
+    private @org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.MonotonicNonNull State state;
+
+    @org.checkerframework.dataflow.qual.Impure
+    public InternalStateModel() {
+        initDefault();
+    }
+
+    @org.checkerframework.checker.nullness.qual.EnsuresNonNull({ "this.state" })
+    @org.checkerframework.dataflow.qual.Impure
+    public void initDefault() {
+        this.state = State.NOT_CONNECTED;
+    }
+
+    @org.checkerframework.checker.nullness.qual.EnsuresNonNull({ "this.state" })
+    @org.checkerframework.dataflow.qual.Impure
+    public void setState(@org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.NonNull State state) {
+        State oldState = this.state;
+        this.state = state;
+        firePropertyChange(DefaultController.BROWSER_STATE_PROPERTY, oldState, state);
+    }
+
+    @org.checkerframework.framework.qual.EnsuresQualifier(expression = { "this.state" }, qualifier = org.checkerframework.checker.nullness.qual.Nullable.class)
+    @org.checkerframework.dataflow.qual.Pure
+    public @org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.Nullable State getState() {
+        return this.state;
+    }
+
+    public enum State {
+
+        NOVALUE,
+        NOT_CONNECTED,
+        SHOW_MAIN_SCREEN,
+        SHOW_FRAMEBROWSE,
+        SHOW_EXPORT,
+        SHOW_SEARCH,
+        SHOW_STRUCTURE_EXPORT,
+        SHOW_DATABASE_COMPARE,
+        SHOW_IMPORT;
+
+        @org.checkerframework.dataflow.qual.Impure
+        public static @org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.NonNull State value(String state) {
+            try {
+                return valueOf(state.toUpperCase());
+            } catch (Exception e) {
+                return NOVALUE;
+            }
+        }
+    }
+}

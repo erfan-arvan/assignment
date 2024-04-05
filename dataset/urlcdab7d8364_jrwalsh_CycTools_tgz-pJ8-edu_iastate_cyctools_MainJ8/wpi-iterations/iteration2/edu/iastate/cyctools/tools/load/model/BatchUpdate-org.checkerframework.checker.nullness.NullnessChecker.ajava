@@ -1,0 +1,414 @@
+package edu.iastate.cyctools.tools.load.model;
+
+import java.beans.PropertyChangeEvent;
+import java.beans.PropertyChangeListener;
+import java.util.ArrayList;
+import java.util.Calendar;
+import java.util.Date;
+import java.util.GregorianCalendar;
+import java.util.HashMap;
+import java.util.TreeSet;
+import java.util.concurrent.ExecutionException;
+import javax.swing.DefaultListModel;
+import javax.swing.ProgressMonitor;
+import edu.iastate.cyctools.DefaultController;
+import edu.iastate.cyctools.externalSourceCode.AbstractModel;
+import edu.iastate.cyctools.tools.load.threadedTasks.DownloadFramesTask;
+import edu.iastate.cyctools.tools.load.view.LoadPanel;
+import edu.iastate.cyctools.view.dialog.TranslucentGlassPane;
+import edu.iastate.javacyco.Frame;
+import edu.iastate.javacyco.JavacycConnection;
+import edu.iastate.javacyco.PtoolsErrorException;
+
+// Contains a group of updates (AbstractFrameEdit).  Knows how to compare them to existing KB, commit them to KB, and report on the results of the commit.
+// Save/revert of the KB must still be done separately, as save/revert of KB is not handled by this class.
+@org.checkerframework.framework.qual.AnnotatedFor("org.checkerframework.checker.nullness.NullnessChecker")
+public class BatchUpdate extends AbstractModel {
+
+    private @org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.NonNull LoadPanel loadPanel;
+
+    private @org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.MonotonicNonNull ProgressMonitor progressMonitor;
+
+    private @org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.MonotonicNonNull DownloadFramesTask task;
+
+    private @org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.MonotonicNonNull ArrayList<Frame> framesFromKB;
+
+    private @org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.NonNull ArrayList<AbstractFrameEdit> frameEdits;
+
+    // Provides a way to index frameEdits which relate to a particular frame;
+    private @org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.NonNull HashMap<String, ArrayList<AbstractFrameEdit>> frameEditsMap;
+
+    private @org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.NonNull TreeSet<String> frameIDSet;
+
+    private @org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.MonotonicNonNull TreeSet<Integer> lines;
+
+    private @org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.MonotonicNonNull TreeSet<Integer> linesProcessed;
+
+    private @org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.MonotonicNonNull ArrayList<Event> eventLog;
+
+    @org.checkerframework.dataflow.qual.Impure
+    public BatchUpdate(@org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.NonNull ArrayList<AbstractFrameEdit> frameEditList, @org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.NonNull LoadPanel loadPanel) {
+        this.loadPanel = loadPanel;
+        initDefault();
+        this.frameEdits = frameEditList;
+        frameEditsMap = new HashMap<String, ArrayList<AbstractFrameEdit>>();
+        frameIDSet = new TreeSet<String>();
+        for (AbstractFrameEdit frameEdit : frameEdits) {
+            for (int row : frameEdit.getAssociatedRows()) {
+                lines.add(new Integer(row));
+            }
+            if (frameEditsMap.containsKey(frameEdit.getFrameID())) {
+                ArrayList<AbstractFrameEdit> frameEditArray = frameEditsMap.get(frameEdit.getFrameID());
+                frameEditArray.add(frameEdit);
+                frameEditsMap.put(frameEdit.getFrameID(), frameEditArray);
+            } else {
+                ArrayList<AbstractFrameEdit> frameEditArray = new ArrayList<AbstractFrameEdit>();
+                frameEditArray.add(frameEdit);
+                frameEditsMap.put(frameEdit.getFrameID(), frameEditArray);
+            }
+            frameIDSet.add(frameEdit.getFrameID());
+        }
+    }
+
+    @org.checkerframework.checker.nullness.qual.EnsuresNonNull({ "this.eventLog" })
+    @org.checkerframework.checker.nullness.qual.EnsuresNonNull({ "this.lines" })
+    @org.checkerframework.checker.nullness.qual.EnsuresNonNull({ "this.linesProcessed" })
+    @org.checkerframework.framework.qual.EnsuresQualifier(expression = { "this.framesFromKB" }, qualifier = org.checkerframework.checker.nullness.qual.Nullable.class)
+    @org.checkerframework.framework.qual.EnsuresQualifier(expression = { "this.progressMonitor" }, qualifier = org.checkerframework.checker.nullness.qual.Nullable.class)
+    @org.checkerframework.framework.qual.EnsuresQualifier(expression = { "this.task" }, qualifier = org.checkerframework.checker.nullness.qual.Nullable.class)
+    @org.checkerframework.dataflow.qual.Impure
+    public void initDefault() {
+        linesProcessed = new TreeSet<Integer>();
+        lines = new TreeSet<Integer>();
+        eventLog = new ArrayList<Event>();
+    }
+
+    // Accessors
+    @org.checkerframework.framework.qual.EnsuresQualifier(expression = { "this.eventLog" }, qualifier = org.checkerframework.checker.nullness.qual.Nullable.class)
+    @org.checkerframework.framework.qual.EnsuresQualifier(expression = { "this.framesFromKB" }, qualifier = org.checkerframework.checker.nullness.qual.Nullable.class)
+    @org.checkerframework.framework.qual.EnsuresQualifier(expression = { "this.lines" }, qualifier = org.checkerframework.checker.nullness.qual.Nullable.class)
+    @org.checkerframework.framework.qual.EnsuresQualifier(expression = { "this.linesProcessed" }, qualifier = org.checkerframework.checker.nullness.qual.Nullable.class)
+    @org.checkerframework.framework.qual.EnsuresQualifier(expression = { "this.progressMonitor" }, qualifier = org.checkerframework.checker.nullness.qual.Nullable.class)
+    @org.checkerframework.framework.qual.EnsuresQualifier(expression = { "this.task" }, qualifier = org.checkerframework.checker.nullness.qual.Nullable.class)
+    @org.checkerframework.dataflow.qual.Pure
+    public @org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.NonNull ArrayList<AbstractFrameEdit> getFrameEdits() {
+        return frameEdits;
+    }
+
+    @org.checkerframework.framework.qual.EnsuresQualifier(expression = { "this.eventLog" }, qualifier = org.checkerframework.checker.nullness.qual.Nullable.class)
+    @org.checkerframework.framework.qual.EnsuresQualifier(expression = { "this.framesFromKB" }, qualifier = org.checkerframework.checker.nullness.qual.Nullable.class)
+    @org.checkerframework.framework.qual.EnsuresQualifier(expression = { "this.lines" }, qualifier = org.checkerframework.checker.nullness.qual.Nullable.class)
+    @org.checkerframework.framework.qual.EnsuresQualifier(expression = { "this.linesProcessed" }, qualifier = org.checkerframework.checker.nullness.qual.Nullable.class)
+    @org.checkerframework.framework.qual.EnsuresQualifier(expression = { "this.progressMonitor" }, qualifier = org.checkerframework.checker.nullness.qual.Nullable.class)
+    @org.checkerframework.framework.qual.EnsuresQualifier(expression = { "this.task" }, qualifier = org.checkerframework.checker.nullness.qual.Nullable.class)
+    @org.checkerframework.dataflow.qual.Pure
+    public @org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.NonNull HashMap<String, ArrayList<AbstractFrameEdit>> getFrameEditsMap() {
+        return frameEditsMap;
+    }
+
+    @org.checkerframework.framework.qual.RequiresQualifier(expression = { "this.eventLog" }, qualifier = org.checkerframework.checker.nullness.qual.Nullable.class)
+    @org.checkerframework.framework.qual.RequiresQualifier(expression = { "this.framesFromKB" }, qualifier = org.checkerframework.checker.nullness.qual.Nullable.class)
+    @org.checkerframework.framework.qual.RequiresQualifier(expression = { "this.lines" }, qualifier = org.checkerframework.checker.nullness.qual.Nullable.class)
+    @org.checkerframework.framework.qual.RequiresQualifier(expression = { "this.linesProcessed" }, qualifier = org.checkerframework.checker.nullness.qual.Nullable.class)
+    @org.checkerframework.framework.qual.RequiresQualifier(expression = { "this.progressMonitor" }, qualifier = org.checkerframework.checker.nullness.qual.Nullable.class)
+    @org.checkerframework.framework.qual.RequiresQualifier(expression = { "this.task" }, qualifier = org.checkerframework.checker.nullness.qual.Nullable.class)
+    @org.checkerframework.framework.qual.EnsuresQualifier(expression = { "this.eventLog" }, qualifier = org.checkerframework.checker.nullness.qual.Nullable.class)
+    @org.checkerframework.framework.qual.EnsuresQualifier(expression = { "this.framesFromKB" }, qualifier = org.checkerframework.checker.nullness.qual.Nullable.class)
+    @org.checkerframework.framework.qual.EnsuresQualifier(expression = { "this.lines" }, qualifier = org.checkerframework.checker.nullness.qual.Nullable.class)
+    @org.checkerframework.framework.qual.EnsuresQualifier(expression = { "this.linesProcessed" }, qualifier = org.checkerframework.checker.nullness.qual.Nullable.class)
+    @org.checkerframework.framework.qual.EnsuresQualifier(expression = { "this.progressMonitor" }, qualifier = org.checkerframework.checker.nullness.qual.Nullable.class)
+    @org.checkerframework.framework.qual.EnsuresQualifier(expression = { "this.task" }, qualifier = org.checkerframework.checker.nullness.qual.Nullable.class)
+    @org.checkerframework.dataflow.qual.Pure
+    public @org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.NonNull TreeSet<String> getFrameIDSet() {
+        return frameIDSet;
+    }
+
+    @org.checkerframework.checker.nullness.qual.EnsuresNonNull({ "this.lines" })
+    @org.checkerframework.framework.qual.EnsuresQualifier(expression = { "this.eventLog" }, qualifier = org.checkerframework.checker.nullness.qual.Nullable.class)
+    @org.checkerframework.framework.qual.EnsuresQualifier(expression = { "this.framesFromKB" }, qualifier = org.checkerframework.checker.nullness.qual.Nullable.class)
+    @org.checkerframework.framework.qual.EnsuresQualifier(expression = { "this.linesProcessed" }, qualifier = org.checkerframework.checker.nullness.qual.Nullable.class)
+    @org.checkerframework.framework.qual.EnsuresQualifier(expression = { "this.progressMonitor" }, qualifier = org.checkerframework.checker.nullness.qual.Nullable.class)
+    @org.checkerframework.framework.qual.EnsuresQualifier(expression = { "this.task" }, qualifier = org.checkerframework.checker.nullness.qual.Nullable.class)
+    @org.checkerframework.dataflow.qual.Pure
+    public  @org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.NonNull int getLines() {
+        return lines.size();
+    }
+
+    @org.checkerframework.framework.qual.EnsuresQualifier(expression = { "this.eventLog" }, qualifier = org.checkerframework.checker.nullness.qual.Nullable.class)
+    @org.checkerframework.framework.qual.EnsuresQualifier(expression = { "this.framesFromKB" }, qualifier = org.checkerframework.checker.nullness.qual.Nullable.class)
+    @org.checkerframework.framework.qual.EnsuresQualifier(expression = { "this.lines" }, qualifier = org.checkerframework.checker.nullness.qual.Nullable.class)
+    @org.checkerframework.framework.qual.EnsuresQualifier(expression = { "this.linesProcessed" }, qualifier = org.checkerframework.checker.nullness.qual.Nullable.class)
+    @org.checkerframework.framework.qual.EnsuresQualifier(expression = { "this.progressMonitor" }, qualifier = org.checkerframework.checker.nullness.qual.Nullable.class)
+    @org.checkerframework.framework.qual.EnsuresQualifier(expression = { "this.task" }, qualifier = org.checkerframework.checker.nullness.qual.Nullable.class)
+    @org.checkerframework.dataflow.qual.Pure
+    public @org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.Nullable ArrayList<Event> getEventLog() {
+        return eventLog;
+    }
+
+    @org.checkerframework.framework.qual.EnsuresQualifier(expression = { "this.eventLog" }, qualifier = org.checkerframework.checker.nullness.qual.Nullable.class)
+    @org.checkerframework.framework.qual.EnsuresQualifier(expression = { "this.framesFromKB" }, qualifier = org.checkerframework.checker.nullness.qual.Nullable.class)
+    @org.checkerframework.framework.qual.EnsuresQualifier(expression = { "this.lines" }, qualifier = org.checkerframework.checker.nullness.qual.Nullable.class)
+    @org.checkerframework.framework.qual.EnsuresQualifier(expression = { "this.linesProcessed" }, qualifier = org.checkerframework.checker.nullness.qual.Nullable.class)
+    @org.checkerframework.framework.qual.EnsuresQualifier(expression = { "this.progressMonitor" }, qualifier = org.checkerframework.checker.nullness.qual.Nullable.class)
+    @org.checkerframework.framework.qual.EnsuresQualifier(expression = { "this.task" }, qualifier = org.checkerframework.checker.nullness.qual.Nullable.class)
+    @org.checkerframework.dataflow.qual.Impure
+    public @org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.NonNull DefaultListModel<String> getFrameIDsModel() {
+        DefaultListModel<String> listModel = new DefaultListModel<String>();
+        for (String frameID : getFrameIDSet()) {
+            listModel.addElement(frameID);
+        }
+        return listModel;
+    }
+
+    @org.checkerframework.checker.nullness.qual.EnsuresNonNull({ "this.progressMonitor" })
+    @org.checkerframework.checker.nullness.qual.EnsuresNonNull({ "this.task" })
+    @org.checkerframework.framework.qual.EnsuresQualifier(expression = { "this.eventLog" }, qualifier = org.checkerframework.checker.nullness.qual.Nullable.class)
+    @org.checkerframework.framework.qual.EnsuresQualifier(expression = { "this.framesFromKB" }, qualifier = org.checkerframework.checker.nullness.qual.Nullable.class)
+    @org.checkerframework.framework.qual.EnsuresQualifier(expression = { "this.lines" }, qualifier = org.checkerframework.checker.nullness.qual.Nullable.class)
+    @org.checkerframework.framework.qual.EnsuresQualifier(expression = { "this.linesProcessed" }, qualifier = org.checkerframework.checker.nullness.qual.Nullable.class)
+    @org.checkerframework.dataflow.qual.Impure
+    public void downloadFrames(@org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.NonNull JavacycConnection conn) {
+        progressMonitor = new ProgressMonitor(DefaultController.mainJFrame, "Analyzing Imports...", "", 0, 100);
+        task = new DownloadFramesTask(conn, progressMonitor, frameIDSet);
+        task.addPropertyChangeListener(new PropertyChangeListener() {
+
+            @org.checkerframework.dataflow.qual.Impure
+            public void propertyChange(@org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.NonNull PropertyChangeEvent e) {
+                if ("progress".equals(e.getPropertyName())) {
+                    progressMonitor.setProgress((Integer) e.getNewValue());
+                    if (progressMonitor.isCanceled()) {
+                        task.cancel(true);
+                    }
+                    if (task.isDone() && !task.isCancelled()) {
+                        try {
+                            framesFromKB = task.get();
+                            progressMonitor.setProgress(0);
+                            progressMonitor.close();
+                            loadPanel.showPreviewPanel();
+                            loadPanel.addAuthorCredits();
+                            DefaultController.mainJFrame.getGlassPane().setVisible(false);
+                        } catch (InterruptedException e1) {
+                            framesFromKB = new ArrayList<Frame>();
+                        } catch (ExecutionException e1) {
+                            e1.printStackTrace();
+                        }
+                    }
+                    if (task.isCancelled()) {
+                        framesFromKB = new ArrayList<Frame>();
+                        progressMonitor.setProgress(0);
+                        progressMonitor.close();
+                        DefaultController.mainJFrame.getGlassPane().setVisible(false);
+                    }
+                }
+            }
+        });
+        DefaultController.mainJFrame.setGlassPane(new TranslucentGlassPane());
+        DefaultController.mainJFrame.getGlassPane().setVisible(true);
+        task.execute();
+    }
+
+    @org.checkerframework.framework.qual.EnsuresQualifier(expression = { "this.eventLog" }, qualifier = org.checkerframework.checker.nullness.qual.Nullable.class)
+    @org.checkerframework.framework.qual.EnsuresQualifier(expression = { "this.framesFromKB" }, qualifier = org.checkerframework.checker.nullness.qual.Nullable.class)
+    @org.checkerframework.framework.qual.EnsuresQualifier(expression = { "this.lines" }, qualifier = org.checkerframework.checker.nullness.qual.Nullable.class)
+    @org.checkerframework.framework.qual.EnsuresQualifier(expression = { "this.linesProcessed" }, qualifier = org.checkerframework.checker.nullness.qual.Nullable.class)
+    @org.checkerframework.framework.qual.EnsuresQualifier(expression = { "this.progressMonitor" }, qualifier = org.checkerframework.checker.nullness.qual.Nullable.class)
+    @org.checkerframework.framework.qual.EnsuresQualifier(expression = { "this.task" }, qualifier = org.checkerframework.checker.nullness.qual.Nullable.class)
+    @org.checkerframework.dataflow.qual.Impure
+    public @org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.NonNull DefaultListModel<String> framesWhichModifyKB(@org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.NonNull JavacycConnection conn) {
+        DefaultListModel<String> listModel = new DefaultListModel<String>();
+        TreeSet<String> frameSet = new TreeSet<String>();
+        for (AbstractFrameEdit frameEdit : frameEdits) {
+            Frame frame = getFrameByID(frameEdit.getFrameID());
+            if (frame == null)
+                frameSet.add(frameEdit.getFrameID());
+            else {
+                boolean modifiesKB = true;
+                try {
+                    modifiesKB = frameEdit.modifiesFrame(conn, frame);
+                } catch (PtoolsErrorException e) {
+                    e.printStackTrace();
+                }
+                if (modifiesKB) {
+                    frameSet.add(frameEdit.getFrameID());
+                }
+            }
+        }
+        for (String frame : frameSet) listModel.addElement(frame);
+        return listModel;
+    }
+
+    @org.checkerframework.framework.qual.RequiresQualifier(expression = { "this.eventLog" }, qualifier = org.checkerframework.checker.nullness.qual.Nullable.class)
+    @org.checkerframework.framework.qual.RequiresQualifier(expression = { "this.framesFromKB" }, qualifier = org.checkerframework.checker.nullness.qual.Nullable.class)
+    @org.checkerframework.framework.qual.RequiresQualifier(expression = { "this.lines" }, qualifier = org.checkerframework.checker.nullness.qual.Nullable.class)
+    @org.checkerframework.framework.qual.RequiresQualifier(expression = { "this.linesProcessed" }, qualifier = org.checkerframework.checker.nullness.qual.Nullable.class)
+    @org.checkerframework.framework.qual.RequiresQualifier(expression = { "this.progressMonitor" }, qualifier = org.checkerframework.checker.nullness.qual.Nullable.class)
+    @org.checkerframework.framework.qual.RequiresQualifier(expression = { "this.task" }, qualifier = org.checkerframework.checker.nullness.qual.Nullable.class)
+    @org.checkerframework.framework.qual.EnsuresQualifier(expression = { "this.eventLog" }, qualifier = org.checkerframework.checker.nullness.qual.Nullable.class)
+    @org.checkerframework.framework.qual.EnsuresQualifier(expression = { "this.framesFromKB" }, qualifier = org.checkerframework.checker.nullness.qual.Nullable.class)
+    @org.checkerframework.framework.qual.EnsuresQualifier(expression = { "this.lines" }, qualifier = org.checkerframework.checker.nullness.qual.Nullable.class)
+    @org.checkerframework.framework.qual.EnsuresQualifier(expression = { "this.linesProcessed" }, qualifier = org.checkerframework.checker.nullness.qual.Nullable.class)
+    @org.checkerframework.framework.qual.EnsuresQualifier(expression = { "this.progressMonitor" }, qualifier = org.checkerframework.checker.nullness.qual.Nullable.class)
+    @org.checkerframework.framework.qual.EnsuresQualifier(expression = { "this.task" }, qualifier = org.checkerframework.checker.nullness.qual.Nullable.class)
+    @org.checkerframework.dataflow.qual.Impure
+    private @org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.NonNull TreeSet<String> getFramesWhichModifyKB(@org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.NonNull JavacycConnection conn) {
+        TreeSet<String> frameSet = new TreeSet<String>();
+        for (AbstractFrameEdit frameEdit : frameEdits) {
+            Frame frame = getFrameByID(frameEdit.getFrameID());
+            if (frame == null)
+                frameSet.add(frameEdit.getFrameID());
+            else {
+                boolean modifiesKB = true;
+                try {
+                    modifiesKB = frameEdit.modifiesFrame(conn, frame);
+                } catch (PtoolsErrorException e) {
+                    e.printStackTrace();
+                }
+                if (modifiesKB) {
+                    frameSet.add(frameEdit.getFrameID());
+                }
+            }
+        }
+        return frameSet;
+    }
+
+    @org.checkerframework.framework.qual.EnsuresQualifier(expression = { "this.eventLog" }, qualifier = org.checkerframework.checker.nullness.qual.Nullable.class)
+    @org.checkerframework.framework.qual.EnsuresQualifier(expression = { "this.framesFromKB" }, qualifier = org.checkerframework.checker.nullness.qual.Nullable.class)
+    @org.checkerframework.framework.qual.EnsuresQualifier(expression = { "this.lines" }, qualifier = org.checkerframework.checker.nullness.qual.Nullable.class)
+    @org.checkerframework.framework.qual.EnsuresQualifier(expression = { "this.linesProcessed" }, qualifier = org.checkerframework.checker.nullness.qual.Nullable.class)
+    @org.checkerframework.framework.qual.EnsuresQualifier(expression = { "this.progressMonitor" }, qualifier = org.checkerframework.checker.nullness.qual.Nullable.class)
+    @org.checkerframework.framework.qual.EnsuresQualifier(expression = { "this.task" }, qualifier = org.checkerframework.checker.nullness.qual.Nullable.class)
+    @org.checkerframework.dataflow.qual.Impure
+    public void createAuthorCredits(@org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.NonNull String author, @org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.NonNull String organization, @org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.NonNull JavacycConnection conn) {
+        TreeSet<String> frameIDs = getFramesWhichModifyKB(conn);
+        Calendar now = new GregorianCalendar();
+        String seconds = "" + now.get(Calendar.SECOND);
+        String minutes = "" + now.get(Calendar.MINUTE);
+        String hours = "" + now.get(Calendar.HOUR_OF_DAY);
+        String day = "" + now.get(Calendar.DAY_OF_MONTH);
+        String month = "" + now.get(Calendar.MONTH);
+        String year = "" + now.get(Calendar.YEAR);
+        String encodedTime = "";
+        try {
+            encodedTime = conn.encodeTimeStamp(seconds, minutes, hours, day, month, year);
+        } catch (PtoolsErrorException e) {
+            e.printStackTrace();
+        }
+        for (String frameID : frameIDs) frameEdits.add(new AuthorCreditUpdate(frameID, author, organization, encodedTime, new int[0]));
+    }
+
+    @org.checkerframework.framework.qual.RequiresQualifier(expression = { "this.eventLog" }, qualifier = org.checkerframework.checker.nullness.qual.Nullable.class)
+    @org.checkerframework.framework.qual.RequiresQualifier(expression = { "this.framesFromKB" }, qualifier = org.checkerframework.checker.nullness.qual.Nullable.class)
+    @org.checkerframework.framework.qual.RequiresQualifier(expression = { "this.lines" }, qualifier = org.checkerframework.checker.nullness.qual.Nullable.class)
+    @org.checkerframework.framework.qual.RequiresQualifier(expression = { "this.linesProcessed" }, qualifier = org.checkerframework.checker.nullness.qual.Nullable.class)
+    @org.checkerframework.framework.qual.RequiresQualifier(expression = { "this.progressMonitor" }, qualifier = org.checkerframework.checker.nullness.qual.Nullable.class)
+    @org.checkerframework.framework.qual.RequiresQualifier(expression = { "this.task" }, qualifier = org.checkerframework.checker.nullness.qual.Nullable.class)
+    @org.checkerframework.checker.nullness.qual.EnsuresNonNull({ "this.framesFromKB" })
+    @org.checkerframework.framework.qual.EnsuresQualifier(expression = { "this.eventLog" }, qualifier = org.checkerframework.checker.nullness.qual.Nullable.class)
+    @org.checkerframework.framework.qual.EnsuresQualifier(expression = { "this.lines" }, qualifier = org.checkerframework.checker.nullness.qual.Nullable.class)
+    @org.checkerframework.framework.qual.EnsuresQualifier(expression = { "this.linesProcessed" }, qualifier = org.checkerframework.checker.nullness.qual.Nullable.class)
+    @org.checkerframework.framework.qual.EnsuresQualifier(expression = { "this.progressMonitor" }, qualifier = org.checkerframework.checker.nullness.qual.Nullable.class)
+    @org.checkerframework.framework.qual.EnsuresQualifier(expression = { "this.task" }, qualifier = org.checkerframework.checker.nullness.qual.Nullable.class)
+    @org.checkerframework.dataflow.qual.Impure
+    public @org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.Nullable Frame getFrameByID(@org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.NonNull String frameID) {
+        for (Frame frame : framesFromKB) {
+            if (frame.getLocalID().equalsIgnoreCase(frameID))
+                return frame;
+        }
+        return null;
+    }
+
+    @org.checkerframework.framework.qual.EnsuresQualifier(expression = { "this.eventLog" }, qualifier = org.checkerframework.checker.nullness.qual.Nullable.class)
+    @org.checkerframework.framework.qual.EnsuresQualifier(expression = { "this.framesFromKB" }, qualifier = org.checkerframework.checker.nullness.qual.Nullable.class)
+    @org.checkerframework.framework.qual.EnsuresQualifier(expression = { "this.lines" }, qualifier = org.checkerframework.checker.nullness.qual.Nullable.class)
+    @org.checkerframework.framework.qual.EnsuresQualifier(expression = { "this.linesProcessed" }, qualifier = org.checkerframework.checker.nullness.qual.Nullable.class)
+    @org.checkerframework.framework.qual.EnsuresQualifier(expression = { "this.progressMonitor" }, qualifier = org.checkerframework.checker.nullness.qual.Nullable.class)
+    @org.checkerframework.framework.qual.EnsuresQualifier(expression = { "this.task" }, qualifier = org.checkerframework.checker.nullness.qual.Nullable.class)
+    @org.checkerframework.dataflow.qual.Impure
+    public @org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.Nullable Frame updateLocalFrame(@org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.NonNull Frame originalFrame) {
+        if (originalFrame == null)
+            return null;
+        Frame frameToModify = originalFrame.copy(originalFrame.getLocalID());
+        for (AbstractFrameEdit frameEdit : frameEdits) {
+            if (frameEdit.getFrameID().equals(originalFrame.getLocalID())) {
+                try {
+                    frameToModify = frameEdit.commitLocal(frameToModify);
+                } catch (PtoolsErrorException e) {
+                    e.printStackTrace();
+                    return null;
+                }
+            }
+        }
+        return frameToModify;
+    }
+
+    @org.checkerframework.checker.nullness.qual.EnsuresNonNull({ "this.lines" })
+    @org.checkerframework.framework.qual.EnsuresQualifier(expression = { "this.eventLog" }, qualifier = org.checkerframework.checker.nullness.qual.Nullable.class)
+    @org.checkerframework.framework.qual.EnsuresQualifier(expression = { "this.framesFromKB" }, qualifier = org.checkerframework.checker.nullness.qual.Nullable.class)
+    @org.checkerframework.framework.qual.EnsuresQualifier(expression = { "this.linesProcessed" }, qualifier = org.checkerframework.checker.nullness.qual.Nullable.class)
+    @org.checkerframework.framework.qual.EnsuresQualifier(expression = { "this.progressMonitor" }, qualifier = org.checkerframework.checker.nullness.qual.Nullable.class)
+    @org.checkerframework.framework.qual.EnsuresQualifier(expression = { "this.task" }, qualifier = org.checkerframework.checker.nullness.qual.Nullable.class)
+    @org.checkerframework.dataflow.qual.Impure
+    public void commitToKB(@org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.NonNull JavacycConnection conn) {
+        System.out.println("Converted " + lines.size() + " lines of updates into " + frameEdits.size() + " individual updates spanning across " + frameIDSet.size() + " frames.\n");
+        System.out.println("Processing individual updates...\n");
+        for (AbstractFrameEdit frameEdit : frameEdits) {
+            boolean result = false;
+            try {
+                for (int row : frameEdit.getAssociatedRows()) {
+                    linesProcessed.add(new Integer(row));
+                }
+                result = frameEdit.commit(conn);
+            } catch (PtoolsErrorException e) {
+                e.printStackTrace();
+            }
+            if (result) {
+                Event event = new Event(new Date(), Status.SUCCESS, frameEdit.toString());
+                eventLog.add(event);
+            } else {
+                Event event = new Event(new Date(), Status.FAIL, frameEdit.toString());
+                eventLog.add(event);
+            }
+        }
+    }
+
+    public class Event {
+
+        private @org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.NonNull Date timestamp;
+
+        private @org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.NonNull Status status;
+
+        private @org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.NonNull String event;
+
+        @org.checkerframework.dataflow.qual.SideEffectFree
+        public Event(@org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.NonNull Date timestamp, @org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.NonNull Status status, @org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.NonNull String event) {
+            this.timestamp = timestamp;
+            this.status = status;
+            this.event = event;
+        }
+
+        @org.checkerframework.dataflow.qual.Pure
+        public @org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.NonNull Date getTimeStamp() {
+            return timestamp;
+        }
+
+        @org.checkerframework.dataflow.qual.Pure
+        public @org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.NonNull Status getStatus() {
+            return status;
+        }
+
+        @org.checkerframework.dataflow.qual.Pure
+        public @org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.NonNull String getEvent() {
+            return event;
+        }
+
+        @org.checkerframework.dataflow.qual.Pure
+        public @org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.NonNull String toString(@org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.NonNull Event this) {
+            return timestamp.toString() + "\t" + status.toString() + "\t" + event;
+        }
+    }
+
+    public enum Status {
+
+        SUCCESS, FAIL, NOCHANGE
+    }
+}

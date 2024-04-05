@@ -1,0 +1,134 @@
+package edu.iastate.cyctools.tools.load.model;
+
+import java.util.ArrayList;
+import edu.iastate.javacyco.Frame;
+import edu.iastate.javacyco.JavacycConnection;
+import edu.iastate.javacyco.PtoolsErrorException;
+
+@org.checkerframework.framework.qual.AnnotatedFor("org.checkerframework.checker.nullness.NullnessChecker")
+public class AnnotationUpdate extends AbstractFrameDataEdit {
+
+    private @org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.NonNull String slotLabel;
+
+    private @org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.NonNull String slotValue;
+
+    private @org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.NonNull String annotationLabel;
+
+    protected @org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.NonNull ArrayList<String> annotationValues;
+
+    @org.checkerframework.dataflow.qual.Impure
+    public AnnotationUpdate(@org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.NonNull String frameID, @org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.NonNull String slotLabel, @org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.NonNull String slotValue, @org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.NonNull String annotationLabel, @org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.NonNull ArrayList<String> annotationValues,  @org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.NonNull boolean append,  @org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.NonNull boolean ignoreDuplicates,  @org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.NonNull int @org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.NonNull [] associatedRows) {
+        this.frameID = frameID;
+        this.slotLabel = slotLabel;
+        this.slotValue = slotValue;
+        this.annotationLabel = annotationLabel;
+        this.annotationValues = annotationValues;
+        this.append = append;
+        this.ignoreDuplicates = ignoreDuplicates;
+        this.associatedRows = associatedRows;
+    }
+
+    @org.checkerframework.dataflow.qual.Pure
+    protected @org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.NonNull String getSlotLabel() {
+        return slotLabel;
+    }
+
+    @org.checkerframework.dataflow.qual.Pure
+    protected @org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.NonNull String getSlotValue() {
+        return slotValue;
+    }
+
+    @org.checkerframework.dataflow.qual.Pure
+    protected @org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.NonNull String getAnnotationLabel() {
+        return annotationLabel;
+    }
+
+    // Catches all "special" cases for annotation updates, such as PUBMED citations
+    @org.checkerframework.dataflow.qual.Impure
+    public  @org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.NonNull boolean commit(@org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.NonNull AnnotationUpdate this, @org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.NonNull JavacycConnection conn) {
+        Frame frame = null;
+        try {
+            if (!conn.frameExists(frameID)) {
+                return false;
+            }
+            frame = this.getFrame(conn);
+        } catch (PtoolsErrorException e1) {
+            System.out.println("not sure how you would reach this");
+            return false;
+        }
+        ArrayList<String> newValues = new ArrayList<String>();
+        if (append) {
+            try {
+                newValues.addAll(frame.getAnnotations(slotLabel, slotValue, annotationLabel));
+            } catch (PtoolsErrorException e) {
+                System.out.println("not sure what to make of this.  The slot doesn't exist? bad data format?");
+                return false;
+            }
+        }
+        if (ignoreDuplicates) {
+            for (String value : annotationValues) {
+                if (!newValues.contains(value))
+                    newValues.add(value);
+            }
+        } else
+            newValues.addAll(annotationValues);
+        frame.putLocalSlotValueAnnotations(slotLabel, slotValue, annotationLabel, newValues);
+        try {
+            frame.commit();
+        } catch (PtoolsErrorException e) {
+            System.out.println("error during commit, recommend a rollback");
+            return false;
+        }
+        return true;
+    }
+
+    @org.checkerframework.dataflow.qual.Impure
+    public @org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.NonNull Frame commitLocal(@org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.NonNull AnnotationUpdate this, @org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.NonNull Frame frame) throws PtoolsErrorException {
+        ArrayList<String> newValues = new ArrayList<String>();
+        if (append) {
+            newValues.addAll(frame.getAnnotations(slotLabel, slotValue, annotationLabel));
+        }
+        if (ignoreDuplicates) {
+            for (String value : annotationValues) {
+                if (!newValues.contains(value))
+                    newValues.add(value);
+            }
+        } else
+            newValues.addAll(annotationValues);
+        frame.putLocalSlotValueAnnotations(slotLabel, slotValue, annotationLabel, newValues);
+        return frame;
+    }
+
+    @org.checkerframework.dataflow.qual.Pure
+    protected @org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.NonNull ArrayList<String> getValues(@org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.NonNull AnnotationUpdate this) {
+        return annotationValues;
+    }
+
+    @org.checkerframework.dataflow.qual.Impure
+    protected @org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.NonNull ArrayList<String> getRemoteValues(@org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.NonNull AnnotationUpdate this, @org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.NonNull JavacycConnection conn) throws PtoolsErrorException {
+        return (ArrayList<String>) conn.getValueAnnots(frameID, slotLabel, slotValue, annotationLabel);
+    }
+
+    @org.checkerframework.dataflow.qual.Impure
+    public  @org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.NonNull boolean modifiesFrame(@org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.NonNull AnnotationUpdate this, @org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.NonNull JavacycConnection conn, @org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.NonNull Frame aFrame) throws PtoolsErrorException {
+        Frame frameToModify = aFrame.copy(aFrame.getLocalID());
+        commitLocal(frameToModify);
+        // If the frames are not equal, a change has been made to the database.
+        boolean isModified = !aFrame.equalBySlotValues(frameToModify);
+        return isModified;
+    }
+
+    @org.checkerframework.dataflow.qual.SideEffectFree
+    public @org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.NonNull String toString(@org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.NonNull AnnotationUpdate this) {
+        String annotValues = "";
+        try {
+            for (String value : annotationValues) {
+                annotValues += value + ", ";
+            }
+            if (annotValues.length() > 0)
+                annotValues = annotValues.substring(0, annotValues.length() - 2);
+        } catch (Exception e) {
+        }
+        return "updating annotation: " + annotationLabel + " for slot: " + slotLabel + " on frame: " + frameID + " with the values: " + annotValues;
+    }
+}

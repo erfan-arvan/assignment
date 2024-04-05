@@ -1,0 +1,114 @@
+package edu.iastate.cyctools.externalSourceCode;
+
+/*
+ * KeyValueComboboxModel.java
+ *
+ * Borrowed from http://stackoverflow.com/questions/2095140/need-flexible-java-key-value-collection-class-for-jcombobox
+ * Modified for my purposes.      - Jesse Walsh
+ */
+import java.util.ArrayList;
+import java.util.Collection;
+import java.util.Iterator;
+import java.util.List;
+import java.util.Map;
+import java.util.Set;
+import java.util.TreeMap;
+import javax.swing.AbstractListModel;
+import javax.swing.ComboBoxModel;
+
+// Note that the default toString of a TreeMap.Entry object is to concat "key=value".  This can be changed by extending the combobox renderer
+@org.checkerframework.framework.qual.AnnotatedFor("org.checkerframework.checker.nullness.KeyForSubchecker")
+public class KeyValueComboboxModel extends AbstractListModel implements ComboBoxModel, Map<String, String> {
+
+    private  TreeMap<String, String> values = new TreeMap<String, String>();
+
+    private Map. Entry<String, String> selectedItem = null;
+
+    @org.checkerframework.dataflow.qual.Pure
+    public  Object getSelectedItem( KeyValueComboboxModel this) {
+        return selectedItem;
+    }
+
+    @org.checkerframework.dataflow.qual.Impure
+    public void setSelectedItem( KeyValueComboboxModel this,  Object anItem) {
+        this.selectedItem = (java.util.Map.Entry<String, String>) anItem;
+        fireContentsChanged(this, -1, -1);
+    }
+
+    @org.checkerframework.dataflow.qual.Pure
+    public  Object getElementAt( KeyValueComboboxModel this,   int index) {
+        List<Map.Entry<String, String>> list = new ArrayList<Map.Entry<String, String>>(values.entrySet());
+        return list.get(index);
+    }
+
+    @org.checkerframework.dataflow.qual.Pure
+    public   int getSize( KeyValueComboboxModel this) {
+        return values.size();
+    }
+
+    @org.checkerframework.dataflow.qual.Impure
+    public void clear( KeyValueComboboxModel this) {
+        values.clear();
+    }
+
+    @org.checkerframework.dataflow.qual.Pure
+    public   boolean containsKey( KeyValueComboboxModel this,  Object key) {
+        return values.containsKey(key);
+    }
+
+    @org.checkerframework.dataflow.qual.Pure
+    public   boolean containsValue( KeyValueComboboxModel this,  Object value) {
+        return values.containsValue(value);
+    }
+
+    @org.checkerframework.dataflow.qual.Pure
+    public  Set<java.util.Map.Entry<String, String>> entrySet( KeyValueComboboxModel this) {
+        return values.entrySet();
+    }
+
+    @org.checkerframework.dataflow.qual.Pure
+    public  String get( KeyValueComboboxModel this,  Object key) {
+        return values.get(key);
+    }
+
+    @org.checkerframework.dataflow.qual.Pure
+    public  Set<String> keySet( KeyValueComboboxModel this) {
+        return values.keySet();
+    }
+
+    @org.checkerframework.dataflow.qual.Impure
+    public  String put( KeyValueComboboxModel this,  String key,  String value) {
+        return values.put(key, value);
+    }
+
+    @org.checkerframework.dataflow.qual.Impure
+    public  String remove( KeyValueComboboxModel this,  Object key) {
+        return values.remove(key);
+    }
+
+    @org.checkerframework.dataflow.qual.Pure
+    public   int size( KeyValueComboboxModel this) {
+        return values.size();
+    }
+
+    @org.checkerframework.dataflow.qual.Pure
+    public  Collection<String> values( KeyValueComboboxModel this) {
+        return values.values();
+    }
+
+    @org.checkerframework.dataflow.qual.Pure
+    public   boolean isEmpty( KeyValueComboboxModel this) {
+        return values.isEmpty();
+    }
+
+    @org.checkerframework.dataflow.qual.Impure
+    public void putAll( KeyValueComboboxModel this,  Map<? extends String, ? extends String> m) {
+        values.putAll(m);
+    }
+
+    @org.checkerframework.dataflow.qual.Pure
+    private static  String entryToString(Map.Entry<String, String> entry) {
+        String str = "" + entry.getKey() + "->" + entry.getValue();
+        return str;
+    }
+}

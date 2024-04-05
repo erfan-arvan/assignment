@@ -1,0 +1,1348 @@
+../dataset/urlcdab7d8364_jrwalsh_CycTools_tgz-pJ8-edu_iastate_cyctools_MainJ8/src/edu/iastate/cyctools/tools/frameView/SearchResultDialog.java:40: error: (argument) $$ 4 $$ owner $$ JDialog constructor $$ @Initialized @Nullable JFrame $$ @Initialized @NonNull Frame $$ ( 1439, 1450 ) $$ incompatible argument for parameter owner of JDialog constructor.
+		super(parentFrame, true);
+		      ^
+  found   : @Initialized @Nullable JFrame
+  required: @Initialized @NonNull Frame
+../dataset/urlcdab7d8364_jrwalsh_CycTools_tgz-pJ8-edu_iastate_cyctools_MainJ8/src/edu/iastate/cyctools/tools/frameView/SearchResultDialog.java:41: error: (method.invocation) $$ 3 $$ setTitle(java.lang.String) $$ @UnderInitialization(javax.swing.JDialog.class) @NonNull Dialog $$ @Initialized @NonNull Dialog $$ ( 1462, 1488 ) $$ call to setTitle(java.lang.String) not allowed on the given receiver.
+		setTitle("Search Results");
+		        ^
+  found   : @UnderInitialization(javax.swing.JDialog.class) @NonNull Dialog
+  required: @Initialized @NonNull Dialog
+../dataset/urlcdab7d8364_jrwalsh_CycTools_tgz-pJ8-edu_iastate_cyctools_MainJ8/src/edu/iastate/cyctools/tools/frameView/SearchResultDialog.java:44: error: (method.invocation) $$ 3 $$ getContentPane() $$ @UnderInitialization(javax.swing.JDialog.class) @NonNull JDialog $$ @Initialized @NonNull JDialog $$ ( 1529, 1545 ) $$ call to getContentPane() not allowed on the given receiver.
+		getContentPane().add(panel, BorderLayout.CENTER);
+		              ^
+  found   : @UnderInitialization(javax.swing.JDialog.class) @NonNull JDialog
+  required: @Initialized @NonNull JDialog
+../dataset/urlcdab7d8364_jrwalsh_CycTools_tgz-pJ8-edu_iastate_cyctools_MainJ8/src/edu/iastate/cyctools/tools/frameView/SearchResultDialog.java:47: error: (argument) $$ 4 $$ l $$ AbstractButton.addActionListener $$ @UnderInitialization(javax.swing.JDialog.class) @NonNull SearchResultDialog $$ @Initialized @NonNull ActionListener $$ ( 1658, 1662 ) $$ incompatible argument for parameter l of AbstractButton.addActionListener.
+		btnNewButton.addActionListener(this);
+		                               ^
+  found   : @UnderInitialization(javax.swing.JDialog.class) @NonNull SearchResultDialog
+  required: @Initialized @NonNull ActionListener
+../dataset/urlcdab7d8364_jrwalsh_CycTools_tgz-pJ8-edu_iastate_cyctools_MainJ8/src/edu/iastate/cyctools/tools/frameView/SearchResultDialog.java:50: error: (argument) $$ 4 $$ l $$ AbstractButton.addActionListener $$ @UnderInitialization(javax.swing.JDialog.class) @NonNull SearchResultDialog $$ @Initialized @NonNull ActionListener $$ ( 1744, 1748 ) $$ incompatible argument for parameter l of AbstractButton.addActionListener.
+		btnNewButton_1.addActionListener(this);
+		                                 ^
+  found   : @UnderInitialization(javax.swing.JDialog.class) @NonNull SearchResultDialog
+  required: @Initialized @NonNull ActionListener
+../dataset/urlcdab7d8364_jrwalsh_CycTools_tgz-pJ8-edu_iastate_cyctools_MainJ8/src/edu/iastate/cyctools/tools/frameView/SearchResultDialog.java:57: error: (dereference.of.nullable) $$ 1 $$ listMatches $$ ( 1969, 1980 ) $$ dereference of possibly-null reference listMatches
+				listMatches.clearSelection();
+				^
+../dataset/urlcdab7d8364_jrwalsh_CycTools_tgz-pJ8-edu_iastate_cyctools_MainJ8/src/edu/iastate/cyctools/tools/frameView/SearchResultDialog.java:62: error: (override.param) $$ 7 $$ value $$ @Initialized @NonNull Object $$ @Initialized @Nullable Object $$ @Initialized @NonNull SearchResultDialog.@Initialized @NonNull <anonymous edu.iastate.cyctools.tools.frameView.SearchResultDialog$2> $$ @Initialized @NonNull Component getListCellRendererComponent(@Initialized @NonNull SearchResultDialog.@Initialized @NonNull <anonymous edu.iastate.cyctools.tools.frameView.SearchResultDialog$2> this, @Initialized @NonNull JList</*RAW*/> p0, @Initialized @NonNull Object p1, @Initialized @NonNull int p2, @Initialized @NonNull boolean p3, @Initialized @NonNull boolean p4) $$ @Initialized @NonNull DefaultListCellRenderer $$ @Initialized @NonNull Component getListCellRendererComponent(@Initialized @NonNull DefaultListCellRenderer this, @Initialized @NonNull JList<? extends @Initialized @Nullable Object> p0, @Initialized @Nullable Object p1, @Initialized @NonNull int p2, @Initialized @NonNull boolean p3, @Initialized @NonNull boolean p4) $$ ( 2167, 2179 ) $$ Incompatible parameter type for value.
+	        public Component getListCellRendererComponent(final JList list, Object value, final int index, final boolean isSelected, final boolean cellHasFocus) {
+	                                                                               ^
+  found   : @Initialized @NonNull Object
+  required: @Initialized @Nullable Object
+  Consequence: method in @Initialized @NonNull SearchResultDialog.@Initialized @NonNull <anonymous edu.iastate.cyctools.tools.frameView.SearchResultDialog$2>
+    @Initialized @NonNull Component getListCellRendererComponent(@Initialized @NonNull SearchResultDialog.@Initialized @NonNull <anonymous edu.iastate.cyctools.tools.frameView.SearchResultDialog$2> this, @Initialized @NonNull JList</*RAW*/> p0, @Initialized @NonNull Object p1, @Initialized @NonNull int p2, @Initialized @NonNull boolean p3, @Initialized @NonNull boolean p4)
+  cannot override method in @Initialized @NonNull DefaultListCellRenderer
+    @Initialized @NonNull Component getListCellRendererComponent(@Initialized @NonNull DefaultListCellRenderer this, @Initialized @NonNull JList<? extends @Initialized @Nullable Object> p0, @Initialized @Nullable Object p1, @Initialized @NonNull int p2, @Initialized @NonNull boolean p3, @Initialized @NonNull boolean p4)
+../dataset/urlcdab7d8364_jrwalsh_CycTools_tgz-pJ8-edu_iastate_cyctools_MainJ8/src/edu/iastate/cyctools/tools/frameView/SearchResultDialog.java:116: error: (override.param) $$ 7 $$ value $$ @Initialized @NonNull Object $$ @Initialized @Nullable Object $$ @Initialized @NonNull SearchResultDialog.@Initialized @NonNull <anonymous edu.iastate.cyctools.tools.frameView.SearchResultDialog$4> $$ @Initialized @NonNull Component getListCellRendererComponent(@Initialized @NonNull SearchResultDialog.@Initialized @NonNull <anonymous edu.iastate.cyctools.tools.frameView.SearchResultDialog$4> this, @Initialized @NonNull JList</*RAW*/> p0, @Initialized @NonNull Object p1, @Initialized @NonNull int p2, @Initialized @NonNull boolean p3, @Initialized @NonNull boolean p4) $$ @Initialized @NonNull DefaultListCellRenderer $$ @Initialized @NonNull Component getListCellRendererComponent(@Initialized @NonNull DefaultListCellRenderer this, @Initialized @NonNull JList<? extends @Initialized @Nullable Object> p0, @Initialized @Nullable Object p1, @Initialized @NonNull int p2, @Initialized @NonNull boolean p3, @Initialized @NonNull boolean p4) $$ ( 4509, 4521 ) $$ Incompatible parameter type for value.
+	        public Component getListCellRendererComponent(final JList list, Object value, final int index, final boolean isSelected, final boolean cellHasFocus) {
+	                                                                               ^
+  found   : @Initialized @NonNull Object
+  required: @Initialized @Nullable Object
+  Consequence: method in @Initialized @NonNull SearchResultDialog.@Initialized @NonNull <anonymous edu.iastate.cyctools.tools.frameView.SearchResultDialog$4>
+    @Initialized @NonNull Component getListCellRendererComponent(@Initialized @NonNull SearchResultDialog.@Initialized @NonNull <anonymous edu.iastate.cyctools.tools.frameView.SearchResultDialog$4> this, @Initialized @NonNull JList</*RAW*/> p0, @Initialized @NonNull Object p1, @Initialized @NonNull int p2, @Initialized @NonNull boolean p3, @Initialized @NonNull boolean p4)
+  cannot override method in @Initialized @NonNull DefaultListCellRenderer
+    @Initialized @NonNull Component getListCellRendererComponent(@Initialized @NonNull DefaultListCellRenderer this, @Initialized @NonNull JList<? extends @Initialized @Nullable Object> p0, @Initialized @Nullable Object p1, @Initialized @NonNull int p2, @Initialized @NonNull boolean p3, @Initialized @NonNull boolean p4)
+../dataset/urlcdab7d8364_jrwalsh_CycTools_tgz-pJ8-edu_iastate_cyctools_MainJ8/src/edu/iastate/cyctools/tools/frameView/SearchResultDialog.java:127: error: (method.invocation) $$ 3 $$ pack() $$ @UnderInitialization(edu.iastate.cyctools.tools.frameView.SearchResultDialog.class) @NonNull Window $$ @Initialized @NonNull Window $$ ( 4992, 4998 ) $$ call to pack() not allowed on the given receiver.
+		pack();
+		    ^
+  found   : @UnderInitialization(edu.iastate.cyctools.tools.frameView.SearchResultDialog.class) @NonNull Window
+  required: @Initialized @NonNull Window
+../dataset/urlcdab7d8364_jrwalsh_CycTools_tgz-pJ8-edu_iastate_cyctools_MainJ8/src/edu/iastate/cyctools/tools/frameView/SearchResultDialog.java:128: error: (method.invocation) $$ 3 $$ setLocationRelativeTo(java.awt.Component) $$ @UnderInitialization(edu.iastate.cyctools.tools.frameView.SearchResultDialog.class) @NonNull Window $$ @Initialized @NonNull Window $$ ( 5003, 5037 ) $$ call to setLocationRelativeTo(java.awt.Component) not allowed on the given receiver.
+		setLocationRelativeTo(parentFrame);
+		                     ^
+  found   : @UnderInitialization(edu.iastate.cyctools.tools.frameView.SearchResultDialog.class) @NonNull Window
+  required: @Initialized @NonNull Window
+../dataset/urlcdab7d8364_jrwalsh_CycTools_tgz-pJ8-edu_iastate_cyctools_MainJ8/src/edu/iastate/cyctools/tools/frameView/SearchResultDialog.java:129: error: (method.invocation) $$ 3 $$ setVisible(boolean) $$ @UnderInitialization(edu.iastate.cyctools.tools.frameView.SearchResultDialog.class) @NonNull Dialog $$ @Initialized @NonNull Dialog $$ ( 5042, 5058 ) $$ call to setVisible(boolean) not allowed on the given receiver.
+		setVisible(true);
+		          ^
+  found   : @UnderInitialization(edu.iastate.cyctools.tools.frameView.SearchResultDialog.class) @NonNull Dialog
+  required: @Initialized @NonNull Dialog
+../dataset/urlcdab7d8364_jrwalsh_CycTools_tgz-pJ8-edu_iastate_cyctools_MainJ8/src/edu/iastate/cyctools/tools/frameView/SearchResultDialog.java:163: error: (dereference.of.nullable) $$ 1 $$ ((Map.Entry<String, String>)listExact.getSelectedValue()) $$ ( 6159, 6217 ) $$ dereference of possibly-null reference ((Map.Entry<String, String>)listExact.getSelectedValue())
+			if (!listExact.isSelectionEmpty()) selectedFrameID = ((Map.Entry<String, String>) listExact.getSelectedValue()).getKey();
+			                                                     ^
+../dataset/urlcdab7d8364_jrwalsh_CycTools_tgz-pJ8-edu_iastate_cyctools_MainJ8/src/edu/iastate/cyctools/tools/frameView/SearchResultDialog.java:164: error: (dereference.of.nullable) $$ 1 $$ ((Map.Entry<String, String>)listMatches.getSelectedValue()) $$ ( 6292, 6352 ) $$ dereference of possibly-null reference ((Map.Entry<String, String>)listMatches.getSelectedValue())
+			else if (!listMatches.isSelectionEmpty()) selectedFrameID = ((Map.Entry<String, String>) listMatches.getSelectedValue()).getKey();
+			                                                            ^
+../dataset/urlcdab7d8364_jrwalsh_CycTools_tgz-pJ8-edu_iastate_cyctools_MainJ8/src/edu/iastate/cyctools/externalSourceCode/KeyValueComboboxModel.java:29: error: (override.return) $$ 6 $$ @Initialized @Nullable Object $$ @Initialized @NonNull Object $$ @Initialized @NonNull KeyValueComboboxModel $$ @Initialized @Nullable Object getSelectedItem(@Initialized @NonNull KeyValueComboboxModel this) $$ @Initialized @NonNull ComboBoxModel</*RAW*/> $$ @Initialized @NonNull Object getSelectedItem(@Initialized @NonNull ComboBoxModel</*RAW*/> this) $$ ( 1003, 1009 ) $$ Incompatible return type.
+    public Object getSelectedItem() {
+           ^
+  found   : @Initialized @Nullable Object
+  required: @Initialized @NonNull Object
+  Consequence: method in @Initialized @NonNull KeyValueComboboxModel
+    @Initialized @Nullable Object getSelectedItem(@Initialized @NonNull KeyValueComboboxModel this)
+  cannot override method in @Initialized @NonNull ComboBoxModel</*RAW*/>
+    @Initialized @NonNull Object getSelectedItem(@Initialized @NonNull ComboBoxModel</*RAW*/> this)
+../dataset/urlcdab7d8364_jrwalsh_CycTools_tgz-pJ8-edu_iastate_cyctools_MainJ8/src/edu/iastate/cyctools/externalSourceCode/KeyValueComboboxModel.java:52: error: (contracts.conditional.postcondition) $$ 4 $$ containsKey $$ true $$ key is @KeyFor("this.values") $$ key is @KeyFor("this") $$ ( 1627, 1658 ) $$ conditional postcondition is not satisfied when containsKey returns true.
+        return values.containsKey(key);
+        ^
+  found   : key is @KeyFor("this.values")
+  required: key is @KeyFor("this")
+../dataset/urlcdab7d8364_jrwalsh_CycTools_tgz-pJ8-edu_iastate_cyctools_MainJ8/src/edu/iastate/cyctools/externalSourceCode/KeyValueComboboxModel.java:59: error: (override.return) $$ 6 $$ Set<Entry<String, String>> $$ Set<Entry<@KeyFor("this") String, String>> $$ KeyValueComboboxModel $$ Set<Entry<String, String>> entrySet(KeyValueComboboxModel this) $$ Map<String, String> $$ Set<Entry<@KeyFor("this") String, String>> entrySet(Map<String, String> this) $$ ( 1784, 1824 ) $$ Incompatible return type.
+    public Set<java.util.Map.Entry<String, String>> entrySet() {
+              ^
+  found   : Set<Entry<String, String>>
+  required: Set<Entry<@KeyFor("this") String, String>>
+  Consequence: method in KeyValueComboboxModel
+    Set<Entry<String, String>> entrySet(KeyValueComboboxModel this)
+  cannot override method in Map<String, String>
+    Set<Entry<@KeyFor("this") String, String>> entrySet(Map<String, String> this)
+../dataset/urlcdab7d8364_jrwalsh_CycTools_tgz-pJ8-edu_iastate_cyctools_MainJ8/src/edu/iastate/cyctools/externalSourceCode/KeyValueComboboxModel.java:60: error: (return) $$ 2 $$ Set<Entry<@KeyFor("this.values") String, String>> $$ Set<Entry<String, String>> $$ ( 1854, 1871 ) $$ incompatible types in return.
+        return values.entrySet();
+                              ^
+  type of expression: Set<Entry<@KeyFor("this.values") String, String>>
+  method return type: Set<Entry<String, String>>
+../dataset/urlcdab7d8364_jrwalsh_CycTools_tgz-pJ8-edu_iastate_cyctools_MainJ8/src/edu/iastate/cyctools/externalSourceCode/KeyValueComboboxModel.java:67: error: (override.return) $$ 6 $$ Set<String> $$ Set<@KeyFor("this") String> $$ KeyValueComboboxModel $$ Set<String> keySet(KeyValueComboboxModel this) $$ Map<String, String> $$ Set<@KeyFor("this") String> keySet(Map<String, String> this) $$ ( 1973, 1984 ) $$ Incompatible return type.
+    public Set<String> keySet() {
+              ^
+  found   : Set<String>
+  required: Set<@KeyFor("this") String>
+  Consequence: method in KeyValueComboboxModel
+    Set<String> keySet(KeyValueComboboxModel this)
+  cannot override method in Map<String, String>
+    Set<@KeyFor("this") String> keySet(Map<String, String> this)
+../dataset/urlcdab7d8364_jrwalsh_CycTools_tgz-pJ8-edu_iastate_cyctools_MainJ8/src/edu/iastate/cyctools/externalSourceCode/KeyValueComboboxModel.java:68: error: (return) $$ 2 $$ Set<@KeyFor("this.values") String> $$ Set<String> $$ ( 2012, 2027 ) $$ incompatible types in return.
+        return values.keySet();
+                            ^
+  type of expression: Set<@KeyFor("this.values") String>
+  method return type: Set<String>
+../dataset/urlcdab7d8364_jrwalsh_CycTools_tgz-pJ8-edu_iastate_cyctools_MainJ8/src/edu/iastate/cyctools/externalSourceCode/KeyValueComboboxModel.java:71: error: (contracts.postcondition) $$ 3 $$ put $$ key is @KeyFor("this.values") $$ key is @KeyFor("this") $$ ( 2043, 2135 ) $$ postcondition of put is not satisfied.
+    public String put(String key, String value) {
+                  ^
+  found   : key is @KeyFor("this.values")
+  required: key is @KeyFor("this")
+../dataset/urlcdab7d8364_jrwalsh_CycTools_tgz-pJ8-edu_iastate_cyctools_MainJ8/src/edu/iastate/cyctools/tools/frameView/FrameViewPanel.java:51: error: (initialization.fields.uninitialized) $$ 1 $$ scrollPane, textArea, txtEnterFrameid, button, cmbType $$ ( 1544, 1840 ) $$ the constructor does not initialize fields: scrollPane, textArea, txtEnterFrameid, button, cmbType
+	public FrameViewPanel(DefaultController controller) {
+	       ^
+../dataset/urlcdab7d8364_jrwalsh_CycTools_tgz-pJ8-edu_iastate_cyctools_MainJ8/src/edu/iastate/cyctools/tools/frameView/FrameViewPanel.java:52: error: (method.invocation) $$ 3 $$ addComponentListener(java.awt.event.ComponentListener) $$ @UnderInitialization(edu.iastate.cyctools.externalSourceCode.AbstractViewPanel.class) @NonNull Component $$ @Initialized @NonNull Component $$ ( 1600, 1747 ) $$ call to addComponentListener(java.awt.event.ComponentListener) not allowed on the given receiver.
+		addComponentListener(new ComponentAdapter() {
+		                    ^
+  found   : @UnderInitialization(edu.iastate.cyctools.externalSourceCode.AbstractViewPanel.class) @NonNull Component
+  required: @Initialized @NonNull Component
+../dataset/urlcdab7d8364_jrwalsh_CycTools_tgz-pJ8-edu_iastate_cyctools_MainJ8/src/edu/iastate/cyctools/tools/frameView/FrameViewPanel.java:55: error: (dereference.of.nullable) $$ 1 $$ textArea $$ ( 1716, 1724 ) $$ dereference of possibly-null reference textArea
+				textArea.setText("");
+				^
+../dataset/urlcdab7d8364_jrwalsh_CycTools_tgz-pJ8-edu_iastate_cyctools_MainJ8/src/edu/iastate/cyctools/tools/frameView/FrameViewPanel.java:60: error: (method.invocation) $$ 3 $$ initComponents() $$ @UnderInitialization(edu.iastate.cyctools.externalSourceCode.AbstractViewPanel.class) @NonNull FrameViewPanel $$ @Initialized @NonNull FrameViewPanel $$ ( 1786, 1802 ) $$ call to initComponents() not allowed on the given receiver.
+		initComponents();
+		              ^
+  found   : @UnderInitialization(edu.iastate.cyctools.externalSourceCode.AbstractViewPanel.class) @NonNull FrameViewPanel
+  required: @Initialized @NonNull FrameViewPanel
+../dataset/urlcdab7d8364_jrwalsh_CycTools_tgz-pJ8-edu_iastate_cyctools_MainJ8/src/edu/iastate/cyctools/tools/frameView/FrameViewPanel.java:61: error: (method.invocation) $$ 3 $$ localInitialization() $$ @UnderInitialization(edu.iastate.cyctools.externalSourceCode.AbstractViewPanel.class) @NonNull FrameViewPanel $$ @Initialized @NonNull FrameViewPanel $$ ( 1812, 1833 ) $$ call to localInitialization() not allowed on the given receiver.
+        localInitialization();
+                           ^
+  found   : @UnderInitialization(edu.iastate.cyctools.externalSourceCode.AbstractViewPanel.class) @NonNull FrameViewPanel
+  required: @Initialized @NonNull FrameViewPanel
+../dataset/urlcdab7d8364_jrwalsh_CycTools_tgz-pJ8-edu_iastate_cyctools_MainJ8/src/edu/iastate/cyctools/tools/frameView/FrameViewPanel.java:82: error: (override.param) $$ 7 $$ value $$ @Initialized @NonNull Object $$ @Initialized @Nullable Object $$ @Initialized @NonNull FrameViewPanel.@Initialized @NonNull <anonymous edu.iastate.cyctools.tools.frameView.FrameViewPanel$2> $$ @Initialized @NonNull Component getListCellRendererComponent(@Initialized @NonNull FrameViewPanel.@Initialized @NonNull <anonymous edu.iastate.cyctools.tools.frameView.FrameViewPanel$2> this, @Initialized @NonNull JList</*RAW*/> p0, @Initialized @NonNull Object p1, @Initialized @NonNull int p2, @Initialized @NonNull boolean p3, @Initialized @NonNull boolean p4) $$ @Initialized @NonNull DefaultListCellRenderer $$ @Initialized @NonNull Component getListCellRendererComponent(@Initialized @NonNull DefaultListCellRenderer this, @Initialized @NonNull JList<? extends @Initialized @Nullable Object> p0, @Initialized @Nullable Object p1, @Initialized @NonNull int p2, @Initialized @NonNull boolean p3, @Initialized @NonNull boolean p4) $$ ( 2692, 2704 ) $$ Incompatible parameter type for value.
+	        public Component getListCellRendererComponent(final JList list, Object value, final int index, final boolean isSelected, final boolean cellHasFocus) {
+	                                                                               ^
+  found   : @Initialized @NonNull Object
+  required: @Initialized @Nullable Object
+  Consequence: method in @Initialized @NonNull FrameViewPanel.@Initialized @NonNull <anonymous edu.iastate.cyctools.tools.frameView.FrameViewPanel$2>
+    @Initialized @NonNull Component getListCellRendererComponent(@Initialized @NonNull FrameViewPanel.@Initialized @NonNull <anonymous edu.iastate.cyctools.tools.frameView.FrameViewPanel$2> this, @Initialized @NonNull JList</*RAW*/> p0, @Initialized @NonNull Object p1, @Initialized @NonNull int p2, @Initialized @NonNull boolean p3, @Initialized @NonNull boolean p4)
+  cannot override method in @Initialized @NonNull DefaultListCellRenderer
+    @Initialized @NonNull Component getListCellRendererComponent(@Initialized @NonNull DefaultListCellRenderer this, @Initialized @NonNull JList<? extends @Initialized @Nullable Object> p0, @Initialized @Nullable Object p1, @Initialized @NonNull int p2, @Initialized @NonNull boolean p3, @Initialized @NonNull boolean p4)
+../dataset/urlcdab7d8364_jrwalsh_CycTools_tgz-pJ8-edu_iastate_cyctools_MainJ8/src/edu/iastate/cyctools/tools/frameView/FrameViewPanel.java:126: error: (method.invocation) $$ 3 $$ putValue(java.lang.String,java.lang.Object) $$ @UnderInitialization(edu.iastate.cyctools.tools.frameView.FrameViewPanel.ActionSubmit.class) @NonNull AbstractAction $$ @Initialized @NonNull AbstractAction $$ ( 4205, 4229 ) $$ call to putValue(java.lang.String,java.lang.Object) not allowed on the given receiver.
+			putValue(NAME, "Submit");
+			        ^
+  found   : @UnderInitialization(edu.iastate.cyctools.tools.frameView.FrameViewPanel.ActionSubmit.class) @NonNull AbstractAction
+  required: @Initialized @NonNull AbstractAction
+../dataset/urlcdab7d8364_jrwalsh_CycTools_tgz-pJ8-edu_iastate_cyctools_MainJ8/src/edu/iastate/cyctools/tools/frameView/FrameViewPanel.java:127: error: (method.invocation) $$ 3 $$ putValue(java.lang.String,java.lang.Object) $$ @UnderInitialization(edu.iastate.cyctools.tools.frameView.FrameViewPanel.ActionSubmit.class) @NonNull AbstractAction $$ @Initialized @NonNull AbstractAction $$ ( 4234, 4334 ) $$ call to putValue(java.lang.String,java.lang.Object) not allowed on the given receiver.
+			putValue(SHORT_DESCRIPTION, "Submits query from text field and returns results in the primary tab.");
+			        ^
+  found   : @UnderInitialization(edu.iastate.cyctools.tools.frameView.FrameViewPanel.ActionSubmit.class) @NonNull AbstractAction
+  required: @Initialized @NonNull AbstractAction
+../dataset/urlcdab7d8364_jrwalsh_CycTools_tgz-pJ8-edu_iastate_cyctools_MainJ8/src/edu/iastate/cyctools/tools/frameView/FrameViewPanel.java:138: error: (dereference.of.nullable) $$ 1 $$ controller.getConnection() $$ ( 4612, 4638 ) $$ dereference of possibly-null reference controller.getConnection()
+				exactMatch = controller.getConnection().frameExists(searchValue) ? Frame.load(controller.getConnection(), searchValue) : null;
+				                                     ^
+../dataset/urlcdab7d8364_jrwalsh_CycTools_tgz-pJ8-edu_iastate_cyctools_MainJ8/src/edu/iastate/cyctools/tools/frameView/FrameViewPanel.java:150: error: (argument) $$ 4 $$ t $$ JTextComponent.setText $$ @Initialized @Nullable String $$ @Initialized @NonNull String $$ ( 5263, 5269 ) $$ incompatible argument for parameter t of JTextComponent.setText.
+					textArea.setText(result);
+					                 ^
+  found   : @Initialized @Nullable String
+  required: @Initialized @NonNull String
+../dataset/urlcdab7d8364_jrwalsh_CycTools_tgz-pJ8-edu_iastate_cyctools_MainJ8/src/edu/iastate/cyctools/InternalStateModel.java:8: error: (initialization.fields.uninitialized) $$ 1 $$ state $$ ( 181, 236 ) $$ the constructor does not initialize fields: state
+    public InternalStateModel() {
+           ^
+../dataset/urlcdab7d8364_jrwalsh_CycTools_tgz-pJ8-edu_iastate_cyctools_MainJ8/src/edu/iastate/cyctools/InternalStateModel.java:9: error: (method.invocation) $$ 3 $$ initDefault() $$ @UnderInitialization(edu.iastate.cyctools.externalSourceCode.AbstractModel.class) @NonNull InternalStateModel $$ @Initialized @NonNull InternalStateModel $$ ( 216, 229 ) $$ call to initDefault() not allowed on the given receiver.
+    	initDefault();
+    	           ^
+  found   : @UnderInitialization(edu.iastate.cyctools.externalSourceCode.AbstractModel.class) @NonNull InternalStateModel
+  required: @Initialized @NonNull InternalStateModel
+../dataset/urlcdab7d8364_jrwalsh_CycTools_tgz-pJ8-edu_iastate_cyctools_MainJ8/src/edu/iastate/cyctools/DefaultController.java:65: error: (dereference.of.nullable) $$ 1 $$ this.documentModel $$ ( 2400, 2418 ) $$ dereference of possibly-null reference this.documentModel
+    	this.documentModel.setFile(newFile, delimiter);
+    	    ^
+../dataset/urlcdab7d8364_jrwalsh_CycTools_tgz-pJ8-edu_iastate_cyctools_MainJ8/src/edu/iastate/cyctools/DefaultController.java:89: error: (dereference.of.nullable) $$ 1 $$ dataAccess $$ ( 2983, 2993 ) $$ dereference of possibly-null reference dataAccess
+    	return dataAccess.getConnection();
+    	       ^
+../dataset/urlcdab7d8364_jrwalsh_CycTools_tgz-pJ8-edu_iastate_cyctools_MainJ8/src/edu/iastate/cyctools/DefaultController.java:120: error: (dereference.of.nullable) $$ 1 $$ toolPanel $$ ( 4017, 4026 ) $$ dereference of possibly-null reference toolPanel
+    	toolPanel.lockToolBar();
+    	^
+../dataset/urlcdab7d8364_jrwalsh_CycTools_tgz-pJ8-edu_iastate_cyctools_MainJ8/src/edu/iastate/cyctools/DefaultController.java:121: error: (dereference.of.nullable) $$ 1 $$ mainJFrame $$ ( 4047, 4057 ) $$ dereference of possibly-null reference mainJFrame
+    	mainJFrame.setDefaultCloseOperation(JFrame.DO_NOTHING_ON_CLOSE);
+    	^
+../dataset/urlcdab7d8364_jrwalsh_CycTools_tgz-pJ8-edu_iastate_cyctools_MainJ8/src/edu/iastate/cyctools/DefaultController.java:136: error: (dereference.of.nullable) $$ 1 $$ toolPanel $$ ( 4732, 4741 ) $$ dereference of possibly-null reference toolPanel
+    	toolPanel.unLockToolBar();
+    	^
+../dataset/urlcdab7d8364_jrwalsh_CycTools_tgz-pJ8-edu_iastate_cyctools_MainJ8/src/edu/iastate/cyctools/DefaultController.java:137: error: (dereference.of.nullable) $$ 1 $$ mainJFrame $$ ( 4764, 4774 ) $$ dereference of possibly-null reference mainJFrame
+    	mainJFrame.setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
+    	^
+../dataset/urlcdab7d8364_jrwalsh_CycTools_tgz-pJ8-edu_iastate_cyctools_MainJ8/src/edu/iastate/cyctools/DefaultController.java:138: error: (argument) $$ 4 $$ l $$ Window.removeWindowListener $$ @Initialized @MonotonicNonNull WindowAdapter $$ @Initialized @NonNull WindowListener $$ ( 4869, 4879 ) $$ incompatible argument for parameter l of Window.removeWindowListener.
+    	mainJFrame.removeWindowListener(winAdaptor);
+    	                                ^
+  found   : @Initialized @MonotonicNonNull WindowAdapter
+  required: @Initialized @NonNull WindowListener
+../dataset/urlcdab7d8364_jrwalsh_CycTools_tgz-pJ8-edu_iastate_cyctools_MainJ8/src/edu/iastate/cyctools/DefaultController.java:147: error: (dereference.of.nullable) $$ 1 $$ dataAccess $$ ( 5053, 5063 ) $$ dereference of possibly-null reference dataAccess
+    	dataAccess.selectOrganism(organism);
+    	^
+../dataset/urlcdab7d8364_jrwalsh_CycTools_tgz-pJ8-edu_iastate_cyctools_MainJ8/src/edu/iastate/cyctools/DefaultController.java:153: error: (dereference.of.nullable) $$ 1 $$ dataAccess $$ ( 5191, 5201 ) $$ dereference of possibly-null reference dataAccess
+    	return dataAccess.getAvailableOrganisms();
+    	       ^
+../dataset/urlcdab7d8364_jrwalsh_CycTools_tgz-pJ8-edu_iastate_cyctools_MainJ8/src/edu/iastate/cyctools/DefaultController.java:157: error: (dereference.of.nullable) $$ 1 $$ dataAccess $$ ( 5300, 5310 ) $$ dereference of possibly-null reference dataAccess
+    	return dataAccess.frameToString(frameID);
+    	       ^
+../dataset/urlcdab7d8364_jrwalsh_CycTools_tgz-pJ8-edu_iastate_cyctools_MainJ8/src/edu/iastate/cyctools/DefaultController.java:161: error: (dereference.of.nullable) $$ 1 $$ dataAccess $$ ( 5405, 5415 ) $$ dereference of possibly-null reference dataAccess
+    	return dataAccess.frameToString(frame);
+    	       ^
+../dataset/urlcdab7d8364_jrwalsh_CycTools_tgz-pJ8-edu_iastate_cyctools_MainJ8/src/edu/iastate/cyctools/DefaultController.java:165: error: (dereference.of.nullable) $$ 1 $$ dataAccess $$ ( 5530, 5540 ) $$ dereference of possibly-null reference dataAccess
+		return dataAccess.substringSearch(text, type);
+		       ^
+../dataset/urlcdab7d8364_jrwalsh_CycTools_tgz-pJ8-edu_iastate_cyctools_MainJ8/src/edu/iastate/cyctools/DefaultController.java:169: error: (dereference.of.nullable) $$ 1 $$ dataAccess $$ ( 5649, 5659 ) $$ dereference of possibly-null reference dataAccess
+		return dataAccess.getFramesOfType(type);
+		       ^
+../dataset/urlcdab7d8364_jrwalsh_CycTools_tgz-pJ8-edu_iastate_cyctools_MainJ8/src/edu/iastate/cyctools/DefaultController.java:173: error: (dereference.of.nullable) $$ 1 $$ dataAccess $$ ( 5760, 5770 ) $$ dereference of possibly-null reference dataAccess
+		return dataAccess.printFramesToXML(path, type);
+		       ^
+../dataset/urlcdab7d8364_jrwalsh_CycTools_tgz-pJ8-edu_iastate_cyctools_MainJ8/src/edu/iastate/cyctools/DefaultController.java:177: error: (dereference.of.nullable) $$ 1 $$ dataAccess $$ ( 5878, 5888 ) $$ dereference of possibly-null reference dataAccess
+		return dataAccess.printFramesToCSV(path, type);
+		       ^
+../dataset/urlcdab7d8364_jrwalsh_CycTools_tgz-pJ8-edu_iastate_cyctools_MainJ8/src/edu/iastate/cyctools/DefaultController.java:181: error: (dereference.of.nullable) $$ 1 $$ dataAccess $$ ( 6015, 6025 ) $$ dereference of possibly-null reference dataAccess
+		return dataAccess.getSearchResultsTable(text, type);
+		       ^
+../dataset/urlcdab7d8364_jrwalsh_CycTools_tgz-pJ8-edu_iastate_cyctools_MainJ8/src/edu/iastate/cyctools/DefaultController.java:185: error: (dereference.of.nullable) $$ 1 $$ dataAccess $$ ( 6152, 6162 ) $$ dereference of possibly-null reference dataAccess
+		return dataAccess.getPGDBChildrenOfFrame(rootGFPtype);
+		       ^
+../dataset/urlcdab7d8364_jrwalsh_CycTools_tgz-pJ8-edu_iastate_cyctools_MainJ8/src/edu/iastate/cyctools/DefaultController.java:189: error: (dereference.of.nullable) $$ 1 $$ dataAccess $$ ( 6334, 6344 ) $$ dereference of possibly-null reference dataAccess
+		return dataAccess.getPGDBStructureTable(rootGFPtype, includeInstances, directionForward);
+		       ^
+../dataset/urlcdab7d8364_jrwalsh_CycTools_tgz-pJ8-edu_iastate_cyctools_MainJ8/src/edu/iastate/cyctools/DefaultController.java:193: error: (dereference.of.nullable) $$ 1 $$ documentModel $$ ( 6563, 6576 ) $$ dereference of possibly-null reference documentModel
+    	ArrayList<AbstractFrameEdit> frameUpdates = interpreter.tableToFrameUpdates(documentModel.getTableModel());
+    	                                                                            ^
+../dataset/urlcdab7d8364_jrwalsh_CycTools_tgz-pJ8-edu_iastate_cyctools_MainJ8/src/edu/iastate/cyctools/DefaultController.java:194: error: (dereference.of.nullable) $$ 1 $$ dataAccess $$ ( 6597, 6607 ) $$ dereference of possibly-null reference dataAccess
+		dataAccess.commitFrameUpdates(frameUpdates);
+		^
+../dataset/urlcdab7d8364_jrwalsh_CycTools_tgz-pJ8-edu_iastate_cyctools_MainJ8/src/edu/iastate/cyctools/DefaultController.java:198: error: (dereference.of.nullable) $$ 1 $$ dataAccess $$ ( 6748, 6758 ) $$ dereference of possibly-null reference dataAccess
+		return dataAccess.updateLocalFrame(frameID, frameUpdates);
+		       ^
+../dataset/urlcdab7d8364_jrwalsh_CycTools_tgz-pJ8-edu_iastate_cyctools_MainJ8/src/edu/iastate/cyctools/DefaultController.java:202: error: (dereference.of.nullable) $$ 1 $$ dataAccess $$ ( 6842, 6852 ) $$ dereference of possibly-null reference dataAccess
+		dataAccess.revertDataBase();
+		^
+../dataset/urlcdab7d8364_jrwalsh_CycTools_tgz-pJ8-edu_iastate_cyctools_MainJ8/src/edu/iastate/cyctools/DefaultController.java:206: error: (dereference.of.nullable) $$ 1 $$ dataAccess $$ ( 6908, 6918 ) $$ dereference of possibly-null reference dataAccess
+		dataAccess.saveDataBase();
+		^
+../dataset/urlcdab7d8364_jrwalsh_CycTools_tgz-pJ8-edu_iastate_cyctools_MainJ8/src/edu/iastate/cyctools/DefaultController.java:210: error: (dereference.of.nullable) $$ 1 $$ dataAccess $$ ( 6988, 6998 ) $$ dereference of possibly-null reference dataAccess
+		return dataAccess.getSelectedOrganism();
+		       ^
+../dataset/urlcdab7d8364_jrwalsh_CycTools_tgz-pJ8-edu_iastate_cyctools_MainJ8/src/edu/iastate/cyctools/DefaultController.java:214: error: (dereference.of.nullable) $$ 1 $$ dataAccess $$ ( 7093, 7103 ) $$ dereference of possibly-null reference dataAccess
+		return dataAccess.getOrganismCommonName(organismID);
+		       ^
+../dataset/urlcdab7d8364_jrwalsh_CycTools_tgz-pJ8-edu_iastate_cyctools_MainJ8/src/edu/iastate/cyctools/DefaultController.java:218: error: (dereference.of.nullable) $$ 1 $$ toolPanel $$ ( 7189, 7198 ) $$ dereference of possibly-null reference toolPanel
+		toolPanel.lockToolBarOrganismSelect();
+		^
+../dataset/urlcdab7d8364_jrwalsh_CycTools_tgz-pJ8-edu_iastate_cyctools_MainJ8/src/edu/iastate/cyctools/DefaultController.java:222: error: (dereference.of.nullable) $$ 1 $$ toolPanel $$ ( 7283, 7292 ) $$ dereference of possibly-null reference toolPanel
+		toolPanel.unLockToolBarOrganismSelect();
+		^
+../dataset/urlcdab7d8364_jrwalsh_CycTools_tgz-pJ8-edu_iastate_cyctools_MainJ8/src/edu/iastate/cyctools/DefaultController.java:233: error: (dereference.of.nullable) $$ 1 $$ dataAccess $$ ( 7553, 7563 ) $$ dereference of possibly-null reference dataAccess
+		return dataAccess.isCurrentKBModified(kb);
+		       ^
+../dataset/urlcdab7d8364_jrwalsh_CycTools_tgz-pJ8-edu_iastate_cyctools_MainJ8/src/edu/iastate/cyctools/DefaultController.java:237: error: (dereference.of.nullable) $$ 1 $$ menuPanel $$ ( 7654, 7663 ) $$ dereference of possibly-null reference menuPanel
+		menuPanel.setDisconnectActionEnabled(enabled);
+		^
+../dataset/urlcdab7d8364_jrwalsh_CycTools_tgz-pJ8-edu_iastate_cyctools_MainJ8/src/edu/iastate/cyctools/externalSourceCode/AbstractModel.java:32: error: (assignment) $$ 2 $$ @UnderInitialization(java.beans.PropertyChangeSupport.class) @NonNull PropertyChangeSupport $$ @Initialized @NonNull PropertyChangeSupport $$ ( 945, 976 ) $$ incompatible types in assignment.
+        propertyChangeSupport = new PropertyChangeSupport(this);
+                                ^
+  found   : @UnderInitialization(java.beans.PropertyChangeSupport.class) @NonNull PropertyChangeSupport
+  required: @Initialized @NonNull PropertyChangeSupport
+../dataset/urlcdab7d8364_jrwalsh_CycTools_tgz-pJ8-edu_iastate_cyctools_MainJ8/src/edu/iastate/cyctools/externalSourceCode/AbstractModel.java:40: error: (method.invocation) $$ 3 $$ addPropertyChangeListener(java.beans.PropertyChangeListener) $$ @UnderInitialization(java.beans.PropertyChangeSupport.class) @NonNull PropertyChangeSupport $$ @Initialized @NonNull PropertyChangeSupport $$ ( 1189, 1239 ) $$ call to addPropertyChangeListener(java.beans.PropertyChangeListener) not allowed on the given receiver.
+        propertyChangeSupport.addPropertyChangeListener(l);
+                                                       ^
+  found   : @UnderInitialization(java.beans.PropertyChangeSupport.class) @NonNull PropertyChangeSupport
+  required: @Initialized @NonNull PropertyChangeSupport
+../dataset/urlcdab7d8364_jrwalsh_CycTools_tgz-pJ8-edu_iastate_cyctools_MainJ8/src/edu/iastate/cyctools/externalSourceCode/AbstractModel.java:48: error: (method.invocation) $$ 3 $$ removePropertyChangeListener(java.beans.PropertyChangeListener) $$ @UnderInitialization(java.beans.PropertyChangeSupport.class) @NonNull PropertyChangeSupport $$ @Initialized @NonNull PropertyChangeSupport $$ ( 1460, 1513 ) $$ call to removePropertyChangeListener(java.beans.PropertyChangeListener) not allowed on the given receiver.
+        propertyChangeSupport.removePropertyChangeListener(l);
+                                                          ^
+  found   : @UnderInitialization(java.beans.PropertyChangeSupport.class) @NonNull PropertyChangeSupport
+  required: @Initialized @NonNull PropertyChangeSupport
+../dataset/urlcdab7d8364_jrwalsh_CycTools_tgz-pJ8-edu_iastate_cyctools_MainJ8/src/edu/iastate/cyctools/externalSourceCode/AbstractModel.java:59: error: (method.invocation) $$ 3 $$ firePropertyChange(java.lang.String,java.lang.Object,java.lang.Object) $$ @UnderInitialization(java.beans.PropertyChangeSupport.class) @NonNull PropertyChangeSupport $$ @Initialized @NonNull PropertyChangeSupport $$ ( 1951, 2025 ) $$ call to firePropertyChange(java.lang.String,java.lang.Object,java.lang.Object) not allowed on the given receiver.
+        propertyChangeSupport.firePropertyChange(propertyName, oldValue, newValue);
+                                                ^
+  found   : @UnderInitialization(java.beans.PropertyChangeSupport.class) @NonNull PropertyChangeSupport
+  required: @Initialized @NonNull PropertyChangeSupport
+../dataset/urlcdab7d8364_jrwalsh_CycTools_tgz-pJ8-edu_iastate_cyctools_MainJ8/src/edu/iastate/cyctools/CycDataBaseAccess.java:55: error: (method.invocation) $$ 3 $$ init() $$ @UnderInitialization(edu.iastate.cyctools.CycDataBaseAccess.class) @NonNull CycDataBaseAccess $$ @Initialized @NonNull CycDataBaseAccess $$ ( 1775, 1781 ) $$ call to init() not allowed on the given receiver.
+		init();
+		    ^
+  found   : @UnderInitialization(edu.iastate.cyctools.CycDataBaseAccess.class) @NonNull CycDataBaseAccess
+  required: @Initialized @NonNull CycDataBaseAccess
+../dataset/urlcdab7d8364_jrwalsh_CycTools_tgz-pJ8-edu_iastate_cyctools_MainJ8/src/edu/iastate/cyctools/CycDataBaseAccess.java:63: error: (dereference.of.nullable) $$ 1 $$ conn $$ ( 1932, 1936 ) $$ dereference of possibly-null reference conn
+				ArrayList<OrgStruct> orgs = conn.allOrgs();
+				                            ^
+../dataset/urlcdab7d8364_jrwalsh_CycTools_tgz-pJ8-edu_iastate_cyctools_MainJ8/src/edu/iastate/cyctools/CycDataBaseAccess.java:101: error: (dereference.of.nullable) $$ 1 $$ conn $$ ( 2842, 2846 ) $$ dereference of possibly-null reference conn
+		conn.setQueryTimeOutLength(miliseconds);
+		^
+../dataset/urlcdab7d8364_jrwalsh_CycTools_tgz-pJ8-edu_iastate_cyctools_MainJ8/src/edu/iastate/cyctools/CycDataBaseAccess.java:112: error: (dereference.of.nullable) $$ 1 $$ conn $$ ( 3188, 3192 ) $$ dereference of possibly-null reference conn
+		return conn.getOrganismID();
+		       ^
+../dataset/urlcdab7d8364_jrwalsh_CycTools_tgz-pJ8-edu_iastate_cyctools_MainJ8/src/edu/iastate/cyctools/CycDataBaseAccess.java:118: error: (dereference.of.nullable) $$ 1 $$ conn $$ ( 3346, 3350 ) $$ dereference of possibly-null reference conn
+			return conn.allOrgs();
+			       ^
+../dataset/urlcdab7d8364_jrwalsh_CycTools_tgz-pJ8-edu_iastate_cyctools_MainJ8/src/edu/iastate/cyctools/CycDataBaseAccess.java:128: error: (argument) $$ 4 $$ c $$ Frame.load $$ @Initialized @Nullable JavacycConnection $$ @Initialized @NonNull JavacycConnection $$ ( 3596, 3600 ) $$ incompatible argument for parameter c of Frame.load.
+			Frame frame = Frame.load(conn, frameID);
+			                         ^
+  found   : @Initialized @Nullable JavacycConnection
+  required: @Initialized @NonNull JavacycConnection
+../dataset/urlcdab7d8364_jrwalsh_CycTools_tgz-pJ8-edu_iastate_cyctools_MainJ8/src/edu/iastate/cyctools/CycDataBaseAccess.java:164: error: (dereference.of.nullable) $$ 1 $$ conn $$ ( 4781, 4785 ) $$ dereference of possibly-null reference conn
+			if (conn.frameExists(frame.getLocalID())) { // Can only print frame type information if the frame exists in the database
+			    ^
+../dataset/urlcdab7d8364_jrwalsh_CycTools_tgz-pJ8-edu_iastate_cyctools_MainJ8/src/edu/iastate/cyctools/CycDataBaseAccess.java:190: error: (dereference.of.nullable) $$ 1 $$ conn $$ ( 5821, 5825 ) $$ dereference of possibly-null reference conn
+			return conn.search(text, type);
+			       ^
+../dataset/urlcdab7d8364_jrwalsh_CycTools_tgz-pJ8-edu_iastate_cyctools_MainJ8/src/edu/iastate/cyctools/CycDataBaseAccess.java:200: error: (dereference.of.nullable) $$ 1 $$ conn $$ ( 6128, 6132 ) $$ dereference of possibly-null reference conn
+			childFrameIDs = (ArrayList<String>)conn.getClassDirectSubs(classFrameID);
+			                                   ^
+../dataset/urlcdab7d8364_jrwalsh_CycTools_tgz-pJ8-edu_iastate_cyctools_MainJ8/src/edu/iastate/cyctools/CycDataBaseAccess.java:210: error: (dereference.of.nullable) $$ 1 $$ conn $$ ( 6394, 6398 ) $$ dereference of possibly-null reference conn
+			for (Frame f : conn.getAllGFPInstances(type)) {
+			               ^
+../dataset/urlcdab7d8364_jrwalsh_CycTools_tgz-pJ8-edu_iastate_cyctools_MainJ8/src/edu/iastate/cyctools/CycDataBaseAccess.java:223: error: (dereference.of.nullable) $$ 1 $$ conn $$ ( 6652, 6656 ) $$ dereference of possibly-null reference conn
+			org = conn.getOrganism();
+			      ^
+../dataset/urlcdab7d8364_jrwalsh_CycTools_tgz-pJ8-edu_iastate_cyctools_MainJ8/src/edu/iastate/cyctools/CycDataBaseAccess.java:252: error: (dereference.of.nullable) $$ 1 $$ conn $$ ( 8078, 8082 ) $$ dereference of possibly-null reference conn
+			for (Frame f : conn.getAllGFPInstances(type)) {
+			               ^
+../dataset/urlcdab7d8364_jrwalsh_CycTools_tgz-pJ8-edu_iastate_cyctools_MainJ8/src/edu/iastate/cyctools/CycDataBaseAccess.java:343: error: (argument) $$ 4 $$ c $$ Frame.load $$ @Initialized @Nullable JavacycConnection $$ @Initialized @NonNull JavacycConnection $$ ( 11666, 11670 ) $$ incompatible argument for parameter c of Frame.load.
+			frames.add(Frame.load(conn,  "G-14659"));
+			                      ^
+  found   : @Initialized @Nullable JavacycConnection
+  required: @Initialized @NonNull JavacycConnection
+../dataset/urlcdab7d8364_jrwalsh_CycTools_tgz-pJ8-edu_iastate_cyctools_MainJ8/src/edu/iastate/cyctools/CycDataBaseAccess.java:482: error: (dereference.of.nullable) $$ 1 $$ conn $$ ( 16015, 16019 ) $$ dereference of possibly-null reference conn
+			network = conn.getClassHierarchy(rootGFPtype, includeInstances, directionForward);
+			          ^
+../dataset/urlcdab7d8364_jrwalsh_CycTools_tgz-pJ8-edu_iastate_cyctools_MainJ8/src/edu/iastate/cyctools/CycDataBaseAccess.java:502: error: (dereference.of.nullable) $$ 1 $$ conn $$ ( 16689, 16693 ) $$ dereference of possibly-null reference conn
+			conn.saveKB();
+			^
+../dataset/urlcdab7d8364_jrwalsh_CycTools_tgz-pJ8-edu_iastate_cyctools_MainJ8/src/edu/iastate/cyctools/CycDataBaseAccess.java:510: error: (dereference.of.nullable) $$ 1 $$ conn $$ ( 16817, 16821 ) $$ dereference of possibly-null reference conn
+			conn.revertKB();
+			^
+../dataset/urlcdab7d8364_jrwalsh_CycTools_tgz-pJ8-edu_iastate_cyctools_MainJ8/src/edu/iastate/cyctools/CycDataBaseAccess.java:530: error: (argument) $$ 4 $$ c $$ Frame.load $$ @Initialized @Nullable JavacycConnection $$ @Initialized @NonNull JavacycConnection $$ ( 17368, 17372 ) $$ incompatible argument for parameter c of Frame.load.
+			frame = Frame.load(conn, frameID);
+			                   ^
+  found   : @Initialized @Nullable JavacycConnection
+  required: @Initialized @NonNull JavacycConnection
+../dataset/urlcdab7d8364_jrwalsh_CycTools_tgz-pJ8-edu_iastate_cyctools_MainJ8/src/edu/iastate/cyctools/CycDataBaseAccess.java:544: error: (argument) $$ 4 $$ c $$ Frame.load $$ @Initialized @Nullable JavacycConnection $$ @Initialized @NonNull JavacycConnection $$ ( 17701, 17705 ) $$ incompatible argument for parameter c of Frame.load.
+			frame = Frame.load(conn, frameID);
+			                   ^
+  found   : @Initialized @Nullable JavacycConnection
+  required: @Initialized @NonNull JavacycConnection
+../dataset/urlcdab7d8364_jrwalsh_CycTools_tgz-pJ8-edu_iastate_cyctools_MainJ8/src/edu/iastate/cyctools/CycDataBaseAccess.java:593: error: (argument) $$ 4 $$ parentComponent $$ ProgressMonitor constructor $$ @Initialized @MonotonicNonNull JFrame $$ @Initialized @NonNull Component $$ ( 19658, 19686 ) $$ incompatible argument for parameter parentComponent of ProgressMonitor constructor.
+		progressMonitor = new ProgressMonitor(DefaultController.mainJFrame, "Running a Long Task", "", 0, 100);
+		                                                       ^
+  found   : @Initialized @MonotonicNonNull JFrame
+  required: @Initialized @NonNull Component
+../dataset/urlcdab7d8364_jrwalsh_CycTools_tgz-pJ8-edu_iastate_cyctools_MainJ8/src/edu/iastate/cyctools/CycDataBaseAccess.java:624: error: (override.return) $$ 6 $$ @Initialized @Nullable DefaultTableModel $$ @Initialized @NonNull DefaultTableModel $$ @Initialized @NonNull CycDataBaseAccess.@Initialized @NonNull GetSearchResultsTableTask $$ @Initialized @Nullable DefaultTableModel doInBackground(@Initialized @NonNull CycDataBaseAccess.@Initialized @NonNull GetSearchResultsTableTask this) $$ @Initialized @NonNull SwingWorker<@Initialized @NonNull DefaultTableModel, @Initialized @Nullable Void> $$ @Initialized @NonNull DefaultTableModel doInBackground(@Initialized @NonNull SwingWorker<@Initialized @NonNull DefaultTableModel, @Initialized @Nullable Void> this) throws @Initialized @NonNull Exception $$ ( 20471, 20488 ) $$ Incompatible return type.
+		public DefaultTableModel doInBackground() {
+		       ^
+  found   : @Initialized @Nullable DefaultTableModel
+  required: @Initialized @NonNull DefaultTableModel
+  Consequence: method in @Initialized @NonNull CycDataBaseAccess.@Initialized @NonNull GetSearchResultsTableTask
+    @Initialized @Nullable DefaultTableModel doInBackground(@Initialized @NonNull CycDataBaseAccess.@Initialized @NonNull GetSearchResultsTableTask this)
+  cannot override method in @Initialized @NonNull SwingWorker<@Initialized @NonNull DefaultTableModel, @Initialized @Nullable Void>
+    @Initialized @NonNull DefaultTableModel doInBackground(@Initialized @NonNull SwingWorker<@Initialized @NonNull DefaultTableModel, @Initialized @Nullable Void> this) throws @Initialized @NonNull Exception
+../dataset/urlcdab7d8364_jrwalsh_CycTools_tgz-pJ8-edu_iastate_cyctools_MainJ8/src/edu/iastate/cyctools/CycDataBaseAccess.java:638: error: (dereference.of.nullable) $$ 1 $$ conn $$ ( 20946, 20950 ) $$ dereference of possibly-null reference conn
+					ArrayList<Frame> results = conn.search(term, type);
+					                           ^
+../dataset/urlcdab7d8364_jrwalsh_CycTools_tgz-pJ8-edu_iastate_cyctools_MainJ8/src/edu/iastate/cyctools/CycDataBaseAccess.java:660: error: (dereference.of.nullable) $$ 1 $$ progressMonitor $$ ( 21570, 21585 ) $$ dereference of possibly-null reference progressMonitor
+			progressMonitor.setProgress(0);
+			^
+../dataset/urlcdab7d8364_jrwalsh_CycTools_tgz-pJ8-edu_iastate_cyctools_MainJ8/src/edu/iastate/cyctools/CycDataBaseAccess.java:668: error: (dereference.of.nullable) $$ 1 $$ progressMonitor $$ ( 21786, 21801 ) $$ dereference of possibly-null reference progressMonitor
+			progressMonitor.setProgress(progress);
+			^
+../dataset/urlcdab7d8364_jrwalsh_CycTools_tgz-pJ8-edu_iastate_cyctools_MainJ8/src/edu/iastate/cyctools/CycDataBaseAccess.java:670: error: (dereference.of.nullable) $$ 1 $$ task $$ ( 21868, 21872 ) $$ dereference of possibly-null reference task
+			if (progressMonitor.isCanceled() || task.isDone()) {
+			                                    ^
+../dataset/urlcdab7d8364_jrwalsh_CycTools_tgz-pJ8-edu_iastate_cyctools_MainJ8/src/edu/iastate/cyctools/CycDataBaseAccess.java:672: error: (dereference.of.nullable) $$ 1 $$ task $$ ( 21930, 21934 ) $$ dereference of possibly-null reference task
+					task.cancel(true);
+					^
+../dataset/urlcdab7d8364_jrwalsh_CycTools_tgz-pJ8-edu_iastate_cyctools_MainJ8/src/edu/iastate/cyctools/CycDataBaseAccess.java:681: error: (dereference.of.nullable) $$ 1 $$ conn $$ ( 22048, 22052 ) $$ dereference of possibly-null reference conn
+			return conn.isModified(kb);
+			       ^
+../dataset/urlcdab7d8364_jrwalsh_CycTools_tgz-pJ8-edu_iastate_cyctools_MainJ8/src/edu/iastate/cyctools/view/ToolPanel.java:43: error: (initialization.fields.uninitialized) $$ 1 $$ comboBoxOrganism, btnHome $$ ( 1284, 1424 ) $$ the constructor does not initialize fields: comboBoxOrganism, btnHome
+	public ToolPanel(DefaultController controller) {
+	       ^
+../dataset/urlcdab7d8364_jrwalsh_CycTools_tgz-pJ8-edu_iastate_cyctools_MainJ8/src/edu/iastate/cyctools/view/ToolPanel.java:46: error: (method.invocation) $$ 3 $$ initComponents() $$ @UnderInitialization(edu.iastate.cyctools.externalSourceCode.AbstractViewPanel.class) @NonNull ToolPanel $$ @Initialized @NonNull ToolPanel $$ ( 1370, 1386 ) $$ call to initComponents() not allowed on the given receiver.
+		initComponents();
+		              ^
+  found   : @UnderInitialization(edu.iastate.cyctools.externalSourceCode.AbstractViewPanel.class) @NonNull ToolPanel
+  required: @Initialized @NonNull ToolPanel
+../dataset/urlcdab7d8364_jrwalsh_CycTools_tgz-pJ8-edu_iastate_cyctools_MainJ8/src/edu/iastate/cyctools/view/ToolPanel.java:47: error: (method.invocation) $$ 3 $$ localInitialization() $$ @UnderInitialization(edu.iastate.cyctools.externalSourceCode.AbstractViewPanel.class) @NonNull ToolPanel $$ @Initialized @NonNull ToolPanel $$ ( 1396, 1417 ) $$ call to localInitialization() not allowed on the given receiver.
+        localInitialization();
+                           ^
+  found   : @UnderInitialization(edu.iastate.cyctools.externalSourceCode.AbstractViewPanel.class) @NonNull ToolPanel
+  required: @Initialized @NonNull ToolPanel
+../dataset/urlcdab7d8364_jrwalsh_CycTools_tgz-pJ8-edu_iastate_cyctools_MainJ8/src/edu/iastate/cyctools/view/ToolPanel.java:66: error: (override.param) $$ 7 $$ value $$ @Initialized @NonNull Object $$ @Initialized @Nullable Object $$ @Initialized @NonNull ToolPanel.@Initialized @NonNull <anonymous edu.iastate.cyctools.view.ToolPanel$1> $$ @Initialized @NonNull Component getListCellRendererComponent(@Initialized @NonNull ToolPanel.@Initialized @NonNull <anonymous edu.iastate.cyctools.view.ToolPanel$1> this, @Initialized @NonNull JList</*RAW*/> p0, @Initialized @NonNull Object p1, @Initialized @NonNull int p2, @Initialized @NonNull boolean p3, @Initialized @NonNull boolean p4) $$ @Initialized @NonNull DefaultListCellRenderer $$ @Initialized @NonNull Component getListCellRendererComponent(@Initialized @NonNull DefaultListCellRenderer this, @Initialized @NonNull JList<? extends @Initialized @Nullable Object> p0, @Initialized @Nullable Object p1, @Initialized @NonNull int p2, @Initialized @NonNull boolean p3, @Initialized @NonNull boolean p4) $$ ( 2025, 2037 ) $$ Incompatible parameter type for value.
+	        public Component getListCellRendererComponent(final JList list, Object value, final int index, final boolean isSelected, final boolean cellHasFocus) {
+	                                                                               ^
+  found   : @Initialized @NonNull Object
+  required: @Initialized @Nullable Object
+  Consequence: method in @Initialized @NonNull ToolPanel.@Initialized @NonNull <anonymous edu.iastate.cyctools.view.ToolPanel$1>
+    @Initialized @NonNull Component getListCellRendererComponent(@Initialized @NonNull ToolPanel.@Initialized @NonNull <anonymous edu.iastate.cyctools.view.ToolPanel$1> this, @Initialized @NonNull JList</*RAW*/> p0, @Initialized @NonNull Object p1, @Initialized @NonNull int p2, @Initialized @NonNull boolean p3, @Initialized @NonNull boolean p4)
+  cannot override method in @Initialized @NonNull DefaultListCellRenderer
+    @Initialized @NonNull Component getListCellRendererComponent(@Initialized @NonNull DefaultListCellRenderer this, @Initialized @NonNull JList<? extends @Initialized @Nullable Object> p0, @Initialized @Nullable Object p1, @Initialized @NonNull int p2, @Initialized @NonNull boolean p3, @Initialized @NonNull boolean p4)
+../dataset/urlcdab7d8364_jrwalsh_CycTools_tgz-pJ8-edu_iastate_cyctools_MainJ8/src/edu/iastate/cyctools/view/ToolPanel.java:137: error: (method.invocation) $$ 3 $$ putValue(java.lang.String,java.lang.Object) $$ @UnderInitialization(edu.iastate.cyctools.view.ToolPanel.ActionSetOrganism.class) @NonNull AbstractAction $$ @Initialized @NonNull AbstractAction $$ ( 4313, 4343 ) $$ call to putValue(java.lang.String,java.lang.Object) not allowed on the given receiver.
+			putValue(NAME, "Set Organism");
+			        ^
+  found   : @UnderInitialization(edu.iastate.cyctools.view.ToolPanel.ActionSetOrganism.class) @NonNull AbstractAction
+  required: @Initialized @NonNull AbstractAction
+../dataset/urlcdab7d8364_jrwalsh_CycTools_tgz-pJ8-edu_iastate_cyctools_MainJ8/src/edu/iastate/cyctools/view/ToolPanel.java:138: error: (method.invocation) $$ 3 $$ putValue(java.lang.String,java.lang.Object) $$ @UnderInitialization(edu.iastate.cyctools.view.ToolPanel.ActionSetOrganism.class) @NonNull AbstractAction $$ @Initialized @NonNull AbstractAction $$ ( 4348, 4444 ) $$ call to putValue(java.lang.String,java.lang.Object) not allowed on the given receiver.
+			putValue(SHORT_DESCRIPTION, "Changes the organism used for all queries in the BioCyc database.");
+			        ^
+  found   : @UnderInitialization(edu.iastate.cyctools.view.ToolPanel.ActionSetOrganism.class) @NonNull AbstractAction
+  required: @Initialized @NonNull AbstractAction
+../dataset/urlcdab7d8364_jrwalsh_CycTools_tgz-pJ8-edu_iastate_cyctools_MainJ8/src/edu/iastate/cyctools/view/ToolPanel.java:149: error: (method.invocation) $$ 3 $$ putValue(java.lang.String,java.lang.Object) $$ @UnderInitialization(edu.iastate.cyctools.view.ToolPanel.ActionHome.class) @NonNull AbstractAction $$ @Initialized @NonNull AbstractAction $$ ( 4809, 4831 ) $$ call to putValue(java.lang.String,java.lang.Object) not allowed on the given receiver.
+			putValue(NAME, "Home");
+			        ^
+  found   : @UnderInitialization(edu.iastate.cyctools.view.ToolPanel.ActionHome.class) @NonNull AbstractAction
+  required: @Initialized @NonNull AbstractAction
+../dataset/urlcdab7d8364_jrwalsh_CycTools_tgz-pJ8-edu_iastate_cyctools_MainJ8/src/edu/iastate/cyctools/view/ToolPanel.java:150: error: (method.invocation) $$ 3 $$ putValue(java.lang.String,java.lang.Object) $$ @UnderInitialization(edu.iastate.cyctools.view.ToolPanel.ActionHome.class) @NonNull AbstractAction $$ @Initialized @NonNull AbstractAction $$ ( 4836, 4888 ) $$ call to putValue(java.lang.String,java.lang.Object) not allowed on the given receiver.
+			putValue(SHORT_DESCRIPTION, "Return to select menu");
+			        ^
+  found   : @UnderInitialization(edu.iastate.cyctools.view.ToolPanel.ActionHome.class) @NonNull AbstractAction
+  required: @Initialized @NonNull AbstractAction
+../dataset/urlcdab7d8364_jrwalsh_CycTools_tgz-pJ8-edu_iastate_cyctools_MainJ8/src/edu/iastate/cyctools/view/StatusPanel.java:27: error: (initialization.fields.uninitialized) $$ 1 $$ lblStatus $$ ( 692, 913 ) $$ the constructor does not initialize fields: lblStatus
+	public StatusPanel(DefaultController controller) {
+	       ^
+../dataset/urlcdab7d8364_jrwalsh_CycTools_tgz-pJ8-edu_iastate_cyctools_MainJ8/src/edu/iastate/cyctools/view/StatusPanel.java:28: error: (method.invocation) $$ 3 $$ setBorder(javax.swing.border.Border) $$ @UnderInitialization(edu.iastate.cyctools.externalSourceCode.AbstractViewPanel.class) @NonNull JComponent $$ @Initialized @NonNull JComponent $$ ( 745, 820 ) $$ call to setBorder(javax.swing.border.Border) not allowed on the given receiver.
+		setBorder(new SoftBevelBorder(BevelBorder.LOWERED, null, null, null, null));
+		         ^
+  found   : @UnderInitialization(edu.iastate.cyctools.externalSourceCode.AbstractViewPanel.class) @NonNull JComponent
+  required: @Initialized @NonNull JComponent
+../dataset/urlcdab7d8364_jrwalsh_CycTools_tgz-pJ8-edu_iastate_cyctools_MainJ8/src/edu/iastate/cyctools/view/StatusPanel.java:28: error: (argument) $$ 4 $$ highlightOuterColor $$ SoftBevelBorder constructor $$ null (NullType) $$ @Initialized @NonNull Color $$ ( 796, 800 ) $$ incompatible argument for parameter highlightOuterColor of SoftBevelBorder constructor.
+		setBorder(new SoftBevelBorder(BevelBorder.LOWERED, null, null, null, null));
+		                                                   ^
+  found   : null (NullType)
+  required: @Initialized @NonNull Color
+../dataset/urlcdab7d8364_jrwalsh_CycTools_tgz-pJ8-edu_iastate_cyctools_MainJ8/src/edu/iastate/cyctools/view/StatusPanel.java:28: error: (argument) $$ 4 $$ highlightInnerColor $$ SoftBevelBorder constructor $$ null (NullType) $$ @Initialized @NonNull Color $$ ( 802, 806 ) $$ incompatible argument for parameter highlightInnerColor of SoftBevelBorder constructor.
+		setBorder(new SoftBevelBorder(BevelBorder.LOWERED, null, null, null, null));
+		                                                         ^
+  found   : null (NullType)
+  required: @Initialized @NonNull Color
+../dataset/urlcdab7d8364_jrwalsh_CycTools_tgz-pJ8-edu_iastate_cyctools_MainJ8/src/edu/iastate/cyctools/view/StatusPanel.java:28: error: (argument) $$ 4 $$ shadowOuterColor $$ SoftBevelBorder constructor $$ null (NullType) $$ @Initialized @NonNull Color $$ ( 808, 812 ) $$ incompatible argument for parameter shadowOuterColor of SoftBevelBorder constructor.
+		setBorder(new SoftBevelBorder(BevelBorder.LOWERED, null, null, null, null));
+		                                                               ^
+  found   : null (NullType)
+  required: @Initialized @NonNull Color
+../dataset/urlcdab7d8364_jrwalsh_CycTools_tgz-pJ8-edu_iastate_cyctools_MainJ8/src/edu/iastate/cyctools/view/StatusPanel.java:28: error: (argument) $$ 4 $$ shadowInnerColor $$ SoftBevelBorder constructor $$ null (NullType) $$ @Initialized @NonNull Color $$ ( 814, 818 ) $$ incompatible argument for parameter shadowInnerColor of SoftBevelBorder constructor.
+		setBorder(new SoftBevelBorder(BevelBorder.LOWERED, null, null, null, null));
+		                                                                     ^
+  found   : null (NullType)
+  required: @Initialized @NonNull Color
+../dataset/urlcdab7d8364_jrwalsh_CycTools_tgz-pJ8-edu_iastate_cyctools_MainJ8/src/edu/iastate/cyctools/view/StatusPanel.java:31: error: (method.invocation) $$ 3 $$ initComponents() $$ @UnderInitialization(edu.iastate.cyctools.externalSourceCode.AbstractViewPanel.class) @NonNull StatusPanel $$ @Initialized @NonNull StatusPanel $$ ( 859, 875 ) $$ call to initComponents() not allowed on the given receiver.
+		initComponents();
+		              ^
+  found   : @UnderInitialization(edu.iastate.cyctools.externalSourceCode.AbstractViewPanel.class) @NonNull StatusPanel
+  required: @Initialized @NonNull StatusPanel
+../dataset/urlcdab7d8364_jrwalsh_CycTools_tgz-pJ8-edu_iastate_cyctools_MainJ8/src/edu/iastate/cyctools/view/StatusPanel.java:32: error: (method.invocation) $$ 3 $$ localInitialization() $$ @UnderInitialization(edu.iastate.cyctools.externalSourceCode.AbstractViewPanel.class) @NonNull StatusPanel $$ @Initialized @NonNull StatusPanel $$ ( 885, 906 ) $$ call to localInitialization() not allowed on the given receiver.
+        localInitialization();
+                           ^
+  found   : @UnderInitialization(edu.iastate.cyctools.externalSourceCode.AbstractViewPanel.class) @NonNull StatusPanel
+  required: @Initialized @NonNull StatusPanel
+../dataset/urlcdab7d8364_jrwalsh_CycTools_tgz-pJ8-edu_iastate_cyctools_MainJ8/src/edu/iastate/cyctools/view/MenuBar.java:51: error: (initialization.fields.uninitialized) $$ 1 $$ mntmAbout, mntmRevertKb, mntmOptions $$ ( 1487, 1622 ) $$ the constructor does not initialize fields: mntmAbout, mntmRevertKb, mntmOptions
+	public MenuBar(DefaultController controller) {
+	       ^
+../dataset/urlcdab7d8364_jrwalsh_CycTools_tgz-pJ8-edu_iastate_cyctools_MainJ8/src/edu/iastate/cyctools/view/MenuBar.java:53: error: (method.invocation) $$ 3 $$ initComponents() $$ @UnderInitialization(javax.swing.JMenuBar.class) @NonNull MenuBar $$ @Initialized @NonNull MenuBar $$ ( 1568, 1584 ) $$ call to initComponents() not allowed on the given receiver.
+		initComponents();
+		              ^
+  found   : @UnderInitialization(javax.swing.JMenuBar.class) @NonNull MenuBar
+  required: @Initialized @NonNull MenuBar
+../dataset/urlcdab7d8364_jrwalsh_CycTools_tgz-pJ8-edu_iastate_cyctools_MainJ8/src/edu/iastate/cyctools/view/MenuBar.java:54: error: (method.invocation) $$ 3 $$ localInitialization() $$ @UnderInitialization(javax.swing.JMenuBar.class) @NonNull MenuBar $$ @Initialized @NonNull MenuBar $$ ( 1594, 1615 ) $$ call to localInitialization() not allowed on the given receiver.
+        localInitialization();
+                           ^
+  found   : @UnderInitialization(javax.swing.JMenuBar.class) @NonNull MenuBar
+  required: @Initialized @NonNull MenuBar
+../dataset/urlcdab7d8364_jrwalsh_CycTools_tgz-pJ8-edu_iastate_cyctools_MainJ8/src/edu/iastate/cyctools/view/MenuBar.java:99: error: (method.invocation) $$ 3 $$ putValue(java.lang.String,java.lang.Object) $$ @UnderInitialization(edu.iastate.cyctools.view.MenuBar.ActionDisconnect.class) @NonNull AbstractAction $$ @Initialized @NonNull AbstractAction $$ ( 2698, 2726 ) $$ call to putValue(java.lang.String,java.lang.Object) not allowed on the given receiver.
+			putValue(NAME, "Disconnect");
+			        ^
+  found   : @UnderInitialization(edu.iastate.cyctools.view.MenuBar.ActionDisconnect.class) @NonNull AbstractAction
+  required: @Initialized @NonNull AbstractAction
+../dataset/urlcdab7d8364_jrwalsh_CycTools_tgz-pJ8-edu_iastate_cyctools_MainJ8/src/edu/iastate/cyctools/view/MenuBar.java:100: error: (method.invocation) $$ 3 $$ putValue(java.lang.String,java.lang.Object) $$ @UnderInitialization(edu.iastate.cyctools.view.MenuBar.ActionDisconnect.class) @NonNull AbstractAction $$ @Initialized @NonNull AbstractAction $$ ( 2731, 2799 ) $$ call to putValue(java.lang.String,java.lang.Object) not allowed on the given receiver.
+			putValue(SHORT_DESCRIPTION, "Disconnect from Pathway Tools server.");
+			        ^
+  found   : @UnderInitialization(edu.iastate.cyctools.view.MenuBar.ActionDisconnect.class) @NonNull AbstractAction
+  required: @Initialized @NonNull AbstractAction
+../dataset/urlcdab7d8364_jrwalsh_CycTools_tgz-pJ8-edu_iastate_cyctools_MainJ8/src/edu/iastate/cyctools/view/MenuBar.java:110: error: (method.invocation) $$ 3 $$ putValue(java.lang.String,java.lang.Object) $$ @UnderInitialization(edu.iastate.cyctools.view.MenuBar.ActionExit.class) @NonNull AbstractAction $$ @Initialized @NonNull AbstractAction $$ ( 3022, 3044 ) $$ call to putValue(java.lang.String,java.lang.Object) not allowed on the given receiver.
+			putValue(NAME, "Exit");
+			        ^
+  found   : @UnderInitialization(edu.iastate.cyctools.view.MenuBar.ActionExit.class) @NonNull AbstractAction
+  required: @Initialized @NonNull AbstractAction
+../dataset/urlcdab7d8364_jrwalsh_CycTools_tgz-pJ8-edu_iastate_cyctools_MainJ8/src/edu/iastate/cyctools/view/MenuBar.java:111: error: (method.invocation) $$ 3 $$ putValue(java.lang.String,java.lang.Object) $$ @UnderInitialization(edu.iastate.cyctools.view.MenuBar.ActionExit.class) @NonNull AbstractAction $$ @Initialized @NonNull AbstractAction $$ ( 3049, 3093 ) $$ call to putValue(java.lang.String,java.lang.Object) not allowed on the given receiver.
+			putValue(SHORT_DESCRIPTION, "Exit program.");
+			        ^
+  found   : @UnderInitialization(edu.iastate.cyctools.view.MenuBar.ActionExit.class) @NonNull AbstractAction
+  required: @Initialized @NonNull AbstractAction
+../dataset/urlcdab7d8364_jrwalsh_CycTools_tgz-pJ8-edu_iastate_cyctools_MainJ8/src/edu/iastate/cyctools/view/MenuBar.java:119: error: (method.invocation) $$ 3 $$ putValue(java.lang.String,java.lang.Object) $$ @UnderInitialization(edu.iastate.cyctools.view.MenuBar.ActionAbout.class) @NonNull AbstractAction $$ @Initialized @NonNull AbstractAction $$ ( 3252, 3275 ) $$ call to putValue(java.lang.String,java.lang.Object) not allowed on the given receiver.
+			putValue(NAME, "About");
+			        ^
+  found   : @UnderInitialization(edu.iastate.cyctools.view.MenuBar.ActionAbout.class) @NonNull AbstractAction
+  required: @Initialized @NonNull AbstractAction
+../dataset/urlcdab7d8364_jrwalsh_CycTools_tgz-pJ8-edu_iastate_cyctools_MainJ8/src/edu/iastate/cyctools/view/MenuBar.java:120: error: (method.invocation) $$ 3 $$ putValue(java.lang.String,java.lang.Object) $$ @UnderInitialization(edu.iastate.cyctools.view.MenuBar.ActionAbout.class) @NonNull AbstractAction $$ @Initialized @NonNull AbstractAction $$ ( 3280, 3330 ) $$ call to putValue(java.lang.String,java.lang.Object) not allowed on the given receiver.
+			putValue(SHORT_DESCRIPTION, "About this program.");
+			        ^
+  found   : @UnderInitialization(edu.iastate.cyctools.view.MenuBar.ActionAbout.class) @NonNull AbstractAction
+  required: @Initialized @NonNull AbstractAction
+../dataset/urlcdab7d8364_jrwalsh_CycTools_tgz-pJ8-edu_iastate_cyctools_MainJ8/src/edu/iastate/cyctools/view/MenuBar.java:179: error: (method.invocation) $$ 3 $$ putValue(java.lang.String,java.lang.Object) $$ @UnderInitialization(edu.iastate.cyctools.view.MenuBar.ActionRevertKB.class) @NonNull AbstractAction $$ @Initialized @NonNull AbstractAction $$ ( 5418, 5445 ) $$ call to putValue(java.lang.String,java.lang.Object) not allowed on the given receiver.
+			putValue(NAME, "Revert KB");
+			        ^
+  found   : @UnderInitialization(edu.iastate.cyctools.view.MenuBar.ActionRevertKB.class) @NonNull AbstractAction
+  required: @Initialized @NonNull AbstractAction
+../dataset/urlcdab7d8364_jrwalsh_CycTools_tgz-pJ8-edu_iastate_cyctools_MainJ8/src/edu/iastate/cyctools/view/MenuBar.java:180: error: (method.invocation) $$ 3 $$ putValue(java.lang.String,java.lang.Object) $$ @UnderInitialization(edu.iastate.cyctools.view.MenuBar.ActionRevertKB.class) @NonNull AbstractAction $$ @Initialized @NonNull AbstractAction $$ ( 5450, 5525 ) $$ call to putValue(java.lang.String,java.lang.Object) not allowed on the given receiver.
+			putValue(SHORT_DESCRIPTION, "Undo all changes to this KB since last save.");
+			        ^
+  found   : @UnderInitialization(edu.iastate.cyctools.view.MenuBar.ActionRevertKB.class) @NonNull AbstractAction
+  required: @Initialized @NonNull AbstractAction
+../dataset/urlcdab7d8364_jrwalsh_CycTools_tgz-pJ8-edu_iastate_cyctools_MainJ8/src/edu/iastate/cyctools/view/MenuBar.java:193: error: (dereference.of.nullable) $$ 1 $$ controller.toolPanel $$ ( 6156, 6176 ) $$ dereference of possibly-null reference controller.toolPanel
+				controller.toolPanel.refreshOrganismList();
+				          ^
+../dataset/urlcdab7d8364_jrwalsh_CycTools_tgz-pJ8-edu_iastate_cyctools_MainJ8/src/edu/iastate/cyctools/view/MenuBar.java:200: error: (method.invocation) $$ 3 $$ putValue(java.lang.String,java.lang.Object) $$ @UnderInitialization(edu.iastate.cyctools.view.MenuBar.ActionOptions.class) @NonNull AbstractAction $$ @Initialized @NonNull AbstractAction $$ ( 6298, 6323 ) $$ call to putValue(java.lang.String,java.lang.Object) not allowed on the given receiver.
+			putValue(NAME, "Options");
+			        ^
+  found   : @UnderInitialization(edu.iastate.cyctools.view.MenuBar.ActionOptions.class) @NonNull AbstractAction
+  required: @Initialized @NonNull AbstractAction
+../dataset/urlcdab7d8364_jrwalsh_CycTools_tgz-pJ8-edu_iastate_cyctools_MainJ8/src/edu/iastate/cyctools/view/MenuBar.java:201: error: (method.invocation) $$ 3 $$ putValue(java.lang.String,java.lang.Object) $$ @UnderInitialization(edu.iastate.cyctools.view.MenuBar.ActionOptions.class) @NonNull AbstractAction $$ @Initialized @NonNull AbstractAction $$ ( 6328, 6371 ) $$ call to putValue(java.lang.String,java.lang.Object) not allowed on the given receiver.
+			putValue(SHORT_DESCRIPTION, "Edit Options");
+			        ^
+  found   : @UnderInitialization(edu.iastate.cyctools.view.MenuBar.ActionOptions.class) @NonNull AbstractAction
+  required: @Initialized @NonNull AbstractAction
+../dataset/urlcdab7d8364_jrwalsh_CycTools_tgz-pJ8-edu_iastate_cyctools_MainJ8/src/edu/iastate/cyctools/view/MenuBar.java:213: error: (dereference.of.nullable) $$ 1 $$ controller.getConnection() $$ ( 6925, 6951 ) $$ dereference of possibly-null reference controller.getConnection()
+					controller.getConnection().setQueryTimeOutLength(querytimeOutValue);
+					                        ^
+../dataset/urlcdab7d8364_jrwalsh_CycTools_tgz-pJ8-edu_iastate_cyctools_MainJ8/src/edu/iastate/cyctools/tools/load/model/DocumentModel.java:72: error: (dereference.of.nullable) $$ 1 $$ headerLine $$ ( 1867, 1877 ) $$ dereference of possibly-null reference headerLine
+			Object[] header = headerLine.split(delimiter);
+			                  ^
+../dataset/urlcdab7d8364_jrwalsh_CycTools_tgz-pJ8-edu_iastate_cyctools_MainJ8/src/edu/iastate/cyctools/tools/load/model/AbstractFrameEdit.java:26: error: (dereference.of.nullable) $$ 1 $$ associatedRows $$ ( 731, 745 ) $$ dereference of possibly-null reference associatedRows
+		for (int i = 0; i < associatedRows.length; i++) {
+		                    ^
+../dataset/urlcdab7d8364_jrwalsh_CycTools_tgz-pJ8-edu_iastate_cyctools_MainJ8/src/edu/iastate/cyctools/tools/load/model/AbstractFrameEdit.java:35: error: (dereference.of.nullable) $$ 1 $$ conn $$ ( 1089, 1093 ) $$ dereference of possibly-null reference conn
+		return conn.frameExists(frameID);
+		       ^
+../dataset/urlcdab7d8364_jrwalsh_CycTools_tgz-pJ8-edu_iastate_cyctools_MainJ8/src/edu/iastate/cyctools/tools/load/model/AbstractFrameEdit.java:35: error: (argument) $$ 4 $$ id $$ JavacycConnection.frameExists $$ @Initialized @MonotonicNonNull String $$ @Initialized @NonNull String $$ ( 1106, 1113 ) $$ incompatible argument for parameter id of JavacycConnection.frameExists.
+		return conn.frameExists(frameID);
+		                        ^
+  found   : @Initialized @MonotonicNonNull String
+  required: @Initialized @NonNull String
+../dataset/urlcdab7d8364_jrwalsh_CycTools_tgz-pJ8-edu_iastate_cyctools_MainJ8/src/edu/iastate/cyctools/tools/load/fileAdaptors/GOTermAdaptor.java:22: error: (method.invocation) $$ 3 $$ setAppend(boolean) $$ @UnderInitialization(edu.iastate.cyctools.tools.load.fileAdaptors.GOTermAdaptor.class) @NonNull AbstractFileAdaptor $$ @Initialized @NonNull AbstractFileAdaptor $$ ( 867, 882 ) $$ call to setAppend(boolean) not allowed on the given receiver.
+		setAppend(true);
+		         ^
+  found   : @UnderInitialization(edu.iastate.cyctools.tools.load.fileAdaptors.GOTermAdaptor.class) @NonNull AbstractFileAdaptor
+  required: @Initialized @NonNull AbstractFileAdaptor
+../dataset/urlcdab7d8364_jrwalsh_CycTools_tgz-pJ8-edu_iastate_cyctools_MainJ8/src/edu/iastate/cyctools/tools/load/fileAdaptors/GOTermAdaptor.java:23: error: (method.invocation) $$ 3 $$ setIgnoreDuplicates(boolean) $$ @UnderInitialization(edu.iastate.cyctools.tools.load.fileAdaptors.GOTermAdaptor.class) @NonNull AbstractFileAdaptor $$ @Initialized @NonNull AbstractFileAdaptor $$ ( 886, 911 ) $$ call to setIgnoreDuplicates(boolean) not allowed on the given receiver.
+		setIgnoreDuplicates(true);
+		                   ^
+  found   : @UnderInitialization(edu.iastate.cyctools.tools.load.fileAdaptors.GOTermAdaptor.class) @NonNull AbstractFileAdaptor
+  required: @Initialized @NonNull AbstractFileAdaptor
+../dataset/urlcdab7d8364_jrwalsh_CycTools_tgz-pJ8-edu_iastate_cyctools_MainJ8/src/edu/iastate/cyctools/tools/load/fileAdaptors/GOTermAdaptor.java:24: error: (method.invocation) $$ 3 $$ setMultipleValueDelimiter(java.lang.String) $$ @UnderInitialization(edu.iastate.cyctools.tools.load.fileAdaptors.GOTermAdaptor.class) @NonNull AbstractFileAdaptor $$ @Initialized @NonNull AbstractFileAdaptor $$ ( 915, 945 ) $$ call to setMultipleValueDelimiter(java.lang.String) not allowed on the given receiver.
+		setMultipleValueDelimiter("$"); // Unused
+		                         ^
+  found   : @UnderInitialization(edu.iastate.cyctools.tools.load.fileAdaptors.GOTermAdaptor.class) @NonNull AbstractFileAdaptor
+  required: @Initialized @NonNull AbstractFileAdaptor
+../dataset/urlcdab7d8364_jrwalsh_CycTools_tgz-pJ8-edu_iastate_cyctools_MainJ8/src/edu/iastate/cyctools/tools/load/fileAdaptors/GOTermAdaptor.java:34: error: (dereference.of.nullable) $$ 1 $$ tb $$ ( 1368, 1370 ) $$ dereference of possibly-null reference tb
+		for (int rowIndex = 0; rowIndex < tb.getRowCount(); rowIndex++) {
+		                                  ^
+../dataset/urlcdab7d8364_jrwalsh_CycTools_tgz-pJ8-edu_iastate_cyctools_MainJ8/src/edu/iastate/cyctools/tools/load/fileAdaptors/DeleteFrameAdaptor.java:17: error: (dereference.of.nullable) $$ 1 $$ tb $$ ( 585, 587 ) $$ dereference of possibly-null reference tb
+		for (int rowIndex = 0; rowIndex < tb.getRowCount(); rowIndex++) {
+		                                  ^
+../dataset/urlcdab7d8364_jrwalsh_CycTools_tgz-pJ8-edu_iastate_cyctools_MainJ8/src/edu/iastate/cyctools/tools/load/fileAdaptors/CreateRegulationAdaptor.java:15: error: (dereference.of.nullable) $$ 1 $$ tb $$ ( 534, 536 ) $$ dereference of possibly-null reference tb
+		for (int rowIndex = 0; rowIndex < tb.getRowCount(); rowIndex++) {
+		                                  ^
+../dataset/urlcdab7d8364_jrwalsh_CycTools_tgz-pJ8-edu_iastate_cyctools_MainJ8/src/edu/iastate/cyctools/tools/load/fileAdaptors/SimpleSlotValueImport.java:14: error: (method.invocation) $$ 3 $$ setAppend(boolean) $$ @UnderInitialization(edu.iastate.cyctools.tools.load.fileAdaptors.SimpleSlotValueImport.class) @NonNull AbstractFileAdaptor $$ @Initialized @NonNull AbstractFileAdaptor $$ ( 378, 393 ) $$ call to setAppend(boolean) not allowed on the given receiver.
+		setAppend(true);
+		         ^
+  found   : @UnderInitialization(edu.iastate.cyctools.tools.load.fileAdaptors.SimpleSlotValueImport.class) @NonNull AbstractFileAdaptor
+  required: @Initialized @NonNull AbstractFileAdaptor
+../dataset/urlcdab7d8364_jrwalsh_CycTools_tgz-pJ8-edu_iastate_cyctools_MainJ8/src/edu/iastate/cyctools/tools/load/fileAdaptors/SimpleSlotValueImport.java:15: error: (method.invocation) $$ 3 $$ setIgnoreDuplicates(boolean) $$ @UnderInitialization(edu.iastate.cyctools.tools.load.fileAdaptors.SimpleSlotValueImport.class) @NonNull AbstractFileAdaptor $$ @Initialized @NonNull AbstractFileAdaptor $$ ( 397, 422 ) $$ call to setIgnoreDuplicates(boolean) not allowed on the given receiver.
+		setIgnoreDuplicates(true);
+		                   ^
+  found   : @UnderInitialization(edu.iastate.cyctools.tools.load.fileAdaptors.SimpleSlotValueImport.class) @NonNull AbstractFileAdaptor
+  required: @Initialized @NonNull AbstractFileAdaptor
+../dataset/urlcdab7d8364_jrwalsh_CycTools_tgz-pJ8-edu_iastate_cyctools_MainJ8/src/edu/iastate/cyctools/tools/load/fileAdaptors/SimpleSlotValueImport.java:16: error: (method.invocation) $$ 3 $$ setMultipleValueDelimiter(java.lang.String) $$ @UnderInitialization(edu.iastate.cyctools.tools.load.fileAdaptors.SimpleSlotValueImport.class) @NonNull AbstractFileAdaptor $$ @Initialized @NonNull AbstractFileAdaptor $$ ( 426, 456 ) $$ call to setMultipleValueDelimiter(java.lang.String) not allowed on the given receiver.
+		setMultipleValueDelimiter("$");
+		                         ^
+  found   : @UnderInitialization(edu.iastate.cyctools.tools.load.fileAdaptors.SimpleSlotValueImport.class) @NonNull AbstractFileAdaptor
+  required: @Initialized @NonNull AbstractFileAdaptor
+../dataset/urlcdab7d8364_jrwalsh_CycTools_tgz-pJ8-edu_iastate_cyctools_MainJ8/src/edu/iastate/cyctools/tools/load/fileAdaptors/SimpleSlotValueImport.java:26: error: (dereference.of.nullable) $$ 1 $$ tb $$ ( 820, 822 ) $$ dereference of possibly-null reference tb
+		for (int rowIndex = 0; rowIndex < tb.getRowCount(); rowIndex++) {
+		                                  ^
+../dataset/urlcdab7d8364_jrwalsh_CycTools_tgz-pJ8-edu_iastate_cyctools_MainJ8/src/edu/iastate/cyctools/tools/load/fileAdaptors/SimpleAnnotationValueImport.java:14: error: (method.invocation) $$ 3 $$ setAppend(boolean) $$ @UnderInitialization(edu.iastate.cyctools.tools.load.fileAdaptors.SimpleAnnotationValueImport.class) @NonNull AbstractFileAdaptor $$ @Initialized @NonNull AbstractFileAdaptor $$ ( 409, 424 ) $$ call to setAppend(boolean) not allowed on the given receiver.
+		setAppend(true);
+		         ^
+  found   : @UnderInitialization(edu.iastate.cyctools.tools.load.fileAdaptors.SimpleAnnotationValueImport.class) @NonNull AbstractFileAdaptor
+  required: @Initialized @NonNull AbstractFileAdaptor
+../dataset/urlcdab7d8364_jrwalsh_CycTools_tgz-pJ8-edu_iastate_cyctools_MainJ8/src/edu/iastate/cyctools/tools/load/fileAdaptors/SimpleAnnotationValueImport.java:15: error: (method.invocation) $$ 3 $$ setIgnoreDuplicates(boolean) $$ @UnderInitialization(edu.iastate.cyctools.tools.load.fileAdaptors.SimpleAnnotationValueImport.class) @NonNull AbstractFileAdaptor $$ @Initialized @NonNull AbstractFileAdaptor $$ ( 429, 454 ) $$ call to setIgnoreDuplicates(boolean) not allowed on the given receiver.
+		setIgnoreDuplicates(true);
+		                   ^
+  found   : @UnderInitialization(edu.iastate.cyctools.tools.load.fileAdaptors.SimpleAnnotationValueImport.class) @NonNull AbstractFileAdaptor
+  required: @Initialized @NonNull AbstractFileAdaptor
+../dataset/urlcdab7d8364_jrwalsh_CycTools_tgz-pJ8-edu_iastate_cyctools_MainJ8/src/edu/iastate/cyctools/tools/load/fileAdaptors/SimpleAnnotationValueImport.java:16: error: (method.invocation) $$ 3 $$ setMultipleValueDelimiter(java.lang.String) $$ @UnderInitialization(edu.iastate.cyctools.tools.load.fileAdaptors.SimpleAnnotationValueImport.class) @NonNull AbstractFileAdaptor $$ @Initialized @NonNull AbstractFileAdaptor $$ ( 459, 489 ) $$ call to setMultipleValueDelimiter(java.lang.String) not allowed on the given receiver.
+		setMultipleValueDelimiter("$");
+		                         ^
+  found   : @UnderInitialization(edu.iastate.cyctools.tools.load.fileAdaptors.SimpleAnnotationValueImport.class) @NonNull AbstractFileAdaptor
+  required: @Initialized @NonNull AbstractFileAdaptor
+../dataset/urlcdab7d8364_jrwalsh_CycTools_tgz-pJ8-edu_iastate_cyctools_MainJ8/src/edu/iastate/cyctools/tools/load/fileAdaptors/SimpleAnnotationValueImport.java:26: error: (dereference.of.nullable) $$ 1 $$ tb $$ ( 946, 948 ) $$ dereference of possibly-null reference tb
+		String slotLabel = (String) tb.getColumnName(1);
+		                            ^
+../dataset/urlcdab7d8364_jrwalsh_CycTools_tgz-pJ8-edu_iastate_cyctools_MainJ8/src/edu/iastate/cyctools/tools/load/threadedTasks/DownloadFramesTask.java:40: error: (argument) $$ 4 $$ c $$ Frame.load $$ @Initialized @MonotonicNonNull JavacycConnection $$ @Initialized @NonNull JavacycConnection $$ ( 1462, 1466 ) $$ incompatible argument for parameter c of Frame.load.
+    			Frame frame = Frame.load(conn, frameID);
+    			                         ^
+  found   : @Initialized @MonotonicNonNull JavacycConnection
+  required: @Initialized @NonNull JavacycConnection
+../dataset/urlcdab7d8364_jrwalsh_CycTools_tgz-pJ8-edu_iastate_cyctools_MainJ8/src/edu/iastate/cyctools/tools/load/model/NewRegulation.java:28: error: (dereference.of.nullable) $$ 1 $$ conn $$ ( 971, 975 ) $$ dereference of possibly-null reference conn
+		frameID = conn.createInstanceWGeneratedId("|Regulation-of-Transcription|");
+		          ^
+../dataset/urlcdab7d8364_jrwalsh_CycTools_tgz-pJ8-edu_iastate_cyctools_MainJ8/src/edu/iastate/cyctools/tools/load/model/NewRegulation.java:54: error: (dereference.of.nullable) $$ 1 $$ frame $$ ( 1691, 1696 ) $$ dereference of possibly-null reference frame
+		frame.putSlotValue("REGULATOR", regulator);
+		^
+../dataset/urlcdab7d8364_jrwalsh_CycTools_tgz-pJ8-edu_iastate_cyctools_MainJ8/src/edu/iastate/cyctools/tools/load/model/AnnotationUpdate.java:44: error: (dereference.of.nullable) $$ 1 $$ conn $$ ( 1296, 1300 ) $$ dereference of possibly-null reference conn
+			if(!conn.frameExists(frameID)) {
+			    ^
+../dataset/urlcdab7d8364_jrwalsh_CycTools_tgz-pJ8-edu_iastate_cyctools_MainJ8/src/edu/iastate/cyctools/tools/load/model/AnnotationUpdate.java:44: error: (argument) $$ 4 $$ id $$ JavacycConnection.frameExists $$ @Initialized @MonotonicNonNull String $$ @Initialized @NonNull String $$ ( 1313, 1320 ) $$ incompatible argument for parameter id of JavacycConnection.frameExists.
+			if(!conn.frameExists(frameID)) {
+			                     ^
+  found   : @Initialized @MonotonicNonNull String
+  required: @Initialized @NonNull String
+../dataset/urlcdab7d8364_jrwalsh_CycTools_tgz-pJ8-edu_iastate_cyctools_MainJ8/src/edu/iastate/cyctools/tools/load/model/AnnotationUpdate.java:86: error: (dereference.of.nullable) $$ 1 $$ frame $$ ( 2459, 2464 ) $$ dereference of possibly-null reference frame
+			newValues.addAll(frame.getAnnotations(slotLabel, slotValue, annotationLabel));
+			                 ^
+../dataset/urlcdab7d8364_jrwalsh_CycTools_tgz-pJ8-edu_iastate_cyctools_MainJ8/src/edu/iastate/cyctools/tools/load/model/AnnotationUpdate.java:95: error: (dereference.of.nullable) $$ 1 $$ frame $$ ( 2710, 2715 ) $$ dereference of possibly-null reference frame
+		frame.putLocalSlotValueAnnotations(slotLabel, slotValue, annotationLabel, newValues);
+		^
+../dataset/urlcdab7d8364_jrwalsh_CycTools_tgz-pJ8-edu_iastate_cyctools_MainJ8/src/edu/iastate/cyctools/tools/load/model/AnnotationUpdate.java:107: error: (argument) $$ 4 $$ frame $$ JavacycConnection.getValueAnnots $$ @Initialized @MonotonicNonNull String $$ @Initialized @NonNull String $$ ( 3064, 3071 ) $$ incompatible argument for parameter frame of JavacycConnection.getValueAnnots.
+		return (ArrayList<String>) conn.getValueAnnots(frameID, slotLabel, slotValue, annotationLabel);
+		                                               ^
+  found   : @Initialized @MonotonicNonNull String
+  required: @Initialized @NonNull String
+../dataset/urlcdab7d8364_jrwalsh_CycTools_tgz-pJ8-edu_iastate_cyctools_MainJ8/src/edu/iastate/cyctools/tools/load/model/AbstractFrameDataEdit.java:15: error: (method.invocation) $$ 3 $$ size() $$ @UnknownInitialization @NonNull ArrayList</*RAW*/> $$ @Initialized @NonNull ArrayList</*RAW*/> $$ ( 556, 569 ) $$ call to size() not allowed on the given receiver.
+		if (values == null || values.size() == 0) return "";
+		                                 ^
+  found   : @UnknownInitialization @NonNull ArrayList</*RAW*/>
+  required: @Initialized @NonNull ArrayList</*RAW*/>
+../dataset/urlcdab7d8364_jrwalsh_CycTools_tgz-pJ8-edu_iastate_cyctools_MainJ8/src/edu/iastate/cyctools/tools/load/model/AbstractFrameDataEdit.java:16: error: (method.invocation) $$ 3 $$ size() $$ @UnknownInitialization @NonNull ArrayList</*RAW*/> $$ @Initialized @NonNull ArrayList</*RAW*/> $$ ( 598, 611 ) $$ call to size() not allowed on the given receiver.
+		else if (values.size() == 1) return values.get(0);
+		                    ^
+  found   : @UnknownInitialization @NonNull ArrayList</*RAW*/>
+  required: @Initialized @NonNull ArrayList</*RAW*/>
+../dataset/urlcdab7d8364_jrwalsh_CycTools_tgz-pJ8-edu_iastate_cyctools_MainJ8/src/edu/iastate/cyctools/tools/load/model/AbstractFrameDataEdit.java:16: error: (method.invocation) $$ 3 $$ get(int) $$ @UnknownInitialization @NonNull ArrayList</*RAW*/> $$ @Initialized @NonNull ArrayList</*RAW*/> $$ ( 625, 638 ) $$ call to get(int) not allowed on the given receiver.
+		else if (values.size() == 1) return values.get(0);
+		                                              ^
+  found   : @UnknownInitialization @NonNull ArrayList</*RAW*/>
+  required: @Initialized @NonNull ArrayList</*RAW*/>
+../dataset/urlcdab7d8364_jrwalsh_CycTools_tgz-pJ8-edu_iastate_cyctools_MainJ8/src/edu/iastate/cyctools/tools/load/model/AbstractFrameDataEdit.java:17: error: (argument) $$ 4 $$ aList $$ JavacycConnection.ArrayList2LispList $$ @UnknownInitialization @NonNull ArrayList<@Initialized @NonNull String> $$ @Initialized @NonNull ArrayList</*RAW*/> $$ ( 691, 697 ) $$ incompatible argument for parameter aList of JavacycConnection.ArrayList2LispList.
+		else return JavacycConnection.ArrayList2LispList(values);
+		                                                 ^
+  found   : @UnknownInitialization @NonNull ArrayList<@Initialized @NonNull String>
+  required: @Initialized @NonNull ArrayList</*RAW*/>
+../dataset/urlcdab7d8364_jrwalsh_CycTools_tgz-pJ8-edu_iastate_cyctools_MainJ8/src/edu/iastate/cyctools/tools/load/model/AbstractFrameDataEdit.java:30: error: (argument) $$ 4 $$ c $$ AbstractCollection.containsAll $$ @UnknownInitialization @Nullable ArrayList<@Initialized @NonNull String> $$ @Initialized @NonNull Collection<? extends @Initialized @Nullable Object> $$ ( 1160, 1176 ) $$ incompatible argument for parameter c of AbstractCollection.containsAll.
+		if (remoteValues.containsAll(this.getValues())) {
+		                                           ^
+  found   : @UnknownInitialization @Nullable ArrayList<@Initialized @NonNull String>
+  required: @Initialized @NonNull Collection<? extends @Initialized @Nullable Object>
+../dataset/urlcdab7d8364_jrwalsh_CycTools_tgz-pJ8-edu_iastate_cyctools_MainJ8/src/edu/iastate/cyctools/tools/load/model/GOTermAnnotationUpdate.java:19: error: (method.invocation) $$ 3 $$ encodeTimeStampString(java.lang.String,edu.iastate.javacyco.JavacycConnection) $$ @UnderInitialization(edu.iastate.cyctools.tools.load.model.GOTermAnnotationUpdate.class) @NonNull GOTermAnnotationUpdate $$ @Initialized @NonNull GOTermAnnotationUpdate $$ ( 1074, 1149 ) $$ call to encodeTimeStampString(java.lang.String,edu.iastate.javacyco.JavacycConnection) not allowed on the given receiver.
+			String encodedTime = encodeTimeStampString(goAnnot.getTimeStampString(), CycDataBaseAccess.conn);
+			                                          ^
+  found   : @UnderInitialization(edu.iastate.cyctools.tools.load.model.GOTermAnnotationUpdate.class) @NonNull GOTermAnnotationUpdate
+  required: @Initialized @NonNull GOTermAnnotationUpdate
+../dataset/urlcdab7d8364_jrwalsh_CycTools_tgz-pJ8-edu_iastate_cyctools_MainJ8/src/edu/iastate/cyctools/tools/load/model/GOTermAnnotationUpdate.java:45: error: (dereference.of.nullable) $$ 1 $$ conn $$ ( 1999, 2003 ) $$ dereference of possibly-null reference conn
+			encodedTime = conn.encodeTimeStamp(second, minute, hour, day, month, year);
+			              ^
+../dataset/urlcdab7d8364_jrwalsh_CycTools_tgz-pJ8-edu_iastate_cyctools_MainJ8/src/edu/iastate/cyctools/tools/load/model/DeleteFrame.java:22: error: (dereference.of.nullable) $$ 1 $$ conn $$ ( 612, 616 ) $$ dereference of possibly-null reference conn
+			if(!conn.frameExists(frameID)) {
+			    ^
+../dataset/urlcdab7d8364_jrwalsh_CycTools_tgz-pJ8-edu_iastate_cyctools_MainJ8/src/edu/iastate/cyctools/tools/load/model/DeleteFrame.java:22: error: (argument) $$ 4 $$ id $$ JavacycConnection.frameExists $$ @Initialized @MonotonicNonNull String $$ @Initialized @NonNull String $$ ( 629, 636 ) $$ incompatible argument for parameter id of JavacycConnection.frameExists.
+			if(!conn.frameExists(frameID)) {
+			                     ^
+  found   : @Initialized @MonotonicNonNull String
+  required: @Initialized @NonNull String
+../dataset/urlcdab7d8364_jrwalsh_CycTools_tgz-pJ8-edu_iastate_cyctools_MainJ8/src/edu/iastate/cyctools/tools/load/model/DeleteFrame.java:58: error: (dereference.of.nullable) $$ 1 $$ conn $$ ( 1835, 1839 ) $$ dereference of possibly-null reference conn
+		if(!conn.frameExists(frameID)) return false;
+		    ^
+../dataset/urlcdab7d8364_jrwalsh_CycTools_tgz-pJ8-edu_iastate_cyctools_MainJ8/src/edu/iastate/cyctools/tools/load/model/DeleteFrame.java:58: error: (argument) $$ 4 $$ id $$ JavacycConnection.frameExists $$ @Initialized @MonotonicNonNull String $$ @Initialized @NonNull String $$ ( 1852, 1859 ) $$ incompatible argument for parameter id of JavacycConnection.frameExists.
+		if(!conn.frameExists(frameID)) return false;
+		                     ^
+  found   : @Initialized @MonotonicNonNull String
+  required: @Initialized @NonNull String
+../dataset/urlcdab7d8364_jrwalsh_CycTools_tgz-pJ8-edu_iastate_cyctools_MainJ8/src/edu/iastate/cyctools/tools/load/model/AuthorCreditUpdate.java:31: error: (dereference.of.nullable) $$ 1 $$ conn $$ ( 1132, 1136 ) $$ dereference of possibly-null reference conn
+		if(!conn.frameExists(frameID)) {
+		    ^
+../dataset/urlcdab7d8364_jrwalsh_CycTools_tgz-pJ8-edu_iastate_cyctools_MainJ8/src/edu/iastate/cyctools/tools/load/model/AuthorCreditUpdate.java:31: error: (argument) $$ 4 $$ id $$ JavacycConnection.frameExists $$ @Initialized @MonotonicNonNull String $$ @Initialized @NonNull String $$ ( 1149, 1156 ) $$ incompatible argument for parameter id of JavacycConnection.frameExists.
+		if(!conn.frameExists(frameID)) {
+		                     ^
+  found   : @Initialized @MonotonicNonNull String
+  required: @Initialized @NonNull String
+../dataset/urlcdab7d8364_jrwalsh_CycTools_tgz-pJ8-edu_iastate_cyctools_MainJ8/src/edu/iastate/cyctools/tools/load/model/AuthorCreditUpdate.java:52: error: (dereference.of.nullable) $$ 1 $$ frame $$ ( 2259, 2264 ) $$ dereference of possibly-null reference frame
+		newSlotValues.addAll(frame.getSlotValues(slotLabel));
+		                     ^
+../dataset/urlcdab7d8364_jrwalsh_CycTools_tgz-pJ8-edu_iastate_cyctools_MainJ8/src/edu/iastate/cyctools/tools/load/model/BatchUpdate.java:48: warning: [removal] Integer(int) in Integer has been deprecated and marked for removal
+				lines.add(new Integer(row));
+				          ^
+../dataset/urlcdab7d8364_jrwalsh_CycTools_tgz-pJ8-edu_iastate_cyctools_MainJ8/src/edu/iastate/cyctools/tools/load/model/BatchUpdate.java:238: warning: [removal] Integer(int) in Integer has been deprecated and marked for removal
+    				linesProcessed.add(new Integer(row));
+    				                   ^
+../dataset/urlcdab7d8364_jrwalsh_CycTools_tgz-pJ8-edu_iastate_cyctools_MainJ8/src/edu/iastate/cyctools/tools/load/model/BatchUpdate.java:39: error: (initialization.fields.uninitialized) $$ 1 $$ lines, linesProcessed, eventLog $$ ( 1660, 2606 ) $$ the constructor does not initialize fields: lines, linesProcessed, eventLog
+    public BatchUpdate(ArrayList<AbstractFrameEdit> frameEditList, LoadPanel loadPanel) {
+           ^
+../dataset/urlcdab7d8364_jrwalsh_CycTools_tgz-pJ8-edu_iastate_cyctools_MainJ8/src/edu/iastate/cyctools/tools/load/model/BatchUpdate.java:41: error: (method.invocation) $$ 3 $$ initDefault() $$ @UnderInitialization(edu.iastate.cyctools.externalSourceCode.AbstractModel.class) @NonNull BatchUpdate $$ @Initialized @NonNull BatchUpdate $$ ( 1784, 1797 ) $$ call to initDefault() not allowed on the given receiver.
+    	initDefault();
+    	           ^
+  found   : @UnderInitialization(edu.iastate.cyctools.externalSourceCode.AbstractModel.class) @NonNull BatchUpdate
+  required: @Initialized @NonNull BatchUpdate
+../dataset/urlcdab7d8364_jrwalsh_CycTools_tgz-pJ8-edu_iastate_cyctools_MainJ8/src/edu/iastate/cyctools/tools/load/model/BatchUpdate.java:47: error: (iterating.over.nullable) $$ 1 $$ frameEdit.getAssociatedRows() $$ ( 2027, 2056 ) $$ iterating over possibly-null reference frameEdit.getAssociatedRows()
+			for (int row : frameEdit.getAssociatedRows()) {
+			                                          ^
+../dataset/urlcdab7d8364_jrwalsh_CycTools_tgz-pJ8-edu_iastate_cyctools_MainJ8/src/edu/iastate/cyctools/tools/load/model/BatchUpdate.java:48: error: (dereference.of.nullable) $$ 1 $$ lines $$ ( 2064, 2069 ) $$ dereference of possibly-null reference lines
+				lines.add(new Integer(row));
+				^
+../dataset/urlcdab7d8364_jrwalsh_CycTools_tgz-pJ8-edu_iastate_cyctools_MainJ8/src/edu/iastate/cyctools/tools/load/model/BatchUpdate.java:54: error: (argument) $$ 4 $$ key $$ HashMap.put $$ @Initialized @Nullable String $$ @Initialized @NonNull String $$ ( 2312, 2334 ) $$ incompatible argument for parameter key of HashMap.put.
+				frameEditsMap.put(frameEdit.getFrameID(), frameEditArray);
+				                                      ^
+  found   : @Initialized @Nullable String
+  required: @Initialized @NonNull String
+../dataset/urlcdab7d8364_jrwalsh_CycTools_tgz-pJ8-edu_iastate_cyctools_MainJ8/src/edu/iastate/cyctools/tools/load/model/BatchUpdate.java:58: error: (argument) $$ 4 $$ key $$ HashMap.put $$ @Initialized @Nullable String $$ @Initialized @NonNull String $$ ( 2508, 2530 ) $$ incompatible argument for parameter key of HashMap.put.
+				frameEditsMap.put(frameEdit.getFrameID(), frameEditArray);
+				                                      ^
+  found   : @Initialized @Nullable String
+  required: @Initialized @NonNull String
+../dataset/urlcdab7d8364_jrwalsh_CycTools_tgz-pJ8-edu_iastate_cyctools_MainJ8/src/edu/iastate/cyctools/tools/load/model/BatchUpdate.java:60: error: (argument) $$ 4 $$ e $$ TreeSet.add $$ @Initialized @Nullable String $$ @Initialized @NonNull String $$ ( 2572, 2594 ) $$ incompatible argument for parameter e of TreeSet.add.
+			frameIDSet.add(frameEdit.getFrameID());
+			                                   ^
+  found   : @Initialized @Nullable String
+  required: @Initialized @NonNull String
+../dataset/urlcdab7d8364_jrwalsh_CycTools_tgz-pJ8-edu_iastate_cyctools_MainJ8/src/edu/iastate/cyctools/tools/load/model/BatchUpdate.java:100: error: (argument) $$ 4 $$ parentComponent $$ ProgressMonitor constructor $$ @Initialized @MonotonicNonNull JFrame $$ @Initialized @NonNull Component $$ ( 3569, 3597 ) $$ incompatible argument for parameter parentComponent of ProgressMonitor constructor.
+    	progressMonitor = new ProgressMonitor(DefaultController.mainJFrame, "Analyzing Imports...", "", 0, 100);
+    	                                                       ^
+  found   : @Initialized @MonotonicNonNull JFrame
+  required: @Initialized @NonNull Component
+../dataset/urlcdab7d8364_jrwalsh_CycTools_tgz-pJ8-edu_iastate_cyctools_MainJ8/src/edu/iastate/cyctools/tools/load/model/BatchUpdate.java:120: error: (dereference.of.nullable) $$ 1 $$ DefaultController.mainJFrame $$ ( 4411, 4439 ) $$ dereference of possibly-null reference DefaultController.mainJFrame
+							DefaultController.mainJFrame.getGlassPane().setVisible(false);
+							                 ^
+../dataset/urlcdab7d8364_jrwalsh_CycTools_tgz-pJ8-edu_iastate_cyctools_MainJ8/src/edu/iastate/cyctools/tools/load/model/BatchUpdate.java:132: error: (dereference.of.nullable) $$ 1 $$ DefaultController.mainJFrame $$ ( 4863, 4891 ) $$ dereference of possibly-null reference DefaultController.mainJFrame
+						DefaultController.mainJFrame.getGlassPane().setVisible(false);
+						                 ^
+../dataset/urlcdab7d8364_jrwalsh_CycTools_tgz-pJ8-edu_iastate_cyctools_MainJ8/src/edu/iastate/cyctools/tools/load/model/BatchUpdate.java:137: error: (dereference.of.nullable) $$ 1 $$ DefaultController.mainJFrame $$ ( 4991, 5019 ) $$ dereference of possibly-null reference DefaultController.mainJFrame
+		DefaultController.mainJFrame.setGlassPane(new TranslucentGlassPane());
+		                 ^
+../dataset/urlcdab7d8364_jrwalsh_CycTools_tgz-pJ8-edu_iastate_cyctools_MainJ8/src/edu/iastate/cyctools/tools/load/model/BatchUpdate.java:147: error: (argument) $$ 4 $$ e $$ TreeSet.add $$ @Initialized @Nullable String $$ @Initialized @NonNull String $$ ( 5519, 5541 ) $$ incompatible argument for parameter e of TreeSet.add.
+    		if (frame == null) frameSet.add(frameEdit.getFrameID());
+    		                                                    ^
+  found   : @Initialized @Nullable String
+  required: @Initialized @NonNull String
+../dataset/urlcdab7d8364_jrwalsh_CycTools_tgz-pJ8-edu_iastate_cyctools_MainJ8/src/edu/iastate/cyctools/tools/load/model/BatchUpdate.java:156: error: (argument) $$ 4 $$ e $$ TreeSet.add $$ @Initialized @Nullable String $$ @Initialized @NonNull String $$ ( 5774, 5796 ) $$ incompatible argument for parameter e of TreeSet.add.
+	    			frameSet.add(frameEdit.getFrameID());
+	    			                                 ^
+  found   : @Initialized @Nullable String
+  required: @Initialized @NonNull String
+../dataset/urlcdab7d8364_jrwalsh_CycTools_tgz-pJ8-edu_iastate_cyctools_MainJ8/src/edu/iastate/cyctools/tools/load/model/BatchUpdate.java:169: error: (argument) $$ 4 $$ e $$ TreeSet.add $$ @Initialized @Nullable String $$ @Initialized @NonNull String $$ ( 6209, 6231 ) $$ incompatible argument for parameter e of TreeSet.add.
+    		if (frame == null) frameSet.add(frameEdit.getFrameID());
+    		                                                    ^
+  found   : @Initialized @Nullable String
+  required: @Initialized @NonNull String
+../dataset/urlcdab7d8364_jrwalsh_CycTools_tgz-pJ8-edu_iastate_cyctools_MainJ8/src/edu/iastate/cyctools/tools/load/model/BatchUpdate.java:178: error: (argument) $$ 4 $$ e $$ TreeSet.add $$ @Initialized @Nullable String $$ @Initialized @NonNull String $$ ( 6464, 6486 ) $$ incompatible argument for parameter e of TreeSet.add.
+	    			frameSet.add(frameEdit.getFrameID());
+	    			                                 ^
+  found   : @Initialized @Nullable String
+  required: @Initialized @NonNull String
+../dataset/urlcdab7d8364_jrwalsh_CycTools_tgz-pJ8-edu_iastate_cyctools_MainJ8/src/edu/iastate/cyctools/tools/load/model/BatchUpdate.java:198: error: (dereference.of.nullable) $$ 1 $$ conn $$ ( 7103, 7107 ) $$ dereference of possibly-null reference conn
+			encodedTime = conn.encodeTimeStamp(seconds, minutes, hours, day, month, year);
+			              ^
+../dataset/urlcdab7d8364_jrwalsh_CycTools_tgz-pJ8-edu_iastate_cyctools_MainJ8/src/edu/iastate/cyctools/tools/load/model/BatchUpdate.java:207: error: (iterating.over.nullable) $$ 1 $$ framesFromKB $$ ( 7446, 7458 ) $$ iterating over possibly-null reference framesFromKB
+    	for (Frame frame : framesFromKB) {
+    	                   ^
+../dataset/urlcdab7d8364_jrwalsh_CycTools_tgz-pJ8-edu_iastate_cyctools_MainJ8/src/edu/iastate/cyctools/tools/load/model/BatchUpdate.java:217: error: (dereference.of.nullable) $$ 1 $$ frameEdit.getFrameID() $$ ( 7812, 7834 ) $$ dereference of possibly-null reference frameEdit.getFrameID()
+        	if (frameEdit.getFrameID().equals(originalFrame.getLocalID())) {
+        	                        ^
+../dataset/urlcdab7d8364_jrwalsh_CycTools_tgz-pJ8-edu_iastate_cyctools_MainJ8/src/edu/iastate/cyctools/tools/load/model/BatchUpdate.java:237: error: (iterating.over.nullable) $$ 1 $$ frameEdit.getAssociatedRows() $$ ( 8515, 8544 ) $$ iterating over possibly-null reference frameEdit.getAssociatedRows()
+    			for (int row : frameEdit.getAssociatedRows()) {
+    			                                          ^
+../dataset/urlcdab7d8364_jrwalsh_CycTools_tgz-pJ8-edu_iastate_cyctools_MainJ8/src/edu/iastate/cyctools/externalSourceCode/DiffMatchPatch.java:1870: warning: [dep-ann] deprecated item is not annotated with @Deprecated
+  public LinkedList<Patch> patch_make(String text1, String text2,
+                           ^
+../dataset/urlcdab7d8364_jrwalsh_CycTools_tgz-pJ8-edu_iastate_cyctools_MainJ8/src/edu/iastate/cyctools/externalSourceCode/DiffMatchPatch.java:771: error: (accessing.nullable) $$ 1 $$ hm $$ ( 26837, 26839 ) $$ accessing a possibly-null array hm
+      return new String[]{hm[2], hm[3], hm[0], hm[1], hm[4]};
+                          ^
+../dataset/urlcdab7d8364_jrwalsh_CycTools_tgz-pJ8-edu_iastate_cyctools_MainJ8/src/edu/iastate/cyctools/externalSourceCode/DiffMatchPatch.java:918: error: (dereference.of.nullable) $$ 1 $$ prevDiff $$ ( 32651, 32659 ) $$ dereference of possibly-null reference prevDiff
+      if (prevDiff.operation == Operation.DELETE &&
+          ^
+../dataset/urlcdab7d8364_jrwalsh_CycTools_tgz-pJ8-edu_iastate_cyctools_MainJ8/src/edu/iastate/cyctools/externalSourceCode/DiffMatchPatch.java:980: error: (dereference.of.nullable) $$ 1 $$ prevDiff $$ ( 35601, 35609 ) $$ dereference of possibly-null reference prevDiff
+      if (prevDiff.operation == Operation.EQUAL &&
+          ^
+../dataset/urlcdab7d8364_jrwalsh_CycTools_tgz-pJ8-edu_iastate_cyctools_MainJ8/src/edu/iastate/cyctools/externalSourceCode/DiffMatchPatch.java:984: error: (dereference.of.nullable) $$ 1 $$ thisDiff $$ ( 35802, 35810 ) $$ dereference of possibly-null reference thisDiff
+        edit = thisDiff.text;
+               ^
+../dataset/urlcdab7d8364_jrwalsh_CycTools_tgz-pJ8-edu_iastate_cyctools_MainJ8/src/edu/iastate/cyctools/externalSourceCode/DiffMatchPatch.java:1323: error: (dereference.of.nullable) $$ 1 $$ prevDiff $$ ( 48905, 48913 ) $$ dereference of possibly-null reference prevDiff
+      if (prevDiff.operation == Operation.EQUAL &&
+          ^
+../dataset/urlcdab7d8364_jrwalsh_CycTools_tgz-pJ8-edu_iastate_cyctools_MainJ8/src/edu/iastate/cyctools/externalSourceCode/DiffMatchPatch.java:1326: error: (dereference.of.nullable) $$ 1 $$ thisDiff $$ ( 49068, 49076 ) $$ dereference of possibly-null reference thisDiff
+        if (thisDiff.text.endsWith(prevDiff.text)) {
+            ^
+../dataset/urlcdab7d8364_jrwalsh_CycTools_tgz-pJ8-edu_iastate_cyctools_MainJ8/src/edu/iastate/cyctools/externalSourceCode/DiffMatchPatch.java:1703: error: (unboxing.of.nullable) $$ 1 $$ s.get(text.charAt(j - 1)) $$ ( 62034, 62059 ) $$ unboxing a possibly-null reference s.get(text.charAt(j - 1))
+          charMatch = s.get(text.charAt(j - 1));
+                           ^
+../dataset/urlcdab7d8364_jrwalsh_CycTools_tgz-pJ8-edu_iastate_cyctools_MainJ8/src/edu/iastate/cyctools/externalSourceCode/DiffMatchPatch.java:1771: error: (unboxing.of.nullable) $$ 1 $$ s.get(c) $$ ( 64393, 64401 ) $$ unboxing a possibly-null reference s.get(c)
+      s.put(c, s.get(c) | (1 << (pattern.length() - i - 1)));
+                    ^
+../dataset/urlcdab7d8364_jrwalsh_CycTools_tgz-pJ8-edu_iastate_cyctools_MainJ8/src/edu/iastate/cyctools/externalSourceCode/DiffMatchPatch.java:2302: error: (argument) $$ 4 $$ s $$ Integer.parseInt $$ @Initialized @Nullable String $$ @Initialized @NonNull String $$ ( 84159, 84169 ) $$ incompatible argument for parameter s of Integer.parseInt.
+      patch.start1 = Integer.parseInt(m.group(1));
+                                             ^
+  found   : @Initialized @Nullable String
+  required: @Initialized @NonNull String
+../dataset/urlcdab7d8364_jrwalsh_CycTools_tgz-pJ8-edu_iastate_cyctools_MainJ8/src/edu/iastate/cyctools/externalSourceCode/DiffMatchPatch.java:2303: error: (dereference.of.nullable) $$ 1 $$ m.group(2) $$ ( 84182, 84192 ) $$ dereference of possibly-null reference m.group(2)
+      if (m.group(2).length() == 0) {
+                 ^
+../dataset/urlcdab7d8364_jrwalsh_CycTools_tgz-pJ8-edu_iastate_cyctools_MainJ8/src/edu/iastate/cyctools/externalSourceCode/DiffMatchPatch.java:2310: error: (argument) $$ 4 $$ s $$ Integer.parseInt $$ @Initialized @Nullable String $$ @Initialized @NonNull String $$ ( 84411, 84421 ) $$ incompatible argument for parameter s of Integer.parseInt.
+        patch.length1 = Integer.parseInt(m.group(2));
+                                                ^
+  found   : @Initialized @Nullable String
+  required: @Initialized @NonNull String
+../dataset/urlcdab7d8364_jrwalsh_CycTools_tgz-pJ8-edu_iastate_cyctools_MainJ8/src/edu/iastate/cyctools/externalSourceCode/DiffMatchPatch.java:2313: error: (argument) $$ 4 $$ s $$ Integer.parseInt $$ @Initialized @Nullable String $$ @Initialized @NonNull String $$ ( 84471, 84481 ) $$ incompatible argument for parameter s of Integer.parseInt.
+      patch.start2 = Integer.parseInt(m.group(3));
+                                             ^
+  found   : @Initialized @Nullable String
+  required: @Initialized @NonNull String
+../dataset/urlcdab7d8364_jrwalsh_CycTools_tgz-pJ8-edu_iastate_cyctools_MainJ8/src/edu/iastate/cyctools/externalSourceCode/DiffMatchPatch.java:2314: error: (dereference.of.nullable) $$ 1 $$ m.group(4) $$ ( 84494, 84504 ) $$ dereference of possibly-null reference m.group(4)
+      if (m.group(4).length() == 0) {
+                 ^
+../dataset/urlcdab7d8364_jrwalsh_CycTools_tgz-pJ8-edu_iastate_cyctools_MainJ8/src/edu/iastate/cyctools/externalSourceCode/DiffMatchPatch.java:2321: error: (argument) $$ 4 $$ s $$ Integer.parseInt $$ @Initialized @Nullable String $$ @Initialized @NonNull String $$ ( 84723, 84733 ) $$ incompatible argument for parameter s of Integer.parseInt.
+        patch.length2 = Integer.parseInt(m.group(4));
+                                                ^
+  found   : @Initialized @Nullable String
+  required: @Initialized @NonNull String
+../dataset/urlcdab7d8364_jrwalsh_CycTools_tgz-pJ8-edu_iastate_cyctools_MainJ8/src/edu/iastate/cyctools/tools/load/view/LoadPanel.java:136: error: (initialization.fields.uninitialized) $$ 1 $$ tableSpreadSheet, contentPane, listFrames, textAreaOld, textAreaNew, textLog, textArea, textArea_1, chckbxAppend, chckbxIgnoreDuplicate, tabbedPane, textFilePath, cmbFormat, cmbAdaptor, textMultipleValueDelimiter, chckbxFilter, labelSearchResults, tableSearchExactMatches, tableSearchGoodMatches, tableSearchMultipleMatches, tabbedSearchResults, comboBoxAuthor, panelCredits, checkBoxCredits, comboBoxOrganization, lblChooseOrganization, lblChooseIndividualAuthor, lblSaveOrRejectNote, confirmImageLabel, noticeLabel $$ ( 5150, 5287 ) $$ the constructor does not initialize fields: tableSpreadSheet, contentPane, listFrames, textAreaOld, textAreaNew, textLog, textArea, textArea_1, chckbxAppend, chckbxIgnoreDuplicate, tabbedPane, textFilePath, cmbFormat, cmbAdaptor, textMultipleValueDelimiter, chckbxFilter, labelSearchResults, tableSearchExactMatches, tableSearchGoodMatches, tableSearchMultipleMatches, tabbedSearchResults, comboBoxAuthor, panelCredits, checkBoxCredits, comboBoxOrganization, lblChooseOrganization, lblChooseIndividualAuthor, lblSaveOrRejectNote, confirmImageLabel, noticeLabel
+	public LoadPanel(DefaultController controller) {
+	       ^
+../dataset/urlcdab7d8364_jrwalsh_CycTools_tgz-pJ8-edu_iastate_cyctools_MainJ8/src/edu/iastate/cyctools/tools/load/view/LoadPanel.java:138: error: (method.invocation) $$ 3 $$ initComponents() $$ @UnderInitialization(edu.iastate.cyctools.externalSourceCode.AbstractViewPanel.class) @NonNull LoadPanel $$ @Initialized @NonNull LoadPanel $$ ( 5233, 5249 ) $$ call to initComponents() not allowed on the given receiver.
+		initComponents();
+		              ^
+  found   : @UnderInitialization(edu.iastate.cyctools.externalSourceCode.AbstractViewPanel.class) @NonNull LoadPanel
+  required: @Initialized @NonNull LoadPanel
+../dataset/urlcdab7d8364_jrwalsh_CycTools_tgz-pJ8-edu_iastate_cyctools_MainJ8/src/edu/iastate/cyctools/tools/load/view/LoadPanel.java:139: error: (method.invocation) $$ 3 $$ localInitialization() $$ @UnderInitialization(edu.iastate.cyctools.externalSourceCode.AbstractViewPanel.class) @NonNull LoadPanel $$ @Initialized @NonNull LoadPanel $$ ( 5259, 5280 ) $$ call to localInitialization() not allowed on the given receiver.
+        localInitialization();
+                           ^
+  found   : @UnderInitialization(edu.iastate.cyctools.externalSourceCode.AbstractViewPanel.class) @NonNull LoadPanel
+  required: @Initialized @NonNull LoadPanel
+../dataset/urlcdab7d8364_jrwalsh_CycTools_tgz-pJ8-edu_iastate_cyctools_MainJ8/src/edu/iastate/cyctools/tools/load/view/LoadPanel.java:198: error: (dereference.of.nullable) $$ 1 $$ cardLayout $$ ( 8030, 8040 ) $$ dereference of possibly-null reference cardLayout
+    			cardLayout.show(contentPane, "OptionsPanel");
+    			^
+../dataset/urlcdab7d8364_jrwalsh_CycTools_tgz-pJ8-edu_iastate_cyctools_MainJ8/src/edu/iastate/cyctools/tools/load/view/LoadPanel.java:236: error: (argument) $$ 4 $$ location $$ ImageIcon constructor $$ @Initialized @Nullable URL $$ @Initialized @NonNull URL $$ ( 9983, 10034 ) $$ incompatible argument for parameter location of ImageIcon constructor.
+        imageLabel.setIcon(new ImageIcon(LoadPanel.class.getResource("/resources/step1.png")));
+                                                                    ^
+  found   : @Initialized @Nullable URL
+  required: @Initialized @NonNull URL
+../dataset/urlcdab7d8364_jrwalsh_CycTools_tgz-pJ8-edu_iastate_cyctools_MainJ8/src/edu/iastate/cyctools/tools/load/view/LoadPanel.java:250: error: (override.param) $$ 7 $$ value $$ @Initialized @NonNull Object $$ @Initialized @Nullable Object $$ @Initialized @NonNull LoadPanel.@Initialized @NonNull <anonymous edu.iastate.cyctools.tools.load.view.LoadPanel$2> $$ @Initialized @NonNull Component getListCellRendererComponent(@Initialized @NonNull LoadPanel.@Initialized @NonNull <anonymous edu.iastate.cyctools.tools.load.view.LoadPanel$2> this, @Initialized @NonNull JList</*RAW*/> p0, @Initialized @NonNull Object p1, @Initialized @NonNull int p2, @Initialized @NonNull boolean p3, @Initialized @NonNull boolean p4) $$ @Initialized @NonNull DefaultListCellRenderer $$ @Initialized @NonNull Component getListCellRendererComponent(@Initialized @NonNull DefaultListCellRenderer this, @Initialized @NonNull JList<? extends @Initialized @Nullable Object> p0, @Initialized @Nullable Object p1, @Initialized @NonNull int p2, @Initialized @NonNull boolean p3, @Initialized @NonNull boolean p4) $$ ( 10714, 10726 ) $$ Incompatible parameter type for value.
+	        public Component getListCellRendererComponent(final JList list, Object value, final int index, final boolean isSelected, final boolean cellHasFocus) {
+	                                                                               ^
+  found   : @Initialized @NonNull Object
+  required: @Initialized @Nullable Object
+  Consequence: method in @Initialized @NonNull LoadPanel.@Initialized @NonNull <anonymous edu.iastate.cyctools.tools.load.view.LoadPanel$2>
+    @Initialized @NonNull Component getListCellRendererComponent(@Initialized @NonNull LoadPanel.@Initialized @NonNull <anonymous edu.iastate.cyctools.tools.load.view.LoadPanel$2> this, @Initialized @NonNull JList</*RAW*/> p0, @Initialized @NonNull Object p1, @Initialized @NonNull int p2, @Initialized @NonNull boolean p3, @Initialized @NonNull boolean p4)
+  cannot override method in @Initialized @NonNull DefaultListCellRenderer
+    @Initialized @NonNull Component getListCellRendererComponent(@Initialized @NonNull DefaultListCellRenderer this, @Initialized @NonNull JList<? extends @Initialized @Nullable Object> p0, @Initialized @Nullable Object p1, @Initialized @NonNull int p2, @Initialized @NonNull boolean p3, @Initialized @NonNull boolean p4)
+../dataset/urlcdab7d8364_jrwalsh_CycTools_tgz-pJ8-edu_iastate_cyctools_MainJ8/src/edu/iastate/cyctools/tools/load/view/LoadPanel.java:266: error: (dereference.of.nullable) $$ 1 $$ fileChooser.getSelectedFile() $$ ( 11629, 11658 ) $$ dereference of possibly-null reference fileChooser.getSelectedFile()
+					textFilePath.setText(fileChooser.getSelectedFile().getAbsolutePath());
+					                                                ^
+../dataset/urlcdab7d8364_jrwalsh_CycTools_tgz-pJ8-edu_iastate_cyctools_MainJ8/src/edu/iastate/cyctools/tools/load/view/LoadPanel.java:307: error: (argument) $$ 4 $$ highlight $$ EtchedBorder constructor $$ null (NullType) $$ @Initialized @NonNull Color $$ ( 13610, 13614 ) $$ incompatible argument for parameter highlight of EtchedBorder constructor.
+		panelCredits.setBorder(new EtchedBorder(EtchedBorder.LOWERED, null, null));
+		                                                              ^
+  found   : null (NullType)
+  required: @Initialized @NonNull Color
+../dataset/urlcdab7d8364_jrwalsh_CycTools_tgz-pJ8-edu_iastate_cyctools_MainJ8/src/edu/iastate/cyctools/tools/load/view/LoadPanel.java:307: error: (argument) $$ 4 $$ shadow $$ EtchedBorder constructor $$ null (NullType) $$ @Initialized @NonNull Color $$ ( 13616, 13620 ) $$ incompatible argument for parameter shadow of EtchedBorder constructor.
+		panelCredits.setBorder(new EtchedBorder(EtchedBorder.LOWERED, null, null));
+		                                                                    ^
+  found   : null (NullType)
+  required: @Initialized @NonNull Color
+../dataset/urlcdab7d8364_jrwalsh_CycTools_tgz-pJ8-edu_iastate_cyctools_MainJ8/src/edu/iastate/cyctools/tools/load/view/LoadPanel.java:320: error: (override.param) $$ 7 $$ value $$ @Initialized @NonNull Object $$ @Initialized @Nullable Object $$ @Initialized @NonNull LoadPanel.@Initialized @NonNull <anonymous edu.iastate.cyctools.tools.load.view.LoadPanel$4> $$ @Initialized @NonNull Component getListCellRendererComponent(@Initialized @NonNull LoadPanel.@Initialized @NonNull <anonymous edu.iastate.cyctools.tools.load.view.LoadPanel$4> this, @Initialized @NonNull JList</*RAW*/> p0, @Initialized @NonNull Object p1, @Initialized @NonNull int p2, @Initialized @NonNull boolean p3, @Initialized @NonNull boolean p4) $$ @Initialized @NonNull DefaultListCellRenderer $$ @Initialized @NonNull Component getListCellRendererComponent(@Initialized @NonNull DefaultListCellRenderer this, @Initialized @NonNull JList<? extends @Initialized @Nullable Object> p0, @Initialized @Nullable Object p1, @Initialized @NonNull int p2, @Initialized @NonNull boolean p3, @Initialized @NonNull boolean p4) $$ ( 14217, 14229 ) $$ Incompatible parameter type for value.
+	        public Component getListCellRendererComponent(final JList list, Object value, final int index, final boolean isSelected, final boolean cellHasFocus) {
+	                                                                               ^
+  found   : @Initialized @NonNull Object
+  required: @Initialized @Nullable Object
+  Consequence: method in @Initialized @NonNull LoadPanel.@Initialized @NonNull <anonymous edu.iastate.cyctools.tools.load.view.LoadPanel$4>
+    @Initialized @NonNull Component getListCellRendererComponent(@Initialized @NonNull LoadPanel.@Initialized @NonNull <anonymous edu.iastate.cyctools.tools.load.view.LoadPanel$4> this, @Initialized @NonNull JList</*RAW*/> p0, @Initialized @NonNull Object p1, @Initialized @NonNull int p2, @Initialized @NonNull boolean p3, @Initialized @NonNull boolean p4)
+  cannot override method in @Initialized @NonNull DefaultListCellRenderer
+    @Initialized @NonNull Component getListCellRendererComponent(@Initialized @NonNull DefaultListCellRenderer this, @Initialized @NonNull JList<? extends @Initialized @Nullable Object> p0, @Initialized @Nullable Object p1, @Initialized @NonNull int p2, @Initialized @NonNull boolean p3, @Initialized @NonNull boolean p4)
+../dataset/urlcdab7d8364_jrwalsh_CycTools_tgz-pJ8-edu_iastate_cyctools_MainJ8/src/edu/iastate/cyctools/tools/load/view/LoadPanel.java:337: error: (override.param) $$ 7 $$ value $$ @Initialized @NonNull Object $$ @Initialized @Nullable Object $$ @Initialized @NonNull LoadPanel.@Initialized @NonNull <anonymous edu.iastate.cyctools.tools.load.view.LoadPanel$5> $$ @Initialized @NonNull Component getListCellRendererComponent(@Initialized @NonNull LoadPanel.@Initialized @NonNull <anonymous edu.iastate.cyctools.tools.load.view.LoadPanel$5> this, @Initialized @NonNull JList</*RAW*/> p0, @Initialized @NonNull Object p1, @Initialized @NonNull int p2, @Initialized @NonNull boolean p3, @Initialized @NonNull boolean p4) $$ @Initialized @NonNull DefaultListCellRenderer $$ @Initialized @NonNull Component getListCellRendererComponent(@Initialized @NonNull DefaultListCellRenderer this, @Initialized @NonNull JList<? extends @Initialized @Nullable Object> p0, @Initialized @Nullable Object p1, @Initialized @NonNull int p2, @Initialized @NonNull boolean p3, @Initialized @NonNull boolean p4) $$ ( 15131, 15143 ) $$ Incompatible parameter type for value.
+	        public Component getListCellRendererComponent(final JList list, Object value, final int index, final boolean isSelected, final boolean cellHasFocus) {
+	                                                                               ^
+  found   : @Initialized @NonNull Object
+  required: @Initialized @Nullable Object
+  Consequence: method in @Initialized @NonNull LoadPanel.@Initialized @NonNull <anonymous edu.iastate.cyctools.tools.load.view.LoadPanel$5>
+    @Initialized @NonNull Component getListCellRendererComponent(@Initialized @NonNull LoadPanel.@Initialized @NonNull <anonymous edu.iastate.cyctools.tools.load.view.LoadPanel$5> this, @Initialized @NonNull JList</*RAW*/> p0, @Initialized @NonNull Object p1, @Initialized @NonNull int p2, @Initialized @NonNull boolean p3, @Initialized @NonNull boolean p4)
+  cannot override method in @Initialized @NonNull DefaultListCellRenderer
+    @Initialized @NonNull Component getListCellRendererComponent(@Initialized @NonNull DefaultListCellRenderer this, @Initialized @NonNull JList<? extends @Initialized @Nullable Object> p0, @Initialized @Nullable Object p1, @Initialized @NonNull int p2, @Initialized @NonNull boolean p3, @Initialized @NonNull boolean p4)
+../dataset/urlcdab7d8364_jrwalsh_CycTools_tgz-pJ8-edu_iastate_cyctools_MainJ8/src/edu/iastate/cyctools/tools/load/view/LoadPanel.java:377: error: (dereference.of.nullable) $$ 1 $$ controller.getDocumentModel() $$ ( 16797, 16826 ) $$ dereference of possibly-null reference controller.getDocumentModel()
+    			if (controller.getDocumentModel().getFile() == null) {
+    			                               ^
+../dataset/urlcdab7d8364_jrwalsh_CycTools_tgz-pJ8-edu_iastate_cyctools_MainJ8/src/edu/iastate/cyctools/tools/load/view/LoadPanel.java:387: error: (dereference.of.nullable) $$ 1 $$ cardLayout $$ ( 17387, 17397 ) $$ dereference of possibly-null reference cardLayout
+    			cardLayout.show(contentPane, "FilePanel");
+    			^
+../dataset/urlcdab7d8364_jrwalsh_CycTools_tgz-pJ8-edu_iastate_cyctools_MainJ8/src/edu/iastate/cyctools/tools/load/view/LoadPanel.java:410: error: (argument) $$ 4 $$ location $$ ImageIcon constructor $$ @Initialized @Nullable URL $$ @Initialized @NonNull URL $$ ( 18110, 18161 ) $$ incompatible argument for parameter location of ImageIcon constructor.
+        imageLabel.setIcon(new ImageIcon(LoadPanel.class.getResource("/resources/step2.png")));
+                                                                    ^
+  found   : @Initialized @Nullable URL
+  required: @Initialized @NonNull URL
+../dataset/urlcdab7d8364_jrwalsh_CycTools_tgz-pJ8-edu_iastate_cyctools_MainJ8/src/edu/iastate/cyctools/tools/load/view/LoadPanel.java:424: error: (dereference.of.nullable) $$ 1 $$ cardLayout $$ ( 18866, 18876 ) $$ dereference of possibly-null reference cardLayout
+        		cardLayout.show(contentPane, "OptionsPanel");
+        		^
+../dataset/urlcdab7d8364_jrwalsh_CycTools_tgz-pJ8-edu_iastate_cyctools_MainJ8/src/edu/iastate/cyctools/tools/load/view/LoadPanel.java:438: error: (dereference.of.nullable) $$ 1 $$ cardLayout $$ ( 19398, 19408 ) $$ dereference of possibly-null reference cardLayout
+        		} else if (searchFrameIDs()) cardLayout.show(contentPane, "SearchPanel");
+        		                             ^
+../dataset/urlcdab7d8364_jrwalsh_CycTools_tgz-pJ8-edu_iastate_cyctools_MainJ8/src/edu/iastate/cyctools/tools/load/view/LoadPanel.java:454: error: (argument) $$ 4 $$ location $$ ImageIcon constructor $$ @Initialized @Nullable URL $$ @Initialized @NonNull URL $$ ( 19932, 19983 ) $$ incompatible argument for parameter location of ImageIcon constructor.
+        imageLabel.setIcon(new ImageIcon(LoadPanel.class.getResource("/resources/step3.png")));
+                                                                    ^
+  found   : @Initialized @Nullable URL
+  required: @Initialized @NonNull URL
+../dataset/urlcdab7d8364_jrwalsh_CycTools_tgz-pJ8-edu_iastate_cyctools_MainJ8/src/edu/iastate/cyctools/tools/load/view/LoadPanel.java:467: error: (argument) $$ 4 $$ icon $$ JTabbedPane.addTab $$ null (NullType) $$ @Initialized @NonNull Icon $$ ( 20592, 20596 ) $$ incompatible argument for parameter icon of JTabbedPane.addTab.
+		tabbedSearchResults.addTab("FrameID Matches", null, scroll1, null);
+		                                              ^
+  found   : null (NullType)
+  required: @Initialized @NonNull Icon
+../dataset/urlcdab7d8364_jrwalsh_CycTools_tgz-pJ8-edu_iastate_cyctools_MainJ8/src/edu/iastate/cyctools/tools/load/view/LoadPanel.java:467: error: (argument) $$ 4 $$ tip $$ JTabbedPane.addTab $$ null (NullType) $$ @Initialized @NonNull String $$ ( 20607, 20611 ) $$ incompatible argument for parameter tip of JTabbedPane.addTab.
+		tabbedSearchResults.addTab("FrameID Matches", null, scroll1, null);
+		                                                             ^
+  found   : null (NullType)
+  required: @Initialized @NonNull String
+../dataset/urlcdab7d8364_jrwalsh_CycTools_tgz-pJ8-edu_iastate_cyctools_MainJ8/src/edu/iastate/cyctools/tools/load/view/LoadPanel.java:472: error: (argument) $$ 4 $$ icon $$ JTabbedPane.addTab $$ null (NullType) $$ @Initialized @NonNull Icon $$ ( 20800, 20804 ) $$ incompatible argument for parameter icon of JTabbedPane.addTab.
+		tabbedSearchResults.addTab("Synonym Matches", null, scroll2, null);
+		                                              ^
+  found   : null (NullType)
+  required: @Initialized @NonNull Icon
+../dataset/urlcdab7d8364_jrwalsh_CycTools_tgz-pJ8-edu_iastate_cyctools_MainJ8/src/edu/iastate/cyctools/tools/load/view/LoadPanel.java:472: error: (argument) $$ 4 $$ tip $$ JTabbedPane.addTab $$ null (NullType) $$ @Initialized @NonNull String $$ ( 20815, 20819 ) $$ incompatible argument for parameter tip of JTabbedPane.addTab.
+		tabbedSearchResults.addTab("Synonym Matches", null, scroll2, null);
+		                                                             ^
+  found   : null (NullType)
+  required: @Initialized @NonNull String
+../dataset/urlcdab7d8364_jrwalsh_CycTools_tgz-pJ8-edu_iastate_cyctools_MainJ8/src/edu/iastate/cyctools/tools/load/view/LoadPanel.java:477: error: (argument) $$ 4 $$ icon $$ JTabbedPane.addTab $$ null (NullType) $$ @Initialized @NonNull Icon $$ ( 21017, 21021 ) $$ incompatible argument for parameter icon of JTabbedPane.addTab.
+		tabbedSearchResults.addTab("Multiple Matches", null, scroll3, null);
+		                                               ^
+  found   : null (NullType)
+  required: @Initialized @NonNull Icon
+../dataset/urlcdab7d8364_jrwalsh_CycTools_tgz-pJ8-edu_iastate_cyctools_MainJ8/src/edu/iastate/cyctools/tools/load/view/LoadPanel.java:477: error: (argument) $$ 4 $$ tip $$ JTabbedPane.addTab $$ null (NullType) $$ @Initialized @NonNull String $$ ( 21032, 21036 ) $$ incompatible argument for parameter tip of JTabbedPane.addTab.
+		tabbedSearchResults.addTab("Multiple Matches", null, scroll3, null);
+		                                                              ^
+  found   : null (NullType)
+  required: @Initialized @NonNull String
+../dataset/urlcdab7d8364_jrwalsh_CycTools_tgz-pJ8-edu_iastate_cyctools_MainJ8/src/edu/iastate/cyctools/tools/load/view/LoadPanel.java:483: error: (dereference.of.nullable) $$ 1 $$ selectedAdaptor $$ ( 21203, 21218 ) $$ dereference of possibly-null reference selectedAdaptor
+					selectedAdaptor.setMultipleValueDelimiter(textMultipleValueDelimiter.getText());
+					^
+../dataset/urlcdab7d8364_jrwalsh_CycTools_tgz-pJ8-edu_iastate_cyctools_MainJ8/src/edu/iastate/cyctools/tools/load/view/LoadPanel.java:502: error: (dereference.of.nullable) $$ 1 $$ cardLayout $$ ( 21864, 21874 ) $$ dereference of possibly-null reference cardLayout
+				cardLayout.show(contentPane, "FilePanel");
+				^
+../dataset/urlcdab7d8364_jrwalsh_CycTools_tgz-pJ8-edu_iastate_cyctools_MainJ8/src/edu/iastate/cyctools/tools/load/view/LoadPanel.java:519: error: (argument) $$ 4 $$ location $$ ImageIcon constructor $$ @Initialized @Nullable URL $$ @Initialized @NonNull URL $$ ( 22422, 22473 ) $$ incompatible argument for parameter location of ImageIcon constructor.
+		imageLabel.setIcon(new ImageIcon(LoadPanel.class.getResource("/resources/step4.png")));
+		                                                            ^
+  found   : @Initialized @Nullable URL
+  required: @Initialized @NonNull URL
+../dataset/urlcdab7d8364_jrwalsh_CycTools_tgz-pJ8-edu_iastate_cyctools_MainJ8/src/edu/iastate/cyctools/tools/load/view/LoadPanel.java:563: error: (dereference.of.nullable) $$ 1 $$ batchEdits $$ ( 24378, 24388 ) $$ dereference of possibly-null reference batchEdits
+					framesWhichModifyKB = batchEdits.framesWhichModifyKB(controller.getConnection());
+					                      ^
+../dataset/urlcdab7d8364_jrwalsh_CycTools_tgz-pJ8-edu_iastate_cyctools_MainJ8/src/edu/iastate/cyctools/tools/load/view/LoadPanel.java:567: error: (argument) $$ 4 $$ model $$ JList.setModel $$ @Initialized @MonotonicNonNull DefaultListModel<@Initialized @NonNull String> $$ @Initialized @NonNull ListModel<@Initialized @NonNull String> $$ ( 24623, 24643 ) $$ incompatible argument for parameter model of JList.setModel.
+					listFrames.setModel(allFramesWithImports);
+					                    ^
+  found   : @Initialized @MonotonicNonNull DefaultListModel<@Initialized @NonNull String>
+  required: @Initialized @NonNull ListModel<@Initialized @NonNull String>
+../dataset/urlcdab7d8364_jrwalsh_CycTools_tgz-pJ8-edu_iastate_cyctools_MainJ8/src/edu/iastate/cyctools/tools/load/view/LoadPanel.java:576: error: (dereference.of.nullable) $$ 1 $$ cardLayout $$ ( 24884, 24894 ) $$ dereference of possibly-null reference cardLayout
+				cardLayout.show(contentPane, "SearchPanel");
+				^
+../dataset/urlcdab7d8364_jrwalsh_CycTools_tgz-pJ8-edu_iastate_cyctools_MainJ8/src/edu/iastate/cyctools/tools/load/view/LoadPanel.java:595: error: (argument) $$ 4 $$ location $$ ImageIcon constructor $$ @Initialized @Nullable URL $$ @Initialized @NonNull URL $$ ( 25547, 25598 ) $$ incompatible argument for parameter location of ImageIcon constructor.
+    	confirmImageLabel.setIcon(new ImageIcon(LoadPanel.class.getResource("/resources/step5.png")));
+    	                                                                   ^
+  found   : @Initialized @Nullable URL
+  required: @Initialized @NonNull URL
+../dataset/urlcdab7d8364_jrwalsh_CycTools_tgz-pJ8-edu_iastate_cyctools_MainJ8/src/edu/iastate/cyctools/tools/load/view/LoadPanel.java:600: error: (argument) $$ 4 $$ icon $$ JTabbedPane.addTab $$ null (NullType) $$ @Initialized @NonNull Icon $$ ( 25849, 25853 ) $$ incompatible argument for parameter icon of JTabbedPane.addTab.
+        tabbedPane.addTab("All Events", null, scrollPaneAll, null);
+                                        ^
+  found   : null (NullType)
+  required: @Initialized @NonNull Icon
+../dataset/urlcdab7d8364_jrwalsh_CycTools_tgz-pJ8-edu_iastate_cyctools_MainJ8/src/edu/iastate/cyctools/tools/load/view/LoadPanel.java:600: error: (argument) $$ 4 $$ tip $$ JTabbedPane.addTab $$ null (NullType) $$ @Initialized @NonNull String $$ ( 25870, 25874 ) $$ incompatible argument for parameter tip of JTabbedPane.addTab.
+        tabbedPane.addTab("All Events", null, scrollPaneAll, null);
+                                                             ^
+  found   : null (NullType)
+  required: @Initialized @NonNull String
+../dataset/urlcdab7d8364_jrwalsh_CycTools_tgz-pJ8-edu_iastate_cyctools_MainJ8/src/edu/iastate/cyctools/tools/load/view/LoadPanel.java:604: error: (argument) $$ 4 $$ icon $$ JTabbedPane.addTab $$ null (NullType) $$ @Initialized @NonNull Icon $$ ( 26067, 26071 ) $$ incompatible argument for parameter icon of JTabbedPane.addTab.
+        tabbedPane.addTab("Successful Imports", null, scrollPaneSuccess, null);
+                                                ^
+  found   : null (NullType)
+  required: @Initialized @NonNull Icon
+../dataset/urlcdab7d8364_jrwalsh_CycTools_tgz-pJ8-edu_iastate_cyctools_MainJ8/src/edu/iastate/cyctools/tools/load/view/LoadPanel.java:604: error: (argument) $$ 4 $$ tip $$ JTabbedPane.addTab $$ null (NullType) $$ @Initialized @NonNull String $$ ( 26092, 26096 ) $$ incompatible argument for parameter tip of JTabbedPane.addTab.
+        tabbedPane.addTab("Successful Imports", null, scrollPaneSuccess, null);
+                                                                         ^
+  found   : null (NullType)
+  required: @Initialized @NonNull String
+../dataset/urlcdab7d8364_jrwalsh_CycTools_tgz-pJ8-edu_iastate_cyctools_MainJ8/src/edu/iastate/cyctools/tools/load/view/LoadPanel.java:608: error: (argument) $$ 4 $$ icon $$ JTabbedPane.addTab $$ null (NullType) $$ @Initialized @NonNull Icon $$ ( 26290, 26294 ) $$ incompatible argument for parameter icon of JTabbedPane.addTab.
+        tabbedPane.addTab("Failed Imports", null, scrollPaneFailed, null);
+                                            ^
+  found   : null (NullType)
+  required: @Initialized @NonNull Icon
+../dataset/urlcdab7d8364_jrwalsh_CycTools_tgz-pJ8-edu_iastate_cyctools_MainJ8/src/edu/iastate/cyctools/tools/load/view/LoadPanel.java:608: error: (argument) $$ 4 $$ tip $$ JTabbedPane.addTab $$ null (NullType) $$ @Initialized @NonNull String $$ ( 26314, 26318 ) $$ incompatible argument for parameter tip of JTabbedPane.addTab.
+        tabbedPane.addTab("Failed Imports", null, scrollPaneFailed, null);
+                                                                    ^
+  found   : null (NullType)
+  required: @Initialized @NonNull String
+../dataset/urlcdab7d8364_jrwalsh_CycTools_tgz-pJ8-edu_iastate_cyctools_MainJ8/src/edu/iastate/cyctools/tools/load/view/LoadPanel.java:637: error: (dereference.of.nullable) $$ 1 $$ conn $$ ( 27595, 27599 ) $$ dereference of possibly-null reference conn
+			authors = conn.getClassAllInstances("|People|");
+			          ^
+../dataset/urlcdab7d8364_jrwalsh_CycTools_tgz-pJ8-edu_iastate_cyctools_MainJ8/src/edu/iastate/cyctools/tools/load/view/LoadPanel.java:682: error: (dereference.of.nullable) $$ 1 $$ batchEdits $$ ( 29385, 29395 ) $$ dereference of possibly-null reference batchEdits
+		Frame originalFrame = batchEdits.getFrameByID(frameID);
+		                      ^
+../dataset/urlcdab7d8364_jrwalsh_CycTools_tgz-pJ8-edu_iastate_cyctools_MainJ8/src/edu/iastate/cyctools/tools/load/view/LoadPanel.java:688: error: (argument) $$ 4 $$ c $$ Frame constructor $$ @Initialized @Nullable JavacycConnection $$ @Initialized @NonNull JavacycConnection $$ ( 29770, 29796 ) $$ incompatible argument for parameter c of Frame constructor.
+			originalFrame = new Frame(controller.getConnection(), frameID);
+			                                                  ^
+  found   : @Initialized @Nullable JavacycConnection
+  required: @Initialized @NonNull JavacycConnection
+../dataset/urlcdab7d8364_jrwalsh_CycTools_tgz-pJ8-edu_iastate_cyctools_MainJ8/src/edu/iastate/cyctools/tools/load/view/LoadPanel.java:699: error: (argument) $$ 4 $$ t $$ JEditorPane.setText $$ @Initialized @Nullable String $$ @Initialized @NonNull String $$ ( 30246, 30264 ) $$ incompatible argument for parameter t of JEditorPane.setText.
+		textAreaNew.setText(updatedFrameString);
+		                    ^
+  found   : @Initialized @Nullable String
+  required: @Initialized @NonNull String
+../dataset/urlcdab7d8364_jrwalsh_CycTools_tgz-pJ8-edu_iastate_cyctools_MainJ8/src/edu/iastate/cyctools/tools/load/view/LoadPanel.java:721: error: (iterating.over.nullable) $$ 1 $$ patches $$ ( 31256, 31263 ) $$ iterating over possibly-null reference patches
+		for (Patch patch : patches) {
+		                   ^
+../dataset/urlcdab7d8364_jrwalsh_CycTools_tgz-pJ8-edu_iastate_cyctools_MainJ8/src/edu/iastate/cyctools/tools/load/view/LoadPanel.java:772: error: (dereference.of.nullable) $$ 1 $$ selectedAdaptor $$ ( 33345, 33360 ) $$ dereference of possibly-null reference selectedAdaptor
+	    batchEdits = new BatchUpdate(selectedAdaptor.tableToFrameUpdates(model), this);
+	                                 ^
+../dataset/urlcdab7d8364_jrwalsh_CycTools_tgz-pJ8-edu_iastate_cyctools_MainJ8/src/edu/iastate/cyctools/tools/load/view/LoadPanel.java:859: error: (dereference.of.nullable) $$ 1 $$ cardLayout $$ ( 36869, 36879 ) $$ dereference of possibly-null reference cardLayout
+		cardLayout.show(contentPane, "PreviewPanel");
+		^
+../dataset/urlcdab7d8364_jrwalsh_CycTools_tgz-pJ8-edu_iastate_cyctools_MainJ8/src/edu/iastate/cyctools/tools/load/view/LoadPanel.java:873: error: (dereference.of.nullable) $$ 1 $$ batchEdits $$ ( 37545, 37555 ) $$ dereference of possibly-null reference batchEdits
+			batchEdits.createAuthorCredits(author, organization, controller.getConnection());
+			^
+../dataset/urlcdab7d8364_jrwalsh_CycTools_tgz-pJ8-edu_iastate_cyctools_MainJ8/src/edu/iastate/cyctools/tools/load/view/LoadPanel.java:888: error: (dereference.of.nullable) $$ 1 $$ conn $$ ( 38200, 38204 ) $$ dereference of possibly-null reference conn
+				if (!conn.frameExists(userProvidedID)) noMatchCount++;
+				     ^
+../dataset/urlcdab7d8364_jrwalsh_CycTools_tgz-pJ8-edu_iastate_cyctools_MainJ8/src/edu/iastate/cyctools/tools/load/view/LoadPanel.java:905: error: (dereference.of.nullable) $$ 1 $$ conn $$ ( 39009, 39013 ) $$ dereference of possibly-null reference conn
+					searchResults.put(userProvidedID, conn.search(userProvidedID, ((Entry<String, String>)cmbImportType.getSelectedItem()).getKey()));
+					                                  ^
+../dataset/urlcdab7d8364_jrwalsh_CycTools_tgz-pJ8-edu_iastate_cyctools_MainJ8/src/edu/iastate/cyctools/tools/load/view/LoadPanel.java:909: error: (argument) $$ 4 $$ value $$ HashMap.put $$ null (NullType) $$ @Initialized @NonNull ArrayList<@Initialized @NonNull Frame> $$ ( 39213, 39217 ) $$ incompatible argument for parameter value of HashMap.put.
+				searchResults.put(userProvidedID, null);
+				                                  ^
+  found   : null (NullType)
+  required: @Initialized @NonNull ArrayList<@Initialized @NonNull Frame>
+../dataset/urlcdab7d8364_jrwalsh_CycTools_tgz-pJ8-edu_iastate_cyctools_MainJ8/src/edu/iastate/cyctools/tools/load/view/LoadPanel.java:992: error: (dereference.of.nullable) $$ 1 $$ searchResults.get(row[0]) $$ ( 42921, 42946 ) $$ dereference of possibly-null reference searchResults.get(row[0])
+				extendedRow[0] = searchResults.get(row[0]).get(0).getLocalID();
+				                                  ^
+../dataset/urlcdab7d8364_jrwalsh_CycTools_tgz-pJ8-edu_iastate_cyctools_MainJ8/src/edu/iastate/cyctools/tools/load/view/LoadPanel.java:1023: error: (iterating.over.nullable) $$ 1 $$ searchResults.get(userProvidedID) $$ ( 44074, 44107 ) $$ iterating over possibly-null reference searchResults.get(userProvidedID)
+				for (Frame match : searchResults.get(userProvidedID)) {
+				                                    ^
+../dataset/urlcdab7d8364_jrwalsh_CycTools_tgz-pJ8-edu_iastate_cyctools_MainJ8/src/edu/iastate/cyctools/tools/load/view/LoadPanel.java:1084: error: (method.invocation) $$ 3 $$ putValue(java.lang.String,java.lang.Object) $$ @UnderInitialization(edu.iastate.cyctools.tools.load.view.LoadPanel.ActionUpload.class) @NonNull AbstractAction $$ @Initialized @NonNull AbstractAction $$ ( 45810, 45843 ) $$ call to putValue(java.lang.String,java.lang.Object) not allowed on the given receiver.
+			putValue(NAME, "Update Database");
+			        ^
+  found   : @UnderInitialization(edu.iastate.cyctools.tools.load.view.LoadPanel.ActionUpload.class) @NonNull AbstractAction
+  required: @Initialized @NonNull AbstractAction
+../dataset/urlcdab7d8364_jrwalsh_CycTools_tgz-pJ8-edu_iastate_cyctools_MainJ8/src/edu/iastate/cyctools/tools/load/view/LoadPanel.java:1085: error: (method.invocation) $$ 3 $$ putValue(java.lang.String,java.lang.Object) $$ @UnderInitialization(edu.iastate.cyctools.tools.load.view.LoadPanel.ActionUpload.class) @NonNull AbstractAction $$ @Initialized @NonNull AbstractAction $$ ( 45848, 45908 ) $$ call to putValue(java.lang.String,java.lang.Object) not allowed on the given receiver.
+			putValue(SHORT_DESCRIPTION, "Upload data table to database");
+			        ^
+  found   : @UnderInitialization(edu.iastate.cyctools.tools.load.view.LoadPanel.ActionUpload.class) @NonNull AbstractAction
+  required: @Initialized @NonNull AbstractAction
+../dataset/urlcdab7d8364_jrwalsh_CycTools_tgz-pJ8-edu_iastate_cyctools_MainJ8/src/edu/iastate/cyctools/tools/load/view/LoadPanel.java:1090: error: (dereference.of.nullable) $$ 1 $$ cardLayout $$ ( 46007, 46017 ) $$ dereference of possibly-null reference cardLayout
+			cardLayout.show(contentPane, "ReviewPanel");
+			^
+../dataset/urlcdab7d8364_jrwalsh_CycTools_tgz-pJ8-edu_iastate_cyctools_MainJ8/src/edu/iastate/cyctools/tools/load/view/LoadPanel.java:1091: error: (dereference.of.nullable) $$ 1 $$ batchEdits $$ ( 46055, 46065 ) $$ dereference of possibly-null reference batchEdits
+			batchEdits.commitToKB(controller.getConnection());
+			^
+../dataset/urlcdab7d8364_jrwalsh_CycTools_tgz-pJ8-edu_iastate_cyctools_MainJ8/src/edu/iastate/cyctools/tools/load/view/LoadPanel.java:1121: error: (method.invocation) $$ 3 $$ putValue(java.lang.String,java.lang.Object) $$ @UnderInitialization(edu.iastate.cyctools.tools.load.view.LoadPanel.ActionSave.class) @NonNull AbstractAction $$ @Initialized @NonNull AbstractAction $$ ( 47001, 47119 ) $$ call to putValue(java.lang.String,java.lang.Object) not allowed on the given receiver.
+			putValue(SMALL_ICON, new ImageIcon("C:\\Users\\Jesse\\workspace\\CycTools\\Images\\accept\\1374877061_button_ok.png"));
+			        ^
+  found   : @UnderInitialization(edu.iastate.cyctools.tools.load.view.LoadPanel.ActionSave.class) @NonNull AbstractAction
+  required: @Initialized @NonNull AbstractAction
+../dataset/urlcdab7d8364_jrwalsh_CycTools_tgz-pJ8-edu_iastate_cyctools_MainJ8/src/edu/iastate/cyctools/tools/load/view/LoadPanel.java:1122: error: (method.invocation) $$ 3 $$ putValue(java.lang.String,java.lang.Object) $$ @UnderInitialization(edu.iastate.cyctools.tools.load.view.LoadPanel.ActionSave.class) @NonNull AbstractAction $$ @Initialized @NonNull AbstractAction $$ ( 47124, 47146 ) $$ call to putValue(java.lang.String,java.lang.Object) not allowed on the given receiver.
+			putValue(NAME, "Save");
+			        ^
+  found   : @UnderInitialization(edu.iastate.cyctools.tools.load.view.LoadPanel.ActionSave.class) @NonNull AbstractAction
+  required: @Initialized @NonNull AbstractAction
+../dataset/urlcdab7d8364_jrwalsh_CycTools_tgz-pJ8-edu_iastate_cyctools_MainJ8/src/edu/iastate/cyctools/tools/load/view/LoadPanel.java:1123: error: (method.invocation) $$ 3 $$ putValue(java.lang.String,java.lang.Object) $$ @UnderInitialization(edu.iastate.cyctools.tools.load.view.LoadPanel.ActionSave.class) @NonNull AbstractAction $$ @Initialized @NonNull AbstractAction $$ ( 47151, 47206 ) $$ call to putValue(java.lang.String,java.lang.Object) not allowed on the given receiver.
+			putValue(SHORT_DESCRIPTION, "Save changes to database");
+			        ^
+  found   : @UnderInitialization(edu.iastate.cyctools.tools.load.view.LoadPanel.ActionSave.class) @NonNull AbstractAction
+  required: @Initialized @NonNull AbstractAction
+../dataset/urlcdab7d8364_jrwalsh_CycTools_tgz-pJ8-edu_iastate_cyctools_MainJ8/src/edu/iastate/cyctools/tools/load/view/LoadPanel.java:1131: error: (argument) $$ 4 $$ location $$ ImageIcon constructor $$ @Initialized @Nullable URL $$ @Initialized @NonNull URL $$ ( 47515, 47566 ) $$ incompatible argument for parameter location of ImageIcon constructor.
+			confirmImageLabel.setIcon(new ImageIcon(LoadPanel.class.getResource("/resources/step6.png")));
+			                                                                   ^
+  found   : @Initialized @Nullable URL
+  required: @Initialized @NonNull URL
+../dataset/urlcdab7d8364_jrwalsh_CycTools_tgz-pJ8-edu_iastate_cyctools_MainJ8/src/edu/iastate/cyctools/tools/load/view/LoadPanel.java:1137: error: (method.invocation) $$ 3 $$ putValue(java.lang.String,java.lang.Object) $$ @UnderInitialization(edu.iastate.cyctools.tools.load.view.LoadPanel.ActionRevert.class) @NonNull AbstractAction $$ @Initialized @NonNull AbstractAction $$ ( 47661, 47783 ) $$ call to putValue(java.lang.String,java.lang.Object) not allowed on the given receiver.
+			putValue(SMALL_ICON, new ImageIcon("C:\\Users\\Jesse\\workspace\\CycTools\\Images\\accept\\1374877110_button_cancel.png"));
+			        ^
+  found   : @UnderInitialization(edu.iastate.cyctools.tools.load.view.LoadPanel.ActionRevert.class) @NonNull AbstractAction
+  required: @Initialized @NonNull AbstractAction
+../dataset/urlcdab7d8364_jrwalsh_CycTools_tgz-pJ8-edu_iastate_cyctools_MainJ8/src/edu/iastate/cyctools/tools/load/view/LoadPanel.java:1138: error: (method.invocation) $$ 3 $$ putValue(java.lang.String,java.lang.Object) $$ @UnderInitialization(edu.iastate.cyctools.tools.load.view.LoadPanel.ActionRevert.class) @NonNull AbstractAction $$ @Initialized @NonNull AbstractAction $$ ( 47788, 47818 ) $$ call to putValue(java.lang.String,java.lang.Object) not allowed on the given receiver.
+			putValue(NAME, "Undo Changes");
+			        ^
+  found   : @UnderInitialization(edu.iastate.cyctools.tools.load.view.LoadPanel.ActionRevert.class) @NonNull AbstractAction
+  required: @Initialized @NonNull AbstractAction
+../dataset/urlcdab7d8364_jrwalsh_CycTools_tgz-pJ8-edu_iastate_cyctools_MainJ8/src/edu/iastate/cyctools/tools/load/view/LoadPanel.java:1139: error: (method.invocation) $$ 3 $$ putValue(java.lang.String,java.lang.Object) $$ @UnderInitialization(edu.iastate.cyctools.tools.load.view.LoadPanel.ActionRevert.class) @NonNull AbstractAction $$ @Initialized @NonNull AbstractAction $$ ( 47823, 47880 ) $$ call to putValue(java.lang.String,java.lang.Object) not allowed on the given receiver.
+			putValue(SHORT_DESCRIPTION, "Revert changes to database");
+			        ^
+  found   : @UnderInitialization(edu.iastate.cyctools.tools.load.view.LoadPanel.ActionRevert.class) @NonNull AbstractAction
+  required: @Initialized @NonNull AbstractAction
+../dataset/urlcdab7d8364_jrwalsh_CycTools_tgz-pJ8-edu_iastate_cyctools_MainJ8/src/edu/iastate/cyctools/tools/load/view/LoadPanel.java:1147: error: (argument) $$ 4 $$ location $$ ImageIcon constructor $$ @Initialized @Nullable URL $$ @Initialized @NonNull URL $$ ( 48215, 48266 ) $$ incompatible argument for parameter location of ImageIcon constructor.
+			confirmImageLabel.setIcon(new ImageIcon(LoadPanel.class.getResource("/resources/step6.png")));
+			                                                                   ^
+  found   : @Initialized @Nullable URL
+  required: @Initialized @NonNull URL
+../dataset/urlcdab7d8364_jrwalsh_CycTools_tgz-pJ8-edu_iastate_cyctools_MainJ8/src/edu/iastate/cyctools/tools/load/view/LoadPanel.java:1153: error: (method.invocation) $$ 3 $$ putValue(java.lang.String,java.lang.Object) $$ @UnderInitialization(edu.iastate.cyctools.tools.load.view.LoadPanel.ActionPreview.class) @NonNull AbstractAction $$ @Initialized @NonNull AbstractAction $$ ( 48363, 48388 ) $$ call to putValue(java.lang.String,java.lang.Object) not allowed on the given receiver.
+			putValue(NAME, "Preview");
+			        ^
+  found   : @UnderInitialization(edu.iastate.cyctools.tools.load.view.LoadPanel.ActionPreview.class) @NonNull AbstractAction
+  required: @Initialized @NonNull AbstractAction
+../dataset/urlcdab7d8364_jrwalsh_CycTools_tgz-pJ8-edu_iastate_cyctools_MainJ8/src/edu/iastate/cyctools/tools/load/view/LoadPanel.java:1154: error: (method.invocation) $$ 3 $$ putValue(java.lang.String,java.lang.Object) $$ @UnderInitialization(edu.iastate.cyctools.tools.load.view.LoadPanel.ActionPreview.class) @NonNull AbstractAction $$ @Initialized @NonNull AbstractAction $$ ( 48393, 48450 ) $$ call to putValue(java.lang.String,java.lang.Object) not allowed on the given receiver.
+			putValue(SHORT_DESCRIPTION, "Preview file before import");
+			        ^
+  found   : @UnderInitialization(edu.iastate.cyctools.tools.load.view.LoadPanel.ActionPreview.class) @NonNull AbstractAction
+  required: @Initialized @NonNull AbstractAction
+../dataset/urlcdab7d8364_jrwalsh_CycTools_tgz-pJ8-edu_iastate_cyctools_MainJ8/src/edu/iastate/cyctools/tools/load/view/LoadPanel.java:1162: error: (dereference.of.nullable) $$ 1 $$ cardLayout $$ ( 48546, 48556 ) $$ dereference of possibly-null reference cardLayout
+		cardLayout.show(contentPane, "DatabasePanel");
+		^
+../dataset/urlcdab7d8364_jrwalsh_CycTools_tgz-pJ8-edu_iastate_cyctools_MainJ8/src/edu/iastate/cyctools/tools/load/view/LoadPanel.java:1194: error: (argument) $$ 4 $$ location $$ ImageIcon constructor $$ @Initialized @Nullable URL $$ @Initialized @NonNull URL $$ ( 49716, 49767 ) $$ incompatible argument for parameter location of ImageIcon constructor.
+		confirmImageLabel.setIcon(new ImageIcon(LoadPanel.class.getResource("/resources/step5.png")));
+		                                                                   ^
+  found   : @Initialized @Nullable URL
+  required: @Initialized @NonNull URL
+../dataset/urlcdab7d8364_jrwalsh_CycTools_tgz-pJ8-edu_iastate_cyctools_MainJ8/src/edu/iastate/cyctools/tools/load/view/LoadPanel.java:1214: error: (method.invocation) $$ 3 $$ putValue(java.lang.String,java.lang.Object) $$ @UnderInitialization(edu.iastate.cyctools.tools.load.view.LoadPanel.ActionSaveLog.class) @NonNull AbstractAction $$ @Initialized @NonNull AbstractAction $$ ( 50370, 50408 ) $$ call to putValue(java.lang.String,java.lang.Object) not allowed on the given receiver.
+			putValue(NAME, "Save Transaction Log");
+			        ^
+  found   : @UnderInitialization(edu.iastate.cyctools.tools.load.view.LoadPanel.ActionSaveLog.class) @NonNull AbstractAction
+  required: @Initialized @NonNull AbstractAction
+../dataset/urlcdab7d8364_jrwalsh_CycTools_tgz-pJ8-edu_iastate_cyctools_MainJ8/src/edu/iastate/cyctools/tools/load/view/LoadPanel.java:1215: error: (method.invocation) $$ 3 $$ putValue(java.lang.String,java.lang.Object) $$ @UnderInitialization(edu.iastate.cyctools.tools.load.view.LoadPanel.ActionSaveLog.class) @NonNull AbstractAction $$ @Initialized @NonNull AbstractAction $$ ( 50413, 50465 ) $$ call to putValue(java.lang.String,java.lang.Object) not allowed on the given receiver.
+			putValue(SHORT_DESCRIPTION, "Save import log files");
+			        ^
+  found   : @UnderInitialization(edu.iastate.cyctools.tools.load.view.LoadPanel.ActionSaveLog.class) @NonNull AbstractAction
+  required: @Initialized @NonNull AbstractAction
+../dataset/urlcdab7d8364_jrwalsh_CycTools_tgz-pJ8-edu_iastate_cyctools_MainJ8/src/edu/iastate/cyctools/tools/load/view/LoadPanel.java:1234: error: (method.invocation) $$ 3 $$ putValue(java.lang.String,java.lang.Object) $$ @UnderInitialization(edu.iastate.cyctools.tools.load.view.LoadPanel.ActionNextDiff.class) @NonNull AbstractAction $$ @Initialized @NonNull AbstractAction $$ ( 51403, 51430 ) $$ call to putValue(java.lang.String,java.lang.Object) not allowed on the given receiver.
+			putValue(NAME, "Next Diff");
+			        ^
+  found   : @UnderInitialization(edu.iastate.cyctools.tools.load.view.LoadPanel.ActionNextDiff.class) @NonNull AbstractAction
+  required: @Initialized @NonNull AbstractAction
+../dataset/urlcdab7d8364_jrwalsh_CycTools_tgz-pJ8-edu_iastate_cyctools_MainJ8/src/edu/iastate/cyctools/tools/load/view/LoadPanel.java:1235: error: (method.invocation) $$ 3 $$ putValue(java.lang.String,java.lang.Object) $$ @UnderInitialization(edu.iastate.cyctools.tools.load.view.LoadPanel.ActionNextDiff.class) @NonNull AbstractAction $$ @Initialized @NonNull AbstractAction $$ ( 51435, 51488 ) $$ call to putValue(java.lang.String,java.lang.Object) not allowed on the given receiver.
+			putValue(SHORT_DESCRIPTION, "Some short description");
+			        ^
+  found   : @UnderInitialization(edu.iastate.cyctools.tools.load.view.LoadPanel.ActionNextDiff.class) @NonNull AbstractAction
+  required: @Initialized @NonNull AbstractAction
+../dataset/urlcdab7d8364_jrwalsh_CycTools_tgz-pJ8-edu_iastate_cyctools_MainJ8/src/edu/iastate/cyctools/tools/load/model/SlotUpdate.java:42: error: (dereference.of.nullable) $$ 1 $$ conn $$ ( 1294, 1298 ) $$ dereference of possibly-null reference conn
+			if(!conn.frameExists(frameID)) {
+			    ^
+../dataset/urlcdab7d8364_jrwalsh_CycTools_tgz-pJ8-edu_iastate_cyctools_MainJ8/src/edu/iastate/cyctools/tools/load/model/SlotUpdate.java:42: error: (argument) $$ 4 $$ id $$ JavacycConnection.frameExists $$ @Initialized @MonotonicNonNull String $$ @Initialized @NonNull String $$ ( 1311, 1318 ) $$ incompatible argument for parameter id of JavacycConnection.frameExists.
+			if(!conn.frameExists(frameID)) {
+			                     ^
+  found   : @Initialized @MonotonicNonNull String
+  required: @Initialized @NonNull String
+../dataset/urlcdab7d8364_jrwalsh_CycTools_tgz-pJ8-edu_iastate_cyctools_MainJ8/src/edu/iastate/cyctools/tools/load/model/SlotUpdate.java:55: error: (argument) $$ 4 $$ goTerms $$ JavacycConnection.importGOTerms $$ @UnknownInitialization @Nullable ArrayList<@Initialized @NonNull String> $$ @Initialized @NonNull ArrayList</*RAW*/> $$ ( 1699, 1710 ) $$ incompatible argument for parameter goTerms of JavacycConnection.importGOTerms.
+				conn.importGOTerms(getValues());
+				                            ^
+  found   : @UnknownInitialization @Nullable ArrayList<@Initialized @NonNull String>
+  required: @Initialized @NonNull ArrayList</*RAW*/>
+../dataset/urlcdab7d8364_jrwalsh_CycTools_tgz-pJ8-edu_iastate_cyctools_MainJ8/src/edu/iastate/cyctools/tools/load/model/SlotUpdate.java:73: error: (iterating.over.nullable) $$ 1 $$ slotValues $$ ( 2239, 2249 ) $$ iterating over possibly-null reference slotValues
+			for (String value : slotValues) {
+			                    ^
+../dataset/urlcdab7d8364_jrwalsh_CycTools_tgz-pJ8-edu_iastate_cyctools_MainJ8/src/edu/iastate/cyctools/tools/load/model/SlotUpdate.java:76: error: (argument) $$ 4 $$ c $$ ArrayList.addAll $$ @UnknownInitialization @MonotonicNonNull ArrayList<@Initialized @NonNull String> $$ @Initialized @NonNull Collection<? extends @Initialized @NonNull String> $$ ( 2342, 2352 ) $$ incompatible argument for parameter c of ArrayList.addAll.
+		} else newValues.addAll(slotValues);
+		                        ^
+  found   : @UnknownInitialization @MonotonicNonNull ArrayList<@Initialized @NonNull String>
+  required: @Initialized @NonNull Collection<? extends @Initialized @NonNull String>
+../dataset/urlcdab7d8364_jrwalsh_CycTools_tgz-pJ8-edu_iastate_cyctools_MainJ8/src/edu/iastate/cyctools/tools/load/model/SlotUpdate.java:98: error: (dereference.of.nullable) $$ 1 $$ frame $$ ( 3013, 3018 ) $$ dereference of possibly-null reference frame
+		if (append && frame.hasSlot(slotLabel)) {
+		              ^
+../dataset/urlcdab7d8364_jrwalsh_CycTools_tgz-pJ8-edu_iastate_cyctools_MainJ8/src/edu/iastate/cyctools/tools/load/model/SlotUpdate.java:103: error: (iterating.over.nullable) $$ 1 $$ slotValues $$ ( 3201, 3211 ) $$ iterating over possibly-null reference slotValues
+			for (String value : slotValues) {
+			                    ^
+../dataset/urlcdab7d8364_jrwalsh_CycTools_tgz-pJ8-edu_iastate_cyctools_MainJ8/src/edu/iastate/cyctools/tools/load/model/SlotUpdate.java:106: error: (argument) $$ 4 $$ c $$ ArrayList.addAll $$ @UnknownInitialization @MonotonicNonNull ArrayList<@Initialized @NonNull String> $$ @Initialized @NonNull Collection<? extends @Initialized @NonNull String> $$ ( 3304, 3314 ) $$ incompatible argument for parameter c of ArrayList.addAll.
+		} else newValues.addAll(slotValues);
+		                        ^
+  found   : @UnknownInitialization @MonotonicNonNull ArrayList<@Initialized @NonNull String>
+  required: @Initialized @NonNull Collection<? extends @Initialized @NonNull String>
+../dataset/urlcdab7d8364_jrwalsh_CycTools_tgz-pJ8-edu_iastate_cyctools_MainJ8/src/edu/iastate/cyctools/tools/load/model/SlotUpdate.java:108: error: (dereference.of.nullable) $$ 1 $$ frame $$ ( 3322, 3327 ) $$ dereference of possibly-null reference frame
+		frame.putSlotValues(slotLabel, newValues);
+		^
+../dataset/urlcdab7d8364_jrwalsh_CycTools_tgz-pJ8-edu_iastate_cyctools_MainJ8/src/edu/iastate/cyctools/tools/load/model/SlotUpdate.java:120: error: (argument) $$ 4 $$ frame $$ JavacycConnection.getSlotValues $$ @Initialized @MonotonicNonNull String $$ @Initialized @NonNull String $$ ( 3623, 3630 ) $$ incompatible argument for parameter frame of JavacycConnection.getSlotValues.
+		return (ArrayList<String>) conn.getSlotValues(frameID, slotLabel);
+		                                              ^
+  found   : @Initialized @MonotonicNonNull String
+  required: @Initialized @NonNull String
+../dataset/urlcdab7d8364_jrwalsh_CycTools_tgz-pJ8-edu_iastate_cyctools_MainJ8/src/edu/iastate/cyctools/tools/load/model/SlotUpdate.java:133: error: (dereference.of.nullable) $$ 1 $$ slotValues $$ ( 4136, 4146 ) $$ dereference of possibly-null reference slotValues
+		return "updating slot: " + slotLabel + " on frame: " + frameID + " with the values: " + slotValues.toString();//TODO don't really expect this toString to work, right?
+		                                                                                        ^
+../dataset/urlcdab7d8364_jrwalsh_CycTools_tgz-pJ8-edu_iastate_cyctools_MainJ8/src/edu/iastate/cyctools/CycToolsError.java:9: error: (dereference.of.nullable) $$ 1 $$ e.getMessage() $$ ( 254, 268 ) $$ dereference of possibly-null reference e.getMessage()
+		if (e.getMessage().equalsIgnoreCase("Unknown host")) {
+		                ^
+../dataset/urlcdab7d8364_jrwalsh_CycTools_tgz-pJ8-edu_iastate_cyctools_MainJ8/src/edu/iastate/cyctools/Main.java:46: error: (contracts.precondition) $$ 3 $$ controller.setMainJFrame $$ controller.dataAccess is @UnknownInitialization $$ controller.dataAccess is @FBCBottom $$ ( 1559, 1597 ) $$ precondition of controller.setMainJFrame is not satisfied.
+		controller.setMainJFrame(displayFrame);
+		                        ^
+  found   : controller.dataAccess is @UnknownInitialization
+  required: controller.dataAccess is @FBCBottom
+../dataset/urlcdab7d8364_jrwalsh_CycTools_tgz-pJ8-edu_iastate_cyctools_MainJ8/src/edu/iastate/cyctools/view/MainCardPanel.java:31: error: (method.invocation) $$ 3 $$ initComponents() $$ @UnderInitialization(edu.iastate.cyctools.view.MainCardPanel.class) @NonNull MainCardPanel $$ @Initialized @NonNull MainCardPanel $$ ( 1010, 1026 ) $$ call to initComponents() not allowed on the given receiver.
+		initComponents();
+		              ^
+  found   : @UnderInitialization(edu.iastate.cyctools.view.MainCardPanel.class) @NonNull MainCardPanel
+  required: @Initialized @NonNull MainCardPanel
+../dataset/urlcdab7d8364_jrwalsh_CycTools_tgz-pJ8-edu_iastate_cyctools_MainJ8/src/edu/iastate/cyctools/view/MainCardPanel.java:32: error: (method.invocation) $$ 3 $$ localInitialization() $$ @UnderInitialization(edu.iastate.cyctools.view.MainCardPanel.class) @NonNull MainCardPanel $$ @Initialized @NonNull MainCardPanel $$ ( 1036, 1057 ) $$ call to localInitialization() not allowed on the given receiver.
+        localInitialization();
+                           ^
+  found   : @UnderInitialization(edu.iastate.cyctools.view.MainCardPanel.class) @NonNull MainCardPanel
+  required: @Initialized @NonNull MainCardPanel
+../dataset/urlcdab7d8364_jrwalsh_CycTools_tgz-pJ8-edu_iastate_cyctools_MainJ8/src/edu/iastate/cyctools/view/MainCardPanel.java:49: error: (dereference.of.nullable) $$ 1 $$ cl $$ ( 1592, 1594 ) $$ dereference of possibly-null reference cl
+			    cl.show(this, MainCardPanel.loginCard);
+			    ^
+../dataset/urlcdab7d8364_jrwalsh_CycTools_tgz-pJ8-edu_iastate_cyctools_MainJ8/src/edu/iastate/cyctools/view/MainCardPanel.java:53: error: (dereference.of.nullable) $$ 1 $$ cl $$ ( 1755, 1757 ) $$ dereference of possibly-null reference cl
+			    cl.show(this, MainCardPanel.selectCard);
+			    ^
+../dataset/urlcdab7d8364_jrwalsh_CycTools_tgz-pJ8-edu_iastate_cyctools_MainJ8/src/edu/iastate/cyctools/view/MainCardPanel.java:58: error: (dereference.of.nullable) $$ 1 $$ cl $$ ( 1971, 1973 ) $$ dereference of possibly-null reference cl
+			    cl.show(this, MainCardPanel.frameBrowseCard);
+			    ^
+../dataset/urlcdab7d8364_jrwalsh_CycTools_tgz-pJ8-edu_iastate_cyctools_MainJ8/src/edu/iastate/cyctools/view/MainCardPanel.java:62: error: (dereference.of.nullable) $$ 1 $$ cl $$ ( 2135, 2137 ) $$ dereference of possibly-null reference cl
+			    cl.show(this, MainCardPanel.exportCard);
+			    ^
+../dataset/urlcdab7d8364_jrwalsh_CycTools_tgz-pJ8-edu_iastate_cyctools_MainJ8/src/edu/iastate/cyctools/view/MainCardPanel.java:66: error: (dereference.of.nullable) $$ 1 $$ cl $$ ( 2294, 2296 ) $$ dereference of possibly-null reference cl
+			    cl.show(this, MainCardPanel.searchCard);
+			    ^
+../dataset/urlcdab7d8364_jrwalsh_CycTools_tgz-pJ8-edu_iastate_cyctools_MainJ8/src/edu/iastate/cyctools/view/MainCardPanel.java:70: error: (dereference.of.nullable) $$ 1 $$ cl $$ ( 2463, 2465 ) $$ dereference of possibly-null reference cl
+			    cl.show(this, MainCardPanel.structureExportCard);
+			    ^
+../dataset/urlcdab7d8364_jrwalsh_CycTools_tgz-pJ8-edu_iastate_cyctools_MainJ8/src/edu/iastate/cyctools/view/MainCardPanel.java:74: error: (dereference.of.nullable) $$ 1 $$ cl $$ ( 2641, 2643 ) $$ dereference of possibly-null reference cl
+			    cl.show(this, MainCardPanel.databaseCompareCard);
+			    ^
+../dataset/urlcdab7d8364_jrwalsh_CycTools_tgz-pJ8-edu_iastate_cyctools_MainJ8/src/edu/iastate/cyctools/view/MainCardPanel.java:78: error: (dereference.of.nullable) $$ 1 $$ cl $$ ( 2809, 2811 ) $$ dereference of possibly-null reference cl
+			    cl.show(this, MainCardPanel.loadCard);
+			    ^
+../dataset/urlcdab7d8364_jrwalsh_CycTools_tgz-pJ8-edu_iastate_cyctools_MainJ8/src/edu/iastate/cyctools/view/dialog/TranslucentGlassPane.java:20: error: (method.invocation) $$ 3 $$ setBackground(java.awt.Color) $$ @UnderInitialization(edu.iastate.cyctools.view.dialog.TranslucentGlassPane.class) @NonNull JComponent $$ @Initialized @NonNull JComponent $$ ( 616, 640 ) $$ call to setBackground(java.awt.Color) not allowed on the given receiver.
+       setBackground(Color.RED);
+                    ^
+  found   : @UnderInitialization(edu.iastate.cyctools.view.dialog.TranslucentGlassPane.class) @NonNull JComponent
+  required: @Initialized @NonNull JComponent
+../dataset/urlcdab7d8364_jrwalsh_CycTools_tgz-pJ8-edu_iastate_cyctools_MainJ8/src/edu/iastate/cyctools/view/dialog/TranslucentGlassPane.java:21: error: (method.invocation) $$ 3 $$ addMouseListener(java.awt.event.MouseListener) $$ @UnderInitialization(edu.iastate.cyctools.view.dialog.TranslucentGlassPane.class) @NonNull Component $$ @Initialized @NonNull Component $$ ( 650, 694 ) $$ call to addMouseListener(java.awt.event.MouseListener) not allowed on the given receiver.
+       this.addMouseListener(new MouseAdapter() {});
+                            ^
+  found   : @UnderInitialization(edu.iastate.cyctools.view.dialog.TranslucentGlassPane.class) @NonNull Component
+  required: @Initialized @NonNull Component
+../dataset/urlcdab7d8364_jrwalsh_CycTools_tgz-pJ8-edu_iastate_cyctools_MainJ8/src/edu/iastate/cyctools/view/dialog/SearchResultDialog.java:35: warning: [removal] Integer(int) in Integer has been deprecated and marked for removal
+        		optionPane.setValue(new Integer(JOptionPane.CLOSED_OPTION));
+        		                    ^
+../dataset/urlcdab7d8364_jrwalsh_CycTools_tgz-pJ8-edu_iastate_cyctools_MainJ8/src/edu/iastate/cyctools/view/dialog/SearchResultDialog.java:30: error: (method.invocation) $$ 3 $$ setContentPane(java.awt.Container) $$ @UnderInitialization(edu.iastate.cyctools.view.dialog.SearchResultDialog.class) @NonNull JDialog $$ @Initialized @NonNull JDialog $$ ( 947, 973 ) $$ call to setContentPane(java.awt.Container) not allowed on the given receiver.
+        setContentPane(optionPane);
+                      ^
+  found   : @UnderInitialization(edu.iastate.cyctools.view.dialog.SearchResultDialog.class) @NonNull JDialog
+  required: @Initialized @NonNull JDialog
+../dataset/urlcdab7d8364_jrwalsh_CycTools_tgz-pJ8-edu_iastate_cyctools_MainJ8/src/edu/iastate/cyctools/view/dialog/SearchResultDialog.java:32: error: (method.invocation) $$ 3 $$ setDefaultCloseOperation(int) $$ @UnderInitialization(edu.iastate.cyctools.view.dialog.SearchResultDialog.class) @NonNull JDialog $$ @Initialized @NonNull JDialog $$ ( 986, 1031 ) $$ call to setDefaultCloseOperation(int) not allowed on the given receiver.
+        setDefaultCloseOperation(DO_NOTHING_ON_CLOSE);
+                                ^
+  found   : @UnderInitialization(edu.iastate.cyctools.view.dialog.SearchResultDialog.class) @NonNull JDialog
+  required: @Initialized @NonNull JDialog
+../dataset/urlcdab7d8364_jrwalsh_CycTools_tgz-pJ8-edu_iastate_cyctools_MainJ8/src/edu/iastate/cyctools/view/dialog/SearchResultDialog.java:33: error: (method.invocation) $$ 3 $$ addWindowListener(java.awt.event.WindowListener) $$ @UnderInitialization(edu.iastate.cyctools.view.dialog.SearchResultDialog.class) @NonNull Window $$ @Initialized @NonNull Window $$ ( 1042, 1234 ) $$ call to addWindowListener(java.awt.event.WindowListener) not allowed on the given receiver.
+        addWindowListener(new WindowAdapter() {
+                         ^
+  found   : @UnderInitialization(edu.iastate.cyctools.view.dialog.SearchResultDialog.class) @NonNull Window
+  required: @Initialized @NonNull Window
+../dataset/urlcdab7d8364_jrwalsh_CycTools_tgz-pJ8-edu_iastate_cyctools_MainJ8/src/edu/iastate/cyctools/view/dialog/SearchResultDialog.java:40: error: (argument) $$ 4 $$ listener $$ Container.addPropertyChangeListener $$ @UnderInitialization(edu.iastate.cyctools.view.dialog.SearchResultDialog.class) @NonNull SearchResultDialog $$ @Initialized @NonNull PropertyChangeListener $$ ( 1363, 1367 ) $$ incompatible argument for parameter listener of Container.addPropertyChangeListener.
+        optionPane.addPropertyChangeListener(this);
+                                             ^
+  found   : @UnderInitialization(edu.iastate.cyctools.view.dialog.SearchResultDialog.class) @NonNull SearchResultDialog
+  required: @Initialized @NonNull PropertyChangeListener
+../dataset/urlcdab7d8364_jrwalsh_CycTools_tgz-pJ8-edu_iastate_cyctools_MainJ8/src/edu/iastate/cyctools/view/SelectPanel.java:38: error: (method.invocation) $$ 3 $$ initComponents() $$ @UnderInitialization(edu.iastate.cyctools.view.SelectPanel.class) @NonNull SelectPanel $$ @Initialized @NonNull SelectPanel $$ ( 1300, 1316 ) $$ call to initComponents() not allowed on the given receiver.
+		initComponents();
+		              ^
+  found   : @UnderInitialization(edu.iastate.cyctools.view.SelectPanel.class) @NonNull SelectPanel
+  required: @Initialized @NonNull SelectPanel
+../dataset/urlcdab7d8364_jrwalsh_CycTools_tgz-pJ8-edu_iastate_cyctools_MainJ8/src/edu/iastate/cyctools/view/SelectPanel.java:39: error: (method.invocation) $$ 3 $$ localInitialization() $$ @UnderInitialization(edu.iastate.cyctools.view.SelectPanel.class) @NonNull SelectPanel $$ @Initialized @NonNull SelectPanel $$ ( 1326, 1347 ) $$ call to localInitialization() not allowed on the given receiver.
+        localInitialization();
+                           ^
+  found   : @UnderInitialization(edu.iastate.cyctools.view.SelectPanel.class) @NonNull SelectPanel
+  required: @Initialized @NonNull SelectPanel
+../dataset/urlcdab7d8364_jrwalsh_CycTools_tgz-pJ8-edu_iastate_cyctools_MainJ8/src/edu/iastate/cyctools/view/SelectPanel.java:73: error: (method.invocation) $$ 3 $$ putValue(java.lang.String,java.lang.Object) $$ @UnderInitialization(edu.iastate.cyctools.view.SelectPanel.ActionSelectFrameBrowser.class) @NonNull AbstractAction $$ @Initialized @NonNull AbstractAction $$ ( 2568, 2628 ) $$ call to putValue(java.lang.String,java.lang.Object) not allowed on the given receiver.
+			putValue(NAME, "<html><center>Frame Viewer</center></html>");
+			        ^
+  found   : @UnderInitialization(edu.iastate.cyctools.view.SelectPanel.ActionSelectFrameBrowser.class) @NonNull AbstractAction
+  required: @Initialized @NonNull AbstractAction
+../dataset/urlcdab7d8364_jrwalsh_CycTools_tgz-pJ8-edu_iastate_cyctools_MainJ8/src/edu/iastate/cyctools/view/SelectPanel.java:74: error: (method.invocation) $$ 3 $$ putValue(java.lang.String,java.lang.Object) $$ @UnderInitialization(edu.iastate.cyctools.view.SelectPanel.ActionSelectFrameBrowser.class) @NonNull AbstractAction $$ @Initialized @NonNull AbstractAction $$ ( 2633, 2694 ) $$ call to putValue(java.lang.String,java.lang.Object) not allowed on the given receiver.
+			putValue(SHORT_DESCRIPTION, "Open the Frame Browser screen.");
+			        ^
+  found   : @UnderInitialization(edu.iastate.cyctools.view.SelectPanel.ActionSelectFrameBrowser.class) @NonNull AbstractAction
+  required: @Initialized @NonNull AbstractAction
+../dataset/urlcdab7d8364_jrwalsh_CycTools_tgz-pJ8-edu_iastate_cyctools_MainJ8/src/edu/iastate/cyctools/view/SelectPanel.java:83: error: (method.invocation) $$ 3 $$ putValue(java.lang.String,java.lang.Object) $$ @UnderInitialization(edu.iastate.cyctools.view.SelectPanel.ActionSelectExportPanel.class) @NonNull AbstractAction $$ @Initialized @NonNull AbstractAction $$ ( 2908, 2969 ) $$ call to putValue(java.lang.String,java.lang.Object) not allowed on the given receiver.
+			putValue(NAME, "<html><center>Export Frames</center></html>");
+			        ^
+  found   : @UnderInitialization(edu.iastate.cyctools.view.SelectPanel.ActionSelectExportPanel.class) @NonNull AbstractAction
+  required: @Initialized @NonNull AbstractAction
+../dataset/urlcdab7d8364_jrwalsh_CycTools_tgz-pJ8-edu_iastate_cyctools_MainJ8/src/edu/iastate/cyctools/view/SelectPanel.java:84: error: (method.invocation) $$ 3 $$ putValue(java.lang.String,java.lang.Object) $$ @UnderInitialization(edu.iastate.cyctools.view.SelectPanel.ActionSelectExportPanel.class) @NonNull AbstractAction $$ @Initialized @NonNull AbstractAction $$ ( 2974, 3028 ) $$ call to putValue(java.lang.String,java.lang.Object) not allowed on the given receiver.
+			putValue(SHORT_DESCRIPTION, "Open the export screen.");
+			        ^
+  found   : @UnderInitialization(edu.iastate.cyctools.view.SelectPanel.ActionSelectExportPanel.class) @NonNull AbstractAction
+  required: @Initialized @NonNull AbstractAction
+../dataset/urlcdab7d8364_jrwalsh_CycTools_tgz-pJ8-edu_iastate_cyctools_MainJ8/src/edu/iastate/cyctools/view/SelectPanel.java:93: error: (method.invocation) $$ 3 $$ putValue(java.lang.String,java.lang.Object) $$ @UnderInitialization(edu.iastate.cyctools.view.SelectPanel.ActionSelectSearchPanel.class) @NonNull AbstractAction $$ @Initialized @NonNull AbstractAction $$ ( 3237, 3296 ) $$ call to putValue(java.lang.String,java.lang.Object) not allowed on the given receiver.
+			putValue(NAME, "<html><center>Bulk Search</center></html>");
+			        ^
+  found   : @UnderInitialization(edu.iastate.cyctools.view.SelectPanel.ActionSelectSearchPanel.class) @NonNull AbstractAction
+  required: @Initialized @NonNull AbstractAction
+../dataset/urlcdab7d8364_jrwalsh_CycTools_tgz-pJ8-edu_iastate_cyctools_MainJ8/src/edu/iastate/cyctools/view/SelectPanel.java:94: error: (method.invocation) $$ 3 $$ putValue(java.lang.String,java.lang.Object) $$ @UnderInitialization(edu.iastate.cyctools.view.SelectPanel.ActionSelectSearchPanel.class) @NonNull AbstractAction $$ @Initialized @NonNull AbstractAction $$ ( 3301, 3355 ) $$ call to putValue(java.lang.String,java.lang.Object) not allowed on the given receiver.
+			putValue(SHORT_DESCRIPTION, "Open the search screen.");
+			        ^
+  found   : @UnderInitialization(edu.iastate.cyctools.view.SelectPanel.ActionSelectSearchPanel.class) @NonNull AbstractAction
+  required: @Initialized @NonNull AbstractAction
+../dataset/urlcdab7d8364_jrwalsh_CycTools_tgz-pJ8-edu_iastate_cyctools_MainJ8/src/edu/iastate/cyctools/view/SelectPanel.java:103: error: (method.invocation) $$ 3 $$ putValue(java.lang.String,java.lang.Object) $$ @UnderInitialization(edu.iastate.cyctools.view.SelectPanel.ActionExportStructurePanel.class) @NonNull AbstractAction $$ @Initialized @NonNull AbstractAction $$ ( 3570, 3634 ) $$ call to putValue(java.lang.String,java.lang.Object) not allowed on the given receiver.
+			putValue(NAME, "<html><center>Export Structure</center></html>");
+			        ^
+  found   : @UnderInitialization(edu.iastate.cyctools.view.SelectPanel.ActionExportStructurePanel.class) @NonNull AbstractAction
+  required: @Initialized @NonNull AbstractAction
+../dataset/urlcdab7d8364_jrwalsh_CycTools_tgz-pJ8-edu_iastate_cyctools_MainJ8/src/edu/iastate/cyctools/view/SelectPanel.java:104: error: (method.invocation) $$ 3 $$ putValue(java.lang.String,java.lang.Object) $$ @UnderInitialization(edu.iastate.cyctools.view.SelectPanel.ActionExportStructurePanel.class) @NonNull AbstractAction $$ @Initialized @NonNull AbstractAction $$ ( 3639, 3722 ) $$ call to putValue(java.lang.String,java.lang.Object) not allowed on the given receiver.
+			putValue(SHORT_DESCRIPTION, "Export underlying PGDB Class and Instance structure.");
+			        ^
+  found   : @UnderInitialization(edu.iastate.cyctools.view.SelectPanel.ActionExportStructurePanel.class) @NonNull AbstractAction
+  required: @Initialized @NonNull AbstractAction
+../dataset/urlcdab7d8364_jrwalsh_CycTools_tgz-pJ8-edu_iastate_cyctools_MainJ8/src/edu/iastate/cyctools/view/SelectPanel.java:113: error: (method.invocation) $$ 3 $$ putValue(java.lang.String,java.lang.Object) $$ @UnderInitialization(edu.iastate.cyctools.view.SelectPanel.ActionComparePanel.class) @NonNull AbstractAction $$ @Initialized @NonNull AbstractAction $$ ( 3931, 4003 ) $$ call to putValue(java.lang.String,java.lang.Object) not allowed on the given receiver.
+			putValue(NAME, "<html><center>Database Compare<br>Tool</center></html>");
+			        ^
+  found   : @UnderInitialization(edu.iastate.cyctools.view.SelectPanel.ActionComparePanel.class) @NonNull AbstractAction
+  required: @Initialized @NonNull AbstractAction
+../dataset/urlcdab7d8364_jrwalsh_CycTools_tgz-pJ8-edu_iastate_cyctools_MainJ8/src/edu/iastate/cyctools/view/SelectPanel.java:114: error: (method.invocation) $$ 3 $$ putValue(java.lang.String,java.lang.Object) $$ @UnderInitialization(edu.iastate.cyctools.view.SelectPanel.ActionComparePanel.class) @NonNull AbstractAction $$ @Initialized @NonNull AbstractAction $$ ( 4008, 4081 ) $$ call to putValue(java.lang.String,java.lang.Object) not allowed on the given receiver.
+			putValue(SHORT_DESCRIPTION, "Compare two PGDB databases frame by frame.");
+			        ^
+  found   : @UnderInitialization(edu.iastate.cyctools.view.SelectPanel.ActionComparePanel.class) @NonNull AbstractAction
+  required: @Initialized @NonNull AbstractAction
+../dataset/urlcdab7d8364_jrwalsh_CycTools_tgz-pJ8-edu_iastate_cyctools_MainJ8/src/edu/iastate/cyctools/view/SelectPanel.java:123: error: (method.invocation) $$ 3 $$ putValue(java.lang.String,java.lang.Object) $$ @UnderInitialization(edu.iastate.cyctools.view.SelectPanel.ActionLoad.class) @NonNull AbstractAction $$ @Initialized @NonNull AbstractAction $$ ( 4274, 4344 ) $$ call to putValue(java.lang.String,java.lang.Object) not allowed on the given receiver.
+			putValue(NAME, "<html><center>Import<br /> Assistant</center></html>");
+			        ^
+  found   : @UnderInitialization(edu.iastate.cyctools.view.SelectPanel.ActionLoad.class) @NonNull AbstractAction
+  required: @Initialized @NonNull AbstractAction
+../dataset/urlcdab7d8364_jrwalsh_CycTools_tgz-pJ8-edu_iastate_cyctools_MainJ8/src/edu/iastate/cyctools/view/SelectPanel.java:124: error: (method.invocation) $$ 3 $$ putValue(java.lang.String,java.lang.Object) $$ @UnderInitialization(edu.iastate.cyctools.view.SelectPanel.ActionLoad.class) @NonNull AbstractAction $$ @Initialized @NonNull AbstractAction $$ ( 4349, 4415 ) $$ call to putValue(java.lang.String,java.lang.Object) not allowed on the given receiver.
+			putValue(SHORT_DESCRIPTION, "Load spreadsheet file into database");
+			        ^
+  found   : @UnderInitialization(edu.iastate.cyctools.view.SelectPanel.ActionLoad.class) @NonNull AbstractAction
+  required: @Initialized @NonNull AbstractAction
+../dataset/urlcdab7d8364_jrwalsh_CycTools_tgz-pJ8-edu_iastate_cyctools_MainJ8/src/edu/iastate/cyctools/view/LoginPanel.java:36: error: (initialization.fields.uninitialized) $$ 1 $$ txtHost, txtPort, txtUser, pwbox $$ ( 1012, 1150 ) $$ the constructor does not initialize fields: txtHost, txtPort, txtUser, pwbox
+	public LoginPanel(DefaultController controller) {
+	       ^
+../dataset/urlcdab7d8364_jrwalsh_CycTools_tgz-pJ8-edu_iastate_cyctools_MainJ8/src/edu/iastate/cyctools/view/LoginPanel.java:38: error: (method.invocation) $$ 3 $$ initComponents() $$ @UnderInitialization(edu.iastate.cyctools.externalSourceCode.AbstractViewPanel.class) @NonNull LoginPanel $$ @Initialized @NonNull LoginPanel $$ ( 1096, 1112 ) $$ call to initComponents() not allowed on the given receiver.
+		initComponents();
+		              ^
+  found   : @UnderInitialization(edu.iastate.cyctools.externalSourceCode.AbstractViewPanel.class) @NonNull LoginPanel
+  required: @Initialized @NonNull LoginPanel
+../dataset/urlcdab7d8364_jrwalsh_CycTools_tgz-pJ8-edu_iastate_cyctools_MainJ8/src/edu/iastate/cyctools/view/LoginPanel.java:39: error: (method.invocation) $$ 3 $$ localInitialization() $$ @UnderInitialization(edu.iastate.cyctools.externalSourceCode.AbstractViewPanel.class) @NonNull LoginPanel $$ @Initialized @NonNull LoginPanel $$ ( 1122, 1143 ) $$ call to localInitialization() not allowed on the given receiver.
+        localInitialization();
+                           ^
+  found   : @UnderInitialization(edu.iastate.cyctools.externalSourceCode.AbstractViewPanel.class) @NonNull LoginPanel
+  required: @Initialized @NonNull LoginPanel
+../dataset/urlcdab7d8364_jrwalsh_CycTools_tgz-pJ8-edu_iastate_cyctools_MainJ8/src/edu/iastate/cyctools/view/LoginPanel.java:97: error: (method.invocation) $$ 3 $$ putValue(java.lang.String,java.lang.Object) $$ @UnderInitialization(edu.iastate.cyctools.view.LoginPanel.ActionConnect.class) @NonNull AbstractAction $$ @Initialized @NonNull AbstractAction $$ ( 3128, 3153 ) $$ call to putValue(java.lang.String,java.lang.Object) not allowed on the given receiver.
+			putValue(NAME, "Connect");
+			        ^
+  found   : @UnderInitialization(edu.iastate.cyctools.view.LoginPanel.ActionConnect.class) @NonNull AbstractAction
+  required: @Initialized @NonNull AbstractAction
+../dataset/urlcdab7d8364_jrwalsh_CycTools_tgz-pJ8-edu_iastate_cyctools_MainJ8/src/edu/iastate/cyctools/view/LoginPanel.java:98: error: (method.invocation) $$ 3 $$ putValue(java.lang.String,java.lang.Object) $$ @UnderInitialization(edu.iastate.cyctools.view.LoginPanel.ActionConnect.class) @NonNull AbstractAction $$ @Initialized @NonNull AbstractAction $$ ( 3158, 3246 ) $$ call to putValue(java.lang.String,java.lang.Object) not allowed on the given receiver.
+			putValue(SHORT_DESCRIPTION, "Initiallizes the connection to a database using JavaCycO.");
+			        ^
+  found   : @UnderInitialization(edu.iastate.cyctools.view.LoginPanel.ActionConnect.class) @NonNull AbstractAction
+  required: @Initialized @NonNull AbstractAction
+Note: ../dataset/urlcdab7d8364_jrwalsh_CycTools_tgz-pJ8-edu_iastate_cyctools_MainJ8/src/edu/iastate/cyctools/tools/load/view/LoadPanel.java uses or overrides a deprecated API.
+Note: Recompile with -Xlint:deprecation for details.
+Note: ../dataset/urlcdab7d8364_jrwalsh_CycTools_tgz-pJ8-edu_iastate_cyctools_MainJ8/src/edu/iastate/cyctools/tools/load/model/AuthorCreditUpdate.java uses unchecked or unsafe operations.
+Note: Recompile with -Xlint:unchecked for details.
+312 errors
+4 warnings

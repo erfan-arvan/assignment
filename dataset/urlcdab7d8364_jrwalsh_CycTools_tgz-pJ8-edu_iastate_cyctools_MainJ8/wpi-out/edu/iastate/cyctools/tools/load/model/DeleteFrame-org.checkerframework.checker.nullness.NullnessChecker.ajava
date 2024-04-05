@@ -1,0 +1,71 @@
+package edu.iastate.cyctools.tools.load.model;
+
+import java.util.ArrayList;
+import edu.iastate.javacyco.Frame;
+import edu.iastate.javacyco.Gene;
+import edu.iastate.javacyco.JavacycConnection;
+import edu.iastate.javacyco.Protein;
+import edu.iastate.javacyco.PtoolsErrorException;
+
+@org.checkerframework.framework.qual.AnnotatedFor("org.checkerframework.checker.nullness.NullnessChecker")
+public class DeleteFrame extends AbstractFrameEdit {
+
+    @org.checkerframework.dataflow.qual.Impure
+    public DeleteFrame(@org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.NonNull String frameID,  @org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.NonNull int @org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.NonNull [] associatedRows) {
+        this.frameID = frameID;
+        this.associatedRows = associatedRows;
+    }
+
+    @org.checkerframework.checker.nullness.qual.EnsuresNonNull({ "#1" })
+    @org.checkerframework.dataflow.qual.Impure
+    public  @org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.NonNull boolean commit(@org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.NonNull DeleteFrame this, @org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.Nullable JavacycConnection conn) throws PtoolsErrorException {
+        Frame frame = null;
+        try {
+            if (!conn.frameExists(frameID)) {
+                return false;
+            }
+            frame = this.getFrame(conn);
+            if (frame.isGFPClass(Gene.GFPtype)) {
+                Gene gene = (Gene) frame;
+                for (Protein enzyme : gene.getEnzymes()) {
+                    for (Object catalyzedReaction : enzyme.getSlotValues("CATALYZES")) {
+                        // First delete any enzymeReactions and dependents
+                        conn.deleteFrameAndDependents(catalyzedReaction.toString());
+                    }
+                }
+                for (Protein product : gene.getProducts()) {
+                    // Second delete any products and dependents
+                    if (conn.frameExists(product.getLocalID()))
+                        conn.deleteFrameAndDependents(product.getLocalID());
+                    //else System.out.println("Frame already deleted: " + product.getLocalID());
+                }
+            }
+            // Finally, delete the frame and dependents
+            conn.deleteFrameAndDependents(frame.getLocalID());
+        } catch (PtoolsErrorException e) {
+            System.out.println("error during commit, recommend a rollback");
+            return false;
+        }
+        return true;
+    }
+
+    @org.checkerframework.dataflow.qual.Pure
+    public @org.checkerframework.checker.initialization.qual.FBCBottom @org.checkerframework.checker.nullness.qual.Nullable Frame commitLocal(@org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.NonNull DeleteFrame this, @org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.Nullable Frame frame) throws PtoolsErrorException {
+        frame = null;
+        return frame;
+    }
+
+    @org.checkerframework.checker.nullness.qual.EnsuresNonNull({ "#1" })
+    @org.checkerframework.dataflow.qual.Impure
+    public  @org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.NonNull boolean modifiesFrame(@org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.NonNull DeleteFrame this, @org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.Nullable JavacycConnection conn, @org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.NonNull Frame aFrame) throws PtoolsErrorException {
+        if (!conn.frameExists(frameID))
+            return false;
+        else
+            return true;
+    }
+
+    @org.checkerframework.dataflow.qual.Pure
+    public @org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.NonNull String toString(@org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.NonNull DeleteFrame this) {
+        return "deleting frame " + frameID + " and all dependent frames";
+    }
+}

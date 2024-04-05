@@ -1,0 +1,1 @@
+packageSearchIndex = [{"l":"All Packages","url":"allpackages-index.html"},{"m":"com.github.benmanes.caffeine","l":"com.github.benmanes.caffeine.cache"},{"m":"com.github.benmanes.caffeine","l":"com.github.benmanes.caffeine.cache.stats"}]

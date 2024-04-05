@@ -1,0 +1,33 @@
+package edu.iastate.cyctools.tools.load.fileAdaptors;
+
+import java.util.ArrayList;
+import javax.swing.table.TableModel;
+import edu.iastate.cyctools.tools.load.model.AbstractFrameEdit;
+
+@org.checkerframework.framework.qual.AnnotatedFor("org.checkerframework.checker.nullness.KeyForSubchecker")
+public abstract class AbstractFileAdaptor {
+
+      boolean append = true;
+
+      boolean ignoreDuplicates = true;
+
+     String multipleValueDelimiter = "$";
+
+    @org.checkerframework.dataflow.qual.Impure
+    public void setAppend( AbstractFileAdaptor this,   boolean append) {
+        this.append = append;
+    }
+
+    @org.checkerframework.dataflow.qual.Impure
+    public void setIgnoreDuplicates( AbstractFileAdaptor this,   boolean ignoreDuplicates) {
+        this.ignoreDuplicates = ignoreDuplicates;
+    }
+
+    @org.checkerframework.dataflow.qual.Impure
+    public void setMultipleValueDelimiter( AbstractFileAdaptor this,  String multipleValueDelimiter) {
+        this.multipleValueDelimiter = multipleValueDelimiter;
+    }
+
+    @org.checkerframework.dataflow.qual.Impure
+    public abstract  ArrayList<AbstractFrameEdit> tableToFrameUpdates( AbstractFileAdaptor this,  TableModel tb);
+}

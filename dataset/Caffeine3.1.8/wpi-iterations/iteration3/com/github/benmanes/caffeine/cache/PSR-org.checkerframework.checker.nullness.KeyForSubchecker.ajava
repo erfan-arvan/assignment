@@ -1,0 +1,89 @@
+// Copyright 2024 Ben Manes. All Rights Reserved.
+//
+// Licensed under the Apache License, Version 2.0 (the "License");
+// you may not use this file except in compliance with the License.
+// You may obtain a copy of the License at
+//
+//     http://www.apache.org/licenses/LICENSE-2.0
+//
+// Unless required by applicable law or agreed to in writing, software
+// distributed under the License is distributed on an "AS IS" BASIS,
+// WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+// See the License for the specific language governing permissions and
+// limitations under the License.
+package com.github.benmanes.caffeine.cache;
+
+import java.lang.invoke.MethodHandles;
+import java.lang.invoke.VarHandle;
+import java.lang.ref.ReferenceQueue;
+
+/**
+ * <em>WARNING: GENERATED CODE</em>
+ *
+ * <p>A cache entry that provides the following features:
+ *
+ * <ul>
+ *   <li>RefreshWrite
+ *   <li>StrongKeys (inherited)
+ *   <li>StrongValues (inherited)
+ * </ul>
+ *
+ * @author ben.manes@gmail.com (Ben Manes)
+ */
+@org.checkerframework.framework.qual.AnnotatedFor("org.checkerframework.checker.nullness.KeyForSubchecker")
+class PSR<K, V> extends PS<K, V> {
+
+    protected static final  VarHandle WRITE_TIME;
+
+    static {
+        MethodHandles.Lookup lookup = MethodHandles.lookup();
+        try {
+            WRITE_TIME = lookup.findVarHandle(PSR.class, NodeFactory.WRITE_TIME, long.class);
+        } catch (ReflectiveOperationException e) {
+            throw new ExceptionInInitializerError(e);
+        }
+    }
+
+    volatile long writeTime;
+
+    @org.checkerframework.dataflow.qual.Impure
+    PSR() {
+    }
+
+    @org.checkerframework.dataflow.qual.Impure
+    PSR(K key,  ReferenceQueue<K> keyReferenceQueue, V value,  ReferenceQueue<V> valueReferenceQueue,   int weight,   long now) {
+        super(key, keyReferenceQueue, value, valueReferenceQueue, weight, now);
+        WRITE_TIME.set(this, now & ~1L);
+    }
+
+    @org.checkerframework.dataflow.qual.Impure
+    PSR( Object keyReference, V value,  ReferenceQueue<V> valueReferenceQueue,   int weight,   long now) {
+        super(keyReference, value, valueReferenceQueue, weight, now);
+        WRITE_TIME.set(this, now & ~1L);
+    }
+
+    @org.checkerframework.dataflow.qual.Impure
+    public final   long getWriteTime( PSR<K, V> this) {
+        return (long) WRITE_TIME.getOpaque(this);
+    }
+
+    @org.checkerframework.dataflow.qual.Impure
+    public final void setWriteTime( PSR<K, V> this,   long writeTime) {
+        WRITE_TIME.set(this, writeTime);
+    }
+
+    @org.checkerframework.dataflow.qual.Impure
+    public final   boolean casWriteTime( PSR<K, V> this,   long expect,   long update) {
+        return (writeTime == expect) && WRITE_TIME.compareAndSet(this, expect, update);
+    }
+
+    @org.checkerframework.dataflow.qual.Pure
+    public  Node<K, V> newNode( PSR<K, V> this, K key,  ReferenceQueue<K> keyReferenceQueue, V value,  ReferenceQueue<V> valueReferenceQueue,   int weight,   long now) {
+        return new PSR<>(key, keyReferenceQueue, value, valueReferenceQueue, weight, now);
+    }
+
+    @org.checkerframework.dataflow.qual.Pure
+    public  Node<K, V> newNode( PSR<K, V> this,  Object keyReference, V value,  ReferenceQueue<V> valueReferenceQueue,   int weight,   long now) {
+        return new PSR<>(keyReference, value, valueReferenceQueue, weight, now);
+    }
+}

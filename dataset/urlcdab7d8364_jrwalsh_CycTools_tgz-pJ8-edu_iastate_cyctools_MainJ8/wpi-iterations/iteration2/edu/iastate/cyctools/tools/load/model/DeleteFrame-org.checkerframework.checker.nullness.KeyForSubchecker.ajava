@@ -1,0 +1,69 @@
+package edu.iastate.cyctools.tools.load.model;
+
+import java.util.ArrayList;
+import edu.iastate.javacyco.Frame;
+import edu.iastate.javacyco.Gene;
+import edu.iastate.javacyco.JavacycConnection;
+import edu.iastate.javacyco.Protein;
+import edu.iastate.javacyco.PtoolsErrorException;
+
+@org.checkerframework.framework.qual.AnnotatedFor("org.checkerframework.checker.nullness.KeyForSubchecker")
+public class DeleteFrame extends AbstractFrameEdit {
+
+    @org.checkerframework.dataflow.qual.Impure
+    public DeleteFrame( String frameID,   int  [] associatedRows) {
+        this.frameID = frameID;
+        this.associatedRows = associatedRows;
+    }
+
+    @org.checkerframework.dataflow.qual.Impure
+    public   boolean commit( DeleteFrame this,  JavacycConnection conn) throws PtoolsErrorException {
+        Frame frame = null;
+        try {
+            if (!conn.frameExists(frameID)) {
+                return false;
+            }
+            frame = this.getFrame(conn);
+            if (frame.isGFPClass(Gene.GFPtype)) {
+                Gene gene = (Gene) frame;
+                for (Protein enzyme : gene.getEnzymes()) {
+                    for (Object catalyzedReaction : enzyme.getSlotValues("CATALYZES")) {
+                        // First delete any enzymeReactions and dependents
+                        conn.deleteFrameAndDependents(catalyzedReaction.toString());
+                    }
+                }
+                for (Protein product : gene.getProducts()) {
+                    // Second delete any products and dependents
+                    if (conn.frameExists(product.getLocalID()))
+                        conn.deleteFrameAndDependents(product.getLocalID());
+                    //else System.out.println("Frame already deleted: " + product.getLocalID());
+                }
+            }
+            // Finally, delete the frame and dependents
+            conn.deleteFrameAndDependents(frame.getLocalID());
+        } catch (PtoolsErrorException e) {
+            System.out.println("error during commit, recommend a rollback");
+            return false;
+        }
+        return true;
+    }
+
+    @org.checkerframework.dataflow.qual.Pure
+    public  Frame commitLocal( DeleteFrame this,  Frame frame) throws PtoolsErrorException {
+        frame = null;
+        return frame;
+    }
+
+    @org.checkerframework.dataflow.qual.Impure
+    public   boolean modifiesFrame( DeleteFrame this,  JavacycConnection conn,  Frame aFrame) throws PtoolsErrorException {
+        if (!conn.frameExists(frameID))
+            return false;
+        else
+            return true;
+    }
+
+    @org.checkerframework.dataflow.qual.Pure
+    public  String toString( DeleteFrame this) {
+        return "deleting frame " + frameID + " and all dependent frames";
+    }
+}

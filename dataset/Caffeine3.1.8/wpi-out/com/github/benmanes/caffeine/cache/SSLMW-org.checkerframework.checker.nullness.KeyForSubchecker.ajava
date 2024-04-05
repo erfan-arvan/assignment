@@ -1,0 +1,219 @@
+// Copyright 2024 Ben Manes. All Rights Reserved.
+//
+// Licensed under the Apache License, Version 2.0 (the "License");
+// you may not use this file except in compliance with the License.
+// You may obtain a copy of the License at
+//
+//     http://www.apache.org/licenses/LICENSE-2.0
+//
+// Unless required by applicable law or agreed to in writing, software
+// distributed under the License is distributed on an "AS IS" BASIS,
+// WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+// See the License for the specific language governing permissions and
+// limitations under the License.
+package com.github.benmanes.caffeine.cache;
+
+import org.checkerframework.checker.nullness.qual.Nullable;
+
+/**
+ * <em>WARNING: GENERATED CODE</em>
+ *
+ * <p>A cache that provides the following features:
+ *
+ * <ul>
+ *   <li>MaximumWeight
+ *   <li>StrongKeys (inherited)
+ *   <li>StrongValues (inherited)
+ *   <li>Listening (inherited)
+ * </ul>
+ *
+ * @author ben.manes@gmail.com (Ben Manes)
+ */
+@org.checkerframework.framework.qual.AnnotatedFor("org.checkerframework.checker.nullness.KeyForSubchecker")
+class SSLMW<K, V> extends SSL<K, V> {
+
+    static final  LocalCacheFactory FACTORY = SSLMW::new;
+
+      long maximum;
+
+      long weightedSize;
+
+      long windowMaximum;
+
+      long windowWeightedSize;
+
+      long mainProtectedMaximum;
+
+      long mainProtectedWeightedSize;
+
+      double stepSize;
+
+      long adjustment;
+
+      int hitsInSample;
+
+      int missesInSample;
+
+      double previousSampleHitRate;
+
+    final  FrequencySketch<K> sketch;
+
+    final  AccessOrderDeque<Node<K, V>> accessOrderWindowDeque;
+
+    final  AccessOrderDeque<Node<K, V>> accessOrderProbationDeque;
+
+    final  AccessOrderDeque<Node<K, V>> accessOrderProtectedDeque;
+
+    @org.checkerframework.dataflow.qual.Impure
+    SSLMW( Caffeine<K, V> builder,  AsyncCacheLoader<? super K, V> cacheLoader,   boolean async) {
+        super(builder, cacheLoader, async);
+        this.sketch = new FrequencySketch<K>();
+        if (builder.hasInitialCapacity()) {
+            long capacity = Math.min(builder.getMaximum(), builder.getInitialCapacity());
+            this.sketch.ensureCapacity(capacity);
+        }
+        this.accessOrderWindowDeque = builder.evicts() || builder.expiresAfterAccess() ? new AccessOrderDeque<Node<K, V>>() : null;
+        this.accessOrderProbationDeque = new AccessOrderDeque<Node<K, V>>();
+        this.accessOrderProtectedDeque = new AccessOrderDeque<Node<K, V>>();
+    }
+
+    @org.checkerframework.dataflow.qual.Pure
+    protected final   boolean evicts( SSLMW<K, V> this) {
+        return true;
+    }
+
+    @org.checkerframework.dataflow.qual.Pure
+    protected final   long maximum( SSLMW<K, V> this) {
+        return maximum;
+    }
+
+    @org.checkerframework.dataflow.qual.Impure
+    protected final void setMaximum( SSLMW<K, V> this,   long maximum) {
+        this.maximum = maximum;
+    }
+
+    @org.checkerframework.dataflow.qual.Pure
+    protected final   long weightedSize( SSLMW<K, V> this) {
+        return weightedSize;
+    }
+
+    @org.checkerframework.dataflow.qual.Impure
+    protected final void setWeightedSize( SSLMW<K, V> this,   long weightedSize) {
+        this.weightedSize = weightedSize;
+    }
+
+    @org.checkerframework.dataflow.qual.Pure
+    protected final   long windowMaximum( SSLMW<K, V> this) {
+        return windowMaximum;
+    }
+
+    @org.checkerframework.dataflow.qual.Impure
+    protected final void setWindowMaximum( SSLMW<K, V> this,   long windowMaximum) {
+        this.windowMaximum = windowMaximum;
+    }
+
+    @org.checkerframework.dataflow.qual.Pure
+    protected final   long windowWeightedSize( SSLMW<K, V> this) {
+        return windowWeightedSize;
+    }
+
+    @org.checkerframework.dataflow.qual.Impure
+    protected final void setWindowWeightedSize( SSLMW<K, V> this,   long windowWeightedSize) {
+        this.windowWeightedSize = windowWeightedSize;
+    }
+
+    @org.checkerframework.dataflow.qual.Pure
+    protected final   long mainProtectedMaximum( SSLMW<K, V> this) {
+        return mainProtectedMaximum;
+    }
+
+    @org.checkerframework.dataflow.qual.Impure
+    protected final void setMainProtectedMaximum( SSLMW<K, V> this,   long mainProtectedMaximum) {
+        this.mainProtectedMaximum = mainProtectedMaximum;
+    }
+
+    @org.checkerframework.dataflow.qual.Pure
+    protected final   long mainProtectedWeightedSize( SSLMW<K, V> this) {
+        return mainProtectedWeightedSize;
+    }
+
+    @org.checkerframework.dataflow.qual.Impure
+    protected final void setMainProtectedWeightedSize( SSLMW<K, V> this,   long mainProtectedWeightedSize) {
+        this.mainProtectedWeightedSize = mainProtectedWeightedSize;
+    }
+
+    @org.checkerframework.dataflow.qual.Pure
+    protected final   double stepSize( SSLMW<K, V> this) {
+        return stepSize;
+    }
+
+    @org.checkerframework.dataflow.qual.Impure
+    protected final void setStepSize( SSLMW<K, V> this,   double stepSize) {
+        this.stepSize = stepSize;
+    }
+
+    @org.checkerframework.dataflow.qual.Pure
+    protected final   long adjustment( SSLMW<K, V> this) {
+        return adjustment;
+    }
+
+    @org.checkerframework.dataflow.qual.Impure
+    protected final void setAdjustment( SSLMW<K, V> this,   long adjustment) {
+        this.adjustment = adjustment;
+    }
+
+    @org.checkerframework.dataflow.qual.Pure
+    protected final   int hitsInSample( SSLMW<K, V> this) {
+        return hitsInSample;
+    }
+
+    @org.checkerframework.dataflow.qual.Impure
+    protected final void setHitsInSample( SSLMW<K, V> this,   int hitsInSample) {
+        this.hitsInSample = hitsInSample;
+    }
+
+    @org.checkerframework.dataflow.qual.Pure
+    protected final   int missesInSample( SSLMW<K, V> this) {
+        return missesInSample;
+    }
+
+    @org.checkerframework.dataflow.qual.Impure
+    protected final void setMissesInSample( SSLMW<K, V> this,   int missesInSample) {
+        this.missesInSample = missesInSample;
+    }
+
+    @org.checkerframework.dataflow.qual.Pure
+    protected final   double previousSampleHitRate( SSLMW<K, V> this) {
+        return previousSampleHitRate;
+    }
+
+    @org.checkerframework.dataflow.qual.Impure
+    protected final void setPreviousSampleHitRate( SSLMW<K, V> this,   double previousSampleHitRate) {
+        this.previousSampleHitRate = previousSampleHitRate;
+    }
+
+    @org.checkerframework.dataflow.qual.Pure
+    protected final  FrequencySketch<K> frequencySketch( SSLMW<K, V> this) {
+        return sketch;
+    }
+
+    @org.checkerframework.dataflow.qual.Pure
+    protected   boolean fastpath( SSLMW<K, V> this) {
+        return true;
+    }
+
+    @org.checkerframework.dataflow.qual.Pure
+    protected final  AccessOrderDeque<Node<K, V>> accessOrderWindowDeque( SSLMW<K, V> this) {
+        return accessOrderWindowDeque;
+    }
+
+    @org.checkerframework.dataflow.qual.Pure
+    protected final  AccessOrderDeque<Node<K, V>> accessOrderProbationDeque( SSLMW<K, V> this) {
+        return accessOrderProbationDeque;
+    }
+
+    @org.checkerframework.dataflow.qual.Pure
+    protected final  AccessOrderDeque<Node<K, V>> accessOrderProtectedDeque( SSLMW<K, V> this) {
+        return accessOrderProtectedDeque;
+    }
+}

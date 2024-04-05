@@ -1,0 +1,121 @@
+// Copyright 2024 Ben Manes. All Rights Reserved.
+//
+// Licensed under the Apache License, Version 2.0 (the "License");
+// you may not use this file except in compliance with the License.
+// You may obtain a copy of the License at
+//
+//     http://www.apache.org/licenses/LICENSE-2.0
+//
+// Unless required by applicable law or agreed to in writing, software
+// distributed under the License is distributed on an "AS IS" BASIS,
+// WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+// See the License for the specific language governing permissions and
+// limitations under the License.
+package com.github.benmanes.caffeine.cache;
+
+import java.lang.ref.ReferenceQueue;
+
+/**
+ * <em>WARNING: GENERATED CODE</em>
+ *
+ * <p>A cache entry that provides the following features:
+ *
+ * <ul>
+ *   <li>MaximumWeight
+ *   <li>WeakKeys (inherited)
+ *   <li>WeakValues (inherited)
+ *   <li>ExpireWrite (inherited)
+ *   <li>RefreshWrite (inherited)
+ * </ul>
+ *
+ * @author ben.manes@gmail.com (Ben Manes)
+ */
+@org.checkerframework.framework.qual.AnnotatedFor("org.checkerframework.checker.nullness.KeyForSubchecker")
+final class FWWRMW<K, V> extends FWWR<K, V> {
+
+      int queueType;
+
+      int weight;
+
+      int policyWeight;
+
+     Node<K, V> previousInAccessOrder;
+
+     Node<K, V> nextInAccessOrder;
+
+    @org.checkerframework.dataflow.qual.Impure
+    FWWRMW() {
+    }
+
+    @org.checkerframework.dataflow.qual.Impure
+    FWWRMW(K key,  ReferenceQueue<K> keyReferenceQueue, V value,  ReferenceQueue<V> valueReferenceQueue,   int weight,   long now) {
+        super(key, keyReferenceQueue, value, valueReferenceQueue, weight, now);
+        this.weight = weight;
+    }
+
+    @org.checkerframework.dataflow.qual.Impure
+    FWWRMW( Object keyReference, V value,  ReferenceQueue<V> valueReferenceQueue,   int weight,   long now) {
+        super(keyReference, value, valueReferenceQueue, weight, now);
+        this.weight = weight;
+    }
+
+    @org.checkerframework.dataflow.qual.Pure
+    public   int getQueueType( FWWRMW<K, V> this) {
+        return queueType;
+    }
+
+    @org.checkerframework.dataflow.qual.Impure
+    public void setQueueType( FWWRMW<K, V> this,   int queueType) {
+        this.queueType = queueType;
+    }
+
+    @org.checkerframework.dataflow.qual.Pure
+    public   int getWeight( FWWRMW<K, V> this) {
+        return weight;
+    }
+
+    @org.checkerframework.dataflow.qual.Impure
+    public void setWeight( FWWRMW<K, V> this,   int weight) {
+        this.weight = weight;
+    }
+
+    @org.checkerframework.dataflow.qual.Pure
+    public   int getPolicyWeight( FWWRMW<K, V> this) {
+        return policyWeight;
+    }
+
+    @org.checkerframework.dataflow.qual.Impure
+    public void setPolicyWeight( FWWRMW<K, V> this,   int policyWeight) {
+        this.policyWeight = policyWeight;
+    }
+
+    @org.checkerframework.dataflow.qual.Pure
+    public  Node<K, V> getPreviousInAccessOrder( FWWRMW<K, V> this) {
+        return previousInAccessOrder;
+    }
+
+    @org.checkerframework.dataflow.qual.Impure
+    public void setPreviousInAccessOrder( FWWRMW<K, V> this,  Node<K, V> previousInAccessOrder) {
+        this.previousInAccessOrder = previousInAccessOrder;
+    }
+
+    @org.checkerframework.dataflow.qual.Pure
+    public  Node<K, V> getNextInAccessOrder( FWWRMW<K, V> this) {
+        return nextInAccessOrder;
+    }
+
+    @org.checkerframework.dataflow.qual.Impure
+    public void setNextInAccessOrder( FWWRMW<K, V> this,  Node<K, V> nextInAccessOrder) {
+        this.nextInAccessOrder = nextInAccessOrder;
+    }
+
+    @org.checkerframework.dataflow.qual.Pure
+    public  Node<K, V> newNode( FWWRMW<K, V> this, K key,  ReferenceQueue<K> keyReferenceQueue, V value,  ReferenceQueue<V> valueReferenceQueue,   int weight,   long now) {
+        return new FWWRMW<>(key, keyReferenceQueue, value, valueReferenceQueue, weight, now);
+    }
+
+    @org.checkerframework.dataflow.qual.Pure
+    public  Node<K, V> newNode( FWWRMW<K, V> this,  Object keyReference, V value,  ReferenceQueue<V> valueReferenceQueue,   int weight,   long now) {
+        return new FWWRMW<>(keyReference, value, valueReferenceQueue, weight, now);
+    }
+}

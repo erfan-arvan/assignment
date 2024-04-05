@@ -1,0 +1,57 @@
+package edu.iastate.cyctools.tools.load.model;
+
+import edu.iastate.javacyco.Frame;
+import edu.iastate.javacyco.JavacycConnection;
+import edu.iastate.javacyco.PtoolsErrorException;
+
+// Any change that can be committed to the database must be coded as an AbstractFrameEdit or a child class.
+@org.checkerframework.framework.qual.AnnotatedFor("org.checkerframework.checker.nullness.KeyForSubchecker")
+public abstract class AbstractFrameEdit {
+
+    protected  String frameID;
+
+    protected   int  [] associatedRows;
+
+    @org.checkerframework.dataflow.qual.Pure
+    public  String getFrameID( AbstractFrameEdit this) {
+        return frameID;
+    }
+
+    @org.checkerframework.dataflow.qual.Impure
+    public  Frame getFrame( AbstractFrameEdit this,  JavacycConnection conn) throws PtoolsErrorException {
+        return Frame.load(conn, frameID);
+    }
+
+    @org.checkerframework.dataflow.qual.Pure
+    public   int  [] getAssociatedRows( AbstractFrameEdit this) {
+        return associatedRows;
+    }
+
+    @org.checkerframework.dataflow.qual.Pure
+    public  String getAssociatedRowsString() {
+        String associatedRowsString = "";
+        for (int i = 0; i < associatedRows.length; i++) {
+            associatedRowsString += associatedRows[i] + ", ";
+        }
+        if (associatedRowsString.length() > 2)
+            associatedRowsString = associatedRowsString.substring(0, associatedRowsString.length() - 2);
+        return associatedRowsString;
+    }
+
+    @org.checkerframework.dataflow.qual.Impure
+    protected   boolean frameExistsInKB( AbstractFrameEdit this,  JavacycConnection conn) throws PtoolsErrorException {
+        return conn.frameExists(frameID);
+    }
+
+    @org.checkerframework.dataflow.qual.Impure
+    public abstract   boolean modifiesFrame( AbstractFrameEdit this,  JavacycConnection conn,  Frame aFrame) throws PtoolsErrorException;
+
+    @org.checkerframework.dataflow.qual.Impure
+    public abstract   boolean commit( AbstractFrameEdit this,  JavacycConnection conn) throws PtoolsErrorException;
+
+    @org.checkerframework.dataflow.qual.Impure
+    public abstract  Frame commitLocal( AbstractFrameEdit this,  Frame frame) throws PtoolsErrorException;
+
+    @org.checkerframework.dataflow.qual.SideEffectFree
+    public abstract  String toString( AbstractFrameEdit this);
+}

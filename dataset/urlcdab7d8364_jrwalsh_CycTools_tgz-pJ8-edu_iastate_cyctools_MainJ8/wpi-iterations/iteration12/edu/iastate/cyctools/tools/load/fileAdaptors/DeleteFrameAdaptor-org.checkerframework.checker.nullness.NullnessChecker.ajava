@@ -1,0 +1,23 @@
+package edu.iastate.cyctools.tools.load.fileAdaptors;
+
+import java.util.ArrayList;
+import javax.swing.table.TableModel;
+import edu.iastate.cyctools.tools.load.model.AbstractFrameEdit;
+import edu.iastate.cyctools.tools.load.model.DeleteFrame;
+
+// Format:
+// Column 1: frameID or alternate identifier
+@org.checkerframework.framework.qual.AnnotatedFor("org.checkerframework.checker.nullness.NullnessChecker")
+public class DeleteFrameAdaptor extends AbstractFileAdaptor {
+
+    @org.checkerframework.checker.nullness.qual.EnsuresNonNull({ "#1" })
+    @org.checkerframework.dataflow.qual.Impure
+    public @org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.NonNull ArrayList<AbstractFrameEdit> tableToFrameUpdates(@org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.NonNull DeleteFrameAdaptor this, @org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.Nullable TableModel tb) {
+        ArrayList<AbstractFrameEdit> frameUpdates = new ArrayList<AbstractFrameEdit>();
+        for (int rowIndex = 0; rowIndex < tb.getRowCount(); rowIndex++) {
+            String frameID = (String) tb.getValueAt(rowIndex, 0);
+            frameUpdates.add(new DeleteFrame(frameID, new int[] { rowIndex + 1 }));
+        }
+        return frameUpdates;
+    }
+}

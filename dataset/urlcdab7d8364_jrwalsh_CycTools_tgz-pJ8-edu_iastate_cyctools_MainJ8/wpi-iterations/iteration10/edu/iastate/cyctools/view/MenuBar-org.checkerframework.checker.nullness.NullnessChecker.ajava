@@ -1,0 +1,286 @@
+package edu.iastate.cyctools.view;
+
+import edu.iastate.cyctools.DefaultController;
+import edu.iastate.cyctools.InternalStateModel.State;
+import javax.swing.AbstractAction;
+import javax.swing.Action;
+import javax.swing.Box;
+import javax.swing.BoxLayout;
+import javax.swing.JButton;
+import javax.swing.JLabel;
+import javax.swing.JMenu;
+import javax.swing.JMenuBar;
+import javax.swing.JMenuItem;
+import javax.swing.JOptionPane;
+import javax.swing.JPanel;
+import javax.swing.JTextField;
+import javax.swing.SwingConstants;
+import java.awt.Color;
+import java.awt.Component;
+import java.awt.Desktop;
+import java.awt.Dimension;
+import java.awt.Font;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+import java.io.IOException;
+import java.net.URI;
+import java.net.URISyntaxException;
+
+@org.checkerframework.framework.qual.AnnotatedFor("org.checkerframework.checker.nullness.NullnessChecker")
+public class MenuBar extends JMenuBar {
+
+    @org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.NonNull DefaultController controller;
+
+    private static @org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.MonotonicNonNull JMenu mnFile;
+
+    private static @org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.MonotonicNonNull JMenu mnAbout;
+
+    private static @org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.MonotonicNonNull JMenuItem mntmDisconnect;
+
+    private static @org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.MonotonicNonNull JMenuItem mntmExit;
+
+    private static @org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.MonotonicNonNull JMenu mnEdit;
+
+    private final @org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.NonNull Action actionDisconnect = new ActionDisconnect();
+
+    private final @org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.NonNull Action actionExit = new ActionExit();
+
+    private @org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.MonotonicNonNull JMenuItem mntmAbout;
+
+    private final @org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.NonNull Action actionAbout = new ActionAbout();
+
+    private @org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.MonotonicNonNull JMenuItem mntmRevertKb;
+
+    private final @org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.NonNull Action actionRevertKB = new ActionRevertKB();
+
+    private @org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.MonotonicNonNull JMenuItem mntmOptions;
+
+    private final @org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.NonNull Action action = new ActionOptions();
+
+    /**
+     * Create the frame.
+     */
+    @org.checkerframework.checker.nullness.qual.EnsuresNonNull({ "edu.iastate.cyctools.view.MenuBar.mnAbout" })
+    @org.checkerframework.checker.nullness.qual.EnsuresNonNull({ "edu.iastate.cyctools.view.MenuBar.mnEdit" })
+    @org.checkerframework.checker.nullness.qual.EnsuresNonNull({ "edu.iastate.cyctools.view.MenuBar.mnFile" })
+    @org.checkerframework.checker.nullness.qual.EnsuresNonNull({ "edu.iastate.cyctools.view.MenuBar.mntmDisconnect" })
+    @org.checkerframework.checker.nullness.qual.EnsuresNonNull({ "edu.iastate.cyctools.view.MenuBar.mntmExit" })
+    @org.checkerframework.dataflow.qual.Impure
+    public MenuBar(@org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.NonNull DefaultController controller) {
+        this.controller = controller;
+        initComponents();
+        localInitialization();
+    }
+
+    @org.checkerframework.checker.nullness.qual.RequiresNonNull({ "edu.iastate.cyctools.view.MenuBar.mnAbout" })
+    @org.checkerframework.checker.nullness.qual.RequiresNonNull({ "edu.iastate.cyctools.view.MenuBar.mnEdit" })
+    @org.checkerframework.checker.nullness.qual.RequiresNonNull({ "edu.iastate.cyctools.view.MenuBar.mnFile" })
+    @org.checkerframework.checker.nullness.qual.RequiresNonNull({ "edu.iastate.cyctools.view.MenuBar.mntmDisconnect" })
+    @org.checkerframework.checker.nullness.qual.RequiresNonNull({ "edu.iastate.cyctools.view.MenuBar.mntmExit" })
+    @org.checkerframework.checker.nullness.qual.EnsuresNonNull({ "edu.iastate.cyctools.view.MenuBar.mnAbout" })
+    @org.checkerframework.checker.nullness.qual.EnsuresNonNull({ "edu.iastate.cyctools.view.MenuBar.mnEdit" })
+    @org.checkerframework.checker.nullness.qual.EnsuresNonNull({ "edu.iastate.cyctools.view.MenuBar.mnFile" })
+    @org.checkerframework.checker.nullness.qual.EnsuresNonNull({ "edu.iastate.cyctools.view.MenuBar.mntmDisconnect" })
+    @org.checkerframework.checker.nullness.qual.EnsuresNonNull({ "edu.iastate.cyctools.view.MenuBar.mntmExit" })
+    @org.checkerframework.framework.qual.EnsuresQualifier(expression = { "this.mntmAbout" }, qualifier = org.checkerframework.checker.nullness.qual.Nullable.class)
+    @org.checkerframework.framework.qual.EnsuresQualifier(expression = { "this.mntmOptions" }, qualifier = org.checkerframework.checker.nullness.qual.Nullable.class)
+    @org.checkerframework.framework.qual.EnsuresQualifier(expression = { "this.mntmRevertKb" }, qualifier = org.checkerframework.checker.nullness.qual.Nullable.class)
+    @org.checkerframework.dataflow.qual.Impure
+    public void localInitialization() {
+        setDisconnectActionEnabled(false);
+        controller.setMenuPanel(this);
+    }
+
+    @org.checkerframework.checker.nullness.qual.EnsuresNonNull({ "edu.iastate.cyctools.view.MenuBar.mnAbout" })
+    @org.checkerframework.checker.nullness.qual.EnsuresNonNull({ "edu.iastate.cyctools.view.MenuBar.mnEdit" })
+    @org.checkerframework.checker.nullness.qual.EnsuresNonNull({ "edu.iastate.cyctools.view.MenuBar.mnFile" })
+    @org.checkerframework.checker.nullness.qual.EnsuresNonNull({ "edu.iastate.cyctools.view.MenuBar.mntmDisconnect" })
+    @org.checkerframework.checker.nullness.qual.EnsuresNonNull({ "edu.iastate.cyctools.view.MenuBar.mntmExit" })
+    @org.checkerframework.checker.nullness.qual.EnsuresNonNull({ "this.mntmAbout" })
+    @org.checkerframework.checker.nullness.qual.EnsuresNonNull({ "this.mntmOptions" })
+    @org.checkerframework.checker.nullness.qual.EnsuresNonNull({ "this.mntmRevertKb" })
+    @org.checkerframework.dataflow.qual.Impure
+    private void initComponents() {
+        mnFile = new JMenu("File");
+        add(mnFile);
+        mntmDisconnect = new JMenuItem("Disconnect");
+        mntmDisconnect.setAction(actionDisconnect);
+        mnFile.add(mntmDisconnect);
+        mntmExit = new JMenuItem("Exit");
+        mntmExit.setAction(actionExit);
+        mnFile.add(mntmExit);
+        mnEdit = new JMenu("Edit");
+        add(mnEdit);
+        mntmOptions = new JMenuItem("Options");
+        mntmOptions.setAction(action);
+        mnEdit.add(mntmOptions);
+        mntmRevertKb = new JMenuItem("Revert KB");
+        mntmRevertKb.setAction(actionRevertKB);
+        mnEdit.add(mntmRevertKb);
+        mnAbout = new JMenu("About");
+        add(mnAbout);
+        mntmAbout = new JMenuItem("About");
+        mntmAbout.setAction(actionAbout);
+        mnAbout.add(mntmAbout);
+    }
+
+    @org.checkerframework.framework.qual.RequiresQualifier(expression = { "this.mntmAbout" }, qualifier = org.checkerframework.checker.nullness.qual.Nullable.class)
+    @org.checkerframework.framework.qual.RequiresQualifier(expression = { "this.mntmOptions" }, qualifier = org.checkerframework.checker.nullness.qual.Nullable.class)
+    @org.checkerframework.framework.qual.RequiresQualifier(expression = { "this.mntmRevertKb" }, qualifier = org.checkerframework.checker.nullness.qual.Nullable.class)
+    @org.checkerframework.framework.qual.EnsuresQualifier(expression = { "edu.iastate.cyctools.view.MenuBar.mnAbout" }, qualifier = org.checkerframework.checker.nullness.qual.Nullable.class)
+    @org.checkerframework.framework.qual.EnsuresQualifier(expression = { "edu.iastate.cyctools.view.MenuBar.mnEdit" }, qualifier = org.checkerframework.checker.nullness.qual.Nullable.class)
+    @org.checkerframework.framework.qual.EnsuresQualifier(expression = { "edu.iastate.cyctools.view.MenuBar.mnFile" }, qualifier = org.checkerframework.checker.nullness.qual.Nullable.class)
+    @org.checkerframework.framework.qual.EnsuresQualifier(expression = { "edu.iastate.cyctools.view.MenuBar.mntmDisconnect" }, qualifier = org.checkerframework.checker.nullness.qual.Nullable.class)
+    @org.checkerframework.framework.qual.EnsuresQualifier(expression = { "edu.iastate.cyctools.view.MenuBar.mntmExit" }, qualifier = org.checkerframework.checker.nullness.qual.Nullable.class)
+    @org.checkerframework.framework.qual.EnsuresQualifier(expression = { "this.mntmAbout" }, qualifier = org.checkerframework.checker.nullness.qual.Nullable.class)
+    @org.checkerframework.framework.qual.EnsuresQualifier(expression = { "this.mntmOptions" }, qualifier = org.checkerframework.checker.nullness.qual.Nullable.class)
+    @org.checkerframework.framework.qual.EnsuresQualifier(expression = { "this.mntmRevertKb" }, qualifier = org.checkerframework.checker.nullness.qual.Nullable.class)
+    @org.checkerframework.dataflow.qual.Impure
+    public void setDisconnectActionEnabled( @org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.NonNull boolean enabled) {
+        actionDisconnect.setEnabled(enabled);
+    }
+
+    private class ActionDisconnect extends AbstractAction {
+
+        @org.checkerframework.dataflow.qual.Impure
+        public ActionDisconnect() {
+            putValue(NAME, "Disconnect");
+            putValue(SHORT_DESCRIPTION, "Disconnect from Pathway Tools server.");
+        }
+
+        @org.checkerframework.dataflow.qual.Impure
+        public void actionPerformed(@org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.NonNull ActionDisconnect this, @org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.NonNull ActionEvent e) {
+            controller.setState(State.NOT_CONNECTED);
+            setDisconnectActionEnabled(false);
+        }
+    }
+
+    private class ActionExit extends AbstractAction {
+
+        @org.checkerframework.dataflow.qual.Impure
+        public ActionExit() {
+            putValue(NAME, "Exit");
+            putValue(SHORT_DESCRIPTION, "Exit program.");
+        }
+
+        @org.checkerframework.dataflow.qual.Impure
+        public void actionPerformed(@org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.NonNull ActionExit this, @org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.NonNull ActionEvent e) {
+            System.exit(0);
+        }
+    }
+
+    private class ActionAbout extends AbstractAction {
+
+        @org.checkerframework.dataflow.qual.Impure
+        public ActionAbout() {
+            putValue(NAME, "About");
+            putValue(SHORT_DESCRIPTION, "About this program.");
+        }
+
+        @org.checkerframework.dataflow.qual.Impure
+        public void actionPerformed(@org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.NonNull ActionAbout this, @org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.NonNull ActionEvent e) {
+            try {
+                final URI uri = new URI("https://github.com/jrwalsh/CycTools/wiki");
+                class OpenUrlAction implements ActionListener {
+
+                    public void actionPerformed(ActionEvent e) {
+                        open(uri);
+                    }
+                }
+                JPanel panel = new JPanel();
+                panel.setLayout(new BoxLayout(panel, BoxLayout.PAGE_AXIS));
+                JLabel label1 = new JLabel("<html><bold>CycTools: Software for Maintaining and Migrating Functional Annotations in BioCyc Model Organism Databases.</bold></html>");
+                label1.setFont(new Font("serif", Font.BOLD, 14));
+                label1.setAlignmentX(CENTER_ALIGNMENT);
+                panel.add(label1);
+                JLabel label2 = new JLabel("Beta Version: 0.1");
+                label2.setAlignmentX(CENTER_ALIGNMENT);
+                panel.add(label2);
+                JLabel label3 = new JLabel("Licensed under GNU GPL.");
+                label3.setAlignmentX(CENTER_ALIGNMENT);
+                panel.add(label3);
+                panel.add(Box.createVerticalStrut(10));
+                JButton button = new JButton();
+                button.setText("<HTML>Visit <FONT color=\"#000099\"><U>" + uri + "</U></FONT></HTML>");
+                button.setHorizontalAlignment(SwingConstants.LEFT);
+                button.setBorderPainted(false);
+                button.setOpaque(false);
+                button.setBackground(Color.WHITE);
+                button.setToolTipText(uri.toString());
+                button.addActionListener(new OpenUrlAction());
+                button.setAlignmentX(Component.CENTER_ALIGNMENT);
+                button.setMaximumSize(new Dimension(290, 25));
+                panel.add(button);
+                panel.add(Box.createVerticalStrut(20));
+                JOptionPane.showMessageDialog(DefaultController.mainJFrame, panel, "About", JOptionPane.INFORMATION_MESSAGE);
+            } catch (URISyntaxException e1) {
+                e1.printStackTrace();
+            }
+        }
+    }
+
+    @org.checkerframework.framework.qual.EnsuresQualifier(expression = { "edu.iastate.cyctools.view.MenuBar.mnAbout" }, qualifier = org.checkerframework.checker.nullness.qual.Nullable.class)
+    @org.checkerframework.framework.qual.EnsuresQualifier(expression = { "edu.iastate.cyctools.view.MenuBar.mnEdit" }, qualifier = org.checkerframework.checker.nullness.qual.Nullable.class)
+    @org.checkerframework.framework.qual.EnsuresQualifier(expression = { "edu.iastate.cyctools.view.MenuBar.mnFile" }, qualifier = org.checkerframework.checker.nullness.qual.Nullable.class)
+    @org.checkerframework.framework.qual.EnsuresQualifier(expression = { "edu.iastate.cyctools.view.MenuBar.mntmDisconnect" }, qualifier = org.checkerframework.checker.nullness.qual.Nullable.class)
+    @org.checkerframework.framework.qual.EnsuresQualifier(expression = { "edu.iastate.cyctools.view.MenuBar.mntmExit" }, qualifier = org.checkerframework.checker.nullness.qual.Nullable.class)
+    @org.checkerframework.dataflow.qual.Impure
+    private static void open(@org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.NonNull URI uri) {
+        if (Desktop.isDesktopSupported()) {
+            try {
+                Desktop.getDesktop().browse(uri);
+            } catch (IOException e) {
+                //error handling
+            }
+        } else {
+            //error handling
+        }
+    }
+
+    private class ActionRevertKB extends AbstractAction {
+
+        @org.checkerframework.dataflow.qual.Impure
+        public ActionRevertKB() {
+            putValue(NAME, "Revert KB");
+            putValue(SHORT_DESCRIPTION, "Undo all changes to this KB since last save.");
+        }
+
+        @org.checkerframework.dataflow.qual.Impure
+        public void actionPerformed(@org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.NonNull ActionRevertKB this, @org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.NonNull ActionEvent e) {
+            int n = JOptionPane.showConfirmDialog(DefaultController.mainJFrame, "Reverting a database will undo all changes since the last save. This will undo all changes to KB\n" + controller.getSelectedOrganism() + "\n\nDo you wish to continue?", "Revert KB", JOptionPane.YES_NO_CANCEL_OPTION, JOptionPane.WARNING_MESSAGE);
+            if (n == 0) {
+                controller.revertDataBase();
+                JOptionPane.showMessageDialog(DefaultController.mainJFrame, "Database reverted to previous version.", "Database revert performed", JOptionPane.INFORMATION_MESSAGE);
+                controller.toolPanel.refreshOrganismList();
+            }
+        }
+    }
+
+    private class ActionOptions extends AbstractAction {
+
+        @org.checkerframework.dataflow.qual.Impure
+        public ActionOptions() {
+            putValue(NAME, "Options");
+            putValue(SHORT_DESCRIPTION, "Edit Options");
+        }
+
+        @org.checkerframework.dataflow.qual.Impure
+        public void actionPerformed(@org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.NonNull ActionOptions this, @org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.NonNull ActionEvent e) {
+            JTextField queryTimeOut = new JTextField(5);
+            JPanel myPanel = new JPanel();
+            myPanel.add(new JLabel("Query TimeOut in Miliseconds (enter 0 to disable query timeout):"));
+            myPanel.add(queryTimeOut);
+            int result = JOptionPane.showConfirmDialog(null, myPanel, "Change Settings.", JOptionPane.OK_CANCEL_OPTION);
+            if (result == JOptionPane.OK_OPTION) {
+                try {
+                    String queryTimeOutResult = queryTimeOut.getText();
+                    int querytimeOutValue = Integer.parseInt(queryTimeOutResult);
+                    controller.getConnection().setQueryTimeOutLength(querytimeOutValue);
+                    JOptionPane.showMessageDialog(DefaultController.mainJFrame, "Success.", "Valid Selection", JOptionPane.INFORMATION_MESSAGE);
+                } catch (Exception exception) {
+                    JOptionPane.showMessageDialog(DefaultController.mainJFrame, "Unable to change options.", "Invalid Selection", JOptionPane.WARNING_MESSAGE);
+                }
+            }
+        }
+    }
+}

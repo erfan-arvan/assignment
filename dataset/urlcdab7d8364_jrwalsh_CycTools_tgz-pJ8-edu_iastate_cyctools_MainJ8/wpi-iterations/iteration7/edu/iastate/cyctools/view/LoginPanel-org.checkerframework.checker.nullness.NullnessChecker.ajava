@@ -1,0 +1,137 @@
+package edu.iastate.cyctools.view;
+
+import java.beans.PropertyChangeEvent;
+import edu.iastate.cyctools.DefaultController;
+import edu.iastate.cyctools.externalSourceCode.AbstractViewPanel;
+import edu.iastate.cyctools.externalSourceCode.MenuPopupUtil;
+import javax.swing.AbstractAction;
+import javax.swing.Action;
+import javax.swing.JPanel;
+import javax.swing.JTextField;
+import javax.swing.JLabel;
+import java.awt.event.ActionEvent;
+import javax.swing.GroupLayout;
+import javax.swing.GroupLayout.Alignment;
+import javax.swing.LayoutStyle.ComponentPlacement;
+import javax.swing.JPasswordField;
+import javax.swing.JButton;
+import java.awt.Dimension;
+import net.miginfocom.swing.MigLayout;
+
+@org.checkerframework.framework.qual.AnnotatedFor("org.checkerframework.checker.nullness.NullnessChecker")
+public class LoginPanel extends AbstractViewPanel {
+
+    @org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.NonNull DefaultController controller;
+
+    private @org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.NonNull JTextField txtHost;
+
+    private @org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.NonNull JTextField txtPort;
+
+    private @org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.NonNull JTextField txtUser;
+
+    private @org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.NonNull JPasswordField pwbox;
+
+    private final @org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.NonNull Action actionConnect = new ActionConnect();
+
+    /**
+     * Create the frame.
+     */
+    @org.checkerframework.checker.nullness.qual.EnsuresNonNull({ "this.pwbox" })
+    @org.checkerframework.checker.nullness.qual.EnsuresNonNull({ "this.txtHost" })
+    @org.checkerframework.checker.nullness.qual.EnsuresNonNull({ "this.txtPort" })
+    @org.checkerframework.checker.nullness.qual.EnsuresNonNull({ "this.txtUser" })
+    @org.checkerframework.dataflow.qual.Impure
+    public LoginPanel(@org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.NonNull DefaultController controller) {
+        this.controller = controller;
+        initComponents();
+        localInitialization();
+    }
+
+    @org.checkerframework.checker.nullness.qual.RequiresNonNull({ "this.pwbox" })
+    @org.checkerframework.checker.nullness.qual.RequiresNonNull({ "this.txtHost" })
+    @org.checkerframework.checker.nullness.qual.RequiresNonNull({ "this.txtPort" })
+    @org.checkerframework.checker.nullness.qual.RequiresNonNull({ "this.txtUser" })
+    @org.checkerframework.framework.qual.EnsuresQualifier(expression = { "this.pwbox" }, qualifier = org.checkerframework.checker.nullness.qual.Nullable.class)
+    @org.checkerframework.framework.qual.EnsuresQualifier(expression = { "this.txtHost" }, qualifier = org.checkerframework.checker.nullness.qual.Nullable.class)
+    @org.checkerframework.framework.qual.EnsuresQualifier(expression = { "this.txtPort" }, qualifier = org.checkerframework.checker.nullness.qual.Nullable.class)
+    @org.checkerframework.framework.qual.EnsuresQualifier(expression = { "this.txtUser" }, qualifier = org.checkerframework.checker.nullness.qual.Nullable.class)
+    @org.checkerframework.dataflow.qual.Impure
+    public void localInitialization() {
+        //Add self as property change event listener of the controller
+        controller.addView(this);
+        MenuPopupUtil.installContextMenu(txtHost);
+        MenuPopupUtil.installContextMenu(txtPort);
+        MenuPopupUtil.installContextMenu(txtUser);
+    }
+
+    @org.checkerframework.checker.nullness.qual.EnsuresNonNull({ "this.pwbox" })
+    @org.checkerframework.checker.nullness.qual.EnsuresNonNull({ "this.txtHost" })
+    @org.checkerframework.checker.nullness.qual.EnsuresNonNull({ "this.txtPort" })
+    @org.checkerframework.checker.nullness.qual.EnsuresNonNull({ "this.txtUser" })
+    @org.checkerframework.dataflow.qual.Impure
+    private void initComponents() {
+        setLayout(new MigLayout("", "[25%,grow][][][][25%,grow]", "[49px][53px][][][][][][grow]"));
+        JLabel lblWelcomeToCyctools = new JLabel("<html><h1>Welcome to CycTools</h1></html>");
+        add(lblWelcomeToCyctools, "cell 0 0 5 1,alignx center,aligny center");
+        JLabel lblNewLabel = new JLabel("<html>Please enter connection information. If no username and password is required for your server, leave these fields blank.</html>");
+        add(lblNewLabel, "cell 0 1 5 1,alignx center,aligny center");
+        JLabel lblHost = new JLabel("Host");
+        add(lblHost, "cell 1 2,alignx right,aligny center");
+        txtHost = new JTextField();
+        add(txtHost, "cell 2 2,alignx left,aligny center");
+        txtHost.setText("");
+        txtHost.setColumns(20);
+        JLabel lblPort = new JLabel("Port");
+        add(lblPort, "cell 1 3,alignx right,aligny center");
+        txtPort = new JTextField();
+        add(txtPort, "cell 2 3,alignx left,aligny center");
+        txtPort.setText("4444");
+        txtPort.setColumns(20);
+        JLabel lblUser = new JLabel("UserName");
+        add(lblUser, "cell 1 4,alignx right,aligny center");
+        txtUser = new JTextField();
+        add(txtUser, "cell 2 4,alignx left,aligny center");
+        txtUser.setColumns(20);
+        JLabel lblPassword = new JLabel("Password");
+        add(lblPassword, "cell 1 5,alignx right,aligny center");
+        pwbox = new JPasswordField();
+        pwbox.setColumns(20);
+        add(pwbox, "cell 2 5,alignx left,aligny center");
+        JButton btnConnect = new JButton("Connect");
+        add(btnConnect, "cell 2 6,alignx right,aligny center");
+        btnConnect.setAction(actionConnect);
+    }
+
+    private class ActionConnect extends AbstractAction {
+
+        @org.checkerframework.dataflow.qual.Impure
+        public ActionConnect() {
+            putValue(NAME, "Connect");
+            putValue(SHORT_DESCRIPTION, "Initiallizes the connection to a database using JavaCycO.");
+        }
+
+        @org.checkerframework.dataflow.qual.Impure
+        public void actionPerformed(@org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.NonNull ActionConnect this, @org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.NonNull ActionEvent e) {
+            try {
+                if (txtUser.getText() != null && !txtUser.getText().isEmpty()) {
+                    String pw = "";
+                    if (pwbox.getPassword() != null) {
+                        pw = pwbox.getPassword().toString();
+                    }
+                    controller.connect(txtHost.getText(), Integer.parseInt(txtPort.getText()), txtUser.getText(), pw);
+                } else {
+                    controller.connect(txtHost.getText(), Integer.parseInt(txtPort.getText()), null, null);
+                }
+            } catch (Exception exception) {
+            }
+        }
+    }
+
+    @org.checkerframework.framework.qual.EnsuresQualifier(expression = { "this.pwbox" }, qualifier = org.checkerframework.checker.nullness.qual.Nullable.class)
+    @org.checkerframework.framework.qual.EnsuresQualifier(expression = { "this.txtHost" }, qualifier = org.checkerframework.checker.nullness.qual.Nullable.class)
+    @org.checkerframework.framework.qual.EnsuresQualifier(expression = { "this.txtPort" }, qualifier = org.checkerframework.checker.nullness.qual.Nullable.class)
+    @org.checkerframework.framework.qual.EnsuresQualifier(expression = { "this.txtUser" }, qualifier = org.checkerframework.checker.nullness.qual.Nullable.class)
+    @org.checkerframework.dataflow.qual.SideEffectFree
+    public void modelPropertyChange(@org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.NonNull LoginPanel this, @org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.NonNull PropertyChangeEvent evt) {
+    }
+}

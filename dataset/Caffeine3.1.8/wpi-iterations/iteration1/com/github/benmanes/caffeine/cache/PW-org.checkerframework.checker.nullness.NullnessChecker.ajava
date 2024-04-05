@@ -1,0 +1,148 @@
+// Copyright 2024 Ben Manes. All Rights Reserved.
+//
+// Licensed under the Apache License, Version 2.0 (the "License");
+// you may not use this file except in compliance with the License.
+// You may obtain a copy of the License at
+//
+//     http://www.apache.org/licenses/LICENSE-2.0
+//
+// Unless required by applicable law or agreed to in writing, software
+// distributed under the License is distributed on an "AS IS" BASIS,
+// WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+// See the License for the specific language governing permissions and
+// limitations under the License.
+package com.github.benmanes.caffeine.cache;
+
+import com.github.benmanes.caffeine.cache.References.WeakValueReference;
+import java.lang.invoke.MethodHandles;
+import java.lang.invoke.VarHandle;
+import java.lang.ref.Reference;
+import java.lang.ref.ReferenceQueue;
+
+/**
+ * <em>WARNING: GENERATED CODE</em>
+ *
+ * <p>A cache entry that provides the following features:
+ *
+ * <ul>
+ *   <li>StrongKeys
+ *   <li>WeakValues
+ * </ul>
+ *
+ * @author ben.manes@gmail.com (Ben Manes)
+ */
+@org.checkerframework.framework.qual.AnnotatedFor("org.checkerframework.checker.nullness.NullnessChecker")
+class PW<K, V> extends Node<K, V> implements NodeFactory<K, V> {
+
+    protected static final @org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.NonNull VarHandle VALUE;
+
+    static {
+        MethodHandles.Lookup lookup = MethodHandles.lookup();
+        try {
+            VALUE = lookup.findVarHandle(PW.class, NodeFactory.VALUE, WeakValueReference.class);
+        } catch (ReflectiveOperationException e) {
+            throw new ExceptionInInitializerError(e);
+        }
+    }
+
+    volatile @org.checkerframework.checker.initialization.qual.FBCBottom @org.checkerframework.checker.nullness.qual.MonotonicNonNull WeakValueReference<V> value;
+
+    @org.checkerframework.dataflow.qual.Impure
+    PW() {
+    }
+
+    @org.checkerframework.dataflow.qual.Impure
+    PW(K key, @org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.NonNull ReferenceQueue<K> keyReferenceQueue, V value, @org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.NonNull ReferenceQueue<V> valueReferenceQueue,  @org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.NonNull int weight,  @org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.NonNull long now) {
+        this(key, value, valueReferenceQueue, weight, now);
+    }
+
+    @org.checkerframework.dataflow.qual.Impure
+    PW(@org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.NonNull Object keyReference, V value, @org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.NonNull ReferenceQueue<V> valueReferenceQueue,  @org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.NonNull int weight,  @org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.NonNull long now) {
+        VALUE.set(this, new WeakValueReference<V>(keyReference, value, valueReferenceQueue));
+    }
+
+    @org.checkerframework.dataflow.qual.Impure
+    public final @org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.NonNull Object getKeyReference(@org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.NonNull PW<K, V> this) {
+        WeakValueReference<V> valueRef = (WeakValueReference<V>) VALUE.get(this);
+        return valueRef.getKeyReference();
+    }
+
+    @org.checkerframework.dataflow.qual.Impure
+    public final K getKey(@org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.NonNull PW<K, V> this) {
+        WeakValueReference<V> valueRef = (WeakValueReference<V>) VALUE.get(this);
+        return (K) valueRef.getKeyReference();
+    }
+
+    @org.checkerframework.dataflow.qual.Impure
+    public final V getValue(@org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.NonNull PW<K, V> this) {
+        for (; ; ) {
+            Reference<V> ref = (Reference<V>) VALUE.getOpaque(this);
+            V referent = ref.get();
+            if ((referent != null) || (ref == VALUE.getAcquire(this))) {
+                return referent;
+            }
+        }
+    }
+
+    @org.checkerframework.dataflow.qual.Impure
+    public final @org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.NonNull Object getValueReference(@org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.NonNull PW<K, V> this) {
+        return VALUE.get(this);
+    }
+
+    @org.checkerframework.dataflow.qual.Impure
+    public final void setValue(@org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.NonNull PW<K, V> this, V value, @org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.Nullable ReferenceQueue<V> referenceQueue) {
+        Reference<V> ref = (Reference<V>) VALUE.get(this);
+        VALUE.setRelease(this, new WeakValueReference<V>(getKeyReference(), value, referenceQueue));
+        ref.clear();
+    }
+
+    @org.checkerframework.dataflow.qual.Impure
+    public final  @org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.NonNull boolean containsValue(@org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.NonNull PW<K, V> this, @org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.NonNull Object value) {
+        return getValue() == value;
+    }
+
+    @org.checkerframework.dataflow.qual.Pure
+    public @org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.NonNull Node<K, V> newNode(@org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.NonNull PW<K, V> this, K key, @org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.NonNull ReferenceQueue<K> keyReferenceQueue, V value, @org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.NonNull ReferenceQueue<V> valueReferenceQueue,  @org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.NonNull int weight,  @org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.NonNull long now) {
+        return new PW<>(key, keyReferenceQueue, value, valueReferenceQueue, weight, now);
+    }
+
+    @org.checkerframework.dataflow.qual.Pure
+    public @org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.NonNull Node<K, V> newNode(@org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.NonNull PW<K, V> this, @org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.NonNull Object keyReference, V value, @org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.NonNull ReferenceQueue<V> valueReferenceQueue,  @org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.NonNull int weight,  @org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.NonNull long now) {
+        return new PW<>(keyReference, value, valueReferenceQueue, weight, now);
+    }
+
+    @org.checkerframework.dataflow.qual.Pure
+    public  @org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.NonNull boolean weakValues(@org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.NonNull PW<K, V> this) {
+        return true;
+    }
+
+    @org.checkerframework.dataflow.qual.Impure
+    public final  @org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.NonNull boolean isAlive(@org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.NonNull PW<K, V> this) {
+        Object key = getKeyReference();
+        return (key != RETIRED_STRONG_KEY) && (key != DEAD_STRONG_KEY);
+    }
+
+    @org.checkerframework.dataflow.qual.Impure
+    public final  @org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.NonNull boolean isRetired(@org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.NonNull PW<K, V> this) {
+        return (getKeyReference() == RETIRED_STRONG_KEY);
+    }
+
+    @org.checkerframework.dataflow.qual.Impure
+    public final void retire(@org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.NonNull PW<K, V> this) {
+        WeakValueReference<V> valueRef = (WeakValueReference<V>) VALUE.get(this);
+        valueRef.setKeyReference(RETIRED_STRONG_KEY);
+        valueRef.clear();
+    }
+
+    @org.checkerframework.dataflow.qual.Impure
+    public final  @org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.NonNull boolean isDead(@org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.NonNull PW<K, V> this) {
+        return (getKeyReference() == DEAD_STRONG_KEY);
+    }
+
+    @org.checkerframework.dataflow.qual.Impure
+    public final void die(@org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.NonNull PW<K, V> this) {
+        WeakValueReference<V> valueRef = (WeakValueReference<V>) VALUE.get(this);
+        valueRef.setKeyReference(DEAD_STRONG_KEY);
+        valueRef.clear();
+    }
+}

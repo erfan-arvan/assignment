@@ -1,0 +1,55 @@
+package mSystem;
+
+import mLibrary.mContext;
+import mLibrary.mParent;
+
+@org.checkerframework.framework.qual.AnnotatedFor("org.checkerframework.checker.nullness.KeyForSubchecker")
+public class License extends mParent {
+
+    @org.checkerframework.dataflow.qual.Impure
+    public License( mContext m$) {
+        super(m$);
+        // TODO Auto-generated constructor stub
+    }
+
+    @org.checkerframework.dataflow.qual.Pure
+    public static Object LUConsumed() {
+        throw new UnsupportedOperationException();
+    }
+
+    @org.checkerframework.dataflow.qual.Pure
+    public static Object GetUserId() {
+        // TODO Auto-generated method stub
+        return null;
+    }
+
+    @org.checkerframework.dataflow.qual.Pure
+    public static  Object MaxConnections() {
+        // TODO Auto-generated method stub
+        return 100;
+    }
+
+    @org.checkerframework.dataflow.qual.Pure
+    public static  Object ConnectionCount(Object object) {
+        // TODO Auto-generated method stub
+        return 0;
+    }
+
+    @org.checkerframework.dataflow.qual.Pure
+    public static  Object Login(Object object) {
+        // TODO Auto-generated method stub
+        return 1;
+    }
+
+    @org.checkerframework.dataflow.qual.Pure
+    public static Object LUMaxConsumed() {
+        // TODO Auto-generated method stub
+        return null;
+    }
+
+    @org.checkerframework.dataflow.qual.SideEffectFree
+    public static void DeferUserIdentification(Object fnc$) {
+        // TODO Auto-generated method stub
+        throw new UnsupportedOperationException();
+    }
+}

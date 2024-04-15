@@ -1,0 +1,35 @@
+package event.util;
+
+import java.util.Queue;
+import java.util.LinkedList;
+
+@org.checkerframework.framework.qual.AnnotatedFor("org.checkerframework.checker.nullness.NullnessChecker")
+public class ByteArrayPool {
+
+     @org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.NonNull int maxFree = 10;
+
+     @org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.NonNull int size;
+
+    @org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.NonNull Queue<byte[]> q;
+
+    @org.checkerframework.dataflow.qual.SideEffectFree
+    public ByteArrayPool( @org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.NonNull int size) {
+        this.q = new LinkedList<byte[]>();
+        this.size = size;
+    }
+
+    @org.checkerframework.dataflow.qual.Impure
+    public  @org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.NonNull byte @org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.NonNull [] get() {
+        byte[] bytes = this.q.poll();
+        return bytes == null ? new byte[size] : bytes;
+    }
+
+    @org.checkerframework.dataflow.qual.Impure
+    public void putBack( @org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.NonNull byte @org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.NonNull [] bytes) {
+        assert null != bytes;
+        assert bytes.length == this.size;
+        if (this.q.size() < maxFree) {
+            this.q.add(bytes);
+        }
+    }
+}

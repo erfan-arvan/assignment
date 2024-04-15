@@ -1,0 +1,44 @@
+package event;
+
+import java.net.InetAddress;
+import java.net.UnknownHostException;
+
+/**
+ * This is a utility to provide non-blocking DNS lookups in a stupidly
+ * simplistic fashion. I.e. this is a single thread resolving all DNS
+ * queries via blocking java `getHostByName()` means.
+ */
+@org.checkerframework.framework.qual.AnnotatedFor("org.checkerframework.checker.nullness.NullnessChecker")
+class DNSLoop extends TimeoutLoop {
+
+    @org.checkerframework.dataflow.qual.Impure
+    DNSLoop() {
+        super();
+    }
+
+    @org.checkerframework.dataflow.qual.Impure
+    void lookup(final @org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.NonNull String host, final @org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.NonNull CB callback) {
+        addTimeout(new Callback.Timeout() {
+
+            public void go(TimeoutLoop loop) {
+                try {
+                    InetAddress addr = InetAddress.getByName(host);
+                    callback.addr(addr, null);
+                } catch (UnknownHostException uhe) {
+                    callback.addr(null, uhe);
+                }
+            }
+        });
+    }
+
+    static interface CB {
+
+        @org.checkerframework.dataflow.qual.Impure
+        void addr(@org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.Nullable InetAddress addr, @org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.Nullable UnknownHostException t);
+    }
+
+    @org.checkerframework.dataflow.qual.Impure
+    static void p(Object o) {
+        System.out.println(o);
+    }
+}

@@ -1,0 +1,133 @@
+package event;
+
+@org.checkerframework.framework.qual.AnnotatedFor("org.checkerframework.checker.nullness.NullnessChecker")
+public class CancelTimeoutTest {
+
+    @org.checkerframework.dataflow.qual.SideEffectFree
+    static final void fail(@org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.NonNull String mes) {
+        throw new RuntimeException(mes);
+    }
+
+    @org.checkerframework.dataflow.qual.Impure
+    static void testTimeoutCancel() {
+        final TimeoutLoop loop = new TimeoutLoop();
+        loop.start();
+        final Callback.Timeout toCancel = new Callback.Timeout() {
+
+            @org.checkerframework.dataflow.qual.SideEffectFree
+            public void go(@org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.NonNull TimeoutLoop l) {
+                fail("should have been canceled");
+            }
+        };
+        long tid = loop.addTimeout(1000, toCancel);
+        long tid2 = loop.addTimeout(new Callback.Timeout() {
+
+            @org.checkerframework.dataflow.qual.SideEffectFree
+            public void go(@org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.NonNull TimeoutLoop l) {
+                if (loop != l) {
+                    fail("not the correct loop!");
+                }
+                if (!contains(loop.timeouts, toCancel)) {
+                    fail("event not in loop");
+                }
+            }
+        });
+        loop.cancelTimeout(tid);
+        tid2 = loop.addTimeout(new Callback.Timeout() {
+
+            @org.checkerframework.dataflow.qual.Impure
+            public void go(@org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.NonNull TimeoutLoop l) {
+                if (loop != l) {
+                    fail("not the correct loop 2!");
+                }
+                if (contains(loop.timeouts, toCancel)) {
+                    fail("event still in loop");
+                }
+                l.stopLoop();
+            }
+        });
+    }
+
+    @org.checkerframework.dataflow.qual.Pure
+    static  @org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.NonNull boolean contains(java.util.@org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.NonNull Collection<TimeoutLoop.T> l, Callback.@org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.NonNull Timeout e) {
+        for (TimeoutLoop.T t : l) {
+            if (t.ev == e) {
+                return true;
+            }
+        }
+        return false;
+    }
+
+    @org.checkerframework.dataflow.qual.Impure
+    static void testIntervalCancel() {
+        final TimeoutLoop loop = new TimeoutLoop();
+        loop.start();
+        final Callback.Timeout toCancel = new Callback.Timeout() {
+
+            @org.checkerframework.dataflow.qual.SideEffectFree
+            public void go(@org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.NonNull TimeoutLoop l) {
+                fail("should have been canceled");
+            }
+        };
+        long tid = loop.addInterval(1000, toCancel);
+        loop.cancelTimeout(tid);
+        loop.addTimeout(new Callback.Timeout() {
+
+            @org.checkerframework.dataflow.qual.Impure
+            public void go(@org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.NonNull TimeoutLoop l) {
+                assert l == loop;
+                if (contains(loop.timeouts, toCancel)) {
+                    fail("event still in loop");
+                }
+                l.stopLoop();
+            }
+        });
+    }
+
+    @org.checkerframework.dataflow.qual.Impure
+    static void testCancelinLoop() {
+        final TimeoutLoop loop = new TimeoutLoop();
+        loop.start();
+        final Callback.Timeout toCancel = new Callback.Timeout() {
+
+            @org.checkerframework.dataflow.qual.SideEffectFree
+            public void go(@org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.NonNull TimeoutLoop l) {
+                fail("should have been canceled");
+            }
+        };
+        loop.addTimeout(new Callback.Timeout() {
+
+            @org.checkerframework.dataflow.qual.Impure
+            public void go(@org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.NonNull TimeoutLoop l) {
+                long tid = l.addTimeout(1000, toCancel);
+                loop.cancelTimeout(tid);
+            }
+        });
+        loop.addTimeout(new Callback.Timeout() {
+
+            @org.checkerframework.dataflow.qual.Impure
+            public void go(@org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.NonNull TimeoutLoop l) {
+                assert l == loop;
+                if (contains(loop.timeouts, toCancel)) {
+                    fail("event still in loop");
+                }
+                if (contains(loop.newTimeouts, toCancel)) {
+                    fail("in nt");
+                }
+                l.stopLoop();
+            }
+        });
+    }
+
+    @org.checkerframework.dataflow.qual.Impure
+    static void p(Object o) {
+        System.out.println(o);
+    }
+
+    @org.checkerframework.dataflow.qual.Impure
+    public static void main(String[] args) {
+        //testTimeoutCancel();
+        //testIntervalCancel();
+        testCancelinLoop();
+    }
+}

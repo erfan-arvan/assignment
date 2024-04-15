@@ -1,0 +1,34 @@
+@org.checkerframework.framework.qual.AnnotatedFor("org.checkerframework.checker.nullness.NullnessChecker")
+public class Url implements Comparable<Url> {
+
+    public @org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.MonotonicNonNull String url;
+
+    public  @org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.NonNull int rank;
+
+    @org.checkerframework.framework.qual.EnsuresQualifier(expression = { "this.url" }, qualifier = org.checkerframework.checker.nullness.qual.Nullable.class)
+    @org.checkerframework.dataflow.qual.SideEffectFree
+    public Url(@org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.Nullable String url,  @org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.NonNull int rank) {
+        this.url = url;
+        this.rank = rank;
+    }
+
+    @org.checkerframework.checker.nullness.qual.EnsuresNonNull({ "this.url" })
+    @org.checkerframework.dataflow.qual.Pure
+    public //if urls links match then equal else based on rank
+     @org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.NonNull int compareTo(@org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.NonNull Url this, @org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.NonNull Url o) {
+        if (url.equals(o.url))
+            return 0;
+        else if (rank <= o.rank)
+            return -1;
+        return 1;
+    }
+
+    @org.checkerframework.framework.qual.EnsuresQualifier(expression = { "this.url" }, qualifier = org.checkerframework.checker.nullness.qual.Nullable.class)
+    @org.checkerframework.dataflow.qual.Pure
+    public  @org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.NonNull boolean equals(@org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.NonNull Url this, @org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.Nullable Object obj) {
+        if (obj instanceof Url) {
+            return (url.equals(((Url) obj).url));
+        }
+        return super.equals(obj);
+    }
+}

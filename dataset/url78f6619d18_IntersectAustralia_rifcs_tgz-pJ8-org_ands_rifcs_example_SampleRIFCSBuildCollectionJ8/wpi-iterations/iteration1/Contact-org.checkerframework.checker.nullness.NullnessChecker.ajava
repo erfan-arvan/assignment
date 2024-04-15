@@ -1,0 +1,50 @@
+/**
+ * Created by tony on 18/12/13.
+ */
+//*todo* incorporate popularity
+@org.checkerframework.framework.qual.AnnotatedFor("org.checkerframework.checker.nullness.NullnessChecker")
+public class Contact {
+
+    private  @org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.NonNull long timestamp;
+
+    private @org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.Nullable String ip;
+
+    private final  @org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.NonNull int id;
+
+    @org.checkerframework.checker.nullness.qual.EnsuresNonNull({ "this.ip" })
+    @org.checkerframework.dataflow.qual.Impure
+    public Contact( @org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.NonNull int nodeID, @org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.Nullable String nodeIP) {
+        // a quick hack there is a problem assigning ip somewhere
+        ip = nodeIP;
+        // a quick hack there is a problem assigning ip somewhere
+        if (ip == null)
+            ip = "127.0.0.1";
+        id = nodeID;
+        timestamp = System.currentTimeMillis();
+    }
+
+    @org.checkerframework.dataflow.qual.Pure
+    public  @org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.NonNull long getTimestamp() {
+        return timestamp;
+    }
+
+    @org.checkerframework.dataflow.qual.Impure
+    public void setTimestamp( @org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.NonNull long timestamp) {
+        this.timestamp = timestamp;
+    }
+
+    @org.checkerframework.dataflow.qual.Pure
+    public @org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.Nullable String getIp() {
+        return ip;
+    }
+
+    @org.checkerframework.dataflow.qual.Impure
+    public void setIp(@org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.Nullable String ip) {
+        this.ip = ip;
+    }
+
+    @org.checkerframework.dataflow.qual.Pure
+    public  @org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.NonNull int getId() {
+        return id;
+    }
+}

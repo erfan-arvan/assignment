@@ -1,0 +1,49 @@
+/**
+ * Created by tony on 18/12/13.
+ */
+//*todo* incorporate popularity
+@org.checkerframework.framework.qual.AnnotatedFor("org.checkerframework.checker.nullness.KeyForSubchecker")
+public class Contact {
+
+    private   long timestamp;
+
+    private  String ip;
+
+    private final   int id;
+
+    @org.checkerframework.dataflow.qual.Impure
+    public Contact(  int nodeID,  String nodeIP) {
+        // a quick hack there is a problem assigning ip somewhere
+        ip = nodeIP;
+        // a quick hack there is a problem assigning ip somewhere
+        if (ip == null)
+            ip = "127.0.0.1";
+        id = nodeID;
+        timestamp = System.currentTimeMillis();
+    }
+
+    @org.checkerframework.dataflow.qual.Pure
+    public   long getTimestamp( Contact this) {
+        return timestamp;
+    }
+
+    @org.checkerframework.dataflow.qual.Impure
+    public void setTimestamp( Contact this,   long timestamp) {
+        this.timestamp = timestamp;
+    }
+
+    @org.checkerframework.dataflow.qual.Pure
+    public  String getIp( Contact this) {
+        return ip;
+    }
+
+    @org.checkerframework.dataflow.qual.Impure
+    public void setIp( Contact this,  String ip) {
+        this.ip = ip;
+    }
+
+    @org.checkerframework.dataflow.qual.Pure
+    public   int getId( Contact this) {
+        return id;
+    }
+}

@@ -1,0 +1,100 @@
+/*     */
+package org.ands.rifcs.base;
+
+/*     */
+/*     */
+import java.util.Date;
+/*     */
+import org.w3c.dom.Node;
+
+/*     */
+/*     */
+/*     */
+@org.checkerframework.framework.qual.AnnotatedFor("org.checkerframework.checker.nullness.KeyForSubchecker")
+public class TemporalCoverageDate extends RIFCSElement {
+
+    /*     */
+    /*     */
+    @org.checkerframework.dataflow.qual.SideEffectFree
+    protected TemporalCoverageDate( Node n) throws /*     */
+    RIFCSException /*     */
+    {
+        /*  43 */
+        super(n, "date");
+        /*     */
+    }
+
+    /*     */
+    /*     */
+    @org.checkerframework.dataflow.qual.Impure
+    public void setDateFormat( TemporalCoverageDate this,  String dateFormat) /*     */
+    {
+        /*  54 */
+        super.setAttributeValue("dateFormat", dateFormat);
+        /*     */
+    }
+
+    /*     */
+    /*     */
+    @org.checkerframework.dataflow.qual.Pure
+    public  String DateFormat() /*     */
+    {
+        /*  67 */
+        return super.getAttributeValue("dateFormat");
+        /*     */
+    }
+
+    /*     */
+    /*     */
+    @org.checkerframework.dataflow.qual.Impure
+    public void setType( TemporalCoverageDate this,  String type) /*     */
+    {
+        /*  80 */
+        super.setAttributeValue("type", type);
+        /*     */
+    }
+
+    /*     */
+    /*     */
+    @org.checkerframework.dataflow.qual.Pure
+    public  String getType() /*     */
+    {
+        /*  93 */
+        return super.getAttributeValue("type");
+        /*     */
+    }
+
+    /*     */
+    /*     */
+    @org.checkerframework.dataflow.qual.Impure
+    public void setValue( TemporalCoverageDate this,  String value) /*     */
+    {
+        /* 105 */
+        super.setTextContent(value);
+        /*     */
+    }
+
+    /*     */
+    /*     */
+    @org.checkerframework.dataflow.qual.Impure
+    public void setValue(Date value) /*     */
+    {
+        /* 117 */
+        super.setTextContent(RegistryObject.formatDate(value));
+        /*     */
+    }
+
+    /*     */
+    /*     */
+    @org.checkerframework.dataflow.qual.Pure
+    public  String getValue() /*     */
+    {
+        /* 129 */
+        return super.getTextContent();
+        /*     */
+    }
+}
+/* Location:           /Users/przemyslaw/Downloads/rifcs-api-1.3.0.jar
+ * Qualified Name:     org.ands.rifcs.base.TemporalCoverageDate
+ * JD-Core Version:    0.6.2
+ */

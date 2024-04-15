@@ -1,0 +1,1058 @@
+../dataset/urla05239b71c_viniciusinnovatium_mumps2java_api_tgz-pJ8-com_disclinc_netmanager_script_test_ExecTesteNewJ8/src/br/com/innovatium/mumps2java/datastructure/util/DataStructureUtil.java:69: error: (return) $$ 2 $$ null (NullType) $$ @Initialized @NonNull Object @Initialized @NonNull [] $$ ( 1941, 1945 ) $$ incompatible types in return.
+			return null;
+			       ^
+  type of expression: null (NullType)
+  method return type: @Initialized @NonNull Object @Initialized @NonNull []
+../dataset/urla05239b71c_viniciusinnovatium_mumps2java_api_tgz-pJ8-com_disclinc_netmanager_script_test_ExecTesteNewJ8/src/br/com/innovatium/mumps2java/datastructure/Node.java:23: error: (argument) $$ 4 $$ value $$ Node constructor $$ null (NullType) $$ @Initialized @NonNull Object $$ ( 517, 521 ) $$ incompatible argument for parameter value of Node constructor.
+		this(subs, null, key);
+		           ^
+  found   : null (NullType)
+  required: @Initialized @NonNull Object
+../dataset/urla05239b71c_viniciusinnovatium_mumps2java_api_tgz-pJ8-com_disclinc_netmanager_script_test_ExecTesteNewJ8/src/br/com/innovatium/mumps2java/datastructure/Node.java:26: error: (initialization.fields.uninitialized) $$ 1 $$ stackLevel, parent, subnode, next, previous $$ ( 537, 1260 ) $$ the constructor does not initialize fields: stackLevel, parent, subnode, next, previous
+	public Node(Object[] subs, Object value, String key) {
+	       ^
+../dataset/urla05239b71c_viniciusinnovatium_mumps2java_api_tgz-pJ8-com_disclinc_netmanager_script_test_ExecTesteNewJ8/src/br/com/innovatium/mumps2java/datastructure/Node.java:39: error: (method.invocation) $$ 3 $$ isNumber(java.lang.String) $$ @UnderInitialization @NonNull Node $$ @Initialized @NonNull Node $$ ( 975, 1000 ) $$ call to isNumber(java.lang.String) not allowed on the given receiver.
+		if ((temp = isNumber(temp.toString())) != null) {
+		                    ^
+  found   : @UnderInitialization @NonNull Node
+  required: @Initialized @NonNull Node
+../dataset/urla05239b71c_viniciusinnovatium_mumps2java_api_tgz-pJ8-com_disclinc_netmanager_script_test_ExecTesteNewJ8/src/br/com/innovatium/mumps2java/datastructure/Node.java:66: error: (return) $$ 2 $$ @Initialized @Nullable Object @Initialized @NonNull [] $$ @Initialized @NonNull Object @Initialized @NonNull [] $$ ( 1492, 1536 ) $$ incompatible types in return.
+		return Arrays.copyOfRange(subs, start, subs.length);
+		                         ^
+  type of expression: @Initialized @Nullable Object @Initialized @NonNull []
+  method return type: @Initialized @NonNull Object @Initialized @NonNull []
+../dataset/urla05239b71c_viniciusinnovatium_mumps2java_api_tgz-pJ8-com_disclinc_netmanager_script_test_ExecTesteNewJ8/src/br/com/innovatium/mumps2java/datastructure/Node.java:71: error: (assignment) $$ 2 $$ null (NullType) $$ @Initialized @NonNull Node $$ ( 1643, 1647 ) $$ incompatible types in assignment.
+		this.parent = null;
+		              ^
+  found   : null (NullType)
+  required: @Initialized @NonNull Node
+../dataset/urla05239b71c_viniciusinnovatium_mumps2java_api_tgz-pJ8-com_disclinc_netmanager_script_test_ExecTesteNewJ8/src/br/com/innovatium/mumps2java/datastructure/Node.java:72: error: (assignment) $$ 2 $$ null (NullType) $$ @Initialized @NonNull Node $$ ( 1664, 1668 ) $$ incompatible types in assignment.
+		this.next = null;
+		            ^
+  found   : null (NullType)
+  required: @Initialized @NonNull Node
+../dataset/urla05239b71c_viniciusinnovatium_mumps2java_api_tgz-pJ8-com_disclinc_netmanager_script_test_ExecTesteNewJ8/src/br/com/innovatium/mumps2java/datastructure/Node.java:73: error: (assignment) $$ 2 $$ null (NullType) $$ @Initialized @NonNull Node $$ ( 1689, 1693 ) $$ incompatible types in assignment.
+		this.previous = null;
+		                ^
+  found   : null (NullType)
+  required: @Initialized @NonNull Node
+../dataset/urla05239b71c_viniciusinnovatium_mumps2java_api_tgz-pJ8-com_disclinc_netmanager_script_test_ExecTesteNewJ8/src/br/com/innovatium/mumps2java/datastructure/Node.java:85: error: (return) $$ 2 $$ @Initialized @Nullable Object @Initialized @NonNull [] $$ @Initialized @NonNull Object @Initialized @NonNull [] $$ ( 1852, 1892 ) $$ incompatible types in return.
+		return Arrays.copyOfRange(subs, 1, subs.length);
+		                         ^
+  type of expression: @Initialized @Nullable Object @Initialized @NonNull []
+  method return type: @Initialized @NonNull Object @Initialized @NonNull []
+../dataset/urla05239b71c_viniciusinnovatium_mumps2java_api_tgz-pJ8-com_disclinc_netmanager_script_test_ExecTesteNewJ8/src/br/com/innovatium/mumps2java/datastructure/Node.java:130: error: (assignment) $$ 2 $$ null (NullType) $$ @Initialized @NonNull Node $$ ( 2881, 2885 ) $$ incompatible types in assignment.
+				newSubnode.previous = null;
+				                      ^
+  found   : null (NullType)
+  required: @Initialized @NonNull Node
+../dataset/urla05239b71c_viniciusinnovatium_mumps2java_api_tgz-pJ8-com_disclinc_netmanager_script_test_ExecTesteNewJ8/src/br/com/innovatium/mumps2java/datastructure/Node.java:235: error: (override.param) $$ 7 $$ o $$ @Initialized @NonNull Object $$ @Initialized @Nullable Object $$ @Initialized @NonNull Node $$ @Initialized @NonNull boolean equals(@Initialized @NonNull Node this, @Initialized @NonNull Object p0) $$ @Initialized @NonNull Object $$ @Initialized @NonNull boolean equals(@Initialized @NonNull Object this, @Initialized @Nullable Object p0) $$ ( 5393, 5401 ) $$ Incompatible parameter type for o.
+	public boolean equals(Object o) {
+	                             ^
+  found   : @Initialized @NonNull Object
+  required: @Initialized @Nullable Object
+  Consequence: method in @Initialized @NonNull Node
+    @Initialized @NonNull boolean equals(@Initialized @NonNull Node this, @Initialized @NonNull Object p0)
+  cannot override method in @Initialized @NonNull Object
+    @Initialized @NonNull boolean equals(@Initialized @NonNull Object this, @Initialized @Nullable Object p0)
+../dataset/urla05239b71c_viniciusinnovatium_mumps2java_api_tgz-pJ8-com_disclinc_netmanager_script_test_ExecTesteNewJ8/src/br/com/innovatium/mumps2java/datastructure/Node.java:247: error: (return) $$ 2 $$ null (NullType) $$ @Initialized @NonNull List<@Initialized @NonNull Node> $$ ( 5655, 5659 ) $$ incompatible types in return.
+			return null;
+			       ^
+  type of expression: null (NullType)
+  method return type: @Initialized @NonNull List<@Initialized @NonNull Node>
+../dataset/urla05239b71c_viniciusinnovatium_mumps2java_api_tgz-pJ8-com_disclinc_netmanager_script_test_ExecTesteNewJ8/src/br/com/innovatium/mumps2java/datastructure/Node.java:270: error: (return) $$ 2 $$ null (NullType) $$ @Initialized @NonNull Integer $$ ( 6130, 6134 ) $$ incompatible types in return.
+			return null;
+			       ^
+  type of expression: null (NullType)
+  method return type: @Initialized @NonNull Integer
+../dataset/urla05239b71c_viniciusinnovatium_mumps2java_api_tgz-pJ8-com_disclinc_netmanager_script_test_ExecTesteNewJ8/src/br/com/innovatium/mumps2java/datastructure/Tree.java:18: error: (assignment) $$ 2 $$ @UnderInitialization(br.com.innovatium.mumps2java.datastructure.Node.class) @NonNull Tree.@UnderInitialization(br.com.innovatium.mumps2java.datastructure.Tree.MergeOperationOverNodes.class) @NonNull MergeOperationOverNodes $$ @Initialized @NonNull Tree.@Initialized @NonNull MergeOperationOverNodes $$ ( 727, 765 ) $$ incompatible types in assignment.
+	private MergeOperationOverNodes mergeSubnodesOperation = new MergeOperationOverNodes(
+	                                                         ^
+  found   : @UnderInitialization(br.com.innovatium.mumps2java.datastructure.Node.class) @NonNull Tree.@UnderInitialization(br.com.innovatium.mumps2java.datastructure.Tree.MergeOperationOverNodes.class) @NonNull MergeOperationOverNodes
+  required: @Initialized @NonNull Tree.@Initialized @NonNull MergeOperationOverNodes
+../dataset/urla05239b71c_viniciusinnovatium_mumps2java_api_tgz-pJ8-com_disclinc_netmanager_script_test_ExecTesteNewJ8/src/br/com/innovatium/mumps2java/datastructure/Tree.java:19: error: (argument) $$ 4 $$ tree $$ MergeOperationOverNodes constructor $$ @UnderInitialization(br.com.innovatium.mumps2java.datastructure.Node.class) @NonNull Tree $$ @Initialized @NonNull Tree $$ ( 760, 764 ) $$ incompatible argument for parameter tree of MergeOperationOverNodes constructor.
+			this);
+			^
+  found   : @UnderInitialization(br.com.innovatium.mumps2java.datastructure.Node.class) @NonNull Tree
+  required: @Initialized @NonNull Tree
+../dataset/urla05239b71c_viniciusinnovatium_mumps2java_api_tgz-pJ8-com_disclinc_netmanager_script_test_ExecTesteNewJ8/src/br/com/innovatium/mumps2java/datastructure/Tree.java:21: error: (initialization.fields.uninitialized) $$ 1 $$ stack $$ ( 771, 948 ) $$ the constructor does not initialize fields: stack
+	public Tree() {
+	       ^
+../dataset/urla05239b71c_viniciusinnovatium_mumps2java_api_tgz-pJ8-com_disclinc_netmanager_script_test_ExecTesteNewJ8/src/br/com/innovatium/mumps2java/datastructure/Tree.java:24: error: (argument) $$ 4 $$ value $$ Node constructor $$ null (NullType) $$ @Initialized @NonNull Object $$ ( 933, 937 ) $$ incompatible argument for parameter value of Node constructor.
+		super(new Object[] { "@" }, null, "@");
+		                            ^
+  found   : null (NullType)
+  required: @Initialized @NonNull Object
+../dataset/urla05239b71c_viniciusinnovatium_mumps2java_api_tgz-pJ8-com_disclinc_netmanager_script_test_ExecTesteNewJ8/src/br/com/innovatium/mumps2java/datastructure/Tree.java:137: error: (assignment) $$ 2 $$ @Initialized @Nullable Object @Initialized @NonNull [] $$ @Initialized @NonNull Object @Initialized @NonNull [] $$ ( 4128, 4164 ) $$ incompatible types in assignment.
+			subs = Arrays.copyOf(subs, subs.length - 1);
+			                    ^
+  found   : @Initialized @Nullable Object @Initialized @NonNull []
+  required: @Initialized @NonNull Object @Initialized @NonNull []
+../dataset/urla05239b71c_viniciusinnovatium_mumps2java_api_tgz-pJ8-com_disclinc_netmanager_script_test_ExecTesteNewJ8/src/br/com/innovatium/mumps2java/datastructure/Tree.java:213: error: (return) $$ 2 $$ null (NullType) $$ @Initialized @NonNull Object $$ ( 6136, 6140 ) $$ incompatible types in return.
+		return null;
+		       ^
+  type of expression: null (NullType)
+  method return type: @Initialized @NonNull Object
+../dataset/urla05239b71c_viniciusinnovatium_mumps2java_api_tgz-pJ8-com_disclinc_netmanager_script_test_ExecTesteNewJ8/src/br/com/innovatium/mumps2java/datastructure/Tree.java:231: error: (argument) $$ 4 $$ value $$ Tree.setting $$ null (NullType) $$ @Initialized @NonNull Object $$ ( 6599, 6603 ) $$ incompatible argument for parameter value of Tree.setting.
+			destNode = setting(destSubs, null);
+			                             ^
+  found   : null (NullType)
+  required: @Initialized @NonNull Object
+../dataset/urla05239b71c_viniciusinnovatium_mumps2java_api_tgz-pJ8-com_disclinc_netmanager_script_test_ExecTesteNewJ8/src/br/com/innovatium/mumps2java/datastructure/Tree.java:235: error: (argument) $$ 4 $$ value $$ Tree.setting $$ null (NullType) $$ @Initialized @NonNull Object $$ ( 6673, 6677 ) $$ incompatible argument for parameter value of Tree.setting.
+			origNode = setting(origSubs, null);
+			                             ^
+  found   : null (NullType)
+  required: @Initialized @NonNull Object
+../dataset/urla05239b71c_viniciusinnovatium_mumps2java_api_tgz-pJ8-com_disclinc_netmanager_script_test_ExecTesteNewJ8/src/br/com/innovatium/mumps2java/datastructure/Tree.java:275: error: (return) $$ 2 $$ null (NullType) $$ @Initialized @NonNull List<@Initialized @NonNull Node> $$ ( 7685, 7689 ) $$ incompatible types in return.
+			return null;
+			       ^
+  type of expression: null (NullType)
+  method return type: @Initialized @NonNull List<@Initialized @NonNull Node>
+../dataset/urla05239b71c_viniciusinnovatium_mumps2java_api_tgz-pJ8-com_disclinc_netmanager_script_test_ExecTesteNewJ8/src/br/com/innovatium/mumps2java/datastructure/Tree.java:280: error: (return) $$ 2 $$ null (NullType) $$ @Initialized @NonNull List<@Initialized @NonNull Node> $$ ( 7816, 7820 ) $$ incompatible types in return.
+			return null;
+			       ^
+  type of expression: null (NullType)
+  method return type: @Initialized @NonNull List<@Initialized @NonNull Node>
+../dataset/urla05239b71c_viniciusinnovatium_mumps2java_api_tgz-pJ8-com_disclinc_netmanager_script_test_ExecTesteNewJ8/src/br/com/innovatium/mumps2java/datastructure/Tree.java:297: error: (return) $$ 2 $$ @Initialized @Nullable List<@Initialized @NonNull Node> $$ @Initialized @NonNull List<@Initialized @NonNull Node> $$ ( 8167, 8171 ) $$ incompatible types in return.
+		return list;
+		       ^
+  type of expression: @Initialized @Nullable List<@Initialized @NonNull Node>
+  method return type: @Initialized @NonNull List<@Initialized @NonNull Node>
+../dataset/urla05239b71c_viniciusinnovatium_mumps2java_api_tgz-pJ8-com_disclinc_netmanager_script_test_ExecTesteNewJ8/src/br/com/innovatium/mumps2java/datastructure/Tree.java:303: error: (return) $$ 2 $$ null (NullType) $$ @Initialized @NonNull Node $$ ( 8289, 8293 ) $$ incompatible types in return.
+			return null;
+			       ^
+  type of expression: null (NullType)
+  method return type: @Initialized @NonNull Node
+../dataset/urla05239b71c_viniciusinnovatium_mumps2java_api_tgz-pJ8-com_disclinc_netmanager_script_test_ExecTesteNewJ8/src/br/com/innovatium/mumps2java/datastructure/Tree.java:373: error: (assignment) $$ 2 $$ @Initialized @Nullable Object @Initialized @NonNull [] $$ @Initialized @NonNull Object @UnknownInitialization @Nullable [] $$ ( 10087, 10113 ) $$ incompatible types in assignment.
+		final Object[] subnodeArray = Arrays.copyOf(subs, index);
+		                                           ^
+  found   : @Initialized @Nullable Object @Initialized @NonNull []
+  required: @Initialized @NonNull Object @UnknownInitialization @Nullable []
+../dataset/urla05239b71c_viniciusinnovatium_mumps2java_api_tgz-pJ8-com_disclinc_netmanager_script_test_ExecTesteNewJ8/src/br/com/innovatium/mumps2java/datastructure/Tree.java:426: error: (initialization.fields.uninitialized) $$ 1 $$ dest, orig $$ ( 11420, 11490 ) $$ the constructor does not initialize fields: dest, orig
+		public MergeOperationOverNodes(Tree tree) {
+		       ^
+../dataset/urla05239b71c_viniciusinnovatium_mumps2java_api_tgz-pJ8-com_disclinc_netmanager_script_test_ExecTesteNewJ8/src/br/com/innovatium/mumps2java/datastructure/Tree.java:462: error: (return) $$ 2 $$ @Initialized @Nullable Node $$ @Initialized @NonNull Node $$ ( 12323, 12340 ) $$ incompatible types in return.
+		return keyValue.get(key);
+		                   ^
+  type of expression: @Initialized @Nullable Node
+  method return type: @Initialized @NonNull Node
+../dataset/urla05239b71c_viniciusinnovatium_mumps2java_api_tgz-pJ8-com_disclinc_netmanager_script_test_ExecTesteNewJ8/src/br/com/innovatium/mumps2java/datastructure/StackNode.java:19: error: (return) $$ 2 $$ null (NullType) $$ @Initialized @NonNull Node $$ ( 415, 419 ) $$ incompatible types in return.
+			return null;
+			       ^
+  type of expression: null (NullType)
+  method return type: @Initialized @NonNull Node
+../dataset/urla05239b71c_viniciusinnovatium_mumps2java_api_tgz-pJ8-com_disclinc_netmanager_script_test_ExecTesteNewJ8/src/br/com/innovatium/mumps2java/datastructure/StackNode.java:44: error: (return) $$ 2 $$ null (NullType) $$ @Initialized @NonNull List<@Initialized @NonNull Node> $$ ( 1010, 1014 ) $$ incompatible types in return.
+		return null;
+		       ^
+  type of expression: null (NullType)
+  method return type: @Initialized @NonNull List<@Initialized @NonNull Node>
+../dataset/urla05239b71c_viniciusinnovatium_mumps2java_api_tgz-pJ8-com_disclinc_netmanager_script_test_ExecTesteNewJ8/src/br/com/innovatium/mumps2java/datastructure/OrderDataCache.java:18: error: (assignment) $$ 2 $$ @Initialized @Nullable Object @Initialized @NonNull [] $$ @Initialized @NonNull Object @UnknownInitialization @Nullable [] $$ ( 471, 493 ) $$ incompatible types in assignment.
+			subscripts = Arrays.copyOf(subs, i);
+			                          ^
+  found   : @Initialized @Nullable Object @Initialized @NonNull []
+  required: @Initialized @NonNull Object @UnknownInitialization @Nullable []
+../dataset/urla05239b71c_viniciusinnovatium_mumps2java_api_tgz-pJ8-com_disclinc_netmanager_script_test_ExecTesteNewJ8/src/br/com/innovatium/mumps2java/dataaccess/DAO.java:35: error: (return) $$ 2 $$ null (NullType) $$ @Initialized @NonNull Map<@Initialized @NonNull String, @Initialized @NonNull String> $$ ( 886, 890 ) $$ incompatible types in return.
+			return null;
+			       ^
+  type of expression: null (NullType)
+  method return type: @Initialized @NonNull Map<@Initialized @NonNull String, @Initialized @NonNull String>
+../dataset/urla05239b71c_viniciusinnovatium_mumps2java_api_tgz-pJ8-com_disclinc_netmanager_script_test_ExecTesteNewJ8/src/br/com/innovatium/mumps2java/dataaccess/DAO.java:50: error: (argument) $$ 4 $$ arg0 $$ Map.put $$ @Initialized @Nullable String $$ @Initialized @NonNull String $$ ( 1310, 1329 ) $$ incompatible argument for parameter arg0 of Map.put.
+				map.put(result.getString(1), result.getString(2));
+				                        ^
+  found   : @Initialized @Nullable String
+  required: @Initialized @NonNull String
+../dataset/urla05239b71c_viniciusinnovatium_mumps2java_api_tgz-pJ8-com_disclinc_netmanager_script_test_ExecTesteNewJ8/src/br/com/innovatium/mumps2java/dataaccess/DAO.java:50: error: (argument) $$ 4 $$ arg1 $$ Map.put $$ @Initialized @Nullable String $$ @Initialized @NonNull String $$ ( 1331, 1350 ) $$ incompatible argument for parameter arg1 of Map.put.
+				map.put(result.getString(1), result.getString(2));
+				                                             ^
+  found   : @Initialized @Nullable String
+  required: @Initialized @NonNull String
+../dataset/urla05239b71c_viniciusinnovatium_mumps2java_api_tgz-pJ8-com_disclinc_netmanager_script_test_ExecTesteNewJ8/src/br/com/innovatium/mumps2java/dataaccess/DAO.java:55: error: (return) $$ 2 $$ @Initialized @Nullable Map<@Initialized @NonNull String, @Initialized @NonNull String> $$ @Initialized @NonNull Map<@Initialized @NonNull String, @Initialized @NonNull String> $$ ( 1455, 1458 ) $$ incompatible types in return.
+				return map;
+				       ^
+  type of expression: @Initialized @Nullable Map<@Initialized @NonNull String, @Initialized @NonNull String>
+  method return type: @Initialized @NonNull Map<@Initialized @NonNull String, @Initialized @NonNull String>
+../dataset/urla05239b71c_viniciusinnovatium_mumps2java_api_tgz-pJ8-com_disclinc_netmanager_script_test_ExecTesteNewJ8/src/br/com/innovatium/mumps2java/dataaccess/DAO.java:62: error: (argument) $$ 4 $$ ps $$ DAO.closeResouce $$ @Initialized @Nullable PreparedStatement $$ @Initialized @NonNull PreparedStatement $$ ( 1668, 1674 ) $$ incompatible argument for parameter ps of DAO.closeResouce.
+			closeResouce(select);
+			             ^
+  found   : @Initialized @Nullable PreparedStatement
+  required: @Initialized @NonNull PreparedStatement
+../dataset/urla05239b71c_viniciusinnovatium_mumps2java_api_tgz-pJ8-com_disclinc_netmanager_script_test_ExecTesteNewJ8/src/br/com/innovatium/mumps2java/dataaccess/DAO.java:64: error: (return) $$ 2 $$ @Initialized @Nullable Map<@Initialized @NonNull String, @Initialized @NonNull String> $$ @Initialized @NonNull Map<@Initialized @NonNull String, @Initialized @NonNull String> $$ ( 1692, 1695 ) $$ incompatible types in return.
+		return map;
+		       ^
+  type of expression: @Initialized @Nullable Map<@Initialized @NonNull String, @Initialized @NonNull String>
+  method return type: @Initialized @NonNull Map<@Initialized @NonNull String, @Initialized @NonNull String>
+../dataset/urla05239b71c_viniciusinnovatium_mumps2java_api_tgz-pJ8-com_disclinc_netmanager_script_test_ExecTesteNewJ8/src/br/com/innovatium/mumps2java/dataaccess/DAO.java:83: error: (argument) $$ 4 $$ ps $$ DAO.closeResouce $$ @Initialized @Nullable PreparedStatement $$ @Initialized @NonNull PreparedStatement $$ ( 2240, 2246 ) $$ incompatible argument for parameter ps of DAO.closeResouce.
+			closeResouce(delete);
+			             ^
+  found   : @Initialized @Nullable PreparedStatement
+  required: @Initialized @NonNull PreparedStatement
+../dataset/urla05239b71c_viniciusinnovatium_mumps2java_api_tgz-pJ8-com_disclinc_netmanager_script_test_ExecTesteNewJ8/src/br/com/innovatium/mumps2java/dataaccess/DAO.java:128: error: (argument) $$ 4 $$ ps $$ DAO.closeResouce $$ @Initialized @Nullable PreparedStatement $$ @Initialized @NonNull PreparedStatement $$ ( 3480, 3482 ) $$ incompatible argument for parameter ps of DAO.closeResouce.
+			closeResouce(ps);
+			             ^
+  found   : @Initialized @Nullable PreparedStatement
+  required: @Initialized @NonNull PreparedStatement
+../dataset/urla05239b71c_viniciusinnovatium_mumps2java_api_tgz-pJ8-com_disclinc_netmanager_script_test_ExecTesteNewJ8/src/br/com/innovatium/mumps2java/dataaccess/DAO.java:182: error: (argument) $$ 4 $$ ps $$ DAO.closeResouce $$ @Initialized @Nullable PreparedStatement $$ @Initialized @NonNull PreparedStatement $$ ( 4900, 4902 ) $$ incompatible argument for parameter ps of DAO.closeResouce.
+			closeResouce(ps);
+			             ^
+  found   : @Initialized @Nullable PreparedStatement
+  required: @Initialized @NonNull PreparedStatement
+../dataset/urla05239b71c_viniciusinnovatium_mumps2java_api_tgz-pJ8-com_disclinc_netmanager_script_test_ExecTesteNewJ8/src/br/com/innovatium/mumps2java/dataaccess/DAO.java:184: error: (return) $$ 2 $$ @Initialized @Nullable Object $$ @Initialized @NonNull Object $$ ( 4920, 4929 ) $$ incompatible types in return.
+		return objResult;
+		       ^
+  type of expression: @Initialized @Nullable Object
+  method return type: @Initialized @NonNull Object
+../dataset/urla05239b71c_viniciusinnovatium_mumps2java_api_tgz-pJ8-com_disclinc_netmanager_script_test_ExecTesteNewJ8/src/br/com/innovatium/mumps2java/dataaccess/DAO.java:201: error: (argument) $$ 4 $$ ps $$ DAO.closeResouce $$ @Initialized @Nullable PreparedStatement $$ @Initialized @NonNull PreparedStatement $$ ( 5443, 5445 ) $$ incompatible argument for parameter ps of DAO.closeResouce.
+			closeResouce(ps);
+			             ^
+  found   : @Initialized @Nullable PreparedStatement
+  required: @Initialized @NonNull PreparedStatement
+../dataset/urla05239b71c_viniciusinnovatium_mumps2java_api_tgz-pJ8-com_disclinc_netmanager_script_test_ExecTesteNewJ8/src/com/disclinc/netmanager/script/test/TesteNew.java:89: error: (argument) $$ 4 $$ variable $$ mContext.newVarRef $$ @Initialized @Nullable Object $$ @Initialized @NonNull Object $$ ( 4469, 4510 ) $$ incompatible argument for parameter variable of mContext.newVarRef.
+  mVar ByRefVar = m$.newVarRef("ByRefVar",(((_p!=null)&&(_p.length>=1))?_p[0]:null));
+                                          ^
+  found   : @Initialized @Nullable Object
+  required: @Initialized @NonNull Object
+../dataset/urla05239b71c_viniciusinnovatium_mumps2java_api_tgz-pJ8-com_disclinc_netmanager_script_test_ExecTesteNewJ8/src/mLibrary/mClass.java:9: error: (initialization.field.uninitialized) $$ 1 $$ m$ $$ ( 171, 190 ) $$ the default constructor does not initialize field m$
+	public mContext m$;
+	                ^
+../dataset/urla05239b71c_viniciusinnovatium_mumps2java_api_tgz-pJ8-com_disclinc_netmanager_script_test_ExecTesteNewJ8/src/mLibrary/mContext.java:42: error: (initialization.fields.uninitialized) $$ 1 $$ methodMap, mReq, mSes, writer $$ ( 979, 1204 ) $$ the constructor does not initialize fields: methodMap, mReq, mSes, writer
+	public mContext() {
+	       ^
+../dataset/urla05239b71c_viniciusinnovatium_mumps2java_api_tgz-pJ8-com_disclinc_netmanager_script_test_ExecTesteNewJ8/src/mLibrary/mContext.java:47: error: (assignment) $$ 2 $$ @UnderInitialization(mLibrary.mFnc.class) @NonNull mFnc $$ @Initialized @NonNull mFnc $$ ( 1119, 1133 ) $$ incompatible types in assignment.
+		this.Fnc = new mFnc(this);
+		           ^
+  found   : @UnderInitialization(mLibrary.mFnc.class) @NonNull mFnc
+  required: @Initialized @NonNull mFnc
+../dataset/urla05239b71c_viniciusinnovatium_mumps2java_api_tgz-pJ8-com_disclinc_netmanager_script_test_ExecTesteNewJ8/src/mLibrary/mContext.java:47: error: (argument) $$ 4 $$ m$ $$ mFnc constructor $$ @UnderInitialization @NonNull mContext $$ @Initialized @NonNull mContext $$ ( 1128, 1132 ) $$ incompatible argument for parameter m$ of mFnc constructor.
+		this.Fnc = new mFnc(this);
+		                    ^
+  found   : @UnderInitialization @NonNull mContext
+  required: @Initialized @NonNull mContext
+../dataset/urla05239b71c_viniciusinnovatium_mumps2java_api_tgz-pJ8-com_disclinc_netmanager_script_test_ExecTesteNewJ8/src/mLibrary/mContext.java:48: error: (assignment) $$ 2 $$ @UnderInitialization(mLibrary.mCmd.class) @NonNull mCmd $$ @Initialized @NonNull mCmd $$ ( 1149, 1163 ) $$ incompatible types in assignment.
+		this.Cmd = new mCmd(this);
+		           ^
+  found   : @UnderInitialization(mLibrary.mCmd.class) @NonNull mCmd
+  required: @Initialized @NonNull mCmd
+../dataset/urla05239b71c_viniciusinnovatium_mumps2java_api_tgz-pJ8-com_disclinc_netmanager_script_test_ExecTesteNewJ8/src/mLibrary/mContext.java:48: error: (argument) $$ 4 $$ m$ $$ mCmd constructor $$ @UnderInitialization @NonNull mContext $$ @Initialized @NonNull mContext $$ ( 1158, 1162 ) $$ incompatible argument for parameter m$ of mCmd constructor.
+		this.Cmd = new mCmd(this);
+		                    ^
+  found   : @UnderInitialization @NonNull mContext
+  required: @Initialized @NonNull mContext
+../dataset/urla05239b71c_viniciusinnovatium_mumps2java_api_tgz-pJ8-com_disclinc_netmanager_script_test_ExecTesteNewJ8/src/mLibrary/mContext.java:49: error: (assignment) $$ 2 $$ @UnderInitialization(mSystem.mSystem.class) @NonNull mSystem $$ @Initialized @NonNull mSystem $$ ( 1182, 1199 ) $$ incompatible types in assignment.
+		this.system = new mSystem(this);
+		              ^
+  found   : @UnderInitialization(mSystem.mSystem.class) @NonNull mSystem
+  required: @Initialized @NonNull mSystem
+../dataset/urla05239b71c_viniciusinnovatium_mumps2java_api_tgz-pJ8-com_disclinc_netmanager_script_test_ExecTesteNewJ8/src/mLibrary/mContext.java:49: error: (argument) $$ 4 $$ m$ $$ mSystem constructor $$ @UnderInitialization @NonNull mContext $$ @Initialized @NonNull mContext $$ ( 1194, 1198 ) $$ incompatible argument for parameter m$ of mSystem constructor.
+		this.system = new mSystem(this);
+		                          ^
+  found   : @UnderInitialization @NonNull mContext
+  required: @Initialized @NonNull mContext
+../dataset/urla05239b71c_viniciusinnovatium_mumps2java_api_tgz-pJ8-com_disclinc_netmanager_script_test_ExecTesteNewJ8/src/mLibrary/mContext.java:102: error: (argument) $$ 4 $$ obj $$ Method.invoke $$ @Initialized @Nullable Object $$ @Initialized @NonNull Object $$ ( 2366, 2369 ) $$ incompatible argument for parameter obj of Method.invoke.
+				m.invoke(obj, parameters);
+				         ^
+  found   : @Initialized @Nullable Object
+  required: @Initialized @NonNull Object
+../dataset/urla05239b71c_viniciusinnovatium_mumps2java_api_tgz-pJ8-com_disclinc_netmanager_script_test_ExecTesteNewJ8/src/mLibrary/mContext.java:104: error: (argument) $$ 4 $$ obj $$ Method.invoke $$ @Initialized @Nullable Object $$ @Initialized @NonNull Object $$ ( 2420, 2423 ) $$ incompatible argument for parameter obj of Method.invoke.
+				result = m.invoke(obj, parameters);
+				                  ^
+  found   : @Initialized @Nullable Object
+  required: @Initialized @NonNull Object
+../dataset/urla05239b71c_viniciusinnovatium_mumps2java_api_tgz-pJ8-com_disclinc_netmanager_script_test_ExecTesteNewJ8/src/mLibrary/mContext.java:115: error: (return) $$ 2 $$ @Initialized @Nullable Object $$ @Initialized @NonNull Object $$ ( 2688, 2694 ) $$ incompatible types in return.
+		return result;
+		       ^
+  type of expression: @Initialized @Nullable Object
+  method return type: @Initialized @NonNull Object
+../dataset/urla05239b71c_viniciusinnovatium_mumps2java_api_tgz-pJ8-com_disclinc_netmanager_script_test_ExecTesteNewJ8/src/mLibrary/mContext.java:142: error: (argument) $$ 4 $$ arg1 $$ Map.put $$ @Initialized @Nullable Method $$ @Initialized @NonNull Method $$ ( 3472, 3473 ) $$ incompatible argument for parameter arg1 of Map.put.
+			methodMap.put(methodName, m);
+			                          ^
+  found   : @Initialized @Nullable Method
+  required: @Initialized @NonNull Method
+../dataset/urla05239b71c_viniciusinnovatium_mumps2java_api_tgz-pJ8-com_disclinc_netmanager_script_test_ExecTesteNewJ8/src/mLibrary/mContext.java:166: error: (assignment) $$ 2 $$ @Initialized @Nullable Object @Initialized @NonNull [] $$ @Initialized @NonNull Object @UnknownInitialization @Nullable [] $$ ( 4074, 4122 ) $$ incompatible types in assignment.
+				parameters = Arrays.copyOfRange(args, initParam, args.length);
+				                               ^
+  found   : @Initialized @Nullable Object @Initialized @NonNull []
+  required: @Initialized @NonNull Object @UnknownInitialization @Nullable []
+../dataset/urla05239b71c_viniciusinnovatium_mumps2java_api_tgz-pJ8-com_disclinc_netmanager_script_test_ExecTesteNewJ8/src/mLibrary/mContext.java:170: error: (argument) $$ 4 $$ objClass $$ mContext.defineMethodName $$ @Initialized @Nullable mClass $$ @Initialized @NonNull mClass $$ ( 4170, 4181 ) $$ incompatible argument for parameter objClass of mContext.defineMethodName.
+		methodName = defineMethodName(objClassArg, methodName);
+		                              ^
+  found   : @Initialized @Nullable mClass
+  required: @Initialized @NonNull mClass
+../dataset/urla05239b71c_viniciusinnovatium_mumps2java_api_tgz-pJ8-com_disclinc_netmanager_script_test_ExecTesteNewJ8/src/mLibrary/mContext.java:171: error: (argument) $$ 4 $$ parameters $$ mContext.dispatch $$ @Initialized @NonNull Object @Initialized @Nullable [] $$ @Initialized @NonNull Object @Initialized @NonNull [] $$ ( 4240, 4250 ) $$ incompatible argument for parameter parameters of mContext.dispatch.
+		return dispatch(objClassArg, methodName, parameters);
+		                                         ^
+  found   : @Initialized @NonNull Object @Initialized @Nullable []
+  required: @Initialized @NonNull Object @Initialized @NonNull []
+../dataset/urla05239b71c_viniciusinnovatium_mumps2java_api_tgz-pJ8-com_disclinc_netmanager_script_test_ExecTesteNewJ8/src/mLibrary/mContext.java:219: error: (assignment) $$ 2 $$ Set<Entry<@KeyFor("map") String, String []>> $$ Set<Entry<String, String []>> $$ ( 5805, 5819 ) $$ incompatible types in assignment.
+		Set<Entry<String, String[]>> results = map.entrySet();
+		                                                   ^
+  found   : Set<Entry<@KeyFor("map") String, String []>>
+  required: Set<Entry<String, String []>>
+../dataset/urla05239b71c_viniciusinnovatium_mumps2java_api_tgz-pJ8-com_disclinc_netmanager_script_test_ExecTesteNewJ8/src/mLibrary/mContext.java:281: error: (assignment) $$ 2 $$ Set<Entry<@KeyFor("maps") mData, Object []>> $$ Set<Entry<mData, Object []>> $$ ( 7318, 7333 ) $$ incompatible types in assignment.
+		Set<Entry<mData, Object[]>> set = maps.entrySet();
+		                                               ^
+  found   : Set<Entry<@KeyFor("maps") mData, Object []>>
+  required: Set<Entry<mData, Object []>>
+../dataset/urla05239b71c_viniciusinnovatium_mumps2java_api_tgz-pJ8-com_disclinc_netmanager_script_test_ExecTesteNewJ8/src/mLibrary/mContext.java:291: error: (assignment) $$ 2 $$ Set<Entry<@KeyFor("maps") mData, Object []>> $$ Set<Entry<mData, Object []>> $$ ( 7605, 7620 ) $$ incompatible types in assignment.
+		Set<Entry<mData, Object[]>> set = maps.entrySet();
+		                                               ^
+  found   : Set<Entry<@KeyFor("maps") mData, Object []>>
+  required: Set<Entry<mData, Object []>>
+../dataset/urla05239b71c_viniciusinnovatium_mumps2java_api_tgz-pJ8-com_disclinc_netmanager_script_test_ExecTesteNewJ8/src/mLibrary/mContext.java:308: error: (argument) $$ 4 $$ valueDefault $$ mContext.newVarRef $$ null (NullType) $$ @Initialized @NonNull Object $$ ( 8095, 8099 ) $$ incompatible argument for parameter valueDefault of mContext.newVarRef.
+		return newVarRef(name, variable, null);
+		                                 ^
+  found   : null (NullType)
+  required: @Initialized @NonNull Object
+../dataset/urla05239b71c_viniciusinnovatium_mumps2java_api_tgz-pJ8-com_disclinc_netmanager_script_test_ExecTesteNewJ8/src/mLibrary/mContext.java:363: error: (return) $$ 2 $$ null (NullType) $$ @Initialized @NonNull mVar $$ ( 9495, 9499 ) $$ incompatible types in return.
+			return null;
+			       ^
+  type of expression: null (NullType)
+  method return type: @Initialized @NonNull mVar
+../dataset/urla05239b71c_viniciusinnovatium_mumps2java_api_tgz-pJ8-com_disclinc_netmanager_script_test_ExecTesteNewJ8/src/mLibrary/mContext.java:370: error: (argument) $$ 4 $$ valueDefault $$ mContext.varRef $$ null (NullType) $$ @Initialized @NonNull Object $$ ( 9640, 9644 ) $$ incompatible argument for parameter valueDefault of mContext.varRef.
+		return varRef(name, ref, null);
+		                         ^
+  found   : null (NullType)
+  required: @Initialized @NonNull Object
+../dataset/urla05239b71c_viniciusinnovatium_mumps2java_api_tgz-pJ8-com_disclinc_netmanager_script_test_ExecTesteNewJ8/src/mLibrary/mContext.java:522: error: (return) $$ 2 $$ @Initialized @Nullable mParameter $$ @Initialized @NonNull mParameter $$ ( 13619, 13628 ) $$ incompatible types in return.
+		return parameter;
+		       ^
+  type of expression: @Initialized @Nullable mParameter
+  method return type: @Initialized @NonNull mParameter
+../dataset/urla05239b71c_viniciusinnovatium_mumps2java_api_tgz-pJ8-com_disclinc_netmanager_script_test_ExecTesteNewJ8/src/mLibrary/mVar.java:121: error: (return) $$ 2 $$ null (NullType) $$ @Initialized @NonNull mClass $$ ( 2535, 2539 ) $$ incompatible types in return.
+			return null;
+			       ^
+  type of expression: null (NullType)
+  method return type: @Initialized @NonNull mClass
+../dataset/urla05239b71c_viniciusinnovatium_mumps2java_api_tgz-pJ8-com_disclinc_netmanager_script_test_ExecTesteNewJ8/src/mLibrary/mData.java:19: error: (initialization.field.uninitialized) $$ 1 $$ currentSubs $$ ( 831, 852 ) $$ the default constructor does not initialize field currentSubs
+	Object[] currentSubs;
+	         ^
+../dataset/urla05239b71c_viniciusinnovatium_mumps2java_api_tgz-pJ8-com_disclinc_netmanager_script_test_ExecTesteNewJ8/src/mLibrary/mData.java:21: error: (initialization.field.uninitialized) $$ 1 $$ dao $$ ( 857, 865 ) $$ the default constructor does not initialize field dao
+	DAO dao;
+	    ^
+../dataset/urla05239b71c_viniciusinnovatium_mumps2java_api_tgz-pJ8-com_disclinc_netmanager_script_test_ExecTesteNewJ8/src/mLibrary/mData.java:56: error: (argument) $$ 4 $$ value $$ DAO.insert $$ @Initialized @Nullable Object $$ @Initialized @NonNull Object $$ ( 1908, 1947 ) $$ incompatible argument for parameter value of DAO.insert.
+						value != null ? value.toString() : null);
+						              ^
+  found   : @Initialized @Nullable Object
+  required: @Initialized @NonNull Object
+../dataset/urla05239b71c_viniciusinnovatium_mumps2java_api_tgz-pJ8-com_disclinc_netmanager_script_test_ExecTesteNewJ8/src/mLibrary/mData.java:88: error: (assignment) $$ 2 $$ null (NullType) $$ @Initialized @NonNull Object @Initialized @NonNull [] $$ ( 2590, 2594 ) $$ incompatible types in assignment.
+		currentSubs = null;
+		              ^
+  found   : null (NullType)
+  required: @Initialized @NonNull Object @Initialized @NonNull []
+../dataset/urla05239b71c_viniciusinnovatium_mumps2java_api_tgz-pJ8-com_disclinc_netmanager_script_test_ExecTesteNewJ8/src/mLibrary/mData.java:152: error: (assignment) $$ 2 $$ Set<Entry<@KeyFor("map") String, String>> $$ Set<Entry<String, String>> $$ ( 3983, 3997 ) $$ incompatible types in assignment.
+			Set<Entry<String, String>> result = map.entrySet();
+			                                                ^
+  found   : Set<Entry<@KeyFor("map") String, String>>
+  required: Set<Entry<String, String>>
+../dataset/urla05239b71c_viniciusinnovatium_mumps2java_api_tgz-pJ8-com_disclinc_netmanager_script_test_ExecTesteNewJ8/src/mLibrary/mRequest.java:17: error: (initialization.fields.uninitialized) $$ 1 $$ content $$ ( 373, 448 ) $$ the constructor does not initialize fields: content
+	public mRequest(Map<String, String[]> map) {
+	       ^
+../dataset/urla05239b71c_viniciusinnovatium_mumps2java_api_tgz-pJ8-com_disclinc_netmanager_script_test_ExecTesteNewJ8/src/mLibrary/mRequest.java:18: error: (method.invocation) $$ 3 $$ populateParameter(java.util.Map<java.lang.String,java.lang.String[]>) $$ @UnderInitialization @NonNull mRequest $$ @Initialized @NonNull mRequest $$ ( 421, 443 ) $$ call to populateParameter(java.util.Map<java.lang.String,java.lang.String[]>) not allowed on the given receiver.
+		populateParameter(map);
+		                 ^
+  found   : @UnderInitialization @NonNull mRequest
+  required: @Initialized @NonNull mRequest
+../dataset/urla05239b71c_viniciusinnovatium_mumps2java_api_tgz-pJ8-com_disclinc_netmanager_script_test_ExecTesteNewJ8/src/mLibrary/mRequest.java:22: error: (assignment) $$ 2 $$ Set<Entry<@KeyFor("map") String, String []>> $$ Set<Entry<String, String []>> $$ ( 555, 569 ) $$ incompatible types in assignment.
+		Set<Entry<String, String[]>> results = map.entrySet();
+		                                                   ^
+  found   : Set<Entry<@KeyFor("map") String, String []>>
+  required: Set<Entry<String, String []>>
+../dataset/urla05239b71c_viniciusinnovatium_mumps2java_api_tgz-pJ8-com_disclinc_netmanager_script_test_ExecTesteNewJ8/src/mLibrary/mRequest.java:60: error: (return) $$ 2 $$ @Initialized @Nullable mVar $$ @Initialized @NonNull mVar $$ ( 1503, 1506 ) $$ incompatible types in return.
+		return var;
+		       ^
+  type of expression: @Initialized @Nullable mVar
+  method return type: @Initialized @NonNull mVar
+../dataset/urla05239b71c_viniciusinnovatium_mumps2java_api_tgz-pJ8-com_disclinc_netmanager_script_test_ExecTesteNewJ8/src/mLibrary/mRequest.java:89: error: (return) $$ 2 $$ null (NullType) $$ @Initialized @NonNull Object $$ ( 2107, 2111 ) $$ incompatible types in return.
+		return null;
+		       ^
+  type of expression: null (NullType)
+  method return type: @Initialized @NonNull Object
+../dataset/urla05239b71c_viniciusinnovatium_mumps2java_api_tgz-pJ8-com_disclinc_netmanager_script_test_ExecTesteNewJ8/src/mLibrary/mRequest.java:94: error: (return) $$ 2 $$ null (NullType) $$ @Initialized @NonNull Object $$ ( 2227, 2231 ) $$ incompatible types in return.
+		return null;
+		       ^
+  type of expression: null (NullType)
+  method return type: @Initialized @NonNull Object
+../dataset/urla05239b71c_viniciusinnovatium_mumps2java_api_tgz-pJ8-com_disclinc_netmanager_script_test_ExecTesteNewJ8/src/mLibrary/mSession.java:13: error: (initialization.fields.uninitialized) $$ 1 $$ sessionId $$ ( 226, 348 ) $$ the constructor does not initialize fields: sessionId
+	public mSession(Map<String, String[]> map) {
+	       ^
+../dataset/urla05239b71c_viniciusinnovatium_mumps2java_api_tgz-pJ8-com_disclinc_netmanager_script_test_ExecTesteNewJ8/src/mLibrary/mSession.java:14: error: (method.invocation) $$ 3 $$ populateParameter(java.util.Map<java.lang.String,java.lang.String[]>) $$ @UnderInitialization @NonNull mSession $$ @Initialized @NonNull mSession $$ ( 274, 296 ) $$ call to populateParameter(java.util.Map<java.lang.String,java.lang.String[]>) not allowed on the given receiver.
+		populateParameter(map);
+		                 ^
+  found   : @UnderInitialization @NonNull mSession
+  required: @Initialized @NonNull mSession
+../dataset/urla05239b71c_viniciusinnovatium_mumps2java_api_tgz-pJ8-com_disclinc_netmanager_script_test_ExecTesteNewJ8/src/mLibrary/mSession.java:15: error: (method.invocation) $$ 3 $$ setSessionId(java.lang.String) $$ @UnderInitialization @NonNull mSession $$ @Initialized @NonNull mSession $$ ( 301, 343 ) $$ call to setSessionId(java.lang.String) not allowed on the given receiver.
+		setSessionId(UUID.randomUUID().toString());
+		            ^
+  found   : @UnderInitialization @NonNull mSession
+  required: @Initialized @NonNull mSession
+../dataset/urla05239b71c_viniciusinnovatium_mumps2java_api_tgz-pJ8-com_disclinc_netmanager_script_test_ExecTesteNewJ8/src/mLibrary/mSession.java:28: error: (assignment) $$ 2 $$ Set<Entry<@KeyFor("map") String, String []>> $$ Set<Entry<String, String []>> $$ ( 636, 650 ) $$ incompatible types in assignment.
+		Set<Entry<String, String[]>> results = map.entrySet();
+		                                                   ^
+  found   : Set<Entry<@KeyFor("map") String, String []>>
+  required: Set<Entry<String, String []>>
+../dataset/urla05239b71c_viniciusinnovatium_mumps2java_api_tgz-pJ8-com_disclinc_netmanager_script_test_ExecTesteNewJ8/src/mLibrary/mFnc.java:105: error: (return) $$ 2 $$ @Initialized @Nullable Object $$ @Initialized @NonNull Object $$ ( 3280, 3289 ) $$ incompatible types in return.
+		return returnObj;
+		       ^
+  type of expression: @Initialized @Nullable Object
+  method return type: @Initialized @NonNull Object
+../dataset/urla05239b71c_viniciusinnovatium_mumps2java_api_tgz-pJ8-com_disclinc_netmanager_script_test_ExecTesteNewJ8/src/mLibrary/mFnc.java:120: error: (return) $$ 2 $$ null (NullType) $$ @Initialized @NonNull Object $$ ( 3741, 3745 ) $$ incompatible types in return.
+			return null;
+			       ^
+  type of expression: null (NullType)
+  method return type: @Initialized @NonNull Object
+../dataset/urla05239b71c_viniciusinnovatium_mumps2java_api_tgz-pJ8-com_disclinc_netmanager_script_test_ExecTesteNewJ8/src/mLibrary/mFnc.java:147: error: (return) $$ 2 $$ null (NullType) $$ @Initialized @NonNull String $$ ( 4388, 4392 ) $$ incompatible types in return.
+			return null;
+			       ^
+  type of expression: null (NullType)
+  method return type: @Initialized @NonNull String
+../dataset/urla05239b71c_viniciusinnovatium_mumps2java_api_tgz-pJ8-com_disclinc_netmanager_script_test_ExecTesteNewJ8/src/mLibrary/mFnc.java:178: error: (return) $$ 2 $$ null (NullType) $$ @Initialized @NonNull String $$ ( 4986, 4990 ) $$ incompatible types in return.
+			return null;
+			       ^
+  type of expression: null (NullType)
+  method return type: @Initialized @NonNull String
+../dataset/urla05239b71c_viniciusinnovatium_mumps2java_api_tgz-pJ8-com_disclinc_netmanager_script_test_ExecTesteNewJ8/src/mLibrary/mFnc.java:193: error: (argument) $$ 4 $$ decimal $$ mFnc.$fnumber $$ null (NullType) $$ @Initialized @NonNull Object $$ ( 5413, 5417 ) $$ incompatible argument for parameter decimal of mFnc.$fnumber.
+		return $fnumber(inumber, format, null);
+		                                 ^
+  found   : null (NullType)
+  required: @Initialized @NonNull Object
+../dataset/urla05239b71c_viniciusinnovatium_mumps2java_api_tgz-pJ8-com_disclinc_netmanager_script_test_ExecTesteNewJ8/src/mLibrary/mFnc.java:255: error: (argument) $$ 4 $$ defaultValue $$ mFnc.$get $$ null (NullType) $$ @Initialized @NonNull Object $$ ( 7325, 7329 ) $$ incompatible argument for parameter defaultValue of mFnc.$get.
+		return $get(content, null);
+		                     ^
+  found   : null (NullType)
+  required: @Initialized @NonNull Object
+../dataset/urla05239b71c_viniciusinnovatium_mumps2java_api_tgz-pJ8-com_disclinc_netmanager_script_test_ExecTesteNewJ8/src/mLibrary/mFnc.java:266: error: (assignment) $$ 2 $$ null (NullType) $$ @Initialized @NonNull Object $$ ( 7630, 7634 ) $$ incompatible types in assignment.
+				content = null;
+				          ^
+  found   : null (NullType)
+  required: @Initialized @NonNull Object
+../dataset/urla05239b71c_viniciusinnovatium_mumps2java_api_tgz-pJ8-com_disclinc_netmanager_script_test_ExecTesteNewJ8/src/mLibrary/mFnc.java:344: error: (return) $$ 2 $$ null (NullType) $$ @Initialized @NonNull Object $$ ( 9983, 9987 ) $$ incompatible types in return.
+			return null;
+			       ^
+  type of expression: null (NullType)
+  method return type: @Initialized @NonNull Object
+../dataset/urla05239b71c_viniciusinnovatium_mumps2java_api_tgz-pJ8-com_disclinc_netmanager_script_test_ExecTesteNewJ8/src/mLibrary/mFnc.java:361: error: (argument) $$ 4 $$ decimal $$ mFnc.$justify $$ null (NullType) $$ @Initialized @NonNull Object $$ ( 10546, 10550 ) $$ incompatible argument for parameter decimal of mFnc.$justify.
+		return $justify(expression, widthInt, null);
+		                                      ^
+  found   : null (NullType)
+  required: @Initialized @NonNull Object
+../dataset/urla05239b71c_viniciusinnovatium_mumps2java_api_tgz-pJ8-com_disclinc_netmanager_script_test_ExecTesteNewJ8/src/mLibrary/mFnc.java:365: error: (argument) $$ 4 $$ decimal $$ mFnc.$justify $$ null (NullType) $$ @Initialized @NonNull Object $$ ( 10661, 10665 ) $$ incompatible argument for parameter decimal of mFnc.$justify.
+		return $justify(expression, width, null);
+		                                   ^
+  found   : null (NullType)
+  required: @Initialized @NonNull Object
+../dataset/urla05239b71c_viniciusinnovatium_mumps2java_api_tgz-pJ8-com_disclinc_netmanager_script_test_ExecTesteNewJ8/src/mLibrary/mFnc.java:413: error: (return) $$ 2 $$ null (NullType) $$ @Initialized @NonNull Object $$ ( 11978, 11982 ) $$ incompatible types in return.
+			return null;
+			       ^
+  type of expression: null (NullType)
+  method return type: @Initialized @NonNull Object
+../dataset/urla05239b71c_viniciusinnovatium_mumps2java_api_tgz-pJ8-com_disclinc_netmanager_script_test_ExecTesteNewJ8/src/mLibrary/mFnc.java:514: error: (argument) $$ 4 $$ target $$ mFnc.$query $$ null (NullType) $$ @Initialized @NonNull mVar $$ ( 15103, 15107 ) $$ incompatible argument for parameter target of mFnc.$query.
+		return $query(reference, 1, null);
+		                            ^
+  found   : null (NullType)
+  required: @Initialized @NonNull mVar
+../dataset/urla05239b71c_viniciusinnovatium_mumps2java_api_tgz-pJ8-com_disclinc_netmanager_script_test_ExecTesteNewJ8/src/mLibrary/mFnc.java:518: error: (argument) $$ 4 $$ target $$ mFnc.$query $$ null (NullType) $$ @Initialized @NonNull mVar $$ ( 15221, 15225 ) $$ incompatible argument for parameter target of mFnc.$query.
+		return $query(reference, direction, null);
+		                                    ^
+  found   : null (NullType)
+  required: @Initialized @NonNull mVar
+../dataset/urla05239b71c_viniciusinnovatium_mumps2java_api_tgz-pJ8-com_disclinc_netmanager_script_test_ExecTesteNewJ8/src/mLibrary/mFnc.java:605: error: (return) $$ 2 $$ null (NullType) $$ @Initialized @NonNull String $$ ( 17884, 17888 ) $$ incompatible types in return.
+			return null;
+			       ^
+  type of expression: null (NullType)
+  method return type: @Initialized @NonNull String
+../dataset/urla05239b71c_viniciusinnovatium_mumps2java_api_tgz-pJ8-com_disclinc_netmanager_script_test_ExecTesteNewJ8/src/mLibrary/mFnc.java:617: error: (return) $$ 2 $$ null (NullType) $$ @Initialized @NonNull String $$ ( 18099, 18103 ) $$ incompatible types in return.
+			return null;
+			       ^
+  type of expression: null (NullType)
+  method return type: @Initialized @NonNull String
+../dataset/urla05239b71c_viniciusinnovatium_mumps2java_api_tgz-pJ8-com_disclinc_netmanager_script_test_ExecTesteNewJ8/src/mLibrary/mFnc.java:624: error: (return) $$ 2 $$ null (NullType) $$ @Initialized @NonNull Object $$ ( 18318, 18322 ) $$ incompatible types in return.
+			return null;
+			       ^
+  type of expression: null (NullType)
+  method return type: @Initialized @NonNull Object
+../dataset/urla05239b71c_viniciusinnovatium_mumps2java_api_tgz-pJ8-com_disclinc_netmanager_script_test_ExecTesteNewJ8/src/mLibrary/mFnc.java:634: error: (return) $$ 2 $$ @Initialized @Nullable Object $$ @Initialized @NonNull Object $$ ( 18507, 18512 ) $$ incompatible types in return.
+		return value;
+		       ^
+  type of expression: @Initialized @Nullable Object
+  method return type: @Initialized @NonNull Object
+../dataset/urla05239b71c_viniciusinnovatium_mumps2java_api_tgz-pJ8-com_disclinc_netmanager_script_test_ExecTesteNewJ8/src/mLibrary/mFnc.java:671: error: (return) $$ 2 $$ @Initialized @Nullable Object $$ @Initialized @NonNull Object $$ ( 19592, 19601 ) $$ incompatible types in return.
+		return returnObj;
+		       ^
+  type of expression: @Initialized @Nullable Object
+  method return type: @Initialized @NonNull Object
+../dataset/urla05239b71c_viniciusinnovatium_mumps2java_api_tgz-pJ8-com_disclinc_netmanager_script_test_ExecTesteNewJ8/src/mLibrary/mFnc.java:704: error: (argument) $$ 4 $$ newCharsequence $$ mFnc.$translate $$ null (NullType) $$ @Initialized @NonNull Object $$ ( 20400, 20404 ) $$ incompatible argument for parameter newCharsequence of mFnc.$translate.
+		return $translate(string, identifier, null);
+		                                      ^
+  found   : null (NullType)
+  required: @Initialized @NonNull Object
+../dataset/urla05239b71c_viniciusinnovatium_mumps2java_api_tgz-pJ8-com_disclinc_netmanager_script_test_ExecTesteNewJ8/src/mLibrary/mFnc.java:748: error: (argument) $$ 4 $$ dformat $$ mFnc.$zdate $$ null (NullType) $$ @Initialized @NonNull Object $$ ( 21619, 21623 ) $$ incompatible argument for parameter dformat of mFnc.$zdate.
+		return $zdate(hdate, null, null, null, null, null, null, null, null);
+		                     ^
+  found   : null (NullType)
+  required: @Initialized @NonNull Object
+../dataset/urla05239b71c_viniciusinnovatium_mumps2java_api_tgz-pJ8-com_disclinc_netmanager_script_test_ExecTesteNewJ8/src/mLibrary/mFnc.java:748: error: (argument) $$ 4 $$ monthlist $$ mFnc.$zdate $$ null (NullType) $$ @Initialized @NonNull Object $$ ( 21625, 21629 ) $$ incompatible argument for parameter monthlist of mFnc.$zdate.
+		return $zdate(hdate, null, null, null, null, null, null, null, null);
+		                           ^
+  found   : null (NullType)
+  required: @Initialized @NonNull Object
+../dataset/urla05239b71c_viniciusinnovatium_mumps2java_api_tgz-pJ8-com_disclinc_netmanager_script_test_ExecTesteNewJ8/src/mLibrary/mFnc.java:748: error: (argument) $$ 4 $$ yearopt $$ mFnc.$zdate $$ null (NullType) $$ @Initialized @NonNull Object $$ ( 21631, 21635 ) $$ incompatible argument for parameter yearopt of mFnc.$zdate.
+		return $zdate(hdate, null, null, null, null, null, null, null, null);
+		                                 ^
+  found   : null (NullType)
+  required: @Initialized @NonNull Object
+../dataset/urla05239b71c_viniciusinnovatium_mumps2java_api_tgz-pJ8-com_disclinc_netmanager_script_test_ExecTesteNewJ8/src/mLibrary/mFnc.java:748: error: (argument) $$ 4 $$ startwin $$ mFnc.$zdate $$ null (NullType) $$ @Initialized @NonNull Object $$ ( 21637, 21641 ) $$ incompatible argument for parameter startwin of mFnc.$zdate.
+		return $zdate(hdate, null, null, null, null, null, null, null, null);
+		                                       ^
+  found   : null (NullType)
+  required: @Initialized @NonNull Object
+../dataset/urla05239b71c_viniciusinnovatium_mumps2java_api_tgz-pJ8-com_disclinc_netmanager_script_test_ExecTesteNewJ8/src/mLibrary/mFnc.java:748: error: (argument) $$ 4 $$ endwin $$ mFnc.$zdate $$ null (NullType) $$ @Initialized @NonNull Object $$ ( 21643, 21647 ) $$ incompatible argument for parameter endwin of mFnc.$zdate.
+		return $zdate(hdate, null, null, null, null, null, null, null, null);
+		                                             ^
+  found   : null (NullType)
+  required: @Initialized @NonNull Object
+../dataset/urla05239b71c_viniciusinnovatium_mumps2java_api_tgz-pJ8-com_disclinc_netmanager_script_test_ExecTesteNewJ8/src/mLibrary/mFnc.java:748: error: (argument) $$ 4 $$ mindate $$ mFnc.$zdate $$ null (NullType) $$ @Initialized @NonNull Object $$ ( 21649, 21653 ) $$ incompatible argument for parameter mindate of mFnc.$zdate.
+		return $zdate(hdate, null, null, null, null, null, null, null, null);
+		                                                   ^
+  found   : null (NullType)
+  required: @Initialized @NonNull Object
+../dataset/urla05239b71c_viniciusinnovatium_mumps2java_api_tgz-pJ8-com_disclinc_netmanager_script_test_ExecTesteNewJ8/src/mLibrary/mFnc.java:748: error: (argument) $$ 4 $$ maxdate $$ mFnc.$zdate $$ null (NullType) $$ @Initialized @NonNull Object $$ ( 21655, 21659 ) $$ incompatible argument for parameter maxdate of mFnc.$zdate.
+		return $zdate(hdate, null, null, null, null, null, null, null, null);
+		                                                         ^
+  found   : null (NullType)
+  required: @Initialized @NonNull Object
+../dataset/urla05239b71c_viniciusinnovatium_mumps2java_api_tgz-pJ8-com_disclinc_netmanager_script_test_ExecTesteNewJ8/src/mLibrary/mFnc.java:748: error: (argument) $$ 4 $$ erropt $$ mFnc.$zdate $$ null (NullType) $$ @Initialized @NonNull Object $$ ( 21661, 21665 ) $$ incompatible argument for parameter erropt of mFnc.$zdate.
+		return $zdate(hdate, null, null, null, null, null, null, null, null);
+		                                                               ^
+  found   : null (NullType)
+  required: @Initialized @NonNull Object
+../dataset/urla05239b71c_viniciusinnovatium_mumps2java_api_tgz-pJ8-com_disclinc_netmanager_script_test_ExecTesteNewJ8/src/mLibrary/mFnc.java:753: error: (argument) $$ 4 $$ monthlist $$ mFnc.$zdate $$ null (NullType) $$ @Initialized @NonNull Object $$ ( 21771, 21775 ) $$ incompatible argument for parameter monthlist of mFnc.$zdate.
+		return $zdate(hdate, dformat, null, null, null, null, null, null, null);
+		                              ^
+  found   : null (NullType)
+  required: @Initialized @NonNull Object
+../dataset/urla05239b71c_viniciusinnovatium_mumps2java_api_tgz-pJ8-com_disclinc_netmanager_script_test_ExecTesteNewJ8/src/mLibrary/mFnc.java:753: error: (argument) $$ 4 $$ yearopt $$ mFnc.$zdate $$ null (NullType) $$ @Initialized @NonNull Object $$ ( 21777, 21781 ) $$ incompatible argument for parameter yearopt of mFnc.$zdate.
+		return $zdate(hdate, dformat, null, null, null, null, null, null, null);
+		                                    ^
+  found   : null (NullType)
+  required: @Initialized @NonNull Object
+../dataset/urla05239b71c_viniciusinnovatium_mumps2java_api_tgz-pJ8-com_disclinc_netmanager_script_test_ExecTesteNewJ8/src/mLibrary/mFnc.java:753: error: (argument) $$ 4 $$ startwin $$ mFnc.$zdate $$ null (NullType) $$ @Initialized @NonNull Object $$ ( 21783, 21787 ) $$ incompatible argument for parameter startwin of mFnc.$zdate.
+		return $zdate(hdate, dformat, null, null, null, null, null, null, null);
+		                                          ^
+  found   : null (NullType)
+  required: @Initialized @NonNull Object
+../dataset/urla05239b71c_viniciusinnovatium_mumps2java_api_tgz-pJ8-com_disclinc_netmanager_script_test_ExecTesteNewJ8/src/mLibrary/mFnc.java:753: error: (argument) $$ 4 $$ endwin $$ mFnc.$zdate $$ null (NullType) $$ @Initialized @NonNull Object $$ ( 21789, 21793 ) $$ incompatible argument for parameter endwin of mFnc.$zdate.
+		return $zdate(hdate, dformat, null, null, null, null, null, null, null);
+		                                                ^
+  found   : null (NullType)
+  required: @Initialized @NonNull Object
+../dataset/urla05239b71c_viniciusinnovatium_mumps2java_api_tgz-pJ8-com_disclinc_netmanager_script_test_ExecTesteNewJ8/src/mLibrary/mFnc.java:753: error: (argument) $$ 4 $$ mindate $$ mFnc.$zdate $$ null (NullType) $$ @Initialized @NonNull Object $$ ( 21795, 21799 ) $$ incompatible argument for parameter mindate of mFnc.$zdate.
+		return $zdate(hdate, dformat, null, null, null, null, null, null, null);
+		                                                      ^
+  found   : null (NullType)
+  required: @Initialized @NonNull Object
+../dataset/urla05239b71c_viniciusinnovatium_mumps2java_api_tgz-pJ8-com_disclinc_netmanager_script_test_ExecTesteNewJ8/src/mLibrary/mFnc.java:753: error: (argument) $$ 4 $$ maxdate $$ mFnc.$zdate $$ null (NullType) $$ @Initialized @NonNull Object $$ ( 21801, 21805 ) $$ incompatible argument for parameter maxdate of mFnc.$zdate.
+		return $zdate(hdate, dformat, null, null, null, null, null, null, null);
+		                                                            ^
+  found   : null (NullType)
+  required: @Initialized @NonNull Object
+../dataset/urla05239b71c_viniciusinnovatium_mumps2java_api_tgz-pJ8-com_disclinc_netmanager_script_test_ExecTesteNewJ8/src/mLibrary/mFnc.java:753: error: (argument) $$ 4 $$ erropt $$ mFnc.$zdate $$ null (NullType) $$ @Initialized @NonNull Object $$ ( 21807, 21811 ) $$ incompatible argument for parameter erropt of mFnc.$zdate.
+		return $zdate(hdate, dformat, null, null, null, null, null, null, null);
+		                                                                  ^
+  found   : null (NullType)
+  required: @Initialized @NonNull Object
+../dataset/urla05239b71c_viniciusinnovatium_mumps2java_api_tgz-pJ8-com_disclinc_netmanager_script_test_ExecTesteNewJ8/src/mLibrary/mFnc.java:797: error: (return) $$ 2 $$ @Initialized @Nullable String $$ @Initialized @NonNull Object $$ ( 22942, 22952 ) $$ incompatible types in return.
+		return returnDate;
+		       ^
+  type of expression: @Initialized @Nullable String
+  method return type: @Initialized @NonNull Object
+../dataset/urla05239b71c_viniciusinnovatium_mumps2java_api_tgz-pJ8-com_disclinc_netmanager_script_test_ExecTesteNewJ8/src/mLibrary/mFnc.java:814: error: (return) $$ 2 $$ @Initialized @Nullable String $$ @Initialized @NonNull Object $$ ( 23509, 23519 ) $$ incompatible types in return.
+		return returnDate;
+		       ^
+  type of expression: @Initialized @Nullable String
+  method return type: @Initialized @NonNull Object
+../dataset/urla05239b71c_viniciusinnovatium_mumps2java_api_tgz-pJ8-com_disclinc_netmanager_script_test_ExecTesteNewJ8/src/mLibrary/mFnc.java:936: error: (return) $$ 2 $$ null (NullType) $$ @Initialized @NonNull Object $$ ( 27271, 27275 ) $$ incompatible types in return.
+				return null;
+				       ^
+  type of expression: null (NullType)
+  method return type: @Initialized @NonNull Object
+../dataset/urla05239b71c_viniciusinnovatium_mumps2java_api_tgz-pJ8-com_disclinc_netmanager_script_test_ExecTesteNewJ8/src/mLibrary/mFnc.java:945: error: (return) $$ 2 $$ null (NullType) $$ @Initialized @NonNull Object $$ ( 27437, 27441 ) $$ incompatible types in return.
+			return null;
+			       ^
+  type of expression: null (NullType)
+  method return type: @Initialized @NonNull Object
+../dataset/urla05239b71c_viniciusinnovatium_mumps2java_api_tgz-pJ8-com_disclinc_netmanager_script_test_ExecTesteNewJ8/src/mLibrary/mFnc.java:993: error: (return) $$ 2 $$ null (NullType) $$ @Initialized @NonNull Integer @Initialized @NonNull [] $$ ( 28496, 28500 ) $$ incompatible types in return.
+			return null;
+			       ^
+  type of expression: null (NullType)
+  method return type: @Initialized @NonNull Integer @Initialized @NonNull []
+../dataset/urla05239b71c_viniciusinnovatium_mumps2java_api_tgz-pJ8-com_disclinc_netmanager_script_test_ExecTesteNewJ8/src/mLibrary/mFnc.java:1009: error: (return) $$ 2 $$ null (NullType) $$ @Initialized @NonNull String $$ ( 28854, 28858 ) $$ incompatible types in return.
+			return null;
+			       ^
+  type of expression: null (NullType)
+  method return type: @Initialized @NonNull String
+../dataset/urla05239b71c_viniciusinnovatium_mumps2java_api_tgz-pJ8-com_disclinc_netmanager_script_test_ExecTesteNewJ8/src/mLibrary/mFnc.java:1015: error: (return) $$ 2 $$ null (NullType) $$ @Initialized @NonNull String $$ ( 28963, 28967 ) $$ incompatible types in return.
+			return null;
+			       ^
+  type of expression: null (NullType)
+  method return type: @Initialized @NonNull String
+../dataset/urla05239b71c_viniciusinnovatium_mumps2java_api_tgz-pJ8-com_disclinc_netmanager_script_test_ExecTesteNewJ8/src/mLibrary/mFnc.java:1019: error: (return) $$ 2 $$ null (NullType) $$ @Initialized @NonNull String $$ ( 29035, 29039 ) $$ incompatible types in return.
+			return null;
+			       ^
+  type of expression: null (NullType)
+  method return type: @Initialized @NonNull String
+../dataset/urla05239b71c_viniciusinnovatium_mumps2java_api_tgz-pJ8-com_disclinc_netmanager_script_test_ExecTesteNewJ8/src/mLibrary/mFnc.java:1030: error: (argument) $$ 4 $$ delimiter $$ mFnc.generateString $$ null (NullType) $$ @Initialized @NonNull String $$ ( 29349, 29353 ) $$ incompatible argument for parameter delimiter of mFnc.generateString.
+		return generateString(chars, null, true);
+		                             ^
+  found   : null (NullType)
+  required: @Initialized @NonNull String
+../dataset/urla05239b71c_viniciusinnovatium_mumps2java_api_tgz-pJ8-com_disclinc_netmanager_script_test_ExecTesteNewJ8/src/mLibrary/mFnc.java:1035: error: (return) $$ 2 $$ null (NullType) $$ @Initialized @NonNull String $$ ( 29474, 29478 ) $$ incompatible types in return.
+			return null;
+			       ^
+  type of expression: null (NullType)
+  method return type: @Initialized @NonNull String
+../dataset/urla05239b71c_viniciusinnovatium_mumps2java_api_tgz-pJ8-com_disclinc_netmanager_script_test_ExecTesteNewJ8/src/mLibrary/mFnc.java:1040: error: (return) $$ 2 $$ null (NullType) $$ @Initialized @NonNull String $$ ( 29575, 29579 ) $$ incompatible types in return.
+			return null;
+			       ^
+  type of expression: null (NullType)
+  method return type: @Initialized @NonNull String
+../dataset/urla05239b71c_viniciusinnovatium_mumps2java_api_tgz-pJ8-com_disclinc_netmanager_script_test_ExecTesteNewJ8/src/mLibrary/mFnc.java:1178: error: (return) $$ 2 $$ null (NullType) $$ @Initialized @NonNull String $$ ( 32971, 32975 ) $$ incompatible types in return.
+			return null;
+			       ^
+  type of expression: null (NullType)
+  method return type: @Initialized @NonNull String
+../dataset/urla05239b71c_viniciusinnovatium_mumps2java_api_tgz-pJ8-com_disclinc_netmanager_script_test_ExecTesteNewJ8/src/mLibrary/mFnc.java:1187: error: (return) $$ 2 $$ null (NullType) $$ @Initialized @NonNull String $$ ( 33162, 33166 ) $$ incompatible types in return.
+			return null;
+			       ^
+  type of expression: null (NullType)
+  method return type: @Initialized @NonNull String
+../dataset/urla05239b71c_viniciusinnovatium_mumps2java_api_tgz-pJ8-com_disclinc_netmanager_script_test_ExecTesteNewJ8/src/mLibrary/mFnc.java:1191: error: (return) $$ 2 $$ null (NullType) $$ @Initialized @NonNull String $$ ( 33206, 33210 ) $$ incompatible types in return.
+			return null;
+			       ^
+  type of expression: null (NullType)
+  method return type: @Initialized @NonNull String
+../dataset/urla05239b71c_viniciusinnovatium_mumps2java_api_tgz-pJ8-com_disclinc_netmanager_script_test_ExecTesteNewJ8/src/mLibrary/mFnc.java:1194: error: (assignment) $$ 2 $$ @Initialized @Nullable String @Initialized @NonNull [] $$ @Initialized @NonNull String @UnknownInitialization @Nullable [] $$ ( 33245, 33307 ) $$ incompatible types in assignment.
+		final String[] array = Arrays.copyOfRange(string.split(delimiter),
+		                                         ^
+  found   : @Initialized @Nullable String @Initialized @NonNull []
+  required: @Initialized @NonNull String @UnknownInitialization @Nullable []
+../dataset/urla05239b71c_viniciusinnovatium_mumps2java_api_tgz-pJ8-com_disclinc_netmanager_script_test_ExecTesteNewJ8/src/mLibrary/mFnc.java:1205: error: (assignment) $$ 2 $$ @Initialized @Nullable Object @Initialized @NonNull [] $$ @Initialized @NonNull Object @UnknownInitialization @Nullable [] $$ ( 33616, 33654 ) $$ incompatible types in assignment.
+			array = Arrays.copyOfRange(array, 0, position);
+			                          ^
+  found   : @Initialized @Nullable Object @Initialized @NonNull []
+  required: @Initialized @NonNull Object @UnknownInitialization @Nullable []
+../dataset/urla05239b71c_viniciusinnovatium_mumps2java_api_tgz-pJ8-com_disclinc_netmanager_script_test_ExecTesteNewJ8/src/mLibrary/mParent.java:5: error: (initialization.static.field.uninitialized) $$ 1 $$ m$ $$ ( 45, 74 ) $$ static field m$ not initialized
+	protected static mContext m$;		
+	                          ^
+../dataset/urla05239b71c_viniciusinnovatium_mumps2java_api_tgz-pJ8-com_disclinc_netmanager_script_test_ExecTesteNewJ8/src/mLibrary/mCmd.java:24: error: (return) $$ 2 $$ null (NullType) $$ @Initialized @NonNull String $$ ( 531, 535 ) $$ incompatible types in return.
+			return null;
+			       ^
+  type of expression: null (NullType)
+  method return type: @Initialized @NonNull String
+../dataset/urla05239b71c_viniciusinnovatium_mumps2java_api_tgz-pJ8-com_disclinc_netmanager_script_test_ExecTesteNewJ8/src/mLibrary/mCmd.java:32: error: (return) $$ 2 $$ null (NullType) $$ @Initialized @NonNull String $$ ( 786, 790 ) $$ incompatible types in return.
+			return null;
+			       ^
+  type of expression: null (NullType)
+  method return type: @Initialized @NonNull String
+../dataset/urla05239b71c_viniciusinnovatium_mumps2java_api_tgz-pJ8-com_disclinc_netmanager_script_test_ExecTesteNewJ8/src/mLibrary/mCmd.java:62: error: (argument) $$ 4 $$ parameters $$ mCmd.Do $$ @Initialized @NonNull Object @FBCBottom @Nullable [] $$ @Initialized @NonNull Object @Initialized @NonNull [] $$ ( 1607, 1622 ) $$ incompatible argument for parameter parameters of mCmd.Do.
+				Do(defineMethodName(methodName), (Object[]) null);
+				                                 ^
+  found   : @Initialized @NonNull Object @FBCBottom @Nullable []
+  required: @Initialized @NonNull Object @Initialized @NonNull []
+../dataset/urla05239b71c_viniciusinnovatium_mumps2java_api_tgz-pJ8-com_disclinc_netmanager_script_test_ExecTesteNewJ8/src/mLibrary/mCmd.java:70: error: (argument) $$ 4 $$ objClass $$ mCmd.Do $$ null (NullType) $$ @Initialized @NonNull mClass $$ ( 1747, 1751 ) $$ incompatible argument for parameter objClass of mCmd.Do.
+		Do(null, methodName, parameters);
+		   ^
+  found   : null (NullType)
+  required: @Initialized @NonNull mClass
+../dataset/urla05239b71c_viniciusinnovatium_mumps2java_api_tgz-pJ8-com_disclinc_netmanager_script_test_ExecTesteNewJ8/src/mSystem/mSystem.java:14: error: (initialization.fields.uninitialized) $$ 1 $$ obj $$ ( 277, 521 ) $$ the constructor does not initialize fields: obj
+	public mSystem(mContext m$) {
+	       ^
+../dataset/urla05239b71c_viniciusinnovatium_mumps2java_api_tgz-pJ8-com_disclinc_netmanager_script_test_ExecTesteNewJ8/src/mLibrary/mParameter.java:16: error: (argument) $$ 4 $$ obj $$ Field.get $$ null (NullType) $$ @Initialized @NonNull Object $$ ( 278, 282 ) $$ incompatible argument for parameter obj of Field.get.
+			retorno = parameterField.get(null);
+			                             ^
+  found   : null (NullType)
+  required: @Initialized @NonNull Object
+../dataset/urla05239b71c_viniciusinnovatium_mumps2java_api_tgz-pJ8-com_disclinc_netmanager_script_test_ExecTesteNewJ8/src/mLibrary/mParameter.java:22: error: (return) $$ 2 $$ @Initialized @Nullable Object $$ @Initialized @NonNull Object $$ ( 413, 420 ) $$ incompatible types in return.
+		return retorno;
+		       ^
+  type of expression: @Initialized @Nullable Object
+  method return type: @Initialized @NonNull Object
+../dataset/urla05239b71c_viniciusinnovatium_mumps2java_api_tgz-pJ8-com_disclinc_netmanager_script_test_ExecTesteNewJ8/src/mSystem/License.java:19: error: (return) $$ 2 $$ null (NullType) $$ @Initialized @NonNull Object $$ ( 386, 390 ) $$ incompatible types in return.
+		return null;
+		       ^
+  type of expression: null (NullType)
+  method return type: @Initialized @NonNull Object
+../dataset/urla05239b71c_viniciusinnovatium_mumps2java_api_tgz-pJ8-com_disclinc_netmanager_script_test_ExecTesteNewJ8/src/mSystem/License.java:39: error: (return) $$ 2 $$ null (NullType) $$ @Initialized @NonNull Object $$ ( 804, 808 ) $$ incompatible types in return.
+		return null;
+		       ^
+  type of expression: null (NullType)
+  method return type: @Initialized @NonNull Object
+../dataset/urla05239b71c_viniciusinnovatium_mumps2java_api_tgz-pJ8-com_disclinc_netmanager_script_test_ExecTesteNewJ8/src/com/disclinc/netmanager/variable/test/MContextUsingInMemoryAccessTest.java:11: error: (initialization.field.uninitialized) $$ 1 $$ m$ $$ ( 239, 259 ) $$ the default constructor does not initialize field m$
+	private mContext m$;
+	                 ^
+../dataset/urla05239b71c_viniciusinnovatium_mumps2java_api_tgz-pJ8-com_disclinc_netmanager_script_test_ExecTesteNewJ8/src/com/disclinc/netmanager/variable/test/VariableThroughReferenceOrValueTest.java:12: error: (assignment) $$ 2 $$ null (NullType) $$ @Initialized @NonNull mContext $$ ( 319, 323 ) $$ incompatible types in assignment.
+	private mContext m$ = null;
+	                      ^
+  found   : null (NullType)
+  required: @Initialized @NonNull mContext
+../dataset/urla05239b71c_viniciusinnovatium_mumps2java_api_tgz-pJ8-com_disclinc_netmanager_script_test_ExecTesteNewJ8/src/com/disclinc/netmanager/variable/test/VariableThroughReferenceOrValueTest.java:32: error: (argument) $$ 4 $$ variable $$ mContext.newVarRef $$ null (NullType) $$ @Initialized @NonNull Object $$ ( 968, 972 ) $$ incompatible argument for parameter variable of mContext.newVarRef.
+		mVar y = m$.newVarRef("item", null, "default1");
+		                              ^
+  found   : null (NullType)
+  required: @Initialized @NonNull Object
+../dataset/urla05239b71c_viniciusinnovatium_mumps2java_api_tgz-pJ8-com_disclinc_netmanager_script_test_ExecTesteNewJ8/src/com/disclinc/netmanager/variable/test/VariableThroughReferenceOrValueTest.java:35: error: (argument) $$ 4 $$ variable $$ mContext.newVarRef $$ null (NullType) $$ @Initialized @NonNull Object $$ ( 1102, 1106 ) $$ incompatible argument for parameter variable of mContext.newVarRef.
+		y = m$.newVarRef("carro", null, null);
+		                          ^
+  found   : null (NullType)
+  required: @Initialized @NonNull Object
+../dataset/urla05239b71c_viniciusinnovatium_mumps2java_api_tgz-pJ8-com_disclinc_netmanager_script_test_ExecTesteNewJ8/src/com/disclinc/netmanager/variable/test/VariableThroughReferenceOrValueTest.java:35: error: (argument) $$ 4 $$ valueDefault $$ mContext.newVarRef $$ null (NullType) $$ @Initialized @NonNull Object $$ ( 1108, 1112 ) $$ incompatible argument for parameter valueDefault of mContext.newVarRef.
+		y = m$.newVarRef("carro", null, null);
+		                                ^
+  found   : null (NullType)
+  required: @Initialized @NonNull Object
+../dataset/urla05239b71c_viniciusinnovatium_mumps2java_api_tgz-pJ8-com_disclinc_netmanager_script_test_ExecTesteNewJ8/src/com/disclinc/netmanager/variable/test/VariableThroughReferenceOrValueTest.java:36: error: (argument) $$ 4 $$ expected $$ Assert.assertEquals $$ null (NullType) $$ @Initialized @NonNull Object $$ ( 1172, 1176 ) $$ incompatible argument for parameter expected of Assert.assertEquals.
+		assertEquals("The null value setted does not matchs", null, y.get());
+		                                                      ^
+  found   : null (NullType)
+  required: @Initialized @NonNull Object
+../dataset/urla05239b71c_viniciusinnovatium_mumps2java_api_tgz-pJ8-com_disclinc_netmanager_script_test_ExecTesteNewJ8/src/com/disclinc/netmanager/variable/test/MContextUsingInDiscAccessTest.java:11: error: (initialization.field.uninitialized) $$ 1 $$ m$ $$ ( 237, 257 ) $$ the default constructor does not initialize field m$
+	private mContext m$;
+	                 ^
+../dataset/urla05239b71c_viniciusinnovatium_mumps2java_api_tgz-pJ8-com_disclinc_netmanager_script_test_ExecTesteNewJ8/src/com/disclinc/netmanager/variable/test/TreeTest.java:11: error: (initialization.field.uninitialized) $$ 1 $$ tree $$ ( 235, 253 ) $$ the default constructor does not initialize field tree
+	private Tree tree;
+	             ^
+../dataset/urla05239b71c_viniciusinnovatium_mumps2java_api_tgz-pJ8-com_disclinc_netmanager_script_test_ExecTesteNewJ8/src/com/disclinc/netmanager/variable/test/TreeTest.java:38: error: (argument) $$ 4 $$ expected $$ Assert.assertEquals $$ null (NullType) $$ @Initialized @NonNull Object $$ ( 1083, 1087 ) $$ incompatible argument for parameter expected of Assert.assertEquals.
+		assertEquals("The node should not be into the tree after killing node method", null, tree.get("carro"));
+		                                                                               ^
+  found   : null (NullType)
+  required: @Initialized @NonNull Object
+../dataset/urla05239b71c_viniciusinnovatium_mumps2java_api_tgz-pJ8-com_disclinc_netmanager_script_test_ExecTesteNewJ8/src/com/disclinc/netmanager/variable/test/TreeTest.java:39: error: (argument) $$ 4 $$ expected $$ Assert.assertEquals $$ null (NullType) $$ @Initialized @NonNull Object $$ ( 1191, 1195 ) $$ incompatible argument for parameter expected of Assert.assertEquals.
+		assertEquals("The node should not be into the tree after killing node method", null, tree.get("carro", "esportivo"));
+		                                                                               ^
+  found   : null (NullType)
+  required: @Initialized @NonNull Object
+../dataset/urla05239b71c_viniciusinnovatium_mumps2java_api_tgz-pJ8-com_disclinc_netmanager_script_test_ExecTesteNewJ8/src/com/disclinc/netmanager/variable/test/TreeTest.java:40: error: (argument) $$ 4 $$ expected $$ Assert.assertEquals $$ null (NullType) $$ @Initialized @NonNull Object $$ ( 1312, 1316 ) $$ incompatible argument for parameter expected of Assert.assertEquals.
+		assertEquals("The node should not be into the tree after killing node method", null, tree.get("carro", "esportivo", "amarelo"));
+		                                                                               ^
+  found   : null (NullType)
+  required: @Initialized @NonNull Object
+../dataset/urla05239b71c_viniciusinnovatium_mumps2java_api_tgz-pJ8-com_disclinc_netmanager_script_test_ExecTesteNewJ8/src/com/disclinc/netmanager/variable/test/StackingVariableAndNewOperatorTest.java:10: error: (assignment) $$ 2 $$ null (NullType) $$ @Initialized @NonNull mContext $$ ( 251, 255 ) $$ incompatible types in assignment.
+	private mContext m$ = null;
+	                      ^
+  found   : null (NullType)
+  required: @Initialized @NonNull mContext
+../dataset/urla05239b71c_viniciusinnovatium_mumps2java_api_tgz-pJ8-com_disclinc_netmanager_script_test_ExecTesteNewJ8/src/com/disclinc/netmanager/variable/test/StackingVariableAndNewOperatorTest.java:30: error: (argument) $$ 4 $$ expected $$ Assert.assertEquals $$ null (NullType) $$ @Initialized @NonNull Object $$ ( 921, 925 ) $$ incompatible argument for parameter expected of Assert.assertEquals.
+				null, m$.var("pedido").get());
+				^
+  found   : null (NullType)
+  required: @Initialized @NonNull Object
+../dataset/urla05239b71c_viniciusinnovatium_mumps2java_api_tgz-pJ8-com_disclinc_netmanager_script_test_ExecTesteNewJ8/src/com/disclinc/netmanager/variable/test/StackingVariableAndNewOperatorTest.java:34: error: (argument) $$ 4 $$ expected $$ Assert.assertEquals $$ null (NullType) $$ @Initialized @NonNull Object $$ ( 1100, 1104 ) $$ incompatible argument for parameter expected of Assert.assertEquals.
+				null, m$.var("item").get());
+				^
+  found   : null (NullType)
+  required: @Initialized @NonNull Object
+../dataset/urla05239b71c_viniciusinnovatium_mumps2java_api_tgz-pJ8-com_disclinc_netmanager_script_test_ExecTesteNewJ8/src/com/disclinc/netmanager/variable/test/StackingVariableAndNewOperatorTest.java:46: error: (argument) $$ 4 $$ expected $$ Assert.assertEquals $$ null (NullType) $$ @Initialized @NonNull Object $$ ( 1575, 1579 ) $$ incompatible argument for parameter expected of Assert.assertEquals.
+				null, m$.var("contrato").get());
+				^
+  found   : null (NullType)
+  required: @Initialized @NonNull Object
+../dataset/urla05239b71c_viniciusinnovatium_mumps2java_api_tgz-pJ8-com_disclinc_netmanager_script_test_ExecTesteNewJ8/src/com/disclinc/netmanager/variable/test/StackingVariableAndNewOperatorTest.java:83: error: (argument) $$ 4 $$ expected $$ Assert.assertEquals $$ null (NullType) $$ @Initialized @NonNull Object $$ ( 2883, 2887 ) $$ incompatible argument for parameter expected of Assert.assertEquals.
+				null, m$.var("plastico").get());
+				^
+  found   : null (NullType)
+  required: @Initialized @NonNull Object
+../dataset/urla05239b71c_viniciusinnovatium_mumps2java_api_tgz-pJ8-com_disclinc_netmanager_script_test_ExecTesteNewJ8/src/com/disclinc/netmanager/variable/test/StackingVariableAndNewOperatorTest.java:87: error: (argument) $$ 4 $$ expected $$ Assert.assertEquals $$ null (NullType) $$ @Initialized @NonNull Object $$ ( 3075, 3079 ) $$ incompatible argument for parameter expected of Assert.assertEquals.
+				null, m$.var("eletronico").get());
+				^
+  found   : null (NullType)
+  required: @Initialized @NonNull Object
+../dataset/urla05239b71c_viniciusinnovatium_mumps2java_api_tgz-pJ8-com_disclinc_netmanager_script_test_ExecTesteNewJ8/src/com/disclinc/netmanager/variable/test/StackingVariableAndNewOperatorTest.java:194: error: (argument) $$ 4 $$ expected $$ Assert.assertEquals $$ null (NullType) $$ @Initialized @NonNull Object $$ ( 7183, 7187 ) $$ incompatible argument for parameter expected of Assert.assertEquals.
+				null, m$.var("contrato").get());
+				^
+  found   : null (NullType)
+  required: @Initialized @NonNull Object
+../dataset/urla05239b71c_viniciusinnovatium_mumps2java_api_tgz-pJ8-com_disclinc_netmanager_script_test_ExecTesteNewJ8/src/com/disclinc/netmanager/variable/test/StackingVariableAndNewOperatorTest.java:198: error: (argument) $$ 4 $$ expected $$ Assert.assertEquals $$ null (NullType) $$ @Initialized @NonNull Object $$ ( 7375, 7379 ) $$ incompatible argument for parameter expected of Assert.assertEquals.
+				null, m$.var("item").get());
+				^
+  found   : null (NullType)
+  required: @Initialized @NonNull Object
+../dataset/urla05239b71c_viniciusinnovatium_mumps2java_api_tgz-pJ8-com_disclinc_netmanager_script_test_ExecTesteNewJ8/src/com/disclinc/netmanager/variable/test/StackingVariableAndNewOperatorTest.java:202: error: (argument) $$ 4 $$ expected $$ Assert.assertEquals $$ null (NullType) $$ @Initialized @NonNull Object $$ ( 7563, 7567 ) $$ incompatible argument for parameter expected of Assert.assertEquals.
+				null, m$.var("plastico").get());
+				^
+  found   : null (NullType)
+  required: @Initialized @NonNull Object
+../dataset/urla05239b71c_viniciusinnovatium_mumps2java_api_tgz-pJ8-com_disclinc_netmanager_script_test_ExecTesteNewJ8/src/com/disclinc/netmanager/variable/test/StackingVariableAndNewOperatorTest.java:206: error: (argument) $$ 4 $$ expected $$ Assert.assertEquals $$ null (NullType) $$ @Initialized @NonNull Object $$ ( 7755, 7759 ) $$ incompatible argument for parameter expected of Assert.assertEquals.
+				null, m$.var("eletronico").get());
+				^
+  found   : null (NullType)
+  required: @Initialized @NonNull Object
+../dataset/urla05239b71c_viniciusinnovatium_mumps2java_api_tgz-pJ8-com_disclinc_netmanager_script_test_ExecTesteNewJ8/src/com/disclinc/netmanager/variable/test/StackingVariableAndNewOperatorTest.java:215: error: (argument) $$ 4 $$ expected $$ Assert.assertEquals $$ null (NullType) $$ @Initialized @NonNull Object $$ ( 8035, 8039 ) $$ incompatible argument for parameter expected of Assert.assertEquals.
+				null, m$.var("pedido").get());
+				^
+  found   : null (NullType)
+  required: @Initialized @NonNull Object
+../dataset/urla05239b71c_viniciusinnovatium_mumps2java_api_tgz-pJ8-com_disclinc_netmanager_script_test_ExecTesteNewJ8/src/com/disclinc/netmanager/variable/test/StackingVariableAndNewOperatorTest.java:219: error: (argument) $$ 4 $$ expected $$ Assert.assertEquals $$ null (NullType) $$ @Initialized @NonNull Object $$ ( 8214, 8218 ) $$ incompatible argument for parameter expected of Assert.assertEquals.
+				null, m$.var("pedido", "item").get());
+				^
+  found   : null (NullType)
+  required: @Initialized @NonNull Object
+../dataset/urla05239b71c_viniciusinnovatium_mumps2java_api_tgz-pJ8-com_disclinc_netmanager_script_test_ExecTesteNewJ8/src/com/disclinc/netmanager/variable/test/StackingVariableAndNewOperatorTest.java:223: error: (argument) $$ 4 $$ expected $$ Assert.assertEquals $$ null (NullType) $$ @Initialized @NonNull Object $$ ( 8401, 8405 ) $$ incompatible argument for parameter expected of Assert.assertEquals.
+				null, m$.var("pedido", "item", "medicamento").get());
+				^
+  found   : null (NullType)
+  required: @Initialized @NonNull Object
+../dataset/urla05239b71c_viniciusinnovatium_mumps2java_api_tgz-pJ8-com_disclinc_netmanager_script_test_ExecTesteNewJ8/src/com/disclinc/netmanager/variable/test/StackingVariableAndNewOperatorTest.java:241: error: (argument) $$ 4 $$ expected $$ Assert.assertEquals $$ null (NullType) $$ @Initialized @NonNull Object $$ ( 9081, 9085 ) $$ incompatible argument for parameter expected of Assert.assertEquals.
+				null, m$.var("pedido").get());
+				^
+  found   : null (NullType)
+  required: @Initialized @NonNull Object
+../dataset/urla05239b71c_viniciusinnovatium_mumps2java_api_tgz-pJ8-com_disclinc_netmanager_script_test_ExecTesteNewJ8/src/com/disclinc/netmanager/variable/test/StackingVariableAndNewOperatorTest.java:256: error: (argument) $$ 4 $$ expected $$ Assert.assertEquals $$ null (NullType) $$ @Initialized @NonNull Object $$ ( 9662, 9666 ) $$ incompatible argument for parameter expected of Assert.assertEquals.
+				null, m$.var("pedido").get());
+				^
+  found   : null (NullType)
+  required: @Initialized @NonNull Object
+../dataset/urla05239b71c_viniciusinnovatium_mumps2java_api_tgz-pJ8-com_disclinc_netmanager_script_test_ExecTesteNewJ8/src/com/disclinc/netmanager/variable/test/StackingVariableAndNewOperatorTest.java:298: error: (argument) $$ 4 $$ expected $$ Assert.assertEquals $$ null (NullType) $$ @Initialized @NonNull Object $$ ( 11263, 11267 ) $$ incompatible argument for parameter expected of Assert.assertEquals.
+				null, m$.var("pedido", "item").get());
+				^
+  found   : null (NullType)
+  required: @Initialized @NonNull Object
+../dataset/urla05239b71c_viniciusinnovatium_mumps2java_api_tgz-pJ8-com_disclinc_netmanager_script_test_ExecTesteNewJ8/src/com/disclinc/netmanager/variable/test/StackingVariableAndNewOperatorTest.java:317: error: (argument) $$ 4 $$ expected $$ Assert.assertEquals $$ null (NullType) $$ @Initialized @NonNull Object $$ ( 12021, 12025 ) $$ incompatible argument for parameter expected of Assert.assertEquals.
+				null, m$.var("contrato").get());
+				^
+  found   : null (NullType)
+  required: @Initialized @NonNull Object
+../dataset/urla05239b71c_viniciusinnovatium_mumps2java_api_tgz-pJ8-com_disclinc_netmanager_script_test_ExecTesteNewJ8/src/com/disclinc/netmanager/variable/test/StackingVariableAndNewOperatorTest.java:325: error: (argument) $$ 4 $$ expected $$ Assert.assertEquals $$ null (NullType) $$ @Initialized @NonNull Object $$ ( 12401, 12405 ) $$ incompatible argument for parameter expected of Assert.assertEquals.
+				null, m$.var("plastico").get());
+				^
+  found   : null (NullType)
+  required: @Initialized @NonNull Object
+../dataset/urla05239b71c_viniciusinnovatium_mumps2java_api_tgz-pJ8-com_disclinc_netmanager_script_test_ExecTesteNewJ8/src/com/disclinc/netmanager/variable/test/StackingVariableAndNewOperatorTest.java:360: error: (argument) $$ 4 $$ expected $$ Assert.assertEquals $$ null (NullType) $$ @Initialized @NonNull Object $$ ( 13852, 13856 ) $$ incompatible argument for parameter expected of Assert.assertEquals.
+				null, m$.var("pedido").get());
+				^
+  found   : null (NullType)
+  required: @Initialized @NonNull Object
+../dataset/urla05239b71c_viniciusinnovatium_mumps2java_api_tgz-pJ8-com_disclinc_netmanager_script_test_ExecTesteNewJ8/src/com/disclinc/netmanager/variable/test/DispatchMethodsTest.java:23: error: (argument) $$ 4 $$ objClass $$ mContext.dispatch $$ null (NullType) $$ @Initialized @NonNull mClass $$ ( 577, 581 ) $$ incompatible argument for parameter objClass of mContext.dispatch.
+		assertEquals(30, m$.dispatch(null,
+		                             ^
+  found   : null (NullType)
+  required: @Initialized @NonNull mClass
+../dataset/urla05239b71c_viniciusinnovatium_mumps2java_api_tgz-pJ8-com_disclinc_netmanager_script_test_ExecTesteNewJ8/src/com/disclinc/netmanager/variable/test/DispatchMethodsTest.java:25: error: (argument) $$ 4 $$ parameters $$ mContext.dispatch $$ @Initialized @NonNull Object @FBCBottom @Nullable [] $$ @Initialized @NonNull Object @Initialized @NonNull [] $$ ( 654, 669 ) $$ incompatible argument for parameter parameters of mContext.dispatch.
+				(Object[]) null));
+				^
+  found   : @Initialized @NonNull Object @FBCBottom @Nullable []
+  required: @Initialized @NonNull Object @Initialized @NonNull []
+../dataset/urla05239b71c_viniciusinnovatium_mumps2java_api_tgz-pJ8-com_disclinc_netmanager_script_test_ExecTesteNewJ8/src/com/disclinc/netmanager/variable/test/DispatchMethodsTest.java:35: error: (argument) $$ 4 $$ objClass $$ mContext.dispatch $$ null (NullType) $$ @Initialized @NonNull mClass $$ ( 1029, 1033 ) $$ incompatible argument for parameter objClass of mContext.dispatch.
+		assertEquals(57, m$.dispatch(null,
+		                             ^
+  found   : null (NullType)
+  required: @Initialized @NonNull mClass
+../dataset/urla05239b71c_viniciusinnovatium_mumps2java_api_tgz-pJ8-com_disclinc_netmanager_script_test_ExecTesteNewJ8/src/com/disclinc/netmanager/variable/test/DispatchMethodsTest.java:47: error: (argument) $$ 4 $$ expected $$ Assert.assertEquals $$ null (NullType) $$ @Initialized @NonNull Object $$ ( 1478, 1482 ) $$ incompatible argument for parameter expected of Assert.assertEquals.
+		assertEquals("Fail to recover value of the variable after", null, m$.dispatch(null,
+		                                                            ^
+  found   : null (NullType)
+  required: @Initialized @NonNull Object
+../dataset/urla05239b71c_viniciusinnovatium_mumps2java_api_tgz-pJ8-com_disclinc_netmanager_script_test_ExecTesteNewJ8/src/com/disclinc/netmanager/variable/test/DispatchMethodsTest.java:47: error: (argument) $$ 4 $$ objClass $$ mContext.dispatch $$ null (NullType) $$ @Initialized @NonNull mClass $$ ( 1496, 1500 ) $$ incompatible argument for parameter objClass of mContext.dispatch.
+		assertEquals("Fail to recover value of the variable after", null, m$.dispatch(null,
+		                                                                              ^
+  found   : null (NullType)
+  required: @Initialized @NonNull mClass
+../dataset/urla05239b71c_viniciusinnovatium_mumps2java_api_tgz-pJ8-com_disclinc_netmanager_script_test_ExecTesteNewJ8/src/com/disclinc/netmanager/variable/test/DispatchMethodsTest.java:59: error: (argument) $$ 4 $$ objClass $$ mContext.dispatch $$ null (NullType) $$ @Initialized @NonNull mClass $$ ( 2010, 2014 ) $$ incompatible argument for parameter objClass of mContext.dispatch.
+		assertEquals("Fail to recover value of the variable after", "chamada3", m$.dispatch(null,
+		                                                                                    ^
+  found   : null (NullType)
+  required: @Initialized @NonNull mClass
+../dataset/urla05239b71c_viniciusinnovatium_mumps2java_api_tgz-pJ8-com_disclinc_netmanager_script_test_ExecTesteNewJ8/src/com/disclinc/netmanager/function/test/CharacterFunctionTest.java:36: error: (argument) $$ 4 $$ expected $$ Assert.assertEquals $$ null (NullType) $$ @Initialized @NonNull Object $$ ( 1010, 1014 ) $$ incompatible argument for parameter expected of Assert.assertEquals.
+		assertEquals("Fail to generate char from null integer sequence", null, $char((Object)null));
+		                                                                 ^
+  found   : null (NullType)
+  required: @Initialized @NonNull Object
+../dataset/urla05239b71c_viniciusinnovatium_mumps2java_api_tgz-pJ8-com_disclinc_netmanager_script_test_ExecTesteNewJ8/src/com/disclinc/netmanager/function/test/CharacterFunctionTest.java:36: error: (argument) $$ 4 $$ codes $$ mFnc.$char $$ @FBCBottom @Nullable Object $$ @Initialized @NonNull Object $$ ( 1022, 1034 ) $$ incompatible argument for parameter codes of mFnc.$char.
+		assertEquals("Fail to generate char from null integer sequence", null, $char((Object)null));
+		                                                                             ^
+  found   : @FBCBottom @Nullable Object
+  required: @Initialized @NonNull Object
+../dataset/urla05239b71c_viniciusinnovatium_mumps2java_api_tgz-pJ8-com_disclinc_netmanager_script_test_ExecTesteNewJ8/src/com/disclinc/netmanager/function/test/CharacterFunctionTest.java:41: error: (argument) $$ 4 $$ expected $$ Assert.assertEquals $$ null (NullType) $$ @Initialized @NonNull Object $$ ( 1162, 1166 ) $$ incompatible argument for parameter expected of Assert.assertEquals.
+		assertEquals("Fail to generate char from empty integer sequence", null, $char(new int[]{}));
+		                                                                  ^
+  found   : null (NullType)
+  required: @Initialized @NonNull Object
+../dataset/urla05239b71c_viniciusinnovatium_mumps2java_api_tgz-pJ8-com_disclinc_netmanager_script_test_ExecTesteNewJ8/src/com/disclinc/netmanager/function/test/PieceFunctionTest.java:57: error: (argument) $$ 4 $$ string $$ mFnc.$setpiece $$ null (NullType) $$ @Initialized @NonNull Object $$ ( 1773, 1777 ) $$ incompatible argument for parameter string of mFnc.$setpiece.
+		assertEquals("Fail on setting a new value to a null string", DELIMITER+"NOVA STRING AQUI", $setpiece(null, DELIMITER, to, "NOVA STRING AQUI"));
+		                                                                                                     ^
+  found   : null (NullType)
+  required: @Initialized @NonNull Object
+../dataset/urla05239b71c_viniciusinnovatium_mumps2java_api_tgz-pJ8-com_disclinc_netmanager_script_test_ExecTesteNewJ8/src/com/disclinc/netmanager/function/test/PieceFunctionTest.java:64: error: (argument) $$ 4 $$ value $$ mFnc.$setpiece $$ null (NullType) $$ @Initialized @NonNull Object $$ ( 2097, 2101 ) $$ incompatible argument for parameter value of mFnc.$setpiece.
+		assertEquals("Fail on setting a new value to a null string", string, $setpiece(STRING_TEST, DELIMITER, to, null));
+		                                                                                                           ^
+  found   : null (NullType)
+  required: @Initialized @NonNull Object
+../dataset/urla05239b71c_viniciusinnovatium_mumps2java_api_tgz-pJ8-com_disclinc_netmanager_script_test_ExecTesteNewJ8/src/com/disclinc/netmanager/function/test/JustifyFunctionTest.java:63: error: (argument) $$ 4 $$ expression $$ mFnc.$justify $$ @FBCBottom @Nullable Object $$ @Initialized @NonNull Object $$ ( 1405, 1415 ) $$ incompatible argument for parameter expression of mFnc.$justify.
+		Object actual = mFnc.$justify(expression, width);
+		                              ^
+  found   : @FBCBottom @Nullable Object
+  required: @Initialized @NonNull Object
+../dataset/urla05239b71c_viniciusinnovatium_mumps2java_api_tgz-pJ8-com_disclinc_netmanager_script_test_ExecTesteNewJ8/src/com/disclinc/netmanager/function/test/JustifyFunctionTest.java:64: error: (argument) $$ 4 $$ expected $$ Assert.assertEquals $$ null (NullType) $$ @Initialized @NonNull Object $$ ( 1477, 1481 ) $$ incompatible argument for parameter expected of Assert.assertEquals.
+		assertEquals("Fail on justify with some string", null, actual);
+		                                                 ^
+  found   : null (NullType)
+  required: @Initialized @NonNull Object
+../dataset/urla05239b71c_viniciusinnovatium_mumps2java_api_tgz-pJ8-com_disclinc_netmanager_script_test_ExecTesteNewJ8/src/com/disclinc/netmanager/function/test/ReplaceFunctionTest.java:51: error: (argument) $$ 4 $$ string $$ mFnc.$translate $$ @FBCBottom @Nullable String $$ @Initialized @NonNull Object $$ ( 1445, 1451 ) $$ incompatible argument for parameter string of mFnc.$translate.
+				$translate(string, oldSubstring, newSubstring));
+				           ^
+  found   : @FBCBottom @Nullable String
+  required: @Initialized @NonNull Object
+../dataset/urla05239b71c_viniciusinnovatium_mumps2java_api_tgz-pJ8-com_disclinc_netmanager_script_test_ExecTesteNewJ8/src/com/disclinc/netmanager/function/test/MergeFunctionTest.java:115: error: (argument) $$ 4 $$ expected $$ Assert.assertEquals $$ null (NullType) $$ @Initialized @NonNull Object $$ ( 4939, 4943 ) $$ incompatible argument for parameter expected of Assert.assertEquals.
+		assertEquals("This subscripts was not merged and should be undefined, i.e, does have anyone value", null, m$.var("b", "1").get());
+		                                                                                                    ^
+  found   : null (NullType)
+  required: @Initialized @NonNull Object
+../dataset/urla05239b71c_viniciusinnovatium_mumps2java_api_tgz-pJ8-com_disclinc_netmanager_script_test_ExecTesteNewJ8/src/com/disclinc/netmanager/function/test/SelectFunctionTest.java:33: warning: non-varargs call of varargs method with inexact argument type for last parameter;
+		assertEquals("Fail on select a valid condition", null, $select(null));
+		                                                               ^
+  cast to BooleanObject for a varargs call
+  cast to BooleanObject[] for a non-varargs call and to suppress this warning
+../dataset/urla05239b71c_viniciusinnovatium_mumps2java_api_tgz-pJ8-com_disclinc_netmanager_script_test_ExecTesteNewJ8/src/com/disclinc/netmanager/function/test/SelectFunctionTest.java:27: error: (argument) $$ 4 $$ expected $$ Assert.assertEquals $$ null (NullType) $$ @Initialized @NonNull Object $$ ( 923, 927 ) $$ incompatible argument for parameter expected of Assert.assertEquals.
+		assertEquals("Fail on select a valid condition", null,
+		                                                 ^
+  found   : null (NullType)
+  required: @Initialized @NonNull Object
+../dataset/urla05239b71c_viniciusinnovatium_mumps2java_api_tgz-pJ8-com_disclinc_netmanager_script_test_ExecTesteNewJ8/src/com/disclinc/netmanager/function/test/SelectFunctionTest.java:33: error: (argument) $$ 4 $$ expected $$ Assert.assertEquals $$ null (NullType) $$ @Initialized @NonNull Object $$ ( 1098, 1102 ) $$ incompatible argument for parameter expected of Assert.assertEquals.
+		assertEquals("Fail on select a valid condition", null, $select(null));
+		                                                 ^
+  found   : null (NullType)
+  required: @Initialized @NonNull Object
+../dataset/urla05239b71c_viniciusinnovatium_mumps2java_api_tgz-pJ8-com_disclinc_netmanager_script_test_ExecTesteNewJ8/src/com/disclinc/netmanager/function/test/SelectFunctionTest.java:33: error: (argument) $$ 4 $$ conditions $$ mFnc.$select $$ null (NullType) $$ @Initialized @NonNull BooleanObject @Initialized @NonNull [] $$ ( 1112, 1116 ) $$ incompatible argument for parameter conditions of mFnc.$select.
+		assertEquals("Fail on select a valid condition", null, $select(null));
+		                                                               ^
+  found   : null (NullType)
+  required: @Initialized @NonNull BooleanObject @Initialized @NonNull []
+../dataset/urla05239b71c_viniciusinnovatium_mumps2java_api_tgz-pJ8-com_disclinc_netmanager_script_test_ExecTesteNewJ8/src/com/disclinc/netmanager/function/test/SelectFunctionTest.java:38: error: (argument) $$ 4 $$ expected $$ Assert.assertEquals $$ null (NullType) $$ @Initialized @NonNull Object $$ ( 1239, 1243 ) $$ incompatible argument for parameter expected of Assert.assertEquals.
+		assertEquals("Fail on select a valid condition", null,
+		                                                 ^
+  found   : null (NullType)
+  required: @Initialized @NonNull Object
+../dataset/urla05239b71c_viniciusinnovatium_mumps2java_api_tgz-pJ8-com_disclinc_netmanager_script_test_ExecTesteNewJ8/src/com/disclinc/netmanager/function/test/DataFunctionTest.java:16: error: (argument) $$ 4 $$ value $$ mVar.set $$ null (NullType) $$ @Initialized @NonNull Object $$ ( 326, 330 ) $$ incompatible argument for parameter value of mVar.set.
+		m$.var("x", "11").set(null);
+		                      ^
+  found   : null (NullType)
+  required: @Initialized @NonNull Object
+../dataset/urla05239b71c_viniciusinnovatium_mumps2java_api_tgz-pJ8-com_disclinc_netmanager_script_test_ExecTesteNewJ8/src/com/disclinc/netmanager/function/test/DataFunctionTest.java:18: error: (argument) $$ 4 $$ value $$ mVar.set $$ null (NullType) $$ @Initialized @NonNull Object $$ ( 385, 389 ) $$ incompatible argument for parameter value of mVar.set.
+		m$.var("x", "3").set(null);
+		                     ^
+  found   : null (NullType)
+  required: @Initialized @NonNull Object
+../dataset/urla05239b71c_viniciusinnovatium_mumps2java_api_tgz-pJ8-com_disclinc_netmanager_script_test_ExecTesteNewJ8/src/com/disclinc/netmanager/function/test/DataFunctionTest.java:21: error: (argument) $$ 4 $$ value $$ mVar.set $$ null (NullType) $$ @Initialized @NonNull Object $$ ( 471, 475 ) $$ incompatible argument for parameter value of mVar.set.
+		m$.var("y").set(null);
+		                ^
+  found   : null (NullType)
+  required: @Initialized @NonNull Object
+../dataset/urla05239b71c_viniciusinnovatium_mumps2java_api_tgz-pJ8-com_disclinc_netmanager_script_test_ExecTesteNewJ8/src/com/disclinc/netmanager/function/test/IsValidmumFunctionTest.java:12: error: (argument) $$ 4 $$ num $$ mFnc.$isvalidnum $$ null (NullType) $$ @Initialized @NonNull Object $$ ( 274, 278 ) $$ incompatible argument for parameter num of mFnc.$isvalidnum.
+		boolean actual = mFnc.$isvalidnum(null);
+		                                  ^
+  found   : null (NullType)
+  required: @Initialized @NonNull Object
+../dataset/urla05239b71c_viniciusinnovatium_mumps2java_api_tgz-pJ8-com_disclinc_netmanager_script_test_ExecTesteNewJ8/src/com/disclinc/netmanager/function/test/CaseFunctionTest.java:94: error: (argument) $$ 4 $$ args $$ mFnc.$case $$ @FBCBottom @Nullable Object $$ @Initialized @NonNull Object $$ ( 2276, 2282 ) $$ incompatible argument for parameter args of mFnc.$case.
+		Object actual = mFnc.$case(target, bool1, var1, bool2, var2, bool3,
+		                           ^
+  found   : @FBCBottom @Nullable Object
+  required: @Initialized @NonNull Object
+../dataset/urla05239b71c_viniciusinnovatium_mumps2java_api_tgz-pJ8-com_disclinc_netmanager_script_test_ExecTesteNewJ8/src/mLibrary/mFncUtil.java:41: error: (return) $$ 2 $$ null (NullType) $$ @Initialized @NonNull Double $$ ( 1076, 1080 ) $$ incompatible types in return.
+			return null;
+			       ^
+  type of expression: null (NullType)
+  method return type: @Initialized @NonNull Double
+../dataset/urla05239b71c_viniciusinnovatium_mumps2java_api_tgz-pJ8-com_disclinc_netmanager_script_test_ExecTesteNewJ8/src/mLibrary/mFncUtil.java:43: error: (return) $$ 2 $$ null (NullType) $$ @Initialized @NonNull Double $$ ( 1129, 1133 ) $$ incompatible types in return.
+			return null;
+			       ^
+  type of expression: null (NullType)
+  method return type: @Initialized @NonNull Double
+../dataset/urla05239b71c_viniciusinnovatium_mumps2java_api_tgz-pJ8-com_disclinc_netmanager_script_test_ExecTesteNewJ8/src/mLibrary/mFncUtil.java:54: error: (return) $$ 2 $$ null (NullType) $$ @Initialized @NonNull Integer $$ ( 1356, 1360 ) $$ incompatible types in return.
+			return null;
+			       ^
+  type of expression: null (NullType)
+  method return type: @Initialized @NonNull Integer
+../dataset/urla05239b71c_viniciusinnovatium_mumps2java_api_tgz-pJ8-com_disclinc_netmanager_script_test_ExecTesteNewJ8/src/mLibrary/mFncUtil.java:56: error: (return) $$ 2 $$ null (NullType) $$ @Initialized @NonNull Integer $$ ( 1409, 1413 ) $$ incompatible types in return.
+			return null;
+			       ^
+  type of expression: null (NullType)
+  method return type: @Initialized @NonNull Integer
+../dataset/urla05239b71c_viniciusinnovatium_mumps2java_api_tgz-pJ8-com_disclinc_netmanager_script_test_ExecTesteNewJ8/src/mLibrary/mFncUtil.java:62: error: (return) $$ 2 $$ null (NullType) $$ @Initialized @NonNull Integer @Initialized @NonNull [] $$ ( 1515, 1519 ) $$ incompatible types in return.
+			return null;
+			       ^
+  type of expression: null (NullType)
+  method return type: @Initialized @NonNull Integer @Initialized @NonNull []
+../dataset/urla05239b71c_viniciusinnovatium_mumps2java_api_tgz-pJ8-com_disclinc_netmanager_script_test_ExecTesteNewJ8/src/mLibrary/mFncUtil.java:83: error: (return) $$ 2 $$ null (NullType) $$ @Initialized @NonNull String $$ ( 1958, 1962 ) $$ incompatible types in return.
+			return null;
+			       ^
+  type of expression: null (NullType)
+  method return type: @Initialized @NonNull String
+../dataset/urla05239b71c_viniciusinnovatium_mumps2java_api_tgz-pJ8-com_disclinc_netmanager_script_test_ExecTesteNewJ8/src/mLibrary/mFncUtil.java:87: error: (return) $$ 2 $$ null (NullType) $$ @Initialized @NonNull String $$ ( 2030, 2034 ) $$ incompatible types in return.
+			return null;
+			       ^
+  type of expression: null (NullType)
+  method return type: @Initialized @NonNull String
+../dataset/urla05239b71c_viniciusinnovatium_mumps2java_api_tgz-pJ8-com_disclinc_netmanager_script_test_ExecTesteNewJ8/src/mLibrary/mFncUtil.java:98: error: (argument) $$ 4 $$ delimiter $$ mFncUtil.generateString $$ null (NullType) $$ @Initialized @NonNull String $$ ( 2355, 2359 ) $$ incompatible argument for parameter delimiter of mFncUtil.generateString.
+		return generateString(chars, null, true);
+		                             ^
+  found   : null (NullType)
+  required: @Initialized @NonNull String
+../dataset/urla05239b71c_viniciusinnovatium_mumps2java_api_tgz-pJ8-com_disclinc_netmanager_script_test_ExecTesteNewJ8/src/mLibrary/mFncUtil.java:310: error: (return) $$ 2 $$ null (NullType) $$ @Initialized @NonNull String $$ ( 7877, 7881 ) $$ incompatible types in return.
+			return null;
+			       ^
+  type of expression: null (NullType)
+  method return type: @Initialized @NonNull String
+../dataset/urla05239b71c_viniciusinnovatium_mumps2java_api_tgz-pJ8-com_disclinc_netmanager_script_test_ExecTesteNewJ8/src/mLibrary/mFncUtil.java:323: error: (return) $$ 2 $$ null (NullType) $$ @Initialized @NonNull String $$ ( 8195, 8199 ) $$ incompatible types in return.
+			return null;
+			       ^
+  type of expression: null (NullType)
+  method return type: @Initialized @NonNull String
+../dataset/urla05239b71c_viniciusinnovatium_mumps2java_api_tgz-pJ8-com_disclinc_netmanager_script_test_ExecTesteNewJ8/src/mLibrary/mFncUtil.java:327: error: (return) $$ 2 $$ null (NullType) $$ @Initialized @NonNull String $$ ( 8239, 8243 ) $$ incompatible types in return.
+			return null;
+			       ^
+  type of expression: null (NullType)
+  method return type: @Initialized @NonNull String
+../dataset/urla05239b71c_viniciusinnovatium_mumps2java_api_tgz-pJ8-com_disclinc_netmanager_script_test_ExecTesteNewJ8/src/mLibrary/mFncUtil.java:337: error: (assignment) $$ 2 $$ @Initialized @Nullable String @Initialized @NonNull [] $$ @Initialized @NonNull String @UnknownInitialization @Nullable [] $$ ( 8456, 8498 ) $$ incompatible types in assignment.
+		final String[] array = Arrays.copyOfRange(strSplit, from - 1, to);
+		                                         ^
+  found   : @Initialized @Nullable String @Initialized @NonNull []
+  required: @Initialized @NonNull String @UnknownInitialization @Nullable []
+../dataset/urla05239b71c_viniciusinnovatium_mumps2java_api_tgz-pJ8-com_disclinc_netmanager_script_test_ExecTesteNewJ8/src/mLibrary/mFncUtil.java:362: error: (assignment) $$ 2 $$ @Initialized @Nullable Object @Initialized @NonNull [] $$ @Initialized @NonNull Object @UnknownInitialization @Nullable [] $$ ( 9191, 9229 ) $$ incompatible types in assignment.
+			array = Arrays.copyOfRange(array, 0, position);
+			                          ^
+  found   : @Initialized @Nullable Object @Initialized @NonNull []
+  required: @Initialized @NonNull Object @UnknownInitialization @Nullable []
+../dataset/urla05239b71c_viniciusinnovatium_mumps2java_api_tgz-pJ8-com_disclinc_netmanager_script_test_ExecTesteNewJ8/src/mLibrary/mOp.java:18: error: (return) $$ 2 $$ null (NullType) $$ @Initialized @NonNull Object $$ ( 340, 344 ) $$ incompatible types in return.
+			return null;
+			       ^
+  type of expression: null (NullType)
+  method return type: @Initialized @NonNull Object
+../dataset/urla05239b71c_viniciusinnovatium_mumps2java_api_tgz-pJ8-com_disclinc_netmanager_script_test_ExecTesteNewJ8/src/mLibrary/mOp.java:26: error: (return) $$ 2 $$ null (NullType) $$ @Initialized @NonNull Object $$ ( 496, 500 ) $$ incompatible types in return.
+			return null;
+			       ^
+  type of expression: null (NullType)
+  method return type: @Initialized @NonNull Object
+../dataset/urla05239b71c_viniciusinnovatium_mumps2java_api_tgz-pJ8-com_disclinc_netmanager_script_test_ExecTesteNewJ8/src/mLibrary/mRegExConverter.java:184: error: (dereference.of.nullable) $$ 1 $$ javaPattern $$ ( 5579, 5590 ) $$ dereference of possibly-null reference javaPattern
+				if (javaPattern.equals(""))
+				    ^
+../dataset/urla05239b71c_viniciusinnovatium_mumps2java_api_tgz-pJ8-com_disclinc_netmanager_script_test_ExecTesteNewJ8/src/mLibrary/mRegExConverter.java:190: error: (argument) $$ 4 $$ str $$ String.concat $$ @Initialized @Nullable String $$ @Initialized @NonNull String $$ ( 5760, 5813 ) $$ incompatible argument for parameter str of String.concat.
+					javaPattern = javaPattern.concat("|").concat(patternAtomTranslateTable.get(cachePattern.charAt(i)));
+					                                                                          ^
+  found   : @Initialized @Nullable String
+  required: @Initialized @NonNull String
+../dataset/urla05239b71c_viniciusinnovatium_mumps2java_api_tgz-pJ8-com_disclinc_netmanager_script_test_ExecTesteNewJ8/src/mLibrary/mRegExConverter.java:194: error: (argument) $$ 4 $$ str $$ String.concat $$ @Initialized @Nullable String $$ @Initialized @NonNull String $$ ( 5855, 5866 ) $$ incompatible argument for parameter str of String.concat.
+		return "(".concat(javaPattern).concat(")");
+		                  ^
+  found   : @Initialized @Nullable String
+  required: @Initialized @NonNull String
+../dataset/urla05239b71c_viniciusinnovatium_mumps2java_api_tgz-pJ8-com_disclinc_netmanager_script_test_ExecTesteNewJ8/src/mLibrary/mZStripParser.java:181: error: (argument) $$ 4 $$ str $$ String.concat $$ @Initialized @Nullable String $$ @Initialized @NonNull String $$ ( 6618, 6667 ) $$ incompatible argument for parameter str of String.concat.
+					javaPattern = javaPattern.concat(patternTranslateTable.get(cachePattern.charAt(i)));
+					                                                          ^
+  found   : @Initialized @Nullable String
+  required: @Initialized @NonNull String
+../dataset/urla05239b71c_viniciusinnovatium_mumps2java_api_tgz-pJ8-com_disclinc_netmanager_script_test_ExecTesteNewJ8/src/mLibrary/mPieceVar.java:21: error: (assignment) $$ 2 $$ null (NullType) $$ @Initialized @NonNull Integer $$ ( 674, 678 ) $$ incompatible types in assignment.
+				this.position = null;
+				                ^
+  found   : null (NullType)
+  required: @Initialized @NonNull Integer
+Note: Some input files use or override a deprecated API.
+Note: Recompile with -Xlint:deprecation for details.
+215 errors
+1 warning

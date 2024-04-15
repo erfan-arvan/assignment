@@ -1,0 +1,430 @@
+/*     */
+package org.ands.rifcs.base;
+
+/*     */
+/*     */
+import java.util.Iterator;
+/*     */
+import java.util.List;
+/*     */
+import org.w3c.dom.Element;
+/*     */
+import org.w3c.dom.Node;
+/*     */
+import org.w3c.dom.NodeList;
+
+/*     */
+/*     */
+/*     */
+@org.checkerframework.framework.qual.AnnotatedFor("org.checkerframework.checker.nullness.NullnessChecker")
+public class RegistryObject extends RIFCSElement {
+
+    /*     */
+    /*  38 */
+    private @org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.MonotonicNonNull String objectClass = null;
+
+    /*     */
+    /*     */
+    @org.checkerframework.checker.nullness.qual.EnsuresNonNull({ "#1" })
+    @org.checkerframework.framework.qual.EnsuresQualifier(expression = { "this.objectClass" }, qualifier = org.checkerframework.checker.initialization.qual.FBCBottom.class)
+    @org.checkerframework.framework.qual.EnsuresQualifier(expression = { "this.objectClass" }, qualifier = org.checkerframework.checker.nullness.qual.Nullable.class)
+    @org.checkerframework.dataflow.qual.Impure
+    protected RegistryObject(@org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.Nullable Node n) throws /*     */
+    RIFCSException /*     */
+    {
+        /*  50 */
+        super(n, "registryObject");
+        /*  51 */
+        initStructures();
+        /*     */
+    }
+
+    /*     */
+    /*     */
+    @org.checkerframework.framework.qual.EnsuresQualifier(expression = { "this.objectClass" }, qualifier = org.checkerframework.checker.nullness.qual.Nullable.class)
+    @org.checkerframework.dataflow.qual.Impure
+    public void setKey(@org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.NonNull String keyValue) /*     */
+    {
+        /*  63 */
+        Element key = newElement("key");
+        /*  64 */
+        key.setTextContent(keyValue);
+        /*  65 */
+        getElement().appendChild(key);
+        /*     */
+    }
+
+    /*     */
+    /*     */
+    @org.checkerframework.framework.qual.EnsuresQualifier(expression = { "this.objectClass" }, qualifier = org.checkerframework.checker.nullness.qual.Nullable.class)
+    @org.checkerframework.dataflow.qual.Impure
+    public @org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.Nullable String getKey() /*     */
+    {
+        /*  77 */
+        List nl = super.getChildElements("key");
+        /*  78 */
+        if (nl.size() == 1) /*     */
+        {
+            /*  80 */
+            return ((Node) nl.get(0)).getTextContent();
+            /*     */
+        }
+        /*     */
+        /*  83 */
+        return null;
+        /*     */
+    }
+
+    /*     */
+    /*     */
+    @org.checkerframework.framework.qual.EnsuresQualifier(expression = { "this.objectClass" }, qualifier = org.checkerframework.checker.nullness.qual.Nullable.class)
+    @org.checkerframework.dataflow.qual.Impure
+    public void setOriginatingSource(@org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.NonNull String sourceValue) /*     */
+    {
+        /*  95 */
+        Element source = newElement("originatingSource");
+        /*  96 */
+        source.setTextContent(sourceValue);
+        /*  97 */
+        getElement().appendChild(source);
+        /*     */
+    }
+
+    /*     */
+    /*     */
+    @org.checkerframework.framework.qual.EnsuresQualifier(expression = { "this.objectClass" }, qualifier = org.checkerframework.checker.nullness.qual.Nullable.class)
+    @org.checkerframework.dataflow.qual.Impure
+    public void setOriginatingSource(String sourceValue, String type) /*     */
+    {
+        /* 113 */
+        Element source = newElement("originatingSource");
+        /* 114 */
+        source.setTextContent(sourceValue);
+        /* 115 */
+        source.setAttribute("type", type);
+        /* 116 */
+        getElement().appendChild(source);
+        /*     */
+    }
+
+    /*     */
+    /*     */
+    @org.checkerframework.framework.qual.EnsuresQualifier(expression = { "this.objectClass" }, qualifier = org.checkerframework.checker.nullness.qual.Nullable.class)
+    @org.checkerframework.dataflow.qual.Impure
+    public void setOriginatingSourceType(String type) /*     */
+    {
+        /* 129 */
+        NodeList nl = super.getElements("originatingSource");
+        /* 130 */
+        if (nl.getLength() == 1) /*     */
+        {
+            /* 132 */
+            ((Element) nl.item(0)).setAttribute("type", type);
+            /*     */
+        }
+        /*     */
+    }
+
+    /*     */
+    /*     */
+    @org.checkerframework.framework.qual.EnsuresQualifier(expression = { "this.objectClass" }, qualifier = org.checkerframework.checker.nullness.qual.Nullable.class)
+    @org.checkerframework.dataflow.qual.Pure
+    public @org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.Nullable String getOriginatingSource() /*     */
+    {
+        /* 145 */
+        NodeList nl = super.getElements("originatingSource");
+        /* 146 */
+        if (nl.getLength() == 1) /*     */
+        {
+            /* 148 */
+            return nl.item(0).getTextContent();
+            /*     */
+        }
+        /*     */
+        /* 151 */
+        return null;
+        /*     */
+    }
+
+    /*     */
+    /*     */
+    @org.checkerframework.framework.qual.EnsuresQualifier(expression = { "this.objectClass" }, qualifier = org.checkerframework.checker.nullness.qual.Nullable.class)
+    @org.checkerframework.dataflow.qual.Pure
+    public @org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.Nullable String getOriginatingSourceType() /*     */
+    {
+        /* 163 */
+        NodeList nl = super.getElements("originatingSource");
+        /* 164 */
+        if (nl.getLength() == 1) /*     */
+        {
+            /* 166 */
+            if (((Element) nl.item(0)).hasAttribute("type")) /*     */
+            {
+                /* 168 */
+                return ((Element) nl.item(0)).getAttribute("type");
+                /*     */
+            }
+            /*     */
+            /* 172 */
+            return null;
+            /*     */
+        }
+        /*     */
+        /* 176 */
+        return null;
+        /*     */
+    }
+
+    /*     */
+    /*     */
+    @org.checkerframework.framework.qual.EnsuresQualifier(expression = { "this.objectClass" }, qualifier = org.checkerframework.checker.nullness.qual.Nullable.class)
+    @org.checkerframework.dataflow.qual.Impure
+    public void setGroup(@org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.NonNull String group) /*     */
+    {
+        /* 189 */
+        super.setAttributeValue("group", group);
+        /*     */
+    }
+
+    /*     */
+    /*     */
+    @org.checkerframework.framework.qual.EnsuresQualifier(expression = { "this.objectClass" }, qualifier = org.checkerframework.checker.nullness.qual.Nullable.class)
+    @org.checkerframework.dataflow.qual.Pure
+    public @org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.NonNull String getGroup() /*     */
+    {
+        /* 202 */
+        return super.getAttributeValue("group");
+        /*     */
+    }
+
+    /*     */
+    /*     */
+    @org.checkerframework.framework.qual.EnsuresQualifier(expression = { "this.objectClass" }, qualifier = org.checkerframework.checker.nullness.qual.Nullable.class)
+    @org.checkerframework.dataflow.qual.Impure
+    public @org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.NonNull Collection newCollection() throws /*     */
+    RIFCSException /*     */
+    {
+        /* 220 */
+        Element coll = newElement("collection");
+        /* 221 */
+        return new Collection(coll);
+        /*     */
+    }
+
+    /*     */
+    /*     */
+    @org.checkerframework.framework.qual.EnsuresQualifier(expression = { "this.objectClass" }, qualifier = org.checkerframework.checker.nullness.qual.Nullable.class)
+    @org.checkerframework.dataflow.qual.Impure
+    public @org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.NonNull Activity newActivity() throws /*     */
+    RIFCSException /*     */
+    {
+        /* 239 */
+        Element activity = newElement("activity");
+        /* 240 */
+        return new Activity(activity);
+        /*     */
+    }
+
+    /*     */
+    /*     */
+    @org.checkerframework.framework.qual.EnsuresQualifier(expression = { "this.objectClass" }, qualifier = org.checkerframework.checker.nullness.qual.Nullable.class)
+    @org.checkerframework.dataflow.qual.Impure
+    public @org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.NonNull Party newParty() throws /*     */
+    RIFCSException /*     */
+    {
+        /* 258 */
+        Element party = newElement("party");
+        /* 259 */
+        return new Party(party);
+        /*     */
+    }
+
+    /*     */
+    /*     */
+    @org.checkerframework.framework.qual.EnsuresQualifier(expression = { "this.objectClass" }, qualifier = org.checkerframework.checker.nullness.qual.Nullable.class)
+    @org.checkerframework.dataflow.qual.Impure
+    public @org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.NonNull Service newService() throws /*     */
+    RIFCSException /*     */
+    {
+        /* 277 */
+        Element service = newElement("service");
+        /* 278 */
+        return new Service(service);
+        /*     */
+    }
+
+    /*     */
+    /*     */
+    @org.checkerframework.checker.nullness.qual.EnsuresNonNull({ "this.objectClass" })
+    @org.checkerframework.dataflow.qual.Impure
+    public void addCollection(@org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.NonNull Collection collection) /*     */
+    {
+        /* 290 */
+        getElement().appendChild(collection.getElement());
+        /* 291 */
+        this.objectClass = "collection";
+        /*     */
+    }
+
+    /*     */
+    /*     */
+    @org.checkerframework.checker.nullness.qual.EnsuresNonNull({ "this.objectClass" })
+    @org.checkerframework.dataflow.qual.Impure
+    public void addActivity(@org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.NonNull Activity activity) /*     */
+    {
+        /* 303 */
+        getElement().appendChild(activity.getElement());
+        /* 304 */
+        this.objectClass = "party";
+        /*     */
+    }
+
+    /*     */
+    /*     */
+    @org.checkerframework.checker.nullness.qual.EnsuresNonNull({ "this.objectClass" })
+    @org.checkerframework.dataflow.qual.Impure
+    public void addParty(@org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.NonNull Party party) /*     */
+    {
+        /* 316 */
+        getElement().appendChild(party.getElement());
+        /* 317 */
+        this.objectClass = "party";
+        /*     */
+    }
+
+    /*     */
+    /*     */
+    @org.checkerframework.checker.nullness.qual.EnsuresNonNull({ "this.objectClass" })
+    @org.checkerframework.dataflow.qual.Impure
+    public void addService(@org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.NonNull Service service) /*     */
+    {
+        /* 329 */
+        getElement().appendChild(service.getElement());
+        /* 330 */
+        this.objectClass = "service";
+        /*     */
+    }
+
+    /*     */
+    /*     */
+    @org.checkerframework.framework.qual.EnsuresQualifier(expression = { "this.objectClass" }, qualifier = org.checkerframework.checker.nullness.qual.Nullable.class)
+    @org.checkerframework.dataflow.qual.Pure
+    public @org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.Nullable String getObjectClassName() /*     */
+    {
+        /* 343 */
+        return this.objectClass;
+        /*     */
+    }
+
+    /*     */
+    /*     */
+    @org.checkerframework.checker.nullness.qual.EnsuresNonNull({ "this.objectClass" })
+    @org.checkerframework.dataflow.qual.Pure
+    public @org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.Nullable RIFCSElement getClassObject() throws /*     */
+    RIFCSException /*     */
+    {
+        /* 360 */
+        NodeList nl = super.getElements(this.objectClass);
+        /*     */
+        /* 362 */
+        if (nl.getLength() != 1) /*     */
+        {
+            /* 364 */
+            return null;
+            /*     */
+        }
+        /*     */
+        /* 367 */
+        if (this.objectClass.equals("collection")) /*     */
+        {
+            /* 369 */
+            return new Collection(nl.item(0));
+            /*     */
+        }
+        /* 371 */
+        if (this.objectClass.equals("party")) /*     */
+        {
+            /* 373 */
+            return new Party(nl.item(0));
+            /*     */
+        }
+        /* 375 */
+        if (this.objectClass.equals("activity")) /*     */
+        {
+            /* 377 */
+            return new Activity(nl.item(0));
+            /*     */
+        }
+        /* 379 */
+        if (this.objectClass.equals("service")) /*     */
+        {
+            /* 381 */
+            return new Service(nl.item(0));
+            /*     */
+        }
+        /*     */
+        /* 384 */
+        return null;
+        /*     */
+    }
+
+    /*     */
+    /*     */
+    @org.checkerframework.framework.qual.RequiresQualifier(expression = { "this.objectClass" }, qualifier = org.checkerframework.checker.initialization.qual.FBCBottom.class)
+    @org.checkerframework.framework.qual.RequiresQualifier(expression = { "this.objectClass" }, qualifier = org.checkerframework.checker.nullness.qual.Nullable.class)
+    @org.checkerframework.framework.qual.EnsuresQualifier(expression = { "this.objectClass" }, qualifier = org.checkerframework.checker.nullness.qual.Nullable.class)
+    @org.checkerframework.dataflow.qual.Impure
+    private void initStructures() /*     */
+    {
+        /* 390 */
+        List nl = super.getChildElements();
+        /* 391 */
+        for (Iterator i = nl.iterator(); i.hasNext(); ) /*     */
+        {
+            /* 393 */
+            Node n = (Node) i.next();
+            /* 394 */
+            if (n.getNodeName().equals("collection")) /*     */
+            {
+                /* 396 */
+                this.objectClass = "collection";
+                /* 397 */
+                break;
+                /*     */
+            }
+            /* 399 */
+            if (n.getNodeName().equals("party")) /*     */
+            {
+                /* 401 */
+                this.objectClass = "party";
+                /* 402 */
+                break;
+                /*     */
+            }
+            /* 404 */
+            if (n.getNodeName().equals("activity")) /*     */
+            {
+                /* 406 */
+                this.objectClass = "activity";
+                /* 407 */
+                break;
+                /*     */
+            }
+            /* 409 */
+            if (n.getNodeName().equals("service")) /*     */
+            {
+                /* 411 */
+                this.objectClass = "service";
+                /* 412 */
+                break;
+                /*     */
+            }
+            /*     */
+        }
+        /*     */
+    }
+}
+/* Location:           /Users/przemyslaw/Downloads/rifcs-api-1.3.0.jar
+ * Qualified Name:     org.ands.rifcs.base.RegistryObject
+ * JD-Core Version:    0.6.2
+ */

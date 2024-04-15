@@ -1,0 +1,787 @@
+/*     */
+package org.ands.rifcs.base;
+
+/*     */
+/*     */
+import java.util.ArrayList;
+/*     */
+import java.util.Date;
+/*     */
+import java.util.List;
+/*     */
+import org.w3c.dom.Element;
+/*     */
+import org.w3c.dom.Node;
+/*     */
+import org.w3c.dom.NodeList;
+
+/*     */
+/*     */
+/*     */
+@org.checkerframework.framework.qual.AnnotatedFor("org.checkerframework.checker.nullness.KeyForSubchecker")
+public class Service extends RIFCSElement {
+
+    /*     */
+    /*  36 */
+    private  List<Identifier> identifiers = new ArrayList();
+
+    /*  37 */
+    private  List<Name> names = new ArrayList();
+
+    /*  38 */
+    private  List<Location> locations = new ArrayList();
+
+    /*  39 */
+    private  List<Coverage> coverages = new ArrayList();
+
+    /*  40 */
+    private  List<RelatedObject> relatedObjects = new ArrayList();
+
+    /*  41 */
+    private  List<Subject> subjects = new ArrayList();
+
+    /*  42 */
+    private  List<Description> descriptions = new ArrayList();
+
+    /*  43 */
+    private  List<Right> rights = new ArrayList();
+
+    /*  44 */
+    private  List<ExistenceDate> existenceDates = new ArrayList();
+
+    /*  45 */
+    private  List<RelatedInfo> ris = new ArrayList();
+
+    /*  46 */
+    private  List<AccessPolicy> aps = new ArrayList();
+
+    /*     */
+    /*     */
+    @org.checkerframework.dataflow.qual.Impure
+    protected Service( Node n) throws /*     */
+    RIFCSException /*     */
+    {
+        /*  58 */
+        super(n, "service");
+        /*  59 */
+        initStructures();
+        /*     */
+    }
+
+    /*     */
+    /*     */
+    @org.checkerframework.dataflow.qual.Impure
+    public void setType( Service this,  String type) /*     */
+    {
+        /*  71 */
+        super.setAttributeValue("type", type);
+        /*     */
+    }
+
+    /*     */
+    /*     */
+    @org.checkerframework.dataflow.qual.Pure
+    public  String getType() /*     */
+    {
+        /*  84 */
+        return super.getAttributeValue("type");
+        /*     */
+    }
+
+    /*     */
+    /*     */
+    @org.checkerframework.dataflow.qual.Impure
+    public void setDateModified(Date date) /*     */
+    {
+        /*  97 */
+        super.setAttributeValue("dateModified", RegistryObject.formatDate(date));
+        /*     */
+    }
+
+    /*     */
+    /*     */
+    @org.checkerframework.dataflow.qual.Impure
+    public void setDateModified(String date) /*     */
+    {
+        /* 111 */
+        super.setAttributeValue("dateModified", date);
+        /*     */
+    }
+
+    /*     */
+    /*     */
+    @org.checkerframework.dataflow.qual.Pure
+    public  String getDateModified() /*     */
+    {
+        /* 124 */
+        return super.getAttributeValue("dateModified");
+        /*     */
+    }
+
+    /*     */
+    /*     */
+    @org.checkerframework.dataflow.qual.Impure
+    public  Identifier newIdentifier( Service this) throws /*     */
+    RIFCSException /*     */
+    {
+        /* 142 */
+        return new Identifier(newElement("identifier"));
+        /*     */
+    }
+
+    /*     */
+    /*     */
+    @org.checkerframework.dataflow.qual.Impure
+    public void addIdentifier( Service this,  Identifier identifier) /*     */
+    {
+        /* 154 */
+        getElement().appendChild(identifier.getElement());
+        /* 155 */
+        this.identifiers.add(identifier);
+        /*     */
+    }
+
+    /*     */
+    /*     */
+    @org.checkerframework.dataflow.qual.Pure
+    public  List<Identifier> getIdentifiers() /*     */
+    {
+        /* 167 */
+        return this.identifiers;
+        /*     */
+    }
+
+    /*     */
+    /*     */
+    @org.checkerframework.dataflow.qual.Impure
+    public  Name newName( Service this) throws /*     */
+    RIFCSException /*     */
+    {
+        /* 185 */
+        return new Name(newElement("name"));
+        /*     */
+    }
+
+    /*     */
+    /*     */
+    @org.checkerframework.dataflow.qual.Impure
+    public void addName( Service this,  Name name) /*     */
+    {
+        /* 197 */
+        getElement().appendChild(name.getElement());
+        /* 198 */
+        this.names.add(name);
+        /*     */
+    }
+
+    /*     */
+    /*     */
+    @org.checkerframework.dataflow.qual.Pure
+    public  List<Name> getNames() /*     */
+    {
+        /* 210 */
+        return this.names;
+        /*     */
+    }
+
+    /*     */
+    /*     */
+    @org.checkerframework.dataflow.qual.Impure
+    public  Location newLocation( Service this) throws /*     */
+    RIFCSException /*     */
+    {
+        /* 228 */
+        return new Location(newElement("location"));
+        /*     */
+    }
+
+    /*     */
+    /*     */
+    @org.checkerframework.dataflow.qual.Impure
+    public void addLocation( Service this,  Location location) /*     */
+    {
+        /* 240 */
+        getElement().appendChild(location.getElement());
+        /* 241 */
+        this.locations.add(location);
+        /*     */
+    }
+
+    /*     */
+    /*     */
+    @org.checkerframework.dataflow.qual.Pure
+    public  List<Location> getLocations() /*     */
+    {
+        /* 253 */
+        return this.locations;
+        /*     */
+    }
+
+    /*     */
+    /*     */
+    @org.checkerframework.dataflow.qual.Impure
+    public  Coverage newCoverage( Service this) throws /*     */
+    RIFCSException /*     */
+    {
+        /* 271 */
+        return new Coverage(newElement("coverage"));
+        /*     */
+    }
+
+    /*     */
+    /*     */
+    @org.checkerframework.dataflow.qual.Impure
+    public void addCoverage( Service this,  Coverage coverage) /*     */
+    {
+        /* 283 */
+        getElement().appendChild(coverage.getElement());
+        /* 284 */
+        this.coverages.add(coverage);
+        /*     */
+    }
+
+    /*     */
+    /*     */
+    @org.checkerframework.dataflow.qual.Pure
+    public  List<Coverage> getCoverage() /*     */
+    {
+        /* 296 */
+        return this.coverages;
+        /*     */
+    }
+
+    /*     */
+    /*     */
+    @org.checkerframework.dataflow.qual.Impure
+    public  RelatedObject newRelatedObject( Service this) throws /*     */
+    RIFCSException /*     */
+    {
+        /* 314 */
+        return new RelatedObject(newElement("relatedObject"));
+        /*     */
+    }
+
+    /*     */
+    /*     */
+    @org.checkerframework.dataflow.qual.Impure
+    public void addRelatedObject( Service this,  RelatedObject relatedObject) /*     */
+    {
+        /* 326 */
+        getElement().appendChild(relatedObject.getElement());
+        /* 327 */
+        this.relatedObjects.add(relatedObject);
+        /*     */
+    }
+
+    /*     */
+    /*     */
+    @org.checkerframework.dataflow.qual.Pure
+    public  List<RelatedObject> getRelatedObjects() /*     */
+    {
+        /* 339 */
+        return this.relatedObjects;
+        /*     */
+    }
+
+    /*     */
+    /*     */
+    @org.checkerframework.dataflow.qual.Impure
+    public  Subject newSubject( Service this) throws /*     */
+    RIFCSException /*     */
+    {
+        /* 357 */
+        return new Subject(newElement("subject"));
+        /*     */
+    }
+
+    /*     */
+    /*     */
+    @org.checkerframework.dataflow.qual.Impure
+    public void addSubject(Subject subject) /*     */
+    {
+        /* 369 */
+        getElement().appendChild(subject.getElement());
+        /* 370 */
+        this.subjects.add(subject);
+        /*     */
+    }
+
+    /*     */
+    /*     */
+    @org.checkerframework.dataflow.qual.Impure
+    public void addSubject( Service this,  String value,  String type,  String termIdentifier,  String lang) /*     */
+    {
+        /* 393 */
+        Subject subject = null;
+        /*     */
+        try {
+            /* 395 */
+            subject = newSubject();
+            /*     */
+        } catch (RIFCSException e) {
+            /* 397 */
+            e.printStackTrace();
+            /*     */
+        }
+        /* 399 */
+        subject.setValue(value);
+        /* 400 */
+        subject.setType(type);
+        /* 401 */
+        subject.setTermIdentifier(termIdentifier);
+        /* 402 */
+        subject.setLanguage(lang);
+        /*     */
+        /* 404 */
+        getElement().appendChild(subject.getElement());
+        /* 405 */
+        this.subjects.add(subject);
+        /*     */
+    }
+
+    /*     */
+    /*     */
+    @org.checkerframework.dataflow.qual.Pure
+    public  List<Subject> getSubjects() /*     */
+    {
+        /* 417 */
+        return this.subjects;
+        /*     */
+    }
+
+    /*     */
+    /*     */
+    @org.checkerframework.dataflow.qual.Impure
+    public  Description newDescription( Service this) throws /*     */
+    RIFCSException /*     */
+    {
+        /* 435 */
+        return new Description(newElement("description"));
+        /*     */
+    }
+
+    /*     */
+    /*     */
+    @org.checkerframework.dataflow.qual.Impure
+    public void addDescription(Description description) /*     */
+    {
+        /* 447 */
+        getElement().appendChild(description.getElement());
+        /* 448 */
+        this.descriptions.add(description);
+        /*     */
+    }
+
+    /*     */
+    /*     */
+    @org.checkerframework.dataflow.qual.Impure
+    public void addDescription( Service this,  String description,  String type, String language) throws /*     */
+    RIFCSException /*     */
+    {
+        /* 465 */
+        Description d = newDescription();
+        /* 466 */
+        d.setType(type);
+        /* 467 */
+        d.setValue(description);
+        /* 468 */
+        if (language != null) {
+            /* 469 */
+            d.setLanguage(language);
+            /*     */
+        }
+        /* 471 */
+        getElement().appendChild(d.getElement());
+        /* 472 */
+        this.descriptions.add(d);
+        /*     */
+    }
+
+    /*     */
+    /*     */
+    @org.checkerframework.dataflow.qual.Pure
+    public  List<Description> getDescriptions() /*     */
+    {
+        /* 483 */
+        return this.descriptions;
+        /*     */
+    }
+
+    /*     */
+    /*     */
+    @org.checkerframework.dataflow.qual.Impure
+    public  Right newRight( Service this) throws RIFCSException /*     */
+    {
+        /* 488 */
+        return new Right(newElement("rights"));
+        /*     */
+    }
+
+    /*     */
+    /*     */
+    @org.checkerframework.dataflow.qual.Impure
+    public void addRight( Service this,  Right right) /*     */
+    {
+        /* 505 */
+        getElement().appendChild(right.getElement());
+        /* 506 */
+        this.rights.add(right);
+        /*     */
+    }
+
+    /*     */
+    /*     */
+    @org.checkerframework.dataflow.qual.Pure
+    public  List<Right> getRights() /*     */
+    {
+        /* 518 */
+        return this.rights;
+        /*     */
+    }
+
+    /*     */
+    /*     */
+    @org.checkerframework.dataflow.qual.Impure
+    public  ExistenceDate newExistenceDate( Service this) throws /*     */
+    RIFCSException /*     */
+    {
+        /* 525 */
+        return new ExistenceDate(newElement("existenceDates"));
+        /*     */
+    }
+
+    /*     */
+    /*     */
+    @org.checkerframework.dataflow.qual.Impure
+    public void addExistenceDate(ExistenceDate existenceDate) /*     */
+    {
+        /* 542 */
+        getElement().appendChild(existenceDate.getElement());
+        /* 543 */
+        this.existenceDates.add(existenceDate);
+        /*     */
+    }
+
+    /*     */
+    /*     */
+    @org.checkerframework.dataflow.qual.Impure
+    public void addExistenceDate( Service this,  String startVal,  String startDateFormat,  String endVal,  String endDateFormat) /*     */
+    {
+        /*     */
+        try /*     */
+        {
+            /* 566 */
+            ExistenceDate date = newExistenceDate();
+            /* 567 */
+            date.setStartDate(startVal, startDateFormat);
+            /* 568 */
+            date.setEndDate(endVal, endDateFormat);
+            /* 569 */
+            getElement().appendChild(date.getElement());
+            /* 570 */
+            this.existenceDates.add(date);
+            /*     */
+        } catch (RIFCSException e) {
+            /* 572 */
+            e.printStackTrace();
+            /*     */
+        }
+        /*     */
+    }
+
+    /*     */
+    /*     */
+    @org.checkerframework.dataflow.qual.Pure
+    public  List<ExistenceDate> getExistenceDates() /*     */
+    {
+        /* 584 */
+        return this.existenceDates;
+        /*     */
+    }
+
+    /*     */
+    /*     */
+    @org.checkerframework.dataflow.qual.Impure
+    public  AccessPolicy newAccessPolicy( Service this) throws /*     */
+    RIFCSException /*     */
+    {
+        /* 603 */
+        return new AccessPolicy(newElement("accessPolicy"));
+        /*     */
+    }
+
+    /*     */
+    /*     */
+    @org.checkerframework.dataflow.qual.Impure
+    public void addAccessPolicy(AccessPolicy accessPolicy) /*     */
+    {
+        /* 615 */
+        getElement().appendChild(accessPolicy.getElement());
+        /* 616 */
+        this.aps.add(accessPolicy);
+        /*     */
+    }
+
+    /*     */
+    /*     */
+    @org.checkerframework.dataflow.qual.Impure
+    public void addAccessPolicy( Service this,  String accessPloicyVal) /*     */
+    {
+        /* 627 */
+        AccessPolicy policy = null;
+        /*     */
+        try {
+            /* 629 */
+            policy = newAccessPolicy();
+            /*     */
+        }/*     */
+         catch (RIFCSException e) {
+            /* 632 */
+            e.printStackTrace();
+            /*     */
+        }
+        /* 634 */
+        policy.setValue(accessPloicyVal);
+        /* 635 */
+        getElement().appendChild(policy.getElement());
+        /* 636 */
+        this.aps.add(policy);
+        /*     */
+    }
+
+    /*     */
+    /*     */
+    @org.checkerframework.dataflow.qual.Pure
+    public  List<AccessPolicy> getAccessPolicies() /*     */
+    {
+        /* 647 */
+        return this.aps;
+        /*     */
+    }
+
+    /*     */
+    /*     */
+    @org.checkerframework.dataflow.qual.Impure
+    public  RelatedInfo newRelatedInfo( Service this) throws /*     */
+    RIFCSException /*     */
+    {
+        /* 665 */
+        return new RelatedInfo(newElement("relatedInfo"));
+        /*     */
+    }
+
+    /*     */
+    /*     */
+    @org.checkerframework.dataflow.qual.Impure
+    public void addRelatedInfo( Service this,  RelatedInfo relatedInfo) /*     */
+    {
+        /* 677 */
+        getElement().appendChild(relatedInfo.getElement());
+        /* 678 */
+        this.ris.add(relatedInfo);
+        /*     */
+    }
+
+    /*     */
+    /*     */
+    @org.checkerframework.dataflow.qual.Pure
+    public  List<RelatedInfo> getRelatedInfo() /*     */
+    {
+        /* 690 */
+        return this.ris;
+        /*     */
+    }
+
+    /*     */
+    /*     */
+    @org.checkerframework.dataflow.qual.Impure
+    private void initStructures( Service this) throws /*     */
+    RIFCSException /*     */
+    {
+        /* 697 */
+        initIdentifiers();
+        /* 698 */
+        initNames();
+        /* 699 */
+        initLocations();
+        /* 700 */
+        initCoverage();
+        /* 701 */
+        initRelatedObjects();
+        /* 702 */
+        initSubjects();
+        /* 703 */
+        initDescriptions();
+        /* 704 */
+        initRelatedInfo();
+        /* 705 */
+        initAccessPolicies();
+        /*     */
+    }
+
+    /*     */
+    /*     */
+    @org.checkerframework.dataflow.qual.Impure
+    private void initIdentifiers( Service this) throws RIFCSException /*     */
+    {
+        /* 710 */
+        NodeList nl = super.getElements("identifier");
+        /*     */
+        /* 712 */
+        for (int i = 0; i < nl.getLength(); i++) /*     */
+        {
+            /* 714 */
+            this.identifiers.add(new Identifier(nl.item(i)));
+            /*     */
+        }
+        /*     */
+    }
+
+    /*     */
+    /*     */
+    @org.checkerframework.dataflow.qual.Impure
+    private void initNames( Service this) throws RIFCSException /*     */
+    {
+        /* 720 */
+        NodeList nl = super.getElements("name");
+        /*     */
+        /* 722 */
+        for (int i = 0; i < nl.getLength(); i++) /*     */
+        {
+            /* 724 */
+            this.names.add(new Name(nl.item(i)));
+            /*     */
+        }
+        /*     */
+    }
+
+    /*     */
+    /*     */
+    @org.checkerframework.dataflow.qual.Impure
+    private void initLocations( Service this) throws RIFCSException /*     */
+    {
+        /* 730 */
+        NodeList nl = super.getElements("location");
+        /*     */
+        /* 732 */
+        for (int i = 0; i < nl.getLength(); i++) /*     */
+        {
+            /* 734 */
+            this.locations.add(new Location(nl.item(i)));
+            /*     */
+        }
+        /*     */
+    }
+
+    /*     */
+    /*     */
+    @org.checkerframework.dataflow.qual.Impure
+    private void initCoverage( Service this) throws RIFCSException /*     */
+    {
+        /* 740 */
+        NodeList nl = super.getElements("coverage");
+        /*     */
+        /* 742 */
+        for (int i = 0; i < nl.getLength(); i++) /*     */
+        {
+            /* 744 */
+            this.coverages.add(new Coverage(nl.item(i)));
+            /*     */
+        }
+        /*     */
+    }
+
+    /*     */
+    /*     */
+    @org.checkerframework.dataflow.qual.Impure
+    private void initRelatedObjects( Service this) throws RIFCSException /*     */
+    {
+        /* 750 */
+        NodeList nl = super.getElements("relatedObject");
+        /*     */
+        /* 752 */
+        for (int i = 0; i < nl.getLength(); i++) /*     */
+        {
+            /* 754 */
+            this.relatedObjects.add(new RelatedObject(nl.item(i)));
+            /*     */
+        }
+        /*     */
+    }
+
+    /*     */
+    /*     */
+    @org.checkerframework.dataflow.qual.Impure
+    private void initSubjects( Service this) throws RIFCSException /*     */
+    {
+        /* 760 */
+        NodeList nl = super.getElements("subject");
+        /*     */
+        /* 762 */
+        for (int i = 0; i < nl.getLength(); i++) /*     */
+        {
+            /* 764 */
+            this.subjects.add(new Subject(nl.item(i)));
+            /*     */
+        }
+        /*     */
+    }
+
+    /*     */
+    /*     */
+    @org.checkerframework.dataflow.qual.Impure
+    private void initDescriptions( Service this) throws RIFCSException /*     */
+    {
+        /* 770 */
+        NodeList nl = super.getElements("description");
+        /*     */
+        /* 772 */
+        for (int i = 0; i < nl.getLength(); i++) /*     */
+        {
+            /* 774 */
+            this.descriptions.add(new Description(nl.item(i)));
+            /*     */
+        }
+        /*     */
+    }
+
+    /*     */
+    /*     */
+    @org.checkerframework.dataflow.qual.Impure
+    private void initRelatedInfo( Service this) throws RIFCSException /*     */
+    {
+        /* 780 */
+        NodeList nl = super.getElements("relatedInfo");
+        /*     */
+        /* 782 */
+        for (int i = 0; i < nl.getLength(); i++) /*     */
+        {
+            /* 784 */
+            this.ris.add(new RelatedInfo(nl.item(i)));
+            /*     */
+        }
+        /*     */
+    }
+
+    /*     */
+    /*     */
+    @org.checkerframework.dataflow.qual.Impure
+    private void initAccessPolicies( Service this) throws RIFCSException /*     */
+    {
+        /* 790 */
+        NodeList nl = super.getElements("accessPolicy");
+        /*     */
+        /* 792 */
+        for (int i = 0; i < nl.getLength(); i++) /*     */
+        {
+            /* 794 */
+            this.aps.add(new AccessPolicy(nl.item(i)));
+            /*     */
+        }
+        /*     */
+    }
+}
+/* Location:           /Users/przemyslaw/Downloads/rifcs-api-1.3.0.jar
+ * Qualified Name:     org.ands.rifcs.base.Service
+ * JD-Core Version:    0.6.2
+ */

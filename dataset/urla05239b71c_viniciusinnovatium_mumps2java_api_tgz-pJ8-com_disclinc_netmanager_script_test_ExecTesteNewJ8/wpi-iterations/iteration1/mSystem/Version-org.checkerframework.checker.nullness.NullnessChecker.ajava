@@ -1,0 +1,25 @@
+package mSystem;
+
+import mLibrary.mContext;
+import mLibrary.mParent;
+
+@org.checkerframework.framework.qual.AnnotatedFor("org.checkerframework.checker.nullness.NullnessChecker")
+public class Version extends mParent {
+
+    @org.checkerframework.dataflow.qual.Impure
+    public Version(@org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.NonNull mContext m$) {
+        super(m$);
+        // TODO Auto-generated constructor stub
+    }
+
+    @org.checkerframework.dataflow.qual.Pure
+    public static Object GetOS() {
+        throw new UnsupportedOperationException();
+    }
+
+    @org.checkerframework.dataflow.qual.Pure
+    public static @org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.NonNull Object GetNumber() {
+        //TODO REVISAR CONFIRMAR RETORNO DO MÉTODO
+        return 1;
+    }
+}

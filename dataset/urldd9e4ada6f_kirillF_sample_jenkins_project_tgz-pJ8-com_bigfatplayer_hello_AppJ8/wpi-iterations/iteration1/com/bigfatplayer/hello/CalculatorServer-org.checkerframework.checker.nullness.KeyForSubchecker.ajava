@@ -1,0 +1,33 @@
+package com.bigfatplayer.hello;
+
+import org.apache.thrift.TException;
+
+/**
+ * User: viktor
+ * Date: 6/19/13
+ * Time: 2:03 PM
+ */
+@org.checkerframework.framework.qual.AnnotatedFor("org.checkerframework.checker.nullness.KeyForSubchecker")
+public class CalculatorServer implements Calculator.Iface {
+
+    @org.checkerframework.dataflow.qual.Impure
+    public void ping( CalculatorServer this) throws TException {
+        System.out.println("Ping");
+    }
+
+    @org.checkerframework.dataflow.qual.Pure
+    public   int add( CalculatorServer this,   int num1,   int num2) throws TException {
+        return num1 + num2 + 3;
+    }
+
+    @org.checkerframework.dataflow.qual.Impure
+    public   int calculate( CalculatorServer this,   int log_id,  Work w) throws TException {
+        System.out.println(log_id);
+        return w.getNum1() + w.getNum2();
+    }
+
+    @org.checkerframework.dataflow.qual.SideEffectFree
+    public void zip( CalculatorServer this) throws TException {
+        //To change body of implemented methods use File | Settings | File Templates.
+    }
+}

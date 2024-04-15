@@ -1,0 +1,212 @@
+/*     */
+package org.ands.rifcs.ch;
+
+/*     */
+/*     */
+import java.util.Stack;
+/*     */
+import javax.xml.parsers.DocumentBuilder;
+/*     */
+import javax.xml.parsers.DocumentBuilderFactory;
+/*     */
+import org.w3c.dom.Document;
+/*     */
+import org.w3c.dom.Element;
+/*     */
+import org.xml.sax.Attributes;
+/*     */
+import org.xml.sax.Locator;
+/*     */
+import org.xml.sax.SAXException;
+/*     */
+import org.xml.sax.helpers.DefaultHandler;
+
+/*     */
+/*     */
+/*     */
+@org.checkerframework.framework.qual.AnnotatedFor("org.checkerframework.checker.nullness.NullnessChecker")
+public class DefaultRIFCSHandler extends DefaultHandler implements /*     */
+RIFCSHandler {
+
+    /*     */
+    /*     */
+    private static final  @org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.NonNull int BUFFER_SIZE = 4096;
+
+    /*  51 */
+    private @org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.MonotonicNonNull Document doc = null;
+
+    /*     */
+    /*  54 */
+    private @org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.NonNull Stack<Element> elements = new Stack();
+
+    /*     */
+    private @org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.MonotonicNonNull Locator locator;
+
+    /*     */
+    /*     */
+    @org.checkerframework.dataflow.qual.Impure
+    public void setDocumentLocator(@org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.NonNull DefaultRIFCSHandler this, @org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.NonNull Locator locator) /*     */
+    {
+        /*  67 */
+        this.locator = locator;
+        /*     */
+    }
+
+    /*     */
+    /*     */
+    @org.checkerframework.dataflow.qual.Impure
+    public void startDocument(@org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.NonNull DefaultRIFCSHandler this) throws /*     */
+    SAXException /*     */
+    {
+        /*     */
+        try /*     */
+        {
+            /*  81 */
+            this.doc = DocumentBuilderFactory.newInstance().newDocumentBuilder().newDocument();
+            /*     */
+        }/*     */
+         catch (Exception e) /*     */
+        {
+            /*  85 */
+            throw new SAXException(e);
+            /*     */
+        }
+        /*     */
+    }
+
+    /*     */
+    /*     */
+    @org.checkerframework.dataflow.qual.Impure
+    public void startElement(@org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.NonNull DefaultRIFCSHandler this, @org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.NonNull String uri, @org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.NonNull String localName, @org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.NonNull String qName, @org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.NonNull Attributes attributes) throws /*     */
+    SAXException /*     */
+    {
+        /* 115 */
+        Element e = null;
+        /*     */
+        /* 117 */
+        if (uri.length() > 0) /*     */
+        {
+            /* 119 */
+            e = this.doc.createElementNS(uri, qName);
+            /*     */
+        } else /*     */
+        /*     */
+        {
+            /* 123 */
+            e = this.doc.createElement(qName);
+            /*     */
+        }
+        /*     */
+        /* 126 */
+        for (int i = 0; i < attributes.getLength(); i++) /*     */
+        {
+            /* 128 */
+            e.setAttribute(attributes.getQName(i), attributes.getValue(i));
+            /*     */
+        }
+        /*     */
+        /* 131 */
+        this.elements.push(e);
+        /*     */
+    }
+
+    /*     */
+    /*     */
+    @org.checkerframework.dataflow.qual.Impure
+    public void characters(@org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.NonNull DefaultRIFCSHandler this,  @org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.NonNull char @org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.NonNull [] chars,  @org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.NonNull int start,  @org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.NonNull int length) throws /*     */
+    SAXException /*     */
+    {
+        /* 154 */
+        String s = new String(chars, start, length);
+        /* 155 */
+        if (!s.matches("\\s+")) /*     */
+        {
+            /* 157 */
+            Element e = (Element) this.elements.peek();
+            /*     */
+            /* 159 */
+            if (e.getTextContent().length() == 0) /*     */
+            {
+                /* 161 */
+                e.setTextContent(s);
+                /*     */
+            } else /*     */
+            /*     */
+            {
+                /* 165 */
+                e.setTextContent(e.getTextContent() + s);
+                /*     */
+            }
+            /*     */
+        }
+        /*     */
+    }
+
+    /*     */
+    /*     */
+    @org.checkerframework.dataflow.qual.Impure
+    public void skippedEntity(@org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.NonNull DefaultRIFCSHandler this, @org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.NonNull String name) throws /*     */
+    SAXException /*     */
+    {
+        /* 185 */
+        String s = "&" + name + ";";
+        /* 186 */
+        char[] text = s.toCharArray();
+        /* 187 */
+        characters(text, 0, text.length);
+        /*     */
+    }
+
+    /*     */
+    /*     */
+    @org.checkerframework.dataflow.qual.Impure
+    public void endElement(@org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.NonNull DefaultRIFCSHandler this, @org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.NonNull String uri, @org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.NonNull String localName, @org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.NonNull String qName) throws /*     */
+    SAXException /*     */
+    {
+        /* 210 */
+        Element e = (Element) this.elements.pop();
+        /*     */
+        /* 212 */
+        if (!this.elements.empty()) /*     */
+        {
+            /* 214 */
+            ((Element) this.elements.peek()).appendChild(e);
+            /*     */
+        } else /*     */
+        /*     */
+        {
+            /* 218 */
+            this.doc.appendChild(e);
+            /*     */
+        }
+        /*     */
+    }
+
+    /*     */
+    /*     */
+    @org.checkerframework.dataflow.qual.Impure
+    private @org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.NonNull String printLocation(String s) /*     */
+    {
+        /* 236 */
+        int line = this.locator.getLineNumber();
+        /* 237 */
+        int column = this.locator.getColumnNumber();
+        /* 238 */
+        return s + " at line " + line + "; column " + column;
+        /*     */
+    }
+
+    /*     */
+    /*     */
+    @org.checkerframework.dataflow.qual.Pure
+    public @org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.NonNull Document getDocument(@org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.NonNull DefaultRIFCSHandler this) /*     */
+    {
+        /* 251 */
+        return this.doc;
+        /*     */
+    }
+}
+/* Location:           /Users/przemyslaw/Downloads/rifcs-api-1.3.0.jar
+ * Qualified Name:     org.ands.rifcs.ch.DefaultRIFCSHandler
+ * JD-Core Version:    0.6.2
+ */

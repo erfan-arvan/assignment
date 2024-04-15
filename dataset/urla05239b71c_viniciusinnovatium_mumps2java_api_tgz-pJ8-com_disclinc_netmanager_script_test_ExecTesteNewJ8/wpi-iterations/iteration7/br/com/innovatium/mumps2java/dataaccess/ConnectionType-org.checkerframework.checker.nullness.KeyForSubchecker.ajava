@@ -1,0 +1,7 @@
+package br.com.innovatium.mumps2java.dataaccess;
+
+@org.checkerframework.framework.qual.AnnotatedFor("org.checkerframework.checker.nullness.KeyForSubchecker")
+public enum ConnectionType {
+
+    JDBC, DATASOURCE
+}

@@ -1,0 +1,71 @@
+package cz.mff.dpp.args.examples;
+
+import java.util.Arrays;
+import java.util.List;
+import cz.mff.dpp.args.*;
+
+/**
+ * Multi-values demo.
+ */
+@org.checkerframework.framework.qual.AnnotatedFor("org.checkerframework.checker.nullness.NullnessChecker")
+public class MultiValuedExample {
+
+    private static final class Options {
+
+        @org.checkerframework.checker.initialization.qual.FBCBottom @org.checkerframework.checker.nullness.qual.MonotonicNonNull List<Double> doubles;
+
+        @org.checkerframework.dataflow.qual.Impure
+        void stringArraySetter(String[] values) {
+            System.out.println("--array-setter: " + Arrays.toString(values));
+        }
+
+        @org.checkerframework.checker.initialization.qual.FBCBottom @org.checkerframework.checker.nullness.qual.MonotonicNonNull List<String> freeArguments;
+    }
+
+    /**
+     * @param args
+     */
+    @org.checkerframework.dataflow.qual.Impure
+    public static void main(String[] args) throws ParseException {
+        if (args.length != 0) {
+            Options options = new Options();
+            Parser parser = new Parser(options);
+            parser.parse(args);
+            return;
+        }
+        {
+            Options options = new Options();
+            Parser parser = new Parser(options);
+            String[] localArgs = { "--list-of-doubles=1.2", "-2.3", "15", "-0.1" };
+            System.out.println("Input: " + Arrays.toString(localArgs));
+            parser.parse(localArgs);
+            System.out.println("List of doubles: " + options.doubles);
+        }
+        {
+            Options options = new Options();
+            Parser parser = new Parser(options);
+            String[] localArgs = { "--array-setter", "a", "abc", "QWE", "weWe" };
+            System.out.println("\nInput: " + Arrays.toString(localArgs));
+            parser.parse(localArgs);
+        }
+        {
+            System.out.println("\nNow together: ");
+            Options options = new Options();
+            Parser parser = new Parser(options);
+            String[] localArgs = { "--array-setter", "a", "abc", "QWE", "weWe", "--list-of-doubles=1.2", "-2.3", "15", "-0.1" };
+            System.out.println("Input: " + Arrays.toString(localArgs));
+            parser.parse(localArgs);
+            System.out.println("List of doubles: " + options.doubles);
+        }
+        System.out.println("\nWorks for arguments as well: just be aware what is a free argument\n");
+        {
+            Options options = new Options();
+            Parser parser = new Parser(options);
+            String[] localArgs = { "arg1", "arg2", "--array-setter", "a", "abc", "QWE", "weWe", "--list-of-doubles=1.2", "-2.3", "15", "-0.1", "--", "arg3", "arg4" };
+            System.out.println("Input: " + Arrays.toString(localArgs));
+            parser.parse(localArgs);
+            System.out.println("List of doubles: " + options.doubles);
+            System.out.println("Free arguments: " + options.freeArguments);
+        }
+    }
+}

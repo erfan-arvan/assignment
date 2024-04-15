@@ -1,0 +1,30 @@
+package mLibrary;
+
+@org.checkerframework.framework.qual.AnnotatedFor("org.checkerframework.checker.nullness.KeyForSubchecker")
+public class BooleanObject {
+
+    private final  Object value;
+
+    private final   boolean condition;
+
+    @org.checkerframework.dataflow.qual.SideEffectFree
+    private BooleanObject(  boolean condition,  Object valor) {
+        this.condition = condition;
+        this.value = valor;
+    }
+
+    @org.checkerframework.dataflow.qual.Pure
+    public static  BooleanObject valueOf(  boolean condition,  Object value) {
+        return new BooleanObject(condition, value);
+    }
+
+    @org.checkerframework.dataflow.qual.Pure
+    public  Object getValue( BooleanObject this) {
+        return value;
+    }
+
+    @org.checkerframework.dataflow.qual.Pure
+    public   boolean isTrue( BooleanObject this) {
+        return condition;
+    }
+}

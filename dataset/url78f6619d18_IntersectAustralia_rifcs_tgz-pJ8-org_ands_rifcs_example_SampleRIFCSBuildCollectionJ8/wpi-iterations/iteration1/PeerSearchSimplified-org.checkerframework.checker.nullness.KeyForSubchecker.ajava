@@ -1,0 +1,26 @@
+import java.net.DatagramSocket;
+import java.net.InetSocketAddress;
+
+// for the simplified routing solution
+@org.checkerframework.framework.qual.AnnotatedFor("org.checkerframework.checker.nullness.KeyForSubchecker")
+interface PeerSearchSimplified {
+
+    // initialise with a udp socket
+    @org.checkerframework.dataflow.qual.Impure
+    void init( PeerSearchSimplified this,  DatagramSocket udp_socket);
+
+    @org.checkerframework.dataflow.qual.Impure
+      long joinNetwork( PeerSearchSimplified this,  InetSocketAddress bootstrap_node,  String identifier, //returns network_id, a locally
+     String target_identifier);
+
+    // generated number to identify peer network
+    // parameter is previously returned peer network identifier
+    @org.checkerframework.dataflow.qual.Impure
+      boolean leaveNetwork(long network_id);
+
+    @org.checkerframework.dataflow.qual.Impure
+    void indexPage( PeerSearchSimplified this,  String url,  String  [] unique_words);
+
+    @org.checkerframework.dataflow.qual.Impure
+     SearchResult  [] search( PeerSearchSimplified this,  String  [] words);
+}

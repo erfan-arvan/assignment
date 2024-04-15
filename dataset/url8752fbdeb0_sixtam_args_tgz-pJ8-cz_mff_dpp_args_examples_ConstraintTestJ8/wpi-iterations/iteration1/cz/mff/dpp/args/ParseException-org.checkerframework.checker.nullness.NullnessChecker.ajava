@@ -1,0 +1,52 @@
+package cz.mff.dpp.args;
+
+/**
+ * This exception is thrown when any error during parsing occurs.
+ * It can mean that some options was used incorrectly or
+ * there this library was used incorrectly.
+ */
+@org.checkerframework.framework.qual.AnnotatedFor("org.checkerframework.checker.nullness.NullnessChecker")
+public class ParseException extends Exception {
+
+    private static final  @org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.NonNull long serialVersionUID = 6288510048824885708L;
+
+    @org.checkerframework.dataflow.qual.SideEffectFree
+    public ParseException() {
+        super();
+    }
+
+    @org.checkerframework.dataflow.qual.SideEffectFree
+    public ParseException(@org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.NonNull String message) {
+        super(message);
+    }
+
+    @org.checkerframework.dataflow.qual.SideEffectFree
+    public ParseException(String message, Throwable cause) {
+        super(message, cause);
+    }
+
+    @org.checkerframework.dataflow.qual.SideEffectFree
+    public ParseException(Throwable cause) {
+        super(cause);
+    }
+
+    @org.checkerframework.dataflow.qual.SideEffectFree
+    public ParseException(@org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.NonNull String format, @org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.NonNull Object@org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.NonNull ... args) {
+        super(String.format(format, args));
+    }
+
+    @org.checkerframework.dataflow.qual.SideEffectFree
+    public ParseException(@org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.NonNull Throwable cause, @org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.NonNull String format, @org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.NonNull Object@org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.NonNull ... args) {
+        super(String.format(format, args), cause);
+    }
+
+    @org.checkerframework.dataflow.qual.SideEffectFree
+    public static void wrap(Throwable cause, String format, Object... args) throws ParseException {
+        throw new ParseException(cause, format, args);
+    }
+
+    @org.checkerframework.dataflow.qual.SideEffectFree
+    public static void wrap(Throwable cause, String message) throws ParseException {
+        throw new ParseException(cause, message);
+    }
+}

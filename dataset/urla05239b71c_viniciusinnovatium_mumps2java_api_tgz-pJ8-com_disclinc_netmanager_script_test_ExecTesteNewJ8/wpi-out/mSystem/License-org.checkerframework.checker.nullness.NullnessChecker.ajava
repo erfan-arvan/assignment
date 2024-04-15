@@ -1,0 +1,55 @@
+package mSystem;
+
+import mLibrary.mContext;
+import mLibrary.mParent;
+
+@org.checkerframework.framework.qual.AnnotatedFor("org.checkerframework.checker.nullness.NullnessChecker")
+public class License extends mParent {
+
+    @org.checkerframework.dataflow.qual.SideEffectFree
+    public License(@org.checkerframework.checker.initialization.qual.UnderInitialization(java.lang.Object.class) @org.checkerframework.checker.nullness.qual.NonNull mContext m$) {
+        super(m$);
+        // TODO Auto-generated constructor stub
+    }
+
+    @org.checkerframework.dataflow.qual.Pure
+    public static Object LUConsumed() {
+        throw new UnsupportedOperationException();
+    }
+
+    @org.checkerframework.dataflow.qual.Pure
+    public static @org.checkerframework.checker.initialization.qual.FBCBottom @org.checkerframework.checker.nullness.qual.Nullable Object GetUserId() {
+        // TODO Auto-generated method stub
+        return null;
+    }
+
+    @org.checkerframework.dataflow.qual.Pure
+    public static @org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.NonNull Object MaxConnections() {
+        // TODO Auto-generated method stub
+        return 100;
+    }
+
+    @org.checkerframework.dataflow.qual.Pure
+    public static @org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.NonNull Object ConnectionCount(Object object) {
+        // TODO Auto-generated method stub
+        return 0;
+    }
+
+    @org.checkerframework.dataflow.qual.Pure
+    public static @org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.NonNull Object Login(Object object) {
+        // TODO Auto-generated method stub
+        return 1;
+    }
+
+    @org.checkerframework.dataflow.qual.Pure
+    public static @org.checkerframework.checker.initialization.qual.FBCBottom @org.checkerframework.checker.nullness.qual.Nullable Object LUMaxConsumed() {
+        // TODO Auto-generated method stub
+        return null;
+    }
+
+    @org.checkerframework.dataflow.qual.SideEffectFree
+    public static void DeferUserIdentification(Object fnc$) {
+        // TODO Auto-generated method stub
+        throw new UnsupportedOperationException();
+    }
+}

@@ -1,0 +1,10 @@
+package com.disclinc.netmanager.mParameter.test;
+
+import mLibrary.mClass;
+
+@org.checkerframework.framework.qual.AnnotatedFor("org.checkerframework.checker.nullness.NullnessChecker")
+public class mClassChild extends mClass {
+
+    //<< Parameter LOGINSUBMIT As %String = "COMUserPreferences.cls";
+    public static @org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.NonNull String p_LOGINSUBMIT = "COMUserPreferences.cls";
+}

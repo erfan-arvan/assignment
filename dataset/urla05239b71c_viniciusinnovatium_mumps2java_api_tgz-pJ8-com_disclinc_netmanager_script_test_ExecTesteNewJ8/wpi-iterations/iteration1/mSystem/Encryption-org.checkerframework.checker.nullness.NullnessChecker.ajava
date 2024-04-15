@@ -1,0 +1,26 @@
+package mSystem;
+
+import mLibrary.mContext;
+import mLibrary.mParent;
+
+@org.checkerframework.framework.qual.AnnotatedFor("org.checkerframework.checker.nullness.NullnessChecker")
+public class Encryption extends mParent {
+
+    @org.checkerframework.dataflow.qual.Impure
+    public Encryption(@org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.NonNull mContext m$) {
+        super(m$);
+        // TODO Auto-generated constructor stub
+    }
+
+    @org.checkerframework.dataflow.qual.Pure
+    public Object Base64Decode(Object object) {
+        // TODO Auto-generated method stub
+        throw new UnsupportedOperationException();
+    }
+
+    @org.checkerframework.dataflow.qual.Pure
+    public Object Base64Encode(Object object) {
+        // TODO Auto-generated method stub
+        throw new UnsupportedOperationException();
+    }
+}

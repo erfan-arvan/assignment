@@ -1,0 +1,55 @@
+package com.disclinc.netmanager.variable.test;
+
+import mLibrary.mContext;
+
+/**
+ * This class was created to be employed in dispatch functions test.
+ *
+ * @author vinicius
+ */
+@org.checkerframework.framework.qual.AnnotatedFor("org.checkerframework.checker.nullness.NullnessChecker")
+public final class Macros {
+
+    @org.checkerframework.dataflow.qual.Pure
+    public static  @org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.NonNull int $$$diasNoMes() {
+        return 30;
+    }
+
+    @org.checkerframework.dataflow.qual.Impure
+    public static @org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.Nullable Object $$$recuperarValorNuloDepoisDoOperadorNew(mContext m$) {
+        m$.newVar(m$.var("pedido"));
+        return m$.var("pedido").get();
+    }
+
+    @org.checkerframework.dataflow.qual.Impure
+    public static @org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.Nullable Object $$$recuperarValorInalteradoDepoisDoOperadorNew(mContext m$) {
+        m$.newVar(m$.var("pedido"));
+        return m$.var("entrega").get();
+    }
+
+    @org.checkerframework.dataflow.qual.Impure
+    public static @org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.Nullable Object $$$recuperarValorNovoDepois3ChamadasDoOperadorNew(mContext m$) {
+        $$$operadorNewChamada1(m$);
+        $$$operadorNewChamada2(m$);
+        $$$operadorNewChamada3(m$);
+        return m$.var("pedido").get();
+    }
+
+    @org.checkerframework.dataflow.qual.Impure
+    public static void $$$operadorNewChamada1(@org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.NonNull mContext m$) {
+        m$.newVar(m$.var("pedido"));
+        m$.var("pedido").set("chamada1");
+    }
+
+    @org.checkerframework.dataflow.qual.Impure
+    public static void $$$operadorNewChamada2(@org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.NonNull mContext m$) {
+        m$.newVar(m$.var("pedido"));
+        m$.var("pedido").set("chamada2");
+    }
+
+    @org.checkerframework.dataflow.qual.Impure
+    public static void $$$operadorNewChamada3(@org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.NonNull mContext m$) {
+        m$.newVar(m$.var("pedido"));
+        m$.var("pedido").set("chamada3");
+    }
+}

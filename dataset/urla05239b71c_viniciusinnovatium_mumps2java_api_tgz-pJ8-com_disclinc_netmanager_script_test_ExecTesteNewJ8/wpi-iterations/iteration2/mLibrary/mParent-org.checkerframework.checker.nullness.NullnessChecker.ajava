@@ -1,0 +1,12 @@
+package mLibrary;
+
+@org.checkerframework.framework.qual.AnnotatedFor("org.checkerframework.checker.nullness.NullnessChecker")
+public class mParent {
+
+    protected static @org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.MonotonicNonNull mContext m$;
+
+    @org.checkerframework.dataflow.qual.SideEffectFree
+    public mParent(@org.checkerframework.checker.initialization.qual.UnknownInitialization(java.lang.Object.class) @org.checkerframework.checker.nullness.qual.NonNull mContext m$) {
+        this.m$ = m$;
+    }
+}

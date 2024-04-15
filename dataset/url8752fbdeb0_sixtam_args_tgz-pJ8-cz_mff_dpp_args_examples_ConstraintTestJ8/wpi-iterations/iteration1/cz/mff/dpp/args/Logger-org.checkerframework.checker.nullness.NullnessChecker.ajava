@@ -1,0 +1,85 @@
+package cz.mff.dpp.args;
+
+import java.util.logging.Level;
+
+/**
+ * Support for logging.
+ */
+@org.checkerframework.framework.qual.AnnotatedFor("org.checkerframework.checker.nullness.NullnessChecker")
+public final class Logger {
+
+    private static final java.util.logging.@org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.NonNull Logger LOGGER = java.util.logging.Logger.getLogger("cz.mff.dpp.args");
+
+    //
+    // STATIC CONSTRUCTOR
+    //
+    static {
+        LOGGER.setLevel(Level.SEVERE);
+    }
+
+    /**
+     * Logs formated message with Level.SEVERE
+     * @param format formatted message to be logged
+     * @param args arguments for formatted message
+     */
+    @org.checkerframework.dataflow.qual.Impure
+    static void severe(@org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.NonNull String format, @org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.NonNull Object@org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.NonNull ... args) {
+        log(Level.SEVERE, format, args);
+    }
+
+    /**
+     * Logs formated message with Level.WARNING
+     * @param format formatted message to be logged
+     * @param args arguments for formatted message
+     */
+    @org.checkerframework.dataflow.qual.Impure
+    static void warning(@org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.NonNull String format, @org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.NonNull Object@org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.NonNull ... args) {
+        log(Level.WARNING, format, args);
+    }
+
+    /**
+     * Logs formated message with Level.INFO
+     * @param format formatted message to be logged
+     * @param args arguments for formatted message
+     */
+    @org.checkerframework.dataflow.qual.Impure
+    static void info(@org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.NonNull String format, @org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.NonNull Object@org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.NonNull ... args) {
+        log(Level.INFO, format, args);
+    }
+
+    /**
+     * Logs formated message with Level.FINE
+     * @param format formatted message to be logged
+     * @param args arguments for formatted message
+     */
+    @org.checkerframework.dataflow.qual.Impure
+    static void fine(@org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.NonNull String format, @org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.NonNull Object@org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.NonNull ... args) {
+        log(Level.FINE, format, args);
+    }
+
+    /**
+     * If level is loggable than formatted message is logged with given level.
+     * Otherwise nothing happens.
+     * @param level level of message
+     * @param format formated message to be logged
+     * @param args arguments for formatted message
+     */
+    @org.checkerframework.dataflow.qual.SideEffectFree
+    static void log(@org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.NonNull Level level, @org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.NonNull String format, @org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.NonNull Object@org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.NonNull ... args) {
+        if (LOGGER.isLoggable(level)) {
+            LOGGER.log(level, String.format(format, args));
+        }
+    }
+
+    /**
+     * Sets level for logging. Only messages with higher or equal
+     * priority than given will be logged.
+     *
+     * Default level is Level.SEVERE
+     * @param level level to be set for logging
+     */
+    @org.checkerframework.dataflow.qual.Impure
+    public static void setLevel(Level level) {
+        LOGGER.setLevel(level);
+    }
+}

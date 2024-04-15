@@ -1,0 +1,17 @@
+package mLibrary;
+
+@org.checkerframework.framework.qual.AnnotatedFor("org.checkerframework.checker.nullness.KeyForSubchecker")
+public class mContent {
+
+    @org.checkerframework.dataflow.qual.Pure
+    public Object AtEnd() {
+        // TODO Auto-generated method stub
+        throw new UnsupportedOperationException();
+    }
+
+    @org.checkerframework.dataflow.qual.Pure
+    public Object Read(mVar len) {
+        // TODO Auto-generated method stub
+        throw new UnsupportedOperationException();
+    }
+}

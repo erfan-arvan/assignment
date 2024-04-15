@@ -1,0 +1,206 @@
+/*     */
+package org.ands.rifcs.base;
+
+/*     */
+/*     */
+import java.text.DateFormat;
+/*     */
+import java.text.SimpleDateFormat;
+/*     */
+import java.util.ArrayList;
+/*     */
+import java.util.Date;
+/*     */
+import java.util.Iterator;
+/*     */
+import java.util.List;
+/*     */
+import org.w3c.dom.Element;
+/*     */
+import org.w3c.dom.Node;
+/*     */
+import org.w3c.dom.NodeList;
+
+/*     */
+/*     */
+/*     */
+@org.checkerframework.framework.qual.AnnotatedFor("org.checkerframework.checker.nullness.NullnessChecker")
+public class Temporal extends RIFCSElement {
+
+    /*     */
+    /*  40 */
+    private @org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.NonNull List<TemporalCoverageDate> dates = new ArrayList();
+
+    /*  41 */
+    private @org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.NonNull List<Element> texts = new ArrayList();
+
+    /*     */
+    /*     */
+    @org.checkerframework.checker.nullness.qual.EnsuresNonNull({ "#1" })
+    @org.checkerframework.dataflow.qual.SideEffectFree
+    protected Temporal(@org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.Nullable Node n) throws /*     */
+    RIFCSException /*     */
+    {
+        /*  53 */
+        super(n, "temporal");
+        /*     */
+    }
+
+    /*     */
+    /*     */
+    @org.checkerframework.dataflow.qual.Impure
+    public @org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.NonNull TemporalCoverageDate newDate() throws /*     */
+    RIFCSException /*     */
+    {
+        /*  76 */
+        return new TemporalCoverageDate(newElement("date"));
+        /*     */
+    }
+
+    /*     */
+    /*     */
+    @org.checkerframework.dataflow.qual.Pure
+    public @org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.NonNull List<TemporalCoverageDate> getDates() /*     */
+    {
+        /*  88 */
+        return this.dates;
+        /*     */
+    }
+
+    /*     */
+    /*     */
+    @org.checkerframework.dataflow.qual.Impure
+    public @org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.NonNull List<String> getText() /*     */
+    {
+        /* 100 */
+        ArrayList al = new ArrayList();
+        /* 101 */
+        for (Iterator i = this.texts.iterator(); i.hasNext(); ) /*     */
+        {
+            /* 103 */
+            al.add(((Element) i.next()).getTextContent());
+            /*     */
+        }
+        /* 105 */
+        return al;
+        /*     */
+    }
+
+    /*     */
+    /*     */
+    @org.checkerframework.dataflow.qual.Impure
+    public void addText(@org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.NonNull String text) /*     */
+    {
+        /* 117 */
+        Element e = newElement("text");
+        /* 118 */
+        e.setTextContent(text);
+        /* 119 */
+        getElement().appendChild(e);
+        /* 120 */
+        this.texts.add(e);
+        /*     */
+    }
+
+    /*     */
+    /*     */
+    @org.checkerframework.dataflow.qual.Impure
+    public void addDate(@org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.NonNull String date, @org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.NonNull String type) throws /*     */
+    RIFCSException /*     */
+    {
+        /* 138 */
+        addDate(date, type, "W3C");
+        /*     */
+    }
+
+    /*     */
+    /*     */
+    @org.checkerframework.dataflow.qual.Impure
+    public void addDate(@org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.NonNull String date, @org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.NonNull String type, @org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.NonNull String dateFormat) throws /*     */
+    RIFCSException /*     */
+    {
+        /* 154 */
+        TemporalCoverageDate de = newDate();
+        /* 155 */
+        de.setType(type);
+        /* 156 */
+        de.setDateFormat(dateFormat);
+        /* 157 */
+        de.setValue(date);
+        /* 158 */
+        getElement().appendChild(de.getElement());
+        /* 159 */
+        this.dates.add(de);
+        /*     */
+    }
+
+    /*     */
+    /*     */
+    @org.checkerframework.dataflow.qual.Impure
+    public void addDate(@org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.NonNull Date date, @org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.NonNull String type) throws /*     */
+    RIFCSException /*     */
+    {
+        /* 176 */
+        DateFormat df = new SimpleDateFormat("yyyy-MM-dd'T'HH:mm:ssZ");
+        /* 177 */
+        String text = df.format(date);
+        /* 178 */
+        String result = text.substring(0, 22) + ":" + text.substring(22);
+        /* 179 */
+        addDate(result, type);
+        /*     */
+    }
+
+    /*     */
+    /*     */
+    @org.checkerframework.dataflow.qual.Impure
+    private void initStructures() throws /*     */
+    RIFCSException /*     */
+    {
+        /* 186 */
+        initTexts();
+        /* 187 */
+        initDates();
+        /*     */
+    }
+
+    /*     */
+    /*     */
+    @org.checkerframework.dataflow.qual.Impure
+    private void initTexts() throws RIFCSException /*     */
+    {
+        /* 192 */
+        NodeList nl = super.getElements("text");
+        /*     */
+        /* 194 */
+        for (int i = 0; i < nl.getLength(); i++) /*     */
+        {
+            /* 196 */
+            this.texts.add((Element) nl.item(i));
+            /*     */
+        }
+        /*     */
+    }
+
+    /*     */
+    /*     */
+    @org.checkerframework.dataflow.qual.Impure
+    private void initDates() throws RIFCSException /*     */
+    {
+        /* 202 */
+        NodeList nl = super.getElements("date");
+        /*     */
+        /* 204 */
+        for (int i = 0; i < nl.getLength(); i++) /*     */
+        {
+            /* 206 */
+            this.dates.add(new TemporalCoverageDate(nl.item(i)));
+            /*     */
+        }
+        /*     */
+    }
+}
+/* Location:           /Users/przemyslaw/Downloads/rifcs-api-1.3.0.jar
+ * Qualified Name:     org.ands.rifcs.base.Temporal
+ * JD-Core Version:    0.6.2
+ */

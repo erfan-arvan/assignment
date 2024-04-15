@@ -1,0 +1,27 @@
+package mSystem;
+
+import mLibrary.mContext;
+import mLibrary.mParent;
+import mLibrary.mVar;
+
+@org.checkerframework.framework.qual.AnnotatedFor("org.checkerframework.checker.nullness.NullnessChecker")
+public class Status extends mParent {
+
+    @org.checkerframework.dataflow.qual.SideEffectFree
+    public Status(@org.checkerframework.checker.initialization.qual.UnderInitialization(java.lang.Object.class) @org.checkerframework.checker.nullness.qual.NonNull mContext m$) {
+        super(m$);
+        // TODO Auto-generated constructor stub
+    }
+
+    @org.checkerframework.dataflow.qual.SideEffectFree
+    public static void DecomposeStatus(Object object, mVar arrErr) {
+        // TODO Auto-generated method stub
+        throw new UnsupportedOperationException();
+    }
+
+    @org.checkerframework.dataflow.qual.Pure
+    public Object Error(int i, Object object, String string, String string2) {
+        // TODO Auto-generated method stub
+        throw new UnsupportedOperationException();
+    }
+}

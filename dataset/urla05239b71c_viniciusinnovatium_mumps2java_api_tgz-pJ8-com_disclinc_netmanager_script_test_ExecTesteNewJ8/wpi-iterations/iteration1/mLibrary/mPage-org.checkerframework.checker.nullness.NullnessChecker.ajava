@@ -1,0 +1,55 @@
+package mLibrary;
+
+import java.io.UnsupportedEncodingException;
+import java.net.URLDecoder;
+import java.net.URLEncoder;
+import br.com.innovatium.mumps2java.todo.TODO;
+
+@org.checkerframework.framework.qual.AnnotatedFor("org.checkerframework.checker.nullness.NullnessChecker")
+public class mPage extends mClass {
+
+    @org.checkerframework.dataflow.qual.Impure
+    public static @org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.NonNull Object EscapeURL(@org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.NonNull Object url) {
+        try {
+            return URLEncoder.encode(String.valueOf(url), "UTF-8");
+        } catch (UnsupportedEncodingException e) {
+            // TODO Auto-generated catch block
+            e.printStackTrace();
+            return url;
+        }
+    }
+
+    @org.checkerframework.dataflow.qual.Pure
+    public static @org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.NonNull String Encrypt(String string) {
+        //TODO REVISAR
+        return string;
+    }
+
+    @org.checkerframework.dataflow.qual.Pure
+    public static @org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.NonNull String Decrypt(String string) {
+        //TODO REVISAR
+        return string;
+    }
+
+    @org.checkerframework.dataflow.qual.Pure
+    public static @org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.NonNull String HyperEventCall(String method, String args, Integer type) {
+        return "\"\"\"cspHttpServerMethod(\"\"\"\"" + method + "\"\"\"\"," + args + ")\"\"\"";
+    }
+
+    @org.checkerframework.dataflow.qual.Impure
+    public static @org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.NonNull Object UnescapeURL(Object url) {
+        try {
+            return URLDecoder.decode(String.valueOf(url), "UTF-8");
+        } catch (UnsupportedEncodingException e) {
+            // TODO Auto-generated catch block
+            e.printStackTrace();
+            return url;
+        }
+    }
+
+    @org.checkerframework.dataflow.qual.Pure
+    public static Object QuoteJS(Object object) {
+        // TODO Auto-generated method stub
+        throw new UnsupportedOperationException();
+    }
+}

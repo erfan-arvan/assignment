@@ -1,0 +1,145 @@
+package event;
+
+import java.nio.channels.SocketChannel;
+import java.nio.channels.ServerSocketChannel;
+import java.nio.ByteBuffer;
+
+/**
+ * Generic Impl to facilitate Tests
+ */
+@org.checkerframework.framework.qual.AnnotatedFor("org.checkerframework.checker.nullness.KeyForSubchecker")
+public class Test {
+
+    @org.checkerframework.dataflow.qual.Impure
+    public static void p( Object o) {
+        System.out.println(o);
+    }
+
+    @org.checkerframework.dataflow.qual.Impure
+    public static void p(byte[] os) {
+        int i = 0;
+        for (Object o : os) {
+            p(i + ": " + o);
+            i++;
+        }
+    }
+
+    @org.checkerframework.dataflow.qual.Impure
+    public static void dump(byte[] o, byte[] o2) {
+        if (o.length != o2.length) {
+            p("unequal len");
+        }
+        for (int i = 0; i != o.length; ++i) {
+            p(i + "[" + o[i] + "] [" + o2[i] + "]");
+        }
+        p("=============");
+    }
+
+    final  TCPServerLoop serverL = new TCPServerLoop();
+
+    final  TCPClientLoop clientL = new TCPClientLoop();
+
+    Callback. TCPClient client;
+
+    Callback. TCPServer server;
+
+    final   int port = 54321;
+
+    final  String host = "127.0.0.1";
+
+    @org.checkerframework.dataflow.qual.SideEffectFree
+    public Test() {
+    }
+
+    @org.checkerframework.dataflow.qual.SideEffectFree
+    public Test(Test.Client client, Test.Server server) {
+        this.client = client;
+        this.server = server;
+    }
+
+    @org.checkerframework.dataflow.qual.Impure
+    public void setClientServer( Test this, Test. Client client, Test. Server server) {
+        this.client = client;
+        this.server = server;
+    }
+
+    @org.checkerframework.dataflow.qual.Impure
+    public void runTest( Test this) {
+        serverL.start();
+        clientL.start();
+        serverL.createTCPServer(this.server, new java.net.InetSocketAddress(host, port));
+    }
+
+    @org.checkerframework.dataflow.qual.Impure
+    public void fail( Test this,  String mes) {
+        p(mes);
+        done();
+    }
+
+    @org.checkerframework.dataflow.qual.Impure
+    public void done( Test this) {
+        serverL.stopLoop();
+        clientL.stopLoop();
+    }
+
+    class Client extends Callback.TCPClient {
+
+        @org.checkerframework.dataflow.qual.Impure
+        public void onData( Client this,  TCPClientLoop l,  SocketChannel sc,  ByteBuffer buf) {
+        }
+    }
+
+    @org.checkerframework.dataflow.qual.Impure
+    static  ByteBuffer copyBuffer( ByteBuffer orig) {
+        ByteBuffer ret = ByteBuffer.allocate(orig.remaining());
+        orig.mark();
+        ret.put(orig);
+        ret.flip();
+        orig.reset();
+        return ret;
+    }
+
+    class EchoClient extends Client {
+
+        @org.checkerframework.dataflow.qual.Impure
+        public void onData( EchoClient this,  TCPClientLoop l,  SocketChannel sc,  ByteBuffer buf) {
+            l.write(sc, this, copyBuffer(buf));
+        }
+    }
+
+    class Server extends Callback.TCPServer {
+
+        @org.checkerframework.dataflow.qual.Impure
+        public void onConnect( Server this,  TCPServerLoop l,  ServerSocketChannel ssc) {
+            // start the client side of the test.
+            Test.this.clientL.createTCPClient(Test.this.client, Test.this.host, Test.this.port);
+        }
+
+        @org.checkerframework.dataflow.qual.Impure
+        public void onAccept( Server this,  TCPServerLoop l,  ServerSocketChannel ssc,  SocketChannel sc) {
+        }
+    }
+
+    /**
+     * Dummy Server accepts the connection, receives and discards any
+     * data sent.
+     */
+    class AcceptServer extends Server {
+
+        @org.checkerframework.dataflow.qual.Impure
+        public void onAccept( AcceptServer this,  TCPServerLoop l,  ServerSocketChannel ssc,  SocketChannel sc) {
+            l.createTCPClient(new Test.Client(), sc);
+        }
+    }
+
+    /**
+     * Echo Server sends everything back to the origin
+     */
+    class EchoServer extends Server {
+
+        @org.checkerframework.dataflow.qual.Impure
+        public void onAccept( EchoServer this,  TCPServerLoop l,  ServerSocketChannel ssc,  SocketChannel sc) {
+            l.createTCPClient(new Test.EchoClient(), sc);
+        }
+    }
+}

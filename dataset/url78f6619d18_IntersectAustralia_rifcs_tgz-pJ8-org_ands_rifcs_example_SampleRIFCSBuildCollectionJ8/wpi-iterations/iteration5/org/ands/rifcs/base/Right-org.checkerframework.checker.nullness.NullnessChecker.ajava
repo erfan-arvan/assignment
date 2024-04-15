@@ -1,0 +1,298 @@
+/*     */
+package org.ands.rifcs.base;
+
+/*     */
+/*     */
+import org.w3c.dom.Element;
+/*     */
+import org.w3c.dom.Node;
+
+/*     */
+/*     */
+/*     */
+@org.checkerframework.framework.qual.AnnotatedFor("org.checkerframework.checker.nullness.NullnessChecker")
+public class Right extends RIFCSElement {
+
+    /*     */
+    /*  31 */
+    protected @org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.MonotonicNonNull RightsInfo rightsStatement = null;
+
+    /*  32 */
+    protected @org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.MonotonicNonNull RightsTypedInfo licence = null;
+
+    /*  33 */
+    protected @org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.MonotonicNonNull RightsTypedInfo accessRights = null;
+
+    /*     */
+    /*     */
+    @org.checkerframework.framework.qual.EnsuresQualifier(expression = { "this.accessRights" }, qualifier = org.checkerframework.checker.initialization.qual.FBCBottom.class)
+    @org.checkerframework.framework.qual.EnsuresQualifier(expression = { "this.accessRights" }, qualifier = org.checkerframework.checker.nullness.qual.Nullable.class)
+    @org.checkerframework.framework.qual.EnsuresQualifier(expression = { "this.licence" }, qualifier = org.checkerframework.checker.initialization.qual.FBCBottom.class)
+    @org.checkerframework.framework.qual.EnsuresQualifier(expression = { "this.licence" }, qualifier = org.checkerframework.checker.nullness.qual.Nullable.class)
+    @org.checkerframework.framework.qual.EnsuresQualifier(expression = { "this.rightsStatement" }, qualifier = org.checkerframework.checker.initialization.qual.FBCBottom.class)
+    @org.checkerframework.framework.qual.EnsuresQualifier(expression = { "this.rightsStatement" }, qualifier = org.checkerframework.checker.nullness.qual.Nullable.class)
+    @org.checkerframework.dataflow.qual.SideEffectFree
+    protected Right(@org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.NonNull Node n) throws /*     */
+    RIFCSException /*     */
+    {
+        /*  44 */
+        super(n, "rights");
+        /*     */
+    }
+
+    /*     */
+    /*     */
+    @org.checkerframework.framework.qual.RequiresQualifier(expression = { "this.accessRights" }, qualifier = org.checkerframework.checker.nullness.qual.Nullable.class)
+    @org.checkerframework.framework.qual.RequiresQualifier(expression = { "this.licence" }, qualifier = org.checkerframework.checker.nullness.qual.Nullable.class)
+    @org.checkerframework.framework.qual.RequiresQualifier(expression = { "this.rightsStatement" }, qualifier = org.checkerframework.checker.nullness.qual.Nullable.class)
+    @org.checkerframework.checker.nullness.qual.EnsuresNonNull({ "this.rightsStatement" })
+    @org.checkerframework.framework.qual.EnsuresQualifier(expression = { "this.accessRights" }, qualifier = org.checkerframework.checker.nullness.qual.Nullable.class)
+    @org.checkerframework.framework.qual.EnsuresQualifier(expression = { "this.licence" }, qualifier = org.checkerframework.checker.nullness.qual.Nullable.class)
+    @org.checkerframework.dataflow.qual.Impure
+    public void setRightsStatement(@org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.NonNull RightsInfo rightsStatement) throws /*     */
+    RIFCSException /*     */
+    {
+        /*  54 */
+        this.rightsStatement = rightsStatement;
+        /*  55 */
+        getElement().appendChild(this.rightsStatement.getElement());
+        /*     */
+    }
+
+    /*     */
+    /*     */
+    @org.checkerframework.checker.nullness.qual.EnsuresNonNull({ "this.rightsStatement" })
+    @org.checkerframework.framework.qual.EnsuresQualifier(expression = { "this.accessRights" }, qualifier = org.checkerframework.checker.nullness.qual.Nullable.class)
+    @org.checkerframework.framework.qual.EnsuresQualifier(expression = { "this.licence" }, qualifier = org.checkerframework.checker.nullness.qual.Nullable.class)
+    @org.checkerframework.dataflow.qual.Impure
+    public void setRightsStatement(String value) throws /*     */
+    RIFCSException /*     */
+    {
+        /*  65 */
+        setRightsStatement(value, null);
+        /*     */
+    }
+
+    /*     */
+    /*     */
+    @org.checkerframework.framework.qual.RequiresQualifier(expression = { "this.accessRights" }, qualifier = org.checkerframework.checker.nullness.qual.Nullable.class)
+    @org.checkerframework.framework.qual.RequiresQualifier(expression = { "this.licence" }, qualifier = org.checkerframework.checker.nullness.qual.Nullable.class)
+    @org.checkerframework.framework.qual.RequiresQualifier(expression = { "this.rightsStatement" }, qualifier = org.checkerframework.checker.nullness.qual.Nullable.class)
+    @org.checkerframework.checker.nullness.qual.EnsuresNonNull({ "this.rightsStatement" })
+    @org.checkerframework.framework.qual.EnsuresQualifier(expression = { "this.accessRights" }, qualifier = org.checkerframework.checker.nullness.qual.Nullable.class)
+    @org.checkerframework.framework.qual.EnsuresQualifier(expression = { "this.licence" }, qualifier = org.checkerframework.checker.nullness.qual.Nullable.class)
+    @org.checkerframework.dataflow.qual.Impure
+    public void setRightsStatement(@org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.NonNull String value, @org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.Nullable String rightsUri) throws /*     */
+    RIFCSException /*     */
+    {
+        /*  76 */
+        RightsInfo rightsStatement = new RightsInfo(newElement("rightsStatement"));
+        /*  77 */
+        rightsStatement.setRightsUri(value);
+        /*  78 */
+        if (rightsUri != null)
+            /*  79 */
+            rightsStatement.setRightsUri(rightsUri);
+        /*  80 */
+        setRightsStatement(rightsStatement);
+        /*     */
+    }
+
+    /*     */
+    /*     */
+    @org.checkerframework.framework.qual.EnsuresQualifier(expression = { "this.accessRights" }, qualifier = org.checkerframework.checker.nullness.qual.Nullable.class)
+    @org.checkerframework.framework.qual.EnsuresQualifier(expression = { "this.licence" }, qualifier = org.checkerframework.checker.nullness.qual.Nullable.class)
+    @org.checkerframework.framework.qual.EnsuresQualifier(expression = { "this.rightsStatement" }, qualifier = org.checkerframework.checker.nullness.qual.Nullable.class)
+    @org.checkerframework.dataflow.qual.Pure
+    public @org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.Nullable RightsInfo getRightsStatement() /*     */
+    {
+        /*  89 */
+        return this.rightsStatement;
+        /*     */
+    }
+
+    /*     */
+    /*     */
+    @org.checkerframework.framework.qual.RequiresQualifier(expression = { "this.accessRights" }, qualifier = org.checkerframework.checker.nullness.qual.Nullable.class)
+    @org.checkerframework.framework.qual.RequiresQualifier(expression = { "this.licence" }, qualifier = org.checkerframework.checker.nullness.qual.Nullable.class)
+    @org.checkerframework.framework.qual.RequiresQualifier(expression = { "this.rightsStatement" }, qualifier = org.checkerframework.checker.nullness.qual.Nullable.class)
+    @org.checkerframework.checker.nullness.qual.EnsuresNonNull({ "this.licence" })
+    @org.checkerframework.framework.qual.EnsuresQualifier(expression = { "this.accessRights" }, qualifier = org.checkerframework.checker.nullness.qual.Nullable.class)
+    @org.checkerframework.framework.qual.EnsuresQualifier(expression = { "this.rightsStatement" }, qualifier = org.checkerframework.checker.nullness.qual.Nullable.class)
+    @org.checkerframework.dataflow.qual.Impure
+    public void setLicence(@org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.NonNull RightsTypedInfo licence) throws /*     */
+    RIFCSException /*     */
+    {
+        /*  98 */
+        this.licence = licence;
+        /*  99 */
+        getElement().appendChild(this.licence.getElement());
+        /*     */
+    }
+
+    /*     */
+    /*     */
+    @org.checkerframework.checker.nullness.qual.EnsuresNonNull({ "this.licence" })
+    @org.checkerframework.framework.qual.EnsuresQualifier(expression = { "this.accessRights" }, qualifier = org.checkerframework.checker.nullness.qual.Nullable.class)
+    @org.checkerframework.framework.qual.EnsuresQualifier(expression = { "this.rightsStatement" }, qualifier = org.checkerframework.checker.nullness.qual.Nullable.class)
+    @org.checkerframework.dataflow.qual.Impure
+    public void setLicence(String value) throws /*     */
+    RIFCSException /*     */
+    {
+        /* 109 */
+        setLicence(value, null);
+        /*     */
+    }
+
+    /*     */
+    /*     */
+    @org.checkerframework.framework.qual.RequiresQualifier(expression = { "this.accessRights" }, qualifier = org.checkerframework.checker.nullness.qual.Nullable.class)
+    @org.checkerframework.framework.qual.RequiresQualifier(expression = { "this.licence" }, qualifier = org.checkerframework.checker.nullness.qual.Nullable.class)
+    @org.checkerframework.framework.qual.RequiresQualifier(expression = { "this.rightsStatement" }, qualifier = org.checkerframework.checker.nullness.qual.Nullable.class)
+    @org.checkerframework.checker.nullness.qual.EnsuresNonNull({ "this.licence" })
+    @org.checkerframework.framework.qual.EnsuresQualifier(expression = { "this.accessRights" }, qualifier = org.checkerframework.checker.nullness.qual.Nullable.class)
+    @org.checkerframework.framework.qual.EnsuresQualifier(expression = { "this.rightsStatement" }, qualifier = org.checkerframework.checker.nullness.qual.Nullable.class)
+    @org.checkerframework.dataflow.qual.Impure
+    public void setLicence(@org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.NonNull String value, @org.checkerframework.checker.initialization.qual.FBCBottom @org.checkerframework.checker.nullness.qual.Nullable String type) throws /*     */
+    RIFCSException /*     */
+    {
+        /* 120 */
+        setLicence(value, type, null);
+        /*     */
+    }
+
+    /*     */
+    /*     */
+    @org.checkerframework.framework.qual.RequiresQualifier(expression = { "this.accessRights" }, qualifier = org.checkerframework.checker.nullness.qual.Nullable.class)
+    @org.checkerframework.framework.qual.RequiresQualifier(expression = { "this.licence" }, qualifier = org.checkerframework.checker.nullness.qual.Nullable.class)
+    @org.checkerframework.framework.qual.RequiresQualifier(expression = { "this.rightsStatement" }, qualifier = org.checkerframework.checker.nullness.qual.Nullable.class)
+    @org.checkerframework.checker.nullness.qual.EnsuresNonNull({ "this.licence" })
+    @org.checkerframework.framework.qual.EnsuresQualifier(expression = { "this.accessRights" }, qualifier = org.checkerframework.checker.nullness.qual.Nullable.class)
+    @org.checkerframework.framework.qual.EnsuresQualifier(expression = { "this.rightsStatement" }, qualifier = org.checkerframework.checker.nullness.qual.Nullable.class)
+    @org.checkerframework.dataflow.qual.Impure
+    public void setLicence(@org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.NonNull String value, @org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.Nullable String rightsUri, @org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.Nullable String type) throws /*     */
+    RIFCSException /*     */
+    {
+        /* 132 */
+        RightsTypedInfo licence = new RightsTypedInfo(newElement("licence"));
+        /* 133 */
+        licence.setValue(value);
+        /* 134 */
+        if (rightsUri != null)
+            /* 135 */
+            licence.setRightsUri(rightsUri);
+        /* 136 */
+        if (type != null)
+            /* 137 */
+            licence.setType(type);
+        /* 138 */
+        setLicence(licence);
+        /*     */
+    }
+
+    /*     */
+    /*     */
+    @org.checkerframework.framework.qual.EnsuresQualifier(expression = { "this.accessRights" }, qualifier = org.checkerframework.checker.nullness.qual.Nullable.class)
+    @org.checkerframework.framework.qual.EnsuresQualifier(expression = { "this.licence" }, qualifier = org.checkerframework.checker.nullness.qual.Nullable.class)
+    @org.checkerframework.framework.qual.EnsuresQualifier(expression = { "this.rightsStatement" }, qualifier = org.checkerframework.checker.nullness.qual.Nullable.class)
+    @org.checkerframework.dataflow.qual.Pure
+    public @org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.Nullable RightsTypedInfo getLicence() /*     */
+    {
+        /* 147 */
+        return this.licence;
+        /*     */
+    }
+
+    /*     */
+    /*     */
+    @org.checkerframework.checker.nullness.qual.EnsuresNonNull({ "this.accessRights" })
+    @org.checkerframework.framework.qual.EnsuresQualifier(expression = { "this.licence" }, qualifier = org.checkerframework.checker.nullness.qual.Nullable.class)
+    @org.checkerframework.framework.qual.EnsuresQualifier(expression = { "this.rightsStatement" }, qualifier = org.checkerframework.checker.nullness.qual.Nullable.class)
+    @org.checkerframework.dataflow.qual.Impure
+    public void setAccessRights(RightsTypedInfo accessRights) throws /*     */
+    RIFCSException /*     */
+    {
+        /* 157 */
+        this.accessRights = accessRights;
+        /* 158 */
+        getElement().appendChild(this.accessRights.getElement());
+        /*     */
+    }
+
+    /*     */
+    /*     */
+    @org.checkerframework.checker.nullness.qual.EnsuresNonNull({ "this.licence" })
+    @org.checkerframework.framework.qual.EnsuresQualifier(expression = { "this.accessRights" }, qualifier = org.checkerframework.checker.nullness.qual.Nullable.class)
+    @org.checkerframework.framework.qual.EnsuresQualifier(expression = { "this.rightsStatement" }, qualifier = org.checkerframework.checker.nullness.qual.Nullable.class)
+    @org.checkerframework.dataflow.qual.Impure
+    public void setAccessRights(String value) throws /*     */
+    RIFCSException /*     */
+    {
+        /* 168 */
+        setAccessRights(value, null);
+        /*     */
+    }
+
+    /*     */
+    /*     */
+    @org.checkerframework.framework.qual.RequiresQualifier(expression = { "this.accessRights" }, qualifier = org.checkerframework.checker.nullness.qual.Nullable.class)
+    @org.checkerframework.framework.qual.RequiresQualifier(expression = { "this.licence" }, qualifier = org.checkerframework.checker.nullness.qual.Nullable.class)
+    @org.checkerframework.framework.qual.RequiresQualifier(expression = { "this.rightsStatement" }, qualifier = org.checkerframework.checker.nullness.qual.Nullable.class)
+    @org.checkerframework.checker.nullness.qual.EnsuresNonNull({ "this.licence" })
+    @org.checkerframework.framework.qual.EnsuresQualifier(expression = { "this.accessRights" }, qualifier = org.checkerframework.checker.nullness.qual.Nullable.class)
+    @org.checkerframework.framework.qual.EnsuresQualifier(expression = { "this.rightsStatement" }, qualifier = org.checkerframework.checker.nullness.qual.Nullable.class)
+    @org.checkerframework.dataflow.qual.Impure
+    public void setAccessRights(@org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.NonNull String value, @org.checkerframework.checker.initialization.qual.FBCBottom @org.checkerframework.checker.nullness.qual.Nullable String type) throws /*     */
+    RIFCSException /*     */
+    {
+        /* 179 */
+        setAccessRights(value, type, null);
+        /*     */
+    }
+
+    /*     */
+    /*     */
+    @org.checkerframework.framework.qual.RequiresQualifier(expression = { "this.accessRights" }, qualifier = org.checkerframework.checker.nullness.qual.Nullable.class)
+    @org.checkerframework.framework.qual.RequiresQualifier(expression = { "this.licence" }, qualifier = org.checkerframework.checker.nullness.qual.Nullable.class)
+    @org.checkerframework.framework.qual.RequiresQualifier(expression = { "this.rightsStatement" }, qualifier = org.checkerframework.checker.nullness.qual.Nullable.class)
+    @org.checkerframework.checker.nullness.qual.EnsuresNonNull({ "this.licence" })
+    @org.checkerframework.framework.qual.EnsuresQualifier(expression = { "this.accessRights" }, qualifier = org.checkerframework.checker.nullness.qual.Nullable.class)
+    @org.checkerframework.framework.qual.EnsuresQualifier(expression = { "this.rightsStatement" }, qualifier = org.checkerframework.checker.nullness.qual.Nullable.class)
+    @org.checkerframework.dataflow.qual.Impure
+    public void setAccessRights(@org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.NonNull String value, @org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.Nullable String rightsUri, @org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.Nullable String type) throws /*     */
+    RIFCSException /*     */
+    {
+        /* 191 */
+        RightsTypedInfo accessRights = new RightsTypedInfo(newElement("accessRights"));
+        /* 192 */
+        accessRights.setValue(value);
+        /* 193 */
+        if (rightsUri != null)
+            /* 194 */
+            accessRights.setRightsUri(rightsUri);
+        /* 195 */
+        if (type != null)
+            /* 196 */
+            accessRights.setType(type);
+        /* 197 */
+        setLicence(accessRights);
+        /*     */
+    }
+
+    /*     */
+    /*     */
+    @org.checkerframework.framework.qual.EnsuresQualifier(expression = { "this.accessRights" }, qualifier = org.checkerframework.checker.nullness.qual.Nullable.class)
+    @org.checkerframework.framework.qual.EnsuresQualifier(expression = { "this.licence" }, qualifier = org.checkerframework.checker.nullness.qual.Nullable.class)
+    @org.checkerframework.framework.qual.EnsuresQualifier(expression = { "this.rightsStatement" }, qualifier = org.checkerframework.checker.nullness.qual.Nullable.class)
+    @org.checkerframework.dataflow.qual.Pure
+    public @org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.Nullable RightsTypedInfo getAccessRights() /*     */
+    {
+        /* 206 */
+        return this.accessRights;
+        /*     */
+    }
+}
+/* Location:           /Users/przemyslaw/Downloads/rifcs-api-1.3.0.jar
+ * Qualified Name:     org.ands.rifcs.base.Right
+ * JD-Core Version:    0.6.2
+ */

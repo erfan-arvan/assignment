@@ -1,0 +1,133 @@
+package cz.mff.dpp.args.examples;
+
+import cz.mff.dpp.args.Constraint;
+import cz.mff.dpp.args.Option;
+import cz.mff.dpp.args.ParseException;
+import cz.mff.dpp.args.Parser;
+
+/**
+ * How to use Constraints.
+ */
+@org.checkerframework.framework.qual.AnnotatedFor("org.checkerframework.checker.nullness.NullnessChecker")
+public class ConstraintTest {
+
+    // TODO if private -> cannot create instance in valueFromString()!!!
+    public static final class TestClass {
+
+        private @org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.NonNull String value;
+
+        @org.checkerframework.dataflow.qual.Impure
+        public TestClass(String value) {
+            this.value = value;
+            System.out.println(value);
+        }
+
+        @org.checkerframework.dataflow.qual.Pure
+        public @org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.NonNull String toString(@org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.NonNull TestClass this) {
+            return value;
+        }
+    }
+
+    private static final class ConstraintTestOptions {
+
+        @org.checkerframework.checker.initialization.qual.FBCBottom @org.checkerframework.checker.nullness.qual.MonotonicNonNull String day;
+
+        @org.checkerframework.checker.initialization.qual.FBCBottom @org.checkerframework.checker.nullness.qual.MonotonicNonNull String threeLetters;
+
+        double port;
+
+        java.util.@org.checkerframework.checker.initialization.qual.FBCBottom @org.checkerframework.checker.nullness.qual.MonotonicNonNull List<Integer> ports;
+
+        String @org.checkerframework.checker.initialization.qual.FBCBottom @org.checkerframework.checker.nullness.qual.MonotonicNonNull [] days;
+
+        char @org.checkerframework.checker.initialization.qual.FBCBottom @org.checkerframework.checker.nullness.qual.MonotonicNonNull [] someLetters;
+
+        @org.checkerframework.checker.initialization.qual.FBCBottom @org.checkerframework.checker.nullness.qual.MonotonicNonNull TestClass testClass;
+    }
+
+    @org.checkerframework.dataflow.qual.Impure
+    public static void main(String[] args) throws Exception {
+        ConstraintTestOptions constraintOption = new ConstraintTestOptions();
+        Parser parser = new Parser(constraintOption);
+        String[] arguments = new String[] { "--day", "monday", "-p", "2000", "--three-letters", "abc", "--test-class", "test" };
+        parser.parse(arguments);
+        parser.usage();
+        System.out.println("How not to pass checks: ... \n\n ");
+        System.out.println("Exception expected ...");
+        arguments = new String[] { "--day", "bla" };
+        parser = new Parser(constraintOption);
+        try {
+            parser.parse(arguments);
+        } catch (ParseException e) {
+            e.printStackTrace();
+        }
+        System.out.println("\n\nMIN: Another exception expected ...");
+        arguments = new String[] { "--port", "1000" };
+        parser = new Parser(constraintOption);
+        try {
+            parser.parse(arguments);
+        } catch (ParseException e) {
+            e.printStackTrace();
+        }
+        System.out.println("\n\nMAX: Another exception expected ...");
+        arguments = new String[] { "--port", "70000" };
+        parser = new Parser(constraintOption);
+        try {
+            parser.parse(arguments);
+        } catch (ParseException e) {
+            e.printStackTrace();
+        }
+        System.out.println("\n\nREGEXP: Another exception expected ...");
+        arguments = new String[] { "--three-letters", "a1d" };
+        parser = new Parser(constraintOption);
+        try {
+            parser.parse(arguments);
+        } catch (ParseException e) {
+            e.printStackTrace();
+        }
+        System.out.println("\n\nLIST: Check values ... should be ok");
+        arguments = new String[] { "--list-of-ports", "1025", "1026", "1027", "1028" };
+        parser = new Parser(constraintOption);
+        try {
+            parser.parse(arguments);
+        } catch (ParseException e) {
+            e.printStackTrace();
+        }
+        System.out.println("\n\nLIST: Exception expected ... ");
+        arguments = new String[] { "--list-of-ports", "-10", "-1026", "-1027", "1028" };
+        parser = new Parser(constraintOption);
+        try {
+            parser.parse(arguments);
+        } catch (ParseException e) {
+            e.printStackTrace();
+        }
+        System.out.println("\n\nARRAY: Check values ... should be ok");
+        arguments = new String[] { "--array-of-days", "MONDAY", "SUNDAY" };
+        parser = new Parser(constraintOption);
+        try {
+            parser.parse(arguments);
+        } catch (ParseException e) {
+            e.printStackTrace();
+        }
+        System.out.println("\n\nARRAY: Exception expected ... ");
+        arguments = new String[] { "--array-of-days", "MONDAY", "SUN___DAY" };
+        parser = new Parser(constraintOption);
+        try {
+            parser.parse(arguments);
+        } catch (ParseException e) {
+            e.printStackTrace();
+        }
+        System.out.println("\n\nIGNORE CASE: ... should be ok");
+        arguments = new String[] { "--some-letters", "a", "B", "c", "D" };
+        parser = new Parser(constraintOption);
+        try {
+            parser.parse(arguments);
+        } catch (ParseException e) {
+            e.printStackTrace();
+        }
+        for (char letter : constraintOption.someLetters) {
+            System.out.printf("%s", letter);
+        }
+        System.out.println();
+    }
+}

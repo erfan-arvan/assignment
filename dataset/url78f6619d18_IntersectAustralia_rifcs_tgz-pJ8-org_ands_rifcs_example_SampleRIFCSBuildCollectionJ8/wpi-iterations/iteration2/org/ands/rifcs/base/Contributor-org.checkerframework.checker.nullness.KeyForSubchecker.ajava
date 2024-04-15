@@ -1,0 +1,142 @@
+/*     */
+package org.ands.rifcs.base;
+
+/*     */
+/*     */
+import java.util.ArrayList;
+/*     */
+import java.util.List;
+/*     */
+import org.w3c.dom.Element;
+/*     */
+import org.w3c.dom.Node;
+/*     */
+import org.w3c.dom.NodeList;
+
+/*     */
+/*     */
+/*     */
+@org.checkerframework.framework.qual.AnnotatedFor("org.checkerframework.checker.nullness.KeyForSubchecker")
+public class Contributor extends RIFCSElement {
+
+    /*     */
+    /*  36 */
+    private  List<NamePart> nameParts = new ArrayList();
+
+    /*     */
+    /*     */
+    @org.checkerframework.dataflow.qual.Impure
+    protected Contributor( Node n) throws /*     */
+    RIFCSException /*     */
+    {
+        /*  48 */
+        super(n, "contributor");
+        /*  49 */
+        initStructures();
+        /*     */
+    }
+
+    /*     */
+    /*     */
+    @org.checkerframework.dataflow.qual.Impure
+    public void setSeq( Contributor this,   int seq) /*     */
+    {
+        /*  62 */
+        super.setAttributeValue("seq", String.valueOf(seq));
+        /*     */
+    }
+
+    /*     */
+    /*     */
+    @org.checkerframework.dataflow.qual.Pure
+    public   int getSeq() /*     */
+    {
+        /*  76 */
+        String seq = super.getAttributeValue("seq");
+        /*  77 */
+        if ((seq == null) || (seq.equals(""))) /*     */
+        {
+            /*  79 */
+            return -1;
+            /*     */
+        }
+        /*  81 */
+        return Integer.valueOf(seq).intValue();
+        /*     */
+    }
+
+    /*     */
+    /*     */
+    @org.checkerframework.dataflow.qual.Impure
+    public  NamePart newNamePart( Contributor this) throws /*     */
+    RIFCSException /*     */
+    {
+        /*  99 */
+        return new NamePart(newElement("namePart"));
+        /*     */
+    }
+
+    /*     */
+    /*     */
+    @org.checkerframework.dataflow.qual.Impure
+    public void addNamePart(NamePart namePart) /*     */
+    {
+        /* 111 */
+        getElement().appendChild(namePart.getElement());
+        /* 112 */
+        this.nameParts.add(namePart);
+        /*     */
+    }
+
+    /*     */
+    /*     */
+    @org.checkerframework.dataflow.qual.Impure
+    public void addNamePart( Contributor this,  String namePart,  String type) throws /*     */
+    RIFCSException /*     */
+    {
+        /* 127 */
+        NamePart np = newNamePart();
+        /* 128 */
+        np.setValue(namePart);
+        /* 129 */
+        np.setType(type);
+        /* 130 */
+        getElement().appendChild(np.getElement());
+        /* 131 */
+        this.nameParts.add(np);
+        /*     */
+    }
+
+    /*     */
+    /*     */
+    @org.checkerframework.dataflow.qual.Pure
+    public  List<NamePart> getNameParts() /*     */
+    {
+        /* 143 */
+        return this.nameParts;
+        /*     */
+    }
+
+    /*     */
+    /*     */
+    @org.checkerframework.dataflow.qual.Impure
+    private void initStructures( Contributor this) throws /*     */
+    RIFCSException /*     */
+    {
+        /* 150 */
+        NodeList nl = super.getElements("namePart");
+        /*     */
+        /* 152 */
+        for (int i = 0; i < nl.getLength(); i++) /*     */
+        {
+            /* 154 */
+            this.nameParts.add(new NamePart(nl.item(i)));
+            /*     */
+        }
+        /*     */
+    }
+}
+/* Location:           /Users/przemyslaw/Downloads/rifcs-api-1.3.0.jar
+ * Qualified Name:     org.ands.rifcs.base.Contributor
+ * JD-Core Version:    0.6.2
+ */

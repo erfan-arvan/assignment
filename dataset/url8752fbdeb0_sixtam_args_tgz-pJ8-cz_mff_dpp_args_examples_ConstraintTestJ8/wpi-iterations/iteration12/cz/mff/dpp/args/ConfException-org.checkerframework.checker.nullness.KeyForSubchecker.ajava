@@ -1,0 +1,55 @@
+package cz.mff.dpp.args;
+
+/**
+ * Exception caused configuration errors of annotated objects.
+ *
+ * @author Stepan Bokoc
+ *
+ * @see Option
+ * @see Argument
+ */
+@org.checkerframework.framework.qual.AnnotatedFor("org.checkerframework.checker.nullness.KeyForSubchecker")
+class ConfException extends Exception {
+
+    private static final   long serialVersionUID = -6434036932983497468L;
+
+    @org.checkerframework.dataflow.qual.SideEffectFree
+    public ConfException() {
+        super();
+    }
+
+    @org.checkerframework.dataflow.qual.SideEffectFree
+    public ConfException( String message) {
+        super(message);
+    }
+
+    @org.checkerframework.dataflow.qual.SideEffectFree
+    public ConfException( String message,  Throwable cause) {
+        super(message, cause);
+    }
+
+    @org.checkerframework.dataflow.qual.SideEffectFree
+    public ConfException(Throwable cause) {
+        super(cause);
+    }
+
+    @org.checkerframework.dataflow.qual.SideEffectFree
+    public ConfException( String format,  Object ... args) {
+        super(String.format(format, args));
+    }
+
+    @org.checkerframework.dataflow.qual.SideEffectFree
+    public ConfException( Throwable cause,  String format,  Object ... args) {
+        super(String.format(format, args), cause);
+    }
+
+    @org.checkerframework.dataflow.qual.SideEffectFree
+    public static void wrap( Throwable cause,  String format,  Object ... args) throws ConfException {
+        throw new ConfException(cause, format, args);
+    }
+
+    @org.checkerframework.dataflow.qual.SideEffectFree
+    public static void wrap(Throwable cause, String message) throws ConfException {
+        throw new ConfException(cause, message);
+    }
+}

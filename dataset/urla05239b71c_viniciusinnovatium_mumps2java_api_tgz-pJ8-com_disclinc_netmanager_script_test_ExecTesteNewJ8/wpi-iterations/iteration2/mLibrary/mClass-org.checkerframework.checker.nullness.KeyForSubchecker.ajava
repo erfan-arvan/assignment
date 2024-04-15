@@ -1,0 +1,34 @@
+package mLibrary;
+
+import java.math.BigDecimal;
+import java.util.Scanner;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+
+@org.checkerframework.framework.qual.AnnotatedFor("org.checkerframework.checker.nullness.KeyForSubchecker")
+public class mClass {
+
+    public  mContext m$;
+
+    @org.checkerframework.dataflow.qual.Pure
+    public  mContext getContext() {
+        return m$;
+    }
+
+    @org.checkerframework.dataflow.qual.Pure
+    public mVar m$piece(mVar var, Object delimiter, Object from) {
+        // TODO Auto-generated method stub
+        throw new UnsupportedOperationException();
+    }
+
+    @org.checkerframework.dataflow.qual.Pure
+    public mVar m$piece(mVar var, Object delimiter, Object from, Object to) {
+        // TODO Auto-generated method stub
+        throw new UnsupportedOperationException();
+    }
+
+    @org.checkerframework.dataflow.qual.Impure
+    public void setContext( mClass this,  mContext context) {
+        this.m$ = context;
+    }
+}

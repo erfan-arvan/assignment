@@ -1,0 +1,86 @@
+package mSystem;
+
+import mLibrary.mContext;
+import mLibrary.mParent;
+
+@org.checkerframework.framework.qual.AnnotatedFor("org.checkerframework.checker.nullness.NullnessChecker")
+public class mSystem extends mParent {
+
+    private @org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.NonNull Status status;
+
+    private @org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.NonNull License license;
+
+    private @org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.NonNull Encryption encryption;
+
+    private @org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.NonNull Process process;
+
+    private @org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.NonNull Version version;
+
+    private @org.checkerframework.checker.initialization.qual.FBCBottom @org.checkerframework.checker.nullness.qual.MonotonicNonNull OBJ obj;
+
+    @org.checkerframework.dataflow.qual.Impure
+    public mSystem(@org.checkerframework.checker.initialization.qual.UnderInitialization(java.lang.Object.class) @org.checkerframework.checker.nullness.qual.NonNull mContext m$) {
+        super(m$);
+        status = new Status(m$);
+        license = new License(m$);
+        encryption = new Encryption(m$);
+        process = new Process(m$);
+        version = new Version(m$);
+        // TODO Auto-generated constructor stub
+    }
+
+    @org.checkerframework.dataflow.qual.Pure
+    public @org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.NonNull Status getStatus() {
+        return status;
+    }
+
+    @org.checkerframework.dataflow.qual.Impure
+    public void setStatus(Status status) {
+        this.status = status;
+    }
+
+    @org.checkerframework.dataflow.qual.Pure
+    public @org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.NonNull License getLicense() {
+        return license;
+    }
+
+    @org.checkerframework.dataflow.qual.Impure
+    public void setLicense(License license) {
+        this.license = license;
+    }
+
+    @org.checkerframework.dataflow.qual.Pure
+    public @org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.NonNull Encryption getEncryption() {
+        return encryption;
+    }
+
+    @org.checkerframework.dataflow.qual.Impure
+    public void setEncryption(Encryption encryption) {
+        this.encryption = encryption;
+    }
+
+    @org.checkerframework.dataflow.qual.Pure
+    public @org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.NonNull Process getProcess() {
+        return process;
+    }
+
+    @org.checkerframework.dataflow.qual.Impure
+    public void setProcess(Process process) {
+        this.process = process;
+    }
+
+    @org.checkerframework.dataflow.qual.Pure
+    public @org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.NonNull Version getVersion() {
+        return version;
+    }
+
+    @org.checkerframework.dataflow.qual.Impure
+    public void setVersion(Version version) {
+        this.version = version;
+    }
+
+    @org.checkerframework.dataflow.qual.Pure
+    public @org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.NonNull OBJ getOBJ() {
+        return obj;
+    }
+}

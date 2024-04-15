@@ -1,0 +1,15 @@
+package mSystem;
+
+@org.checkerframework.framework.qual.AnnotatedFor("org.checkerframework.checker.nullness.KeyForSubchecker")
+public class OBJ {
+
+    @org.checkerframework.dataflow.qual.Pure
+    public Object New(Object object) {
+        throw new UnsupportedOperationException();
+    }
+
+    @org.checkerframework.dataflow.qual.Pure
+    public Object OpenId(Object object, Object object2) {
+        throw new UnsupportedOperationException();
+    }
+}

@@ -1,0 +1,42 @@
+import java.io.IOException;
+import java.net.DatagramPacket;
+import java.net.DatagramSocket;
+import java.util.concurrent.BlockingQueue;
+
+@org.checkerframework.framework.qual.AnnotatedFor("org.checkerframework.checker.nullness.NullnessChecker")
+public class Receiver implements Runnable {
+
+    private @org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.MonotonicNonNull DatagramSocket socket;
+
+    private @org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.MonotonicNonNull Controller controller;
+
+    private @org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.NonNull BlockingQueue receiveQueue;
+
+    @org.checkerframework.framework.qual.EnsuresQualifier(expression = { "this.controller" }, qualifier = org.checkerframework.checker.nullness.qual.Nullable.class)
+    @org.checkerframework.framework.qual.EnsuresQualifier(expression = { "this.socket" }, qualifier = org.checkerframework.checker.nullness.qual.Nullable.class)
+    @org.checkerframework.dataflow.qual.SideEffectFree
+    public Receiver(@org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.Nullable DatagramSocket socket, @org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.NonNull BlockingQueue rQueue) {
+        this.socket = socket;
+        this.controller = controller;
+        receiveQueue = rQueue;
+    }
+
+    @org.checkerframework.dataflow.qual.Impure
+    public void run(@org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.NonNull Receiver this) {
+        while (true) {
+            byte[] buf = new byte[NetworkProperties.MTU];
+            DatagramPacket message = new DatagramPacket(buf, buf.length);
+            try {
+                System.out.println("Waiting for message...");
+                socket.receive(message);
+                receiveQueue.put(message);
+            } catch (IOException e) {
+                System.err.println("Error receiving packet in Receiver");
+                e.printStackTrace();
+            } catch (InterruptedException e) {
+                System.err.println("Error putting message on queue in Receiver");
+                e.printStackTrace();
+            }
+        }
+    }
+}

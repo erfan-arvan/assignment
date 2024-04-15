@@ -1,0 +1,230 @@
+package event;
+
+import java.nio.channels.SocketChannel;
+import java.nio.channels.ServerSocketChannel;
+import java.nio.ByteBuffer;
+import static event.Test.p;
+import static event.Test.dump;
+import event.util.ByteArrayPool;
+import event.util.BufferPool;
+
+@org.checkerframework.framework.qual.AnnotatedFor("org.checkerframework.checker.nullness.NullnessChecker")
+public class EchoTest extends Test {
+
+     @org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.NonNull long start;
+
+    @org.checkerframework.dataflow.qual.Impure
+    public EchoTest() {
+        super();
+        setClientServer(new EchoTest.Client(), new EchoTest.Server());
+    }
+
+    static @org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.NonNull BufferPool bPool = new BufferPool();
+
+    @org.checkerframework.dataflow.qual.Impure
+    static @org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.NonNull ByteBuffer copyBuffer(@org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.NonNull ByteBuffer orig) {
+        //ByteBuffer ret = ByteBuffer.allocate(orig.remaining());
+        ByteBuffer ret = bPool.get(orig.remaining());
+        orig.mark();
+        ret.put(orig);
+        ret.flip();
+        orig.reset();
+        return ret;
+    }
+
+    class Server extends Test.Server {
+
+        @org.checkerframework.dataflow.qual.Impure
+        public void onAccept(@org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.NonNull Server this, @org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.NonNull TCPServerLoop l, @org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.NonNull ServerSocketChannel ssc, @org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.NonNull SocketChannel sc) {
+            l.createTCPClient(new EchoTest.EchoClient(), sc);
+        }
+    }
+
+    class EchoClient extends Test.Client {
+
+        @org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.NonNull Random rnd = new Random(0L);
+
+        @org.checkerframework.dataflow.qual.Impure
+        public void onData(@org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.NonNull EchoClient this, @org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.NonNull TCPClientLoop l, @org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.NonNull SocketChannel sc, @org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.NonNull ByteBuffer buf) {
+            assert l.isLoopThread();
+            /*
+       int    len = buf.remaining();
+      byte [] arr = new byte[len];
+      byte [] chk = new byte[len];
+     p("s read: "+len); 
+      buf.mark();
+      buf.get(arr);
+      buf.reset();
+      rnd.nextBytes(chk);
+
+      if (!cmp(arr, chk)) {
+        p("server failure!");
+//        dump(arr,chk);
+        System.exit(1);
+      }
+      */
+            ByteBuffer b2 = copyBuffer(buf);
+            l.write(sc, this, b2);
+        }
+
+        @org.checkerframework.dataflow.qual.Impure
+        public void onWrite(@org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.NonNull EchoClient this, @org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.NonNull TCPClientLoop l, @org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.NonNull SocketChannel sc, @org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.NonNull ByteBuffer b,  @org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.NonNull int pos,  @org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.NonNull int num) {
+            if (0 == b.remaining()) {
+                bPool.putBack(b);
+            }
+        }
+    }
+
+    class Client extends Test.Client {
+
+        @org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.NonNull Random back = new Random(0L);
+
+        @org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.NonNull Random forth = new Random(0L);
+
+        final  @org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.NonNull long TOT = 400000000;
+
+         @org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.NonNull long count = TOT;
+
+         @org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.NonNull int NUM = 200000;
+
+         @org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.NonNull byte @org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.MonotonicNonNull [] bytes;
+
+         @org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.NonNull int numRead = 0;
+
+        @org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.NonNull ByteArrayPool pool = new ByteArrayPool(NUM);
+
+        @org.checkerframework.checker.nullness.qual.EnsuresNonNull({ "this.bytes" })
+        @org.checkerframework.dataflow.qual.Impure
+        public void onConnect(@org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.NonNull Client this, @org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.NonNull TCPClientLoop l, java.nio.channels.@org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.NonNull SocketChannel sc) {
+            EchoTest.this.start = System.currentTimeMillis();
+            bytes = pool.get();
+            back.nextBytes(bytes);
+            l.write(sc, this, bytes);
+            count -= NUM;
+        }
+
+        @org.checkerframework.framework.qual.EnsuresQualifier(expression = { "this.bytes" }, qualifier = org.checkerframework.checker.nullness.qual.Nullable.class)
+        @org.checkerframework.dataflow.qual.Impure
+        public void onWrite(@org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.NonNull Client this, @org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.NonNull TCPClientLoop l, @org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.NonNull SocketChannel sc, @org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.NonNull ByteBuffer b,  @org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.NonNull int pos,  @org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.NonNull int num) {
+            if (pos == NUM - 1) {
+                this.pool.putBack(b.array());
+            }
+        }
+
+        @org.checkerframework.framework.qual.EnsuresQualifier(expression = { "this.bytes" }, qualifier = org.checkerframework.checker.nullness.qual.Nullable.class)
+        @org.checkerframework.dataflow.qual.Impure
+        public void onData(@org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.NonNull Client this, @org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.NonNull TCPClientLoop l, @org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.NonNull SocketChannel sc, @org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.NonNull ByteBuffer buf) {
+            int len = buf.remaining();
+            p("c read:" + len);
+            check(buf);
+            if (0 >= count) {
+                // EchoTest.this.done();
+            } else {
+                bytes = this.pool.get();
+                back.nextBytes(bytes);
+                l.write(sc, this, bytes);
+                count -= NUM;
+            }
+            numRead += len;
+            if (numRead == TOT) {
+                EchoTest.this.done();
+                p(TOT + "time: " + (System.currentTimeMillis() - start));
+            }
+        }
+
+        @org.checkerframework.framework.qual.RequiresQualifier(expression = { "this.bytes" }, qualifier = org.checkerframework.checker.nullness.qual.Nullable.class)
+        @org.checkerframework.framework.qual.EnsuresQualifier(expression = { "this.bytes" }, qualifier = org.checkerframework.checker.nullness.qual.Nullable.class)
+        @org.checkerframework.dataflow.qual.Impure
+        void check(@org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.NonNull ByteBuffer buf) {
+            int len = buf.remaining();
+            //byte [] arr = new byte[len];
+            //buf.get(arr);
+            //      forth.nextBytes(chk);
+            for (int i = 0; i != len; ++i) {
+                //if (arr[i] != (byte)forth.nextInt()) {
+                if (buf.get() != (byte) forth.nextInt()) {
+                    fail("arrays not equal: " + i);
+                }
+            }
+            //      //boolean passed = java.util.Arrays.equals(arr, chk);
+            //      boolean passed = cmp(arr, chk);
+            //
+            //      if (!passed) {
+            //        p("-----");
+            //        dump(arr, chk);
+            //        fail ("arrays not equal!");
+            //      }
+        }
+    }
+
+    @org.checkerframework.dataflow.qual.Impure
+    public static void main(String[] args) throws Throwable {
+        if (args.length == 1 && args[0].equals("-minitest")) {
+            new EchoTest().minitest();
+            System.exit(0);
+        }
+        EchoTest test = new EchoTest();
+        test.runTest();
+    }
+
+    @org.checkerframework.dataflow.qual.Impure
+    void minitest() throws Throwable {
+        Random r1 = new Random(0L);
+        Random r2 = new Random(0L);
+        int NUM_CMP = 8000000;
+        int NUM_PCS = 65535;
+        byte[] orig = new byte[NUM_CMP];
+        r1.nextBytes(orig);
+        byte[] cmp = new byte[NUM_PCS];
+        r2.nextBytes(cmp);
+        int count = 0;
+        for (int i = 0; i != NUM_CMP; ++i) {
+            if (NUM_PCS == count) {
+                count = 0;
+                r2.nextBytes(cmp);
+            }
+            if (0 == (i % 10000))
+                p(i + " : o= " + orig[i] + " c= : " + cmp[count]);
+            if (orig[i] != cmp[count]) {
+                p(i + " : o= " + orig[i] + " c= : " + cmp[count]);
+                return;
+            }
+            count++;
+        }
+    }
+
+    @org.checkerframework.dataflow.qual.Impure
+    static  @org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.NonNull boolean cmp(byte[] b1, byte[] b2) {
+        if (b1.length != b2.length) {
+            p("len unequal");
+            return false;
+        }
+        for (int i = 0; i != b1.length; ++i) {
+            if (b1[i] != b2[i]) {
+                p("!= at " + i);
+                return false;
+            }
+        }
+        return true;
+    }
+
+    class Random extends java.util.Random {
+
+        @org.checkerframework.dataflow.qual.Impure
+        public Random( @org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.NonNull long seed) {
+            super(seed);
+        }
+
+        /**
+         * default always grabs 4 bytes of stream, so in
+         * case the generated arrays aren't always divisible by
+         * 4, the stream may not be reproducible
+         */
+        @org.checkerframework.dataflow.qual.Impure
+        public void nextBytes(@org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.NonNull Random this,  @org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.NonNull byte @org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.NonNull [] bytes) {
+            for (int i = 0; i != bytes.length; ++i) {
+                bytes[i] = (byte) (nextInt());
+            }
+        }
+    }
+}

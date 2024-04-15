@@ -1,0 +1,10 @@
+package mLibrary;
+
+@org.checkerframework.framework.qual.AnnotatedFor("org.checkerframework.checker.nullness.KeyForSubchecker")
+public class $R extends mClass {
+
+    @org.checkerframework.dataflow.qual.Pure
+    public static  Object EXIST(Object... args) {
+        return 1;
+    }
+}

@@ -1,0 +1,10 @@
+package com.disclinc.netmanager.mParameter.test;
+
+import mLibrary.mClass;
+
+@org.checkerframework.framework.qual.AnnotatedFor("org.checkerframework.checker.nullness.KeyForSubchecker")
+public class mClassChild extends mClass {
+
+    //<< Parameter LOGINSUBMIT As %String = "COMUserPreferences.cls";
+    public static  String p_LOGINSUBMIT = "COMUserPreferences.cls";
+}

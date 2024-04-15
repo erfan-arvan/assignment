@@ -1,0 +1,100 @@
+/*     */
+package org.ands.rifcs.base;
+
+/*     */
+/*     */
+import java.util.Date;
+/*     */
+import org.w3c.dom.Node;
+
+/*     */
+/*     */
+/*     */
+@org.checkerframework.framework.qual.AnnotatedFor("org.checkerframework.checker.nullness.NullnessChecker")
+public class TemporalCoverageDate extends RIFCSElement {
+
+    /*     */
+    /*     */
+    @org.checkerframework.dataflow.qual.Impure
+    protected TemporalCoverageDate(@org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.Nullable Node n) throws /*     */
+    RIFCSException /*     */
+    {
+        /*  43 */
+        super(n, "date");
+        /*     */
+    }
+
+    /*     */
+    /*     */
+    @org.checkerframework.dataflow.qual.Impure
+    public void setDateFormat(@org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.NonNull String dateFormat) /*     */
+    {
+        /*  54 */
+        super.setAttributeValue("dateFormat", dateFormat);
+        /*     */
+    }
+
+    /*     */
+    /*     */
+    @org.checkerframework.dataflow.qual.Impure
+    public @org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.NonNull String DateFormat() /*     */
+    {
+        /*  67 */
+        return super.getAttributeValue("dateFormat");
+        /*     */
+    }
+
+    /*     */
+    /*     */
+    @org.checkerframework.dataflow.qual.Impure
+    public void setType(@org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.NonNull String type) /*     */
+    {
+        /*  80 */
+        super.setAttributeValue("type", type);
+        /*     */
+    }
+
+    /*     */
+    /*     */
+    @org.checkerframework.dataflow.qual.Impure
+    public @org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.NonNull String getType() /*     */
+    {
+        /*  93 */
+        return super.getAttributeValue("type");
+        /*     */
+    }
+
+    /*     */
+    /*     */
+    @org.checkerframework.dataflow.qual.Impure
+    public void setValue(@org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.NonNull String value) /*     */
+    {
+        /* 105 */
+        super.setTextContent(value);
+        /*     */
+    }
+
+    /*     */
+    /*     */
+    @org.checkerframework.dataflow.qual.Impure
+    public void setValue(Date value) /*     */
+    {
+        /* 117 */
+        super.setTextContent(RegistryObject.formatDate(value));
+        /*     */
+    }
+
+    /*     */
+    /*     */
+    @org.checkerframework.dataflow.qual.Impure
+    public @org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.NonNull String getValue() /*     */
+    {
+        /* 129 */
+        return super.getTextContent();
+        /*     */
+    }
+}
+/* Location:           /Users/przemyslaw/Downloads/rifcs-api-1.3.0.jar
+ * Qualified Name:     org.ands.rifcs.base.TemporalCoverageDate
+ * JD-Core Version:    0.6.2
+ */

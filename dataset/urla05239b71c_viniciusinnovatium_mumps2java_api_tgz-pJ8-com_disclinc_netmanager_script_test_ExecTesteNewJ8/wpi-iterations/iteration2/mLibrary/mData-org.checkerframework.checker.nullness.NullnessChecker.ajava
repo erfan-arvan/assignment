@@ -1,0 +1,206 @@
+package mLibrary;
+
+import static br.com.innovatium.mumps2java.datastructure.util.DataStructureUtil.generateKey;
+import static br.com.innovatium.mumps2java.datastructure.util.DataStructureUtil.generateKeyToLikeQuery;
+import static br.com.innovatium.mumps2java.datastructure.util.DataStructureUtil.generateKeyWithoutVarName;
+import static br.com.innovatium.mumps2java.datastructure.util.DataStructureUtil.generateSubs;
+import static br.com.innovatium.mumps2java.datastructure.util.DataStructureUtil.generateTableName;
+import java.util.HashSet;
+import java.util.Map;
+import java.util.Map.Entry;
+import java.util.Set;
+import br.com.innovatium.mumps2java.dataaccess.DAO;
+import br.com.innovatium.mumps2java.datastructure.OrderDataCache;
+import br.com.innovatium.mumps2java.datastructure.Tree;
+
+@org.checkerframework.framework.qual.AnnotatedFor("org.checkerframework.checker.nullness.NullnessChecker")
+public class mData {
+
+    @org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.NonNull Object @org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.Nullable [] currentSubs;
+
+    @org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.MonotonicNonNull DAO dao;
+
+    final @org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.NonNull Tree tree = new Tree();
+
+    final @org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.NonNull Set<String> cacheOrderFunction = new HashSet<String>(50);
+
+    final @org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.NonNull OrderDataCache orderDataCache = new OrderDataCache();
+
+    @org.checkerframework.framework.qual.EnsuresQualifier(expression = { "this.dao" }, qualifier = org.checkerframework.checker.nullness.qual.Nullable.class)
+    @org.checkerframework.dataflow.qual.Impure
+    public @org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.Nullable Object get(@org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.NonNull Object@org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.NonNull ... subs) {
+        Object value = tree.get(subs);
+        if (isDiskAccess(subs) && value == null) {
+            initDAO();
+            final String tableName = generateTableName(subs);
+            value = dao.find(tableName, generateKeyWithoutVarName(subs));
+            tree.set(subs, value);
+        }
+        return value;
+    }
+
+    /*
+	 * This method was create to support lastVar function and should not remove.
+	 */
+    @org.checkerframework.framework.qual.EnsuresQualifier(expression = { "this.dao" }, qualifier = org.checkerframework.checker.nullness.qual.Nullable.class)
+    @org.checkerframework.dataflow.qual.Pure
+    public @org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.NonNull Object @org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.Nullable [] getCurrentSubs() {
+        return currentSubs;
+    }
+
+    @org.checkerframework.framework.qual.EnsuresQualifier(expression = { "this.dao" }, qualifier = org.checkerframework.checker.nullness.qual.Nullable.class)
+    @org.checkerframework.dataflow.qual.Impure
+    public  @org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.NonNull boolean isEmpty() {
+        return tree.isEmpty();
+    }
+
+    @org.checkerframework.checker.nullness.qual.EnsuresNonNull({ "this.currentSubs" })
+    @org.checkerframework.framework.qual.EnsuresQualifier(expression = { "this.dao" }, qualifier = org.checkerframework.checker.nullness.qual.Nullable.class)
+    @org.checkerframework.dataflow.qual.Impure
+    public void set(@org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.Nullable Object value) {
+        if (isDiskAccess(currentSubs)) {
+            if (currentSubs != null) {
+                initDAO();
+                final String tableName = generateTableName(currentSubs);
+                // Here we have calling toString method because ListObject
+                // should be persisted as string
+                dao.insert(tableName, generateKeyWithoutVarName(currentSubs), value != null ? value.toString() : null);
+            }
+        }
+        tree.set(currentSubs, value);
+    }
+
+    @org.checkerframework.framework.qual.EnsuresQualifier(expression = { "this.dao" }, qualifier = org.checkerframework.checker.nullness.qual.Nullable.class)
+    @org.checkerframework.dataflow.qual.Impure
+    public void merge(Object[] dest, Object[] orig) {
+        tree.merge(dest, orig);
+    }
+
+    @org.checkerframework.framework.qual.EnsuresQualifier(expression = { "this.dao" }, qualifier = org.checkerframework.checker.nullness.qual.Nullable.class)
+    @org.checkerframework.dataflow.qual.Impure
+    public void stacking(@org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.NonNull Object@org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.NonNull ... variables) {
+        if (!isDiskAccess(variables)) {
+            tree.stacking(variables);
+        } else {
+            throw new UnsupportedOperationException("Stacking variable is not supported to access data on disk");
+        }
+    }
+
+    @org.checkerframework.framework.qual.EnsuresQualifier(expression = { "this.dao" }, qualifier = org.checkerframework.checker.nullness.qual.Nullable.class)
+    @org.checkerframework.dataflow.qual.Impure
+    public void stackingExcept(@org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.NonNull Object@org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.NonNull ... variables) {
+        tree.stackingExcept(variables);
+    }
+
+    @org.checkerframework.framework.qual.EnsuresQualifier(expression = { "this.dao" }, qualifier = org.checkerframework.checker.nullness.qual.Nullable.class)
+    @org.checkerframework.dataflow.qual.Impure
+    public void unstacking() {
+        tree.unstacking();
+    }
+
+    @org.checkerframework.framework.qual.EnsuresQualifier(expression = { "this.dao" }, qualifier = org.checkerframework.checker.nullness.qual.Nullable.class)
+    @org.checkerframework.dataflow.qual.Impure
+    public @org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.NonNull String dump() {
+        return tree.dump();
+    }
+
+    @org.checkerframework.framework.qual.EnsuresQualifier(expression = { "this.currentSubs" }, qualifier = org.checkerframework.checker.initialization.qual.FBCBottom.class)
+    @org.checkerframework.framework.qual.EnsuresQualifier(expression = { "this.dao" }, qualifier = org.checkerframework.checker.nullness.qual.Nullable.class)
+    @org.checkerframework.dataflow.qual.Impure
+    public void kill(@org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.NonNull Object@org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.NonNull ... subs) {
+        currentSubs = null;
+        if (isDiskAccess(subs)) {
+            initDAO();
+            dao.remove(generateTableName(subs), generateKeyWithoutVarName(subs));
+            tree.kill(subs);
+        } else {
+            tree.kill(subs);
+        }
+    }
+
+    @org.checkerframework.checker.nullness.qual.EnsuresNonNull({ "this.currentSubs" })
+    @org.checkerframework.framework.qual.EnsuresQualifier(expression = { "this.dao" }, qualifier = org.checkerframework.checker.nullness.qual.Nullable.class)
+    @org.checkerframework.dataflow.qual.Impure
+    public  @org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.NonNull int data(@org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.NonNull Object@org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.NonNull ... subs) {
+        currentSubs = subs;
+        populateTree();
+        return tree.data(subs);
+    }
+
+    @org.checkerframework.framework.qual.RequiresQualifier(expression = { "this.dao" }, qualifier = org.checkerframework.checker.nullness.qual.Nullable.class)
+    @org.checkerframework.checker.nullness.qual.EnsuresNonNull({ "this.currentSubs" })
+    @org.checkerframework.framework.qual.EnsuresQualifier(expression = { "this.dao" }, qualifier = org.checkerframework.checker.nullness.qual.Nullable.class)
+    @org.checkerframework.dataflow.qual.Impure
+    public @org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.NonNull Object order(@org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.NonNull Object @org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.NonNull [] subs,  @org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.NonNull int direction) {
+        this.currentSubs = subs;
+        populateTree();
+        return tree.order(subs, direction);
+    }
+
+    @org.checkerframework.framework.qual.EnsuresQualifier(expression = { "this.dao" }, qualifier = org.checkerframework.checker.nullness.qual.Nullable.class)
+    @org.checkerframework.dataflow.qual.Impure
+    public @org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.NonNull Object order(Object[] subs) {
+        return order(subs, 1);
+    }
+
+    @org.checkerframework.checker.nullness.qual.EnsuresNonNull({ "this.currentSubs" })
+    @org.checkerframework.framework.qual.EnsuresQualifier(expression = { "this.dao" }, qualifier = org.checkerframework.checker.nullness.qual.Nullable.class)
+    @org.checkerframework.dataflow.qual.Impure
+    public @org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.NonNull mData subs(@org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.NonNull Object@org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.NonNull ... subs) {
+        currentSubs = subs;
+        return this;
+    }
+
+    @org.checkerframework.checker.nullness.qual.RequiresNonNull({ "this.currentSubs" })
+    @org.checkerframework.framework.qual.RequiresQualifier(expression = { "this.dao" }, qualifier = org.checkerframework.checker.nullness.qual.Nullable.class)
+    @org.checkerframework.checker.nullness.qual.EnsuresNonNull({ "this.currentSubs" })
+    @org.checkerframework.framework.qual.EnsuresQualifier(expression = { "this.dao" }, qualifier = org.checkerframework.checker.nullness.qual.Nullable.class)
+    @org.checkerframework.dataflow.qual.Impure
+    private void populateTree() {
+        if (isDiskAccess(currentSubs)) {
+            if (!orderDataCache.isCached(currentSubs)) {
+                orderDataCache.add(currentSubs);
+                initDAO();
+                findDataOnDisk();
+            }
+        }
+    }
+
+    @org.checkerframework.framework.qual.RequiresQualifier(expression = { "this.dao" }, qualifier = org.checkerframework.checker.nullness.qual.Nullable.class)
+    @org.checkerframework.framework.qual.EnsuresQualifier(expression = { "this.dao" }, qualifier = org.checkerframework.checker.nullness.qual.Nullable.class)
+    @org.checkerframework.dataflow.qual.Pure
+    private  @org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.NonNull boolean isDiskAccess(@org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.NonNull Object@org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.Nullable ... subs) {
+        boolean bool = false;
+        if (subs != null && subs.length > 0 && subs[0] != null && !subs[0].toString().isEmpty()) {
+            bool = subs[0].toString().charAt(0) == '^';
+        }
+        return bool;
+    }
+
+    @org.checkerframework.framework.qual.RequiresQualifier(expression = { "this.dao" }, qualifier = org.checkerframework.checker.nullness.qual.Nullable.class)
+    @org.checkerframework.checker.nullness.qual.EnsuresNonNull({ "this.dao" })
+    @org.checkerframework.dataflow.qual.Impure
+    private void initDAO() {
+        if (dao == null) {
+            this.dao = new DAO();
+        }
+    }
+
+    @org.checkerframework.checker.nullness.qual.RequiresNonNull({ "this.currentSubs" })
+    @org.checkerframework.framework.qual.RequiresQualifier(expression = { "this.dao" }, qualifier = org.checkerframework.checker.nullness.qual.Nullable.class)
+    @org.checkerframework.checker.nullness.qual.EnsuresNonNull({ "this.currentSubs" })
+    @org.checkerframework.checker.nullness.qual.EnsuresNonNull({ "this.dao" })
+    @org.checkerframework.dataflow.qual.Impure
+    private void findDataOnDisk() {
+        String tableName = generateTableName(currentSubs);
+        Map<String, String> map = dao.like(tableName, generateKeyToLikeQuery(currentSubs));
+        if (map != null) {
+            Set<Entry<String, String>> result = map.entrySet();
+            for (Entry<String, String> entry : result) {
+                // Here we have to include variable or table name into the key
+                // because this is part of the subscripts.
+                tree.set(generateSubs(tableName, entry.getKey()), entry.getValue());
+            }
+        }
+    }
+}

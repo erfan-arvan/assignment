@@ -1,0 +1,299 @@
+package br.com.innovatium.mumps2java.datastructure;
+
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.List;
+
+@org.checkerframework.framework.qual.AnnotatedFor("org.checkerframework.checker.nullness.KeyForSubchecker")
+public class Node implements Comparable<Node> {
+
+    private final  Object  [] subs;
+
+    private final  String key;
+
+    private final  Object susbscript;
+
+    final   boolean isNumeric;
+
+    private  Integer stackLevel;
+
+    private  Object value;
+
+    private  Node parent;
+
+    private  Node subnode;
+
+    private  Node next;
+
+    private  Node previous;
+
+    @org.checkerframework.dataflow.qual.Impure
+    public Node( Object  [] subs,  String key) {
+        this(subs, null, key);
+    }
+
+    @org.checkerframework.dataflow.qual.Impure
+    public Node( Object  [] subs, Object value,  String key) {
+        if (subs == null) {
+            throw new IllegalArgumentException("The subs array must not be null");
+        }
+        this.subs = subs;
+        this.value = value;
+        this.key = key;
+        final int index = subs.length == 1 ? 0 : subs.length - 1;
+        Object temp = subs[index];
+        if (temp instanceof Double && (Double) temp % 1 == 0) {
+            temp = ((Double) temp).longValue();
+        }
+        if ((temp = isNumber(temp.toString())) != null) {
+            susbscript = temp;
+            isNumeric = true;
+        } else {
+            susbscript = subs[index].toString();
+            isNumeric = false;
+        }
+        if (susbscript == null) {
+            throw new IllegalArgumentException("The subscripts must not be null");
+        }
+    }
+
+    @org.checkerframework.dataflow.qual.Pure
+    public  Node getParent( Node this) {
+        return parent;
+    }
+
+    @org.checkerframework.dataflow.qual.Pure
+    public  Node getSubnode( Node this) {
+        return subnode;
+    }
+
+    @org.checkerframework.dataflow.qual.Impure
+    public void setSubnode( Node this,  Node subnode) {
+        this.subnode = subnode;
+    }
+
+    @org.checkerframework.dataflow.qual.Pure
+    public  Object  [] getSubs( Node this,   int start) {
+        return Arrays.copyOfRange(subs, start, subs.length);
+    }
+
+    @org.checkerframework.dataflow.qual.Impure
+    public void cancelReferences( Node this) {
+        // Canceling all references that node does.
+        this.parent = null;
+        this.next = null;
+        this.previous = null;
+    }
+
+    @org.checkerframework.dataflow.qual.Pure
+    public  Object  [] getSubs() {
+        return subs;
+    }
+
+    @org.checkerframework.dataflow.qual.Pure
+    public  String getKey( Node this) {
+        return key;
+    }
+
+    @org.checkerframework.dataflow.qual.Pure
+    public  Object  [] getSubsExceptFirst() {
+        return Arrays.copyOfRange(subs, 1, subs.length);
+    }
+
+    @org.checkerframework.dataflow.qual.Pure
+    public  Object getSubscript( Node this) {
+        return susbscript;
+    }
+
+    @org.checkerframework.dataflow.qual.Pure
+    public  Object getSubscriptAsString( Node this) {
+        return susbscript.toString();
+    }
+
+    @org.checkerframework.dataflow.qual.Pure
+    public  Node getNext( Node this) {
+        return next;
+    }
+
+    @org.checkerframework.dataflow.qual.Impure
+    public void setNext( Node this,  Node next) {
+        this.next = next;
+    }
+
+    @org.checkerframework.dataflow.qual.Pure
+    public  Node getPrevious( Node this) {
+        return previous;
+    }
+
+    @org.checkerframework.dataflow.qual.Impure
+    public void setParent( Node this,  Node parent) {
+        this.parent = parent;
+    }
+
+    @org.checkerframework.dataflow.qual.Impure
+    public void setPrevious( Node this,  Node previous) {
+        this.previous = previous;
+    }
+
+    @org.checkerframework.dataflow.qual.Pure
+    public   boolean hasParent( Node this) {
+        return this.parent != null;
+    }
+
+    @org.checkerframework.dataflow.qual.Impure
+    public void addSubnode( Node this,  Node newSubnode) {
+        if (subnode == null) {
+            subnode = newSubnode;
+        } else {
+            Node previous = findPrevious(subnode, newSubnode);
+            // When previous node is the first sub node into the hierarchy we
+            // have to switch its positions to maintain the order mechanism.
+            if (previous.isFirstSubnode() && previous.isAfter(newSubnode)) {
+                subnode = newSubnode;
+                newSubnode.next = previous;
+                newSubnode.previous = null;
+                previous.previous = newSubnode;
+            } else {
+                newSubnode.next = previous.next;
+                previous.next = newSubnode;
+                newSubnode.previous = previous;
+                if (newSubnode.next != null) {
+                    newSubnode.next.previous = newSubnode;
+                }
+            }
+        }
+        newSubnode.parent = this;
+    }
+
+    @org.checkerframework.dataflow.qual.Impure
+    public  Node findPrevious() {
+        return findPrevious(parent.subnode, this);
+    }
+
+    @org.checkerframework.dataflow.qual.Impure
+    public  Node findPrevious( Node this,  Node previous,  Node subnode) {
+        if (previous.compareTo(subnode) > 0) {
+            if (previous.hasPrevious() && previous.getPrevious().compareTo(subnode) < 0) {
+                return previous.getPrevious();
+            }
+            return previous;
+        } else if (previous.hasNext()) {
+            if (previous == previous.next) {
+                throw new IllegalArgumentException("Previous node is equal the next node");
+            }
+            return findPrevious(previous.next, subnode);
+        } else {
+            return previous;
+        }
+    }
+
+    @org.checkerframework.dataflow.qual.Pure
+    public   boolean hasPrevious( Node this) {
+        return this.previous != null;
+    }
+
+    @org.checkerframework.dataflow.qual.Impure
+    public   boolean isFirstSubnode( Node this) {
+        if (parent != null && parent.hasSubnodes()) {
+            return parent.getSubnode().equals(this);
+        }
+        return false;
+    }
+
+    @org.checkerframework.dataflow.qual.Pure
+    public   boolean isAfter( Node this,  Node node) {
+        return this.compareTo(node) > 0;
+    }
+
+    @org.checkerframework.dataflow.qual.Pure
+    public   boolean hasNext( Node this) {
+        return next != null && !next.equals(previous);
+    }
+
+    @org.checkerframework.dataflow.qual.Pure
+    public   boolean isRoot( Node this) {
+        return parent == null;
+    }
+
+    @org.checkerframework.dataflow.qual.Pure
+    public   boolean hasSubnodes( Node this) {
+        return subnode != null;
+    }
+
+    @org.checkerframework.dataflow.qual.Impure
+    public   boolean isLeaf( Node this) {
+        return !isRoot() && !hasSubnodes();
+    }
+
+    @org.checkerframework.dataflow.qual.Pure
+    public  Object getValue( Node this) {
+        return value;
+    }
+
+    @org.checkerframework.dataflow.qual.Impure
+    public void setValue( Node this,  Object value) {
+        this.value = value;
+    }
+
+    @org.checkerframework.dataflow.qual.SideEffectFree
+    public   int compareTo( Node this,  Node o) {
+        boolean boothNumeric = this.isNumeric && o.isNumeric;
+        if (boothNumeric) {
+            try {
+                return ((Integer) susbscript).compareTo((Integer) o.susbscript);
+            } catch (ClassCastException e) {
+                throw new IllegalArgumentException("There is some inconsistence when was setted the nodes " + this + " and " + o + ". Fail to compare subscript: " + this.susbscript + " and this subscript: " + ((Node) o).susbscript + ". They must have to be the same type.", e);
+            }
+        }
+        return this.susbscript.toString().compareTo(o.susbscript.toString());
+    }
+
+    @org.checkerframework.dataflow.qual.Impure
+    public  String toString( Node this) {
+        StringBuilder string = new StringBuilder();
+        string.append("(").append(key != null ? key : "").append(", ").append(value).append(")");
+        return string.toString();
+    }
+
+    @org.checkerframework.dataflow.qual.Pure
+    public   boolean equals( Node this,  Object o) {
+        return o instanceof Node && this.key.equals(((Node) o).key);
+    }
+
+    @org.checkerframework.dataflow.qual.Pure
+    public   int hashCode( Node this) {
+        return this.key.hashCode();
+    }
+
+    @org.checkerframework.dataflow.qual.Impure
+    public  List<Node> getFirstLevelSubnodes( Node this) {
+        if (this == null || !this.hasSubnodes()) {
+            return null;
+        }
+        final List<Node> list = new ArrayList<Node>(30);
+        Node next = this.getSubnode();
+        do {
+            list.add(next);
+        } while ((next = next.getNext()) != null);
+        return list;
+    }
+
+    @org.checkerframework.dataflow.qual.Pure
+    public  Integer getStackLevel( Node this) {
+        return stackLevel;
+    }
+
+    @org.checkerframework.dataflow.qual.Impure
+    public void setStackLevel( Node this,  Integer stackLevel) {
+        this.stackLevel = stackLevel;
+    }
+
+    @org.checkerframework.dataflow.qual.SideEffectFree
+    private  Integer isNumber( Node this,  String string) {
+        try {
+            return Integer.parseInt(string);
+        } catch (Exception e) {
+            return null;
+        }
+    }
+}

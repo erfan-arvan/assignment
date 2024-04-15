@@ -1,0 +1,43 @@
+import java.io.IOException;
+import java.net.DatagramPacket;
+import java.net.DatagramSocket;
+import java.net.SocketException;
+import java.util.concurrent.BlockingQueue;
+
+@org.checkerframework.framework.qual.AnnotatedFor("org.checkerframework.checker.nullness.NullnessChecker")
+public class Sender implements Runnable {
+
+    private @org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.MonotonicNonNull DatagramSocket socket;
+
+    @org.checkerframework.checker.initialization.qual.FBCBottom @org.checkerframework.checker.nullness.qual.MonotonicNonNull DatagramPacket message;
+
+    @org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.NonNull BlockingQueue sendQueue;
+
+    @org.checkerframework.dataflow.qual.Impure
+    public Sender(@org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.NonNull BlockingQueue sQueue) {
+        try {
+            socket = new DatagramSocket();
+        } catch (SocketException e) {
+            System.err.println("Could not create socket in Sender");
+            e.printStackTrace();
+        }
+        sendQueue = sQueue;
+    }
+
+    @org.checkerframework.dataflow.qual.Impure
+    public void run(@org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.NonNull Sender this) {
+        while (true) {
+            try {
+                DatagramPacket sendPacket = (DatagramPacket) sendQueue.take();
+                socket.send(sendPacket);
+                System.out.println("Sending message...");
+            } catch (IOException e) {
+                System.err.println("Error sending packet in Sender");
+                e.printStackTrace();
+            } catch (InterruptedException e) {
+                System.err.println("Error getting packet from queue in Sender");
+                e.printStackTrace();
+            }
+        }
+    }
+}

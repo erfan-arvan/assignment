@@ -1,0 +1,57 @@
+package cz.mff.dpp.args.examples;
+
+import java.util.List;
+import cz.mff.dpp.args.Argument;
+import cz.mff.dpp.args.Constraint;
+import cz.mff.dpp.args.Option;
+import cz.mff.dpp.args.ParseException;
+import cz.mff.dpp.args.Parser;
+
+/**
+ * Parser.usage() demo.
+ */
+@org.checkerframework.framework.qual.AnnotatedFor("org.checkerframework.checker.nullness.NullnessChecker")
+public class HelpTest {
+
+    private static enum Day {
+
+        SUNDAY,
+        MONDAY,
+        TUESDAY,
+        WEDNESDAY,
+        THURSDAY,
+        FRIDAY,
+        SATURDAY
+    }
+
+    static final class HelpTestOptions {
+
+        boolean version;
+
+        @org.checkerframework.dataflow.qual.Impure
+        void setPort(int port) {
+            this.port = port;
+        }
+
+        private  @org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.NonNull int port;
+
+        @org.checkerframework.checker.initialization.qual.FBCBottom @org.checkerframework.checker.nullness.qual.MonotonicNonNull String login_name;
+
+        @org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.NonNull String config_file = "~/.ssh/config";
+
+        @org.checkerframework.checker.initialization.qual.FBCBottom @org.checkerframework.checker.nullness.qual.MonotonicNonNull String hostname;
+
+        String @org.checkerframework.checker.initialization.qual.FBCBottom @org.checkerframework.checker.nullness.qual.MonotonicNonNull [] list;
+
+        char c;
+
+        @org.checkerframework.checker.initialization.qual.FBCBottom @org.checkerframework.checker.nullness.qual.MonotonicNonNull Day day;
+    }
+
+    @org.checkerframework.dataflow.qual.Impure
+    public static void main(String[] args) throws ParseException {
+        HelpTestOptions testOptions = new HelpTestOptions();
+        Parser parser = new Parser(testOptions);
+        parser.usage();
+    }
+}

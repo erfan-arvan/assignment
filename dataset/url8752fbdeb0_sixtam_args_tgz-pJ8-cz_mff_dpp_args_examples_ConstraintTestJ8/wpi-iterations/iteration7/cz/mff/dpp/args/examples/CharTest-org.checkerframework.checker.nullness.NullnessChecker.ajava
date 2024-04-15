@@ -1,0 +1,77 @@
+package cz.mff.dpp.args.examples;
+
+import cz.mff.dpp.args.Constraint;
+import cz.mff.dpp.args.Logger;
+import cz.mff.dpp.args.Option;
+import cz.mff.dpp.args.Parser;
+
+/**
+ * Tests char and Character, use of comparator.
+ */
+@org.checkerframework.framework.qual.AnnotatedFor("org.checkerframework.checker.nullness.NullnessChecker")
+public class CharTest {
+
+    public static final class Handler {
+
+        @org.checkerframework.dataflow.qual.SideEffectFree
+        private Handler() {
+        }
+
+        @org.checkerframework.dataflow.qual.Impure
+        public static  @org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.NonNull int compare(char x, char y) {
+            return Character.valueOf(x).compareTo(y);
+        }
+    }
+
+    static class CharTestOptions {
+
+        public char c;
+
+        @org.checkerframework.checker.initialization.qual.FBCBottom @org.checkerframework.checker.nullness.qual.MonotonicNonNull Character character;
+
+        @org.checkerframework.framework.qual.EnsuresQualifier(expression = { "this.character" }, qualifier = org.checkerframework.checker.nullness.qual.Nullable.class)
+        @org.checkerframework.framework.qual.EnsuresQualifier(expression = { "this.characterFromSetter" }, qualifier = org.checkerframework.checker.nullness.qual.Nullable.class)
+        @org.checkerframework.dataflow.qual.Impure
+        public void charSetter(char c) {
+            charFromSetter = c;
+        }
+
+        public  @org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.NonNull char charFromSetter;
+
+        @org.checkerframework.checker.nullness.qual.EnsuresNonNull({ "this.characterFromSetter" })
+        @org.checkerframework.framework.qual.EnsuresQualifier(expression = { "this.character" }, qualifier = org.checkerframework.checker.nullness.qual.Nullable.class)
+        @org.checkerframework.dataflow.qual.Impure
+        public void charSetter(Character c) {
+            characterFromSetter = c;
+        }
+
+        public @org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.MonotonicNonNull Character characterFromSetter;
+
+        char ch;
+    }
+
+    /**
+     * @param args
+     */
+    @org.checkerframework.dataflow.qual.Impure
+    public static void main(String[] args) throws Exception {
+        CharTestOptions charOptions = new CharTestOptions();
+        Parser parser = new Parser(charOptions);
+        if (args.length == 0) {
+            String[] localArgs = { "-c", "e", "--character", "C", "--charSetter", "--characterSetter", "Q", "--char-constraint=b" };
+            parser.parse(localArgs);
+        } else {
+            parser.parse(args);
+        }
+        System.out.println("char: " + charOptions.c);
+        System.out.println("Character: " + charOptions.character);
+        System.out.println("char from setter: " + charOptions.charFromSetter);
+        System.out.println("Character from setter: " + charOptions.characterFromSetter);
+        if (args.length == 0) {
+            assert (charOptions.c == 'e');
+            assert (charOptions.character.charValue() == 'C');
+            assert (charOptions.charFromSetter == 'b');
+            assert (charOptions.characterFromSetter.charValue() == 'Q');
+        }
+    }
+}

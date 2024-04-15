@@ -1,0 +1,140 @@
+package mLibrary;
+
+import static br.com.innovatium.mumps2java.datastructure.util.DataStructureUtil.generateKey;
+import java.util.Arrays;
+import br.com.innovatium.mumps2java.todo.REMOVE;
+import br.com.innovatium.mumps2java.todo.TODO;
+
+@org.checkerframework.framework.qual.AnnotatedFor("org.checkerframework.checker.nullness.NullnessChecker")
+public class mVar {
+
+    /*
+	 * The subscripts should be converted to String soon.
+	 */
+    private @org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.NonNull Object @org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.NonNull [] subs;
+
+    private @org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.NonNull mData mData;
+
+    @org.checkerframework.dataflow.qual.SideEffectFree
+    public mVar(@org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.NonNull Object @org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.NonNull [] subs, mLibrary.@org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.NonNull mData mData) {
+        this.subs = subs;
+        this.mData = mData;
+    }
+
+    @org.checkerframework.dataflow.qual.Pure
+    public  @org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.NonNull int getType() {
+        char type = subs[0].toString().charAt(0);
+        if ('%' == type) {
+            return 1;
+        } else if ('^' == type) {
+            return 2;
+        } else {
+            return 3;
+        }
+    }
+
+    @org.checkerframework.dataflow.qual.Pure
+    public  @org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.NonNull boolean isSameType(mVar var) {
+        return this.getType() == var.getType();
+    }
+
+    @org.checkerframework.dataflow.qual.Impure
+    public @org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.NonNull Object order( @org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.NonNull int direction) {
+        return mData.order(subs, direction);
+    }
+
+    @org.checkerframework.dataflow.qual.Impure
+    public @org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.NonNull Object order() {
+        return order(1);
+    }
+
+    @org.checkerframework.dataflow.qual.Impure
+    public void set(@org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.Nullable Object value) {
+        if (generateKey(subs).contains("^WWWSOR")) {
+            System.out.print("");
+            if (String.valueOf(value).contains("null")) {
+                System.out.print("");
+            }
+        }
+        if (generateKey(subs).contains("YSATZ")) {
+            System.out.print("");
+            if (String.valueOf(value).contains("null")) {
+                System.out.print("");
+            }
+        }
+        if (generateKey(subs).contains("objWWW122")) {
+            System.out.print("");
+            if (String.valueOf(value).contains("null")) {
+                System.out.print("");
+            }
+        }
+        mData.subs(subs).set(value);
+    }
+
+    @org.checkerframework.dataflow.qual.Impure
+    public @org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.NonNull Object get() {
+        Object value = mData.get(subs);
+        if (String.valueOf(value).contains("Sexo")) {
+            System.out.print("");
+        }
+        if (generateKey(subs).contains("YSATZ")) {
+            System.out.print("");
+        }
+        return value;
+    }
+
+    @org.checkerframework.dataflow.qual.Impure
+    public void kill() {
+        mData.kill(subs);
+    }
+
+    @org.checkerframework.dataflow.qual.Impure
+    public  @org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.NonNull int data() {
+        return data(1);
+    }
+
+    @org.checkerframework.dataflow.qual.Impure
+    public  @org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.NonNull int data( @org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.NonNull int direction) {
+        return mData.data(subs);
+    }
+
+    @org.checkerframework.dataflow.qual.Impure
+    public @org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.NonNull mVar var(@org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.NonNull Object@org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.NonNull ... subs) {
+        return new mVar(mFncUtil.concat(this.subs, subs), mData);
+    }
+
+    @org.checkerframework.dataflow.qual.Impure
+    public @org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.NonNull mVar lastVar(Object... subs) {
+        return new mVar(mFncUtil.concatSinceLastSubscript(this.subs, subs), mData);
+    }
+
+    @org.checkerframework.dataflow.qual.Pure
+    public @org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.NonNull String getName() {
+        return subs[0].toString();
+    }
+
+    @org.checkerframework.dataflow.qual.Pure
+    public @org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.NonNull Object @org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.NonNull [] getParameters() {
+        return Arrays.asList(subs).subList(1, subs.length).toArray();
+    }
+
+    @org.checkerframework.dataflow.qual.Pure
+    public @org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.NonNull Object @org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.NonNull [] getSubs() {
+        return subs;
+    }
+
+    @org.checkerframework.dataflow.qual.Pure
+    public @org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.NonNull mData getmData() {
+        return mData;
+    }
+
+    @org.checkerframework.dataflow.qual.Impure
+    public @org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.Nullable mClass getORef() {
+        Object objRef = get();
+        if (objRef instanceof mClass) {
+            return (mClass) objRef;
+        } else {
+            return null;
+        }
+    }
+}

@@ -1,0 +1,68 @@
+/*    */
+package org.ands.rifcs.base;
+
+/*    */
+/*    */
+import org.w3c.dom.Node;
+
+/*    */
+/*    */
+/*    */
+@org.checkerframework.framework.qual.AnnotatedFor("org.checkerframework.checker.nullness.NullnessChecker")
+public class NamePart extends RIFCSElement {
+
+    /*    */
+    /*    */
+    @org.checkerframework.dataflow.qual.SideEffectFree
+    protected NamePart(@org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.Nullable Node n) throws /*    */
+    RIFCSException /*    */
+    {
+        /* 41 */
+        super(n, "namePart");
+        /*    */
+    }
+
+    /*    */
+    /*    */
+    @org.checkerframework.dataflow.qual.Impure
+    public void setType(@org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.NonNull String type) /*    */
+    {
+        /* 53 */
+        super.setAttributeValue("type", type);
+        /*    */
+    }
+
+    /*    */
+    /*    */
+    @org.checkerframework.dataflow.qual.Pure
+    public @org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.NonNull String getType() /*    */
+    {
+        /* 66 */
+        return super.getAttributeValue("type");
+        /*    */
+    }
+
+    /*    */
+    /*    */
+    @org.checkerframework.dataflow.qual.Impure
+    public void setValue(@org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.NonNull String value) /*    */
+    {
+        /* 78 */
+        super.setTextContent(value);
+        /*    */
+    }
+
+    /*    */
+    /*    */
+    @org.checkerframework.dataflow.qual.Pure
+    public @org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.Nullable String getValue() /*    */
+    {
+        /* 90 */
+        return super.getTextContent();
+        /*    */
+    }
+}
+/* Location:           /Users/przemyslaw/Downloads/rifcs-api-1.3.0.jar
+ * Qualified Name:     org.ands.rifcs.base.NamePart
+ * JD-Core Version:    0.6.2
+ */

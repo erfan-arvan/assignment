@@ -1,0 +1,28 @@
+package mLibrary;
+
+import java.lang.reflect.Field;
+
+@org.checkerframework.framework.qual.AnnotatedFor("org.checkerframework.checker.nullness.NullnessChecker")
+public class mParameter {
+
+    private @org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.NonNull Field parameterField;
+
+    @org.checkerframework.dataflow.qual.SideEffectFree
+    public mParameter(@org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.NonNull Field parameterField) {
+        this.parameterField = parameterField;
+    }
+
+    @org.checkerframework.dataflow.qual.SideEffectFree
+    public @org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.Nullable Object get() {
+        Object retorno;
+        try {
+            retorno = parameterField.get(null);
+        } catch (IllegalArgumentException e) {
+            retorno = "";
+        } catch (IllegalAccessException e) {
+            retorno = "";
+            ;
+        }
+        return retorno;
+    }
+}

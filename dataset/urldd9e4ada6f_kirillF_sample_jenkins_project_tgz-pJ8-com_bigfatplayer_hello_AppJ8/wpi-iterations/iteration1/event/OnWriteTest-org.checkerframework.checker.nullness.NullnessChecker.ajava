@@ -1,0 +1,163 @@
+package event;
+
+import java.nio.channels.SocketChannel;
+import java.nio.channels.ServerSocketChannel;
+import java.nio.ByteBuffer;
+
+@org.checkerframework.framework.qual.AnnotatedFor("org.checkerframework.checker.nullness.NullnessChecker")
+public class OnWriteTest {
+
+    @org.checkerframework.dataflow.qual.SideEffectFree
+    static final void fail(String mes) {
+        throw new RuntimeException(mes);
+    }
+
+    @org.checkerframework.dataflow.qual.Pure
+    static  @org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.NonNull boolean contains(java.util.Collection<TimeoutLoop.T> l, Callback.Timeout e) {
+        for (TimeoutLoop.T t : l) {
+            if (t.ev == e) {
+                return true;
+            }
+        }
+        return false;
+    }
+
+    @org.checkerframework.dataflow.qual.Impure
+    static void p(@org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.NonNull Object o) {
+        System.out.println(o);
+    }
+
+    static final  @org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.NonNull int NUM = 10;
+
+    static final  @org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.NonNull int NUM2 = 1000000;
+
+    static final  @org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.NonNull int PORT = 54321;
+
+    @org.checkerframework.dataflow.qual.Impure
+    static void client() {
+        final TCPClientLoop client_loop = new TCPClientLoop();
+        client_loop.start();
+        Callback.TCPClient client = new Callback.TCPClient() {
+
+            @org.checkerframework.dataflow.qual.Impure
+            public void onConnect(@org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.NonNull TCPClientLoop l, @org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.NonNull SocketChannel c) {
+                p("client onConnect");
+                assert (l == client_loop);
+                byte[] bytes = new byte[NUM];
+                client_loop.write(c, this, bytes);
+            }
+
+            @org.checkerframework.dataflow.qual.Impure
+            public void onData(@org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.NonNull TCPClientLoop l, @org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.NonNull SocketChannel c, @org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.NonNull ByteBuffer b) {
+                assert (l == client_loop);
+                p("client onData: wtf?");
+            }
+
+            @org.checkerframework.dataflow.qual.Impure
+            public void onWrite(@org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.NonNull TCPClientLoop l, @org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.NonNull SocketChannel c, @org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.NonNull ByteBuffer b,  @org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.NonNull int pos,  @org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.NonNull int num) {
+                assert (l == client_loop);
+                assert (pos == 0);
+                assert (num == NUM);
+                l.stopLoop();
+                p("client onWrite: final...");
+            }
+
+            @org.checkerframework.dataflow.qual.Impure
+            public void onError(TCPClientLoop l, SocketChannel c, java.io.IOException ioe) {
+                ioe.printStackTrace();
+            }
+        };
+        client_loop.createTCPClient(client, "127.0.0.1", PORT);
+    }
+
+    static  @org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.NonNull int numWritten;
+
+    @org.checkerframework.dataflow.qual.Impure
+    static void client2() {
+        final TCPClientLoop client_loop = new TCPClientLoop();
+        client_loop.start();
+        Callback.TCPClient client = new Callback.TCPClient() {
+
+            @org.checkerframework.dataflow.qual.Impure
+            public void onConnect(@org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.NonNull TCPClientLoop l, @org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.NonNull SocketChannel c) {
+                p("client2 onConnect");
+                assert (l == client_loop);
+                byte[] bytes = new byte[NUM2];
+                p("client2 about to write: " + bytes.length);
+                client_loop.write(c, this, bytes);
+            }
+
+            @org.checkerframework.dataflow.qual.Impure
+            public void onData(@org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.NonNull TCPClientLoop l, @org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.NonNull SocketChannel c, @org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.NonNull ByteBuffer b) {
+                assert (l == client_loop);
+                p("client2 onData: wtf?");
+            }
+
+            @org.checkerframework.dataflow.qual.Impure
+            public void onWrite(@org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.NonNull TCPClientLoop l, @org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.NonNull SocketChannel c, @org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.NonNull ByteBuffer b,  @org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.NonNull int pos,  @org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.NonNull int num) {
+                assert (l == client_loop);
+                //assert(pos <= numWritten);
+                assert (num <= NUM2);
+                numWritten += num;
+                p("client2 onWrite: pos=" + pos + " num=" + num + " total =" + numWritten);
+                if (numWritten == NUM2) {
+                    l.stopLoop();
+                    p("client2 onWrite: final...");
+                }
+            }
+
+            @org.checkerframework.dataflow.qual.Impure
+            public void onError(TCPClientLoop l, SocketChannel c, java.io.IOException ioe) {
+                ioe.printStackTrace();
+            }
+        };
+        client_loop.createTCPClient(client, "127.0.0.1", PORT);
+    }
+
+    @org.checkerframework.dataflow.qual.Impure
+    static void server() {
+        java.net.SocketAddress addr = new java.net.InetSocketAddress("127.0.0.1", PORT);
+        final TCPClientLoop clientLoop = new TCPClientLoop();
+        clientLoop.start();
+        final Callback.TCPClient client = new Callback.TCPClient() {
+
+            @org.checkerframework.dataflow.qual.Impure
+            public void onData(@org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.NonNull TCPClientLoop l, @org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.NonNull SocketChannel c, @org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.NonNull ByteBuffer b) {
+                p("server data: " + b.remaining());
+            }
+        };
+        Callback.TCPServer server = new Callback.TCPServer() {
+
+            @org.checkerframework.dataflow.qual.Impure
+            public void onConnect(@org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.NonNull TCPServerLoop l, @org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.NonNull ServerSocketChannel ssc) {
+                p("listening");
+            }
+
+            @org.checkerframework.dataflow.qual.Impure
+            public void onAccept(final @org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.NonNull TCPServerLoop l, @org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.NonNull ServerSocketChannel ssc, final @org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.NonNull SocketChannel sc) {
+                p("server onAccept");
+                clientLoop.createTCPClient(client, sc);
+            }
+        };
+        final TCPServerLoop server_loop = new TCPServerLoop();
+        server_loop.start();
+        server_loop.createTCPServer(server, addr);
+        p("here2");
+    }
+
+    @org.checkerframework.dataflow.qual.Impure
+    static void usage() {
+        p("usage: [jre] event.OnWriteTest [-client|-server]");
+        System.exit(1);
+    }
+
+    @org.checkerframework.dataflow.qual.Impure
+    public static void main(String[] args) {
+        if (args.length > 0 && "-server".equals(args[0])) {
+            server();
+        } else {
+            client();
+            client2();
+        }
+    }
+}

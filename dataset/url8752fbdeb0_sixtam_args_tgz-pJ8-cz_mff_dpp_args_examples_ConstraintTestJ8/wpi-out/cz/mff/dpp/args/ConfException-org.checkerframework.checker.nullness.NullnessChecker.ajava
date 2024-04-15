@@ -1,0 +1,55 @@
+package cz.mff.dpp.args;
+
+/**
+ * Exception caused configuration errors of annotated objects.
+ *
+ * @author Stepan Bokoc
+ *
+ * @see Option
+ * @see Argument
+ */
+@org.checkerframework.framework.qual.AnnotatedFor("org.checkerframework.checker.nullness.NullnessChecker")
+class ConfException extends Exception {
+
+    private static final  @org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.NonNull long serialVersionUID = -6434036932983497468L;
+
+    @org.checkerframework.dataflow.qual.SideEffectFree
+    public ConfException() {
+        super();
+    }
+
+    @org.checkerframework.dataflow.qual.SideEffectFree
+    public ConfException(@org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.NonNull String message) {
+        super(message);
+    }
+
+    @org.checkerframework.dataflow.qual.SideEffectFree
+    public ConfException(@org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.NonNull String message, @org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.NonNull Throwable cause) {
+        super(message, cause);
+    }
+
+    @org.checkerframework.dataflow.qual.SideEffectFree
+    public ConfException(Throwable cause) {
+        super(cause);
+    }
+
+    @org.checkerframework.dataflow.qual.SideEffectFree
+    public ConfException(@org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.NonNull String format, @org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.NonNull Object@org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.NonNull ... args) {
+        super(String.format(format, args));
+    }
+
+    @org.checkerframework.dataflow.qual.SideEffectFree
+    public ConfException(@org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.Nullable Throwable cause, @org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.NonNull String format, @org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.NonNull Object@org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.NonNull ... args) {
+        super(String.format(format, args), cause);
+    }
+
+    @org.checkerframework.dataflow.qual.SideEffectFree
+    public static void wrap(@org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.NonNull Throwable cause, @org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.NonNull String format, @org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.NonNull Object@org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.NonNull ... args) throws ConfException {
+        throw new ConfException(cause, format, args);
+    }
+
+    @org.checkerframework.dataflow.qual.SideEffectFree
+    public static void wrap(Throwable cause, String message) throws ConfException {
+        throw new ConfException(cause, message);
+    }
+}

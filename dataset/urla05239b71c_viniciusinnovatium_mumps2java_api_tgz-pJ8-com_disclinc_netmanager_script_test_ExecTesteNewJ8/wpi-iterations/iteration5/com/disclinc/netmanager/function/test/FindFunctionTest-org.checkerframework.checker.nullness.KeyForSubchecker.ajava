@@ -1,0 +1,34 @@
+package com.disclinc.netmanager.function.test;
+
+import static mLibrary.mFnc.$find;
+import static org.junit.Assert.*;
+import org.junit.Test;
+
+@org.checkerframework.framework.qual.AnnotatedFor("org.checkerframework.checker.nullness.KeyForSubchecker")
+public class FindFunctionTest {
+
+    @org.checkerframework.dataflow.qual.Impure
+    public void testFindDefault() {
+        assertEquals("Fail to find next position index of the substring", 5, $find("ABCDEFG", "BCD"));
+    }
+
+    @org.checkerframework.dataflow.qual.Impure
+    public void testFindStartingAtSomeIndex() {
+        assertEquals("Fail to find next position index of the substring", 14, $find("EVERGREEN FOREST", "R", 7));
+    }
+
+    @org.checkerframework.dataflow.qual.Impure
+    public void testFindNotPresentSubstring() {
+        assertEquals("Fail to find next position index of the substring", 0, $find("EVERGREEN FOREST", "XXX"));
+    }
+
+    @org.checkerframework.dataflow.qual.Impure
+    public void testFindStartingIndexGreaterThanStringLength() {
+        assertEquals("Fail to find next position index of the substring", 0, $find("EVERGREEN FOREST", "XXX", 88));
+    }
+
+    @org.checkerframework.dataflow.qual.Impure
+    public void testFindLowestStartingIndex() {
+        assertEquals("Fail to find next position index of the substring", 0, $find("EVERGREEN FOREST", "XXX", 0));
+    }
+}

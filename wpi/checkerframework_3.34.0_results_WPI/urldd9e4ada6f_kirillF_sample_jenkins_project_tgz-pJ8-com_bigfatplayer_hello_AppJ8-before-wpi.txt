@@ -1,0 +1,290 @@
+../dataset/urldd9e4ada6f_kirillF_sample_jenkins_project_tgz-pJ8-com_bigfatplayer_hello_AppJ8/src/com/bigfatplayer/hello/AppServer.java:26: error: (argument) $$ 4 $$ transport $$ Args constructor $$ @Initialized @Nullable TServerTransport $$ @Initialized @NonNull TServerTransport $$ ( 875, 890 ) $$ incompatible argument for parameter transport of Args constructor.
+        TServer server = new TThreadPoolServer(new TThreadPoolServer.Args(serverTransport).processor(processor));
+                                                                          ^
+  found   : @Initialized @Nullable TServerTransport
+  required: @Initialized @NonNull TServerTransport
+../dataset/urldd9e4ada6f_kirillF_sample_jenkins_project_tgz-pJ8-com_bigfatplayer_hello_AppJ8/src/com/bigfatplayer/hello/Calculator.java:401: error: (return) $$ 2 $$ null (NullType) $$ @Initialized @NonNull TBase</*RAW*/> $$ ( 18126, 18130 ) $$ incompatible types in return.
+                return null;
+                       ^
+  type of expression: null (NullType)
+  method return type: @Initialized @NonNull TBase</*RAW*/>
+../dataset/urldd9e4ada6f_kirillF_sample_jenkins_project_tgz-pJ8-com_bigfatplayer_hello_AppJ8/src/com/bigfatplayer/hello/Calculator.java:439: error: (return) $$ 2 $$ null (NullType) $$ @Initialized @NonNull _Fields $$ ( 19553, 19557 ) $$ incompatible types in return.
+                        return null;
+                               ^
+  type of expression: null (NullType)
+  method return type: @Initialized @NonNull _Fields
+../dataset/urldd9e4ada6f_kirillF_sample_jenkins_project_tgz-pJ8-com_bigfatplayer_hello_AppJ8/src/com/bigfatplayer/hello/Calculator.java:457: error: (return) $$ 2 $$ @Initialized @Nullable _Fields $$ @Initialized @NonNull _Fields $$ ( 20232, 20248 ) $$ incompatible types in return.
+                return byName.get(name);
+                                 ^
+  type of expression: @Initialized @Nullable _Fields
+  method return type: @Initialized @NonNull _Fields
+../dataset/urldd9e4ada6f_kirillF_sample_jenkins_project_tgz-pJ8-com_bigfatplayer_hello_AppJ8/src/com/bigfatplayer/hello/Calculator.java:527: error: (override.param) $$ 7 $$ that $$ @Initialized @NonNull Object $$ @Initialized @Nullable Object $$ @Initialized @NonNull ping_args $$ @Initialized @NonNull boolean equals(@Initialized @NonNull ping_args this, @Initialized @NonNull Object p0) $$ @Initialized @NonNull Object $$ @Initialized @NonNull boolean equals(@Initialized @NonNull Object this, @Initialized @Nullable Object p0) $$ ( 22176, 22187 ) $$ Incompatible parameter type for that.
+        public boolean equals(Object that) {
+                                     ^
+  found   : @Initialized @NonNull Object
+  required: @Initialized @Nullable Object
+  Consequence: method in @Initialized @NonNull ping_args
+    @Initialized @NonNull boolean equals(@Initialized @NonNull ping_args this, @Initialized @NonNull Object p0)
+  cannot override method in @Initialized @NonNull Object
+    @Initialized @NonNull boolean equals(@Initialized @NonNull Object this, @Initialized @Nullable Object p0)
+../dataset/urldd9e4ada6f_kirillF_sample_jenkins_project_tgz-pJ8-com_bigfatplayer_hello_AppJ8/src/com/bigfatplayer/hello/Calculator.java:563: error: (dereference.of.nullable) $$ 1 $$ schemes.get(iprot.getScheme()) $$ ( 23170, 23200 ) $$ dereference of possibly-null reference schemes.get(iprot.getScheme())
+            schemes.get(iprot.getScheme()).getScheme().read(iprot, this);
+                       ^
+../dataset/urldd9e4ada6f_kirillF_sample_jenkins_project_tgz-pJ8-com_bigfatplayer_hello_AppJ8/src/com/bigfatplayer/hello/Calculator.java:567: error: (dereference.of.nullable) $$ 1 $$ schemes.get(oprot.getScheme()) $$ ( 23363, 23393 ) $$ dereference of possibly-null reference schemes.get(oprot.getScheme())
+            schemes.get(oprot.getScheme()).getScheme().write(oprot, this);
+                       ^
+../dataset/urldd9e4ada6f_kirillF_sample_jenkins_project_tgz-pJ8-com_bigfatplayer_hello_AppJ8/src/com/bigfatplayer/hello/Calculator.java:691: error: (return) $$ 2 $$ null (NullType) $$ @Initialized @NonNull _Fields $$ ( 28323, 28327 ) $$ incompatible types in return.
+                        return null;
+                               ^
+  type of expression: null (NullType)
+  method return type: @Initialized @NonNull _Fields
+../dataset/urldd9e4ada6f_kirillF_sample_jenkins_project_tgz-pJ8-com_bigfatplayer_hello_AppJ8/src/com/bigfatplayer/hello/Calculator.java:709: error: (return) $$ 2 $$ @Initialized @Nullable _Fields $$ @Initialized @NonNull _Fields $$ ( 29002, 29018 ) $$ incompatible types in return.
+                return byName.get(name);
+                                 ^
+  type of expression: @Initialized @Nullable _Fields
+  method return type: @Initialized @NonNull _Fields
+../dataset/urldd9e4ada6f_kirillF_sample_jenkins_project_tgz-pJ8-com_bigfatplayer_hello_AppJ8/src/com/bigfatplayer/hello/Calculator.java:779: error: (override.param) $$ 7 $$ that $$ @Initialized @NonNull Object $$ @Initialized @Nullable Object $$ @Initialized @NonNull ping_result $$ @Initialized @NonNull boolean equals(@Initialized @NonNull ping_result this, @Initialized @NonNull Object p0) $$ @Initialized @NonNull Object $$ @Initialized @NonNull boolean equals(@Initialized @NonNull Object this, @Initialized @Nullable Object p0) $$ ( 30958, 30969 ) $$ Incompatible parameter type for that.
+        public boolean equals(Object that) {
+                                     ^
+  found   : @Initialized @NonNull Object
+  required: @Initialized @Nullable Object
+  Consequence: method in @Initialized @NonNull ping_result
+    @Initialized @NonNull boolean equals(@Initialized @NonNull ping_result this, @Initialized @NonNull Object p0)
+  cannot override method in @Initialized @NonNull Object
+    @Initialized @NonNull boolean equals(@Initialized @NonNull Object this, @Initialized @Nullable Object p0)
+../dataset/urldd9e4ada6f_kirillF_sample_jenkins_project_tgz-pJ8-com_bigfatplayer_hello_AppJ8/src/com/bigfatplayer/hello/Calculator.java:815: error: (dereference.of.nullable) $$ 1 $$ schemes.get(iprot.getScheme()) $$ ( 31964, 31994 ) $$ dereference of possibly-null reference schemes.get(iprot.getScheme())
+            schemes.get(iprot.getScheme()).getScheme().read(iprot, this);
+                       ^
+../dataset/urldd9e4ada6f_kirillF_sample_jenkins_project_tgz-pJ8-com_bigfatplayer_hello_AppJ8/src/com/bigfatplayer/hello/Calculator.java:819: error: (dereference.of.nullable) $$ 1 $$ schemes.get(oprot.getScheme()) $$ ( 32157, 32187 ) $$ dereference of possibly-null reference schemes.get(oprot.getScheme())
+            schemes.get(oprot.getScheme()).getScheme().write(oprot, this);
+                       ^
+../dataset/urldd9e4ada6f_kirillF_sample_jenkins_project_tgz-pJ8-com_bigfatplayer_hello_AppJ8/src/com/bigfatplayer/hello/Calculator.java:952: error: (return) $$ 2 $$ null (NullType) $$ @Initialized @NonNull _Fields $$ ( 37763, 37767 ) $$ incompatible types in return.
+                        return null;
+                               ^
+  type of expression: null (NullType)
+  method return type: @Initialized @NonNull _Fields
+../dataset/urldd9e4ada6f_kirillF_sample_jenkins_project_tgz-pJ8-com_bigfatplayer_hello_AppJ8/src/com/bigfatplayer/hello/Calculator.java:970: error: (return) $$ 2 $$ @Initialized @Nullable _Fields $$ @Initialized @NonNull _Fields $$ ( 38442, 38458 ) $$ incompatible types in return.
+                return byName.get(name);
+                                 ^
+  type of expression: @Initialized @Nullable _Fields
+  method return type: @Initialized @NonNull _Fields
+../dataset/urldd9e4ada6f_kirillF_sample_jenkins_project_tgz-pJ8-com_bigfatplayer_hello_AppJ8/src/com/bigfatplayer/hello/Calculator.java:1014: error: (method.invocation) $$ 3 $$ setNum1IsSet(boolean) $$ @UnderInitialization(com.bigfatplayer.hello.Calculator.add_args.class) @NonNull add_args $$ @Initialized @NonNull add_args $$ ( 40229, 40247 ) $$ call to setNum1IsSet(boolean) not allowed on the given receiver.
+            setNum1IsSet(true);
+                        ^
+  found   : @UnderInitialization(com.bigfatplayer.hello.Calculator.add_args.class) @NonNull add_args
+  required: @Initialized @NonNull add_args
+../dataset/urldd9e4ada6f_kirillF_sample_jenkins_project_tgz-pJ8-com_bigfatplayer_hello_AppJ8/src/com/bigfatplayer/hello/Calculator.java:1016: error: (method.invocation) $$ 3 $$ setNum2IsSet(boolean) $$ @UnderInitialization(com.bigfatplayer.hello.Calculator.add_args.class) @NonNull add_args $$ @Initialized @NonNull add_args $$ ( 40291, 40309 ) $$ call to setNum2IsSet(boolean) not allowed on the given receiver.
+            setNum2IsSet(true);
+                        ^
+  found   : @UnderInitialization(com.bigfatplayer.hello.Calculator.add_args.class) @NonNull add_args
+  required: @Initialized @NonNull add_args
+../dataset/urldd9e4ada6f_kirillF_sample_jenkins_project_tgz-pJ8-com_bigfatplayer_hello_AppJ8/src/com/bigfatplayer/hello/Calculator.java:1141: error: (override.param) $$ 7 $$ that $$ @Initialized @NonNull Object $$ @Initialized @Nullable Object $$ @Initialized @NonNull add_args $$ @Initialized @NonNull boolean equals(@Initialized @NonNull add_args this, @Initialized @NonNull Object p0) $$ @Initialized @NonNull Object $$ @Initialized @NonNull boolean equals(@Initialized @NonNull Object this, @Initialized @Nullable Object p0) $$ ( 43810, 43821 ) $$ Incompatible parameter type for that.
+        public boolean equals(Object that) {
+                                     ^
+  found   : @Initialized @NonNull Object
+  required: @Initialized @Nullable Object
+  Consequence: method in @Initialized @NonNull add_args
+    @Initialized @NonNull boolean equals(@Initialized @NonNull add_args this, @Initialized @NonNull Object p0)
+  cannot override method in @Initialized @NonNull Object
+    @Initialized @NonNull boolean equals(@Initialized @NonNull Object this, @Initialized @Nullable Object p0)
+../dataset/urldd9e4ada6f_kirillF_sample_jenkins_project_tgz-pJ8-com_bigfatplayer_hello_AppJ8/src/com/bigfatplayer/hello/Calculator.java:1215: error: (dereference.of.nullable) $$ 1 $$ schemes.get(iprot.getScheme()) $$ ( 46350, 46380 ) $$ dereference of possibly-null reference schemes.get(iprot.getScheme())
+            schemes.get(iprot.getScheme()).getScheme().read(iprot, this);
+                       ^
+../dataset/urldd9e4ada6f_kirillF_sample_jenkins_project_tgz-pJ8-com_bigfatplayer_hello_AppJ8/src/com/bigfatplayer/hello/Calculator.java:1219: error: (dereference.of.nullable) $$ 1 $$ schemes.get(oprot.getScheme()) $$ ( 46543, 46573 ) $$ dereference of possibly-null reference schemes.get(oprot.getScheme())
+            schemes.get(oprot.getScheme()).getScheme().write(oprot, this);
+                       ^
+../dataset/urldd9e4ada6f_kirillF_sample_jenkins_project_tgz-pJ8-com_bigfatplayer_hello_AppJ8/src/com/bigfatplayer/hello/Calculator.java:1401: error: (return) $$ 2 $$ null (NullType) $$ @Initialized @NonNull _Fields $$ ( 54298, 54302 ) $$ incompatible types in return.
+                        return null;
+                               ^
+  type of expression: null (NullType)
+  method return type: @Initialized @NonNull _Fields
+../dataset/urldd9e4ada6f_kirillF_sample_jenkins_project_tgz-pJ8-com_bigfatplayer_hello_AppJ8/src/com/bigfatplayer/hello/Calculator.java:1419: error: (return) $$ 2 $$ @Initialized @Nullable _Fields $$ @Initialized @NonNull _Fields $$ ( 54977, 54993 ) $$ incompatible types in return.
+                return byName.get(name);
+                                 ^
+  type of expression: @Initialized @Nullable _Fields
+  method return type: @Initialized @NonNull _Fields
+../dataset/urldd9e4ada6f_kirillF_sample_jenkins_project_tgz-pJ8-com_bigfatplayer_hello_AppJ8/src/com/bigfatplayer/hello/Calculator.java:1459: error: (method.invocation) $$ 3 $$ setSuccessIsSet(boolean) $$ @UnderInitialization(com.bigfatplayer.hello.Calculator.add_result.class) @NonNull add_result $$ @Initialized @NonNull add_result $$ ( 56456, 56477 ) $$ call to setSuccessIsSet(boolean) not allowed on the given receiver.
+            setSuccessIsSet(true);
+                           ^
+  found   : @UnderInitialization(com.bigfatplayer.hello.Calculator.add_result.class) @NonNull add_result
+  required: @Initialized @NonNull add_result
+../dataset/urldd9e4ada6f_kirillF_sample_jenkins_project_tgz-pJ8-com_bigfatplayer_hello_AppJ8/src/com/bigfatplayer/hello/Calculator.java:1543: error: (override.param) $$ 7 $$ that $$ @Initialized @NonNull Object $$ @Initialized @Nullable Object $$ @Initialized @NonNull add_result $$ @Initialized @NonNull boolean equals(@Initialized @NonNull add_result this, @Initialized @NonNull Object p0) $$ @Initialized @NonNull Object $$ @Initialized @NonNull boolean equals(@Initialized @NonNull Object this, @Initialized @Nullable Object p0) $$ ( 58836, 58847 ) $$ Incompatible parameter type for that.
+        public boolean equals(Object that) {
+                                     ^
+  found   : @Initialized @NonNull Object
+  required: @Initialized @Nullable Object
+  Consequence: method in @Initialized @NonNull add_result
+    @Initialized @NonNull boolean equals(@Initialized @NonNull add_result this, @Initialized @NonNull Object p0)
+  cannot override method in @Initialized @NonNull Object
+    @Initialized @NonNull boolean equals(@Initialized @NonNull Object this, @Initialized @Nullable Object p0)
+../dataset/urldd9e4ada6f_kirillF_sample_jenkins_project_tgz-pJ8-com_bigfatplayer_hello_AppJ8/src/com/bigfatplayer/hello/Calculator.java:1598: error: (dereference.of.nullable) $$ 1 $$ schemes.get(iprot.getScheme()) $$ ( 60651, 60681 ) $$ dereference of possibly-null reference schemes.get(iprot.getScheme())
+            schemes.get(iprot.getScheme()).getScheme().read(iprot, this);
+                       ^
+../dataset/urldd9e4ada6f_kirillF_sample_jenkins_project_tgz-pJ8-com_bigfatplayer_hello_AppJ8/src/com/bigfatplayer/hello/Calculator.java:1602: error: (dereference.of.nullable) $$ 1 $$ schemes.get(oprot.getScheme()) $$ ( 60844, 60874 ) $$ dereference of possibly-null reference schemes.get(oprot.getScheme())
+            schemes.get(oprot.getScheme()).getScheme().write(oprot, this);
+                       ^
+../dataset/urldd9e4ada6f_kirillF_sample_jenkins_project_tgz-pJ8-com_bigfatplayer_hello_AppJ8/src/com/bigfatplayer/hello/Calculator.java:1766: error: (return) $$ 2 $$ null (NullType) $$ @Initialized @NonNull _Fields $$ ( 67961, 67965 ) $$ incompatible types in return.
+                        return null;
+                               ^
+  type of expression: null (NullType)
+  method return type: @Initialized @NonNull _Fields
+../dataset/urldd9e4ada6f_kirillF_sample_jenkins_project_tgz-pJ8-com_bigfatplayer_hello_AppJ8/src/com/bigfatplayer/hello/Calculator.java:1784: error: (return) $$ 2 $$ @Initialized @Nullable _Fields $$ @Initialized @NonNull _Fields $$ ( 68640, 68656 ) $$ incompatible types in return.
+                return byName.get(name);
+                                 ^
+  type of expression: @Initialized @Nullable _Fields
+  method return type: @Initialized @NonNull _Fields
+../dataset/urldd9e4ada6f_kirillF_sample_jenkins_project_tgz-pJ8-com_bigfatplayer_hello_AppJ8/src/com/bigfatplayer/hello/Calculator.java:1819: error: (initialization.fields.uninitialized) $$ 1 $$ w $$ ( 70215, 70250 ) $$ the constructor does not initialize fields: w
+        public calculate_args() {
+               ^
+../dataset/urldd9e4ada6f_kirillF_sample_jenkins_project_tgz-pJ8-com_bigfatplayer_hello_AppJ8/src/com/bigfatplayer/hello/Calculator.java:1827: error: (method.invocation) $$ 3 $$ setLogidIsSet(boolean) $$ @UnderInitialization(com.bigfatplayer.hello.Calculator.calculate_args.class) @NonNull calculate_args $$ @Initialized @NonNull calculate_args $$ ( 70400, 70419 ) $$ call to setLogidIsSet(boolean) not allowed on the given receiver.
+            setLogidIsSet(true);
+                         ^
+  found   : @UnderInitialization(com.bigfatplayer.hello.Calculator.calculate_args.class) @NonNull calculate_args
+  required: @Initialized @NonNull calculate_args
+../dataset/urldd9e4ada6f_kirillF_sample_jenkins_project_tgz-pJ8-com_bigfatplayer_hello_AppJ8/src/com/bigfatplayer/hello/Calculator.java:1834: error: (initialization.fields.uninitialized) $$ 1 $$ w $$ ( 70537, 70777 ) $$ the constructor does not initialize fields: w
+        public calculate_args(calculate_args other) {
+               ^
+../dataset/urldd9e4ada6f_kirillF_sample_jenkins_project_tgz-pJ8-com_bigfatplayer_hello_AppJ8/src/com/bigfatplayer/hello/Calculator.java:1850: error: (assignment) $$ 2 $$ null (NullType) $$ @Initialized @NonNull Work $$ ( 71009, 71013 ) $$ incompatible types in assignment.
+            this.w = null;
+                     ^
+  found   : null (NullType)
+  required: @Initialized @NonNull Work
+../dataset/urldd9e4ada6f_kirillF_sample_jenkins_project_tgz-pJ8-com_bigfatplayer_hello_AppJ8/src/com/bigfatplayer/hello/Calculator.java:1888: error: (assignment) $$ 2 $$ null (NullType) $$ @Initialized @NonNull Work $$ ( 72017, 72021 ) $$ incompatible types in assignment.
+            this.w = null;
+                     ^
+  found   : null (NullType)
+  required: @Initialized @NonNull Work
+../dataset/urldd9e4ada6f_kirillF_sample_jenkins_project_tgz-pJ8-com_bigfatplayer_hello_AppJ8/src/com/bigfatplayer/hello/Calculator.java:1900: error: (assignment) $$ 2 $$ null (NullType) $$ @Initialized @NonNull Work $$ ( 72326, 72330 ) $$ incompatible types in assignment.
+                this.w = null;
+                         ^
+  found   : null (NullType)
+  required: @Initialized @NonNull Work
+../dataset/urldd9e4ada6f_kirillF_sample_jenkins_project_tgz-pJ8-com_bigfatplayer_hello_AppJ8/src/com/bigfatplayer/hello/Calculator.java:1955: error: (override.param) $$ 7 $$ that $$ @Initialized @NonNull Object $$ @Initialized @Nullable Object $$ @Initialized @NonNull calculate_args $$ @Initialized @NonNull boolean equals(@Initialized @NonNull calculate_args this, @Initialized @NonNull Object p0) $$ @Initialized @NonNull Object $$ @Initialized @NonNull boolean equals(@Initialized @NonNull Object this, @Initialized @Nullable Object p0) $$ ( 73798, 73809 ) $$ Incompatible parameter type for that.
+        public boolean equals(Object that) {
+                                     ^
+  found   : @Initialized @NonNull Object
+  required: @Initialized @Nullable Object
+  Consequence: method in @Initialized @NonNull calculate_args
+    @Initialized @NonNull boolean equals(@Initialized @NonNull calculate_args this, @Initialized @NonNull Object p0)
+  cannot override method in @Initialized @NonNull Object
+    @Initialized @NonNull boolean equals(@Initialized @NonNull Object this, @Initialized @Nullable Object p0)
+../dataset/urldd9e4ada6f_kirillF_sample_jenkins_project_tgz-pJ8-com_bigfatplayer_hello_AppJ8/src/com/bigfatplayer/hello/Calculator.java:2029: error: (dereference.of.nullable) $$ 1 $$ schemes.get(iprot.getScheme()) $$ ( 76388, 76418 ) $$ dereference of possibly-null reference schemes.get(iprot.getScheme())
+            schemes.get(iprot.getScheme()).getScheme().read(iprot, this);
+                       ^
+../dataset/urldd9e4ada6f_kirillF_sample_jenkins_project_tgz-pJ8-com_bigfatplayer_hello_AppJ8/src/com/bigfatplayer/hello/Calculator.java:2033: error: (dereference.of.nullable) $$ 1 $$ schemes.get(oprot.getScheme()) $$ ( 76581, 76611 ) $$ dereference of possibly-null reference schemes.get(oprot.getScheme())
+            schemes.get(oprot.getScheme()).getScheme().write(oprot, this);
+                       ^
+../dataset/urldd9e4ada6f_kirillF_sample_jenkins_project_tgz-pJ8-com_bigfatplayer_hello_AppJ8/src/com/bigfatplayer/hello/Calculator.java:2226: error: (return) $$ 2 $$ null (NullType) $$ @Initialized @NonNull _Fields $$ ( 84772, 84776 ) $$ incompatible types in return.
+                        return null;
+                               ^
+  type of expression: null (NullType)
+  method return type: @Initialized @NonNull _Fields
+../dataset/urldd9e4ada6f_kirillF_sample_jenkins_project_tgz-pJ8-com_bigfatplayer_hello_AppJ8/src/com/bigfatplayer/hello/Calculator.java:2244: error: (return) $$ 2 $$ @Initialized @Nullable _Fields $$ @Initialized @NonNull _Fields $$ ( 85451, 85467 ) $$ incompatible types in return.
+                return byName.get(name);
+                                 ^
+  type of expression: @Initialized @Nullable _Fields
+  method return type: @Initialized @NonNull _Fields
+../dataset/urldd9e4ada6f_kirillF_sample_jenkins_project_tgz-pJ8-com_bigfatplayer_hello_AppJ8/src/com/bigfatplayer/hello/Calculator.java:2284: error: (method.invocation) $$ 3 $$ setSuccessIsSet(boolean) $$ @UnderInitialization(com.bigfatplayer.hello.Calculator.calculate_result.class) @NonNull calculate_result $$ @Initialized @NonNull calculate_result $$ ( 86948, 86969 ) $$ call to setSuccessIsSet(boolean) not allowed on the given receiver.
+            setSuccessIsSet(true);
+                           ^
+  found   : @UnderInitialization(com.bigfatplayer.hello.Calculator.calculate_result.class) @NonNull calculate_result
+  required: @Initialized @NonNull calculate_result
+../dataset/urldd9e4ada6f_kirillF_sample_jenkins_project_tgz-pJ8-com_bigfatplayer_hello_AppJ8/src/com/bigfatplayer/hello/Calculator.java:2368: error: (override.param) $$ 7 $$ that $$ @Initialized @NonNull Object $$ @Initialized @Nullable Object $$ @Initialized @NonNull calculate_result $$ @Initialized @NonNull boolean equals(@Initialized @NonNull calculate_result this, @Initialized @NonNull Object p0) $$ @Initialized @NonNull Object $$ @Initialized @NonNull boolean equals(@Initialized @NonNull Object this, @Initialized @Nullable Object p0) $$ ( 89358, 89369 ) $$ Incompatible parameter type for that.
+        public boolean equals(Object that) {
+                                     ^
+  found   : @Initialized @NonNull Object
+  required: @Initialized @Nullable Object
+  Consequence: method in @Initialized @NonNull calculate_result
+    @Initialized @NonNull boolean equals(@Initialized @NonNull calculate_result this, @Initialized @NonNull Object p0)
+  cannot override method in @Initialized @NonNull Object
+    @Initialized @NonNull boolean equals(@Initialized @NonNull Object this, @Initialized @Nullable Object p0)
+../dataset/urldd9e4ada6f_kirillF_sample_jenkins_project_tgz-pJ8-com_bigfatplayer_hello_AppJ8/src/com/bigfatplayer/hello/Calculator.java:2423: error: (dereference.of.nullable) $$ 1 $$ schemes.get(iprot.getScheme()) $$ ( 91209, 91239 ) $$ dereference of possibly-null reference schemes.get(iprot.getScheme())
+            schemes.get(iprot.getScheme()).getScheme().read(iprot, this);
+                       ^
+../dataset/urldd9e4ada6f_kirillF_sample_jenkins_project_tgz-pJ8-com_bigfatplayer_hello_AppJ8/src/com/bigfatplayer/hello/Calculator.java:2427: error: (dereference.of.nullable) $$ 1 $$ schemes.get(oprot.getScheme()) $$ ( 91402, 91432 ) $$ dereference of possibly-null reference schemes.get(oprot.getScheme())
+            schemes.get(oprot.getScheme()).getScheme().write(oprot, this);
+                       ^
+../dataset/urldd9e4ada6f_kirillF_sample_jenkins_project_tgz-pJ8-com_bigfatplayer_hello_AppJ8/src/com/bigfatplayer/hello/Calculator.java:2582: error: (return) $$ 2 $$ null (NullType) $$ @Initialized @NonNull _Fields $$ ( 97949, 97953 ) $$ incompatible types in return.
+                        return null;
+                               ^
+  type of expression: null (NullType)
+  method return type: @Initialized @NonNull _Fields
+../dataset/urldd9e4ada6f_kirillF_sample_jenkins_project_tgz-pJ8-com_bigfatplayer_hello_AppJ8/src/com/bigfatplayer/hello/Calculator.java:2600: error: (return) $$ 2 $$ @Initialized @Nullable _Fields $$ @Initialized @NonNull _Fields $$ ( 98628, 98644 ) $$ incompatible types in return.
+                return byName.get(name);
+                                 ^
+  type of expression: @Initialized @Nullable _Fields
+  method return type: @Initialized @NonNull _Fields
+../dataset/urldd9e4ada6f_kirillF_sample_jenkins_project_tgz-pJ8-com_bigfatplayer_hello_AppJ8/src/com/bigfatplayer/hello/Calculator.java:2670: error: (override.param) $$ 7 $$ that $$ @Initialized @NonNull Object $$ @Initialized @Nullable Object $$ @Initialized @NonNull zip_args $$ @Initialized @NonNull boolean equals(@Initialized @NonNull zip_args this, @Initialized @NonNull Object p0) $$ @Initialized @NonNull Object $$ @Initialized @NonNull boolean equals(@Initialized @NonNull Object this, @Initialized @Nullable Object p0) $$ ( 100566, 100577 ) $$ Incompatible parameter type for that.
+        public boolean equals(Object that) {
+                                     ^
+  found   : @Initialized @NonNull Object
+  required: @Initialized @Nullable Object
+  Consequence: method in @Initialized @NonNull zip_args
+    @Initialized @NonNull boolean equals(@Initialized @NonNull zip_args this, @Initialized @NonNull Object p0)
+  cannot override method in @Initialized @NonNull Object
+    @Initialized @NonNull boolean equals(@Initialized @NonNull Object this, @Initialized @Nullable Object p0)
+../dataset/urldd9e4ada6f_kirillF_sample_jenkins_project_tgz-pJ8-com_bigfatplayer_hello_AppJ8/src/com/bigfatplayer/hello/Calculator.java:2706: error: (dereference.of.nullable) $$ 1 $$ schemes.get(iprot.getScheme()) $$ ( 101554, 101584 ) $$ dereference of possibly-null reference schemes.get(iprot.getScheme())
+            schemes.get(iprot.getScheme()).getScheme().read(iprot, this);
+                       ^
+../dataset/urldd9e4ada6f_kirillF_sample_jenkins_project_tgz-pJ8-com_bigfatplayer_hello_AppJ8/src/com/bigfatplayer/hello/Calculator.java:2710: error: (dereference.of.nullable) $$ 1 $$ schemes.get(oprot.getScheme()) $$ ( 101747, 101777 ) $$ dereference of possibly-null reference schemes.get(oprot.getScheme())
+            schemes.get(oprot.getScheme()).getScheme().write(oprot, this);
+                       ^
+../dataset/urldd9e4ada6f_kirillF_sample_jenkins_project_tgz-pJ8-com_bigfatplayer_hello_AppJ8/src/com/bigfatplayer/hello/Work.java:76: error: (return) $$ 2 $$ null (NullType) $$ @Initialized @NonNull _Fields $$ ( 2890, 2894 ) $$ incompatible types in return.
+          return null;
+                 ^
+  type of expression: null (NullType)
+  method return type: @Initialized @NonNull _Fields
+../dataset/urldd9e4ada6f_kirillF_sample_jenkins_project_tgz-pJ8-com_bigfatplayer_hello_AppJ8/src/com/bigfatplayer/hello/Work.java:94: error: (return) $$ 2 $$ @Initialized @Nullable _Fields $$ @Initialized @NonNull _Fields $$ ( 3431, 3447 ) $$ incompatible types in return.
+      return byName.get(name);
+                       ^
+  type of expression: @Initialized @Nullable _Fields
+  method return type: @Initialized @NonNull _Fields
+../dataset/urldd9e4ada6f_kirillF_sample_jenkins_project_tgz-pJ8-com_bigfatplayer_hello_AppJ8/src/com/bigfatplayer/hello/Work.java:132: error: (initialization.fields.uninitialized) $$ 1 $$ comment $$ ( 5107, 5146 ) $$ the constructor does not initialize fields: comment
+  public Work() {
+         ^
+../dataset/urldd9e4ada6f_kirillF_sample_jenkins_project_tgz-pJ8-com_bigfatplayer_hello_AppJ8/src/com/bigfatplayer/hello/Work.java:143: error: (method.invocation) $$ 3 $$ setNum1IsSet(boolean) $$ @UnderInitialization(com.bigfatplayer.hello.Work.class) @NonNull Work $$ @Initialized @NonNull Work $$ ( 5233, 5251 ) $$ call to setNum1IsSet(boolean) not allowed on the given receiver.
+    setNum1IsSet(true);
+                ^
+  found   : @UnderInitialization(com.bigfatplayer.hello.Work.class) @NonNull Work
+  required: @Initialized @NonNull Work
+../dataset/urldd9e4ada6f_kirillF_sample_jenkins_project_tgz-pJ8-com_bigfatplayer_hello_AppJ8/src/com/bigfatplayer/hello/Work.java:145: error: (method.invocation) $$ 3 $$ setNum2IsSet(boolean) $$ @UnderInitialization(com.bigfatplayer.hello.Work.class) @NonNull Work $$ @Initialized @NonNull Work $$ ( 5279, 5297 ) $$ call to setNum2IsSet(boolean) not allowed on the given receiver.
+    setNum2IsSet(true);
+                ^
+  found   : @UnderInitialization(com.bigfatplayer.hello.Work.class) @NonNull Work
+  required: @Initialized @NonNull Work
+../dataset/urldd9e4ada6f_kirillF_sample_jenkins_project_tgz-pJ8-com_bigfatplayer_hello_AppJ8/src/com/bigfatplayer/hello/Work.java:151: error: (initialization.fields.uninitialized) $$ 1 $$ comment $$ ( 5361, 5567 ) $$ the constructor does not initialize fields: comment
+  public Work(Work other) {
+         ^
+../dataset/urldd9e4ada6f_kirillF_sample_jenkins_project_tgz-pJ8-com_bigfatplayer_hello_AppJ8/src/com/bigfatplayer/hello/Work.java:170: error: (assignment) $$ 2 $$ null (NullType) $$ @Initialized @NonNull String $$ ( 5747, 5751 ) $$ incompatible types in assignment.
+    this.comment = null;
+                   ^
+  found   : null (NullType)
+  required: @Initialized @NonNull String
+../dataset/urldd9e4ada6f_kirillF_sample_jenkins_project_tgz-pJ8-com_bigfatplayer_hello_AppJ8/src/com/bigfatplayer/hello/Work.java:229: error: (assignment) $$ 2 $$ null (NullType) $$ @Initialized @NonNull String $$ ( 7164, 7168 ) $$ incompatible types in assignment.
+    this.comment = null;
+                   ^
+  found   : null (NullType)
+  required: @Initialized @NonNull String
+../dataset/urldd9e4ada6f_kirillF_sample_jenkins_project_tgz-pJ8-com_bigfatplayer_hello_AppJ8/src/com/bigfatplayer/hello/Work.java:239: error: (assignment) $$ 2 $$ null (NullType) $$ @Initialized @NonNull String $$ ( 7427, 7431 ) $$ incompatible types in assignment.
+      this.comment = null;
+                     ^
+  found   : null (NullType)
+  required: @Initialized @NonNull String
+../dataset/urldd9e4ada6f_kirillF_sample_jenkins_project_tgz-pJ8-com_bigfatplayer_hello_AppJ8/src/com/bigfatplayer/hello/Work.java:305: error: (override.param) $$ 7 $$ that $$ @Initialized @NonNull Object $$ @Initialized @Nullable Object $$ @Initialized @NonNull Work $$ @Initialized @NonNull boolean equals(@Initialized @NonNull Work this, @Initialized @NonNull Object p0) $$ @Initialized @NonNull Object $$ @Initialized @NonNull boolean equals(@Initialized @NonNull Object this, @Initialized @Nullable Object p0) $$ ( 8683, 8694 ) $$ Incompatible parameter type for that.
+  public boolean equals(Object that) {
+                               ^
+  found   : @Initialized @NonNull Object
+  required: @Initialized @Nullable Object
+  Consequence: method in @Initialized @NonNull Work
+    @Initialized @NonNull boolean equals(@Initialized @NonNull Work this, @Initialized @NonNull Object p0)
+  cannot override method in @Initialized @NonNull Object
+    @Initialized @NonNull boolean equals(@Initialized @NonNull Object this, @Initialized @Nullable Object p0)
+../dataset/urldd9e4ada6f_kirillF_sample_jenkins_project_tgz-pJ8-com_bigfatplayer_hello_AppJ8/src/com/bigfatplayer/hello/Work.java:398: error: (dereference.of.nullable) $$ 1 $$ schemes.get(iprot.getScheme()) $$ ( 11350, 11380 ) $$ dereference of possibly-null reference schemes.get(iprot.getScheme())
+    schemes.get(iprot.getScheme()).getScheme().read(iprot, this);
+               ^
+../dataset/urldd9e4ada6f_kirillF_sample_jenkins_project_tgz-pJ8-com_bigfatplayer_hello_AppJ8/src/com/bigfatplayer/hello/Work.java:402: error: (dereference.of.nullable) $$ 1 $$ schemes.get(oprot.getScheme()) $$ ( 11523, 11553 ) $$ dereference of possibly-null reference schemes.get(oprot.getScheme())
+    schemes.get(oprot.getScheme()).getScheme().write(oprot, this);
+               ^
+Note: Some input files use unchecked or unsafe operations.
+Note: Recompile with -Xlint:unchecked for details.
+59 errors

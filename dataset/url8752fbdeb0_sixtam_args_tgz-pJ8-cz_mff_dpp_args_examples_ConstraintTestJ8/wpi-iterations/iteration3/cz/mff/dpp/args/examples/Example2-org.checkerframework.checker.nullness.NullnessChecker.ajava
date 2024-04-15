@@ -1,0 +1,77 @@
+package cz.mff.dpp.args.examples;
+
+import cz.mff.dpp.args.*;
+import java.util.List;
+
+@org.checkerframework.framework.qual.AnnotatedFor("org.checkerframework.checker.nullness.NullnessChecker")
+public class Example2 {
+
+    @org.checkerframework.checker.initialization.qual.FBCBottom @org.checkerframework.checker.nullness.qual.MonotonicNonNull List<String> list;
+
+    enum Animal {
+
+        DOG, CAT, PIG
+    }
+
+    @org.checkerframework.framework.qual.EnsuresQualifier(expression = { "this.list" }, qualifier = org.checkerframework.checker.nullness.qual.Nullable.class)
+    @org.checkerframework.framework.qual.EnsuresQualifier(expression = { "this.myClass" }, qualifier = org.checkerframework.checker.nullness.qual.Nullable.class)
+    @org.checkerframework.framework.qual.EnsuresQualifier(expression = { "this.n" }, qualifier = org.checkerframework.checker.nullness.qual.Nullable.class)
+    @org.checkerframework.dataflow.qual.Impure
+    private void setAnimal(Animal animal) {
+        //only enum constants can be use with this option
+        //otherwise ParseException will be produced
+        switch(animal) {
+            case CAT:
+                System.out.println("MEOW");
+                break;
+            case DOG:
+                System.out.println("WOOF");
+                break;
+            case PIG:
+                System.out.println("CHRO");
+                break;
+            default:
+                System.out.println("UNKNOWN ANIMAL");
+        }
+    }
+
+    @org.checkerframework.checker.initialization.qual.FBCBottom @org.checkerframework.checker.nullness.qual.MonotonicNonNull Integer n;
+
+    public @org.checkerframework.checker.initialization.qual.FBCBottom @org.checkerframework.checker.nullness.qual.MonotonicNonNull MyClass //this field will be set correctly
+    myClass;
+
+    @org.checkerframework.dataflow.qual.Impure
+    public static void main(@org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.NonNull String @org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.NonNull [] args) {
+        //Set values into args manually
+        args = new String[] { "--list", "v1", "v2", "v3", "--animal", "CAT", "-n", "1000", "--doubleString=aa:bb" };
+        Example2 ex = new Example2();
+        Parser parser = new Parser(ex);
+        try {
+            parser.parse(args);
+        } catch (ParseException ex1) {
+            parser.usage();
+            System.exit(0);
+        }
+        //some code here
+    }
+
+    public static class MyClass {
+
+        public @org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.NonNull String s1;
+
+        public @org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.NonNull String s2;
+
+        @org.checkerframework.dataflow.qual.SideEffectFree
+        public MyClass(@org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.NonNull String s1, @org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.NonNull String s2) {
+            this.s1 = s1;
+            this.s2 = s2;
+        }
+
+        //factory method must have only one String param
+        @org.checkerframework.dataflow.qual.Pure
+        public static @org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.NonNull MyClass valueOf(String expr) {
+            String[] values = expr.split(":");
+            return new MyClass(values[0], values[1]);
+        }
+    }
+}

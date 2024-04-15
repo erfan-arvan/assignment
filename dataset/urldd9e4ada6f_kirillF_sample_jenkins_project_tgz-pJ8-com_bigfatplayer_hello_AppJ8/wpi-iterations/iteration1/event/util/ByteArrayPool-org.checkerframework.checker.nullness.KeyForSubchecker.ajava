@@ -1,0 +1,35 @@
+package event.util;
+
+import java.util.Queue;
+import java.util.LinkedList;
+
+@org.checkerframework.framework.qual.AnnotatedFor("org.checkerframework.checker.nullness.KeyForSubchecker")
+public class ByteArrayPool {
+
+      int maxFree = 10;
+
+      int size;
+
+     Queue<byte[]> q;
+
+    @org.checkerframework.dataflow.qual.SideEffectFree
+    public ByteArrayPool(  int size) {
+        this.q = new LinkedList<byte[]>();
+        this.size = size;
+    }
+
+    @org.checkerframework.dataflow.qual.Impure
+    public   byte  [] get( ByteArrayPool this) {
+        byte[] bytes = this.q.poll();
+        return bytes == null ? new byte[size] : bytes;
+    }
+
+    @org.checkerframework.dataflow.qual.Impure
+    public void putBack( ByteArrayPool this,   byte  [] bytes) {
+        assert null != bytes;
+        assert bytes.length == this.size;
+        if (this.q.size() < maxFree) {
+            this.q.add(bytes);
+        }
+    }
+}

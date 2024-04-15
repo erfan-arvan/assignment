@@ -1,0 +1,31 @@
+@org.checkerframework.framework.qual.AnnotatedFor("org.checkerframework.checker.nullness.KeyForSubchecker")
+public class Url implements Comparable<Url> {
+
+    public  String url;
+
+    public   int rank;
+
+    @org.checkerframework.dataflow.qual.SideEffectFree
+    public Url( String url,   int rank) {
+        this.url = url;
+        this.rank = rank;
+    }
+
+    @org.checkerframework.dataflow.qual.Pure
+    public //if urls links match then equal else based on rank
+      int compareTo( Url this,  Url o) {
+        if (url.equals(o.url))
+            return 0;
+        else if (rank <= o.rank)
+            return -1;
+        return 1;
+    }
+
+    @org.checkerframework.dataflow.qual.Pure
+    public   boolean equals( Url this,  Object obj) {
+        if (obj instanceof Url) {
+            return (url.equals(((Url) obj).url));
+        }
+        return super.equals(obj);
+    }
+}

@@ -1,0 +1,63 @@
+package com.disclinc.netmanager.function.test;
+
+import static mLibrary.mFnc.*;
+import static org.junit.Assert.*;
+import org.junit.Test;
+
+@org.checkerframework.framework.qual.AnnotatedFor("org.checkerframework.checker.nullness.NullnessChecker")
+public class ExtractFunctionTest {
+
+    private final @org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.NonNull String stringTest = "1234Alabama567";
+
+    @org.checkerframework.dataflow.qual.Impure
+    public void testExtractDefault() {
+        assertEquals("Fail to extract string as default value", "1", $extract(stringTest));
+    }
+
+    @org.checkerframework.dataflow.qual.Impure
+    public void testExtractSomeElement() {
+        assertEquals("Fail to extract string as default value", "A", $extract(stringTest, 5));
+    }
+
+    @org.checkerframework.dataflow.qual.Impure
+    public void testExtractIntervalElement() {
+        assertEquals("Fail to extract string as default value", "Alabama", $extract(stringTest, 5, 11));
+    }
+
+    @org.checkerframework.dataflow.qual.Impure
+    public void testExtractNegativeStart() {
+        assertEquals("Fail to extract string as default value", "1234Alabama", $extract(stringTest, -5, 11));
+    }
+
+    @org.checkerframework.dataflow.qual.Impure
+    public void testExtractNegativeStartAndEnd() {
+        assertEquals("Fail to extract string as default value", "", $extract(stringTest, -5, -11));
+    }
+
+    @org.checkerframework.dataflow.qual.Impure
+    public void testExtractInvalidInterval() {
+        assertEquals("Fail to extract string as default value", "", $extract(stringTest, 50, 11));
+    }
+
+    @org.checkerframework.dataflow.qual.Impure
+    public void testNonPresenteElement() {
+        assertEquals("Fail to extract string a non present element", "", $extract(stringTest, 50));
+    }
+
+    @org.checkerframework.dataflow.qual.Impure
+    public void testNonPresenteElementWithNegativeIndex() {
+        assertEquals("Fail to extract string a non present element", "", $extract(stringTest, -9));
+    }
+
+    @org.checkerframework.dataflow.qual.Impure
+    public void testEndIndexLargerThantValueLength() {
+        String x = "x";
+        assertEquals("Fail to extract string a non present element", "x", $extract(x, 1, 10));
+    }
+
+    @org.checkerframework.dataflow.qual.Impure
+    public void testEndIndexEqualValueLength() {
+        String x = "x";
+        assertEquals("Fail to extract string a non present element", "x", $extract(x, 1, 1));
+    }
+}

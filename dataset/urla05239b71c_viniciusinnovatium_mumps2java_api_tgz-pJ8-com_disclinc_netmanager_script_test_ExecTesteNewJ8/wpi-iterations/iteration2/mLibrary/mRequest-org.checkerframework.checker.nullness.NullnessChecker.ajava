@@ -1,0 +1,122 @@
+package mLibrary;
+
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
+import java.util.Map.Entry;
+import java.util.Set;
+
+@org.checkerframework.framework.qual.AnnotatedFor("org.checkerframework.checker.nullness.NullnessChecker")
+public class mRequest {
+
+    private @org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.NonNull mData data = new mData();
+
+    private @org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.NonNull Map<String, String[]> cgiEnvs = new HashMap<String, String[]>();
+
+    private @org.checkerframework.checker.initialization.qual.FBCBottom @org.checkerframework.checker.nullness.qual.MonotonicNonNull mContent content;
+
+    @org.checkerframework.dataflow.qual.Impure
+    public mRequest(Map<String, String[]> map) {
+        populateParameter(map);
+    }
+
+    @org.checkerframework.framework.qual.RequiresQualifier(expression = { "this.content" }, qualifier = org.checkerframework.checker.nullness.qual.Nullable.class)
+    @org.checkerframework.framework.qual.EnsuresQualifier(expression = { "this.content" }, qualifier = org.checkerframework.checker.nullness.qual.Nullable.class)
+    @org.checkerframework.dataflow.qual.Impure
+    public void populateParameter(@org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.NonNull Map<String, String[]> map) {
+        Set<Entry<String, String[]>> results = map.entrySet();
+        for (Entry<String, String[]> result : results) {
+            for (int i = 0; i < result.getValue().length; i++) {
+                setData(result.getKey(), i + 1, result.getValue()[i]);
+            }
+        }
+    }
+
+    @org.checkerframework.framework.qual.EnsuresQualifier(expression = { "this.content" }, qualifier = org.checkerframework.checker.nullness.qual.Nullable.class)
+    @org.checkerframework.dataflow.qual.Impure
+    public @org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.Nullable mVar getCgiEnvs(Object key) {
+        mVar var = varData(String.valueOf(key), 1);
+        return var;
+    }
+
+    @org.checkerframework.framework.qual.EnsuresQualifier(expression = { "this.content" }, qualifier = org.checkerframework.checker.nullness.qual.Nullable.class)
+    @org.checkerframework.dataflow.qual.Impure
+    public @org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.Nullable mVar getCgiEnvs(Object key, Object idx) {
+        mVar var = varData(String.valueOf(key), Integer.parseInt(String.valueOf(idx)));
+        return var;
+    }
+
+    @org.checkerframework.framework.qual.EnsuresQualifier(expression = { "this.content" }, qualifier = org.checkerframework.checker.nullness.qual.Nullable.class)
+    @org.checkerframework.dataflow.qual.Pure
+    public @org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.NonNull Map<String, String[]> getCgiEnvs() {
+        return cgiEnvs;
+    }
+
+    @org.checkerframework.framework.qual.EnsuresQualifier(expression = { "this.content" }, qualifier = org.checkerframework.checker.nullness.qual.Nullable.class)
+    @org.checkerframework.dataflow.qual.Impure
+    public void setCgiEnvs(Map<String, String[]> cgiEnvs) {
+        this.cgiEnvs = cgiEnvs;
+        populateParameter(cgiEnvs);
+    }
+
+    @org.checkerframework.framework.qual.RequiresQualifier(expression = { "this.content" }, qualifier = org.checkerframework.checker.nullness.qual.Nullable.class)
+    @org.checkerframework.framework.qual.EnsuresQualifier(expression = { "this.content" }, qualifier = org.checkerframework.checker.nullness.qual.Nullable.class)
+    @org.checkerframework.dataflow.qual.Impure
+    public @org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.Nullable mVar varData(@org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.NonNull Object@org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.NonNull ... args) {
+        mVar var = null;
+        List<Object> list = new ArrayList<Object>();
+        list.add("data");
+        list.addAll(Arrays.asList(args));
+        args = list.toArray();
+        if (args != null && args.length > 0) {
+            var = new mVar(args, this.data);
+        }
+        return var;
+    }
+
+    @org.checkerframework.framework.qual.EnsuresQualifier(expression = { "this.content" }, qualifier = org.checkerframework.checker.nullness.qual.Nullable.class)
+    @org.checkerframework.dataflow.qual.Impure
+    public @org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.NonNull Object getData(Object... args) {
+        return varData("data", args).get();
+    }
+
+    @org.checkerframework.framework.qual.RequiresQualifier(expression = { "this.content" }, qualifier = org.checkerframework.checker.nullness.qual.Nullable.class)
+    @org.checkerframework.framework.qual.EnsuresQualifier(expression = { "this.content" }, qualifier = org.checkerframework.checker.nullness.qual.Nullable.class)
+    @org.checkerframework.dataflow.qual.Impure
+    public void setData(@org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.NonNull Object subs, @org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.NonNull Object idx, @org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.NonNull Object value) {
+        data.subs("data", subs, idx).set(value);
+    }
+
+    @org.checkerframework.dataflow.qual.SideEffectFree
+    public void killData(Object object, int i) {
+        throw new UnsupportedOperationException();
+    }
+
+    @org.checkerframework.dataflow.qual.SideEffectFree
+    public void setCgiEnvs(String string, Object object) {
+        throw new UnsupportedOperationException();
+    }
+
+    @org.checkerframework.framework.qual.EnsuresQualifier(expression = { "this.content" }, qualifier = org.checkerframework.checker.nullness.qual.Nullable.class)
+    @org.checkerframework.dataflow.qual.Pure
+    public @org.checkerframework.checker.initialization.qual.FBCBottom @org.checkerframework.checker.nullness.qual.Nullable mContent getContent() {
+        // TODO Auto-generated method stub
+        return content;
+    }
+
+    @org.checkerframework.framework.qual.EnsuresQualifier(expression = { "this.content" }, qualifier = org.checkerframework.checker.nullness.qual.Nullable.class)
+    @org.checkerframework.dataflow.qual.Pure
+    public @org.checkerframework.checker.initialization.qual.FBCBottom @org.checkerframework.checker.nullness.qual.Nullable Object getURL() {
+        // TODO Auto-generated method stub
+        return null;
+    }
+
+    @org.checkerframework.framework.qual.EnsuresQualifier(expression = { "this.content" }, qualifier = org.checkerframework.checker.nullness.qual.Nullable.class)
+    @org.checkerframework.dataflow.qual.Pure
+    public @org.checkerframework.checker.initialization.qual.FBCBottom @org.checkerframework.checker.nullness.qual.Nullable Object getCgiEnv(Object string, Object pDefault) {
+        // TODO Auto-generated method stub
+        return null;
+    }
+}

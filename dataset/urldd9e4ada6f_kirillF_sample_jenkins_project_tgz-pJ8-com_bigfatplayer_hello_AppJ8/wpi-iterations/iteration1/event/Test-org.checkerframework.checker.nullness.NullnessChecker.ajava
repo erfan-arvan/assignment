@@ -1,0 +1,157 @@
+package event;
+
+import java.nio.channels.SocketChannel;
+import java.nio.channels.ServerSocketChannel;
+import java.nio.ByteBuffer;
+
+/**
+ * Generic Impl to facilitate Tests
+ */
+@org.checkerframework.framework.qual.AnnotatedFor("org.checkerframework.checker.nullness.NullnessChecker")
+public class Test {
+
+    @org.checkerframework.dataflow.qual.Impure
+    public static void p(@org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.NonNull Object o) {
+        System.out.println(o);
+    }
+
+    @org.checkerframework.dataflow.qual.Impure
+    public static void p(byte[] os) {
+        int i = 0;
+        for (Object o : os) {
+            p(i + ": " + o);
+            i++;
+        }
+    }
+
+    @org.checkerframework.dataflow.qual.Impure
+    public static void dump(byte[] o, byte[] o2) {
+        if (o.length != o2.length) {
+            p("unequal len");
+        }
+        for (int i = 0; i != o.length; ++i) {
+            p(i + "[" + o[i] + "] [" + o2[i] + "]");
+        }
+        p("=============");
+    }
+
+    final @org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.NonNull TCPServerLoop serverL = new TCPServerLoop();
+
+    final @org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.NonNull TCPClientLoop clientL = new TCPClientLoop();
+
+    Callback.@org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.MonotonicNonNull TCPClient client;
+
+    Callback.@org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.MonotonicNonNull TCPServer server;
+
+    final  @org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.NonNull int port = 54321;
+
+    final @org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.NonNull String host = "127.0.0.1";
+
+    @org.checkerframework.dataflow.qual.SideEffectFree
+    public Test() {
+    }
+
+    @org.checkerframework.checker.nullness.qual.EnsuresNonNull({ "this.client" })
+    @org.checkerframework.checker.nullness.qual.EnsuresNonNull({ "this.server" })
+    @org.checkerframework.dataflow.qual.SideEffectFree
+    public Test(Test.Client client, Test.Server server) {
+        this.client = client;
+        this.server = server;
+    }
+
+    @org.checkerframework.checker.nullness.qual.EnsuresNonNull({ "this.client" })
+    @org.checkerframework.checker.nullness.qual.EnsuresNonNull({ "this.server" })
+    @org.checkerframework.dataflow.qual.Impure
+    public void setClientServer(Test.@org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.NonNull Client client, Test.@org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.NonNull Server server) {
+        this.client = client;
+        this.server = server;
+    }
+
+    @org.checkerframework.checker.nullness.qual.EnsuresNonNull({ "this.server" })
+    @org.checkerframework.framework.qual.EnsuresQualifier(expression = { "this.client" }, qualifier = org.checkerframework.checker.nullness.qual.Nullable.class)
+    @org.checkerframework.dataflow.qual.Impure
+    public void runTest() {
+        serverL.start();
+        clientL.start();
+        serverL.createTCPServer(this.server, new java.net.InetSocketAddress(host, port));
+    }
+
+    @org.checkerframework.framework.qual.EnsuresQualifier(expression = { "this.client" }, qualifier = org.checkerframework.checker.nullness.qual.Nullable.class)
+    @org.checkerframework.framework.qual.EnsuresQualifier(expression = { "this.server" }, qualifier = org.checkerframework.checker.nullness.qual.Nullable.class)
+    @org.checkerframework.dataflow.qual.Impure
+    public void fail(@org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.NonNull String mes) {
+        p(mes);
+        done();
+    }
+
+    @org.checkerframework.framework.qual.RequiresQualifier(expression = { "this.client" }, qualifier = org.checkerframework.checker.nullness.qual.Nullable.class)
+    @org.checkerframework.framework.qual.RequiresQualifier(expression = { "this.server" }, qualifier = org.checkerframework.checker.nullness.qual.Nullable.class)
+    @org.checkerframework.framework.qual.EnsuresQualifier(expression = { "this.client" }, qualifier = org.checkerframework.checker.nullness.qual.Nullable.class)
+    @org.checkerframework.framework.qual.EnsuresQualifier(expression = { "this.server" }, qualifier = org.checkerframework.checker.nullness.qual.Nullable.class)
+    @org.checkerframework.dataflow.qual.Impure
+    public void done() {
+        serverL.stopLoop();
+        clientL.stopLoop();
+    }
+
+    class Client extends Callback.TCPClient {
+
+        @org.checkerframework.dataflow.qual.Impure
+        public void onData(@org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.NonNull Client this, @org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.NonNull TCPClientLoop l, @org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.NonNull SocketChannel sc, @org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.NonNull ByteBuffer buf) {
+        }
+    }
+
+    @org.checkerframework.dataflow.qual.Impure
+    static @org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.NonNull ByteBuffer copyBuffer(@org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.NonNull ByteBuffer orig) {
+        ByteBuffer ret = ByteBuffer.allocate(orig.remaining());
+        orig.mark();
+        ret.put(orig);
+        ret.flip();
+        orig.reset();
+        return ret;
+    }
+
+    class EchoClient extends Client {
+
+        @org.checkerframework.dataflow.qual.Impure
+        public void onData(@org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.NonNull EchoClient this, @org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.NonNull TCPClientLoop l, @org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.NonNull SocketChannel sc, @org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.NonNull ByteBuffer buf) {
+            l.write(sc, this, copyBuffer(buf));
+        }
+    }
+
+    class Server extends Callback.TCPServer {
+
+        @org.checkerframework.dataflow.qual.Impure
+        public void onConnect(@org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.NonNull Server this, @org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.NonNull TCPServerLoop l, @org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.NonNull ServerSocketChannel ssc) {
+            // start the client side of the test.
+            Test.this.clientL.createTCPClient(Test.this.client, Test.this.host, Test.this.port);
+        }
+
+        @org.checkerframework.dataflow.qual.Impure
+        public void onAccept(@org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.NonNull Server this, @org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.NonNull TCPServerLoop l, @org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.NonNull ServerSocketChannel ssc, @org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.NonNull SocketChannel sc) {
+        }
+    }
+
+    /**
+     * Dummy Server accepts the connection, receives and discards any
+     * data sent.
+     */
+    class AcceptServer extends Server {
+
+        @org.checkerframework.dataflow.qual.Impure
+        public void onAccept(@org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.NonNull AcceptServer this, @org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.NonNull TCPServerLoop l, @org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.NonNull ServerSocketChannel ssc, @org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.NonNull SocketChannel sc) {
+            l.createTCPClient(new Test.Client(), sc);
+        }
+    }
+
+    /**
+     * Echo Server sends everything back to the origin
+     */
+    class EchoServer extends Server {
+
+        @org.checkerframework.dataflow.qual.Impure
+        public void onAccept(@org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.NonNull EchoServer this, @org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.NonNull TCPServerLoop l, @org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.NonNull ServerSocketChannel ssc, @org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.NonNull SocketChannel sc) {
+            l.createTCPClient(new Test.EchoClient(), sc);
+        }
+    }
+}

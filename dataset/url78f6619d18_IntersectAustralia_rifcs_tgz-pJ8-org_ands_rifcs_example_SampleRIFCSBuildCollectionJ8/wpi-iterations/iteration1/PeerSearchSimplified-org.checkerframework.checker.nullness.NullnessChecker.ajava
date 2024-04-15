@@ -1,0 +1,26 @@
+import java.net.DatagramSocket;
+import java.net.InetSocketAddress;
+
+// for the simplified routing solution
+@org.checkerframework.framework.qual.AnnotatedFor("org.checkerframework.checker.nullness.NullnessChecker")
+interface PeerSearchSimplified {
+
+    // initialise with a udp socket
+    @org.checkerframework.dataflow.qual.Impure
+    void init(@org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.Nullable DatagramSocket udp_socket);
+
+    @org.checkerframework.dataflow.qual.Impure
+     @org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.NonNull long joinNetwork(@org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.NonNull InetSocketAddress bootstrap_node, @org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.NonNull String identifier, //returns network_id, a locally
+    @org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.NonNull String target_identifier);
+
+    // generated number to identify peer network
+    // parameter is previously returned peer network identifier
+    @org.checkerframework.dataflow.qual.Impure
+     @org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.NonNull boolean leaveNetwork(long network_id);
+
+    @org.checkerframework.dataflow.qual.Impure
+    void indexPage(@org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.NonNull String url, @org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.NonNull String @org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.NonNull [] unique_words);
+
+    @org.checkerframework.dataflow.qual.Impure
+    @org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.NonNull SearchResult @org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.NonNull [] search(@org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.NonNull String @org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.NonNull [] words);
+}

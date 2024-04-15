@@ -1,0 +1,55 @@
+package cz.mff.dpp.args;
+
+/**
+ * Exception caused by unmet constraints on annotated objects.
+ *
+ * @author Stepan Bokoc
+ *
+ * @see Option
+ * @see Argument
+ */
+@org.checkerframework.framework.qual.AnnotatedFor("org.checkerframework.checker.nullness.NullnessChecker")
+class CheckException extends Exception {
+
+    private static final  @org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.NonNull long serialVersionUID = 5755703389008151061L;
+
+    @org.checkerframework.dataflow.qual.SideEffectFree
+    public CheckException() {
+        super();
+    }
+
+    @org.checkerframework.dataflow.qual.SideEffectFree
+    public CheckException(@org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.NonNull String message) {
+        super(message);
+    }
+
+    @org.checkerframework.dataflow.qual.SideEffectFree
+    public CheckException(String message, Throwable cause) {
+        super(message, cause);
+    }
+
+    @org.checkerframework.dataflow.qual.SideEffectFree
+    public CheckException(Throwable cause) {
+        super(cause);
+    }
+
+    @org.checkerframework.dataflow.qual.SideEffectFree
+    public CheckException(@org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.NonNull String format, @org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.NonNull Object@org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.NonNull ... args) {
+        super(String.format(format, args));
+    }
+
+    @org.checkerframework.dataflow.qual.SideEffectFree
+    public CheckException(@org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.NonNull Throwable cause, @org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.NonNull String format, @org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.NonNull Object@org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.NonNull ... args) {
+        super(String.format(format, args), cause);
+    }
+
+    @org.checkerframework.dataflow.qual.SideEffectFree
+    public static void wrap(Throwable cause, String format, Object... args) throws CheckException {
+        throw new CheckException(cause, format, args);
+    }
+
+    @org.checkerframework.dataflow.qual.SideEffectFree
+    public static void wrap(Throwable cause, String message) throws CheckException {
+        throw new CheckException(cause, message);
+    }
+}

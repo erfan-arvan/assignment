@@ -1,0 +1,401 @@
+package br.com.innovatium.mumps2java.datastructure;
+
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.List;
+
+@org.checkerframework.framework.qual.AnnotatedFor("org.checkerframework.checker.nullness.NullnessChecker")
+public class Node implements Comparable<Node> {
+
+    private final @org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.NonNull Object @org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.NonNull [] subs;
+
+    private final @org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.NonNull String key;
+
+    private final @org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.NonNull Object susbscript;
+
+    final  @org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.NonNull boolean isNumeric;
+
+    private @org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.MonotonicNonNull Integer stackLevel;
+
+    private @org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.MonotonicNonNull Object value;
+
+    private @org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.Nullable Node parent;
+
+    private @org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.MonotonicNonNull Node subnode;
+
+    private @org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.Nullable Node next;
+
+    private @org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.Nullable Node previous;
+
+    @org.checkerframework.dataflow.qual.Impure
+    public Node(@org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.NonNull Object @org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.NonNull [] subs, @org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.NonNull String key) {
+        this(subs, null, key);
+    }
+
+    @org.checkerframework.dataflow.qual.SideEffectFree
+    public Node(@org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.NonNull Object @org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.NonNull [] subs, @org.checkerframework.checker.initialization.qual.FBCBottom @org.checkerframework.checker.nullness.qual.Nullable Object value, @org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.NonNull String key) {
+        if (subs == null) {
+            throw new IllegalArgumentException("The subs array must not be null");
+        }
+        this.subs = subs;
+        this.value = value;
+        this.key = key;
+        final int index = subs.length == 1 ? 0 : subs.length - 1;
+        Object temp = subs[index];
+        if (temp instanceof Double && (Double) temp % 1 == 0) {
+            temp = ((Double) temp).longValue();
+        }
+        if ((temp = isNumber(temp.toString())) != null) {
+            susbscript = temp;
+            isNumeric = true;
+        } else {
+            susbscript = subs[index].toString();
+            isNumeric = false;
+        }
+        if (susbscript == null) {
+            throw new IllegalArgumentException("The subscripts must not be null");
+        }
+    }
+
+    @org.checkerframework.framework.qual.EnsuresQualifier(expression = { "this.stackLevel" }, qualifier = org.checkerframework.checker.nullness.qual.Nullable.class)
+    @org.checkerframework.framework.qual.EnsuresQualifier(expression = { "this.subnode" }, qualifier = org.checkerframework.checker.nullness.qual.Nullable.class)
+    @org.checkerframework.dataflow.qual.Pure
+    public @org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.Nullable Node getParent() {
+        return parent;
+    }
+
+    @org.checkerframework.framework.qual.RequiresQualifier(expression = { "this.stackLevel" }, qualifier = org.checkerframework.checker.nullness.qual.Nullable.class)
+    @org.checkerframework.framework.qual.RequiresQualifier(expression = { "this.subnode" }, qualifier = org.checkerframework.checker.nullness.qual.Nullable.class)
+    @org.checkerframework.framework.qual.EnsuresQualifier(expression = { "this.stackLevel" }, qualifier = org.checkerframework.checker.nullness.qual.Nullable.class)
+    @org.checkerframework.framework.qual.EnsuresQualifier(expression = { "this.subnode" }, qualifier = org.checkerframework.checker.nullness.qual.Nullable.class)
+    @org.checkerframework.dataflow.qual.Pure
+    public @org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.Nullable Node getSubnode() {
+        return subnode;
+    }
+
+    @org.checkerframework.checker.nullness.qual.EnsuresNonNull({ "this.subnode" })
+    @org.checkerframework.framework.qual.EnsuresQualifier(expression = { "this.stackLevel" }, qualifier = org.checkerframework.checker.nullness.qual.Nullable.class)
+    @org.checkerframework.dataflow.qual.Impure
+    public void setSubnode(@org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.NonNull Node subnode) {
+        this.subnode = subnode;
+    }
+
+    @org.checkerframework.framework.qual.EnsuresQualifier(expression = { "this.stackLevel" }, qualifier = org.checkerframework.checker.nullness.qual.Nullable.class)
+    @org.checkerframework.framework.qual.EnsuresQualifier(expression = { "this.subnode" }, qualifier = org.checkerframework.checker.nullness.qual.Nullable.class)
+    @org.checkerframework.dataflow.qual.Pure
+    public @org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.Nullable Object @org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.NonNull [] getSubs( @org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.NonNull int start) {
+        return Arrays.copyOfRange(subs, start, subs.length);
+    }
+
+    @org.checkerframework.framework.qual.EnsuresQualifier(expression = { "this.next" }, qualifier = org.checkerframework.checker.initialization.qual.FBCBottom.class)
+    @org.checkerframework.framework.qual.EnsuresQualifier(expression = { "this.parent" }, qualifier = org.checkerframework.checker.initialization.qual.FBCBottom.class)
+    @org.checkerframework.framework.qual.EnsuresQualifier(expression = { "this.previous" }, qualifier = org.checkerframework.checker.initialization.qual.FBCBottom.class)
+    @org.checkerframework.framework.qual.EnsuresQualifier(expression = { "this.stackLevel" }, qualifier = org.checkerframework.checker.nullness.qual.Nullable.class)
+    @org.checkerframework.framework.qual.EnsuresQualifier(expression = { "this.subnode" }, qualifier = org.checkerframework.checker.nullness.qual.Nullable.class)
+    @org.checkerframework.dataflow.qual.Impure
+    public void cancelReferences() {
+        // Canceling all references that node does.
+        this.parent = null;
+        this.next = null;
+        this.previous = null;
+    }
+
+    @org.checkerframework.framework.qual.EnsuresQualifier(expression = { "this.stackLevel" }, qualifier = org.checkerframework.checker.nullness.qual.Nullable.class)
+    @org.checkerframework.framework.qual.EnsuresQualifier(expression = { "this.subnode" }, qualifier = org.checkerframework.checker.nullness.qual.Nullable.class)
+    @org.checkerframework.dataflow.qual.Pure
+    public @org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.NonNull Object @org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.NonNull [] getSubs() {
+        return subs;
+    }
+
+    @org.checkerframework.framework.qual.EnsuresQualifier(expression = { "this.stackLevel" }, qualifier = org.checkerframework.checker.nullness.qual.Nullable.class)
+    @org.checkerframework.framework.qual.EnsuresQualifier(expression = { "this.subnode" }, qualifier = org.checkerframework.checker.nullness.qual.Nullable.class)
+    @org.checkerframework.dataflow.qual.Pure
+    public @org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.NonNull String getKey() {
+        return key;
+    }
+
+    @org.checkerframework.framework.qual.EnsuresQualifier(expression = { "this.stackLevel" }, qualifier = org.checkerframework.checker.nullness.qual.Nullable.class)
+    @org.checkerframework.framework.qual.EnsuresQualifier(expression = { "this.subnode" }, qualifier = org.checkerframework.checker.nullness.qual.Nullable.class)
+    @org.checkerframework.dataflow.qual.Pure
+    public @org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.Nullable Object @org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.NonNull [] getSubsExceptFirst() {
+        return Arrays.copyOfRange(subs, 1, subs.length);
+    }
+
+    @org.checkerframework.framework.qual.EnsuresQualifier(expression = { "this.stackLevel" }, qualifier = org.checkerframework.checker.nullness.qual.Nullable.class)
+    @org.checkerframework.framework.qual.EnsuresQualifier(expression = { "this.subnode" }, qualifier = org.checkerframework.checker.nullness.qual.Nullable.class)
+    @org.checkerframework.dataflow.qual.Pure
+    public @org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.NonNull Object getSubscript() {
+        return susbscript;
+    }
+
+    @org.checkerframework.framework.qual.EnsuresQualifier(expression = { "this.stackLevel" }, qualifier = org.checkerframework.checker.nullness.qual.Nullable.class)
+    @org.checkerframework.framework.qual.EnsuresQualifier(expression = { "this.subnode" }, qualifier = org.checkerframework.checker.nullness.qual.Nullable.class)
+    @org.checkerframework.dataflow.qual.Pure
+    public @org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.NonNull Object getSubscriptAsString() {
+        return susbscript.toString();
+    }
+
+    @org.checkerframework.framework.qual.RequiresQualifier(expression = { "this.stackLevel" }, qualifier = org.checkerframework.checker.nullness.qual.Nullable.class)
+    @org.checkerframework.framework.qual.RequiresQualifier(expression = { "this.subnode" }, qualifier = org.checkerframework.checker.nullness.qual.Nullable.class)
+    @org.checkerframework.framework.qual.EnsuresQualifier(expression = { "this.stackLevel" }, qualifier = org.checkerframework.checker.nullness.qual.Nullable.class)
+    @org.checkerframework.framework.qual.EnsuresQualifier(expression = { "this.subnode" }, qualifier = org.checkerframework.checker.nullness.qual.Nullable.class)
+    @org.checkerframework.dataflow.qual.Pure
+    public @org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.Nullable Node getNext() {
+        return next;
+    }
+
+    @org.checkerframework.checker.nullness.qual.EnsuresNonNull({ "this.next" })
+    @org.checkerframework.framework.qual.EnsuresQualifier(expression = { "this.stackLevel" }, qualifier = org.checkerframework.checker.nullness.qual.Nullable.class)
+    @org.checkerframework.framework.qual.EnsuresQualifier(expression = { "this.subnode" }, qualifier = org.checkerframework.checker.nullness.qual.Nullable.class)
+    @org.checkerframework.dataflow.qual.Impure
+    public void setNext(@org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.NonNull Node next) {
+        this.next = next;
+    }
+
+    @org.checkerframework.framework.qual.RequiresQualifier(expression = { "this.stackLevel" }, qualifier = org.checkerframework.checker.nullness.qual.Nullable.class)
+    @org.checkerframework.framework.qual.RequiresQualifier(expression = { "this.subnode" }, qualifier = org.checkerframework.checker.nullness.qual.Nullable.class)
+    @org.checkerframework.framework.qual.EnsuresQualifier(expression = { "this.stackLevel" }, qualifier = org.checkerframework.checker.nullness.qual.Nullable.class)
+    @org.checkerframework.framework.qual.EnsuresQualifier(expression = { "this.subnode" }, qualifier = org.checkerframework.checker.nullness.qual.Nullable.class)
+    @org.checkerframework.dataflow.qual.Pure
+    public @org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.Nullable Node getPrevious() {
+        return previous;
+    }
+
+    @org.checkerframework.checker.nullness.qual.EnsuresNonNull({ "this.parent" })
+    @org.checkerframework.framework.qual.EnsuresQualifier(expression = { "this.stackLevel" }, qualifier = org.checkerframework.checker.nullness.qual.Nullable.class)
+    @org.checkerframework.framework.qual.EnsuresQualifier(expression = { "this.subnode" }, qualifier = org.checkerframework.checker.nullness.qual.Nullable.class)
+    @org.checkerframework.dataflow.qual.Impure
+    public void setParent(@org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.NonNull Node parent) {
+        this.parent = parent;
+    }
+
+    @org.checkerframework.checker.nullness.qual.EnsuresNonNull({ "this.previous" })
+    @org.checkerframework.framework.qual.EnsuresQualifier(expression = { "this.stackLevel" }, qualifier = org.checkerframework.checker.nullness.qual.Nullable.class)
+    @org.checkerframework.framework.qual.EnsuresQualifier(expression = { "this.subnode" }, qualifier = org.checkerframework.checker.nullness.qual.Nullable.class)
+    @org.checkerframework.dataflow.qual.Impure
+    public void setPrevious(@org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.NonNull Node previous) {
+        this.previous = previous;
+    }
+
+    @org.checkerframework.framework.qual.EnsuresQualifier(expression = { "this.stackLevel" }, qualifier = org.checkerframework.checker.nullness.qual.Nullable.class)
+    @org.checkerframework.framework.qual.EnsuresQualifier(expression = { "this.subnode" }, qualifier = org.checkerframework.checker.nullness.qual.Nullable.class)
+    @org.checkerframework.dataflow.qual.Pure
+    public  @org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.NonNull boolean hasParent() {
+        return this.parent != null;
+    }
+
+    @org.checkerframework.checker.nullness.qual.EnsuresNonNull({ "this.subnode" })
+    @org.checkerframework.framework.qual.EnsuresQualifier(expression = { "this.stackLevel" }, qualifier = org.checkerframework.checker.nullness.qual.Nullable.class)
+    @org.checkerframework.dataflow.qual.Impure
+    public void addSubnode(@org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.NonNull Node newSubnode) {
+        if (subnode == null) {
+            subnode = newSubnode;
+        } else {
+            Node previous = findPrevious(subnode, newSubnode);
+            // When previous node is the first sub node into the hierarchy we
+            // have to switch its positions to maintain the order mechanism.
+            if (previous.isFirstSubnode() && previous.isAfter(newSubnode)) {
+                subnode = newSubnode;
+                newSubnode.next = previous;
+                newSubnode.previous = null;
+                previous.previous = newSubnode;
+            } else {
+                newSubnode.next = previous.next;
+                previous.next = newSubnode;
+                newSubnode.previous = previous;
+                if (newSubnode.next != null) {
+                    newSubnode.next.previous = newSubnode;
+                }
+            }
+        }
+        newSubnode.parent = this;
+    }
+
+    @org.checkerframework.checker.nullness.qual.EnsuresNonNull({ "this.parent" })
+    @org.checkerframework.framework.qual.EnsuresQualifier(expression = { "this.stackLevel" }, qualifier = org.checkerframework.checker.nullness.qual.Nullable.class)
+    @org.checkerframework.framework.qual.EnsuresQualifier(expression = { "this.subnode" }, qualifier = org.checkerframework.checker.nullness.qual.Nullable.class)
+    @org.checkerframework.dataflow.qual.Impure
+    public @org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.NonNull Node findPrevious() {
+        return findPrevious(parent.subnode, this);
+    }
+
+    @org.checkerframework.framework.qual.RequiresQualifier(expression = { "this.stackLevel" }, qualifier = org.checkerframework.checker.nullness.qual.Nullable.class)
+    @org.checkerframework.framework.qual.RequiresQualifier(expression = { "this.subnode" }, qualifier = org.checkerframework.checker.nullness.qual.Nullable.class)
+    @org.checkerframework.framework.qual.EnsuresQualifier(expression = { "this.stackLevel" }, qualifier = org.checkerframework.checker.nullness.qual.Nullable.class)
+    @org.checkerframework.framework.qual.EnsuresQualifier(expression = { "this.subnode" }, qualifier = org.checkerframework.checker.nullness.qual.Nullable.class)
+    @org.checkerframework.dataflow.qual.Impure
+    public @org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.NonNull Node findPrevious(@org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.Nullable Node previous, @org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.NonNull Node subnode) {
+        if (previous.compareTo(subnode) > 0) {
+            if (previous.hasPrevious() && previous.getPrevious().compareTo(subnode) < 0) {
+                return previous.getPrevious();
+            }
+            return previous;
+        } else if (previous.hasNext()) {
+            if (previous == previous.next) {
+                throw new IllegalArgumentException("Previous node is equal the next node");
+            }
+            return findPrevious(previous.next, subnode);
+        } else {
+            return previous;
+        }
+    }
+
+    @org.checkerframework.framework.qual.RequiresQualifier(expression = { "this.stackLevel" }, qualifier = org.checkerframework.checker.nullness.qual.Nullable.class)
+    @org.checkerframework.framework.qual.RequiresQualifier(expression = { "this.subnode" }, qualifier = org.checkerframework.checker.nullness.qual.Nullable.class)
+    @org.checkerframework.framework.qual.EnsuresQualifier(expression = { "this.stackLevel" }, qualifier = org.checkerframework.checker.nullness.qual.Nullable.class)
+    @org.checkerframework.framework.qual.EnsuresQualifier(expression = { "this.subnode" }, qualifier = org.checkerframework.checker.nullness.qual.Nullable.class)
+    @org.checkerframework.dataflow.qual.Pure
+    public  @org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.NonNull boolean hasPrevious() {
+        return this.previous != null;
+    }
+
+    @org.checkerframework.framework.qual.RequiresQualifier(expression = { "this.stackLevel" }, qualifier = org.checkerframework.checker.nullness.qual.Nullable.class)
+    @org.checkerframework.framework.qual.EnsuresQualifier(expression = { "this.stackLevel" }, qualifier = org.checkerframework.checker.nullness.qual.Nullable.class)
+    @org.checkerframework.framework.qual.EnsuresQualifier(expression = { "this.subnode" }, qualifier = org.checkerframework.checker.nullness.qual.Nullable.class)
+    @org.checkerframework.dataflow.qual.Pure
+    public  @org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.NonNull boolean isFirstSubnode() {
+        if (parent != null && parent.hasSubnodes()) {
+            return parent.getSubnode().equals(this);
+        }
+        return false;
+    }
+
+    @org.checkerframework.checker.nullness.qual.RequiresNonNull({ "this.subnode" })
+    @org.checkerframework.framework.qual.RequiresQualifier(expression = { "this.stackLevel" }, qualifier = org.checkerframework.checker.nullness.qual.Nullable.class)
+    @org.checkerframework.framework.qual.EnsuresQualifier(expression = { "this.stackLevel" }, qualifier = org.checkerframework.checker.nullness.qual.Nullable.class)
+    @org.checkerframework.framework.qual.EnsuresQualifier(expression = { "this.subnode" }, qualifier = org.checkerframework.checker.nullness.qual.Nullable.class)
+    @org.checkerframework.dataflow.qual.Pure
+    public  @org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.NonNull boolean isAfter(@org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.NonNull Node node) {
+        return this.compareTo(node) > 0;
+    }
+
+    @org.checkerframework.framework.qual.RequiresQualifier(expression = { "this.stackLevel" }, qualifier = org.checkerframework.checker.nullness.qual.Nullable.class)
+    @org.checkerframework.framework.qual.RequiresQualifier(expression = { "this.subnode" }, qualifier = org.checkerframework.checker.nullness.qual.Nullable.class)
+    @org.checkerframework.framework.qual.EnsuresQualifier(expression = { "this.stackLevel" }, qualifier = org.checkerframework.checker.nullness.qual.Nullable.class)
+    @org.checkerframework.framework.qual.EnsuresQualifier(expression = { "this.subnode" }, qualifier = org.checkerframework.checker.nullness.qual.Nullable.class)
+    @org.checkerframework.dataflow.qual.Pure
+    public  @org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.NonNull boolean hasNext() {
+        return next != null && !next.equals(previous);
+    }
+
+    @org.checkerframework.framework.qual.RequiresQualifier(expression = { "this.stackLevel" }, qualifier = org.checkerframework.checker.nullness.qual.Nullable.class)
+    @org.checkerframework.framework.qual.RequiresQualifier(expression = { "this.subnode" }, qualifier = org.checkerframework.checker.nullness.qual.Nullable.class)
+    @org.checkerframework.framework.qual.EnsuresQualifier(expression = { "this.stackLevel" }, qualifier = org.checkerframework.checker.nullness.qual.Nullable.class)
+    @org.checkerframework.framework.qual.EnsuresQualifier(expression = { "this.subnode" }, qualifier = org.checkerframework.checker.nullness.qual.Nullable.class)
+    @org.checkerframework.dataflow.qual.Pure
+    public  @org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.NonNull boolean isRoot() {
+        return parent == null;
+    }
+
+    @org.checkerframework.framework.qual.RequiresQualifier(expression = { "this.stackLevel" }, qualifier = org.checkerframework.checker.nullness.qual.Nullable.class)
+    @org.checkerframework.framework.qual.RequiresQualifier(expression = { "this.subnode" }, qualifier = org.checkerframework.checker.nullness.qual.Nullable.class)
+    @org.checkerframework.framework.qual.EnsuresQualifier(expression = { "this.stackLevel" }, qualifier = org.checkerframework.checker.nullness.qual.Nullable.class)
+    @org.checkerframework.framework.qual.EnsuresQualifier(expression = { "this.subnode" }, qualifier = org.checkerframework.checker.nullness.qual.Nullable.class)
+    @org.checkerframework.dataflow.qual.Pure
+    public  @org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.NonNull boolean hasSubnodes() {
+        return subnode != null;
+    }
+
+    @org.checkerframework.framework.qual.EnsuresQualifier(expression = { "this.stackLevel" }, qualifier = org.checkerframework.checker.nullness.qual.Nullable.class)
+    @org.checkerframework.framework.qual.EnsuresQualifier(expression = { "this.subnode" }, qualifier = org.checkerframework.checker.nullness.qual.Nullable.class)
+    @org.checkerframework.dataflow.qual.Pure
+    public  @org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.NonNull boolean isLeaf() {
+        return !isRoot() && !hasSubnodes();
+    }
+
+    @org.checkerframework.framework.qual.EnsuresQualifier(expression = { "this.stackLevel" }, qualifier = org.checkerframework.checker.nullness.qual.Nullable.class)
+    @org.checkerframework.framework.qual.EnsuresQualifier(expression = { "this.subnode" }, qualifier = org.checkerframework.checker.nullness.qual.Nullable.class)
+    @org.checkerframework.dataflow.qual.Pure
+    public @org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.NonNull Object getValue() {
+        return value;
+    }
+
+    @org.checkerframework.framework.qual.EnsuresQualifier(expression = { "this.stackLevel" }, qualifier = org.checkerframework.checker.nullness.qual.Nullable.class)
+    @org.checkerframework.framework.qual.EnsuresQualifier(expression = { "this.subnode" }, qualifier = org.checkerframework.checker.nullness.qual.Nullable.class)
+    @org.checkerframework.dataflow.qual.Impure
+    public void setValue(@org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.Nullable Object value) {
+        this.value = value;
+    }
+
+    @org.checkerframework.framework.qual.RequiresQualifier(expression = { "this.stackLevel" }, qualifier = org.checkerframework.checker.nullness.qual.Nullable.class)
+    @org.checkerframework.framework.qual.RequiresQualifier(expression = { "this.subnode" }, qualifier = org.checkerframework.checker.nullness.qual.Nullable.class)
+    @org.checkerframework.framework.qual.EnsuresQualifier(expression = { "this.stackLevel" }, qualifier = org.checkerframework.checker.nullness.qual.Nullable.class)
+    @org.checkerframework.framework.qual.EnsuresQualifier(expression = { "this.subnode" }, qualifier = org.checkerframework.checker.nullness.qual.Nullable.class)
+    @org.checkerframework.dataflow.qual.SideEffectFree
+    public  @org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.NonNull int compareTo(@org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.NonNull Node this, @org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.NonNull Node o) {
+        boolean boothNumeric = this.isNumeric && o.isNumeric;
+        if (boothNumeric) {
+            try {
+                return ((Integer) susbscript).compareTo((Integer) o.susbscript);
+            } catch (ClassCastException e) {
+                throw new IllegalArgumentException("There is some inconsistence when was setted the nodes " + this + " and " + o + ". Fail to compare subscript: " + this.susbscript + " and this subscript: " + ((Node) o).susbscript + ". They must have to be the same type.", e);
+            }
+        }
+        return this.susbscript.toString().compareTo(o.susbscript.toString());
+    }
+
+    @org.checkerframework.framework.qual.EnsuresQualifier(expression = { "this.stackLevel" }, qualifier = org.checkerframework.checker.nullness.qual.Nullable.class)
+    @org.checkerframework.framework.qual.EnsuresQualifier(expression = { "this.subnode" }, qualifier = org.checkerframework.checker.nullness.qual.Nullable.class)
+    @org.checkerframework.dataflow.qual.Impure
+    public @org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.NonNull String toString(@org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.NonNull Node this) {
+        StringBuilder string = new StringBuilder();
+        string.append("(").append(key != null ? key : "").append(", ").append(value).append(")");
+        return string.toString();
+    }
+
+    @org.checkerframework.framework.qual.RequiresQualifier(expression = { "this.stackLevel" }, qualifier = org.checkerframework.checker.nullness.qual.Nullable.class)
+    @org.checkerframework.framework.qual.RequiresQualifier(expression = { "this.subnode" }, qualifier = org.checkerframework.checker.nullness.qual.Nullable.class)
+    @org.checkerframework.framework.qual.EnsuresQualifier(expression = { "this.stackLevel" }, qualifier = org.checkerframework.checker.nullness.qual.Nullable.class)
+    @org.checkerframework.framework.qual.EnsuresQualifier(expression = { "this.subnode" }, qualifier = org.checkerframework.checker.nullness.qual.Nullable.class)
+    @org.checkerframework.dataflow.qual.Pure
+    public  @org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.NonNull boolean equals(@org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.NonNull Node this, @org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.Nullable Object o) {
+        return o instanceof Node && this.key.equals(((Node) o).key);
+    }
+
+    @org.checkerframework.framework.qual.EnsuresQualifier(expression = { "this.stackLevel" }, qualifier = org.checkerframework.checker.nullness.qual.Nullable.class)
+    @org.checkerframework.framework.qual.EnsuresQualifier(expression = { "this.subnode" }, qualifier = org.checkerframework.checker.nullness.qual.Nullable.class)
+    @org.checkerframework.dataflow.qual.Pure
+    public  @org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.NonNull int hashCode(@org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.NonNull Node this) {
+        return this.key.hashCode();
+    }
+
+    @org.checkerframework.framework.qual.EnsuresQualifier(expression = { "this.stackLevel" }, qualifier = org.checkerframework.checker.nullness.qual.Nullable.class)
+    @org.checkerframework.framework.qual.EnsuresQualifier(expression = { "this.subnode" }, qualifier = org.checkerframework.checker.nullness.qual.Nullable.class)
+    @org.checkerframework.dataflow.qual.Impure
+    public @org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.Nullable List<Node> getFirstLevelSubnodes() {
+        if (this == null || !this.hasSubnodes()) {
+            return null;
+        }
+        final List<Node> list = new ArrayList<Node>(30);
+        Node next = this.getSubnode();
+        do {
+            list.add(next);
+        } while ((next = next.getNext()) != null);
+        return list;
+    }
+
+    @org.checkerframework.framework.qual.EnsuresQualifier(expression = { "this.stackLevel" }, qualifier = org.checkerframework.checker.nullness.qual.Nullable.class)
+    @org.checkerframework.framework.qual.EnsuresQualifier(expression = { "this.subnode" }, qualifier = org.checkerframework.checker.nullness.qual.Nullable.class)
+    @org.checkerframework.dataflow.qual.Pure
+    public @org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.Nullable Integer getStackLevel() {
+        return stackLevel;
+    }
+
+    @org.checkerframework.checker.nullness.qual.EnsuresNonNull({ "this.stackLevel" })
+    @org.checkerframework.framework.qual.EnsuresQualifier(expression = { "this.subnode" }, qualifier = org.checkerframework.checker.nullness.qual.Nullable.class)
+    @org.checkerframework.dataflow.qual.Impure
+    public void setStackLevel(@org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.NonNull Integer stackLevel) {
+        this.stackLevel = stackLevel;
+    }
+
+    @org.checkerframework.framework.qual.EnsuresQualifier(expression = { "this.stackLevel" }, qualifier = org.checkerframework.checker.nullness.qual.Nullable.class)
+    @org.checkerframework.framework.qual.EnsuresQualifier(expression = { "this.subnode" }, qualifier = org.checkerframework.checker.nullness.qual.Nullable.class)
+    @org.checkerframework.dataflow.qual.SideEffectFree
+    private @org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.Nullable Integer isNumber(@org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.NonNull String string) {
+        try {
+            return Integer.parseInt(string);
+        } catch (Exception e) {
+            return null;
+        }
+    }
+}

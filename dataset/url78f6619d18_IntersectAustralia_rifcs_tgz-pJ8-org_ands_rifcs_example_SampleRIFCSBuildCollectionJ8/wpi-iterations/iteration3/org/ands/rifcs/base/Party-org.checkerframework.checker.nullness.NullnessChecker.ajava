@@ -1,0 +1,670 @@
+/*     */
+package org.ands.rifcs.base;
+
+/*     */
+/*     */
+import java.util.ArrayList;
+/*     */
+import java.util.Date;
+/*     */
+import java.util.List;
+/*     */
+import org.w3c.dom.Element;
+/*     */
+import org.w3c.dom.Node;
+/*     */
+import org.w3c.dom.NodeList;
+
+/*     */
+/*     */
+/*     */
+@org.checkerframework.framework.qual.AnnotatedFor("org.checkerframework.checker.nullness.NullnessChecker")
+public class Party extends RIFCSElement {
+
+    /*     */
+    /*  35 */
+    private @org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.NonNull List<Identifier> identifiers = new ArrayList();
+
+    /*  36 */
+    private @org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.NonNull List<Name> names = new ArrayList();
+
+    /*  37 */
+    private @org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.NonNull List<Location> locations = new ArrayList();
+
+    /*  38 */
+    private @org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.NonNull List<Coverage> coverages = new ArrayList();
+
+    /*  39 */
+    private @org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.NonNull List<RelatedObject> relatedObjects = new ArrayList();
+
+    /*  40 */
+    private @org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.NonNull List<Subject> subjects = new ArrayList();
+
+    /*  41 */
+    private @org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.NonNull List<Description> descriptions = new ArrayList();
+
+    /*  42 */
+    private @org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.NonNull List<Right> rights = new ArrayList();
+
+    /*  43 */
+    private @org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.NonNull List<ExistenceDate> existenceDates = new ArrayList();
+
+    /*  44 */
+    private @org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.NonNull List<RelatedInfo> ris = new ArrayList();
+
+    /*     */
+    /*     */
+    @org.checkerframework.dataflow.qual.Impure
+    protected Party(@org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.Nullable Node n) throws /*     */
+    RIFCSException /*     */
+    {
+        /*  55 */
+        super(n, "party");
+        /*  56 */
+        initStructures();
+        /*     */
+    }
+
+    /*     */
+    /*     */
+    @org.checkerframework.dataflow.qual.Impure
+    public void setType(@org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.NonNull String type) /*     */
+    {
+        /*  66 */
+        super.setAttributeValue("type", type);
+        /*     */
+    }
+
+    /*     */
+    /*     */
+    @org.checkerframework.dataflow.qual.Pure
+    public @org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.NonNull String getType() /*     */
+    {
+        /*  76 */
+        return super.getAttributeValue("type");
+        /*     */
+    }
+
+    /*     */
+    /*     */
+    @org.checkerframework.dataflow.qual.Impure
+    public void setDateModified(Date date) /*     */
+    {
+        /*  87 */
+        super.setAttributeValue("dateModified", /*  88 */
+        RegistryObject.formatDate(date));
+        /*     */
+    }
+
+    /*     */
+    /*     */
+    @org.checkerframework.dataflow.qual.Impure
+    public void setDateModified(String date) /*     */
+    {
+        /* 100 */
+        super.setAttributeValue("dateModified", date);
+        /*     */
+    }
+
+    /*     */
+    /*     */
+    @org.checkerframework.dataflow.qual.Pure
+    public @org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.NonNull String getDateModified() /*     */
+    {
+        /* 110 */
+        return super.getAttributeValue("dateModified");
+        /*     */
+    }
+
+    /*     */
+    /*     */
+    @org.checkerframework.dataflow.qual.Impure
+    public @org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.NonNull Identifier newIdentifier() throws /*     */
+    RIFCSException /*     */
+    {
+        /* 126 */
+        return new Identifier(newElement("identifier"));
+        /*     */
+    }
+
+    /*     */
+    /*     */
+    @org.checkerframework.dataflow.qual.Impure
+    public void addIdentifier(@org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.NonNull Identifier identifier) /*     */
+    {
+        /* 136 */
+        getElement().appendChild(identifier.getElement());
+        /* 137 */
+        this.identifiers.add(identifier);
+        /*     */
+    }
+
+    /*     */
+    /*     */
+    @org.checkerframework.dataflow.qual.Pure
+    public @org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.NonNull List<Identifier> getIdentifiers() /*     */
+    {
+        /* 146 */
+        return this.identifiers;
+        /*     */
+    }
+
+    /*     */
+    /*     */
+    @org.checkerframework.dataflow.qual.Impure
+    public @org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.NonNull Name newName() throws /*     */
+    RIFCSException /*     */
+    {
+        /* 162 */
+        return new Name(newElement("name"));
+        /*     */
+    }
+
+    /*     */
+    /*     */
+    @org.checkerframework.dataflow.qual.Impure
+    public void addName(@org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.NonNull Name name) /*     */
+    {
+        /* 172 */
+        getElement().appendChild(name.getElement());
+        /* 173 */
+        this.names.add(name);
+        /*     */
+    }
+
+    /*     */
+    /*     */
+    @org.checkerframework.dataflow.qual.Pure
+    public @org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.NonNull List<Name> getNames() /*     */
+    {
+        /* 182 */
+        return this.names;
+        /*     */
+    }
+
+    /*     */
+    /*     */
+    @org.checkerframework.dataflow.qual.Impure
+    public @org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.NonNull Location newLocation() throws /*     */
+    RIFCSException /*     */
+    {
+        /* 198 */
+        return new Location(newElement("location"));
+        /*     */
+    }
+
+    /*     */
+    /*     */
+    @org.checkerframework.dataflow.qual.Impure
+    public void addLocation(@org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.NonNull Location location) /*     */
+    {
+        /* 208 */
+        getElement().appendChild(location.getElement());
+        /* 209 */
+        this.locations.add(location);
+        /*     */
+    }
+
+    /*     */
+    /*     */
+    @org.checkerframework.dataflow.qual.Pure
+    public @org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.NonNull List<Location> getLocations() /*     */
+    {
+        /* 218 */
+        return this.locations;
+        /*     */
+    }
+
+    /*     */
+    /*     */
+    @org.checkerframework.dataflow.qual.Impure
+    public @org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.NonNull Coverage newCoverage() throws /*     */
+    RIFCSException /*     */
+    {
+        /* 234 */
+        return new Coverage(newElement("coverage"));
+        /*     */
+    }
+
+    /*     */
+    /*     */
+    @org.checkerframework.dataflow.qual.Impure
+    public void addCoverage(@org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.NonNull Coverage coverage) /*     */
+    {
+        /* 244 */
+        getElement().appendChild(coverage.getElement());
+        /* 245 */
+        this.coverages.add(coverage);
+        /*     */
+    }
+
+    /*     */
+    /*     */
+    @org.checkerframework.dataflow.qual.Pure
+    public @org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.NonNull List<Coverage> getCoverage() /*     */
+    {
+        /* 254 */
+        return this.coverages;
+        /*     */
+    }
+
+    /*     */
+    /*     */
+    @org.checkerframework.dataflow.qual.Impure
+    public @org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.NonNull RelatedObject newRelatedObject() throws /*     */
+    RIFCSException /*     */
+    {
+        /* 270 */
+        return new RelatedObject(/* 271 */
+        newElement("relatedObject"));
+        /*     */
+    }
+
+    /*     */
+    /*     */
+    @org.checkerframework.dataflow.qual.Impure
+    public void addRelatedObject(@org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.NonNull RelatedObject relatedObject) /*     */
+    {
+        /* 281 */
+        getElement().appendChild(relatedObject.getElement());
+        /* 282 */
+        this.relatedObjects.add(relatedObject);
+        /*     */
+    }
+
+    /*     */
+    /*     */
+    @org.checkerframework.dataflow.qual.Pure
+    public @org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.NonNull List<RelatedObject> getRelatedObjects() /*     */
+    {
+        /* 291 */
+        return this.relatedObjects;
+        /*     */
+    }
+
+    /*     */
+    /*     */
+    @org.checkerframework.dataflow.qual.Impure
+    public @org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.NonNull Subject newSubject() throws /*     */
+    RIFCSException /*     */
+    {
+        /* 307 */
+        return new Subject(newElement("subject"));
+        /*     */
+    }
+
+    /*     */
+    /*     */
+    @org.checkerframework.dataflow.qual.Impure
+    public void addSubject(Subject subject) /*     */
+    {
+        /* 317 */
+        getElement().appendChild(subject.getElement());
+        /* 318 */
+        this.subjects.add(subject);
+        /*     */
+    }
+
+    /*     */
+    /*     */
+    @org.checkerframework.dataflow.qual.Impure
+    public void addSubject(@org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.NonNull String value, @org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.NonNull String type, @org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.NonNull String termIdentifier, @org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.NonNull String lang) /*     */
+    {
+        /* 341 */
+        Subject subject = null;
+        /*     */
+        try {
+            /* 343 */
+            subject = newSubject();
+            /*     */
+        } catch (RIFCSException e) {
+            /* 345 */
+            e.printStackTrace();
+            /*     */
+        }
+        /* 347 */
+        subject.setValue(value);
+        /* 348 */
+        subject.setType(type);
+        /* 349 */
+        subject.setTermIdentifier(termIdentifier);
+        /* 350 */
+        subject.setLanguage(lang);
+        /*     */
+        /* 352 */
+        getElement().appendChild(subject.getElement());
+        /* 353 */
+        this.subjects.add(subject);
+        /*     */
+    }
+
+    /*     */
+    /*     */
+    @org.checkerframework.dataflow.qual.Pure
+    public @org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.NonNull List<Subject> getSubjects() /*     */
+    {
+        /* 363 */
+        return this.subjects;
+        /*     */
+    }
+
+    /*     */
+    /*     */
+    @org.checkerframework.dataflow.qual.Impure
+    public @org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.NonNull Description newDescription() throws /*     */
+    RIFCSException /*     */
+    {
+        /* 379 */
+        return new Description(newElement("description"));
+        /*     */
+    }
+
+    /*     */
+    /*     */
+    @org.checkerframework.dataflow.qual.Impure
+    public void addDescription(Description description) /*     */
+    {
+        /* 389 */
+        getElement().appendChild(description.getElement());
+        /* 390 */
+        this.descriptions.add(description);
+        /*     */
+    }
+
+    /*     */
+    /*     */
+    @org.checkerframework.dataflow.qual.Impure
+    public void addDescription(@org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.NonNull String description, @org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.NonNull String type, @org.checkerframework.checker.initialization.qual.FBCBottom @org.checkerframework.checker.nullness.qual.Nullable String language) throws /*     */
+    RIFCSException /*     */
+    {
+        /* 406 */
+        Description d = newDescription();
+        /* 407 */
+        d.setType(type);
+        /* 408 */
+        d.setValue(description);
+        /* 409 */
+        if (language != null) {
+            /* 410 */
+            d.setLanguage(language);
+            /*     */
+        }
+        /* 412 */
+        getElement().appendChild(d.getElement());
+        /* 413 */
+        this.descriptions.add(d);
+        /*     */
+    }
+
+    /*     */
+    /*     */
+    @org.checkerframework.dataflow.qual.Pure
+    public @org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.NonNull List<Description> getDescriptions() /*     */
+    {
+        /* 423 */
+        return this.descriptions;
+        /*     */
+    }
+
+    /*     */
+    /*     */
+    @org.checkerframework.dataflow.qual.Impure
+    public @org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.NonNull Right newRight() throws RIFCSException {
+        /* 427 */
+        return new Right(newElement("rights"));
+        /*     */
+    }
+
+    /*     */
+    /*     */
+    @org.checkerframework.dataflow.qual.Impure
+    public void addRight(@org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.NonNull Right right) /*     */
+    {
+        /* 441 */
+        getElement().appendChild(right.getElement());
+        /* 442 */
+        this.rights.add(right);
+        /*     */
+    }
+
+    /*     */
+    /*     */
+    @org.checkerframework.dataflow.qual.Pure
+    public @org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.NonNull List<Right> getRights() /*     */
+    {
+        /* 451 */
+        return this.rights;
+        /*     */
+    }
+
+    /*     */
+    /*     */
+    @org.checkerframework.dataflow.qual.Impure
+    public @org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.NonNull ExistenceDate newExistenceDate() throws RIFCSException {
+        /* 455 */
+        return new ExistenceDate(/* 456 */
+        newElement("existenceDates"));
+        /*     */
+    }
+
+    /*     */
+    /*     */
+    @org.checkerframework.dataflow.qual.Impure
+    public void addExistenceDate(ExistenceDate existenceDate) /*     */
+    {
+        /* 470 */
+        getElement().appendChild(existenceDate.getElement());
+        /* 471 */
+        this.existenceDates.add(existenceDate);
+        /*     */
+    }
+
+    /*     */
+    /*     */
+    @org.checkerframework.dataflow.qual.Impure
+    public void addExistenceDate(@org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.NonNull String startVal, @org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.NonNull String startDateFormat, @org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.NonNull String endVal, @org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.NonNull String endDateFormat) /*     */
+    {
+        /*     */
+        try /*     */
+        {
+            /* 494 */
+            ExistenceDate date = newExistenceDate();
+            /* 495 */
+            date.setStartDate(startVal, startDateFormat);
+            /* 496 */
+            date.setEndDate(endVal, endDateFormat);
+            /* 497 */
+            getElement().appendChild(date.getElement());
+            /* 498 */
+            this.existenceDates.add(date);
+            /*     */
+        } catch (RIFCSException e) {
+            /* 500 */
+            e.printStackTrace();
+            /*     */
+        }
+        /*     */
+    }
+
+    /*     */
+    /*     */
+    @org.checkerframework.dataflow.qual.Pure
+    public @org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.NonNull List<ExistenceDate> getExistenceDates() /*     */
+    {
+        /* 510 */
+        return this.existenceDates;
+        /*     */
+    }
+
+    /*     */
+    /*     */
+    @org.checkerframework.dataflow.qual.Impure
+    public @org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.NonNull RelatedInfo newRelatedInfo() throws /*     */
+    RIFCSException /*     */
+    {
+        /* 526 */
+        return new RelatedInfo(newElement("relatedInfo"));
+        /*     */
+    }
+
+    /*     */
+    /*     */
+    @org.checkerframework.dataflow.qual.Impure
+    public void addRelatedInfo(@org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.NonNull RelatedInfo relatedInfo) /*     */
+    {
+        /* 536 */
+        getElement().appendChild(relatedInfo.getElement());
+        /* 537 */
+        this.ris.add(relatedInfo);
+        /*     */
+    }
+
+    /*     */
+    /*     */
+    @org.checkerframework.dataflow.qual.Pure
+    public @org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.NonNull List<RelatedInfo> getRelatedInfo() /*     */
+    {
+        /* 546 */
+        return this.ris;
+        /*     */
+    }
+
+    /*     */
+    /*     */
+    @org.checkerframework.dataflow.qual.Impure
+    private void initStructures() throws RIFCSException /*     */
+    {
+        /* 551 */
+        initIdentifiers();
+        /* 552 */
+        initNames();
+        /* 553 */
+        initLocations();
+        /* 554 */
+        initCoverage();
+        /* 555 */
+        initRelatedObjects();
+        /* 556 */
+        initSubjects();
+        /* 557 */
+        initDescriptions();
+        /* 558 */
+        initRelatedInfo();
+        /*     */
+    }
+
+    /*     */
+    /*     */
+    @org.checkerframework.dataflow.qual.Impure
+    private void initIdentifiers() throws RIFCSException {
+        /* 562 */
+        NodeList nl = super.getElements("identifier");
+        /*     */
+        /* 564 */
+        for (int i = 0; i < nl.getLength(); i++) /* 565 */
+        this.identifiers.add(new Identifier(nl.item(i)));
+        /*     */
+    }
+
+    /*     */
+    /*     */
+    @org.checkerframework.dataflow.qual.Impure
+    private void initNames() throws RIFCSException /*     */
+    {
+        /* 570 */
+        NodeList nl = super.getElements("name");
+        /*     */
+        /* 572 */
+        for (int i = 0; i < nl.getLength(); i++) /* 573 */
+        this.names.add(new Name(nl.item(i)));
+        /*     */
+    }
+
+    /*     */
+    /*     */
+    @org.checkerframework.dataflow.qual.Impure
+    private void initLocations() throws RIFCSException /*     */
+    {
+        /* 578 */
+        NodeList nl = super.getElements("location");
+        /*     */
+        /* 580 */
+        for (int i = 0; i < nl.getLength(); i++) /* 581 */
+        this.locations.add(new Location(nl.item(i)));
+        /*     */
+    }
+
+    /*     */
+    /*     */
+    @org.checkerframework.dataflow.qual.Impure
+    private void initCoverage() throws RIFCSException /*     */
+    {
+        /* 586 */
+        NodeList nl = super.getElements("coverage");
+        /*     */
+        /* 588 */
+        for (int i = 0; i < nl.getLength(); i++) /* 589 */
+        this.coverages.add(new Coverage(nl.item(i)));
+        /*     */
+    }
+
+    /*     */
+    /*     */
+    @org.checkerframework.dataflow.qual.Impure
+    private void initRelatedObjects() throws RIFCSException /*     */
+    {
+        /* 594 */
+        NodeList nl = super.getElements("relatedObject");
+        /*     */
+        /* 596 */
+        for (int i = 0; i < nl.getLength(); i++) /* 597 */
+        this.relatedObjects.add(new RelatedObject(nl.item(i)));
+        /*     */
+    }
+
+    /*     */
+    /*     */
+    @org.checkerframework.dataflow.qual.Impure
+    private void initSubjects() throws RIFCSException /*     */
+    {
+        /* 602 */
+        NodeList nl = super.getElements("subject");
+        /*     */
+        /* 604 */
+        for (int i = 0; i < nl.getLength(); i++) /* 605 */
+        this.subjects.add(new Subject(nl.item(i)));
+        /*     */
+    }
+
+    /*     */
+    /*     */
+    @org.checkerframework.dataflow.qual.Impure
+    private void initDescriptions() throws RIFCSException /*     */
+    {
+        /* 610 */
+        NodeList nl = super.getElements("description");
+        /*     */
+        /* 612 */
+        for (int i = 0; i < nl.getLength(); i++) /* 613 */
+        this.descriptions.add(new Description(nl.item(i)));
+        /*     */
+    }
+
+    /*     */
+    /*     */
+    @org.checkerframework.dataflow.qual.Impure
+    private void initRelatedInfo() throws RIFCSException /*     */
+    {
+        /* 618 */
+        NodeList nl = super.getElements("relatedInfo");
+        /*     */
+        /* 620 */
+        for (int i = 0; i < nl.getLength(); i++) /* 621 */
+        this.ris.add(new RelatedInfo(nl.item(i)));
+        /*     */
+    }
+}
+/* Location:           /Users/przemyslaw/Downloads/rifcs-api-1.3.0.jar
+ * Qualified Name:     org.ands.rifcs.base.Party
+ * JD-Core Version:    0.6.2
+ */

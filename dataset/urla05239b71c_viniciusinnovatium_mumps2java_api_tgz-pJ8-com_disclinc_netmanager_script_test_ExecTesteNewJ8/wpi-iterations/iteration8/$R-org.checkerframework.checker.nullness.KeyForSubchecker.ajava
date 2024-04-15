@@ -1,0 +1,8 @@
+@org.checkerframework.framework.qual.AnnotatedFor("org.checkerframework.checker.nullness.KeyForSubchecker")
+public class $R {
+
+    @org.checkerframework.dataflow.qual.Pure
+    public static  Object EXIST(Object... args) {
+        return false;
+    }
+}

@@ -1,0 +1,33 @@
+package com.bigfatplayer.hello;
+
+import org.apache.thrift.TException;
+
+/**
+ * User: viktor
+ * Date: 6/19/13
+ * Time: 2:03 PM
+ */
+@org.checkerframework.framework.qual.AnnotatedFor("org.checkerframework.checker.nullness.NullnessChecker")
+public class CalculatorServer implements Calculator.Iface {
+
+    @org.checkerframework.dataflow.qual.Impure
+    public void ping(@org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.NonNull CalculatorServer this) throws TException {
+        System.out.println("Ping");
+    }
+
+    @org.checkerframework.dataflow.qual.Pure
+    public  @org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.NonNull int add(@org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.NonNull CalculatorServer this,  @org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.NonNull int num1,  @org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.NonNull int num2) throws TException {
+        return num1 + num2 + 3;
+    }
+
+    @org.checkerframework.dataflow.qual.Impure
+    public  @org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.NonNull int calculate(@org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.NonNull CalculatorServer this,  @org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.NonNull int log_id, @org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.NonNull Work w) throws TException {
+        System.out.println(log_id);
+        return w.getNum1() + w.getNum2();
+    }
+
+    @org.checkerframework.dataflow.qual.SideEffectFree
+    public void zip(@org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.NonNull CalculatorServer this) throws TException {
+        //To change body of implemented methods use File | Settings | File Templates.
+    }
+}

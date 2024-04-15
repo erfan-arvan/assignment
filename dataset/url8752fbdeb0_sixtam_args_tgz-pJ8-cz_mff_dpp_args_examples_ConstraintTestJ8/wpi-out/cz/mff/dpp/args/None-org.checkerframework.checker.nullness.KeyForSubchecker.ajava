@@ -1,0 +1,15 @@
+package cz.mff.dpp.args;
+
+/**
+ * Dummy class to indicate that no {@code Class<?>} was specified for {@link Option#factory()},
+ * {@link Argument#factory()} or {@link Constraint#comparator()}.
+ *
+ * @author Martin Sixta
+ */
+@org.checkerframework.framework.qual.AnnotatedFor("org.checkerframework.checker.nullness.KeyForSubchecker")
+final class None {
+
+    @org.checkerframework.dataflow.qual.SideEffectFree
+    private None() {
+    }
+}

@@ -1,0 +1,12 @@
+package mLibrary;
+
+@org.checkerframework.framework.qual.AnnotatedFor("org.checkerframework.checker.nullness.KeyForSubchecker")
+public class mParent {
+
+    protected static  mContext m$;
+
+    @org.checkerframework.dataflow.qual.SideEffectFree
+    public mParent( mContext m$) {
+        this.m$ = m$;
+    }
+}

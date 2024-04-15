@@ -1,0 +1,57 @@
+package cz.mff.dpp.args.examples;
+
+import java.util.List;
+import cz.mff.dpp.args.Argument;
+import cz.mff.dpp.args.Constraint;
+import cz.mff.dpp.args.Option;
+import cz.mff.dpp.args.ParseException;
+import cz.mff.dpp.args.Parser;
+
+/**
+ * Parser.usage() demo.
+ */
+@org.checkerframework.framework.qual.AnnotatedFor("org.checkerframework.checker.nullness.KeyForSubchecker")
+public class HelpTest {
+
+    private static enum Day {
+
+        SUNDAY,
+        MONDAY,
+        TUESDAY,
+        WEDNESDAY,
+        THURSDAY,
+        FRIDAY,
+        SATURDAY
+    }
+
+    static final class HelpTestOptions {
+
+        boolean version;
+
+        @org.checkerframework.dataflow.qual.Impure
+        void setPort(int port) {
+            this.port = port;
+        }
+
+        private   int port;
+
+        String login_name;
+
+         String config_file = "~/.ssh/config";
+
+        String hostname;
+
+        String[] list;
+
+        char c;
+
+        Day day;
+    }
+
+    @org.checkerframework.dataflow.qual.Impure
+    public static void main(String[] args) throws ParseException {
+        HelpTestOptions testOptions = new HelpTestOptions();
+        Parser parser = new Parser(testOptions);
+        parser.usage();
+    }
+}

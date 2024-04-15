@@ -1,0 +1,216 @@
+../dataset/url8752fbdeb0_sixtam_args_tgz-pJ8-cz_mff_dpp_args_examples_ConstraintTestJ8/src/cz/mff/dpp/args/OptionUtils.java:320: error: (return) $$ 2 $$ @Initialized @Nullable List<@Initialized @NonNull String> $$ @Initialized @NonNull List<@Initialized @NonNull String> $$ ( 7588, 7616 ) $$ incompatible types in return.
+			return usedOptionParams.get(option);
+			                           ^
+  type of expression: @Initialized @Nullable List<@Initialized @NonNull String>
+  method return type: @Initialized @NonNull List<@Initialized @NonNull String>
+../dataset/url8752fbdeb0_sixtam_args_tgz-pJ8-cz_mff_dpp_args_examples_ConstraintTestJ8/src/cz/mff/dpp/args/OptionUtils.java:351: error: (return) $$ 2 $$ Set<@KeyFor("this.usedOptionParams") Option> $$ Collection<Option> $$ ( 8286, 8311 ) $$ incompatible types in return.
+			return usedOptionParams.keySet();
+			                              ^
+  type of expression: Set<@KeyFor("this.usedOptionParams") Option>
+  method return type: Collection<Option>
+../dataset/url8752fbdeb0_sixtam_args_tgz-pJ8-cz_mff_dpp_args_examples_ConstraintTestJ8/src/cz/mff/dpp/args/Configurator.java:80: error: (argument) $$ 4 $$ value $$ ConstraintUtils.checkValue $$ @Initialized @Nullable Object $$ @Initialized @NonNull Object $$ ( 2552, 2557 ) $$ incompatible argument for parameter value of ConstraintUtils.checkValue.
+		ConstraintUtils.checkValue(accessible, value);
+		                                       ^
+  found   : @Initialized @Nullable Object
+  required: @Initialized @NonNull Object
+../dataset/url8752fbdeb0_sixtam_args_tgz-pJ8-cz_mff_dpp_args_examples_ConstraintTestJ8/src/cz/mff/dpp/args/Configurator.java:117: error: (argument) $$ 4 $$ params $$ Configurator.callSetter $$ @Initialized @NonNull Object @FBCBottom @Nullable [] $$ @Initialized @NonNull Object @Initialized @NonNull [] $$ ( 3834, 3849 ) $$ incompatible argument for parameter params of Configurator.callSetter.
+				callSetter(target, (Method) accessible, (Object[]) null);
+				                                        ^
+  found   : @Initialized @NonNull Object @FBCBottom @Nullable []
+  required: @Initialized @NonNull Object @Initialized @NonNull []
+../dataset/url8752fbdeb0_sixtam_args_tgz-pJ8-cz_mff_dpp_args_examples_ConstraintTestJ8/src/cz/mff/dpp/args/ReflectUtils.java:343: error: (return) $$ 2 $$ @Initialized @Nullable Class<capture#01 extends @Initialized @Nullable Object> $$ @Initialized @NonNull Class<? extends @Initialized @Nullable Object> $$ ( 8871, 8875 ) $$ incompatible types in return.
+		return type;
+		       ^
+  type of expression: @Initialized @Nullable Class<capture#01 extends @Initialized @Nullable Object>
+  method return type: @Initialized @NonNull Class<? extends @Initialized @Nullable Object>
+../dataset/url8752fbdeb0_sixtam_args_tgz-pJ8-cz_mff_dpp_args_examples_ConstraintTestJ8/src/cz/mff/dpp/args/ReflectUtils.java:384: error: (return) $$ 2 $$ null (NullType) $$ @Initialized @NonNull Class<? extends @Initialized @Nullable Object> $$ ( 9771, 9775 ) $$ incompatible types in return.
+				return null;
+				       ^
+  type of expression: null (NullType)
+  method return type: @Initialized @NonNull Class<? extends @Initialized @Nullable Object>
+../dataset/url8752fbdeb0_sixtam_args_tgz-pJ8-cz_mff_dpp_args_examples_ConstraintTestJ8/src/cz/mff/dpp/args/ReflectUtils.java:396: error: (return) $$ 2 $$ null (NullType) $$ @Initialized @NonNull Class<? extends @Initialized @Nullable Object> $$ ( 9969, 9973 ) $$ incompatible types in return.
+			return null;
+			       ^
+  type of expression: null (NullType)
+  method return type: @Initialized @NonNull Class<? extends @Initialized @Nullable Object>
+../dataset/url8752fbdeb0_sixtam_args_tgz-pJ8-cz_mff_dpp_args_examples_ConstraintTestJ8/src/cz/mff/dpp/args/ReflectUtils.java:450: error: (iterating.over.nullable) $$ 1 $$ enumConstants $$ ( 11300, 11313 ) $$ iterating over possibly-null reference enumConstants
+		for(Object enumConstant : enumConstants){
+		                          ^
+../dataset/url8752fbdeb0_sixtam_args_tgz-pJ8-cz_mff_dpp_args_examples_ConstraintTestJ8/src/cz/mff/dpp/args/ReflectUtils.java:473: error: (return) $$ 2 $$ @Initialized @Nullable Option $$ @Initialized @NonNull Option $$ ( 11943, 11981 ) $$ incompatible types in return.
+		return accessbile.getAnnotation(Option.class);
+		                               ^
+  type of expression: @Initialized @Nullable Option
+  method return type: @Initialized @NonNull Option
+../dataset/url8752fbdeb0_sixtam_args_tgz-pJ8-cz_mff_dpp_args_examples_ConstraintTestJ8/src/cz/mff/dpp/args/ReflectUtils.java:490: error: (return) $$ 2 $$ @Initialized @Nullable Argument $$ @Initialized @NonNull Argument $$ ( 12392, 12432 ) $$ incompatible types in return.
+		return accessible.getAnnotation(Argument.class);
+		                               ^
+  type of expression: @Initialized @Nullable Argument
+  method return type: @Initialized @NonNull Argument
+../dataset/url8752fbdeb0_sixtam_args_tgz-pJ8-cz_mff_dpp_args_examples_ConstraintTestJ8/src/cz/mff/dpp/args/ReflectUtils.java:507: error: (return) $$ 2 $$ @Initialized @Nullable Constraint $$ @Initialized @NonNull Constraint $$ ( 12869, 12911 ) $$ incompatible types in return.
+		return accessible.getAnnotation(Constraint.class);
+		                               ^
+  type of expression: @Initialized @Nullable Constraint
+  method return type: @Initialized @NonNull Constraint
+../dataset/url8752fbdeb0_sixtam_args_tgz-pJ8-cz_mff_dpp_args_examples_ConstraintTestJ8/src/cz/mff/dpp/args/ReflectUtils.java:603: error: (argument) $$ 4 $$ componentType $$ ReflectUtils.getParameterizedType $$ @Initialized @Nullable Type $$ @Initialized @NonNull Type $$ ( 15595, 15608 ) $$ incompatible argument for parameter componentType of ReflectUtils.getParameterizedType.
+		return getParameterizedType(componentType);
+		                            ^
+  found   : @Initialized @Nullable Type
+  required: @Initialized @NonNull Type
+../dataset/url8752fbdeb0_sixtam_args_tgz-pJ8-cz_mff_dpp_args_examples_ConstraintTestJ8/src/cz/mff/dpp/args/ReflectUtils.java:628: error: (return) $$ 2 $$ null (NullType) $$ @Initialized @NonNull Class<? extends @Initialized @Nullable Object> $$ ( 16187, 16191 ) $$ incompatible types in return.
+		return null;
+		       ^
+  type of expression: null (NullType)
+  method return type: @Initialized @NonNull Class<? extends @Initialized @Nullable Object>
+../dataset/url8752fbdeb0_sixtam_args_tgz-pJ8-cz_mff_dpp_args_examples_ConstraintTestJ8/src/cz/mff/dpp/args/ReflectUtils.java:653: error: (iterating.over.nullable) $$ 1 $$ enumeration.getEnumConstants() $$ ( 16809, 16839 ) $$ iterating over possibly-null reference enumeration.getEnumConstants()
+		for (T enumValue : enumeration.getEnumConstants()) {
+		                                               ^
+../dataset/url8752fbdeb0_sixtam_args_tgz-pJ8-cz_mff_dpp_args_examples_ConstraintTestJ8/src/cz/mff/dpp/args/ReflectUtils.java:672: error: (return) $$ 2 $$ @Initialized @Nullable Object $$ @Initialized @NonNull Object $$ ( 17360, 17393 ) $$ incompatible types in return.
+				return factory.invoke(null, stringValue);
+				                     ^
+  type of expression: @Initialized @Nullable Object
+  method return type: @Initialized @NonNull Object
+../dataset/url8752fbdeb0_sixtam_args_tgz-pJ8-cz_mff_dpp_args_examples_ConstraintTestJ8/src/cz/mff/dpp/args/ReflectUtils.java:672: error: (argument) $$ 4 $$ obj $$ Method.invoke $$ null (NullType) $$ @Initialized @NonNull Object $$ ( 17375, 17379 ) $$ incompatible argument for parameter obj of Method.invoke.
+				return factory.invoke(null, stringValue);
+				                      ^
+  found   : null (NullType)
+  required: @Initialized @NonNull Object
+../dataset/url8752fbdeb0_sixtam_args_tgz-pJ8-cz_mff_dpp_args_examples_ConstraintTestJ8/src/cz/mff/dpp/args/Introspector.java:57: error: (return) $$ 2 $$ @Initialized @Nullable AccessibleObject $$ @Initialized @NonNull AccessibleObject $$ ( 1957, 1986 ) $$ incompatible types in return.
+		return objectsWithOption.get(option);
+		                            ^
+  type of expression: @Initialized @Nullable AccessibleObject
+  method return type: @Initialized @NonNull AccessibleObject
+../dataset/url8752fbdeb0_sixtam_args_tgz-pJ8-cz_mff_dpp_args_examples_ConstraintTestJ8/src/cz/mff/dpp/args/Introspector.java:67: error: (return) $$ 2 $$ @Initialized @Nullable Option $$ @Initialized @NonNull Option $$ ( 2171, 2194 ) $$ incompatible types in return.
+		return options.get(optionName);
+		                  ^
+  type of expression: @Initialized @Nullable Option
+  method return type: @Initialized @NonNull Option
+../dataset/url8752fbdeb0_sixtam_args_tgz-pJ8-cz_mff_dpp_args_examples_ConstraintTestJ8/src/cz/mff/dpp/args/Introspector.java:85: error: (return) $$ 2 $$ Set<Entry<@KeyFor("this.objectsWithArgument") AccessibleObject, Argument>> $$ Set<Entry<AccessibleObject, Argument>> $$ ( 2582, 2612 ) $$ incompatible types in return.
+		return objectsWithArgument.entrySet();
+		                                   ^
+  type of expression: Set<Entry<@KeyFor("this.objectsWithArgument") AccessibleObject, Argument>>
+  method return type: Set<Entry<AccessibleObject, Argument>>
+../dataset/url8752fbdeb0_sixtam_args_tgz-pJ8-cz_mff_dpp_args_examples_ConstraintTestJ8/src/cz/mff/dpp/args/Introspector.java:94: error: (return) $$ 2 $$ Set<@KeyFor("this.options") String> $$ Set<String> $$ ( 2755, 2771 ) $$ incompatible types in return.
+		return options.keySet();
+		                     ^
+  type of expression: Set<@KeyFor("this.options") String>
+  method return type: Set<String>
+../dataset/url8752fbdeb0_sixtam_args_tgz-pJ8-cz_mff_dpp_args_examples_ConstraintTestJ8/src/cz/mff/dpp/args/Tokenizer.java:90: error: (assignment) $$ 2 $$ null (NullType) $$ @Initialized @NonNull String $$ ( 2290, 2294 ) $$ incompatible types in assignment.
+				buffer = null;
+				         ^
+  found   : null (NullType)
+  required: @Initialized @NonNull String
+../dataset/url8752fbdeb0_sixtam_args_tgz-pJ8-cz_mff_dpp_args_examples_ConstraintTestJ8/src/cz/mff/dpp/args/Tokenizer.java:110: error: (assignment) $$ 2 $$ null (NullType) $$ @Initialized @NonNull String $$ ( 2635, 2639 ) $$ incompatible types in assignment.
+					buffer = null;
+					         ^
+  found   : null (NullType)
+  required: @Initialized @NonNull String
+../dataset/url8752fbdeb0_sixtam_args_tgz-pJ8-cz_mff_dpp_args_examples_ConstraintTestJ8/src/cz/mff/dpp/args/ConstraintUtils.java:148: error: (argument) $$ 4 $$ value $$ ConstraintUtils.checkValue $$ @Initialized @Nullable Object $$ @Initialized @NonNull Object $$ ( 4368, 4379 ) $$ incompatible argument for parameter value of ConstraintUtils.checkValue.
+				checkValue(constraint, valueType, singleValue);
+				                                  ^
+  found   : @Initialized @Nullable Object
+  required: @Initialized @NonNull Object
+../dataset/url8752fbdeb0_sixtam_args_tgz-pJ8-cz_mff_dpp_args_examples_ConstraintTestJ8/src/cz/mff/dpp/args/ConstraintUtils.java:447: error: (unboxing.of.nullable) $$ 1 $$ (Integer)comparator.invoke(null, compare, compareTo) $$ ( 12392, 12445 ) $$ unboxing a possibly-null reference (Integer)comparator.invoke(null, compare, compareTo)
+				return (Integer) comparator.invoke(null, compare, compareTo);
+				       ^
+../dataset/url8752fbdeb0_sixtam_args_tgz-pJ8-cz_mff_dpp_args_examples_ConstraintTestJ8/src/cz/mff/dpp/args/ConstraintUtils.java:447: error: (argument) $$ 4 $$ obj $$ Method.invoke $$ null (NullType) $$ @Initialized @NonNull Object $$ ( 12420, 12424 ) $$ incompatible argument for parameter obj of Method.invoke.
+				return (Integer) comparator.invoke(null, compare, compareTo);
+				                                   ^
+  found   : null (NullType)
+  required: @Initialized @NonNull Object
+../dataset/url8752fbdeb0_sixtam_args_tgz-pJ8-cz_mff_dpp_args_examples_ConstraintTestJ8/src/cz/mff/dpp/args/ConstraintUtils.java:463: error: (unboxing.of.nullable) $$ 1 $$ (Integer)comparatorTo.invoke(compare, compareTo) $$ ( 12814, 12863 ) $$ unboxing a possibly-null reference (Integer)comparatorTo.invoke(compare, compareTo)
+				return (Integer) comparatorTo.invoke(compare, compareTo);
+				       ^
+../dataset/url8752fbdeb0_sixtam_args_tgz-pJ8-cz_mff_dpp_args_examples_ConstraintTestJ8/src/cz/mff/dpp/args/ConstraintUtils.java:470: error: (argument) $$ 4 $$ cause $$ ConfException constructor $$ @Initialized @Nullable Exception $$ @Initialized @NonNull Throwable $$ ( 13012, 13017 ) $$ incompatible argument for parameter cause of ConfException constructor.
+		throw new ConfException(cause, "Cannot compare type %s", type.getName());
+		                        ^
+  found   : @Initialized @Nullable Exception
+  required: @Initialized @NonNull Throwable
+../dataset/url8752fbdeb0_sixtam_args_tgz-pJ8-cz_mff_dpp_args_examples_ConstraintTestJ8/src/cz/mff/dpp/args/examples/TimeCommand.java:59: error: (initialization.field.uninitialized) $$ 1 $$ format $$ ( 1632, 1729 ) $$ the default constructor does not initialize field format
+		public String format;
+		              ^
+../dataset/url8752fbdeb0_sixtam_args_tgz-pJ8-cz_mff_dpp_args_examples_ConstraintTestJ8/src/cz/mff/dpp/args/examples/TimeCommand.java:68: error: (initialization.field.uninitialized) $$ 1 $$ outputFile $$ ( 1988, 2013 ) $$ the default constructor does not initialize field outputFile
+		public String outputFile;
+		              ^
+../dataset/url8752fbdeb0_sixtam_args_tgz-pJ8-cz_mff_dpp_args_examples_ConstraintTestJ8/src/cz/mff/dpp/args/examples/TimeCommand.java:71: error: (initialization.field.uninitialized) $$ 1 $$ command $$ ( 2017, 2098 ) $$ the default constructor does not initialize field command
+		String command;
+		       ^
+../dataset/url8752fbdeb0_sixtam_args_tgz-pJ8-cz_mff_dpp_args_examples_ConstraintTestJ8/src/cz/mff/dpp/args/examples/TimeCommand.java:74: error: (initialization.field.uninitialized) $$ 1 $$ arguments $$ ( 2102, 2196 ) $$ the default constructor does not initialize field arguments
+		public String[] arguments;
+		                ^
+../dataset/url8752fbdeb0_sixtam_args_tgz-pJ8-cz_mff_dpp_args_examples_ConstraintTestJ8/src/cz/mff/dpp/args/examples/SetterTest.java:24: error: (initialization.field.uninitialized) $$ 1 $$ bee $$ ( 358, 393 ) $$ the default constructor does not initialize field bee
+		String bee;
+		       ^
+../dataset/url8752fbdeb0_sixtam_args_tgz-pJ8-cz_mff_dpp_args_examples_ConstraintTestJ8/src/cz/mff/dpp/args/examples/SetterTest.java:28: error: (initialization.field.uninitialized) $$ 1 $$ arguments $$ ( 402, 445 ) $$ the default constructor does not initialize field arguments
+		String[] arguments;
+		         ^
+../dataset/url8752fbdeb0_sixtam_args_tgz-pJ8-cz_mff_dpp_args_examples_ConstraintTestJ8/src/cz/mff/dpp/args/examples/Example2.java:10: error: (initialization.field.uninitialized) $$ 1 $$ list $$ ( 112, 211 ) $$ the default constructor does not initialize field list
+	List<String> list;
+	             ^
+../dataset/url8752fbdeb0_sixtam_args_tgz-pJ8-cz_mff_dpp_args_examples_ConstraintTestJ8/src/cz/mff/dpp/args/examples/Example2.java:37: error: (initialization.field.uninitialized) $$ 1 $$ n $$ ( 705, 807 ) $$ the default constructor does not initialize field n
+	Integer n;
+	        ^
+../dataset/url8752fbdeb0_sixtam_args_tgz-pJ8-cz_mff_dpp_args_examples_ConstraintTestJ8/src/cz/mff/dpp/args/examples/Example2.java:43: error: (initialization.field.uninitialized) $$ 1 $$ myClass $$ ( 810, 1002 ) $$ the default constructor does not initialize field myClass
+	public MyClass myClass;
+	               ^
+../dataset/url8752fbdeb0_sixtam_args_tgz-pJ8-cz_mff_dpp_args_examples_ConstraintTestJ8/src/cz/mff/dpp/args/examples/CharTest.java:34: error: (initialization.field.uninitialized) $$ 1 $$ character $$ ( 501, 552 ) $$ the default constructor does not initialize field character
+		Character character;
+		          ^
+../dataset/url8752fbdeb0_sixtam_args_tgz-pJ8-cz_mff_dpp_args_examples_ConstraintTestJ8/src/cz/mff/dpp/args/examples/CharTest.java:47: error: (initialization.field.uninitialized) $$ 1 $$ characterFromSetter $$ ( 825, 862 ) $$ the default constructor does not initialize field characterFromSetter
+		public Character characterFromSetter;
+		                 ^
+../dataset/url8752fbdeb0_sixtam_args_tgz-pJ8-cz_mff_dpp_args_examples_ConstraintTestJ8/src/cz/mff/dpp/args/examples/MultiValuedExample.java:19: error: (initialization.field.uninitialized) $$ 1 $$ doubles $$ ( 253, 312 ) $$ the default constructor does not initialize field doubles
+		List<Double> doubles;
+		             ^
+../dataset/url8752fbdeb0_sixtam_args_tgz-pJ8-cz_mff_dpp_args_examples_ConstraintTestJ8/src/cz/mff/dpp/args/examples/MultiValuedExample.java:28: error: (initialization.field.uninitialized) $$ 1 $$ freeArguments $$ ( 472, 523 ) $$ the default constructor does not initialize field freeArguments
+		List<String> freeArguments;
+		             ^
+../dataset/url8752fbdeb0_sixtam_args_tgz-pJ8-cz_mff_dpp_args_examples_ConstraintTestJ8/src/cz/mff/dpp/args/examples/ConstraintTest.java:38: error: (initialization.field.uninitialized) $$ 1 $$ day $$ ( 634, 725 ) $$ the default constructor does not initialize field day
+		String day;
+		       ^
+../dataset/url8752fbdeb0_sixtam_args_tgz-pJ8-cz_mff_dpp_args_examples_ConstraintTestJ8/src/cz/mff/dpp/args/examples/ConstraintTest.java:42: error: (initialization.field.uninitialized) $$ 1 $$ threeLetters $$ ( 731, 825 ) $$ the default constructor does not initialize field threeLetters
+		String threeLetters;
+		       ^
+../dataset/url8752fbdeb0_sixtam_args_tgz-pJ8-cz_mff_dpp_args_examples_ConstraintTestJ8/src/cz/mff/dpp/args/examples/ConstraintTest.java:52: error: (initialization.field.uninitialized) $$ 1 $$ ports $$ ( 943, 1052 ) $$ the default constructor does not initialize field ports
+		java.util.List<Integer> ports;
+		                        ^
+../dataset/url8752fbdeb0_sixtam_args_tgz-pJ8-cz_mff_dpp_args_examples_ConstraintTestJ8/src/cz/mff/dpp/args/examples/ConstraintTest.java:57: error: (initialization.field.uninitialized) $$ 1 $$ days $$ ( 1058, 1228 ) $$ the default constructor does not initialize field days
+		String[] days;
+		         ^
+../dataset/url8752fbdeb0_sixtam_args_tgz-pJ8-cz_mff_dpp_args_examples_ConstraintTestJ8/src/cz/mff/dpp/args/examples/ConstraintTest.java:62: error: (initialization.field.uninitialized) $$ 1 $$ someLetters $$ ( 1237, 1365 ) $$ the default constructor does not initialize field someLetters
+		char[] someLetters;
+		       ^
+../dataset/url8752fbdeb0_sixtam_args_tgz-pJ8-cz_mff_dpp_args_examples_ConstraintTestJ8/src/cz/mff/dpp/args/examples/ConstraintTest.java:65: error: (initialization.field.uninitialized) $$ 1 $$ testClass $$ ( 1371, 1422 ) $$ the default constructor does not initialize field testClass
+		TestClass testClass;
+		          ^
+../dataset/url8752fbdeb0_sixtam_args_tgz-pJ8-cz_mff_dpp_args_examples_ConstraintTestJ8/src/cz/mff/dpp/args/examples/EnumTest.java:22: error: (initialization.field.uninitialized) $$ 1 $$ day $$ ( 317, 354 ) $$ the default constructor does not initialize field day
+		public Day day;
+		           ^
+../dataset/url8752fbdeb0_sixtam_args_tgz-pJ8-cz_mff_dpp_args_examples_ConstraintTestJ8/src/cz/mff/dpp/args/examples/EnumTest.java:30: error: (initialization.field.uninitialized) $$ 1 $$ dayFromSetter $$ ( 455, 480 ) $$ the default constructor does not initialize field dayFromSetter
+		public Day dayFromSetter;
+		           ^
+../dataset/url8752fbdeb0_sixtam_args_tgz-pJ8-cz_mff_dpp_args_examples_ConstraintTestJ8/src/cz/mff/dpp/args/examples/HelpTest.java:39: error: (initialization.field.uninitialized) $$ 1 $$ login_name $$ ( 788, 902 ) $$ the default constructor does not initialize field login_name
+		String login_name;
+		       ^
+../dataset/url8752fbdeb0_sixtam_args_tgz-pJ8-cz_mff_dpp_args_examples_ConstraintTestJ8/src/cz/mff/dpp/args/examples/HelpTest.java:46: error: (initialization.field.uninitialized) $$ 1 $$ hostname $$ ( 1117, 1233 ) $$ the default constructor does not initialize field hostname
+		String hostname;
+		       ^
+../dataset/url8752fbdeb0_sixtam_args_tgz-pJ8-cz_mff_dpp_args_examples_ConstraintTestJ8/src/cz/mff/dpp/args/examples/HelpTest.java:49: error: (initialization.field.uninitialized) $$ 1 $$ list $$ ( 1237, 1321 ) $$ the default constructor does not initialize field list
+		String[] list;
+		         ^
+../dataset/url8752fbdeb0_sixtam_args_tgz-pJ8-cz_mff_dpp_args_examples_ConstraintTestJ8/src/cz/mff/dpp/args/examples/HelpTest.java:55: error: (initialization.field.uninitialized) $$ 1 $$ day $$ ( 1420, 1504 ) $$ the default constructor does not initialize field day
+		Day day;
+		    ^
+../dataset/url8752fbdeb0_sixtam_args_tgz-pJ8-cz_mff_dpp_args_examples_ConstraintTestJ8/src/cz/mff/dpp/args/examples/OptionListTerminator.java:20: error: (initialization.field.uninitialized) $$ 1 $$ bee $$ ( 247, 282 ) $$ the default constructor does not initialize field bee
+		String bee;
+		       ^
+../dataset/url8752fbdeb0_sixtam_args_tgz-pJ8-cz_mff_dpp_args_examples_ConstraintTestJ8/src/cz/mff/dpp/args/examples/OptionListTerminator.java:24: error: (initialization.field.uninitialized) $$ 1 $$ arguments $$ ( 291, 334 ) $$ the default constructor does not initialize field arguments
+		String[] arguments;
+		         ^
+../dataset/url8752fbdeb0_sixtam_args_tgz-pJ8-cz_mff_dpp_args_examples_ConstraintTestJ8/src/cz/mff/dpp/args/Parser.java:370: error: (argument) $$ 4 $$ token $$ Parser.isOptionParameter $$ @Initialized @Nullable String $$ @Initialized @NonNull String $$ ( 9200, 9213 ) $$ incompatible argument for parameter token of Parser.isOptionParameter.
+			while (!tokens.isEmpty() && isOptionParameter(tokens.peek())) {
+			                                                         ^
+  found   : @Initialized @Nullable String
+  required: @Initialized @NonNull String
+Note: ../dataset/url8752fbdeb0_sixtam_args_tgz-pJ8-cz_mff_dpp_args_examples_ConstraintTestJ8/src/cz/mff/dpp/args/Configurator.java uses or overrides a deprecated API.
+Note: Recompile with -Xlint:deprecation for details.
+55 errors

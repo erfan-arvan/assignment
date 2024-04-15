@@ -1,0 +1,109 @@
+package event;
+
+import java.net.*;
+import java.nio.*;
+import java.nio.channels.*;
+import java.io.InputStream;
+import java.io.OutputStream;
+
+/**
+ *  Some rudimentary performance tests,
+ *
+ *  see also:
+ *    ../client.node.js
+ */
+@org.checkerframework.framework.qual.AnnotatedFor("org.checkerframework.checker.nullness.NullnessChecker")
+public class Speed {
+
+    static final  @org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.NonNull int NUM = 10000;
+
+    @org.checkerframework.dataflow.qual.Impure
+    static void client() {
+        TCPClientLoop loop = new TCPClientLoop();
+        loop.start();
+        loop.createTCPClient(new Client(), "localhost", 4321);
+    }
+
+    @org.checkerframework.dataflow.qual.Impure
+    static void classicClient() {
+        try {
+            Socket s = new Socket("localhost", 4321);
+            OutputStream os = s.getOutputStream();
+            InputStream is = s.getInputStream();
+            os.write("hello".getBytes());
+            int i = 0;
+            while (-1 != (i = is.read())) {
+                os.write(i);
+            }
+        } catch (Throwable t) {
+            throw new RuntimeException(t);
+        }
+    }
+
+    @org.checkerframework.dataflow.qual.Impure
+    static void server() {
+        TCPServerLoop loop = new TCPServerLoop();
+        loop.start();
+        loop.createTCPServer(new Server(), new InetSocketAddress(4321));
+    }
+
+    static  @org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.NonNull long time;
+
+    @org.checkerframework.dataflow.qual.Impure
+    public static void main(String[] args) {
+        if (args.length < 1) {
+            System.err.println("usage: [jre] event.Speed [client|server]");
+        }
+        if ("client".equals(args[0])) {
+            time = System.currentTimeMillis();
+            client();
+        } else if ("classic-client".equals(args[0])) {
+            classicClient();
+        } else {
+            server();
+        }
+    }
+
+    static class Client extends Callback.TCPClient {
+
+         @org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.NonNull int count;
+
+        @org.checkerframework.dataflow.qual.Impure
+        public void onConnect(@org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.NonNull Client this, @org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.NonNull TCPClientLoop l, @org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.NonNull SocketChannel sc) {
+            l.write(sc, this, "hello".getBytes());
+        }
+
+        @org.checkerframework.dataflow.qual.Impure
+        public void onData(@org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.NonNull Client this, @org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.NonNull TCPClientLoop l, @org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.NonNull SocketChannel sc, @org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.NonNull ByteBuffer buf) {
+            l.write(sc, this, buf);
+            ++count;
+            if (Speed.NUM == count) {
+                p("here");
+                l.shutdownOutput(sc, this);
+                l.close(sc, this);
+                l.st("");
+                l.stopLoop();
+            }
+        }
+
+        @org.checkerframework.dataflow.qual.Impure
+        public void onClose(@org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.NonNull Client this, @org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.NonNull TCPClientLoop l, @org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.NonNull SocketChannel sc) {
+            l.stopLoop();
+            p((System.currentTimeMillis() - time));
+        }
+    }
+
+    // Client
+    static class Server extends Callback.TCPServer {
+
+        @org.checkerframework.dataflow.qual.Impure
+        public void onAccept(@org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.NonNull Server this, @org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.NonNull TCPServerLoop l, @org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.NonNull ServerSocketChannel ssc, @org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.NonNull SocketChannel sc) {
+            l.createTCPClient(new Client(), sc);
+        }
+    }
+
+    @org.checkerframework.dataflow.qual.Impure
+    static void p(@org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.NonNull Object o) {
+        System.out.println(o);
+    }
+}

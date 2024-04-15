@@ -1,0 +1,134 @@
+../dataset/url8752fbdeb0_sixtam_args_tgz-pJ8-cz_mff_dpp_args_examples_ConstraintTestJ8/src/cz/mff/dpp/args/OptionUtils.java:351: error: (return) $$ 2 $$ Set<@KeyFor("this.usedOptionParams") Option> $$ Collection<Option> $$ ( 8286, 8311 ) $$ incompatible types in return.
+			return usedOptionParams.keySet();
+			                              ^
+  type of expression: Set<@KeyFor("this.usedOptionParams") Option>
+  method return type: Collection<Option>
+../dataset/url8752fbdeb0_sixtam_args_tgz-pJ8-cz_mff_dpp_args_examples_ConstraintTestJ8/src/cz/mff/dpp/args/OptionUtils.java:364: error: (argument) $$ 4 $$ arg0 $$ Map.containsKey $$ @Initialized @Nullable Option $$ @Initialized @NonNull Object $$ ( 8604, 8610 ) $$ incompatible argument for parameter arg0 of Map.containsKey.
+			return usedOptionParams.containsKey(option);
+			                                    ^
+  found   : @Initialized @Nullable Option
+  required: @Initialized @NonNull Object
+../dataset/url8752fbdeb0_sixtam_args_tgz-pJ8-cz_mff_dpp_args_examples_ConstraintTestJ8/src/cz/mff/dpp/args/Configurator.java:166: error: (argument) $$ 4 $$ value $$ Field.set $$ @Initialized @Nullable Object $$ @Initialized @NonNull Object $$ ( 5097, 5102 ) $$ incompatible argument for parameter value of Field.set.
+			field.set(target, value);
+			                  ^
+  found   : @Initialized @Nullable Object
+  required: @Initialized @NonNull Object
+../dataset/url8752fbdeb0_sixtam_args_tgz-pJ8-cz_mff_dpp_args_examples_ConstraintTestJ8/src/cz/mff/dpp/args/Configurator.java:169: error: (dereference.of.nullable) $$ 1 $$ value $$ ( 5211, 5216 ) $$ dereference of possibly-null reference value
+					value.toString());
+					^
+../dataset/url8752fbdeb0_sixtam_args_tgz-pJ8-cz_mff_dpp_args_examples_ConstraintTestJ8/src/cz/mff/dpp/args/Configurator.java:195: error: (dereference.of.nullable) $$ 1 $$ klass $$ ( 5996, 6001 ) $$ dereference of possibly-null reference klass
+		if (klass.isArray()) {
+		    ^
+../dataset/url8752fbdeb0_sixtam_args_tgz-pJ8-cz_mff_dpp_args_examples_ConstraintTestJ8/src/cz/mff/dpp/args/Configurator.java:236: error: (argument) $$ 4 $$ arg2 $$ Array.set $$ @Initialized @Nullable Object $$ @Initialized @NonNull Object $$ ( 7227, 7232 ) $$ incompatible argument for parameter arg2 of Array.set.
+			Array.set(array, index++, value);
+			                          ^
+  found   : @Initialized @Nullable Object
+  required: @Initialized @NonNull Object
+../dataset/url8752fbdeb0_sixtam_args_tgz-pJ8-cz_mff_dpp_args_examples_ConstraintTestJ8/src/cz/mff/dpp/args/ReflectUtils.java:278: error: (dereference.of.nullable) $$ 1 $$ type $$ ( 7198, 7202 ) $$ dereference of possibly-null reference type
+		if (type.isEnum()) {
+		    ^
+../dataset/url8752fbdeb0_sixtam_args_tgz-pJ8-cz_mff_dpp_args_examples_ConstraintTestJ8/src/cz/mff/dpp/args/ReflectUtils.java:448: error: (dereference.of.nullable) $$ 1 $$ type $$ ( 11228, 11232 ) $$ dereference of possibly-null reference type
+		Object[] enumConstants = type.getEnumConstants();
+		                         ^
+../dataset/url8752fbdeb0_sixtam_args_tgz-pJ8-cz_mff_dpp_args_examples_ConstraintTestJ8/src/cz/mff/dpp/args/ReflectUtils.java:450: error: (iterating.over.nullable) $$ 1 $$ enumConstants $$ ( 11300, 11313 ) $$ iterating over possibly-null reference enumConstants
+		for(Object enumConstant : enumConstants){
+		                          ^
+../dataset/url8752fbdeb0_sixtam_args_tgz-pJ8-cz_mff_dpp_args_examples_ConstraintTestJ8/src/cz/mff/dpp/args/ReflectUtils.java:507: error: (dereference.of.nullable) $$ 1 $$ accessible $$ ( 12869, 12879 ) $$ dereference of possibly-null reference accessible
+		return accessible.getAnnotation(Constraint.class);
+		       ^
+../dataset/url8752fbdeb0_sixtam_args_tgz-pJ8-cz_mff_dpp_args_examples_ConstraintTestJ8/src/cz/mff/dpp/args/ReflectUtils.java:589: error: (dereference.of.nullable) $$ 1 $$ klass $$ ( 15225, 15230 ) $$ dereference of possibly-null reference klass
+		if (klass.isArray()) {
+		    ^
+../dataset/url8752fbdeb0_sixtam_args_tgz-pJ8-cz_mff_dpp_args_examples_ConstraintTestJ8/src/cz/mff/dpp/args/ReflectUtils.java:653: error: (iterating.over.nullable) $$ 1 $$ enumeration.getEnumConstants() $$ ( 16809, 16839 ) $$ iterating over possibly-null reference enumeration.getEnumConstants()
+		for (T enumValue : enumeration.getEnumConstants()) {
+		                                               ^
+../dataset/url8752fbdeb0_sixtam_args_tgz-pJ8-cz_mff_dpp_args_examples_ConstraintTestJ8/src/cz/mff/dpp/args/ReflectUtils.java:672: error: (argument) $$ 4 $$ obj $$ Method.invoke $$ null (NullType) $$ @Initialized @NonNull Object $$ ( 17375, 17379 ) $$ incompatible argument for parameter obj of Method.invoke.
+				return factory.invoke(null, stringValue);
+				                      ^
+  found   : null (NullType)
+  required: @Initialized @NonNull Object
+../dataset/url8752fbdeb0_sixtam_args_tgz-pJ8-cz_mff_dpp_args_examples_ConstraintTestJ8/src/cz/mff/dpp/args/Introspector.java:85: error: (return) $$ 2 $$ Set<Entry<@KeyFor("this.objectsWithArgument") AccessibleObject, Argument>> $$ Set<Entry<AccessibleObject, Argument>> $$ ( 2582, 2612 ) $$ incompatible types in return.
+		return objectsWithArgument.entrySet();
+		                                   ^
+  type of expression: Set<Entry<@KeyFor("this.objectsWithArgument") AccessibleObject, Argument>>
+  method return type: Set<Entry<AccessibleObject, Argument>>
+../dataset/url8752fbdeb0_sixtam_args_tgz-pJ8-cz_mff_dpp_args_examples_ConstraintTestJ8/src/cz/mff/dpp/args/Introspector.java:94: error: (return) $$ 2 $$ Set<@KeyFor("this.options") String> $$ Set<String> $$ ( 2755, 2771 ) $$ incompatible types in return.
+		return options.keySet();
+		                     ^
+  type of expression: Set<@KeyFor("this.options") String>
+  method return type: Set<String>
+../dataset/url8752fbdeb0_sixtam_args_tgz-pJ8-cz_mff_dpp_args_examples_ConstraintTestJ8/src/cz/mff/dpp/args/FactoryRegistry.java:72: error: (argument) $$ 4 $$ arg0 $$ Map.put $$ @Initialized @Nullable Class<capture#01 extends @Initialized @Nullable Object> $$ @Initialized @NonNull Class<? extends @Initialized @Nullable Object> $$ ( 1880, 1884 ) $$ incompatible argument for parameter arg0 of Map.put.
+		userTypes.put(type, factoryClass);
+		              ^
+  found   : @Initialized @Nullable Class<capture#01 extends @Initialized @Nullable Object>
+  required: @Initialized @NonNull Class<? extends @Initialized @Nullable Object>
+../dataset/url8752fbdeb0_sixtam_args_tgz-pJ8-cz_mff_dpp_args_examples_ConstraintTestJ8/src/cz/mff/dpp/args/FactoryRegistry.java:84: error: (argument) $$ 4 $$ arg0 $$ Map.remove $$ @Initialized @Nullable Class<capture#02 extends @Initialized @Nullable Object> $$ @Initialized @NonNull Object $$ ( 2204, 2208 ) $$ incompatible argument for parameter arg0 of Map.remove.
+		userTypes.remove(type);
+		                 ^
+  found   : @Initialized @Nullable Class<capture#02 extends @Initialized @Nullable Object>
+  required: @Initialized @NonNull Object
+../dataset/url8752fbdeb0_sixtam_args_tgz-pJ8-cz_mff_dpp_args_examples_ConstraintTestJ8/src/cz/mff/dpp/args/ConstraintUtils.java:345: error: (assignment) $$ 2 $$ @Initialized @Nullable int $$ @UnknownInitialization @NonNull int $$ ( 9862, 9899 ) $$ incompatible types in assignment.
+		int result = compare(constraint, type, value, min);
+		                    ^
+  found   : @Initialized @Nullable int
+  required: @UnknownInitialization @NonNull int
+../dataset/url8752fbdeb0_sixtam_args_tgz-pJ8-cz_mff_dpp_args_examples_ConstraintTestJ8/src/cz/mff/dpp/args/ConstraintUtils.java:393: error: (assignment) $$ 2 $$ @Initialized @Nullable int $$ @UnknownInitialization @NonNull int $$ ( 11055, 11092 ) $$ incompatible types in assignment.
+		int result = compare(constraint, type, value, max);
+		                    ^
+  found   : @Initialized @Nullable int
+  required: @UnknownInitialization @NonNull int
+../dataset/url8752fbdeb0_sixtam_args_tgz-pJ8-cz_mff_dpp_args_examples_ConstraintTestJ8/src/cz/mff/dpp/args/ConstraintUtils.java:447: error: (unboxing.of.nullable) $$ 1 $$ (Integer)comparator.invoke(null, compare, compareTo) $$ ( 12392, 12445 ) $$ unboxing a possibly-null reference (Integer)comparator.invoke(null, compare, compareTo)
+				return (Integer) comparator.invoke(null, compare, compareTo);
+				       ^
+../dataset/url8752fbdeb0_sixtam_args_tgz-pJ8-cz_mff_dpp_args_examples_ConstraintTestJ8/src/cz/mff/dpp/args/ConstraintUtils.java:447: error: (argument) $$ 4 $$ obj $$ Method.invoke $$ null (NullType) $$ @Initialized @NonNull Object $$ ( 12420, 12424 ) $$ incompatible argument for parameter obj of Method.invoke.
+				return (Integer) comparator.invoke(null, compare, compareTo);
+				                                   ^
+  found   : null (NullType)
+  required: @Initialized @NonNull Object
+../dataset/url8752fbdeb0_sixtam_args_tgz-pJ8-cz_mff_dpp_args_examples_ConstraintTestJ8/src/cz/mff/dpp/args/ConstraintUtils.java:447: error: (argument) $$ 4 $$ args $$ Method.invoke $$ @Initialized @Nullable Object $$ @Initialized @NonNull Object $$ ( 12426, 12433 ) $$ incompatible argument for parameter args of Method.invoke.
+				return (Integer) comparator.invoke(null, compare, compareTo);
+				                                         ^
+  found   : @Initialized @Nullable Object
+  required: @Initialized @NonNull Object
+../dataset/url8752fbdeb0_sixtam_args_tgz-pJ8-cz_mff_dpp_args_examples_ConstraintTestJ8/src/cz/mff/dpp/args/ConstraintUtils.java:447: error: (argument) $$ 4 $$ args $$ Method.invoke $$ @Initialized @Nullable Object $$ @Initialized @NonNull Object $$ ( 12435, 12444 ) $$ incompatible argument for parameter args of Method.invoke.
+				return (Integer) comparator.invoke(null, compare, compareTo);
+				                                                  ^
+  found   : @Initialized @Nullable Object
+  required: @Initialized @NonNull Object
+../dataset/url8752fbdeb0_sixtam_args_tgz-pJ8-cz_mff_dpp_args_examples_ConstraintTestJ8/src/cz/mff/dpp/args/ConstraintUtils.java:463: error: (unboxing.of.nullable) $$ 1 $$ (Integer)comparatorTo.invoke(compare, compareTo) $$ ( 12814, 12863 ) $$ unboxing a possibly-null reference (Integer)comparatorTo.invoke(compare, compareTo)
+				return (Integer) comparatorTo.invoke(compare, compareTo);
+				       ^
+../dataset/url8752fbdeb0_sixtam_args_tgz-pJ8-cz_mff_dpp_args_examples_ConstraintTestJ8/src/cz/mff/dpp/args/ConstraintUtils.java:463: error: (argument) $$ 4 $$ obj $$ Method.invoke $$ @Initialized @Nullable Object $$ @Initialized @NonNull Object $$ ( 12844, 12851 ) $$ incompatible argument for parameter obj of Method.invoke.
+				return (Integer) comparatorTo.invoke(compare, compareTo);
+				                                     ^
+  found   : @Initialized @Nullable Object
+  required: @Initialized @NonNull Object
+../dataset/url8752fbdeb0_sixtam_args_tgz-pJ8-cz_mff_dpp_args_examples_ConstraintTestJ8/src/cz/mff/dpp/args/ConstraintUtils.java:463: error: (argument) $$ 4 $$ args $$ Method.invoke $$ @Initialized @Nullable Object $$ @Initialized @NonNull Object $$ ( 12853, 12862 ) $$ incompatible argument for parameter args of Method.invoke.
+				return (Integer) comparatorTo.invoke(compare, compareTo);
+				                                              ^
+  found   : @Initialized @Nullable Object
+  required: @Initialized @NonNull Object
+../dataset/url8752fbdeb0_sixtam_args_tgz-pJ8-cz_mff_dpp_args_examples_ConstraintTestJ8/src/cz/mff/dpp/args/examples/CharTest.java:82: error: (dereference.of.nullable) $$ 1 $$ charOptions.character $$ ( 1738, 1759 ) $$ dereference of possibly-null reference charOptions.character
+			assert (charOptions.character.charValue() == 'C');
+			                   ^
+../dataset/url8752fbdeb0_sixtam_args_tgz-pJ8-cz_mff_dpp_args_examples_ConstraintTestJ8/src/cz/mff/dpp/args/examples/CharTest.java:84: error: (dereference.of.nullable) $$ 1 $$ charOptions.characterFromSetter $$ ( 1839, 1870 ) $$ dereference of possibly-null reference charOptions.characterFromSetter
+			assert (charOptions.characterFromSetter.charValue() == 'Q');
+			                   ^
+../dataset/url8752fbdeb0_sixtam_args_tgz-pJ8-cz_mff_dpp_args_examples_ConstraintTestJ8/src/cz/mff/dpp/args/examples/ConstraintTest.java:166: error: (iterating.over.nullable) $$ 1 $$ constraintOption.someLetters $$ ( 4253, 4281 ) $$ iterating over possibly-null reference constraintOption.someLetters
+		for (char letter: constraintOption.someLetters) {
+		                                  ^
+../dataset/url8752fbdeb0_sixtam_args_tgz-pJ8-cz_mff_dpp_args_examples_ConstraintTestJ8/src/cz/mff/dpp/args/examples/EnumTest.java:54: error: (dereference.of.nullable) $$ 1 $$ enumOptions.day $$ ( 1017, 1032 ) $$ dereference of possibly-null reference enumOptions.day
+			assert enumOptions.day.equals(arg1) : "-d set to wrong value!";
+			                  ^
+../dataset/url8752fbdeb0_sixtam_args_tgz-pJ8-cz_mff_dpp_args_examples_ConstraintTestJ8/src/cz/mff/dpp/args/examples/EnumTest.java:55: error: (dereference.of.nullable) $$ 1 $$ enumOptions.dayFromSetter $$ ( 1084, 1109 ) $$ dereference of possibly-null reference enumOptions.dayFromSetter
+			assert enumOptions.dayFromSetter.equals(arg2) : "--day set to wrong value!";
+			                  ^
+../dataset/url8752fbdeb0_sixtam_args_tgz-pJ8-cz_mff_dpp_args_examples_ConstraintTestJ8/src/cz/mff/dpp/args/examples/OptionListTerminator.java:60: error: (accessing.nullable) $$ 1 $$ options.arguments $$ ( 1004, 1021 ) $$ accessing a possibly-null array options.arguments
+			if ( localArgs[i].equals(options.arguments[i - separatorIndex - 1 ])) {
+			                                ^
+../dataset/url8752fbdeb0_sixtam_args_tgz-pJ8-cz_mff_dpp_args_examples_ConstraintTestJ8/src/cz/mff/dpp/args/Parser.java:514: error: (dereference.of.nullable) $$ 1 $$ token $$ ( 12873, 12878 ) $$ dereference of possibly-null reference token
+		boolean isOptionTerminator = token
+		                             ^
+Note: ../dataset/url8752fbdeb0_sixtam_args_tgz-pJ8-cz_mff_dpp_args_examples_ConstraintTestJ8/src/cz/mff/dpp/args/Configurator.java uses or overrides a deprecated API.
+Note: Recompile with -Xlint:deprecation for details.
+33 errors

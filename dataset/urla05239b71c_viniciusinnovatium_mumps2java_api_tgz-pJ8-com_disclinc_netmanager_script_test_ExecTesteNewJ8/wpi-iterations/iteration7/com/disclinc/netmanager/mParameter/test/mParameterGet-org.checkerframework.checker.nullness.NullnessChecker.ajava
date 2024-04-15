@@ -1,0 +1,18 @@
+package com.disclinc.netmanager.mParameter.test;
+
+import static junit.framework.Assert.*;
+import mLibrary.mContext;
+import org.junit.Test;
+import com.disclinc.netmanager.mParameter.test.mClassChild;
+
+@org.checkerframework.framework.qual.AnnotatedFor("org.checkerframework.checker.nullness.NullnessChecker")
+public class mParameterGet {
+
+    private @org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.NonNull mContext m$ = new mContext();
+
+    @org.checkerframework.dataflow.qual.Impure
+    public void testGetParameter() throws IllegalArgumentException, IllegalAccessException, NoSuchFieldException, SecurityException {
+        mClassChild t = new mClassChild();
+        assertEquals(m$.param(t, "p_LOGINSUBMIT").get(), "COMUserPreferences.cls");
+    }
+}

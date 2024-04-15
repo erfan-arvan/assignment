@@ -1,0 +1,7 @@
+../dataset//urldd9e4ada6f_kirillF_sample_jenkins_project_tgz-pJ8-com_bigfatplayer_hello_AppJ8/src/com/bigfatplayer/hello/AppClient.java
+../dataset//urldd9e4ada6f_kirillF_sample_jenkins_project_tgz-pJ8-com_bigfatplayer_hello_AppJ8/src/com/bigfatplayer/hello/AppServer.java
+../dataset//urldd9e4ada6f_kirillF_sample_jenkins_project_tgz-pJ8-com_bigfatplayer_hello_AppJ8/src/com/bigfatplayer/hello/CalculatorServer.java
+../dataset//urldd9e4ada6f_kirillF_sample_jenkins_project_tgz-pJ8-com_bigfatplayer_hello_AppJ8/src/com/bigfatplayer/hello/Calculator.java
+../dataset//urldd9e4ada6f_kirillF_sample_jenkins_project_tgz-pJ8-com_bigfatplayer_hello_AppJ8/src/com/bigfatplayer/hello/AppTest.java
+../dataset//urldd9e4ada6f_kirillF_sample_jenkins_project_tgz-pJ8-com_bigfatplayer_hello_AppJ8/src/com/bigfatplayer/hello/Work.java
+../dataset//urldd9e4ada6f_kirillF_sample_jenkins_project_tgz-pJ8-com_bigfatplayer_hello_AppJ8/src/com/bigfatplayer/hello/App.java

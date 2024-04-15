@@ -1,0 +1,68 @@
+/*    */
+package org.ands.rifcs.base;
+
+/*    */
+/*    */
+import org.w3c.dom.Node;
+
+/*    */
+/*    */
+/*    */
+@org.checkerframework.framework.qual.AnnotatedFor("org.checkerframework.checker.nullness.KeyForSubchecker")
+public class Identifier extends RIFCSElement {
+
+    /*    */
+    /*    */
+    @org.checkerframework.dataflow.qual.Impure
+    protected Identifier( Node n) throws /*    */
+    RIFCSException /*    */
+    {
+        /* 41 */
+        super(n, "identifier");
+        /*    */
+    }
+
+    /*    */
+    /*    */
+    @org.checkerframework.dataflow.qual.Impure
+    public void setType( Identifier this,  String type) /*    */
+    {
+        /* 53 */
+        super.setAttributeValue("type", type);
+        /*    */
+    }
+
+    /*    */
+    /*    */
+    @org.checkerframework.dataflow.qual.Impure
+    public  String getType() /*    */
+    {
+        /* 66 */
+        return super.getAttributeValue("type");
+        /*    */
+    }
+
+    /*    */
+    /*    */
+    @org.checkerframework.dataflow.qual.Impure
+    public void setValue( Identifier this,  String value) /*    */
+    {
+        /* 78 */
+        super.setTextContent(value);
+        /*    */
+    }
+
+    /*    */
+    /*    */
+    @org.checkerframework.dataflow.qual.Impure
+    public  String getValue() /*    */
+    {
+        /* 90 */
+        return super.getTextContent();
+        /*    */
+    }
+}
+/* Location:           /Users/przemyslaw/Downloads/rifcs-api-1.3.0.jar
+ * Qualified Name:     org.ands.rifcs.base.Identifier
+ * JD-Core Version:    0.6.2
+ */

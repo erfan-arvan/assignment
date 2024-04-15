@@ -1,0 +1,80 @@
+package cz.mff.dpp.args.examples;
+
+import java.util.Arrays;
+import cz.mff.dpp.args.*;
+
+/**
+ * Time command demo ... not to forget to use "--".
+ */
+@org.checkerframework.framework.qual.AnnotatedFor("org.checkerframework.checker.nullness.NullnessChecker")
+public class TimeCommand {
+
+    private static final class TimeOptions {
+
+        private static final @org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.NonNull String FORMAT_DESC = "Specify output format, possibly overriding the format specified in the environment variable TIME.";
+
+        private static final @org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.NonNull String PORT_DESC = "Use the portable output format.";
+
+        private static final @org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.NonNull String OUT_DESC = "Do not send the results to stderr, but overwrite the specified file.";
+
+        private static final @org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.NonNull String APPEND_DESC = "(Used together with -o.) Do not overwrite but append.";
+
+        private static final @org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.NonNull String VERBOSE_DESC = "Give very verbose output about all the program knows about.";
+
+        private static final @org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.NonNull String HELP_DESC = "Print a usage message on standard output and exit successfully.";
+
+        private static final @org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.NonNull String VERSION_DESC = " Print version information on standard output, then exit successfully.";
+
+        // Options
+        public boolean printVersion;
+
+        public boolean printUsage;
+
+        @org.checkerframework.framework.qual.EnsuresQualifier(expression = { "this.arguments" }, qualifier = org.checkerframework.checker.nullness.qual.Nullable.class)
+        @org.checkerframework.framework.qual.EnsuresQualifier(expression = { "this.command" }, qualifier = org.checkerframework.checker.nullness.qual.Nullable.class)
+        @org.checkerframework.framework.qual.EnsuresQualifier(expression = { "this.format" }, qualifier = org.checkerframework.checker.nullness.qual.Nullable.class)
+        @org.checkerframework.framework.qual.EnsuresQualifier(expression = { "this.outputFile" }, qualifier = org.checkerframework.checker.nullness.qual.Nullable.class)
+        @org.checkerframework.dataflow.qual.Impure
+        void setVerbose() {
+            verbose = true;
+        }
+
+        public  @org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.NonNull boolean verbose;
+
+        public boolean append;
+
+        public boolean portability;
+
+        public @org.checkerframework.checker.initialization.qual.FBCBottom @org.checkerframework.checker.nullness.qual.MonotonicNonNull String format;
+
+        @org.checkerframework.framework.qual.EnsuresQualifier(expression = { "this.arguments" }, qualifier = org.checkerframework.checker.nullness.qual.Nullable.class)
+        @org.checkerframework.framework.qual.EnsuresQualifier(expression = { "this.command" }, qualifier = org.checkerframework.checker.nullness.qual.Nullable.class)
+        @org.checkerframework.framework.qual.EnsuresQualifier(expression = { "this.format" }, qualifier = org.checkerframework.checker.nullness.qual.Nullable.class)
+        @org.checkerframework.framework.qual.EnsuresQualifier(expression = { "this.outputFile" }, qualifier = org.checkerframework.checker.nullness.qual.Nullable.class)
+        @org.checkerframework.dataflow.qual.Impure
+        private void setOutputFile(Integer[] outputFile) {
+            // could do more work here ...
+            System.out.println(Arrays.toString(outputFile));
+            //this.outputFile = outputFile[0];
+        }
+
+        public @org.checkerframework.checker.initialization.qual.FBCBottom @org.checkerframework.checker.nullness.qual.MonotonicNonNull String outputFile;
+
+        @org.checkerframework.checker.initialization.qual.FBCBottom @org.checkerframework.checker.nullness.qual.MonotonicNonNull String command;
+
+        public String @org.checkerframework.checker.initialization.qual.FBCBottom @org.checkerframework.checker.nullness.qual.MonotonicNonNull [] arguments;
+    }
+
+    @org.checkerframework.dataflow.qual.Impure
+    public static void main(String[] args) {
+        TimeOptions timeOptions = new TimeOptions();
+        Parser parser = new Parser(timeOptions);
+        try {
+            parser.parse(args);
+        } catch (ParseException e) {
+            System.out.println(e.getMessage());
+            parser.usage();
+        }
+        // program logic
+    }
+}

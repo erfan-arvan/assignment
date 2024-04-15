@@ -1,0 +1,35 @@
+/**
+ * Created by tony on 15/12/13.
+ */
+@org.checkerframework.framework.qual.AnnotatedFor("org.checkerframework.checker.nullness.NullnessChecker")
+public class NetworkProperties {
+
+    public static final  @org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.NonNull int MTU = 1500;
+
+    public static final  @org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.NonNull int nPort = 8767;
+
+    // default. static because for now all nodes are on the same machine
+    public static @org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.NonNull String nAddress = "127.0.0.1";
+
+    // global refresh rate of the routing table in seconds
+    public static  @org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.NonNull int refreshTime = 120;
+
+    // the maximum time a node will stay in routing table not updated before it is contacted
+    public static  @org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.NonNull int staleTime = 180;
+
+    // the time before a PING is fired after a SEARCH
+    public static  @org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.NonNull int responseWait = 3;
+
+    // the time before node is removed from routing table after PING
+    public static  @org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.NonNull int pingWait = 30;
+
+    @org.checkerframework.checker.nullness.qual.EnsuresNonNull({ "#1" })
+    @org.checkerframework.dataflow.qual.Pure
+    public static  @org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.NonNull int hashCode(@org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.Nullable String str) {
+        int hash = 0;
+        for (int i = 0; i < str.length(); i++) {
+            hash = hash * 31 + str.charAt(i);
+        }
+        return Math.abs(hash);
+    }
+}

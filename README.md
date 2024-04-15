@@ -19,9 +19,6 @@ Copy the `checker` directory from the downloaded framework to reside within the 
 
 ## Execution Steps
 The specific steps to run WPI are as follows:
-
-1. Navigate to the `root-dir/wpi` directory.
-2. Execute the script by running:
  ```
 cd wpi
 python3 run_wpi.py

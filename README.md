@@ -22,3 +22,16 @@ The specific steps to run WPI are as follows:
 
 1. Navigate to the `root-dir/wpi` directory.
 2. Execute the script by running:
+ ```
+cd wpi
+python3 run_wpi.py
+```
+
+This script manages the WPI outer layer and logs the results produced by the tool.
+3. After execution, the resulting `.ajava` files will be stored for each benchmark in the directory `root-dir/dataset/benchmark-directory/src/wpi-iterations`.
+4. The results of running the checker before and after WPI inference can be found in `root-dir/wpi/checkerframework-3.34.0-results-WPI`.
+
+## GitHub Repository
+All needed scripts and files are available in the following GitHub repository, which you can download and set up according to the provided instructions:
+[GitHub Repository](https://github.com/erfan-arvan/assignment)
+

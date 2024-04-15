@@ -1,6 +1,6 @@
 # Whole Program Inference (WPI) Repository
 
-This repository contains all the necessary scripts, files, and data for running Whole Program Inference (WPI). You can download them and navigate to the `wpi` directory to run the script using Python.
+This repository contains all the necessary scripts, files, and data for running Whole Program Inference (WPI). 
 
 ## Repository Link
 [GitHub Repository](https://github.com/erfan-arvan/assignment)

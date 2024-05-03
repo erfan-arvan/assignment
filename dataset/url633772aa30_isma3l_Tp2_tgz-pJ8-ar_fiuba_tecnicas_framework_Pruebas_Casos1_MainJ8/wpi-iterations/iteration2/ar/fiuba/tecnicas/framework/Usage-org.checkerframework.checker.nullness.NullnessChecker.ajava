@@ -1,0 +1,12 @@
+package ar.fiuba.tecnicas.framework;
+
+@org.checkerframework.framework.qual.AnnotatedFor("org.checkerframework.checker.nullness.NullnessChecker")
+public class Usage {
+
+    private static final @org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.NonNull String usage = "Usage:\n\tOptions:\n\t\t" + ArgumentValidator.regexptestcaseopt + " test case regular expression\n\t\t" + ArgumentValidator.regexptestsuiteopt + " test suite regular expression\n\t\t" + ArgumentValidator.tagstestcaseopt + " test case 's tags list\n";
+
+    @org.checkerframework.dataflow.qual.Pure
+    public @org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.NonNull String toString(@org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.NonNull Usage this) {
+        return usage;
+    }
+}

@@ -1,0 +1,30 @@
+package org.delaunay.dtfe.interpolation;
+
+@org.checkerframework.framework.qual.AnnotatedFor("org.checkerframework.checker.nullness.KeyForSubchecker")
+public class InterpolationStrategies {
+
+    @org.checkerframework.dataflow.qual.Pure
+    public static  BarycentricLinearInterpolationStrategy createBarycentricLinear() {
+        return new BarycentricLinearInterpolationStrategy();
+    }
+
+    @org.checkerframework.dataflow.qual.Pure
+    public static  AlgebraicLinearInterpolationStrategy createAlgebraicLinear() {
+        return new AlgebraicLinearInterpolationStrategy();
+    }
+
+    @org.checkerframework.dataflow.qual.Pure
+    public static  NearestNeighborInterpolationStrategy createNearestNeighbor() {
+        return new NearestNeighborInterpolationStrategy();
+    }
+
+    @org.checkerframework.dataflow.qual.Pure
+    public static  MeanInterpolationStrategy createMean() {
+        return new MeanInterpolationStrategy();
+    }
+
+    @org.checkerframework.dataflow.qual.Pure
+    public static  NaturalNeighborInterpolationStrategy createNaturalNeighbor() {
+        return new NaturalNeighborInterpolationStrategy();
+    }
+}

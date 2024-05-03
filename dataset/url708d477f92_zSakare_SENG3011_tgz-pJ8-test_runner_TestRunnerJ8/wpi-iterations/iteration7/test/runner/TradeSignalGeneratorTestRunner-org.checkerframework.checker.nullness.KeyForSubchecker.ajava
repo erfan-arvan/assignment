@@ -1,0 +1,22 @@
+package test.runner;
+
+import test.generator.TradeSignalGeneratorTest;
+
+@org.checkerframework.framework.qual.AnnotatedFor("org.checkerframework.checker.nullness.KeyForSubchecker")
+public class TradeSignalGeneratorTestRunner {
+
+    @org.checkerframework.dataflow.qual.Impure
+    public static void main(String[] args) {
+        run();
+    }
+
+    @org.checkerframework.dataflow.qual.Impure
+    public static void run() {
+        TradeSignalGeneratorTest tradeSignalGeneratorTest = new TradeSignalGeneratorTest();
+        // Trade signal generator test.
+        tradeSignalGeneratorTest.testRandomAskSignal();
+        tradeSignalGeneratorTest.testRandomBidSignal();
+        tradeSignalGeneratorTest.testMeanReversionSignal();
+        tradeSignalGeneratorTest.testMomentumSignal();
+    }
+}

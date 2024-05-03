@@ -1,0 +1,8 @@
+package ar.fiuba.tecnicas.framework.JTest;
+
+@org.checkerframework.framework.qual.AnnotatedFor("org.checkerframework.checker.nullness.NullnessChecker")
+public interface TestCreator {
+
+    @org.checkerframework.dataflow.qual.Impure
+    public @org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.NonNull Test getTest() throws Exception;
+}

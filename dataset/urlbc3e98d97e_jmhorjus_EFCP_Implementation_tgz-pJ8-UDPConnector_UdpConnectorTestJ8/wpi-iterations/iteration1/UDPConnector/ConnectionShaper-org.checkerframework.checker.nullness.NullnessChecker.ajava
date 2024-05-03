@@ -1,0 +1,118 @@
+/* @copyright 2013 Computer Science Department, Recursive InterNetworking Architecture (RINA) laboratory, Boston University. 
+ * All rights reserved. Permission to use, copy, modify, and distribute this software and its documentation
+ * for any purpose and without fee is hereby granted, provided that the above copyright notice appear in all 
+ * copies and that both the copyright notice and this permission notice appear in supporting documentation. 
+ * The RINA laboratory of the Computer Science Department at Boston University makes no 
+ * representations about the suitability of this software for any purpose.
+ */
+package UDPConnector;
+
+import static java.lang.Thread.sleep;
+import java.net.InetAddress;
+import java.util.List;
+import java.util.Random;
+
+/**
+ * @author Jan Horjus
+ */
+@org.checkerframework.framework.qual.AnnotatedFor("org.checkerframework.checker.nullness.NullnessChecker")
+public class ConnectionShaper implements ConnectorInterface {
+
+    @org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.NonNull ConnectorInterface m_connectionToShape;
+
+     @org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.NonNull int m_sendDelayInMs;
+
+     @org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.NonNull int m_sendJitterInMs;
+
+     @org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.NonNull int m_packetsToDropPer10000;
+
+    @org.checkerframework.dataflow.qual.SideEffectFree
+    ConnectionShaper(@org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.NonNull ConnectorInterface connectionToShape,  @org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.NonNull int sendDelayInMs,  @org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.NonNull int sendJitterInMs,  @org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.NonNull int packetsToDropPer10000) {
+        m_connectionToShape = connectionToShape;
+        m_sendDelayInMs = sendDelayInMs;
+        m_sendJitterInMs = sendJitterInMs;
+        m_packetsToDropPer10000 = packetsToDropPer10000;
+    }
+
+    @org.checkerframework.dataflow.qual.Impure
+    public void SetPeerAddress(@org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.NonNull ConnectionShaper this, @org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.NonNull InetAddress peerAddress,  @org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.NonNull int port) {
+        m_connectionToShape.SetPeerAddress(peerAddress, port);
+    }
+
+    @org.checkerframework.dataflow.qual.Impure
+    public @org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.NonNull List<byte[]> Receive(@org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.NonNull ConnectionShaper this,  @org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.NonNull int maxBlockingTimeInMs) {
+        return m_connectionToShape.Receive(maxBlockingTimeInMs);
+    }
+
+    @org.checkerframework.dataflow.qual.Impure
+    public  @org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.NonNull boolean Send(@org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.NonNull ConnectionShaper this, @org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.NonNull String sendString) throws Exception {
+        return Send(sendString.getBytes());
+    }
+
+    @org.checkerframework.dataflow.qual.Impure
+    public  @org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.NonNull boolean Send(@org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.NonNull ConnectionShaper this,  @org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.NonNull byte @org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.NonNull [] sendBuffer) throws Exception {
+        Thread newSendThread = new Thread(this.new ShapedSendTask(sendBuffer));
+        newSendThread.start();
+        return true;
+    }
+
+    @org.checkerframework.dataflow.qual.Impure
+    public  @org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.NonNull boolean AddReceiveNotify(@org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.NonNull ConnectionShaper this, @org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.NonNull ReceiveNotifyInterface notifyMe) {
+        return m_connectionToShape.AddReceiveNotify(notifyMe);
+    }
+
+    @org.checkerframework.dataflow.qual.Impure
+    public void StopReceiveThread(@org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.NonNull ConnectionShaper this) {
+        m_connectionToShape.StopReceiveThread();
+    }
+
+    @org.checkerframework.dataflow.qual.Impure
+    public void StartReceiveThread(@org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.NonNull ConnectionShaper this) {
+        m_connectionToShape.StartReceiveThread();
+    }
+
+    /// This inner class is a runnable thread that performs a delayed,
+    /// uncertain send and then terminates.
+    private class ShapedSendTask implements Runnable {
+
+        @org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.MonotonicNonNull String m_stringToSend;
+
+         @org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.NonNull byte @org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.MonotonicNonNull [] m_bufferToSend;
+
+         @org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.NonNull boolean m_sendBuffer;
+
+        @org.checkerframework.dataflow.qual.SideEffectFree
+        ShapedSendTask(String stringToSend) {
+            m_stringToSend = stringToSend;
+            m_sendBuffer = false;
+        }
+
+        @org.checkerframework.dataflow.qual.SideEffectFree
+        ShapedSendTask( @org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.NonNull byte @org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.NonNull [] bufferToSend) {
+            m_bufferToSend = bufferToSend;
+            m_sendBuffer = true;
+        }
+
+        @org.checkerframework.dataflow.qual.Impure
+        public void run(@org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.NonNull ShapedSendTask this) {
+            Random r = new Random();
+            int jitter = r.nextInt(m_sendJitterInMs);
+            try {
+                sleep(m_sendDelayInMs + jitter);
+            } catch (Exception ex) {
+                System.out.print("Exception caught while waiting in shaped send.");
+            }
+            boolean dropPacket = (r.nextInt(10000) <= m_packetsToDropPer10000);
+            if (!dropPacket) {
+                try {
+                    if (m_sendBuffer)
+                        m_connectionToShape.Send(m_bufferToSend);
+                    else
+                        m_connectionToShape.Send(m_stringToSend);
+                } catch (Exception ex) {
+                    System.out.print("Shaped send: Exception caught while sending." + ex.getMessage());
+                }
+            }
+        }
+    }
+}

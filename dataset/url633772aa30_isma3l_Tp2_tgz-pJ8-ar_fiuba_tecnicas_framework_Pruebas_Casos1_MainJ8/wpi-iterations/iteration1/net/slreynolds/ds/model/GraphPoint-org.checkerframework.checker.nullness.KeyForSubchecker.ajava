@@ -1,0 +1,83 @@
+package net.slreynolds.ds.model;
+
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.List;
+
+/**
+ * A graph element that can be an Edge endpoint.
+ */
+@org.checkerframework.framework.qual.AnnotatedFor("org.checkerframework.checker.nullness.KeyForSubchecker")
+abstract public class GraphPoint extends Named {
+
+    private final  List<Edge> _neighbors;
+
+    private final   int _generation;
+
+    @org.checkerframework.dataflow.qual.SideEffectFree
+    public GraphPoint( NamedID ID,   int generation) {
+        super(ID);
+        _neighbors = new ArrayList<Edge>();
+        if (generation < 0) {
+            throw new IllegalArgumentException("generation cannot be negative");
+        }
+        _generation = generation;
+    }
+
+    @org.checkerframework.dataflow.qual.SideEffectFree
+    public GraphPoint( NamedID ID,  String name,   int generation) {
+        super(ID, name);
+        _neighbors = new ArrayList<Edge>();
+        if (generation < 0) {
+            throw new IllegalArgumentException("generation cannot be negative");
+        }
+        _generation = generation;
+    }
+
+    @org.checkerframework.dataflow.qual.Pure
+    public   int getGeneration( GraphPoint this) {
+        return _generation;
+    }
+
+    @org.checkerframework.dataflow.qual.Pure
+    public abstract   boolean areValuesInlined( GraphPoint this);
+
+    @org.checkerframework.dataflow.qual.Impure
+    public void add( GraphPoint this,  Edge e) {
+        if (e.getFrom() != this) {
+            throw new IllegalArgumentException("Illegal from Node in input edge");
+        }
+        _neighbors.add(e);
+    }
+
+    @org.checkerframework.dataflow.qual.Impure
+    public  List<Edge> getNeighbors( GraphPoint this) {
+        return Collections.unmodifiableList(_neighbors);
+    }
+
+    @org.checkerframework.dataflow.qual.Pure
+    public   boolean hasEdge(Edge e) {
+        return _neighbors.contains(e);
+    }
+
+    @org.checkerframework.dataflow.qual.Pure
+    public   boolean hasEdgeTo( GraphPoint this,  GraphPoint other) {
+        for (Edge e : _neighbors) {
+            if (e.getTo().equals(other)) {
+                return true;
+            }
+        }
+        return false;
+    }
+
+    @org.checkerframework.dataflow.qual.Impure
+    public void remove(Edge e) {
+        _neighbors.remove(e);
+    }
+
+    @org.checkerframework.dataflow.qual.Pure
+    public abstract   boolean isNode();
+
+    @org.checkerframework.dataflow.qual.Pure
+    public abstract   boolean isArray( GraphPoint this);
+}

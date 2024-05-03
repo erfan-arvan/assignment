@@ -1,0 +1,65 @@
+package be.demmel.fun.jgwcaconstants.bll.clean;
+
+import be.demmel.fun.jgwcaconstants.bll.GWCAOperations;
+import be.demmel.fun.jgwcaconstants.bll.SkillBarSkillSlot;
+
+@org.checkerframework.framework.qual.AnnotatedFor("org.checkerframework.checker.nullness.NullnessChecker")
+public class SkillBar {
+
+    private final SkillSlot firstSkillSlot, secondSkillSlot, thirdSkillSlot, fourthSkillSlot, fifthSkillSlot, sixthSkillSlot, seventhSkillSlot, eigthSkillSlot;
+
+    private final @org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.NonNull GWCAOperations gwcaOperations;
+
+    @org.checkerframework.dataflow.qual.SideEffectFree
+    public SkillBar(@org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.NonNull GWCAOperations gwcaOperations) {
+        this.gwcaOperations = gwcaOperations;
+        firstSkillSlot = new SkillSlot(gwcaOperations, SkillBarSkillSlot.ONE);
+        secondSkillSlot = new SkillSlot(gwcaOperations, SkillBarSkillSlot.TWO);
+        thirdSkillSlot = new SkillSlot(gwcaOperations, SkillBarSkillSlot.THREE);
+        fourthSkillSlot = new SkillSlot(gwcaOperations, SkillBarSkillSlot.FOUR);
+        fifthSkillSlot = new SkillSlot(gwcaOperations, SkillBarSkillSlot.FIVE);
+        sixthSkillSlot = new SkillSlot(gwcaOperations, SkillBarSkillSlot.SIX);
+        seventhSkillSlot = new SkillSlot(gwcaOperations, SkillBarSkillSlot.SEVEN);
+        eigthSkillSlot = new SkillSlot(gwcaOperations, SkillBarSkillSlot.EIGHT);
+    }
+
+    @org.checkerframework.dataflow.qual.Pure
+    public @org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.NonNull SkillSlot getEigthSkillSlot() {
+        return eigthSkillSlot;
+    }
+
+    @org.checkerframework.dataflow.qual.Pure
+    public @org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.NonNull SkillSlot getFifthSkillSlot() {
+        return fifthSkillSlot;
+    }
+
+    @org.checkerframework.dataflow.qual.Pure
+    public @org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.NonNull SkillSlot getFirstSkillSlot() {
+        return firstSkillSlot;
+    }
+
+    @org.checkerframework.dataflow.qual.Pure
+    public @org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.NonNull SkillSlot getFourthSkillSlot() {
+        return fourthSkillSlot;
+    }
+
+    @org.checkerframework.dataflow.qual.Pure
+    public @org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.NonNull SkillSlot getSecondSkillSlot() {
+        return secondSkillSlot;
+    }
+
+    @org.checkerframework.dataflow.qual.Pure
+    public @org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.NonNull SkillSlot getSeventhSkillSlot() {
+        return seventhSkillSlot;
+    }
+
+    @org.checkerframework.dataflow.qual.Pure
+    public @org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.NonNull SkillSlot getSixthSkillSlot() {
+        return sixthSkillSlot;
+    }
+
+    @org.checkerframework.dataflow.qual.Pure
+    public @org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.NonNull SkillSlot getThirdSkillSlot() {
+        return thirdSkillSlot;
+    }
+}

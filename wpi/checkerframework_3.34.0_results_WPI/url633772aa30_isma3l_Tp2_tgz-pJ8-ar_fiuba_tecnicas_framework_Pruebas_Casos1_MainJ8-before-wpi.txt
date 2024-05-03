@@ -1,0 +1,80 @@
+../dataset/url633772aa30_isma3l_Tp2_tgz-pJ8-ar_fiuba_tecnicas_framework_Pruebas_Casos1_MainJ8/src/ar/fiuba/tecnicas/framework/JTest/TestRunner.java:22: error: (initialization.static.field.uninitialized) $$ 1 $$ testCreator $$ ( 738, 777 ) $$ static field testCreator not initialized
+    private static TestCreator testCreator;
+                               ^
+../dataset/url633772aa30_isma3l_Tp2_tgz-pJ8-ar_fiuba_tecnicas_framework_Pruebas_Casos1_MainJ8/src/ar/fiuba/tecnicas/framework/JTest/TestReport.java:27: error: (assignment) $$ 2 $$ null (NullType) $$ @Initialized @NonNull PatternRecognizer $$ ( 826, 830 ) $$ incompatible types in assignment.
+        recognizerExpressionsTestcase = null;
+                                        ^
+  found   : null (NullType)
+  required: @Initialized @NonNull PatternRecognizer
+../dataset/url633772aa30_isma3l_Tp2_tgz-pJ8-ar_fiuba_tecnicas_framework_Pruebas_Casos1_MainJ8/src/ar/fiuba/tecnicas/framework/JTest/TestReport.java:28: error: (assignment) $$ 2 $$ null (NullType) $$ @Initialized @NonNull PatternRecognizer $$ ( 871, 875 ) $$ incompatible types in assignment.
+        recognizerExpressionsTestsuite=null;
+                                       ^
+  found   : null (NullType)
+  required: @Initialized @NonNull PatternRecognizer
+../dataset/url633772aa30_isma3l_Tp2_tgz-pJ8-ar_fiuba_tecnicas_framework_Pruebas_Casos1_MainJ8/src/ar/fiuba/tecnicas/framework/JTest/TestReport.java:29: error: (assignment) $$ 2 $$ null (NullType) $$ @Initialized @NonNull RecognizerTag $$ ( 902, 906 ) $$ incompatible types in assignment.
+        recognizerTags = null;
+                         ^
+  found   : null (NullType)
+  required: @Initialized @NonNull RecognizerTag
+../dataset/url633772aa30_isma3l_Tp2_tgz-pJ8-ar_fiuba_tecnicas_framework_Pruebas_Casos1_MainJ8/src/ar/fiuba/tecnicas/framework/JTest/PatternRecognizer.java:14: error: (initialization.fields.uninitialized) $$ 1 $$ matcher $$ ( 292, 458 ) $$ the constructor does not initialize fields: matcher
+    public PatternRecognizer(String expression)throws PatternSyntaxException{
+           ^
+../dataset/url633772aa30_isma3l_Tp2_tgz-pJ8-ar_fiuba_tecnicas_framework_Pruebas_Casos1_MainJ8/src/ar/fiuba/tecnicas/framework/JTest/TestCase.java:64: error: (argument) $$ 4 $$ exception $$ TestCase.tearingDown $$ @Initialized @Nullable Throwable $$ @Initialized @NonNull Throwable $$ ( 1740, 1749 ) $$ incompatible argument for parameter exception of TestCase.tearingDown.
+            tearingDown(exception);
+                        ^
+  found   : @Initialized @Nullable Throwable
+  required: @Initialized @NonNull Throwable
+../dataset/url633772aa30_isma3l_Tp2_tgz-pJ8-ar_fiuba_tecnicas_framework_Pruebas_Casos1_MainJ8/src/ar/fiuba/tecnicas/framework/JTest/Assert.java:23: error: (dereference.of.nullable) $$ 1 $$ expected $$ ( 1126, 1134 ) $$ dereference of possibly-null reference expected
+        if (!expected.equals(actual)) throw new AssertionError();
+             ^
+../dataset/url633772aa30_isma3l_Tp2_tgz-pJ8-ar_fiuba_tecnicas_framework_Pruebas_Casos1_MainJ8/src/ar/fiuba/tecnicas/framework/JTest/Assert.java:26: error: (dereference.of.nullable) $$ 1 $$ expected $$ ( 1297, 1305 ) $$ dereference of possibly-null reference expected
+        if (!expected.equals(actual)) throw new AssertionError(message);
+             ^
+../dataset/url633772aa30_isma3l_Tp2_tgz-pJ8-ar_fiuba_tecnicas_framework_Pruebas_Casos1_MainJ8/src/ar/fiuba/tecnicas/framework/JTest/Assert.java:59: error: (argument) $$ 4 $$ arg0 $$ Matcher.matches $$ T extends @Initialized @Nullable Object $$ @Initialized @NonNull Object $$ ( 3019, 3025 ) $$ incompatible argument for parameter arg0 of Matcher.matches.
+        if (!matcher.matches(actual)) throw new AssertionError(reason);
+                             ^
+  found   : T extends @Initialized @Nullable Object
+  required: @Initialized @NonNull Object
+../dataset/url633772aa30_isma3l_Tp2_tgz-pJ8-ar_fiuba_tecnicas_framework_Pruebas_Casos1_MainJ8/src/ar/fiuba/tecnicas/framework/JTest/Assert.java:62: error: (argument) $$ 4 $$ arg0 $$ Matcher.matches $$ T extends @Initialized @Nullable Object $$ @Initialized @NonNull Object $$ ( 3202, 3208 ) $$ incompatible argument for parameter arg0 of Matcher.matches.
+        if (!matcher.matches(actual)) throw new AssertionError();
+                             ^
+  found   : T extends @Initialized @Nullable Object
+  required: @Initialized @NonNull Object
+../dataset/url633772aa30_isma3l_Tp2_tgz-pJ8-ar_fiuba_tecnicas_framework_Pruebas_Casos1_MainJ8/src/ar/fiuba/tecnicas/framework/JTest/TestSuite.java:49: error: (initialization.fields.uninitialized) $$ 1 $$ context, suiteFather $$ ( 1457, 1612 ) $$ the constructor does not initialize fields: context, suiteFather
+    public TestSuite(String testname) {
+           ^
+../dataset/url633772aa30_isma3l_Tp2_tgz-pJ8-ar_fiuba_tecnicas_framework_Pruebas_Casos1_MainJ8/src/ar/fiuba/tecnicas/framework/JTest/TestSuite.java:55: error: (initialization.fields.uninitialized) $$ 1 $$ context, suiteFather $$ ( 1618, 1754 ) $$ the constructor does not initialize fields: context, suiteFather
+    public TestSuite() {
+           ^
+../dataset/url633772aa30_isma3l_Tp2_tgz-pJ8-ar_fiuba_tecnicas_framework_Pruebas_Casos1_MainJ8/src/ar/fiuba/tecnicas/framework/JTest/TestSuite.java:56: error: (assignment) $$ 2 $$ null (NullType) $$ @Initialized @NonNull String $$ ( 1661, 1665 ) $$ incompatible types in assignment.
+        this.testname=null;
+                      ^
+  found   : null (NullType)
+  required: @Initialized @NonNull String
+../dataset/url633772aa30_isma3l_Tp2_tgz-pJ8-ar_fiuba_tecnicas_framework_Pruebas_Casos1_MainJ8/src/ar/fiuba/tecnicas/framework/JTest/TestSuite.java:103: error: (argument) $$ 4 $$ exception $$ TestSuite.tearingDown $$ @Initialized @Nullable Throwable $$ @Initialized @NonNull Throwable $$ ( 3088, 3097 ) $$ incompatible argument for parameter exception of TestSuite.tearingDown.
+                tearingDown(exception);
+                            ^
+  found   : @Initialized @Nullable Throwable
+  required: @Initialized @NonNull Throwable
+../dataset/url633772aa30_isma3l_Tp2_tgz-pJ8-ar_fiuba_tecnicas_framework_Pruebas_Casos1_MainJ8/src/ar/fiuba/tecnicas/framework/JTest/XmlPrinter.java:17: error: (initialization.fields.uninitialized) $$ 1 $$ nameCase, time, throwable, fileWriter, printer $$ ( 368, 469 ) $$ the constructor does not initialize fields: nameCase, time, throwable, fileWriter, printer
+    public XmlPrinter() {
+           ^
+../dataset/url633772aa30_isma3l_Tp2_tgz-pJ8-ar_fiuba_tecnicas_framework_Pruebas_Casos1_MainJ8/src/ar/fiuba/tecnicas/framework/JTest/XmlPrinter.java:19: error: (method.invocation) $$ 3 $$ inicializar() $$ @UnderInitialization @NonNull XmlPrinter $$ @Initialized @NonNull XmlPrinter $$ ( 449, 462 ) $$ call to inicializar() not allowed on the given receiver.
+        inicializar();
+                   ^
+  found   : @UnderInitialization @NonNull XmlPrinter
+  required: @Initialized @NonNull XmlPrinter
+../dataset/url633772aa30_isma3l_Tp2_tgz-pJ8-ar_fiuba_tecnicas_framework_Pruebas_Casos1_MainJ8/src/ar/fiuba/tecnicas/framework/Pruebas/Casos1/SuiteATest.java:27: error: (argument) $$ 4 $$ expecteds $$ Assert.assertArrayEquals $$ @Initialized @NonNull Double @Initialized @Nullable [] $$ @Initialized @NonNull Double @Initialized @NonNull [] $$ ( 903, 944 ) $$ incompatible argument for parameter expecteds of Assert.assertArrayEquals.
+        Assert.assertArrayEquals("Arrays have different value",(Double[])suite.getContext().get("list1"),(Double[])suite.getContext().get("list2"));
+                                                               ^
+  found   : @Initialized @NonNull Double @Initialized @Nullable []
+  required: @Initialized @NonNull Double @Initialized @NonNull []
+../dataset/url633772aa30_isma3l_Tp2_tgz-pJ8-ar_fiuba_tecnicas_framework_Pruebas_Casos1_MainJ8/src/ar/fiuba/tecnicas/framework/Pruebas/Casos1/SuiteATest.java:27: error: (argument) $$ 4 $$ actuals $$ Assert.assertArrayEquals $$ @Initialized @NonNull Double @Initialized @Nullable [] $$ @Initialized @NonNull Double @Initialized @NonNull [] $$ ( 945, 986 ) $$ incompatible argument for parameter actuals of Assert.assertArrayEquals.
+        Assert.assertArrayEquals("Arrays have different value",(Double[])suite.getContext().get("list1"),(Double[])suite.getContext().get("list2"));
+                                                                                                         ^
+  found   : @Initialized @NonNull Double @Initialized @Nullable []
+  required: @Initialized @NonNull Double @Initialized @NonNull []
+../dataset/url633772aa30_isma3l_Tp2_tgz-pJ8-ar_fiuba_tecnicas_framework_Pruebas_Casos1_MainJ8/src/ar/fiuba/tecnicas/framework/Pruebas/Casos1/SuiteATest.java:30: error: (unboxing.of.nullable) $$ 1 $$ (Boolean)suite.getContext().get("trueCondition") $$ ( 1090, 1138 ) $$ unboxing a possibly-null reference (Boolean)suite.getContext().get("trueCondition")
+        Assert.assertTrue("The condition is false",(Boolean)suite.getContext().get("trueCondition"));
+                                                   ^
+19 errors

@@ -1,0 +1,456 @@
+/* @copyright 2013 Computer Science Department, Recursive InterNetworking Architecture (RINA) laboratory, Boston University. 
+ * All rights reserved. Permission to use, copy, modify, and distribute this software and its documentation
+ * for any purpose and without fee is hereby granted, provided that the above copyright notice appear in all 
+ * copies and that both the copyright notice and this permission notice appear in supporting documentation. 
+ * The RINA laboratory of the Computer Science Department at Boston University makes no 
+ * representations about the suitability of this software for any purpose.
+ */
+package UDPConnector;
+
+import java.net.InetAddress;
+import java.util.ArrayList;
+import java.util.Date;
+import java.util.HashMap;
+import java.util.LinkedList;
+import java.util.List;
+import java.util.Map;
+import java.util.Queue;
+import java.util.concurrent.ScheduledThreadPoolExecutor;
+import java.util.concurrent.ScheduledFuture;
+import java.util.concurrent.TimeUnit;
+
+/**
+ * @author Jan Horjus
+ */
+@org.checkerframework.framework.qual.AnnotatedFor("org.checkerframework.checker.nullness.NullnessChecker")
+public class EfcpConnector implements ConnectorInterface {
+
+    /// The ConnectorInterface functions:
+    @org.checkerframework.dataflow.qual.Impure
+    public void SetPeerAddress(@org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.NonNull EfcpConnector this, @org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.NonNull InetAddress peerAddress,  @org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.NonNull int port) {
+        m_innerConnection.SetPeerAddress(peerAddress, port);
+    }
+
+    @org.checkerframework.dataflow.qual.Impure
+    public @org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.NonNull List<byte[]> Receive(@org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.NonNull EfcpConnector this,  @org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.NonNull int maxBlockingTimeInMs) {
+        // This is for delivering data up to...delimiting, I think. It needs
+        // to deliver a list of the buffers from the DtpPacket objects.
+        List<byte[]> retVal = new ArrayList<>();
+        synchronized (m_receiverPacketsReady) {
+            if (m_receiverPacketsReady.isEmpty()) {
+                System.out.print("Efcp.Receive: Nothing available; waiting.\n");
+                try {
+                    m_receiverPacketsReady.wait(maxBlockingTimeInMs);
+                } catch (Exception ex) {
+                    System.out.print("Efcp.Receive: ERROR:" + ex.getMessage() + ".\n");
+                }
+            }
+            retVal.addAll(m_receiverPacketsReady);
+            m_receiverPacketsReady.clear();
+        }
+        return retVal;
+    }
+
+    @org.checkerframework.dataflow.qual.Impure
+    public  @org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.NonNull boolean Send(@org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.NonNull EfcpConnector this, @org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.NonNull String sendString) throws Exception {
+        return Send(sendString.getBytes());
+    }
+
+    @org.checkerframework.dataflow.qual.Impure
+    protected  @org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.NonNull boolean IsRateBasedFlowControlWindowOpen() {
+        Date now = new Date();
+        if (!m_policyInfo.RateFlowControlEnabled) {
+            return true;
+        }
+        if (now.getTime() > m_senderRateCurrentPeriodStartTime.getTime() + m_policyInfo.RateDefaultPeriodInMs) {
+            return true;
+        }
+        if (m_senderSendsSoFarThisPeriod < m_policyInfo.RateDefaultPaketsPerPeriod) {
+            return true;
+        }
+        System.out.print("Efcp: Rate based flow control engaged to close window.\n");
+        return false;
+    }
+
+    @org.checkerframework.dataflow.qual.Impure
+    protected void RateBasedFlowSend() {
+        if (!m_policyInfo.RateFlowControlEnabled) {
+            return;
+        }
+        synchronized (m_senderRateCurrentPeriodStartTime) {
+            Date now = new Date();
+            if (now.getTime() > m_senderRateCurrentPeriodStartTime.getTime() + m_policyInfo.RateDefaultPeriodInMs) {
+                m_senderRateCurrentPeriodStartTime = now;
+                m_senderSendsSoFarThisPeriod = 0;
+                System.out.print("***Efcp: Rate based flow control: new period started.\n");
+                // Set an event to fire off at the end of this period.
+                RatePeriodExpiredEvent event = this.new RatePeriodExpiredEvent(m_senderRateCurrentPeriodStartTime);
+                s_timedTaskExecutor.schedule(// Runnable task
+                event, // int initialDelay
+                m_policyInfo.RateDefaultPeriodInMs, // TimeUnit
+                TimeUnit.MILLISECONDS);
+            }
+        }
+        ++m_senderSendsSoFarThisPeriod;
+    }
+
+    @org.checkerframework.dataflow.qual.Impure
+    public  @org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.NonNull boolean Send(@org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.NonNull EfcpConnector this,  @org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.NonNull byte @org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.NonNull [] sendBuffer) throws Exception {
+        DtcpPacket packetToSend;
+        synchronized (this) {
+            // 1.) Wrap the data up in the packet.  Use a packet with DTP and EFCP fields.
+            //  This means giving it a sequence number, etc.
+            packetToSend = new DtcpPacket(//short destAddr
+            (short) 0, //short srcAddr
+            (short) 0, //short destCEPid
+            (short) 0, //short srcCEPid,
+            (short) 0, //byte qosid,
+            (byte) 0, //byte pdu_type,
+            EfcpConsts.PDU_TYPE_DATA, //byte flags,
+            (byte) 0, //int seqNum
+            m_senderNextSequenceNumber++, //byte[] payload
+            sendBuffer);
+        }
+        return SendPacket(packetToSend);
+    }
+
+    @org.checkerframework.dataflow.qual.Impure
+     @org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.NonNull boolean SendPacket(@org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.NonNull DtcpPacket packetToSend) throws Exception {
+        synchronized (this) {
+            System.out.print("Efcp:   SendPacket: Enter. \n");
+            // Check the window - do we have room or "credit" to send this packet?
+            if ((m_policyInfo.WindowFlowControlEnabled && packetToSend.getSeqNum() >= m_senderRightWindowEdge) || (!this.IsRateBasedFlowControlWindowOpen())) {
+                if (m_senderClosedWindowQueue.size() >= m_policyInfo.ClosedWindowQueueMaxSize) {
+                    System.out.print("Efcp Send: Cannot send; send window exhausted and backup queue full.\n");
+                    return false;
+                }
+                m_senderClosedWindowQueue.add(packetToSend);
+                System.out.print("Efcp Send: Send window closed: waiting packets=" + m_senderClosedWindowQueue.size() + " Buffer=" + new String(packetToSend.getPayload()) + ".\n");
+                return true;
+            }
+            // Assuming we have a green light to send, do the following:
+            // 2.) Shedule retransmission.
+            RetransmitEvent retransmitEvent = this.new RetransmitEvent(packetToSend);
+            ScheduledFuture retransTaskHandle = s_timedTaskExecutor.scheduleAtFixedRate(// Runnable task
+            retransmitEvent, // int initialDelay
+            m_policyInfo.RetransmitDelayInMs, // int period
+            m_policyInfo.RetransmitDelayInMs, // TimeUnit
+            TimeUnit.MILLISECONDS);
+            retransmitEvent.SetSelfCancelHandle(retransTaskHandle);
+            // 3.) Put the retransTaskHandle into the retransmission queue, so the
+            //  retransmit task can be canceled when an ack is received.
+            m_senderRetransmitQueue.put(packetToSend.getSeqNum(), retransTaskHandle);
+            // 4.) Update rate based flow comtrol.
+            RateBasedFlowSend();
+            // 5.) Send it!  Yay!
+            return m_innerConnection.Send(packetToSend.toBytes());
+        }
+    }
+
+    @org.checkerframework.dataflow.qual.Impure
+    public  @org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.NonNull boolean AddReceiveNotify(@org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.NonNull EfcpConnector this, ConnectorInterface.@org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.NonNull ReceiveNotifyInterface notifyMe) {
+        return m_innerConnection.AddReceiveNotify(notifyMe);
+    }
+
+    @org.checkerframework.dataflow.qual.Impure
+    public void StopReceiveThread(@org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.NonNull EfcpConnector this) {
+        m_innerConnection.StopReceiveThread();
+    }
+
+    @org.checkerframework.dataflow.qual.Impure
+    public void StartReceiveThread(@org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.NonNull EfcpConnector this) {
+        m_innerConnection.StartReceiveThread();
+    }
+
+    /// Member variables
+    @org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.NonNull ConnectorInterface m_innerConnection;
+
+    @org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.NonNull EfcpPolicyInfo m_policyInfo;
+
+    /// The thread pool executor is shared across instances.
+    static @org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.NonNull ScheduledThreadPoolExecutor s_timedTaskExecutor = // 8 should be plenty
+    new ScheduledThreadPoolExecutor(8);
+
+    /// Variables related to sender state.
+    @org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.NonNull Map<Integer, ScheduledFuture> m_senderRetransmitQueue = new HashMap<>();
+
+    @org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.NonNull Queue<DtcpPacket> m_senderClosedWindowQueue = new LinkedList<>();
+
+    @org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.NonNull Date m_senderRateCurrentPeriodStartTime = new Date(0);
+
+     @org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.NonNull int m_senderSendsSoFarThisPeriod = 0;
+
+     @org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.NonNull int m_senderLastPacketAcked = -1;
+
+    // initial test value
+     @org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.NonNull int m_senderNextSequenceNumber = 0;
+
+    // initial test value
+     @org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.NonNull int m_senderRightWindowEdge = 0;
+
+    /// Variables related to receiver state.
+    final @org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.NonNull List<byte[]> m_receiverPacketsReady = new ArrayList<>();
+
+    @org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.NonNull Map<Integer, byte[]> m_receiverPacketsOutOfOrder = new HashMap<>();
+
+    // initial test value
+     @org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.NonNull int m_receiverNextPacketToDeliver = 0;
+
+    // initial test value
+     @org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.NonNull int m_receiverWindowSize = 0;
+
+    /// Constructor
+    @org.checkerframework.dataflow.qual.Impure
+    EfcpConnector(@org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.NonNull ConnectorInterface unreliableConnection, @org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.NonNull EfcpPolicyInfo policyInfo) {
+        m_innerConnection = unreliableConnection;
+        m_policyInfo = policyInfo;
+        m_senderRightWindowEdge = m_policyInfo.WindowDefaultInitialSize;
+        m_receiverWindowSize = m_policyInfo.WindowDefaultInitialSize;
+        // We need to register to be notified whenever data is available to reveive
+        // from the managed connection, so we can immediately pick it up, process the
+        // headers and send an ack.
+        m_innerConnection.AddReceiveNotify(this.new PacketReceivedEvent());
+        // Efcp needs to be able to receive acks. No good talking without listening.
+        // Doing this in the constructor prevents errors in common use.
+        StartReceiveThread();
+    }
+
+    /// The RetransmitEvent implements Runnable
+    class RetransmitEvent implements Runnable {
+
+        @org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.NonNull DtcpPacket m_packetToRetransmit;
+
+         @org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.NonNull int m_timesRestransmitted = 0;
+
+        @org.checkerframework.dataflow.qual.SideEffectFree
+        RetransmitEvent(@org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.NonNull DtcpPacket packetToTransmit) {
+            m_packetToRetransmit = packetToTransmit;
+        }
+
+        @org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.MonotonicNonNull ScheduledFuture m_selfCancelHandle;
+
+        @org.checkerframework.checker.nullness.qual.EnsuresNonNull({ "this.m_selfCancelHandle" })
+        @org.checkerframework.dataflow.qual.Impure
+        void SetSelfCancelHandle(@org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.NonNull ScheduledFuture handle) {
+            m_selfCancelHandle = handle;
+        }
+
+        @org.checkerframework.framework.qual.EnsuresQualifier(expression = { "this.m_selfCancelHandle" }, qualifier = org.checkerframework.checker.nullness.qual.Nullable.class)
+        @org.checkerframework.dataflow.qual.Impure
+        public void run(@org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.NonNull RetransmitEvent this) {
+            // Just send it - most of the accounting is only done once.
+            // The exception is rate based flow control, which we still need to
+            // look out for...
+            try {
+                if (++m_timesRestransmitted > m_policyInfo.RetransmitMaxTimes) {
+                    throw new Exception("Failed to deliver packet " + m_packetToRetransmit.getSeqNum() + " after " + m_policyInfo.RetransmitMaxTimes + " tries!");
+                }
+                RateBasedFlowSend();
+                m_innerConnection.Send(m_packetToRetransmit.toBytes());
+            } catch (Exception ex) {
+                System.out.print("RetransmitEvent exception:" + ex.getMessage() + "\n");
+                m_selfCancelHandle.cancel(false);
+            }
+        }
+    }
+
+    /// PacketReceivedEvent: Inner class implements notify interface function
+    /// which is the primary receiving function.
+    class PacketReceivedEvent implements ConnectorInterface.ReceiveNotifyInterface {
+
+        @org.checkerframework.dataflow.qual.Impure
+        public void Notify(@org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.NonNull PacketReceivedEvent this, @org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.NonNull ConnectorInterface connection) {
+            //System.out.print("Efcp:PacketReceivedEvent: Enter.\n");
+            // 1.) Call receive on the inner connection.
+            List<byte[]> rawPacketsReceived = new ArrayList<>();
+            try {
+                rawPacketsReceived = m_innerConnection.Receive(0);
+            } catch (Exception ex) {
+                System.out.print("PacketReceivedEvent: Error receiving from inner connection: " + ex.getMessage() + ".\n");
+            }
+            // 2.) Loop through and process each packet buffer received.
+            for (byte[] rawPacket : rawPacketsReceived) {
+                // 1.) Deserialize the data into a packet object - so we can see its
+                // sequence number and other relevant header fields.
+                DtcpPacket packet = new DtcpPacket(rawPacket);
+                // 2.) Check the sequence number of the incoming packet. If it's the
+                // next expected packet, then we can immediately make it available
+                // (notify receivers above us) and send an Ack.  May do both of these
+                // things for other packets if this one filled a gap.
+                switch(packet.getPdu_type()) {
+                    case EfcpConsts.PDU_TYPE_DATA:
+                        {
+                            if (packet.getSeqNum() == m_receiverNextPacketToDeliver) {
+                                synchronized (m_receiverPacketsReady) {
+                                    System.out.print("Efcp received packet " + packet.getSeqNum() + " in order!\n");
+                                    m_receiverPacketsReady.add(packet.getPayload());
+                                    ++m_receiverNextPacketToDeliver;
+                                    // Check the out-of-order packets for any next packets.
+                                    while (m_receiverPacketsOutOfOrder.containsKey(m_receiverNextPacketToDeliver)) {
+                                        // Move the packet from the out of order list to the ready list
+                                        // and increment m_receiverNextPacketToDeliver.
+                                        System.out.print("Efcp returning packet " + m_receiverNextPacketToDeliver + " after filled gap!\n");
+                                        m_receiverPacketsReady.add(m_receiverPacketsOutOfOrder.get(m_receiverNextPacketToDeliver));
+                                        m_receiverPacketsOutOfOrder.remove(m_receiverNextPacketToDeliver);
+                                        ++m_receiverNextPacketToDeliver;
+                                    }
+                                    // Wake up any waiting receive.
+                                    m_receiverPacketsReady.notify();
+                                }
+                                SendAck();
+                            } else // 3.) If its an out of order packet we save it for later, but only
+                            // ack if selective acks are enabled. We may nack the next expected
+                            // packet in this case also, depending on policy.
+                            if (packet.getSeqNum() < m_receiverNextPacketToDeliver) {
+                                // We already have this packet; resend the
+                                System.out.print("Received duplicate packet " + packet.getSeqNum() + ":" + new String(packet.getPayload()) + "\n");
+                                SendAck();
+                            } else // packet.getSeqNum() > m_receiverNextPacketToDeliver, so there's a gap.
+                            {
+                                // Don't add duplicates to the out-of-order packets list.
+                                if (!m_receiverPacketsOutOfOrder.containsKey(packet.getSeqNum())) {
+                                    m_receiverPacketsOutOfOrder.put(packet.getSeqNum(), packet.getPayload());
+                                }
+                                //TODO: Sellective ack logic and nack logic.
+                            }
+                            break;
+                        }
+                    case EfcpConsts.PDU_TYPE_ACK_ONLY:
+                        {
+                            ReceiveAck(packet.AckSeqNum);
+                            break;
+                        }
+                    case EfcpConsts.PDU_TYPE_FLOW_ACK:
+                        {
+                            ReceiveAck(packet.AckSeqNum);
+                            ReceiveFlowControl(packet);
+                            break;
+                        }
+                    case EfcpConsts.PDU_TYPE_FLOW_ONLY:
+                        {
+                            ReceiveFlowControl(packet);
+                            break;
+                        }
+                }
+            }
+            // 3.) Add ourselves back onto the inner connections notify list, so we'll
+            // be notified of future receives.
+            m_innerConnection.AddReceiveNotify(this);
+        }
+
+        @org.checkerframework.dataflow.qual.Impure
+        void SendAck() {
+            byte pduType;
+            if (m_policyInfo.WindowFlowControlEnabled || m_policyInfo.RateFlowControlEnabled)
+                pduType = m_policyInfo.RetransmitEnabled ? EfcpConsts.PDU_TYPE_FLOW_ACK : EfcpConsts.PDU_TYPE_FLOW_ONLY;
+            else
+                pduType = m_policyInfo.RetransmitEnabled ? EfcpConsts.PDU_TYPE_ACK_ONLY : EfcpConsts.PDU_TYPE_CONTROL;
+            // Send an ack back to the sender.
+            DtcpPacket ackToSend = new DtcpPacket(//short destAddr
+            (short) 0, //short srcAddr
+            (short) 0, //short destCEPid
+            (short) 0, //short srcCEPid
+            (short) 0, //byte qosid
+            (byte) 0, //byte pdu_type
+            pduType, //byte flags
+            (byte) 0, //int seqNum - control packets not yet using this.
+            (int) 0, //byte[] payload
+            "CTRL".getBytes());
+            // Set the actual control data fields in the packet.
+            if (m_policyInfo.RetransmitEnabled)
+                //int seqNum
+                ackToSend.AckSeqNum = m_receiverNextPacketToDeliver - 1;
+            if (m_policyInfo.WindowFlowControlEnabled)
+                ackToSend.NewRightWindowEdge = m_receiverNextPacketToDeliver + m_policyInfo.WindowDefaultInitialSize;
+            if (m_policyInfo.RateFlowControlEnabled) {
+                ackToSend.NewDataPeriodInMs = m_policyInfo.RateDefaultPeriodInMs;
+                ackToSend.NewDataRate = m_policyInfo.RateDefaultPaketsPerPeriod;
+            }
+            try {
+                m_innerConnection.Send(ackToSend.toBytes());
+                System.out.print("Efcp Sending Ack:" + (m_receiverNextPacketToDeliver - 1) + "\n");
+            } catch (Exception ex) {
+                System.out.print("Exception Sending Ack:" + ex.getMessage() + "\n");
+            }
+        }
+
+        @org.checkerframework.dataflow.qual.Impure
+        void ReceiveAck( @org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.NonNull int sequenceNum) {
+            System.out.print("Efcp: Ack Received: seq=" + sequenceNum + "\n");
+            if (m_senderLastPacketAcked >= sequenceNum) {
+                System.out.print("Ignoring redundant Ack. lastAck=" + m_senderLastPacketAcked + "\n");
+                return;
+            }
+            //1.) Cancel all retransmission events for packets with
+            // sequence numbers <= the acked sequence number.
+            while (m_senderLastPacketAcked < sequenceNum) {
+                ScheduledFuture task = m_senderRetransmitQueue.get(++m_senderLastPacketAcked);
+                task.cancel(false);
+            }
+        }
+
+        @org.checkerframework.dataflow.qual.Impure
+        void ReceiveFlowControl(@org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.NonNull DtcpPacket packet) {
+            if (m_senderRightWindowEdge < packet.NewRightWindowEdge) {
+                System.out.print("Efcp: Flow control received. right window edge from " + m_senderRightWindowEdge + " to " + packet.NewRightWindowEdge + ".\n");
+                // Set the new right window edge.
+                m_senderRightWindowEdge = packet.NewRightWindowEdge;
+                // Rate based control:
+                if (m_policyInfo.RateFlowControlEnabled) {
+                    m_policyInfo.RateDefaultPeriodInMs = packet.NewDataPeriodInMs;
+                    m_policyInfo.RateDefaultPaketsPerPeriod = packet.NewDataRate;
+                }
+            }
+            //2.) If there are packet waiting on the closed window queue,
+            // immediately send as many of them as the new window allows.
+            while (!m_senderClosedWindowQueue.isEmpty() && m_senderRightWindowEdge > m_senderClosedWindowQueue.peek().getSeqNum() && IsRateBasedFlowControlWindowOpen()) {
+                try {
+                    SendPacket(m_senderClosedWindowQueue.remove());
+                } catch (Exception ex) {
+                    System.out.print("Exception Sending: " + ex.getMessage() + "\n");
+                }
+            }
+        }
+    }
+
+    class RatePeriodExpiredEvent implements Runnable {
+
+        @org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.NonNull Date m_scheduleTime;
+
+        @org.checkerframework.dataflow.qual.SideEffectFree
+        RatePeriodExpiredEvent(@org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.NonNull Date now) {
+            m_scheduleTime = now;
+        }
+
+        @org.checkerframework.dataflow.qual.Impure
+        public void run(@org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.NonNull RatePeriodExpiredEvent this) {
+            System.out.print("***Efcp: Rate based flow control period expired. Packets Waiting=" + m_senderClosedWindowQueue.size() + " windowEdge=" + m_senderRightWindowEdge + "\n");
+            //1.) Reset the rate period data.
+            synchronized (m_senderRateCurrentPeriodStartTime) {
+                if (m_senderRateCurrentPeriodStartTime == m_scheduleTime) {
+                    if (!m_senderClosedWindowQueue.isEmpty()) {
+                        m_senderSendsSoFarThisPeriod = 0;
+                        m_senderRateCurrentPeriodStartTime = new Date();
+                        m_scheduleTime = m_senderRateCurrentPeriodStartTime;
+                        s_timedTaskExecutor.schedule(// Runnable task
+                        this, // MAY HAVE CHANGED
+                        m_policyInfo.RateDefaultPeriodInMs, // TimeUnit
+                        TimeUnit.MILLISECONDS);
+                    } else {
+                        // If this function has executed, the period MUST be expired or reset.
+                        m_senderRateCurrentPeriodStartTime = new Date(0);
+                    }
+                }
+            }
+            //2.) If there are packet waiting on the closed window queue,
+            // immediately send as many of them as the new window allows.
+            while (!m_senderClosedWindowQueue.isEmpty() && m_senderRightWindowEdge > m_senderClosedWindowQueue.peek().getSeqNum() && IsRateBasedFlowControlWindowOpen()) {
+                try {
+                    SendPacket(m_senderClosedWindowQueue.remove());
+                } catch (Exception ex) {
+                    System.out.print("Exception Sending: " + ex.getMessage() + "\n");
+                }
+            }
+        }
+    }
+}

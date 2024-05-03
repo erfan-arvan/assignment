@@ -1,0 +1,68 @@
+package org.delaunay.model;
+
+import org.delaunay.algorithm.Triangulation;
+import org.delaunay.algorithm.Triangulation.InvalidVertexException;
+import com.google.common.collect.BiMap;
+import com.google.common.collect.HashBiMap;
+
+/**
+ * A map that stores the models on vertices of a Delaunay Triangulation.
+ */
+@org.checkerframework.framework.qual.AnnotatedFor("org.checkerframework.checker.nullness.NullnessChecker")
+public class TriangulationMap<T> {
+
+    private final @org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.NonNull BiMap<Vertex, T> map = HashBiMap.create();
+
+    private final @org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.NonNull Triangulation triangulation = new Triangulation();
+
+    @org.checkerframework.dataflow.qual.Impure
+    public TriangulationMap() {
+        triangulation.setKeepSuperTriangle(true);
+    }
+
+    @org.checkerframework.dataflow.qual.Impure
+    public void clear() {
+        map.clear();
+        triangulation.clear();
+    }
+
+    @org.checkerframework.dataflow.qual.Pure
+    public  @org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.NonNull boolean contains(double x, double y) {
+        return map.containsKey(new Vertex(x, y));
+    }
+
+    @org.checkerframework.dataflow.qual.Impure
+    public @org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.NonNull Vertex put( @org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.NonNull double x,  @org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.NonNull double y, T value) {
+        Vertex vert = new Vertex(x, y);
+        triangulation.addVertex(vert);
+        map.put(vert, value);
+        return vert;
+    }
+
+    @org.checkerframework.dataflow.qual.Impure
+    public void triangulate() throws InvalidVertexException {
+        triangulation.triangulate();
+    }
+
+    @org.checkerframework.dataflow.qual.Pure
+    public @org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.NonNull Triangulation getTriangulation() {
+        return triangulation;
+    }
+
+    @org.checkerframework.dataflow.qual.Impure
+    public @org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.Nullable Vertex getVertex(T value) {
+        return map.inverse().get(value);
+    }
+
+    @org.checkerframework.checker.nullness.qual.EnsuresNonNull({ "#1" })
+    @org.checkerframework.dataflow.qual.Pure
+    public T get(@org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.Nullable Vertex v) {
+        return map.get(v);
+    }
+
+    @org.checkerframework.dataflow.qual.Impure
+    public T locate(double x, double y) {
+        Vertex vert = triangulation.locateNearestVertex(new Vector(x, y));
+        return get(vert);
+    }
+}

@@ -1,0 +1,3 @@
+deps.ui.inspection.kotlin.reflect.jvm.internal.impl.load.java.FieldOverridabilityCondition
+deps.ui.inspection.kotlin.reflect.jvm.internal.impl.load.java.ErasedOverridabilityCondition
+deps.ui.inspection.kotlin.reflect.jvm.internal.impl.load.java.JavaIncompatibilityRulesOverridabilityCondition

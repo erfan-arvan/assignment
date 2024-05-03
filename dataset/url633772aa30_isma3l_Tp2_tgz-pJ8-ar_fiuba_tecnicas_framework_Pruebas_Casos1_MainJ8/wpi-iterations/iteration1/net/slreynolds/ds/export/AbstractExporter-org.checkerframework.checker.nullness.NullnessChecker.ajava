@@ -1,0 +1,26 @@
+package net.slreynolds.ds.export;
+
+import java.awt.Color;
+import java.util.List;
+
+@org.checkerframework.framework.qual.AnnotatedFor("org.checkerframework.checker.nullness.NullnessChecker")
+public abstract class AbstractExporter implements Exporter {
+
+    private @org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.NonNull Color @org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.NonNull [] colors = new Color[] { new Color(252, 167, 144), new Color(238, 252, 144), new Color(211, 144, 252), new Color(144, 238, 252), new Color(144, 148, 252), new Color(160, 252, 144) };
+
+    @org.checkerframework.dataflow.qual.Impure
+    public void setColors(@org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.NonNull List<Color> cs) {
+        if (cs == null || cs.size() <= 0) {
+            throw new IllegalArgumentException("Colors list cannot be null or empty");
+        }
+        colors = cs.toArray(new Color[cs.size()]);
+    }
+
+    @org.checkerframework.dataflow.qual.Pure
+    protected @org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.NonNull Color getColor( @org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.NonNull int generation) {
+        if (generation > colors.length) {
+            throw new IllegalStateException("Generation " + generation + " exceeds number of colors " + colors.length);
+        }
+        return colors[generation];
+    }
+}

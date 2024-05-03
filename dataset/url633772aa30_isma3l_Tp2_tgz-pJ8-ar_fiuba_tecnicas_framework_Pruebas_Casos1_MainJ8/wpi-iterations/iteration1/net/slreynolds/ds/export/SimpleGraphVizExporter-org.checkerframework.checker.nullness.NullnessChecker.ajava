@@ -1,0 +1,71 @@
+package net.slreynolds.ds.export;
+
+import java.awt.Color;
+import java.io.IOException;
+import java.io.PrintStream;
+import java.util.Map;
+
+/**
+ * (simpler)Export graph to  GraphViz file format. Compared to GraphVizExporter,
+ * suppresses internal fields for objects. See
+ * <a href="http://www.graphviz.org/">graphviz.org</a>.
+ */
+@org.checkerframework.framework.qual.AnnotatedFor("org.checkerframework.checker.nullness.NullnessChecker")
+public class SimpleGraphVizExporter extends AbstractSimpleExporter {
+
+    private @org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.MonotonicNonNull PrintStream ostream = null;
+
+    private @org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.NonNull String name = "";
+
+    @org.checkerframework.checker.nullness.qual.EnsuresNonNull({ "this.ostream" })
+    @org.checkerframework.dataflow.qual.Impure
+    protected void resetExportSession(@org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.NonNull SimpleGraphVizExporter this, @org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.NonNull Map<String, Object> opts) throws IOException {
+        super.resetExportSession(opts);
+        ostream = makePrintStream(opts);
+        name = ExporterUtils.name((String) opts.get(ExporterOptions.OUTPUT_PATH));
+    }
+
+    @org.checkerframework.checker.nullness.qual.EnsuresNonNull({ "this.ostream" })
+    @org.checkerframework.dataflow.qual.Impure
+    protected void startExportSession(@org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.NonNull SimpleGraphVizExporter this) {
+        ostream.printf("digraph %s {\n", ExporterUtils.encloseInQuotes(ExporterUtils.name(name)));
+        ostream.printf("\n   node [shape=ellipse];\n");
+    }
+
+    @org.checkerframework.checker.nullness.qual.EnsuresNonNull({ "this.ostream" })
+    @org.checkerframework.dataflow.qual.Impure
+    protected void exportVertex(@org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.NonNull SimpleGraphVizExporter this, @org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.NonNull ExportVertex vertex) {
+        Color c = getColor(vertex.getGeneration());
+        String shapeSpecifier;
+        if (vertex.getVertexType() == VertexType.SYMBOL) {
+            shapeSpecifier = "shape=plaintext";
+        } else {
+            shapeSpecifier = "";
+        }
+        ostream.printf("node%s", filterID(vertex.getID()));
+        ostream.printf("[label = \"%s\" %s", vertex.getLabel(), shapeSpecifier);
+        ostream.printf(" fillcolor=\"#%2x%2x%2x\" style=filled ", c.getRed(), c.getGreen(), c.getBlue());
+        ostream.printf("];\n");
+    }
+
+    @org.checkerframework.checker.nullness.qual.EnsuresNonNull({ "this.ostream" })
+    @org.checkerframework.dataflow.qual.Impure
+    protected void exportEdge(@org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.NonNull SimpleGraphVizExporter this, @org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.NonNull ExportEdge edge) {
+        ostream.printf("   node%s -> node%s [ label = \"%s\" ];\n", filterID(edge.getFromID()), filterID(edge.getToID()), edge.getLabel());
+    }
+
+    @org.checkerframework.checker.nullness.qual.EnsuresNonNull({ "this.ostream" })
+    @org.checkerframework.dataflow.qual.Impure
+    protected void finishExportSession(@org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.NonNull SimpleGraphVizExporter this) {
+        ostream.print("}");
+        ostream.close();
+    }
+
+    @org.checkerframework.dataflow.qual.Pure
+    private static @org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.NonNull String filterID( @org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.NonNull int id) {
+        if (id >= 0) {
+            return String.format("%d", id);
+        }
+        return String.format("m%d", -id);
+    }
+}

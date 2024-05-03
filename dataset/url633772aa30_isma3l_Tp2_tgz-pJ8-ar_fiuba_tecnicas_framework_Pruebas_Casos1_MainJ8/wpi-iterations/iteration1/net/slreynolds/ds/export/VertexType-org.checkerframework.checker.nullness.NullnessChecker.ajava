@@ -1,0 +1,7 @@
+package net.slreynolds.ds.export;
+
+@org.checkerframework.framework.qual.AnnotatedFor("org.checkerframework.checker.nullness.NullnessChecker")
+enum VertexType {
+
+    PLAIN, ARRAY, ARRAY_ELEMENT, SYMBOL
+}

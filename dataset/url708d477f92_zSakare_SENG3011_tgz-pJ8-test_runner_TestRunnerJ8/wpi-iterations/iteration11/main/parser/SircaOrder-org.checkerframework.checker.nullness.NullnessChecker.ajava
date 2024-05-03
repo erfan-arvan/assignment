@@ -1,0 +1,224 @@
+package main.parser;
+
+/**
+ * CSV parsed orders. Non type descriptive fields for each order, bare bones for containing basic information.
+ */
+@org.checkerframework.framework.qual.AnnotatedFor("org.checkerframework.checker.nullness.NullnessChecker")
+public class SircaOrder {
+
+    private @org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.MonotonicNonNull String instrument;
+
+    private @org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.MonotonicNonNull String date;
+
+    private @org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.MonotonicNonNull String time;
+
+    private @org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.MonotonicNonNull String recordType;
+
+    private @org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.MonotonicNonNull String price;
+
+    private @org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.MonotonicNonNull String volume;
+
+    private @org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.MonotonicNonNull String undisclosedVolume;
+
+    private @org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.MonotonicNonNull String value;
+
+    private @org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.MonotonicNonNull String qualifiers;
+
+    private @org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.MonotonicNonNull String transactionId;
+
+    private @org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.MonotonicNonNull String bidId;
+
+    private @org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.MonotonicNonNull String askId;
+
+    private @org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.MonotonicNonNull String bidOrAsk;
+
+    private @org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.MonotonicNonNull String entryTime;
+
+    private @org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.MonotonicNonNull String oldPrice;
+
+    private @org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.MonotonicNonNull String oldVolume;
+
+    private @org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.MonotonicNonNull String buyerBrokerId;
+
+    private @org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.MonotonicNonNull String sellerBrokerId;
+
+    @org.checkerframework.dataflow.qual.Pure
+    public @org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.NonNull String getInstrument() {
+        return instrument;
+    }
+
+    @org.checkerframework.dataflow.qual.Impure
+    public void setInstrument(final String instrument) {
+        this.instrument = instrument;
+    }
+
+    @org.checkerframework.dataflow.qual.Pure
+    public @org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.NonNull String getDate() {
+        return date;
+    }
+
+    @org.checkerframework.dataflow.qual.Impure
+    public void setDate(final String date) {
+        this.date = date;
+    }
+
+    @org.checkerframework.dataflow.qual.Pure
+    public @org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.NonNull String getTime() {
+        return time;
+    }
+
+    @org.checkerframework.dataflow.qual.Impure
+    public void setTime(final String time) {
+        this.time = time;
+    }
+
+    @org.checkerframework.dataflow.qual.Pure
+    public @org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.NonNull String getRecordType() {
+        return recordType;
+    }
+
+    @org.checkerframework.dataflow.qual.Impure
+    public void setRecordType(final String recordType) {
+        this.recordType = recordType;
+    }
+
+    @org.checkerframework.dataflow.qual.Pure
+    public @org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.NonNull String getPrice() {
+        return price;
+    }
+
+    @org.checkerframework.dataflow.qual.Impure
+    public void setPrice(final String price) {
+        this.price = price;
+    }
+
+    @org.checkerframework.dataflow.qual.Pure
+    public @org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.NonNull String getVolume() {
+        return volume;
+    }
+
+    @org.checkerframework.dataflow.qual.Impure
+    public void setVolume(final String volume) {
+        this.volume = volume;
+    }
+
+    @org.checkerframework.dataflow.qual.Pure
+    public @org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.NonNull String getUndisclosedVolume() {
+        return undisclosedVolume;
+    }
+
+    @org.checkerframework.dataflow.qual.Impure
+    public void setUndisclosedVolume(final String undisclosedVolume) {
+        this.undisclosedVolume = undisclosedVolume;
+    }
+
+    @org.checkerframework.dataflow.qual.Pure
+    public @org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.NonNull String getValue() {
+        return value;
+    }
+
+    @org.checkerframework.dataflow.qual.Impure
+    public void setValue(final String value) {
+        this.value = value;
+    }
+
+    @org.checkerframework.dataflow.qual.Pure
+    public @org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.NonNull String getQualifiers() {
+        return qualifiers;
+    }
+
+    @org.checkerframework.dataflow.qual.Impure
+    public void setQualifiers(final String qualifiers) {
+        this.qualifiers = qualifiers;
+    }
+
+    @org.checkerframework.dataflow.qual.Pure
+    public @org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.NonNull String getTransactionId() {
+        return transactionId;
+    }
+
+    @org.checkerframework.dataflow.qual.Impure
+    public void setTransactionId(final String transactionId) {
+        this.transactionId = transactionId;
+    }
+
+    @org.checkerframework.dataflow.qual.Pure
+    public @org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.NonNull String getBidId() {
+        return bidId;
+    }
+
+    @org.checkerframework.dataflow.qual.Impure
+    public void setBidId(final String bidId) {
+        this.bidId = bidId;
+    }
+
+    @org.checkerframework.dataflow.qual.Pure
+    public @org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.NonNull String getAskId() {
+        return askId;
+    }
+
+    @org.checkerframework.dataflow.qual.Impure
+    public void setAskId(final String askId) {
+        this.askId = askId;
+    }
+
+    @org.checkerframework.dataflow.qual.Pure
+    public @org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.NonNull String getBidOrAsk() {
+        return bidOrAsk;
+    }
+
+    @org.checkerframework.dataflow.qual.Impure
+    public void setBidOrAsk(final String bidOrAsk) {
+        this.bidOrAsk = bidOrAsk;
+    }
+
+    @org.checkerframework.dataflow.qual.Pure
+    public @org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.NonNull String getEntryTime() {
+        return entryTime;
+    }
+
+    @org.checkerframework.dataflow.qual.Impure
+    public void setEntryTime(final String entryTime) {
+        this.entryTime = entryTime;
+    }
+
+    @org.checkerframework.dataflow.qual.Pure
+    public @org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.NonNull String getOldPrice() {
+        return oldPrice;
+    }
+
+    @org.checkerframework.dataflow.qual.Impure
+    public void setOldPrice(final String oldPrice) {
+        this.oldPrice = oldPrice;
+    }
+
+    @org.checkerframework.dataflow.qual.Pure
+    public @org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.NonNull String getOldVolume() {
+        return oldVolume;
+    }
+
+    @org.checkerframework.dataflow.qual.Impure
+    public void setOldVolume(final String oldVolume) {
+        this.oldVolume = oldVolume;
+    }
+
+    @org.checkerframework.dataflow.qual.Pure
+    public @org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.NonNull String getBuyerBrokerId() {
+        return buyerBrokerId;
+    }
+
+    @org.checkerframework.dataflow.qual.Impure
+    public void setBuyerBrokerId(final String buyerBrokerId) {
+        this.buyerBrokerId = buyerBrokerId;
+    }
+
+    @org.checkerframework.dataflow.qual.Pure
+    public @org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.NonNull String getSellerBrokerId() {
+        return sellerBrokerId;
+    }
+
+    @org.checkerframework.dataflow.qual.Impure
+    public void setSellerBrokerId(final String sellerBrokerId) {
+        this.sellerBrokerId = sellerBrokerId;
+    }
+}

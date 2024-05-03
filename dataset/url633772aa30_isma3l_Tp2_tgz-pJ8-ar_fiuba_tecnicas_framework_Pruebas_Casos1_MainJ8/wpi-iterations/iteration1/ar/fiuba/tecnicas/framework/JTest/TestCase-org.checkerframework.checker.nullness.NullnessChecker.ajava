@@ -1,0 +1,138 @@
+package ar.fiuba.tecnicas.framework.JTest;
+
+/*
+Responsabilidad: Ejecutar test con metodos que permitan ejecutar algo antes y algo despues del test
+ */
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.List;
+
+@org.checkerframework.framework.qual.AnnotatedFor("org.checkerframework.checker.nullness.NullnessChecker")
+public abstract class TestCase extends Assert implements Test {
+
+    private @org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.NonNull List<String> tags;
+
+    private  @org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.NonNull boolean skip;
+
+    private @org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.NonNull String testname;
+
+    private @org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.NonNull HashMap<String, Object> context;
+
+    @org.checkerframework.dataflow.qual.Pure
+    public @org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.NonNull String getTestname() {
+        return testname;
+    }
+
+    @org.checkerframework.dataflow.qual.Pure
+    public @org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.NonNull HashMap<String, Object> getContext() {
+        return context;
+    }
+
+    @org.checkerframework.dataflow.qual.Impure
+    public void tearingDown(@org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.Nullable Throwable exception) {
+        try {
+            tearDown();
+        } catch (Throwable tearingDown) {
+            if (exception == null)
+                exception = tearingDown;
+        }
+    }
+
+    @org.checkerframework.dataflow.qual.Impure
+    public TestCase(@org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.NonNull String testname) {
+        tags = new ArrayList<String>();
+        skip = false;
+        this.testname = testname;
+        context = new HashMap<String, Object>();
+    }
+
+    @org.checkerframework.dataflow.qual.Impure
+    public TestCase(@org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.NonNull String testname, @org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.NonNull List<String> tags) {
+        this.tags = tags;
+        skip = false;
+        this.testname = testname;
+        context = new HashMap<String, Object>();
+    }
+
+    @org.checkerframework.dataflow.qual.SideEffectFree
+    public void setUp(@org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.NonNull TestCase this) {
+    }
+
+    @org.checkerframework.dataflow.qual.SideEffectFree
+    public void tearDown(@org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.NonNull TestCase this) {
+    }
+
+    @org.checkerframework.dataflow.qual.Impure
+    public void run(@org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.NonNull TestCase this, @org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.NonNull TestReport testReport) {
+        testReport.run(this);
+        testReport.setFirsttimeintest(false);
+    }
+
+    @org.checkerframework.dataflow.qual.Pure
+    public  @org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.NonNull int countTestCases(@org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.NonNull TestCase this) {
+        return 1;
+    }
+
+    @org.checkerframework.dataflow.qual.Impure
+    public abstract void runTest();
+
+    @org.checkerframework.dataflow.qual.Impure
+    public void runTestSequence() throws Throwable {
+        Throwable exception = null;
+        setUp();
+        try {
+            runTest();
+        } catch (Throwable running) {
+            exception = running;
+        } finally {
+            tearingDown(exception);
+        }
+        if (exception != null)
+            throw exception;
+    }
+
+    @org.checkerframework.dataflow.qual.Impure
+    public void addTag(@org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.NonNull String tag) {
+        tags.add(tag);
+    }
+
+    @org.checkerframework.dataflow.qual.Impure
+    public void addAllTags(List<String> tags) {
+        this.tags.addAll(tags);
+    }
+
+    @org.checkerframework.dataflow.qual.Pure
+    public  @org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.NonNull boolean containsTag(String tag) {
+        return tags.contains(tag);
+    }
+
+    @org.checkerframework.dataflow.qual.Pure
+    public  @org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.NonNull boolean containsAllTags(List<String> tags) {
+        return this.tags.containsAll(tags);
+    }
+
+    @org.checkerframework.dataflow.qual.Pure
+    public @org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.NonNull List<String> getTags() {
+        return tags;
+    }
+
+    @org.checkerframework.dataflow.qual.Impure
+    public @org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.NonNull String toString(@org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.NonNull TestCase this) {
+        return getTestname();
+    }
+
+    @org.checkerframework.dataflow.qual.Impure
+    public void skip() {
+        skip = true;
+    }
+
+    @org.checkerframework.dataflow.qual.Impure
+    public void unSkype() {
+        skip = false;
+    }
+
+    @org.checkerframework.dataflow.qual.Pure
+    public  @org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.NonNull boolean getSkip() {
+        return skip;
+    }
+}

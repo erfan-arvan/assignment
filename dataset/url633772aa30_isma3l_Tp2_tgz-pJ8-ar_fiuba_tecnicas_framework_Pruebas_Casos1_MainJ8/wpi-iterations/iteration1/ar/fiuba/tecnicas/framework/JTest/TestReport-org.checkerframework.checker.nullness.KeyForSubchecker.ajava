@@ -1,0 +1,165 @@
+package ar.fiuba.tecnicas.framework.JTest;
+
+import java.util.ArrayList;
+import java.util.List;
+
+@org.checkerframework.framework.qual.AnnotatedFor("org.checkerframework.checker.nullness.KeyForSubchecker")
+public class TestReport {
+
+    private  List<TestListener> testListeners;
+
+    private   int runTests;
+
+    private   int oktest;
+
+    private   int errortest;
+
+    private   int failedtest;
+
+    private   boolean firsttimeintest;
+
+    private  PatternRecognizer recognizerExpressionsTestcase;
+
+    private  PatternRecognizer recognizerExpressionsTestsuite;
+
+    private  RecognizerTag recognizerTags;
+
+    @org.checkerframework.dataflow.qual.Impure
+    public void setFirsttimeintest( TestReport this,   boolean firsttimeintest) {
+        this.firsttimeintest = firsttimeintest;
+    }
+
+    @org.checkerframework.dataflow.qual.SideEffectFree
+    public TestReport() {
+        testListeners = new ArrayList<TestListener>();
+        runTests = 0;
+        oktest = 0;
+        errortest = 0;
+        failedtest = 0;
+        firsttimeintest = true;
+        recognizerExpressionsTestcase = null;
+        recognizerExpressionsTestsuite = null;
+        recognizerTags = null;
+    }
+
+    @org.checkerframework.dataflow.qual.Impure
+    public void initializeRecognizerExpression(String testcaseregexp, String testsuiteregexp) {
+        recognizerExpressionsTestcase = new PatternRecognizer(testcaseregexp);
+        recognizerExpressionsTestsuite = new PatternRecognizer(testsuiteregexp);
+    }
+
+    @org.checkerframework.dataflow.qual.Impure
+    public void setRecognizerExpressionsTestcase( TestReport this,  PatternRecognizer recognizer) {
+        recognizerExpressionsTestcase = recognizer;
+    }
+
+    @org.checkerframework.dataflow.qual.Impure
+    public void setRecognizerExpressionsTestsuite( TestReport this,  PatternRecognizer recognizer) {
+        recognizerExpressionsTestsuite = recognizer;
+    }
+
+    @org.checkerframework.dataflow.qual.Impure
+    public void setRecognizerTag( TestReport this,  RecognizerTag recognizerTags) {
+        this.recognizerTags = recognizerTags;
+    }
+
+    @org.checkerframework.dataflow.qual.Impure
+    public void addSuccess( TestReport this,  TestCase test,  Timer timer) {
+        runTests++;
+        for (TestListener testListener : testListeners) {
+            testListener.addSuccess(test, timer.getTime());
+        }
+    }
+
+    @org.checkerframework.dataflow.qual.Impure
+    public void addFailure( TestReport this,  Test test,  Timer timer,  Throwable throwable) {
+        failedtest++;
+        runTests++;
+        for (TestListener testListener : testListeners) {
+            testListener.addFailure(test, timer.getTime(), throwable);
+        }
+    }
+
+    @org.checkerframework.dataflow.qual.Impure
+    public void addError( TestReport this,  Test test,  Timer timer,  Throwable throwable) {
+        errortest++;
+        runTests++;
+        for (TestListener testListener : testListeners) {
+            testListener.addError(test, timer.getTime(), throwable);
+        }
+    }
+
+    @org.checkerframework.dataflow.qual.Impure
+    public void insertHSeparator( TestReport this) {
+        for (TestListener testListener : testListeners) {
+            testListener.insertHSeparator();
+        }
+    }
+
+    @org.checkerframework.dataflow.qual.Impure
+    public void print( TestReport this,  String messsage) {
+        for (TestListener testListener : testListeners) {
+            testListener.print(messsage);
+        }
+    }
+
+    @org.checkerframework.dataflow.qual.Impure
+    public void addListener( TestReport this,  TestListener listener) {
+        testListeners.add(listener);
+    }
+
+    @org.checkerframework.dataflow.qual.Impure
+    public void run( TestReport this, final  TestCase test) {
+        Timer timer = new Timer(System.nanoTime());
+        if (validateTestCase(test)) {
+            try {
+                test.runTestSequence();
+                addSuccess(test, timer);
+            } catch (AssertionError assertionError) {
+                addFailure(test, timer, assertionError);
+            } catch (Throwable exception) {
+                addError(test, timer, exception);
+            }
+        }
+    }
+
+    @org.checkerframework.dataflow.qual.Impure
+    private   boolean validateTestCase( TestReport this,  TestCase test) {
+        return (testNameMatchRegularExpression(test)) && validateTagTestCase(test) && !test.getSkip();
+    }
+
+    @org.checkerframework.dataflow.qual.Impure
+    private   boolean validateTagTestCase( TestReport this,  TestCase test) {
+        return recognizerTags.validate(test.getTags());
+    }
+
+    @org.checkerframework.dataflow.qual.Impure
+    private   boolean testNameMatchRegularExpression( TestReport this,  Test test) {
+        return recognizerExpressionsTestcase == null || recognizerExpressionsTestcase.validate(test.toString());
+    }
+
+    @org.checkerframework.dataflow.qual.Impure
+    public   boolean testsuiteNameMatchRegularExpression( TestReport this,  Test test) {
+        return recognizerExpressionsTestsuite == null || recognizerExpressionsTestsuite.validate(test.toString());
+    }
+
+    @org.checkerframework.dataflow.qual.Impure
+    public   boolean wasSuccessful( TestReport this) {
+        return (failureCount() == 0);
+    }
+
+    @org.checkerframework.dataflow.qual.Pure
+    public   int failureCount( TestReport this) {
+        return failedtest;
+    }
+
+    @org.checkerframework.dataflow.qual.Pure
+    public   int runCount( TestReport this) {
+        return runTests;
+    }
+
+    @org.checkerframework.dataflow.qual.Pure
+    public   int errorCount( TestReport this) {
+        return errortest;
+    }
+}

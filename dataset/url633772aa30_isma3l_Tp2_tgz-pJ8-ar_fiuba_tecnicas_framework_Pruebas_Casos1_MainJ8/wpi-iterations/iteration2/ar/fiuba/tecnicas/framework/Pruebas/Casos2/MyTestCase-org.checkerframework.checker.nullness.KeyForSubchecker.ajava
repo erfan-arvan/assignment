@@ -1,0 +1,19 @@
+package ar.fiuba.tecnicas.framework.Pruebas.Casos2;
+
+import ar.fiuba.tecnicas.framework.JTest.Assert;
+import ar.fiuba.tecnicas.framework.JTest.TestCase;
+
+@org.checkerframework.framework.qual.AnnotatedFor("org.checkerframework.checker.nullness.KeyForSubchecker")
+public class MyTestCase extends TestCase {
+
+    @org.checkerframework.dataflow.qual.Impure
+    public MyTestCase( String testname) {
+        super(testname);
+    }
+
+    @org.checkerframework.dataflow.qual.SideEffectFree
+    public void runTest( MyTestCase this) {
+        assertFalse(false);
+        assertTrue(true);
+    }
+}

@@ -1,0 +1,97 @@
+package net.slreynolds.ds.model.internal;
+
+import java.util.HashMap;
+import java.util.IdentityHashMap;
+import java.util.LinkedList;
+import java.util.Map;
+import java.util.Queue;
+import net.slreynolds.ds.model.BuilderOptions;
+import net.slreynolds.ds.model.Graph;
+import net.slreynolds.ds.model.GraphPoint;
+
+@org.checkerframework.framework.qual.AnnotatedFor("org.checkerframework.checker.nullness.NullnessChecker")
+public class GraphBuildContext {
+
+    private final @org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.NonNull IdentityHashMap<Object, GraphPoint> _objectToPointMap;
+
+    private final @org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.NonNull Map<String, Object> _opts;
+
+    private final @org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.NonNull Queue<GraphPointSuspension> _pointsToBuild;
+
+    private final @org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.NonNull Queue<EdgeSuspension> _edgesToBuild;
+
+    private final @org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.NonNull Graph _graph;
+
+    @org.checkerframework.dataflow.qual.SideEffectFree
+    public GraphBuildContext(@org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.NonNull Graph graph, @org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.NonNull Map<String, Object> opts) {
+        _objectToPointMap = new IdentityHashMap<Object, GraphPoint>();
+        _pointsToBuild = new LinkedList<GraphPointSuspension>();
+        _edgesToBuild = new LinkedList<EdgeSuspension>();
+        _opts = new HashMap<String, Object>(opts);
+        _graph = graph;
+    }
+
+    @org.checkerframework.dataflow.qual.Pure
+    public  @org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.NonNull boolean hasPoint(@org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.NonNull Object o) {
+        return _objectToPointMap.containsKey(o);
+    }
+
+    @org.checkerframework.dataflow.qual.Impure
+    public void setGeneration( @org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.NonNull int generation) {
+        if (generation < 0) {
+            throw new IllegalArgumentException("generation cannot be negative");
+        }
+        _opts.put(BuilderOptions.GENERATION, generation);
+    }
+
+    @org.checkerframework.dataflow.qual.Pure
+    public @org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.NonNull Graph getGraph() {
+        return _graph;
+    }
+
+    @org.checkerframework.dataflow.qual.Pure
+    public @org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.Nullable GraphPoint getPoint(@org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.Nullable Object o) {
+        return _objectToPointMap.get(o);
+    }
+
+    @org.checkerframework.dataflow.qual.Impure
+    public void addPoint(@org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.NonNull Object o, @org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.NonNull GraphPoint pt) {
+        _objectToPointMap.put(o, pt);
+        _graph.add(pt);
+    }
+
+    @org.checkerframework.dataflow.qual.Pure
+    public @org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.NonNull Map<String, Object> getOptions() {
+        return _opts;
+    }
+
+    @org.checkerframework.dataflow.qual.Impure
+    public void enqueuePointToBuild(@org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.NonNull GraphPointSuspension c) {
+        _pointsToBuild.add(c);
+    }
+
+    @org.checkerframework.dataflow.qual.Impure
+    public @org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.Nullable GraphPointSuspension dequeuePointToBuild() {
+        return _pointsToBuild.poll();
+    }
+
+    @org.checkerframework.dataflow.qual.Pure
+    public  @org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.NonNull boolean hasPointsToBuild() {
+        return !_pointsToBuild.isEmpty();
+    }
+
+    @org.checkerframework.dataflow.qual.Impure
+    public void enqueueEdgeToBuild(@org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.NonNull EdgeSuspension c) {
+        _edgesToBuild.add(c);
+    }
+
+    @org.checkerframework.dataflow.qual.Impure
+    public @org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.Nullable EdgeSuspension dequeueEdgeToBuild() {
+        return _edgesToBuild.poll();
+    }
+
+    @org.checkerframework.dataflow.qual.Pure
+    public  @org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.NonNull boolean hasEdgesToBuild() {
+        return !_edgesToBuild.isEmpty();
+    }
+}

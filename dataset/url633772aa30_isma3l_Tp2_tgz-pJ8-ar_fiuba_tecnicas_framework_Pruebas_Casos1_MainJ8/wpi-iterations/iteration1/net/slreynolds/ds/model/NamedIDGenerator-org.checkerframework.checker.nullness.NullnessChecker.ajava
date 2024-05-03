@@ -1,0 +1,24 @@
+package net.slreynolds.ds.model;
+
+import java.util.concurrent.atomic.AtomicInteger;
+
+@org.checkerframework.framework.qual.AnnotatedFor("org.checkerframework.checker.nullness.NullnessChecker")
+public class NamedIDGenerator {
+
+    private static @org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.NonNull AtomicInteger _nextID = new AtomicInteger();
+
+    @org.checkerframework.dataflow.qual.SideEffectFree
+    private NamedIDGenerator() {
+    }
+
+    @org.checkerframework.dataflow.qual.Impure
+    public static @org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.NonNull NamedID next() {
+        int id = _nextID.getAndIncrement();
+        return new NamedID(id);
+    }
+
+    @org.checkerframework.dataflow.qual.Impure
+    public void reset() {
+        _nextID.set(0);
+    }
+}

@@ -1,0 +1,58 @@
+package org.delaunay.model;
+
+import java.util.Set;
+import com.google.common.collect.Sets;
+
+@org.checkerframework.framework.qual.AnnotatedFor("org.checkerframework.checker.nullness.KeyForSubchecker")
+public class Vertex extends Vector {
+
+    private final  Set<Vertex> neighborVertices = Sets.newLinkedHashSet();
+
+    private final  Set<Triangle> neighborTriangles = Sets.newLinkedHashSet();
+
+    private  Integer hilbertIndex;
+
+    @org.checkerframework.dataflow.qual.Impure
+    public Vertex(  double x,   double y) {
+        super(x, y);
+    }
+
+    @org.checkerframework.dataflow.qual.Pure
+    public  Set<Vertex> getNeighborVertices( Vertex this) {
+        return neighborVertices;
+    }
+
+    @org.checkerframework.dataflow.qual.Pure
+    public  Set<Triangle> getNeighborTriangles( Vertex this) {
+        return neighborTriangles;
+    }
+
+    @org.checkerframework.dataflow.qual.Impure
+    public void addTriangle( Vertex this,  Triangle tri) {
+        neighborTriangles.add(tri);
+        neighborVertices.addAll(tri.getVertices());
+        neighborVertices.remove(this);
+        for (Triangle t : neighborTriangles) {
+            t.invalidateNeighbors();
+        }
+    }
+
+    @org.checkerframework.dataflow.qual.Impure
+    public void removeTriangle( Vertex this,  Triangle tri) {
+        neighborTriangles.remove(tri);
+        neighborVertices.removeAll(tri.getVertices());
+        for (Triangle t : neighborTriangles) {
+            t.invalidateNeighbors();
+        }
+    }
+
+    @org.checkerframework.dataflow.qual.Impure
+    public void setHilbertIndex( Vertex this,  Integer hilbertIndex) {
+        this.hilbertIndex = hilbertIndex;
+    }
+
+    @org.checkerframework.dataflow.qual.Pure
+    public  Integer getHilbertIndex( Vertex this) {
+        return hilbertIndex;
+    }
+}

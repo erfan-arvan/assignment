@@ -1,0 +1,14 @@
+package org.delaunay.dtfe;
+
+@org.checkerframework.framework.qual.AnnotatedFor("org.checkerframework.checker.nullness.KeyForSubchecker")
+public interface DensityModel {
+
+    @org.checkerframework.dataflow.qual.Pure
+    public   double getDensity(DensityModel this);
+
+    @org.checkerframework.dataflow.qual.Impure
+    public void setDensity(DensityModel this,   double d);
+
+    @org.checkerframework.dataflow.qual.Pure
+    public   double getWeight(DensityModel this);
+}

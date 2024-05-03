@@ -1,0 +1,75 @@
+/*
+ * To change this template, choose Tools | Templates
+ * and open the template in the editor.
+ */
+package edu.columbia.stat.wood.pub.sequencememoizer.util;
+
+/**
+ * Container class for two objects.
+ * @author nicholasbartlett
+ */
+@org.checkerframework.framework.qual.AnnotatedFor("org.checkerframework.checker.nullness.NullnessChecker")
+public class Pair<F, S> {
+
+    private F first;
+
+    private S second;
+
+    /**
+     * @param first first object
+     * @param second second object
+     */
+    @org.checkerframework.dataflow.qual.SideEffectFree
+    public Pair(F first, S second) {
+        this.first = first;
+        this.second = second;
+    }
+
+    /**
+     * Gets the first object.
+     * @return first object
+     */
+    @org.checkerframework.dataflow.qual.Pure
+    public F first() {
+        return first;
+    }
+
+    /**
+     * Gets the second object.
+     * @return second object
+     */
+    @org.checkerframework.dataflow.qual.Pure
+    public S second() {
+        return second;
+    }
+
+    /**
+     * Overrides the equals method to be true if both objects match.
+     * @param o comparison object
+     * @return true if equal, else false
+     */
+    @org.checkerframework.dataflow.qual.Pure
+    public  @org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.NonNull boolean equals(@org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.NonNull Pair<F, S> this, @org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.Nullable Object o) {
+        if (o == null) {
+            return false;
+        } else if (o.getClass() != this.getClass()) {
+            return false;
+        } else if (((Pair) o).first().equals(first) && ((Pair) o).second().equals(second)) {
+            return true;
+        } else {
+            return false;
+        }
+    }
+
+    /**
+     * Overrides hashcode method to make both objects utilized in the hashcode creation.
+     * @return hashcode
+     */
+    @org.checkerframework.dataflow.qual.Pure
+    public  @org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.NonNull int hashCode(@org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.NonNull Pair<F, S> this) {
+        int hash = 5;
+        hash = 41 * hash + (this.first != null ? this.first.hashCode() : 0);
+        hash = 41 * hash + (this.second != null ? this.second.hashCode() : 0);
+        return hash;
+    }
+}

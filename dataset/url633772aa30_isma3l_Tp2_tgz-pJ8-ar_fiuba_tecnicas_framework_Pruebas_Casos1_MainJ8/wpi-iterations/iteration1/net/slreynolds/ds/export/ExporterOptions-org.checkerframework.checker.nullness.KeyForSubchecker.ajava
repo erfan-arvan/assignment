@@ -1,0 +1,20 @@
+package net.slreynolds.ds.export;
+
+/**
+ * Predefined keys for export options.
+ */
+@org.checkerframework.framework.qual.AnnotatedFor("org.checkerframework.checker.nullness.KeyForSubchecker")
+public class ExporterOptions {
+
+    /**
+     * Key for the output path, a String.
+     */
+    public final static  String OUTPUT_PATH = "OUTPUT_PATH";
+
+    /**
+     * Don't create an instance of one of these
+     */
+    @org.checkerframework.dataflow.qual.SideEffectFree
+    private ExporterOptions() {
+    }
+}

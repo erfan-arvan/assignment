@@ -1,0 +1,75 @@
+package org.delaunay.dtfe.painters;
+
+import java.awt.Color;
+
+@org.checkerframework.framework.qual.AnnotatedFor("org.checkerframework.checker.nullness.NullnessChecker")
+public class TriangulationPainterModel {
+
+    private @org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.MonotonicNonNull Color edgeColor = null;
+
+    private  @org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.NonNull float edgeStrokeWidth = 1.0f;
+
+    private @org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.MonotonicNonNull Color vertexDotColor = null;
+
+    private  @org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.NonNull float vertexDotRadius = 2.0f;
+
+    @org.checkerframework.framework.qual.EnsuresQualifier(expression = { "this.edgeColor" }, qualifier = org.checkerframework.checker.nullness.qual.Nullable.class)
+    @org.checkerframework.framework.qual.EnsuresQualifier(expression = { "this.vertexDotColor" }, qualifier = org.checkerframework.checker.nullness.qual.Nullable.class)
+    @org.checkerframework.dataflow.qual.Pure
+    public @org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.Nullable Color getEdgeColor() {
+        return edgeColor;
+    }
+
+    @org.checkerframework.checker.nullness.qual.EnsuresNonNull({ "this.edgeColor" })
+    @org.checkerframework.framework.qual.EnsuresQualifier(expression = { "this.vertexDotColor" }, qualifier = org.checkerframework.checker.nullness.qual.Nullable.class)
+    @org.checkerframework.dataflow.qual.Impure
+    public @org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.NonNull TriangulationPainterModel setEdgeColor(@org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.NonNull Color edgeColor) {
+        this.edgeColor = edgeColor;
+        return this;
+    }
+
+    @org.checkerframework.framework.qual.EnsuresQualifier(expression = { "this.edgeColor" }, qualifier = org.checkerframework.checker.nullness.qual.Nullable.class)
+    @org.checkerframework.framework.qual.EnsuresQualifier(expression = { "this.vertexDotColor" }, qualifier = org.checkerframework.checker.nullness.qual.Nullable.class)
+    @org.checkerframework.dataflow.qual.Pure
+    public  @org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.NonNull float getEdgeStrokeWidth() {
+        return edgeStrokeWidth;
+    }
+
+    @org.checkerframework.framework.qual.EnsuresQualifier(expression = { "this.edgeColor" }, qualifier = org.checkerframework.checker.nullness.qual.Nullable.class)
+    @org.checkerframework.framework.qual.EnsuresQualifier(expression = { "this.vertexDotColor" }, qualifier = org.checkerframework.checker.nullness.qual.Nullable.class)
+    @org.checkerframework.dataflow.qual.Impure
+    public @org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.NonNull TriangulationPainterModel setEdgeStrokeWidth( @org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.NonNull float edgeStrokeWidth) {
+        this.edgeStrokeWidth = edgeStrokeWidth;
+        return this;
+    }
+
+    @org.checkerframework.framework.qual.EnsuresQualifier(expression = { "this.edgeColor" }, qualifier = org.checkerframework.checker.nullness.qual.Nullable.class)
+    @org.checkerframework.framework.qual.EnsuresQualifier(expression = { "this.vertexDotColor" }, qualifier = org.checkerframework.checker.nullness.qual.Nullable.class)
+    @org.checkerframework.dataflow.qual.Pure
+    public @org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.Nullable Color getVertexDotColor() {
+        return vertexDotColor;
+    }
+
+    @org.checkerframework.checker.nullness.qual.EnsuresNonNull({ "this.vertexDotColor" })
+    @org.checkerframework.framework.qual.EnsuresQualifier(expression = { "this.edgeColor" }, qualifier = org.checkerframework.checker.nullness.qual.Nullable.class)
+    @org.checkerframework.dataflow.qual.Impure
+    public @org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.NonNull TriangulationPainterModel setVertexDotColor(@org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.NonNull Color vertexColor) {
+        this.vertexDotColor = vertexColor;
+        return this;
+    }
+
+    @org.checkerframework.framework.qual.EnsuresQualifier(expression = { "this.edgeColor" }, qualifier = org.checkerframework.checker.nullness.qual.Nullable.class)
+    @org.checkerframework.framework.qual.EnsuresQualifier(expression = { "this.vertexDotColor" }, qualifier = org.checkerframework.checker.nullness.qual.Nullable.class)
+    @org.checkerframework.dataflow.qual.Pure
+    public  @org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.NonNull float getVertexDotRadius() {
+        return vertexDotRadius;
+    }
+
+    @org.checkerframework.framework.qual.EnsuresQualifier(expression = { "this.edgeColor" }, qualifier = org.checkerframework.checker.nullness.qual.Nullable.class)
+    @org.checkerframework.framework.qual.EnsuresQualifier(expression = { "this.vertexDotColor" }, qualifier = org.checkerframework.checker.nullness.qual.Nullable.class)
+    @org.checkerframework.dataflow.qual.Impure
+    public @org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.NonNull TriangulationPainterModel setVertexDotRadius(float vertexDotRadius) {
+        this.vertexDotRadius = vertexDotRadius;
+        return this;
+    }
+}

@@ -1,0 +1,70 @@
+package net.slreynolds.ds.model;
+
+/**
+ */
+// ------------- Generated Code ------------------
+@org.checkerframework.framework.qual.AnnotatedFor("org.checkerframework.checker.nullness.KeyForSubchecker")
+final public class Node extends GraphPoint {
+
+    private NodeArray _arrayParent;
+
+    @org.checkerframework.dataflow.qual.SideEffectFree
+    public Node( NamedID ID,   int generation) {
+        super(ID, generation);
+    }
+
+    @org.checkerframework.dataflow.qual.SideEffectFree
+    public Node( NamedID ID,  String name,   int generation) {
+        super(ID, name, generation);
+    }
+
+    @org.checkerframework.dataflow.qual.Impure
+    public static  Node createSymbol( NamedID ID,  String name,   int generation) {
+        Node n = new Node(ID, name, generation);
+        n.putAttr(Named.SYMBOL, true);
+        return n;
+    }
+
+    @org.checkerframework.dataflow.qual.Impure
+    public  Node putAttr( Node this,  String key,  Object value) {
+        return (Node) super.putAttr(key, value);
+    }
+
+    @org.checkerframework.dataflow.qual.Impure
+    public  Node removeAttr( Node this,  String key) {
+        return (Node) super.removeAttr(key);
+    }
+
+    @org.checkerframework.dataflow.qual.Pure
+    public   boolean areValuesInlined( Node this) {
+        // meaningless for a Node
+        return false;
+    }
+
+    @org.checkerframework.dataflow.qual.Pure
+    final public   boolean isNode( Node this) {
+        return true;
+    }
+
+    @org.checkerframework.dataflow.qual.Pure
+    final public   boolean isArray( Node this) {
+        return false;
+    }
+
+    /**
+     * throws unsupported operation exception always
+     */
+    @org.checkerframework.dataflow.qual.Pure
+    public Node clone( Node this) {
+        throw new UnsupportedOperationException();
+    }
+
+    // ------------- Quasi- generated Code --------------------
+    @org.checkerframework.dataflow.qual.Impure
+    public  String toString( Node this) {
+        StringBuffer sb = new StringBuffer("Node{ name=" + getName() + ", ");
+        sb.append(attrToString());
+        sb.append((_arrayParent == null) ? "" : ", array element}");
+        return sb.toString();
+    }
+}

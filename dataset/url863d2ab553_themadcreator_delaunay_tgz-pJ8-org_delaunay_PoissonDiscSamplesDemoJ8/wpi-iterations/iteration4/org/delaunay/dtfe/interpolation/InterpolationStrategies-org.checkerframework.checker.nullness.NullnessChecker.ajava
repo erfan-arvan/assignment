@@ -1,0 +1,30 @@
+package org.delaunay.dtfe.interpolation;
+
+@org.checkerframework.framework.qual.AnnotatedFor("org.checkerframework.checker.nullness.NullnessChecker")
+public class InterpolationStrategies {
+
+    @org.checkerframework.dataflow.qual.Pure
+    public static @org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.NonNull BarycentricLinearInterpolationStrategy createBarycentricLinear() {
+        return new BarycentricLinearInterpolationStrategy();
+    }
+
+    @org.checkerframework.dataflow.qual.Pure
+    public static @org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.NonNull AlgebraicLinearInterpolationStrategy createAlgebraicLinear() {
+        return new AlgebraicLinearInterpolationStrategy();
+    }
+
+    @org.checkerframework.dataflow.qual.Pure
+    public static @org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.NonNull NearestNeighborInterpolationStrategy createNearestNeighbor() {
+        return new NearestNeighborInterpolationStrategy();
+    }
+
+    @org.checkerframework.dataflow.qual.Pure
+    public static @org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.NonNull MeanInterpolationStrategy createMean() {
+        return new MeanInterpolationStrategy();
+    }
+
+    @org.checkerframework.dataflow.qual.Pure
+    public static @org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.NonNull NaturalNeighborInterpolationStrategy createNaturalNeighbor() {
+        return new NaturalNeighborInterpolationStrategy();
+    }
+}

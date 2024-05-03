@@ -1,0 +1,104 @@
+package main.gui.controller;
+
+import main.evaluator.TradeStrategyEvaluator;
+import main.interfaces.Orderbook;
+import main.parser.SircaCSVParser;
+import main.utils.Strategy;
+
+@org.checkerframework.framework.qual.AnnotatedFor("org.checkerframework.checker.nullness.NullnessChecker")
+public class Controller {
+
+    private @org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.NonNull Orderbook orderbook;
+
+    private @org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.Nullable TradeStrategyEvaluator evaluator;
+
+    private @org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.Nullable Strategy strategy;
+
+    private @org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.Nullable String volume;
+
+    private @org.checkerframework.checker.initialization.qual.FBCBottom @org.checkerframework.checker.nullness.qual.Nullable Integer lookbackPeriod;
+
+    private @org.checkerframework.checker.initialization.qual.FBCBottom @org.checkerframework.checker.nullness.qual.Nullable Double threshold;
+
+    private static final  @org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.NonNull int PERCENTAGE_SCALE = 100;
+
+    public void setOrderbook(@org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.NonNull String fileName) {
+        evaluator = null;
+        strategy = null;
+        volume = null;
+        lookbackPeriod = null;
+        threshold = null;
+        orderbook = SircaCSVParser.input(fileName);
+    }
+
+    public void setStrategy(@org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.NonNull String strategy) {
+        if (("Random").equals(strategy)) {
+            this.strategy = Strategy.RANDOM;
+        } else if (("Momentum").equals(strategy)) {
+            this.strategy = Strategy.MOMENTUM;
+        } else if (("Mean Reversion").equals(strategy)) {
+            this.strategy = Strategy.MEAN_REVERSION;
+        }
+    }
+
+    public @org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.NonNull Strategy getStrategy() {
+        return strategy;
+    }
+
+    public void runStrategy() {
+        if (orderbook != null) {
+            if (strategy != null && volume != null) {
+                evaluator = new TradeStrategyEvaluator(orderbook.runStrategy(strategy, volume, lookbackPeriod, threshold));
+            }
+        } else {
+            System.err.println("Please load an orderbook prior to simulation.");
+        }
+    }
+
+    public void setVolume(@org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.NonNull String volume) {
+        this.volume = volume;
+    }
+
+    public void evaluate() {
+        if (orderbook != null) {
+            double evaluation = evaluator.calculateProfitLoss();
+            evaluation = evaluation * PERCENTAGE_SCALE;
+            // print return to 2 decimal places.
+            System.out.printf("Percentage return: %.2f%%\n", evaluation);
+        } else {
+            System.err.println("Please load an orderbook prior to simulation.");
+        }
+    }
+
+    public Integer getLookbackPeriod() {
+        return lookbackPeriod;
+    }
+
+    public void setLookbackPeriod(@org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.NonNull String lookbackPeriod) throws NumberFormatException {
+        if (lookbackPeriod.isEmpty()) {
+            lookbackPeriod = null;
+            System.out.println("Using default value 1000");
+        } else {
+            this.lookbackPeriod = Integer.parseInt(lookbackPeriod);
+            System.out.println("Lookback period set to: " + this.lookbackPeriod);
+        }
+    }
+
+    public Double getThreshold() {
+        return threshold;
+    }
+
+    public void setThreshold(@org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.NonNull String threshold) throws NumberFormatException {
+        if (threshold.isEmpty()) {
+            this.threshold = null;
+            System.out.println("Using default value 0.000001");
+        } else {
+            this.threshold = Double.parseDouble(threshold);
+            System.out.println("Threshold set to: " + this.threshold);
+        }
+    }
+
+    public TradeStrategyEvaluator getEvaluator() {
+        return evaluator;
+    }
+}

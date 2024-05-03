@@ -1,0 +1,39 @@
+package org.delaunay.dtfe;
+
+@org.checkerframework.framework.qual.AnnotatedFor("org.checkerframework.checker.nullness.KeyForSubchecker")
+public class BasicDensityModel implements DensityModel {
+
+    protected   double density = 0.0;
+
+    protected   double weight = 1.0;
+
+    @org.checkerframework.dataflow.qual.SideEffectFree
+    public BasicDensityModel() {
+        this(1.0);
+    }
+
+    @org.checkerframework.dataflow.qual.SideEffectFree
+    public BasicDensityModel(  double weight) {
+        this.weight = weight;
+    }
+
+    @org.checkerframework.dataflow.qual.Pure
+    public   double getDensity( BasicDensityModel this) {
+        return density;
+    }
+
+    @org.checkerframework.dataflow.qual.Impure
+    public void setDensity( BasicDensityModel this,   double d) {
+        this.density = d;
+    }
+
+    @org.checkerframework.dataflow.qual.Impure
+    public void setWeight(double weight) {
+        this.weight = weight;
+    }
+
+    @org.checkerframework.dataflow.qual.Pure
+    public   double getWeight( BasicDensityModel this) {
+        return weight;
+    }
+}

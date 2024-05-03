@@ -1,0 +1,62 @@
+package main.implementations.order;
+
+/**
+ * A wrapper class for two matched orders.
+ */
+@org.checkerframework.framework.qual.AnnotatedFor("org.checkerframework.checker.nullness.KeyForSubchecker")
+public class AlgorithmicTrade {
+
+    private  Order bidOrder;
+
+    private  Order askOrder;
+
+    @org.checkerframework.dataflow.qual.SideEffectFree
+    public AlgorithmicTrade( Order bidOrder,  Order askOrder) {
+        this.bidOrder = bidOrder;
+        this.askOrder = askOrder;
+    }
+
+    @org.checkerframework.dataflow.qual.Pure
+    public  Order getBidOrder( AlgorithmicTrade this) {
+        return bidOrder;
+    }
+
+    @org.checkerframework.dataflow.qual.Pure
+    public  Order getAskOrder( AlgorithmicTrade this) {
+        return askOrder;
+    }
+
+    /**
+     * Calculate the value of the trade
+     *
+     * @return value - as dollars with type double.
+     */
+    @org.checkerframework.dataflow.qual.Pure
+    public   double evaluateTrade( AlgorithmicTrade this) {
+        // Find out which one has the lower volume.
+        int lowerVolume;
+        if (bidOrder.getVolume() < askOrder.getVolume()) {
+            lowerVolume = bidOrder.getVolume();
+        } else {
+            lowerVolume = askOrder.getVolume();
+        }
+        return bidOrder.getPrice() * lowerVolume;
+    }
+
+    @org.checkerframework.dataflow.qual.Impure
+    public   boolean equals( AlgorithmicTrade this,  Object o) {
+        boolean equals = false;
+        if (o != null) {
+            AlgorithmicTrade trade = (AlgorithmicTrade) o;
+            if (this.getBidOrder().equals(trade.getBidOrder()) && this.getAskOrder().equals(trade.getAskOrder())) {
+                equals = true;
+            }
+        }
+        return equals;
+    }
+
+    @org.checkerframework.dataflow.qual.Impure
+    public   int hashCode( AlgorithmicTrade this) {
+        return (int) (this.bidOrder.getDateTime().getTime() + this.bidOrder.getPrice() + this.askOrder.getDateTime().getTime() + this.askOrder.getPrice());
+    }
+}

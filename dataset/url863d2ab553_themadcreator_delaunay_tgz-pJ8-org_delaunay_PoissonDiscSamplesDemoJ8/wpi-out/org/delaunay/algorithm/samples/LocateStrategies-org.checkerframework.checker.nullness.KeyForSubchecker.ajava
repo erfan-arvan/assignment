@@ -1,0 +1,83 @@
+package org.delaunay.algorithm.samples;
+
+import java.awt.geom.Rectangle2D;
+import java.util.List;
+import org.delaunay.Utils;
+import org.delaunay.algorithm.Triangulation;
+import org.delaunay.algorithm.Triangulation.InvalidVertexException;
+import org.delaunay.model.Vector;
+import org.delaunay.model.Vertex;
+import com.google.common.base.Function;
+import com.google.common.collect.Lists;
+
+@org.checkerframework.framework.qual.AnnotatedFor("org.checkerframework.checker.nullness.KeyForSubchecker")
+public class LocateStrategies {
+
+    public static interface LocateStrategy {
+
+        @org.checkerframework.dataflow.qual.Impure
+        void initialize( LocateStrategy this,  Iterable<Vector> samples,  Rectangle2D bounds);
+
+        @org.checkerframework.dataflow.qual.Impure
+          boolean addSample( LocateStrategy this,  Vector v);
+
+        @org.checkerframework.dataflow.qual.Impure
+         Vector getNearest( LocateStrategy this,  Vector v);
+    }
+
+    public static class NaiveLocateStrategy implements LocateStrategy {
+
+        private  List<Vector> locatable = Lists.newArrayList();
+
+        @org.checkerframework.dataflow.qual.Impure
+        public void initialize( NaiveLocateStrategy this,  Iterable<Vector> samples,  Rectangle2D bounds) {
+            locatable = Lists.newArrayList(samples);
+        }
+
+        @org.checkerframework.dataflow.qual.Impure
+        public   boolean addSample( NaiveLocateStrategy this,  Vector v) {
+            locatable.add(v);
+            return true;
+        }
+
+        @org.checkerframework.dataflow.qual.Impure
+        public  Vector getNearest( NaiveLocateStrategy this, final  Vector v) {
+            return Utils.minObject(locatable, new Function<Vector, Double>() {
+
+                @org.checkerframework.dataflow.qual.Pure
+                public  Double apply( Vector vert) {
+                    return vert.subtract(v).lengthSquared();
+                }
+            });
+        }
+    }
+
+    public static class TriangulationLocateStrategy implements LocateStrategy {
+
+        private  Triangulation triangulation = new Triangulation();
+
+        @org.checkerframework.dataflow.qual.Impure
+        public void initialize( TriangulationLocateStrategy this,  Iterable<Vector> samples,  Rectangle2D bounds) {
+            triangulation = new Triangulation();
+            triangulation.createSuperTriangle(bounds);
+            for (Vector v : samples) {
+                addSample(v);
+            }
+        }
+
+        @org.checkerframework.dataflow.qual.Impure
+        public   boolean addSample( TriangulationLocateStrategy this,  Vector v) {
+            try {
+                triangulation.addVertexToTriangulation(new Vertex(v.x, v.y));
+                return true;
+            } catch (InvalidVertexException e) {
+                return false;
+            }
+        }
+
+        @org.checkerframework.dataflow.qual.Impure
+        public  Vector getNearest( TriangulationLocateStrategy this, final  Vector v) {
+            return triangulation.locateNearestVertex(v);
+        }
+    }
+}

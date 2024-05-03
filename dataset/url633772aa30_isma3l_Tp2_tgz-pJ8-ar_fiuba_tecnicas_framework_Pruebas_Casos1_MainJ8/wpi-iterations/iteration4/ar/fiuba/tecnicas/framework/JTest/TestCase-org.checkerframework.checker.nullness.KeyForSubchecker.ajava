@@ -1,0 +1,138 @@
+package ar.fiuba.tecnicas.framework.JTest;
+
+/*
+Responsabilidad: Ejecutar test con metodos que permitan ejecutar algo antes y algo despues del test
+ */
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.List;
+
+@org.checkerframework.framework.qual.AnnotatedFor("org.checkerframework.checker.nullness.KeyForSubchecker")
+public abstract class TestCase extends Assert implements Test {
+
+    private  List<String> tags;
+
+    private   boolean skip;
+
+    private  String testname;
+
+    private  HashMap<String, Object> context;
+
+    @org.checkerframework.dataflow.qual.Pure
+    public  String getTestname( TestCase this) {
+        return testname;
+    }
+
+    @org.checkerframework.dataflow.qual.Pure
+    public  HashMap<String, Object> getContext() {
+        return context;
+    }
+
+    @org.checkerframework.dataflow.qual.SideEffectFree
+    public void tearingDown( TestCase this,  Throwable exception) {
+        try {
+            tearDown();
+        } catch (Throwable tearingDown) {
+            if (exception == null)
+                exception = tearingDown;
+        }
+    }
+
+    @org.checkerframework.dataflow.qual.Impure
+    public TestCase( String testname) {
+        tags = new ArrayList<String>();
+        skip = false;
+        this.testname = testname;
+        context = new HashMap<String, Object>();
+    }
+
+    @org.checkerframework.dataflow.qual.Impure
+    public TestCase( String testname,  List<String> tags) {
+        this.tags = tags;
+        skip = false;
+        this.testname = testname;
+        context = new HashMap<String, Object>();
+    }
+
+    @org.checkerframework.dataflow.qual.SideEffectFree
+    public void setUp( TestCase this) {
+    }
+
+    @org.checkerframework.dataflow.qual.SideEffectFree
+    public void tearDown( TestCase this) {
+    }
+
+    @org.checkerframework.dataflow.qual.Impure
+    public void run( TestCase this,  TestReport testReport) {
+        testReport.run(this);
+        testReport.setFirsttimeintest(false);
+    }
+
+    @org.checkerframework.dataflow.qual.Pure
+    public   int countTestCases( TestCase this) {
+        return 1;
+    }
+
+    @org.checkerframework.dataflow.qual.Impure
+    public abstract void runTest( TestCase this);
+
+    @org.checkerframework.dataflow.qual.Impure
+    public void runTestSequence( TestCase this) throws Throwable {
+        Throwable exception = null;
+        setUp();
+        try {
+            runTest();
+        } catch (Throwable running) {
+            exception = running;
+        } finally {
+            tearingDown(exception);
+        }
+        if (exception != null)
+            throw exception;
+    }
+
+    @org.checkerframework.dataflow.qual.Impure
+    public void addTag( TestCase this,  String tag) {
+        tags.add(tag);
+    }
+
+    @org.checkerframework.dataflow.qual.Impure
+    public void addAllTags(List<String> tags) {
+        this.tags.addAll(tags);
+    }
+
+    @org.checkerframework.dataflow.qual.Pure
+    public   boolean containsTag(String tag) {
+        return tags.contains(tag);
+    }
+
+    @org.checkerframework.dataflow.qual.Pure
+    public   boolean containsAllTags(List<String> tags) {
+        return this.tags.containsAll(tags);
+    }
+
+    @org.checkerframework.dataflow.qual.Pure
+    public  List<String> getTags( TestCase this) {
+        return tags;
+    }
+
+    @org.checkerframework.dataflow.qual.Pure
+    public  String toString( TestCase this) {
+        return getTestname();
+    }
+
+    @org.checkerframework.dataflow.qual.Impure
+    public void skip( TestCase this) {
+        skip = true;
+    }
+
+    @org.checkerframework.dataflow.qual.Impure
+    public void unSkype() {
+        skip = false;
+    }
+
+    @org.checkerframework.dataflow.qual.Pure
+    public   boolean getSkip( TestCase this) {
+        return skip;
+    }
+}

@@ -1,0 +1,60 @@
+package ar.fiuba.tecnicas.framework.JTest;
+
+import java.io.PrintStream;
+import java.text.NumberFormat;
+
+@org.checkerframework.framework.qual.AnnotatedFor("org.checkerframework.checker.nullness.KeyForSubchecker")
+public class ResultPrinter implements TestListener {
+
+    private  PrintStream printStream;
+
+    @org.checkerframework.dataflow.qual.SideEffectFree
+    public ResultPrinter( PrintStream writer) {
+        printStream = writer;
+    }
+
+    @org.checkerframework.dataflow.qual.Impure
+    public void printFooter( ResultPrinter this,  TestReport result) {
+        insertHSeparator();
+        printSummary(result);
+    }
+
+    @org.checkerframework.dataflow.qual.Impure
+    private void printSummary( ResultPrinter this,  TestReport result) {
+        printStream.println("SUMMARY");
+        printStream.println("Run: " + result.runCount());
+        printStream.println("Failures: " + result.failureCount());
+        printStream.println("Errors: " + result.errorCount());
+    }
+
+    @org.checkerframework.dataflow.qual.Impure
+    private  String elapsedTimeAsString(long runTime) {
+        return NumberFormat.getInstance().format((double) runTime / 1000);
+    }
+
+    @org.checkerframework.dataflow.qual.Impure
+    public void addSuccess( ResultPrinter this,  TestCase test,  String time) {
+        printStream.println("[Ok]\t\t" + test + "\t\t\t\t\t" + time);
+    }
+
+    @org.checkerframework.dataflow.qual.Impure
+    public void insertHSeparator( ResultPrinter this) {
+        printStream.println();
+        printStream.println("==================");
+    }
+
+    @org.checkerframework.dataflow.qual.Impure
+    public void addFailure( ResultPrinter this,  Test test,  String time,  Throwable throwable) {
+        printStream.println("[Failure]\t" + test + "\t\t" + time);
+    }
+
+    @org.checkerframework.dataflow.qual.Impure
+    public void addError( ResultPrinter this,  Test test,  String time,  Throwable throwable) {
+        printStream.println("[Error]\t\t" + test + "\t\t" + time);
+    }
+
+    @org.checkerframework.dataflow.qual.Impure
+    public void print( ResultPrinter this,  String messsage) {
+        printStream.print(messsage);
+    }
+}

@@ -1,0 +1,19 @@
+package be.demmel.fun.jgwcaconstants.bll;
+
+import java.io.IOException;
+
+@org.checkerframework.framework.qual.AnnotatedFor("org.checkerframework.checker.nullness.KeyForSubchecker")
+public interface GWCAConnection {
+
+    @org.checkerframework.dataflow.qual.Impure
+    void sendPacket( GWCAConnection this,  GWCAPacket gwcaPacket) throws IOException;
+
+    @org.checkerframework.dataflow.qual.Impure
+     GWCAPacket receivePacket( GWCAConnection this) throws IOException;
+
+    @org.checkerframework.dataflow.qual.Impure
+    void open( GWCAConnection this) throws IOException;
+
+    @org.checkerframework.dataflow.qual.Impure
+    void close( GWCAConnection this) throws IOException;
+}

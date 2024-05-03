@@ -1,0 +1,76 @@
+package org.delaunay.dtfe;
+
+import java.awt.Color;
+import java.util.TreeSet;
+import com.google.common.collect.Sets;
+
+@org.checkerframework.framework.qual.AnnotatedFor("org.checkerframework.checker.nullness.NullnessChecker")
+public class ColorScale {
+
+    private final @org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.NonNull TreeSet<ColorScale.Stop> stops = Sets.newTreeSet();
+
+    public static class Stop implements Comparable<ColorScale.Stop> {
+
+        int a, r, g, b;
+
+         @org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.NonNull int argb;
+
+        @org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.NonNull Double offset;
+
+        @org.checkerframework.dataflow.qual.SideEffectFree
+        private Stop( @org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.NonNull int argb, @org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.NonNull Double offset) {
+            this.argb = argb;
+            this.a = (argb >> 24) & 0xFF;
+            this.r = (argb >> 16) & 0xFF;
+            this.g = (argb >> 8) & 0xFF;
+            this.b = argb & 0xFF;
+            this.offset = offset;
+        }
+
+        @org.checkerframework.dataflow.qual.Pure
+        public  @org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.NonNull int compareTo(@org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.NonNull Stop this, ColorScale.@org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.NonNull Stop other) {
+            return offset.compareTo(other.offset);
+        }
+    }
+
+    @org.checkerframework.dataflow.qual.Impure
+    public @org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.NonNull ColorScale stop(int argb, double value) {
+        stops.add(new Stop(argb, value));
+        return this;
+    }
+
+    @org.checkerframework.dataflow.qual.Impure
+    public @org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.NonNull ColorScale stopAlpha( @org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.NonNull int rgb,  @org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.NonNull int alpha,  @org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.NonNull double value) {
+        stops.add(new Stop((rgb & 0xFFFFFF) | (alpha << 24), value));
+        return this;
+    }
+
+    @org.checkerframework.dataflow.qual.Pure
+    public @org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.NonNull Color get(@org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.NonNull Double value) {
+        if (stops.first().offset.compareTo(value) >= 0) {
+            return new Color(stops.first().argb, true);
+        } else if (stops.last().offset.compareTo(value) <= 0) {
+            return new Color(stops.last().argb, true);
+        } else {
+            ColorScale.Stop s0 = stops.headSet(new Stop(0, value)).last();
+            ColorScale.Stop s1 = stops.tailSet(new Stop(0, value)).first();
+            double t = (value - s0.offset) / (s1.offset - s0.offset);
+            int a = 0xFF & (int) (s0.a * (1.0 - t) + s1.a * t);
+            int r = 0xFF & (int) (s0.r * (1.0 - t) + s1.r * t);
+            int g = 0xFF & (int) (s0.g * (1.0 - t) + s1.g * t);
+            int b = 0xFF & (int) (s0.b * (1.0 - t) + s1.b * t);
+            int argb = (a << 24) | (r << 16) | (g << 8) | b;
+            return new Color(argb, true);
+        }
+    }
+
+    @org.checkerframework.dataflow.qual.Pure
+    public  @org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.NonNull double getMinStop() {
+        return stops.first().offset;
+    }
+
+    @org.checkerframework.dataflow.qual.Pure
+    public  @org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.NonNull double getMaxStop() {
+        return stops.last().offset;
+    }
+}

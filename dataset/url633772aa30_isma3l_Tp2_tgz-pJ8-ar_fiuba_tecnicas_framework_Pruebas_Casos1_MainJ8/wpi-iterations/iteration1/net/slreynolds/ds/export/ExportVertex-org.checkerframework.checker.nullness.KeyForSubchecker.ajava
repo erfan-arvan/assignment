@@ -1,0 +1,71 @@
+package net.slreynolds.ds.export;
+
+@org.checkerframework.framework.qual.AnnotatedFor("org.checkerframework.checker.nullness.KeyForSubchecker")
+class ExportVertex {
+
+    private final   int _ID;
+
+    private final  String _label;
+
+    private final  VertexType _vertextType;
+
+    private final   int _generation;
+
+    @org.checkerframework.dataflow.qual.SideEffectFree
+    ExportVertex(  int ID,  String label,  VertexType vertextType,   int generation) {
+        if (generation < 0) {
+            throw new IllegalArgumentException("generation cannot be negative");
+        }
+        this._ID = ID;
+        this._label = label;
+        this._vertextType = vertextType;
+        this._generation = generation;
+    }
+
+    @org.checkerframework.dataflow.qual.Pure
+      int getID( ExportVertex this) {
+        return _ID;
+    }
+
+    @org.checkerframework.dataflow.qual.Pure
+     String getLabel( ExportVertex this) {
+        return _label;
+    }
+
+    @org.checkerframework.dataflow.qual.Pure
+     VertexType getVertexType( ExportVertex this) {
+        return _vertextType;
+    }
+
+    @org.checkerframework.dataflow.qual.Pure
+      int getGeneration( ExportVertex this) {
+        return _generation;
+    }
+
+    @org.checkerframework.dataflow.qual.Pure
+    public  String toString( ExportVertex this) {
+        return "JungVertex [_ID=" + _ID + ", _label=" + _label + ", _vertextType=" + _vertextType + "]";
+    }
+
+    @org.checkerframework.dataflow.qual.Pure
+    public   int hashCode( ExportVertex this) {
+        final int prime = 31;
+        int result = 1;
+        result = prime * result + _ID;
+        return result;
+    }
+
+    @org.checkerframework.dataflow.qual.Pure
+    public   boolean equals( ExportVertex this,  Object obj) {
+        if (this == obj)
+            return true;
+        if (obj == null)
+            return false;
+        if (getClass() != obj.getClass())
+            return false;
+        ExportVertex other = (ExportVertex) obj;
+        if (_ID != other._ID)
+            return false;
+        return true;
+    }
+}

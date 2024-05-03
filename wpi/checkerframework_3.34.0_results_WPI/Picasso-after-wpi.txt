@@ -1,0 +1,5 @@
+../dataset/pic/src/test/java/com/squareup/picasso3/_JavaConsumerIdeCheck.java:19: error: cannot access DefaultLifecycleObserver
+    picasso.setLoggingEnabled(true);
+           ^
+  class file for androidx.lifecycle.DefaultLifecycleObserver not found
+1 error

@@ -1,0 +1,19 @@
+package be.demmel.fun.jgwcaconstants.bll;
+
+@org.checkerframework.framework.qual.AnnotatedFor("org.checkerframework.checker.nullness.KeyForSubchecker")
+public enum HeroMode {
+
+    FIGHT((byte) 0), GUARD((byte) 1), AVOID((byte) 2);
+
+    private final   byte value;
+
+    @org.checkerframework.dataflow.qual.Impure
+    private HeroMode(  byte value) {
+        this.value = value;
+    }
+
+    @org.checkerframework.dataflow.qual.Pure
+    public   byte getValue( HeroMode this) {
+        return value;
+    }
+}

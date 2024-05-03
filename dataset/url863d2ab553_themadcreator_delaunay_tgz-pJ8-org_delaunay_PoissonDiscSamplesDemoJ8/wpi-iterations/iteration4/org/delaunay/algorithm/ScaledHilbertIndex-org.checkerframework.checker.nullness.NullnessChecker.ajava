@@ -1,0 +1,25 @@
+package org.delaunay.algorithm;
+
+import java.awt.Point;
+import java.awt.geom.Rectangle2D;
+
+@org.checkerframework.framework.qual.AnnotatedFor("org.checkerframework.checker.nullness.NullnessChecker")
+public class ScaledHilbertIndex {
+
+    private final @org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.NonNull Rectangle2D scales;
+
+    private final @org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.NonNull HilbertTableIndex index;
+
+    @org.checkerframework.checker.nullness.qual.EnsuresNonNull({ "#2" })
+    @org.checkerframework.dataflow.qual.Impure
+    public ScaledHilbertIndex( @org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.NonNull int order, @org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.Nullable Rectangle2D bbox) {
+        long side = 1 << order;
+        this.scales = new Rectangle2D.Double(bbox.getMinX(), bbox.getMinY(), side / bbox.getWidth(), side / bbox.getHeight());
+        this.index = new HilbertTableIndex(order);
+    }
+
+    @org.checkerframework.dataflow.qual.Impure
+    public  @org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.NonNull int toIndex( @org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.NonNull double x,  @org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.NonNull double y) {
+        return index.getIndex(new Point((int) ((x - scales.getX()) * scales.getWidth()), (int) ((y - scales.getY()) * scales.getHeight())));
+    }
+}

@@ -1,0 +1,239 @@
+package ar.fiuba.tecnicas.framework.JTest;
+
+import java.util.ArrayList;
+import java.util.List;
+import java.io.*;
+
+@org.checkerframework.framework.qual.AnnotatedFor("org.checkerframework.checker.nullness.NullnessChecker")
+public class XmlPrinter implements TestListener {
+
+    private @org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.NonNull List<String> namesTestSuites;
+
+    private @org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.MonotonicNonNull String nameCase;
+
+    private @org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.MonotonicNonNull String time;
+
+    private @org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.MonotonicNonNull Throwable throwable;
+
+    private @org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.MonotonicNonNull FileWriter fileWriter;
+
+    private @org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.MonotonicNonNull PrintWriter printer;
+
+    @org.checkerframework.framework.qual.EnsuresQualifier(expression = { "this.fileWriter" }, qualifier = org.checkerframework.checker.nullness.qual.Nullable.class)
+    @org.checkerframework.dataflow.qual.Impure
+    public XmlPrinter() {
+        namesTestSuites = new ArrayList<String>();
+        inicializar();
+    }
+
+    @org.checkerframework.framework.qual.EnsuresQualifier(expression = { "this.fileWriter" }, qualifier = org.checkerframework.checker.nullness.qual.Nullable.class)
+    @org.checkerframework.framework.qual.EnsuresQualifier(expression = { "this.nameCase" }, qualifier = org.checkerframework.checker.nullness.qual.Nullable.class)
+    @org.checkerframework.framework.qual.EnsuresQualifier(expression = { "this.printer" }, qualifier = org.checkerframework.checker.nullness.qual.Nullable.class)
+    @org.checkerframework.framework.qual.EnsuresQualifier(expression = { "this.throwable" }, qualifier = org.checkerframework.checker.nullness.qual.Nullable.class)
+    @org.checkerframework.framework.qual.EnsuresQualifier(expression = { "this.time" }, qualifier = org.checkerframework.checker.nullness.qual.Nullable.class)
+    @org.checkerframework.dataflow.qual.Impure
+    private void inicializar() {
+        try {
+            fileWriter = new FileWriter("ReporteXsd.xml");
+            printer = new PrintWriter(fileWriter);
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+
+    @org.checkerframework.checker.nullness.qual.RequiresNonNull({ "this.printer" })
+    @org.checkerframework.framework.qual.RequiresQualifier(expression = { "this.fileWriter" }, qualifier = org.checkerframework.checker.nullness.qual.Nullable.class)
+    @org.checkerframework.framework.qual.RequiresQualifier(expression = { "this.nameCase" }, qualifier = org.checkerframework.checker.nullness.qual.Nullable.class)
+    @org.checkerframework.framework.qual.RequiresQualifier(expression = { "this.throwable" }, qualifier = org.checkerframework.checker.nullness.qual.Nullable.class)
+    @org.checkerframework.framework.qual.RequiresQualifier(expression = { "this.time" }, qualifier = org.checkerframework.checker.nullness.qual.Nullable.class)
+    @org.checkerframework.checker.nullness.qual.EnsuresNonNull({ "this.printer" })
+    @org.checkerframework.framework.qual.EnsuresQualifier(expression = { "this.fileWriter" }, qualifier = org.checkerframework.checker.nullness.qual.Nullable.class)
+    @org.checkerframework.framework.qual.EnsuresQualifier(expression = { "this.nameCase" }, qualifier = org.checkerframework.checker.nullness.qual.Nullable.class)
+    @org.checkerframework.framework.qual.EnsuresQualifier(expression = { "this.throwable" }, qualifier = org.checkerframework.checker.nullness.qual.Nullable.class)
+    @org.checkerframework.framework.qual.EnsuresQualifier(expression = { "this.time" }, qualifier = org.checkerframework.checker.nullness.qual.Nullable.class)
+    @org.checkerframework.dataflow.qual.Impure
+    private void setSuiteRaiz(@org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.NonNull String name) {
+        namesTestSuites.add(name);
+    }
+
+    @org.checkerframework.checker.nullness.qual.EnsuresNonNull({ "this.nameCase" })
+    @org.checkerframework.checker.nullness.qual.EnsuresNonNull({ "this.printer" })
+    @org.checkerframework.checker.nullness.qual.EnsuresNonNull({ "this.throwable" })
+    @org.checkerframework.checker.nullness.qual.EnsuresNonNull({ "this.time" })
+    @org.checkerframework.framework.qual.EnsuresQualifier(expression = { "this.fileWriter" }, qualifier = org.checkerframework.checker.nullness.qual.Nullable.class)
+    @org.checkerframework.dataflow.qual.Impure
+    public void addFailure(@org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.NonNull XmlPrinter this, @org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.NonNull Test test, @org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.NonNull String time, @org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.NonNull Throwable throwable) {
+        printTestCaseWithError(test, time, throwable, "failure");
+    }
+
+    @org.checkerframework.checker.nullness.qual.EnsuresNonNull({ "this.nameCase" })
+    @org.checkerframework.checker.nullness.qual.EnsuresNonNull({ "this.printer" })
+    @org.checkerframework.checker.nullness.qual.EnsuresNonNull({ "this.throwable" })
+    @org.checkerframework.checker.nullness.qual.EnsuresNonNull({ "this.time" })
+    @org.checkerframework.framework.qual.EnsuresQualifier(expression = { "this.fileWriter" }, qualifier = org.checkerframework.checker.nullness.qual.Nullable.class)
+    @org.checkerframework.dataflow.qual.Impure
+    public void addError(@org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.NonNull XmlPrinter this, @org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.NonNull Test test, @org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.NonNull String time, @org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.NonNull Throwable throwable) {
+        printTestCaseWithError(test, time, throwable, "error");
+    }
+
+    @org.checkerframework.framework.qual.RequiresQualifier(expression = { "this.fileWriter" }, qualifier = org.checkerframework.checker.nullness.qual.Nullable.class)
+    @org.checkerframework.framework.qual.RequiresQualifier(expression = { "this.nameCase" }, qualifier = org.checkerframework.checker.nullness.qual.Nullable.class)
+    @org.checkerframework.framework.qual.RequiresQualifier(expression = { "this.printer" }, qualifier = org.checkerframework.checker.nullness.qual.Nullable.class)
+    @org.checkerframework.framework.qual.RequiresQualifier(expression = { "this.throwable" }, qualifier = org.checkerframework.checker.nullness.qual.Nullable.class)
+    @org.checkerframework.framework.qual.RequiresQualifier(expression = { "this.time" }, qualifier = org.checkerframework.checker.nullness.qual.Nullable.class)
+    @org.checkerframework.checker.nullness.qual.EnsuresNonNull({ "this.nameCase" })
+    @org.checkerframework.checker.nullness.qual.EnsuresNonNull({ "this.printer" })
+    @org.checkerframework.checker.nullness.qual.EnsuresNonNull({ "this.throwable" })
+    @org.checkerframework.checker.nullness.qual.EnsuresNonNull({ "this.time" })
+    @org.checkerframework.framework.qual.EnsuresQualifier(expression = { "this.fileWriter" }, qualifier = org.checkerframework.checker.nullness.qual.Nullable.class)
+    @org.checkerframework.dataflow.qual.Impure
+    private void printTestCaseWithError(@org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.NonNull Test test, @org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.NonNull String time, @org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.NonNull Throwable throwable, @org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.NonNull String type) {
+        nameCase = test.toString();
+        this.time = time;
+        this.throwable = throwable;
+        printHeaderTestCase();
+        printContentException(type);
+        printAtribuesTestCase();
+    }
+
+    @org.checkerframework.checker.nullness.qual.EnsuresNonNull({ "this.nameCase" })
+    @org.checkerframework.checker.nullness.qual.EnsuresNonNull({ "this.printer" })
+    @org.checkerframework.checker.nullness.qual.EnsuresNonNull({ "this.time" })
+    @org.checkerframework.framework.qual.EnsuresQualifier(expression = { "this.fileWriter" }, qualifier = org.checkerframework.checker.nullness.qual.Nullable.class)
+    @org.checkerframework.framework.qual.EnsuresQualifier(expression = { "this.throwable" }, qualifier = org.checkerframework.checker.nullness.qual.Nullable.class)
+    @org.checkerframework.dataflow.qual.Impure
+    public void addSuccess(@org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.NonNull XmlPrinter this, @org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.NonNull TestCase test, @org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.NonNull String time) {
+        nameCase = test.toString();
+        this.time = time;
+        printHeaderTestCase();
+        printAtribuesTestCase();
+    }
+
+    @org.checkerframework.checker.nullness.qual.RequiresNonNull({ "this.nameCase" })
+    @org.checkerframework.checker.nullness.qual.RequiresNonNull({ "this.printer" })
+    @org.checkerframework.checker.nullness.qual.RequiresNonNull({ "this.throwable" })
+    @org.checkerframework.checker.nullness.qual.RequiresNonNull({ "this.time" })
+    @org.checkerframework.framework.qual.RequiresQualifier(expression = { "this.fileWriter" }, qualifier = org.checkerframework.checker.nullness.qual.Nullable.class)
+    @org.checkerframework.checker.nullness.qual.EnsuresNonNull({ "this.nameCase" })
+    @org.checkerframework.checker.nullness.qual.EnsuresNonNull({ "this.printer" })
+    @org.checkerframework.checker.nullness.qual.EnsuresNonNull({ "this.throwable" })
+    @org.checkerframework.checker.nullness.qual.EnsuresNonNull({ "this.time" })
+    @org.checkerframework.framework.qual.EnsuresQualifier(expression = { "this.fileWriter" }, qualifier = org.checkerframework.checker.nullness.qual.Nullable.class)
+    @org.checkerframework.dataflow.qual.Impure
+    private void printContentException(@org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.NonNull String type) {
+        printer.println("\t\t\t\t\t\t\t\t<xs:sequence>\n\t<xs:element name=\"" + type + "\">\n\t\t\t\t\t\t\t\t\t\t\t<xs:complexType mixed=\"true\">\n\t\t\t\t\t\t\t\t\t\t\t\t<xs:attribute name=\"" + throwable.toString() + "\" type=\"xs:string\" use=\"optional\"/>\n\t\t\t\t\t\t\t\t\t\t\t\t<xs:attribute name=\"" + throwable.getMessage() + "\" type=\"xs:string\" use=\"optional\"/>\n\t\t\t\t\t\t\t\t\t\t\t</xs:complexType>\n\t\t\t\t\t\t\t\t\t</xs:element> \t\t\t\t\t\t\t\t</xs:sequence>");
+    }
+
+    @org.checkerframework.checker.nullness.qual.RequiresNonNull({ "this.nameCase" })
+    @org.checkerframework.checker.nullness.qual.RequiresNonNull({ "this.time" })
+    @org.checkerframework.framework.qual.RequiresQualifier(expression = { "this.fileWriter" }, qualifier = org.checkerframework.checker.nullness.qual.Nullable.class)
+    @org.checkerframework.framework.qual.RequiresQualifier(expression = { "this.printer" }, qualifier = org.checkerframework.checker.nullness.qual.Nullable.class)
+    @org.checkerframework.framework.qual.RequiresQualifier(expression = { "this.throwable" }, qualifier = org.checkerframework.checker.nullness.qual.Nullable.class)
+    @org.checkerframework.checker.nullness.qual.EnsuresNonNull({ "this.nameCase" })
+    @org.checkerframework.checker.nullness.qual.EnsuresNonNull({ "this.printer" })
+    @org.checkerframework.checker.nullness.qual.EnsuresNonNull({ "this.time" })
+    @org.checkerframework.framework.qual.EnsuresQualifier(expression = { "this.fileWriter" }, qualifier = org.checkerframework.checker.nullness.qual.Nullable.class)
+    @org.checkerframework.framework.qual.EnsuresQualifier(expression = { "this.throwable" }, qualifier = org.checkerframework.checker.nullness.qual.Nullable.class)
+    @org.checkerframework.dataflow.qual.Impure
+    private void printHeaderTestCase() {
+        printer.println("\t\t\t\t<xs:element name=\"testcase\">\n\t\t\t\t\t<xs:complexType>");
+    }
+
+    @org.checkerframework.checker.nullness.qual.RequiresNonNull({ "this.nameCase" })
+    @org.checkerframework.checker.nullness.qual.RequiresNonNull({ "this.printer" })
+    @org.checkerframework.checker.nullness.qual.RequiresNonNull({ "this.time" })
+    @org.checkerframework.framework.qual.RequiresQualifier(expression = { "this.fileWriter" }, qualifier = org.checkerframework.checker.nullness.qual.Nullable.class)
+    @org.checkerframework.framework.qual.RequiresQualifier(expression = { "this.throwable" }, qualifier = org.checkerframework.checker.nullness.qual.Nullable.class)
+    @org.checkerframework.checker.nullness.qual.EnsuresNonNull({ "this.nameCase" })
+    @org.checkerframework.checker.nullness.qual.EnsuresNonNull({ "this.printer" })
+    @org.checkerframework.checker.nullness.qual.EnsuresNonNull({ "this.time" })
+    @org.checkerframework.framework.qual.EnsuresQualifier(expression = { "this.fileWriter" }, qualifier = org.checkerframework.checker.nullness.qual.Nullable.class)
+    @org.checkerframework.framework.qual.EnsuresQualifier(expression = { "this.throwable" }, qualifier = org.checkerframework.checker.nullness.qual.Nullable.class)
+    @org.checkerframework.dataflow.qual.Impure
+    private void printAtribuesTestCase() {
+        printer.print("\t\t\t\t\t\t<xs:attribute name=\"" + nameCase + "\" type=\"xs:string\" use=\"required\"/>\n\t\t\t\t\t\t<xs:attribute name=\"" + time + "\" type=\"xs:string\" use=\"optional\"/>\n\t\t\t\t\t</xs:complexType>\n\t\t\t\t</xs:element>\n");
+    }
+
+    @org.checkerframework.checker.nullness.qual.EnsuresNonNull({ "this.printer" })
+    @org.checkerframework.framework.qual.EnsuresQualifier(expression = { "this.fileWriter" }, qualifier = org.checkerframework.checker.nullness.qual.Nullable.class)
+    @org.checkerframework.framework.qual.EnsuresQualifier(expression = { "this.nameCase" }, qualifier = org.checkerframework.checker.nullness.qual.Nullable.class)
+    @org.checkerframework.framework.qual.EnsuresQualifier(expression = { "this.throwable" }, qualifier = org.checkerframework.checker.nullness.qual.Nullable.class)
+    @org.checkerframework.framework.qual.EnsuresQualifier(expression = { "this.time" }, qualifier = org.checkerframework.checker.nullness.qual.Nullable.class)
+    @org.checkerframework.dataflow.qual.Impure
+    public void print(@org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.NonNull XmlPrinter this, @org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.Nullable String messsage) {
+        if (!messsage.contains(":")) {
+            printHeader();
+            printXsdTestSuiteMain();
+            setSuiteRaiz(messsage);
+        } else {
+            String last = namesTestSuites.get(namesTestSuites.size() - 1);
+            namesTestSuites.remove(namesTestSuites.size() - 1);
+            imprimirCloseTestSuite(last);
+        }
+    }
+
+    @org.checkerframework.framework.qual.RequiresQualifier(expression = { "this.fileWriter" }, qualifier = org.checkerframework.checker.nullness.qual.Nullable.class)
+    @org.checkerframework.framework.qual.RequiresQualifier(expression = { "this.nameCase" }, qualifier = org.checkerframework.checker.nullness.qual.Nullable.class)
+    @org.checkerframework.framework.qual.RequiresQualifier(expression = { "this.printer" }, qualifier = org.checkerframework.checker.nullness.qual.Nullable.class)
+    @org.checkerframework.framework.qual.RequiresQualifier(expression = { "this.throwable" }, qualifier = org.checkerframework.checker.nullness.qual.Nullable.class)
+    @org.checkerframework.framework.qual.RequiresQualifier(expression = { "this.time" }, qualifier = org.checkerframework.checker.nullness.qual.Nullable.class)
+    @org.checkerframework.checker.nullness.qual.EnsuresNonNull({ "this.printer" })
+    @org.checkerframework.framework.qual.EnsuresQualifier(expression = { "this.fileWriter" }, qualifier = org.checkerframework.checker.nullness.qual.Nullable.class)
+    @org.checkerframework.framework.qual.EnsuresQualifier(expression = { "this.nameCase" }, qualifier = org.checkerframework.checker.nullness.qual.Nullable.class)
+    @org.checkerframework.framework.qual.EnsuresQualifier(expression = { "this.throwable" }, qualifier = org.checkerframework.checker.nullness.qual.Nullable.class)
+    @org.checkerframework.framework.qual.EnsuresQualifier(expression = { "this.time" }, qualifier = org.checkerframework.checker.nullness.qual.Nullable.class)
+    @org.checkerframework.dataflow.qual.Impure
+    private void imprimirCloseTestSuite(@org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.NonNull String name) {
+        printer.print("\t\t\t<xs:attribute name=\"" + name + "\" type=\"xs:string\" use=\"optional\"/>\n\t\t</xs:complexType>\n  \t</xs:element>");
+        if (namesTestSuites.size() > 1) {
+            printer.print("</xs:sequence>");
+        }
+        if (namesTestSuites.size() == 0) {
+            printer.print("\n</xs:schema>");
+            printer.close();
+        }
+    }
+
+    @org.checkerframework.framework.qual.EnsuresQualifier(expression = { "this.fileWriter" }, qualifier = org.checkerframework.checker.nullness.qual.Nullable.class)
+    @org.checkerframework.framework.qual.EnsuresQualifier(expression = { "this.nameCase" }, qualifier = org.checkerframework.checker.nullness.qual.Nullable.class)
+    @org.checkerframework.framework.qual.EnsuresQualifier(expression = { "this.printer" }, qualifier = org.checkerframework.checker.nullness.qual.Nullable.class)
+    @org.checkerframework.framework.qual.EnsuresQualifier(expression = { "this.throwable" }, qualifier = org.checkerframework.checker.nullness.qual.Nullable.class)
+    @org.checkerframework.framework.qual.EnsuresQualifier(expression = { "this.time" }, qualifier = org.checkerframework.checker.nullness.qual.Nullable.class)
+    @org.checkerframework.dataflow.qual.SideEffectFree
+    public void insertHSeparator(@org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.NonNull XmlPrinter this) {
+    }
+
+    @org.checkerframework.framework.qual.RequiresQualifier(expression = { "this.fileWriter" }, qualifier = org.checkerframework.checker.nullness.qual.Nullable.class)
+    @org.checkerframework.framework.qual.RequiresQualifier(expression = { "this.nameCase" }, qualifier = org.checkerframework.checker.nullness.qual.Nullable.class)
+    @org.checkerframework.framework.qual.RequiresQualifier(expression = { "this.printer" }, qualifier = org.checkerframework.checker.nullness.qual.Nullable.class)
+    @org.checkerframework.framework.qual.RequiresQualifier(expression = { "this.throwable" }, qualifier = org.checkerframework.checker.nullness.qual.Nullable.class)
+    @org.checkerframework.framework.qual.RequiresQualifier(expression = { "this.time" }, qualifier = org.checkerframework.checker.nullness.qual.Nullable.class)
+    @org.checkerframework.checker.nullness.qual.EnsuresNonNull({ "this.printer" })
+    @org.checkerframework.framework.qual.EnsuresQualifier(expression = { "this.fileWriter" }, qualifier = org.checkerframework.checker.nullness.qual.Nullable.class)
+    @org.checkerframework.framework.qual.EnsuresQualifier(expression = { "this.nameCase" }, qualifier = org.checkerframework.checker.nullness.qual.Nullable.class)
+    @org.checkerframework.framework.qual.EnsuresQualifier(expression = { "this.throwable" }, qualifier = org.checkerframework.checker.nullness.qual.Nullable.class)
+    @org.checkerframework.framework.qual.EnsuresQualifier(expression = { "this.time" }, qualifier = org.checkerframework.checker.nullness.qual.Nullable.class)
+    @org.checkerframework.dataflow.qual.Impure
+    private void printHeader() {
+        printer.println("<?xml version=\"1.0\" encoding=\"ISO-8859-1\" ?>\n<xs:schema xmlns:xs=\"http://www.w3.org/2001/XMLSchema\">\n");
+    }
+
+    @org.checkerframework.checker.nullness.qual.RequiresNonNull({ "this.printer" })
+    @org.checkerframework.framework.qual.RequiresQualifier(expression = { "this.fileWriter" }, qualifier = org.checkerframework.checker.nullness.qual.Nullable.class)
+    @org.checkerframework.framework.qual.RequiresQualifier(expression = { "this.nameCase" }, qualifier = org.checkerframework.checker.nullness.qual.Nullable.class)
+    @org.checkerframework.framework.qual.RequiresQualifier(expression = { "this.throwable" }, qualifier = org.checkerframework.checker.nullness.qual.Nullable.class)
+    @org.checkerframework.framework.qual.RequiresQualifier(expression = { "this.time" }, qualifier = org.checkerframework.checker.nullness.qual.Nullable.class)
+    @org.checkerframework.checker.nullness.qual.EnsuresNonNull({ "this.printer" })
+    @org.checkerframework.framework.qual.EnsuresQualifier(expression = { "this.fileWriter" }, qualifier = org.checkerframework.checker.nullness.qual.Nullable.class)
+    @org.checkerframework.framework.qual.EnsuresQualifier(expression = { "this.nameCase" }, qualifier = org.checkerframework.checker.nullness.qual.Nullable.class)
+    @org.checkerframework.framework.qual.EnsuresQualifier(expression = { "this.throwable" }, qualifier = org.checkerframework.checker.nullness.qual.Nullable.class)
+    @org.checkerframework.framework.qual.EnsuresQualifier(expression = { "this.time" }, qualifier = org.checkerframework.checker.nullness.qual.Nullable.class)
+    @org.checkerframework.dataflow.qual.Impure
+    private void printXsdTestSuiteMain() {
+        printer.print("<xs:element name=\"testsuite\"");
+        if (namesTestSuites.isEmpty()) {
+            System.out.print(" xmlns:xsi=\"http://www.w3c.org/2001/XMLSchema-instance\"");
+        }
+        printer.println(">\n\t<xs:complexType>\n\t\t<xs:sequence>");
+    }
+}

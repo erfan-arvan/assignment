@@ -1,0 +1,108 @@
+package org.delaunay;
+
+import java.awt.geom.Path2D;
+import java.awt.geom.Point2D;
+import java.util.TreeMap;
+import org.delaunay.model.Vector;
+import org.delaunay.model.Vertex;
+import com.google.common.base.Function;
+import com.google.common.collect.Iterables;
+import com.google.common.collect.Maps;
+
+@org.checkerframework.framework.qual.AnnotatedFor("org.checkerframework.checker.nullness.KeyForSubchecker")
+public class Utils {
+
+    @org.checkerframework.dataflow.qual.Pure
+    public static <T>   double sum(Iterable<Double> values) {
+        double sum = 0.0;
+        for (double d : values) {
+            sum += d;
+        }
+        return sum;
+    }
+
+    @org.checkerframework.dataflow.qual.Impure
+    public static <T>  @org.checkerframework.checker.nullness.qual.KeyFor({}) double maxValue( Iterable<T> values,  Function<? super T, Double> valueFunction) {
+        TreeMap<Double, T> map = valueMap(values, valueFunction);
+        if (map.isEmpty()) {
+            return 0.0;
+        }
+        return map.lastKey();
+    }
+
+    @org.checkerframework.dataflow.qual.Impure
+    public static <T>  @org.checkerframework.checker.nullness.qual.KeyFor({}) double minValue(Iterable<T> values, Function<? super T, Double> valueFunction) {
+        TreeMap<Double, T> map = valueMap(values, valueFunction);
+        if (map.isEmpty()) {
+            return 0.0;
+        }
+        return map.firstKey();
+    }
+
+    @org.checkerframework.dataflow.qual.Impure
+    public static <T> T maxObject(Iterable<T> values, Function<? super T, Double> valueFunction) {
+        TreeMap<Double, T> map = valueMap(values, valueFunction);
+        if (map.isEmpty()) {
+            return null;
+        }
+        return map.lastEntry().getValue();
+    }
+
+    @org.checkerframework.dataflow.qual.Impure
+    public static <T> T minObject( Iterable<T> values,  Function<? super T, Double> valueFunction) {
+        TreeMap<Double, T> map = valueMap(values, valueFunction);
+        if (map.isEmpty()) {
+            return null;
+        }
+        return map.firstEntry().getValue();
+    }
+
+    @org.checkerframework.dataflow.qual.Impure
+    private static <T>  TreeMap<Double, T> valueMap( Iterable<T> values,  Function<? super T, Double> valueFunction) {
+        TreeMap<Double, T> map = Maps.newTreeMap();
+        for (T value : values) {
+            Double d = valueFunction.apply(value);
+            if (d != null) {
+                map.put(d, value);
+            }
+        }
+        return map;
+    }
+
+    @org.checkerframework.dataflow.qual.Impure
+    public static  Iterable<Vertex> toVertices( Iterable<? extends Vector> vectors) {
+        return Iterables.transform(vectors, new Function<Vector, Vertex>() {
+
+            @org.checkerframework.dataflow.qual.Pure
+            public  Vertex apply( Vector vector) {
+                return new Vertex(vector.x, vector.y);
+            }
+        });
+    }
+
+    @org.checkerframework.dataflow.qual.Impure
+    public static  Iterable<Point2D> toPoints(Iterable<? extends Vector> vectors) {
+        return Iterables.transform(vectors, new Function<Vector, Point2D>() {
+
+            @org.checkerframework.dataflow.qual.Pure
+            public  Point2D apply( Vector vector) {
+                return new Point2D.Double(vector.x, vector.y);
+            }
+        });
+    }
+
+    @org.checkerframework.dataflow.qual.Impure
+    public static  Path2D pathFromPoints(Iterable<? extends Point2D> points) {
+        Path2D path = new Path2D.Double();
+        int i = 0;
+        for (Point2D point : points) {
+            if (i++ == 0) {
+                path.moveTo(point.getX(), point.getY());
+            } else {
+                path.lineTo(point.getX(), point.getY());
+            }
+        }
+        path.closePath();
+        return path;
+    }
+}

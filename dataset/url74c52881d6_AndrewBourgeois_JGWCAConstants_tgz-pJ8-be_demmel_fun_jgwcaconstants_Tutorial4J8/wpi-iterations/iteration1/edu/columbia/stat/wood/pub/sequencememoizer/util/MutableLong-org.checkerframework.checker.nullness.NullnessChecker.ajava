@@ -1,0 +1,87 @@
+/*
+ * To change this template, choose Tools | Templates
+ * and open the template in the editor.
+ */
+package edu.columbia.stat.wood.pub.sequencememoizer.util;
+
+/**
+ * @author nicholasbartlett
+ */
+@org.checkerframework.framework.qual.AnnotatedFor("org.checkerframework.checker.nullness.NullnessChecker")
+public class MutableLong {
+
+    static final  @org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.NonNull long serialVersionUID = 1;
+
+    private  @org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.NonNull long l;
+
+    /**
+     * @param value value of underlying long
+     */
+    @org.checkerframework.dataflow.qual.SideEffectFree
+    public MutableLong( @org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.NonNull long value) {
+        l = value;
+    }
+
+    /**
+     * Allows the underlying value to be set.
+     * @param value long value to assign this object
+     */
+    @org.checkerframework.dataflow.qual.Impure
+    public void set(long value) {
+        l = value;
+    }
+
+    /**
+     * Gets the long value of this object.
+     * @return long value of this object
+     */
+    @org.checkerframework.dataflow.qual.Pure
+    public  @org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.NonNull long value() {
+        return l;
+    }
+
+    /**
+     * Increments the underlying value by 1.
+     */
+    @org.checkerframework.dataflow.qual.Impure
+    public void increment() {
+        l++;
+    }
+
+    /**
+     * Decrements the underlying value by 1.
+     */
+    @org.checkerframework.dataflow.qual.Impure
+    public void decrement() {
+        l--;
+    }
+
+    /**
+     * Overrides the equals() method to only reflect the underlying long value.
+     * @param o object to compare to
+     * @return true if equal, else false
+     */
+    @org.checkerframework.dataflow.qual.Pure
+    public  @org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.NonNull boolean equals(@org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.NonNull MutableLong this, @org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.Nullable Object o) {
+        if (o == null) {
+            return false;
+        } else if (o.getClass() != this.getClass()) {
+            return false;
+        } else if (((MutableInt) o).value() == l) {
+            return true;
+        } else {
+            return false;
+        }
+    }
+
+    /**
+     * Overrides hash code to only reflect underlying long value.
+     * @return hash code
+     */
+    @org.checkerframework.dataflow.qual.Pure
+    public  @org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.NonNull int hashCode(@org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.NonNull MutableLong this) {
+        int hash = 3;
+        hash = 19 * hash + (int) (this.l ^ (this.l >>> 32));
+        return hash;
+    }
+}

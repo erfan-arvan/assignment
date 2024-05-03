@@ -1,0 +1,20 @@
+package net.slreynolds.ds.model;
+
+/**
+ * Report an error with reflection
+ */
+@org.checkerframework.framework.qual.AnnotatedFor("org.checkerframework.checker.nullness.KeyForSubchecker")
+public class ReflectionException extends Exception {
+
+    private static final   long serialVersionUID = -5153147521115665003L;
+
+    @org.checkerframework.dataflow.qual.SideEffectFree
+    public ReflectionException(String message) {
+        super(message);
+    }
+
+    @org.checkerframework.dataflow.qual.SideEffectFree
+    public ReflectionException( String message,  Throwable cause) {
+        super(message, cause);
+    }
+}

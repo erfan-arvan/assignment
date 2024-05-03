@@ -1,0 +1,224 @@
+package main.parser;
+
+/**
+ * CSV parsed orders. Non type descriptive fields for each order, bare bones for containing basic information.
+ */
+@org.checkerframework.framework.qual.AnnotatedFor("org.checkerframework.checker.nullness.KeyForSubchecker")
+public class SircaOrder {
+
+    private  String instrument;
+
+    private  String date;
+
+    private  String time;
+
+    private  String recordType;
+
+    private  String price;
+
+    private  String volume;
+
+    private  String undisclosedVolume;
+
+    private  String value;
+
+    private  String qualifiers;
+
+    private  String transactionId;
+
+    private  String bidId;
+
+    private  String askId;
+
+    private  String bidOrAsk;
+
+    private  String entryTime;
+
+    private  String oldPrice;
+
+    private  String oldVolume;
+
+    private  String buyerBrokerId;
+
+    private  String sellerBrokerId;
+
+    @org.checkerframework.dataflow.qual.Pure
+    public  String getInstrument( SircaOrder this) {
+        return instrument;
+    }
+
+    @org.checkerframework.dataflow.qual.Impure
+    public void setInstrument(final String instrument) {
+        this.instrument = instrument;
+    }
+
+    @org.checkerframework.dataflow.qual.Pure
+    public  String getDate( SircaOrder this) {
+        return date;
+    }
+
+    @org.checkerframework.dataflow.qual.Impure
+    public void setDate(final String date) {
+        this.date = date;
+    }
+
+    @org.checkerframework.dataflow.qual.Pure
+    public  String getTime( SircaOrder this) {
+        return time;
+    }
+
+    @org.checkerframework.dataflow.qual.Impure
+    public void setTime(final String time) {
+        this.time = time;
+    }
+
+    @org.checkerframework.dataflow.qual.Pure
+    public  String getRecordType( SircaOrder this) {
+        return recordType;
+    }
+
+    @org.checkerframework.dataflow.qual.Impure
+    public void setRecordType(final String recordType) {
+        this.recordType = recordType;
+    }
+
+    @org.checkerframework.dataflow.qual.Pure
+    public  String getPrice( SircaOrder this) {
+        return price;
+    }
+
+    @org.checkerframework.dataflow.qual.Impure
+    public void setPrice(final String price) {
+        this.price = price;
+    }
+
+    @org.checkerframework.dataflow.qual.Pure
+    public  String getVolume( SircaOrder this) {
+        return volume;
+    }
+
+    @org.checkerframework.dataflow.qual.Impure
+    public void setVolume(final String volume) {
+        this.volume = volume;
+    }
+
+    @org.checkerframework.dataflow.qual.Pure
+    public  String getUndisclosedVolume() {
+        return undisclosedVolume;
+    }
+
+    @org.checkerframework.dataflow.qual.Impure
+    public void setUndisclosedVolume(final String undisclosedVolume) {
+        this.undisclosedVolume = undisclosedVolume;
+    }
+
+    @org.checkerframework.dataflow.qual.Pure
+    public  String getValue() {
+        return value;
+    }
+
+    @org.checkerframework.dataflow.qual.Impure
+    public void setValue(final String value) {
+        this.value = value;
+    }
+
+    @org.checkerframework.dataflow.qual.Pure
+    public  String getQualifiers( SircaOrder this) {
+        return qualifiers;
+    }
+
+    @org.checkerframework.dataflow.qual.Impure
+    public void setQualifiers(final String qualifiers) {
+        this.qualifiers = qualifiers;
+    }
+
+    @org.checkerframework.dataflow.qual.Pure
+    public  String getTransactionId( SircaOrder this) {
+        return transactionId;
+    }
+
+    @org.checkerframework.dataflow.qual.Impure
+    public void setTransactionId(final String transactionId) {
+        this.transactionId = transactionId;
+    }
+
+    @org.checkerframework.dataflow.qual.Pure
+    public  String getBidId( SircaOrder this) {
+        return bidId;
+    }
+
+    @org.checkerframework.dataflow.qual.Impure
+    public void setBidId(final String bidId) {
+        this.bidId = bidId;
+    }
+
+    @org.checkerframework.dataflow.qual.Pure
+    public  String getAskId( SircaOrder this) {
+        return askId;
+    }
+
+    @org.checkerframework.dataflow.qual.Impure
+    public void setAskId(final String askId) {
+        this.askId = askId;
+    }
+
+    @org.checkerframework.dataflow.qual.Pure
+    public  String getBidOrAsk( SircaOrder this) {
+        return bidOrAsk;
+    }
+
+    @org.checkerframework.dataflow.qual.Impure
+    public void setBidOrAsk(final String bidOrAsk) {
+        this.bidOrAsk = bidOrAsk;
+    }
+
+    @org.checkerframework.dataflow.qual.Pure
+    public  String getEntryTime() {
+        return entryTime;
+    }
+
+    @org.checkerframework.dataflow.qual.Impure
+    public void setEntryTime(final String entryTime) {
+        this.entryTime = entryTime;
+    }
+
+    @org.checkerframework.dataflow.qual.Pure
+    public  String getOldPrice() {
+        return oldPrice;
+    }
+
+    @org.checkerframework.dataflow.qual.Impure
+    public void setOldPrice(final String oldPrice) {
+        this.oldPrice = oldPrice;
+    }
+
+    @org.checkerframework.dataflow.qual.Pure
+    public  String getOldVolume() {
+        return oldVolume;
+    }
+
+    @org.checkerframework.dataflow.qual.Impure
+    public void setOldVolume(final String oldVolume) {
+        this.oldVolume = oldVolume;
+    }
+
+    @org.checkerframework.dataflow.qual.Pure
+    public  String getBuyerBrokerId( SircaOrder this) {
+        return buyerBrokerId;
+    }
+
+    @org.checkerframework.dataflow.qual.Impure
+    public void setBuyerBrokerId(final String buyerBrokerId) {
+        this.buyerBrokerId = buyerBrokerId;
+    }
+
+    @org.checkerframework.dataflow.qual.Pure
+    public  String getSellerBrokerId( SircaOrder this) {
+        return sellerBrokerId;
+    }
+
+    @org.checkerframework.dataflow.qual.Impure
+    public void setSellerBrokerId(final String sellerBrokerId) {
+        this.sellerBrokerId = sellerBrokerId;
+    }
+}

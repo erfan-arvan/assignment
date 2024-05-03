@@ -1,0 +1,29 @@
+package be.demmel.fun.jgwcaconstants.bll;
+
+@org.checkerframework.framework.qual.AnnotatedFor("org.checkerframework.checker.nullness.NullnessChecker")
+public enum Profession {
+
+    NONE((byte) 0),
+    WARRIOR((byte) 1),
+    RANGER((byte) 2),
+    MONK((byte) 3),
+    NECROMANCER((byte) 4),
+    MESMER((byte) 5),
+    ELEMENTALIST((byte) 6),
+    ASSASSIN((byte) 7),
+    RITUALIST((byte) 8),
+    PARAGON((byte) 9),
+    DERVISH((byte) 10);
+
+    private final  @org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.NonNull byte value;
+
+    @org.checkerframework.dataflow.qual.Impure
+    private Profession( @org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.NonNull byte value) {
+        this.value = value;
+    }
+
+    @org.checkerframework.dataflow.qual.Pure
+    public  @org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.NonNull byte getValue() {
+        return value;
+    }
+}

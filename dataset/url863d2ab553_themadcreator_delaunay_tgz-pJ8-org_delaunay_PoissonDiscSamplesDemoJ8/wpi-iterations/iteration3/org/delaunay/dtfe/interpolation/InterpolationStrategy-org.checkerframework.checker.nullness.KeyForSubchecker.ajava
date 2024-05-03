@@ -1,0 +1,12 @@
+package org.delaunay.dtfe.interpolation;
+
+import org.delaunay.dtfe.DensityModel;
+import org.delaunay.dtfe.DtfeTriangulationMap;
+import org.delaunay.model.Vector;
+
+@org.checkerframework.framework.qual.AnnotatedFor("org.checkerframework.checker.nullness.KeyForSubchecker")
+public interface InterpolationStrategy {
+
+    @org.checkerframework.dataflow.qual.Impure
+    public   double getDensity( InterpolationStrategy this,  DtfeTriangulationMap<? extends DensityModel> dtfe,  Vector v);
+}

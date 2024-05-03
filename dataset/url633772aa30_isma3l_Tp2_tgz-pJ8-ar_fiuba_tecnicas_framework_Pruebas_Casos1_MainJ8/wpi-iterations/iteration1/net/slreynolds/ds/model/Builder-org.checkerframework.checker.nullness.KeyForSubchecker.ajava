@@ -1,0 +1,11 @@
+package net.slreynolds.ds.model;
+
+import java.util.Map;
+import net.slreynolds.ds.model.internal.GraphBuildContext;
+
+@org.checkerframework.framework.qual.AnnotatedFor("org.checkerframework.checker.nullness.KeyForSubchecker")
+public interface Builder {
+
+    @org.checkerframework.dataflow.qual.Impure
+    public void build( Builder this,  String name,  Object obj,  Graph graph,  GraphBuildContext context,  Map<String, Object> options) throws BuildException;
+}

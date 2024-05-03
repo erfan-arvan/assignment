@@ -1,0 +1,105 @@
+package org.delaunay.algorithm.samples;
+
+import java.awt.Shape;
+import java.awt.geom.Rectangle2D;
+import java.util.Random;
+import org.delaunay.model.Vector;
+
+@org.checkerframework.framework.qual.AnnotatedFor("org.checkerframework.checker.nullness.NullnessChecker")
+public class SampleFunctions {
+
+    public static interface SampleFunction {
+
+        @org.checkerframework.dataflow.qual.Pure
+        @org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.NonNull Shape getBoundingShape();
+
+        @org.checkerframework.dataflow.qual.Impure
+        @org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.NonNull Vector createSampleIn(@org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.NonNull Shape shape);
+
+        @org.checkerframework.dataflow.qual.Impure
+        @org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.NonNull Vector createSampleNear(@org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.NonNull Vector v);
+
+        @org.checkerframework.dataflow.qual.Pure
+         @org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.NonNull double getMimimumDistance(@org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.NonNull Vector v);
+    }
+
+    public static abstract class BoundSampleFunction implements SampleFunction {
+
+        protected @org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.NonNull Random random = new Random(System.currentTimeMillis());
+
+        protected final @org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.NonNull Shape shape;
+
+        @org.checkerframework.dataflow.qual.SideEffectFree
+        public BoundSampleFunction(@org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.NonNull Shape shape) {
+            this.shape = shape;
+        }
+
+        @org.checkerframework.dataflow.qual.Pure
+        public @org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.NonNull Shape getBoundingShape(@org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.NonNull BoundSampleFunction this) {
+            return shape;
+        }
+
+        @org.checkerframework.dataflow.qual.Impure
+        public @org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.NonNull Vector createSampleIn(@org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.NonNull BoundSampleFunction this, @org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.NonNull Shape shape) {
+            Rectangle2D b = shape.getBounds2D();
+            double x = b.getMinX() + random.nextDouble() * b.getWidth();
+            double y = b.getMinY() + random.nextDouble() * b.getHeight();
+            return new Vector(x, y);
+        }
+    }
+
+    public static class PoissonDiscSampleFunction extends BoundSampleFunction {
+
+        private final  @org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.NonNull double minDist;
+
+        private final  @org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.NonNull double maxDist;
+
+        @org.checkerframework.dataflow.qual.Impure
+        public PoissonDiscSampleFunction(@org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.NonNull Shape shape,  @org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.NonNull double minDist) {
+            this(shape, minDist, minDist * 2);
+        }
+
+        @org.checkerframework.dataflow.qual.Impure
+        public PoissonDiscSampleFunction(@org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.NonNull Shape shape,  @org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.NonNull double minDist,  @org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.NonNull double maxDist) {
+            super(shape);
+            this.minDist = minDist;
+            this.maxDist = maxDist;
+        }
+
+        @org.checkerframework.dataflow.qual.Impure
+        public @org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.NonNull Vector createSampleNear(@org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.NonNull PoissonDiscSampleFunction this, @org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.NonNull Vector v) {
+            // sqrt to compensate for area change
+            double rr = Math.sqrt(random.nextDouble());
+            double radius = minDist + (rr) * (maxDist - minDist);
+            double angle = 2 * Math.PI * random.nextDouble();
+            double x = v.x + radius * Math.cos(angle);
+            double y = v.y + radius * Math.sin(angle);
+            return new Vector(x, y);
+        }
+
+        @org.checkerframework.dataflow.qual.Pure
+        public  @org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.NonNull double getMimimumDistance(@org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.NonNull PoissonDiscSampleFunction this, @org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.NonNull Vector v) {
+            return minDist;
+        }
+    }
+
+    public static abstract class VariablePoissonDiscSampleFunction extends BoundSampleFunction {
+
+        @org.checkerframework.dataflow.qual.Impure
+        public VariablePoissonDiscSampleFunction(@org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.NonNull Shape shape) {
+            super(shape);
+        }
+
+        @org.checkerframework.dataflow.qual.Impure
+        public @org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.NonNull Vector createSampleNear(@org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.NonNull VariablePoissonDiscSampleFunction this, @org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.NonNull Vector v) {
+            double minDist = getMimimumDistance(v);
+            // sqrt to compensate for area change
+            double rr = Math.sqrt(random.nextDouble());
+            double radius = minDist + (rr + 1);
+            double angle = 2 * Math.PI * random.nextDouble();
+            double x = v.x + radius * Math.cos(angle);
+            double y = v.y + radius * Math.sin(angle);
+            return new Vector(x, y);
+        }
+    }
+}

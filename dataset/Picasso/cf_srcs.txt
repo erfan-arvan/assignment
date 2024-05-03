@@ -1,0 +1,1 @@
+../dataset/pic/src/test/java/com/squareup/picasso3/_JavaConsumerIdeCheck.java

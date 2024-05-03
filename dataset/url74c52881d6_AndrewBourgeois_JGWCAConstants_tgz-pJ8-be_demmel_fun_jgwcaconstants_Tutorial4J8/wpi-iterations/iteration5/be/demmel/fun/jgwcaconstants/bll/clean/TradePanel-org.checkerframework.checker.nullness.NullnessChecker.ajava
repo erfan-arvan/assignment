@@ -1,0 +1,62 @@
+package be.demmel.fun.jgwcaconstants.bll.clean;
+
+import be.demmel.fun.jgwcaconstants.bll.GWCAOperations;
+import java.io.IOException;
+
+@org.checkerframework.framework.qual.AnnotatedFor("org.checkerframework.checker.nullness.NullnessChecker")
+public class TradePanel {
+
+    private final @org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.NonNull GWCAOperations gwcaOperations;
+
+    @org.checkerframework.dataflow.qual.SideEffectFree
+    public TradePanel(@org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.NonNull GWCAOperations gwcaOperations) {
+        this.gwcaOperations = gwcaOperations;
+    }
+
+    /**
+     * Like pressing the "Submit Offer" button, but also including the amount of gold offered.
+     * @param goldAmount
+     * @throws IOException
+     */
+    @org.checkerframework.dataflow.qual.Impure
+    public void submitOffer(int goldAmount) throws IOException {
+        this.gwcaOperations.submitOffer(goldAmount);
+    }
+
+    /**
+     * Like pressing the "Change Offer" button.
+     * @throws IOException
+     */
+    @org.checkerframework.dataflow.qual.Impure
+    public void changeOffer() throws IOException {
+        this.gwcaOperations.changeOffer();
+    }
+
+    /**
+     * Like pressing the "Cancel" button in a trade.
+     * @throws IOException
+     */
+    @org.checkerframework.dataflow.qual.Impure
+    public void cancelTrade() throws IOException {
+        this.gwcaOperations.cancelTrade();
+    }
+
+    /**
+     * Like pressing the "Accept" button in a trade. Can only be used after both players have submitted their offer.
+     * @throws IOException
+     */
+    @org.checkerframework.dataflow.qual.Impure
+    public void acceptTrade() throws IOException {
+        this.gwcaOperations.acceptTrade();
+    }
+
+    /**
+     * Offers the specified item in the trade window.
+     * @param itemId
+     * @throws IOException
+     */
+    @org.checkerframework.dataflow.qual.Impure
+    public void offerItem(int itemId) throws IOException {
+        this.gwcaOperations.offerItem(itemId);
+    }
+}

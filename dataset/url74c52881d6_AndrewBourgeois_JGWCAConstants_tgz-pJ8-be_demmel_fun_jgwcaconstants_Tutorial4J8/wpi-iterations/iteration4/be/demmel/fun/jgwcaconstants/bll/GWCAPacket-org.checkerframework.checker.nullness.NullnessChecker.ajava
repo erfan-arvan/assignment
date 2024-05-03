@@ -1,0 +1,202 @@
+package be.demmel.fun.jgwcaconstants.bll;
+
+import java.nio.ByteBuffer;
+import java.nio.ByteOrder;
+import java.util.Arrays;
+
+/**
+ * Represents a packet that will be sent to the DLL injected into the Guild Wars process
+ * The structure of the packet is as follows:
+ * - 2 unsigned bytes representing the operation to execute ==> short
+ * - 2 unsigned bytes representing I don't know what ==> short
+ * - 4 unsigned bytes representing the wparam (whatever that name means) => byte[4]
+ * - 4 unsigned bytes representing the lparam (whatever that name means) => byte[4]
+ */
+@org.checkerframework.framework.qual.AnnotatedFor("org.checkerframework.checker.nullness.NullnessChecker")
+public class GWCAPacket {
+
+    private @org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.MonotonicNonNull GWCAOperation operation;
+
+    private  @org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.NonNull short operationType;
+
+    private final byte[] lparam, wparam;
+
+    private static final  @org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.NonNull byte @org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.NonNull [] ZERO = new byte[] { 0, 0, 0, 0 };
+
+    private static final short COMMANDS_BEGIN = 257, COMMANDS_END = 357, REQUEST_BEGIN = 769, REQUESTS_END = 943, COMMAND = 0x02, REQUEST = 0x04;
+
+    // Used for outgoing packets: calculates the operationtype by itself
+    //TODO: subclass this to make the difference clear
+    @org.checkerframework.checker.nullness.qual.EnsuresNonNull({ "this.operation" })
+    @org.checkerframework.dataflow.qual.SideEffectFree
+    public GWCAPacket(@org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.NonNull GWCAOperation operation,  @org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.NonNull byte @org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.Nullable [] wparam,  @org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.NonNull byte @org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.Nullable [] lparam) {
+        this.operation = operation;
+        //FIXME: we currently only support NUMERIC commands, so add support for TEXT
+        // calculate whether this command is a REQUEST or a COMMAND
+        short operationId = operation.getOperationId();
+        if (operationId > COMMANDS_BEGIN && operationId < COMMANDS_END) {
+            this.operationType = COMMAND;
+        } else if (operationId > REQUEST_BEGIN && operationId < REQUESTS_END) {
+            this.operationType = REQUEST;
+        } else {
+            // Cannot happen if the enum is currently coded
+        }
+        this.wparam = wparam;
+        this.lparam = lparam;
+    }
+
+    // Used for outgoing packets: calculates the operationtype by itself and also converts the params to byte[4]
+    //TODO: subclass this to make the difference clear
+    @org.checkerframework.checker.nullness.qual.EnsuresNonNull({ "this.operation" })
+    @org.checkerframework.dataflow.qual.Impure
+    public GWCAPacket(@org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.NonNull GWCAOperation operation,  @org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.NonNull int wparam,  @org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.NonNull int lparam) {
+        this.operation = operation;
+        //FIXME: we currently only support NUMERIC commands, so add support for TEXT
+        // calculate whether this command is a REQUEST or a COMMAND
+        short operationId = operation.getOperationId();
+        if (operationId > COMMANDS_BEGIN && operationId < COMMANDS_END) {
+            this.operationType = COMMAND;
+        } else if (operationId > REQUEST_BEGIN && operationId < REQUESTS_END) {
+            this.operationType = REQUEST;
+        } else {
+            // Cannot happen if the enum is currently coded
+        }
+        this.wparam = intToByteArray(wparam);
+        this.lparam = intToByteArray(lparam);
+    }
+
+    @org.checkerframework.dataflow.qual.SideEffectFree
+    public GWCAPacket(GWCAOperation operation, byte[] wparam) {
+        this(operation, wparam, ZERO);
+    }
+
+    // Used for incoming packets: operationType must be 8
+    //TODO: subclass this to make the difference clear
+    @org.checkerframework.checker.nullness.qual.EnsuresNonNull({ "#1" })
+    @org.checkerframework.framework.qual.EnsuresQualifier(expression = { "this.operation" }, qualifier = org.checkerframework.checker.nullness.qual.Nullable.class)
+    @org.checkerframework.dataflow.qual.SideEffectFree
+    public GWCAPacket(@org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.Nullable GWCAOperation operation,  @org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.NonNull short operationType,  @org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.NonNull byte @org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.NonNull [] wparam,  @org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.NonNull byte @org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.NonNull [] lparam) {
+        this.operation = operation;
+        //FIXME: we currently only support NUMERIC commands, so add support for TEXT
+        // calculate whether this command is a REQUEST or a COMMAND
+        short operationId = operation.getOperationId();
+        if (operationId > COMMANDS_BEGIN && operationId < COMMANDS_END) {
+            this.operationType = COMMAND;
+        } else if (operationId > REQUEST_BEGIN && operationId < REQUESTS_END) {
+            this.operationType = REQUEST;
+        } else {
+            // Cannot happen if the enum is currently coded
+        }
+        this.operationType = operationType;
+        this.wparam = wparam;
+        this.lparam = lparam;
+    }
+
+    @org.checkerframework.framework.qual.EnsuresQualifier(expression = { "this.operation" }, qualifier = org.checkerframework.checker.nullness.qual.Nullable.class)
+    @org.checkerframework.dataflow.qual.Pure
+    public  @org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.NonNull byte @org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.NonNull [] getLparam() {
+        return lparam;
+    }
+
+    @org.checkerframework.framework.qual.EnsuresQualifier(expression = { "this.operation" }, qualifier = org.checkerframework.checker.nullness.qual.Nullable.class)
+    @org.checkerframework.dataflow.qual.Impure
+    public  @org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.NonNull int getLparamAsInt() {
+        return byteArrayToInt(this.lparam);
+    }
+
+    @org.checkerframework.framework.qual.EnsuresQualifier(expression = { "this.operation" }, qualifier = org.checkerframework.checker.nullness.qual.Nullable.class)
+    @org.checkerframework.dataflow.qual.Impure
+    public  @org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.NonNull int getWparamAsInt() {
+        return byteArrayToInt(this.wparam);
+    }
+
+    @org.checkerframework.framework.qual.EnsuresQualifier(expression = { "this.operation" }, qualifier = org.checkerframework.checker.nullness.qual.Nullable.class)
+    @org.checkerframework.dataflow.qual.Impure
+    public  @org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.NonNull float getWparamAsFloat() {
+        return byteArrayToFloat(this.wparam);
+    }
+
+    @org.checkerframework.framework.qual.EnsuresQualifier(expression = { "this.operation" }, qualifier = org.checkerframework.checker.nullness.qual.Nullable.class)
+    @org.checkerframework.dataflow.qual.Impure
+    public  @org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.NonNull boolean getWparamAsBoolean() {
+        int intValue = byteArrayToInt(this.wparam);
+        if (intValue == 1) {
+            return true;
+        } else if (intValue == 0) {
+            return false;
+        } else {
+            throw new IllegalArgumentException("The wParam should be 0 or 1, but was ");
+        }
+    }
+
+    @org.checkerframework.framework.qual.EnsuresQualifier(expression = { "this.operation" }, qualifier = org.checkerframework.checker.nullness.qual.Nullable.class)
+    @org.checkerframework.dataflow.qual.Impure
+    public  @org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.NonNull int @org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.NonNull [] getParamsAsIntArray() {
+        return new int[] { byteArrayToInt(this.wparam), byteArrayToInt(this.lparam) };
+    }
+
+    @org.checkerframework.framework.qual.EnsuresQualifier(expression = { "this.operation" }, qualifier = org.checkerframework.checker.nullness.qual.Nullable.class)
+    @org.checkerframework.dataflow.qual.Impure
+    public  @org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.NonNull float @org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.NonNull [] getParamsAsFloatArray() {
+        return new float[] { byteArrayToFloat(this.wparam), byteArrayToFloat(this.lparam) };
+    }
+
+    //TODO: better composite return for this
+    @org.checkerframework.framework.qual.EnsuresQualifier(expression = { "this.operation" }, qualifier = org.checkerframework.checker.nullness.qual.Nullable.class)
+    @org.checkerframework.dataflow.qual.Impure
+    public  @org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.NonNull float @org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.NonNull [] getParamsAsIntFloatArray() {
+        return new float[] { byteArrayToInt(this.wparam), byteArrayToFloat(this.lparam) };
+    }
+
+    @org.checkerframework.framework.qual.EnsuresQualifier(expression = { "this.operation" }, qualifier = org.checkerframework.checker.nullness.qual.Nullable.class)
+    @org.checkerframework.dataflow.qual.Pure
+    public @org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.Nullable GWCAOperation getOperation() {
+        return operation;
+    }
+
+    @org.checkerframework.framework.qual.EnsuresQualifier(expression = { "this.operation" }, qualifier = org.checkerframework.checker.nullness.qual.Nullable.class)
+    @org.checkerframework.dataflow.qual.Pure
+    public  @org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.NonNull short getOperationType() {
+        return operationType;
+    }
+
+    @org.checkerframework.framework.qual.EnsuresQualifier(expression = { "this.operation" }, qualifier = org.checkerframework.checker.nullness.qual.Nullable.class)
+    @org.checkerframework.dataflow.qual.Pure
+    public  @org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.NonNull byte @org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.NonNull [] getWparam() {
+        return wparam;
+    }
+
+    @org.checkerframework.framework.qual.RequiresQualifier(expression = { "this.operation" }, qualifier = org.checkerframework.checker.nullness.qual.Nullable.class)
+    @org.checkerframework.framework.qual.EnsuresQualifier(expression = { "this.operation" }, qualifier = org.checkerframework.checker.nullness.qual.Nullable.class)
+    @org.checkerframework.dataflow.qual.Impure
+    private  @org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.NonNull int byteArrayToInt( @org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.NonNull byte @org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.NonNull [] b) {
+        ByteBuffer bb = ByteBuffer.wrap(b);
+        bb.order(ByteOrder.LITTLE_ENDIAN);
+        return bb.getInt();
+    }
+
+    @org.checkerframework.framework.qual.RequiresQualifier(expression = { "this.operation" }, qualifier = org.checkerframework.checker.nullness.qual.Nullable.class)
+    @org.checkerframework.framework.qual.EnsuresQualifier(expression = { "this.operation" }, qualifier = org.checkerframework.checker.nullness.qual.Nullable.class)
+    @org.checkerframework.dataflow.qual.Impure
+    private  @org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.NonNull float byteArrayToFloat( @org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.NonNull byte @org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.NonNull [] b) {
+        ByteBuffer bb = ByteBuffer.wrap(b);
+        bb.order(ByteOrder.LITTLE_ENDIAN);
+        return bb.getFloat();
+    }
+
+    @org.checkerframework.checker.nullness.qual.RequiresNonNull({ "this.operation" })
+    @org.checkerframework.framework.qual.EnsuresQualifier(expression = { "this.operation" }, qualifier = org.checkerframework.checker.nullness.qual.Nullable.class)
+    @org.checkerframework.dataflow.qual.Impure
+    private  @org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.NonNull byte @org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.NonNull [] intToByteArray( @org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.NonNull int i) {
+        ByteBuffer bb = ByteBuffer.allocate(4);
+        bb.order(ByteOrder.LITTLE_ENDIAN);
+        bb.putInt(i);
+        return bb.array();
+    }
+
+    @org.checkerframework.framework.qual.EnsuresQualifier(expression = { "this.operation" }, qualifier = org.checkerframework.checker.nullness.qual.Nullable.class)
+    @org.checkerframework.dataflow.qual.Pure
+    public @org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.NonNull String toString(@org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.NonNull GWCAPacket this) {
+        return "GWCAPacket{operation=" + operation + ", operationType=" + operationType + ", lparam=" + Arrays.toString(lparam) + ", wparam=" + Arrays.toString(wparam) + '}';
+    }
+}

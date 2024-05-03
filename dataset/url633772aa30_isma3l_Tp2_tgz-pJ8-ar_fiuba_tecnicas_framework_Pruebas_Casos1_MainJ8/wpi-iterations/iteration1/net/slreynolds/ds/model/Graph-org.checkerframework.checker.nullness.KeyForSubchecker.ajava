@@ -1,0 +1,115 @@
+package net.slreynolds.ds.model;
+
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.List;
+
+/**
+ * Represents a region of objects as a graph with nodes (GraphPoint's) and
+ * edges between them.
+ */
+@org.checkerframework.framework.qual.AnnotatedFor("org.checkerframework.checker.nullness.KeyForSubchecker")
+final public class Graph {
+
+    final private  List<GraphPoint> _points;
+
+    private  GraphPoint _primaryNode;
+
+    @org.checkerframework.dataflow.qual.SideEffectFree
+    public Graph() {
+        _points = new ArrayList<GraphPoint>();
+    }
+
+    @org.checkerframework.dataflow.qual.Impure
+    public  List<GraphPoint> getGraphPoints( Graph this) {
+        return Collections.unmodifiableList(_points);
+    }
+
+    @org.checkerframework.dataflow.qual.Pure
+    public  GraphPoint getPrimaryGraphPoint( Graph this) {
+        return _primaryNode;
+    }
+
+    @org.checkerframework.dataflow.qual.Impure
+    public  Graph setPrimaryGraphPoint( Graph this,  GraphPoint n) {
+        _primaryNode = n;
+        add(n);
+        return this;
+    }
+
+    @org.checkerframework.dataflow.qual.Impure
+    public  Graph add( Graph this,  GraphPoint n) {
+        if (!_points.contains(n)) {
+            _points.add(n);
+        }
+        return this;
+    }
+
+    @org.checkerframework.dataflow.qual.Impure
+    public  Graph addEdge( Graph this,  GraphPoint from,  GraphPoint to) {
+        return addEdge(Named.EMPTY_NAME, from, to);
+    }
+
+    @org.checkerframework.dataflow.qual.Impure
+    public  Graph addEdge( Graph this,  String name,  GraphPoint from,  GraphPoint to) {
+        add(from);
+        add(to);
+        if (!from.hasEdgeTo(to)) {
+            Edge e = new Edge(NamedIDGenerator.next(), name, from, to);
+            from.add(e);
+        }
+        return this;
+    }
+
+    @org.checkerframework.dataflow.qual.Impure
+    public  String toString( Graph this) {
+        StringBuffer sb = new StringBuffer("Graph [nodes=[");
+        nodesToString(sb, _points);
+        sb.append("\n\t, primaryNode=" + _primaryNode + "]");
+        return sb.toString();
+    }
+
+    @org.checkerframework.dataflow.qual.Impure
+    private void nodesToString( Graph this,  StringBuffer sb,  List<GraphPoint> nodes) {
+        int nodeNum = 0;
+        for (GraphPoint node : nodes) {
+            nodeNum++;
+            if (nodeNum > 1) {
+                sb.append("\n\t, ");
+            }
+            sb.append(node.toString());
+        }
+    }
+
+    // ----------------- Generated Code ----------------------
+    @org.checkerframework.dataflow.qual.Pure
+    public   int hashCode( Graph this) {
+        final int prime = 31;
+        int result = 1;
+        result = prime * result + ((_points == null) ? 0 : _points.hashCode());
+        result = prime * result + ((_primaryNode == null) ? 0 : _primaryNode.hashCode());
+        return result;
+    }
+
+    @org.checkerframework.dataflow.qual.Pure
+    public   boolean equals( Graph this,  Object obj) {
+        if (this == obj)
+            return true;
+        if (obj == null)
+            return false;
+        if (getClass() != obj.getClass())
+            return false;
+        Graph other = (Graph) obj;
+        if (_points == null) {
+            if (other._points != null)
+                return false;
+        } else if (!_points.equals(other._points))
+            return false;
+        if (_primaryNode == null) {
+            if (other._primaryNode != null)
+                return false;
+        } else if (!_primaryNode.equals(other._primaryNode))
+            return false;
+        return true;
+    }
+}

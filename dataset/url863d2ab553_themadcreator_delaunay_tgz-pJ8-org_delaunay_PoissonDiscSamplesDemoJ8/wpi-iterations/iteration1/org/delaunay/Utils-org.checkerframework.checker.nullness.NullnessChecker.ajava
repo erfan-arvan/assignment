@@ -1,0 +1,108 @@
+package org.delaunay;
+
+import java.awt.geom.Path2D;
+import java.awt.geom.Point2D;
+import java.util.TreeMap;
+import org.delaunay.model.Vector;
+import org.delaunay.model.Vertex;
+import com.google.common.base.Function;
+import com.google.common.collect.Iterables;
+import com.google.common.collect.Maps;
+
+@org.checkerframework.framework.qual.AnnotatedFor("org.checkerframework.checker.nullness.NullnessChecker")
+public class Utils {
+
+    @org.checkerframework.dataflow.qual.Pure
+    public static <T>  @org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.NonNull double sum(Iterable<Double> values) {
+        double sum = 0.0;
+        for (double d : values) {
+            sum += d;
+        }
+        return sum;
+    }
+
+    @org.checkerframework.dataflow.qual.Impure
+    public static <T>  @org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.NonNull double maxValue(@org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.NonNull Iterable<T> values, @org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.NonNull Function<? super T, Double> valueFunction) {
+        TreeMap<Double, T> map = valueMap(values, valueFunction);
+        if (map.isEmpty()) {
+            return 0.0;
+        }
+        return map.lastKey();
+    }
+
+    @org.checkerframework.dataflow.qual.Impure
+    public static <T>  @org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.NonNull double minValue(Iterable<T> values, Function<? super T, Double> valueFunction) {
+        TreeMap<Double, T> map = valueMap(values, valueFunction);
+        if (map.isEmpty()) {
+            return 0.0;
+        }
+        return map.firstKey();
+    }
+
+    @org.checkerframework.dataflow.qual.Impure
+    public static <T> T maxObject(Iterable<T> values, Function<? super T, Double> valueFunction) {
+        TreeMap<Double, T> map = valueMap(values, valueFunction);
+        if (map.isEmpty()) {
+            return null;
+        }
+        return map.lastEntry().getValue();
+    }
+
+    @org.checkerframework.dataflow.qual.Impure
+    public static <T> T minObject(@org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.NonNull Iterable<T> values, @org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.NonNull Function<? super T, Double> valueFunction) {
+        TreeMap<Double, T> map = valueMap(values, valueFunction);
+        if (map.isEmpty()) {
+            return null;
+        }
+        return map.firstEntry().getValue();
+    }
+
+    @org.checkerframework.dataflow.qual.Impure
+    private static <T> @org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.NonNull TreeMap<Double, T> valueMap(@org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.NonNull Iterable<T> values, @org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.NonNull Function<? super T, Double> valueFunction) {
+        TreeMap<Double, T> map = Maps.newTreeMap();
+        for (T value : values) {
+            Double d = valueFunction.apply(value);
+            if (d != null) {
+                map.put(d, value);
+            }
+        }
+        return map;
+    }
+
+    @org.checkerframework.dataflow.qual.Impure
+    public static @org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.NonNull Iterable<Vertex> toVertices(@org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.NonNull Iterable<? extends Vector> vectors) {
+        return Iterables.transform(vectors, new Function<Vector, Vertex>() {
+
+            @org.checkerframework.dataflow.qual.Pure
+            public @org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.NonNull Vertex apply(@org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.Nullable Vector vector) {
+                return new Vertex(vector.x, vector.y);
+            }
+        });
+    }
+
+    @org.checkerframework.dataflow.qual.Impure
+    public static @org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.NonNull Iterable<Point2D> toPoints(Iterable<? extends Vector> vectors) {
+        return Iterables.transform(vectors, new Function<Vector, Point2D>() {
+
+            @org.checkerframework.dataflow.qual.Pure
+            public @org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.NonNull Point2D apply(@org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.Nullable Vector vector) {
+                return new Point2D.Double(vector.x, vector.y);
+            }
+        });
+    }
+
+    @org.checkerframework.dataflow.qual.Impure
+    public static @org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.NonNull Path2D pathFromPoints(Iterable<? extends Point2D> points) {
+        Path2D path = new Path2D.Double();
+        int i = 0;
+        for (Point2D point : points) {
+            if (i++ == 0) {
+                path.moveTo(point.getX(), point.getY());
+            } else {
+                path.lineTo(point.getX(), point.getY());
+            }
+        }
+        path.closePath();
+        return path;
+    }
+}

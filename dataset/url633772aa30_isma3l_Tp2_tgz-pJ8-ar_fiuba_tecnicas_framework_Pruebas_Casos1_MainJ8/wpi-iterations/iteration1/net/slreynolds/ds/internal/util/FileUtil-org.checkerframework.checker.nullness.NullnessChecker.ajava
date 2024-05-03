@@ -1,0 +1,34 @@
+package net.slreynolds.ds.internal.util;
+
+import java.io.File;
+import java.io.IOException;
+
+/**
+ * Some utility methods on files
+ */
+@org.checkerframework.framework.qual.AnnotatedFor("org.checkerframework.checker.nullness.NullnessChecker")
+public class FileUtil {
+
+    @org.checkerframework.dataflow.qual.Impure
+    public static @org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.NonNull File createEmptyWritableFile(@org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.NonNull String path) throws IOException {
+        File out = new File(path);
+        if (out.exists()) {
+            if (!out.isFile()) {
+                throw new IOException(path + " is not a file");
+            }
+            if (!out.delete()) {
+                throw new IOException("Unable to delete existing file: " + path);
+            }
+        }
+        // invariant: file does not exist
+        File parent = out.getParentFile();
+        if (parent != null && !parent.exists()) {
+            parent.mkdirs();
+        }
+        out.createNewFile();
+        if (!out.canWrite()) {
+            throw new IOException("Cannot write to file " + path);
+        }
+        return out;
+    }
+}

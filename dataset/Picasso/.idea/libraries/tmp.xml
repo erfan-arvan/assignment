@@ -1,0 +1,11 @@
+<component name="libraryTable">
+  <library name="tmp">
+    <CLASSES>
+      <root url="jar://$PROJECT_DIR$/lib/org/tmp/ui-test-junit4-1.4.3-api.jar!/" />
+      <root url="jar://$PROJECT_DIR$/lib/org/tmp/mockito-core-5.10.0.jar!/" />
+      <root url="jar://$PROJECT_DIR$/lib/org/tmp/junit-1.1.5-api.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES />
+  </library>
+</component>

@@ -1,0 +1,49 @@
+package net.slreynolds.ds.model.internal;
+
+@org.checkerframework.framework.qual.AnnotatedFor("org.checkerframework.checker.nullness.KeyForSubchecker")
+public class GraphPointSuspension {
+
+    final private   int _nestingLevel;
+
+    final private  Object _o;
+
+    @org.checkerframework.dataflow.qual.SideEffectFree
+    public GraphPointSuspension(  int nestingLevel,  Object o) {
+        if (o == null) {
+            throw new IllegalArgumentException("cannot suspend null object");
+        }
+        this._nestingLevel = nestingLevel;
+        this._o = o;
+    }
+
+    @org.checkerframework.dataflow.qual.Pure
+    public   int getNestingLevel( GraphPointSuspension this) {
+        return _nestingLevel;
+    }
+
+    @org.checkerframework.dataflow.qual.Pure
+    public  Object getObject( GraphPointSuspension this) {
+        return _o;
+    }
+
+    @org.checkerframework.dataflow.qual.Pure
+    public   int hashCode( GraphPointSuspension this) {
+        final int prime = 31;
+        int result = 1;
+        result = prime * result + ((_o == null) ? 0 : _o.hashCode());
+        return result;
+    }
+
+    @org.checkerframework.dataflow.qual.Pure
+    public   boolean equals( GraphPointSuspension this,  Object obj) {
+        if (this == obj)
+            return true;
+        if (obj == null)
+            return false;
+        if (!(obj instanceof GraphPointSuspension))
+            return false;
+        GraphPointSuspension other = (GraphPointSuspension) obj;
+        /* they are equals if-and-only-if they suspend the same object */
+        return (_o == other._o);
+    }
+}

@@ -1,0 +1,27 @@
+package ar.fiuba.tecnicas.framework.JTest;
+
+import java.util.List;
+
+@org.checkerframework.framework.qual.AnnotatedFor("org.checkerframework.checker.nullness.KeyForSubchecker")
+public class RecognizerTag {
+
+    private  List<String> tags;
+
+    @org.checkerframework.dataflow.qual.SideEffectFree
+    public RecognizerTag( List<String> tags) {
+        this.tags = tags;
+    }
+
+    @org.checkerframework.dataflow.qual.Pure
+    public   boolean validate( RecognizerTag this,  List<String> tagsTest) {
+        if (tags.isEmpty()) {
+            return true;
+        } else {
+            for (String tag : tagsTest) {
+                if (tags.contains(tag))
+                    return true;
+            }
+            return false;
+        }
+    }
+}

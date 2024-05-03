@@ -1,0 +1,178 @@
+/*
+ * To change this template, choose Tools | Templates
+ * and open the template in the editor.
+ */
+package edu.columbia.stat.wood.pub.sequencememoizer.util;
+
+import gnu.trove.iterator.TIntObjectIterator;
+import gnu.trove.map.hash.TIntObjectHashMap;
+import java.io.Serializable;
+import java.util.Iterator;
+import java.util.NoSuchElementException;
+
+/**
+ * Implementation of a discrete distribution over an integer valued state space.
+ * @author nicholasbartlett
+ */
+@org.checkerframework.framework.qual.AnnotatedFor("org.checkerframework.checker.nullness.NullnessChecker")
+public class IntHashMapDiscreteDistribution implements IntDiscreteDistribution, Serializable {
+
+    static final  @org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.NonNull long serialVersionUID = 1;
+
+    private @org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.NonNull TIntObjectHashMap<MutableDouble> mostOfPDF;
+
+    private @org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.NonNull IntDiscreteDistribution baseDistribution;
+
+    private  @org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.NonNull double multFactor;
+
+    /**
+     * Creates a discrete distribution over an integer valued state space.  The contract here is
+     * that mostOfPDF will sum to a number less than or equal to 1.0.  The double multFacor should
+     * be equal to the difference between the sum of the values of most of PDF and 1.0.  The distribution
+     * created is such that the probability of type a is mostOfPDF.get(a).value() + multFactor * baseDistribution.probability(a).
+     * If a is not in mostOfPDF then the probability of a is multFactor * baseDistribution.probability(a).
+     * @param mostOfPDF
+     * @param baseDistribution
+     * @param multFactor
+     */
+    @org.checkerframework.dataflow.qual.SideEffectFree
+    public IntHashMapDiscreteDistribution(@org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.NonNull TIntObjectHashMap<MutableDouble> mostOfPDF, @org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.NonNull IntDiscreteDistribution baseDistribution,  @org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.NonNull double multFactor) {
+        this.mostOfPDF = mostOfPDF;
+        this.baseDistribution = baseDistribution;
+        this.multFactor = multFactor;
+    }
+
+    /**
+     * Gets the probability of a certain type in this distribution.
+     * @param type
+     * @return probability of type
+     */
+    @org.checkerframework.dataflow.qual.Impure
+    public  @org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.NonNull double probability(@org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.NonNull IntHashMapDiscreteDistribution this,  @org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.NonNull int type) {
+        MutableDouble md = (MutableDouble) mostOfPDF.get(type);
+        if (md != null) {
+            return md.value() + multFactor * baseDistribution.probability(type);
+        } else {
+            return multFactor * baseDistribution.probability(type);
+        }
+    }
+
+    /**
+     * Gets an iterator over Integer Double pairs for this distribution.
+     * @return iterator
+     */
+    @org.checkerframework.dataflow.qual.Pure
+    public @org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.NonNull Iterator<Pair<Integer, Double>> iterator(@org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.NonNull IntHashMapDiscreteDistribution this) {
+        return new Iter();
+    }
+
+    private class SecondIterator implements Iterator<Pair<Integer, Double>> {
+
+        private @org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.NonNull Iterator<Pair<Integer, Double>> iter = baseDistribution.iterator();
+
+        private @org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.NonNull Pair<Integer, Double> next = iter.next();
+
+        private  @org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.NonNull boolean returned = false;
+
+        @org.checkerframework.dataflow.qual.Impure
+        public  @org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.NonNull boolean hasNext(@org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.NonNull SecondIterator this) {
+            if (returned) {
+                if (iter.hasNext()) {
+                    next = iter.next();
+                    returned = false;
+                } else {
+                    return false;
+                }
+            }
+            int key = next.first();
+            MutableDouble value = mostOfPDF.get(key);
+            while (value != null) {
+                if (iter.hasNext()) {
+                    next = iter.next();
+                } else {
+                    return false;
+                }
+                key = next.first();
+                value = mostOfPDF.get(key);
+            }
+            return true;
+        }
+
+        @org.checkerframework.dataflow.qual.Impure
+        public @org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.Nullable Pair<Integer, Double> next(@org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.NonNull SecondIterator this) {
+            if (hasNext()) {
+                returned = true;
+                return new Pair(next.first(), multFactor * next.second());
+            } else {
+                return null;
+            }
+        }
+
+        @org.checkerframework.dataflow.qual.SideEffectFree
+        public void remove(@org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.NonNull SecondIterator this) {
+            throw new UnsupportedOperationException("Not supported.");
+        }
+    }
+
+    private class FirstIterator implements Iterator<Pair<Integer, Double>> {
+
+        @org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.NonNull TIntObjectIterator<MutableDouble> iter = mostOfPDF.iterator();
+
+        @org.checkerframework.dataflow.qual.Impure
+        public  @org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.NonNull boolean hasNext(@org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.NonNull FirstIterator this) {
+            return iter.hasNext();
+        }
+
+        @org.checkerframework.dataflow.qual.Impure
+        public @org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.NonNull Pair<Integer, Double> next(@org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.NonNull FirstIterator this) {
+            if (iter.hasNext()) {
+                iter.advance();
+                int type = iter.key();
+                return new Pair(type, iter.value().value() + multFactor * baseDistribution.probability(type));
+            } else {
+                throw new NoSuchElementException();
+            }
+        }
+
+        @org.checkerframework.dataflow.qual.SideEffectFree
+        public void remove(@org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.NonNull FirstIterator this) {
+            throw new UnsupportedOperationException("Not supported");
+        }
+    }
+
+    private class Iter implements Iterator<Pair<Integer, Double>> {
+
+        @org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.NonNull Iterator<Pair<Integer, Double>> iter = new FirstIterator();
+
+        public  @org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.NonNull boolean secondIterator = false;
+
+        @org.checkerframework.dataflow.qual.Impure
+        public  @org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.NonNull boolean hasNext(@org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.NonNull Iter this) {
+            if (iter.hasNext()) {
+                return true;
+            } else {
+                if (!secondIterator) {
+                    iter = new SecondIterator();
+                    secondIterator = true;
+                    return iter.hasNext();
+                } else {
+                    return false;
+                }
+            }
+        }
+
+        @org.checkerframework.dataflow.qual.Impure
+        public @org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.NonNull Pair<Integer, Double> next(@org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.NonNull Iter this) {
+            if (hasNext()) {
+                return iter.next();
+            } else {
+                throw new NoSuchElementException();
+            }
+        }
+
+        @org.checkerframework.dataflow.qual.SideEffectFree
+        public void remove(@org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.NonNull Iter this) {
+            throw new UnsupportedOperationException("Not supported.");
+        }
+    }
+}

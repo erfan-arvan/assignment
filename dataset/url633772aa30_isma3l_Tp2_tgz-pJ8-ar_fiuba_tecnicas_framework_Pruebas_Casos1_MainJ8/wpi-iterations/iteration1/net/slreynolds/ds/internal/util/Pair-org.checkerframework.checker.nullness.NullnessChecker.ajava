@@ -1,0 +1,68 @@
+package net.slreynolds.ds.internal.util;
+
+@org.checkerframework.framework.qual.AnnotatedFor("org.checkerframework.checker.nullness.NullnessChecker")
+public class Pair<S, T> {
+
+    private final S one;
+
+    private final T two;
+
+    @org.checkerframework.dataflow.qual.SideEffectFree
+    public Pair(S s, T t) {
+        one = s;
+        two = t;
+    }
+
+    @org.checkerframework.dataflow.qual.Pure
+    public S first() {
+        return one;
+    }
+
+    @org.checkerframework.dataflow.qual.Pure
+    public T second() {
+        return two;
+    }
+
+    @org.checkerframework.dataflow.qual.Pure
+    public  @org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.NonNull int hashCode(@org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.NonNull Pair<S, T> this) {
+        final int prime = 31;
+        int result = 1;
+        result = prime * result + ((one == null) ? 0 : one.hashCode());
+        result = prime * result + ((two == null) ? 0 : two.hashCode());
+        return result;
+    }
+
+    @org.checkerframework.dataflow.qual.Pure
+    public  @org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.NonNull boolean equals(@org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.NonNull Pair<S, T> this, @org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.Nullable Object obj) {
+        if (this == obj) {
+            return true;
+        }
+        if (obj == null) {
+            return false;
+        }
+        if (!(obj instanceof Pair)) {
+            return false;
+        }
+        Pair<?, ?> other = (Pair<?, ?>) obj;
+        if (one == null) {
+            if (other.one != null) {
+                return false;
+            }
+        } else if (!one.equals(other.one)) {
+            return false;
+        }
+        if (two == null) {
+            if (other.two != null) {
+                return false;
+            }
+        } else if (!two.equals(other.two)) {
+            return false;
+        }
+        return true;
+    }
+
+    @org.checkerframework.dataflow.qual.Pure
+    public @org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.NonNull String toString(@org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.NonNull Pair<S, T> this) {
+        return "Pair [" + one + two + "]";
+    }
+}

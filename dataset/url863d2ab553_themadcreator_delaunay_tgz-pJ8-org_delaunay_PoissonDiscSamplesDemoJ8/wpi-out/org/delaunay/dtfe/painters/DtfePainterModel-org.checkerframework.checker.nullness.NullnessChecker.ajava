@@ -1,0 +1,102 @@
+package org.delaunay.dtfe.painters;
+
+import java.awt.Color;
+import org.delaunay.dtfe.ColorScale;
+import org.delaunay.dtfe.ColorScales;
+import org.delaunay.dtfe.DtfeTriangulationMap.ScaleType;
+import org.delaunay.dtfe.interpolation.InterpolationStrategies;
+import org.delaunay.dtfe.interpolation.InterpolationStrategy;
+
+@org.checkerframework.framework.qual.AnnotatedFor("org.checkerframework.checker.nullness.NullnessChecker")
+public class DtfePainterModel {
+
+    private @org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.NonNull ColorScale colorScale = ColorScales.PURPLE_TO_GREEN_LINEAR;
+
+    private  @org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.NonNull double densityScalar = 1.0;
+
+    private @org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.MonotonicNonNull Color edgeColor = null;
+
+    private @org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.NonNull InterpolationStrategy interpolationStrategy = InterpolationStrategies.createNaturalNeighbor();
+
+    private  @org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.NonNull float edgeStrokeWidth = 1.0f;
+
+    private @org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.NonNull ScaleType scaleType = ScaleType.LINEAR;
+
+    @org.checkerframework.framework.qual.EnsuresQualifier(expression = { "this.edgeColor" }, qualifier = org.checkerframework.checker.nullness.qual.Nullable.class)
+    @org.checkerframework.dataflow.qual.Pure
+    public @org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.NonNull ScaleType getScaleType() {
+        return scaleType;
+    }
+
+    @org.checkerframework.framework.qual.EnsuresQualifier(expression = { "this.edgeColor" }, qualifier = org.checkerframework.checker.nullness.qual.Nullable.class)
+    @org.checkerframework.dataflow.qual.Impure
+    public @org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.NonNull DtfePainterModel setScaleType(ScaleType scaleType) {
+        this.scaleType = scaleType;
+        return this;
+    }
+
+    @org.checkerframework.framework.qual.EnsuresQualifier(expression = { "this.edgeColor" }, qualifier = org.checkerframework.checker.nullness.qual.Nullable.class)
+    @org.checkerframework.dataflow.qual.Pure
+    public  @org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.NonNull float getEdgeStrokeWidth() {
+        return edgeStrokeWidth;
+    }
+
+    @org.checkerframework.framework.qual.EnsuresQualifier(expression = { "this.edgeColor" }, qualifier = org.checkerframework.checker.nullness.qual.Nullable.class)
+    @org.checkerframework.dataflow.qual.Impure
+    public @org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.NonNull DtfePainterModel setEdgeStrokeWidth(float edgeStrokeWidth) {
+        this.edgeStrokeWidth = edgeStrokeWidth;
+        return this;
+    }
+
+    @org.checkerframework.framework.qual.EnsuresQualifier(expression = { "this.edgeColor" }, qualifier = org.checkerframework.checker.nullness.qual.Nullable.class)
+    @org.checkerframework.dataflow.qual.Pure
+    public @org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.Nullable Color getEdgeColor() {
+        return edgeColor;
+    }
+
+    @org.checkerframework.checker.nullness.qual.EnsuresNonNull({ "this.edgeColor" })
+    @org.checkerframework.dataflow.qual.Impure
+    public @org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.NonNull DtfePainterModel setEdgeColor(@org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.NonNull Color edgeColor) {
+        this.edgeColor = edgeColor;
+        return this;
+    }
+
+    @org.checkerframework.framework.qual.EnsuresQualifier(expression = { "this.edgeColor" }, qualifier = org.checkerframework.checker.nullness.qual.Nullable.class)
+    @org.checkerframework.dataflow.qual.Pure
+    public @org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.NonNull ColorScale getColorScale() {
+        return colorScale;
+    }
+
+    @org.checkerframework.framework.qual.EnsuresQualifier(expression = { "this.edgeColor" }, qualifier = org.checkerframework.checker.nullness.qual.Nullable.class)
+    @org.checkerframework.dataflow.qual.Impure
+    public @org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.NonNull DtfePainterModel setColorScale(@org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.NonNull ColorScale colorScale) {
+        this.colorScale = colorScale;
+        return this;
+    }
+
+    @org.checkerframework.framework.qual.EnsuresQualifier(expression = { "this.edgeColor" }, qualifier = org.checkerframework.checker.nullness.qual.Nullable.class)
+    @org.checkerframework.dataflow.qual.Pure
+    public  @org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.NonNull double getDensityScalar() {
+        return densityScalar;
+    }
+
+    @org.checkerframework.framework.qual.EnsuresQualifier(expression = { "this.edgeColor" }, qualifier = org.checkerframework.checker.nullness.qual.Nullable.class)
+    @org.checkerframework.dataflow.qual.Impure
+    public @org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.NonNull DtfePainterModel setDensityScalar( @org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.NonNull double densityScalar) {
+        this.densityScalar = densityScalar;
+        return this;
+    }
+
+    @org.checkerframework.framework.qual.EnsuresQualifier(expression = { "this.edgeColor" }, qualifier = org.checkerframework.checker.nullness.qual.Nullable.class)
+    @org.checkerframework.dataflow.qual.Pure
+    public @org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.NonNull InterpolationStrategy getInterpolationStrategy() {
+        return interpolationStrategy;
+    }
+
+    @org.checkerframework.framework.qual.EnsuresQualifier(expression = { "this.edgeColor" }, qualifier = org.checkerframework.checker.nullness.qual.Nullable.class)
+    @org.checkerframework.dataflow.qual.Impure
+    public @org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.NonNull DtfePainterModel setInterpolationStrategy(@org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.NonNull InterpolationStrategy interpolationStrategy) {
+        this.interpolationStrategy = interpolationStrategy;
+        return this;
+    }
+}

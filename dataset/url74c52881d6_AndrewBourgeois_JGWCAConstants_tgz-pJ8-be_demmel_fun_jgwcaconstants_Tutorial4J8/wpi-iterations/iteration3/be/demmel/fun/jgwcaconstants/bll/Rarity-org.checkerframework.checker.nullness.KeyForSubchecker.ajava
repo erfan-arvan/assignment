@@ -1,0 +1,19 @@
+package be.demmel.fun.jgwcaconstants.bll;
+
+@org.checkerframework.framework.qual.AnnotatedFor("org.checkerframework.checker.nullness.KeyForSubchecker")
+public enum Rarity {
+
+    WHITE((byte) 0x3D), BLUE((byte) 0x3F), PURPLE((byte) 0x42), GOLD((byte) 0x40), GREEN((byte) 0x43);
+
+    private final   byte value;
+
+    @org.checkerframework.dataflow.qual.Impure
+    private Rarity(  byte value) {
+        this.value = value;
+    }
+
+    @org.checkerframework.dataflow.qual.Pure
+    public   byte getValue( Rarity this) {
+        return value;
+    }
+}

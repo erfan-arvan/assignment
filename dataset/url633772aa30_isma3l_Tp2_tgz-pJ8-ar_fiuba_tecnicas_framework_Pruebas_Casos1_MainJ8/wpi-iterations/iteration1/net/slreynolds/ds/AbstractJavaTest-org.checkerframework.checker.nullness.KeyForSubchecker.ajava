@@ -1,0 +1,35 @@
+package net.slreynolds.ds;
+
+import java.util.HashMap;
+import net.slreynolds.ds.export.ExporterOptions;
+import net.slreynolds.ds.export.GraphVizExporter;
+import net.slreynolds.ds.export.SimpleGraphVizExporter;
+import net.slreynolds.ds.model.BuilderOptions;
+
+@org.checkerframework.framework.qual.AnnotatedFor("org.checkerframework.checker.nullness.KeyForSubchecker")
+public abstract class AbstractJavaTest {
+
+    private final  String path;
+
+    @org.checkerframework.dataflow.qual.SideEffectFree
+    protected AbstractJavaTest( String path) {
+        this.path = path;
+    }
+
+    @org.checkerframework.dataflow.qual.Impure
+    protected void saveToFiles( AbstractJavaTest this,  Object obj,  String name) {
+        saveToFiles(new Object[] { obj }, new String[] { name }, name);
+    }
+
+    @org.checkerframework.dataflow.qual.Impure
+    protected void saveToFiles( AbstractJavaTest this,  Object  [] objs,  String  [] names,  String fileName) {
+        ObjectSaver gvizSaver = new ObjectSaver(new GraphVizExporter());
+        ObjectSaver simpleGvizSaver = new ObjectSaver(new SimpleGraphVizExporter());
+        HashMap<String, Object> options = new HashMap<String, Object>();
+        options.put(BuilderOptions.INLINE_STRINGS, Boolean.FALSE);
+        options.put(ExporterOptions.OUTPUT_PATH, path + '/' + fileName + ".dot");
+        gvizSaver.save(objs, names, options);
+        options.put(ExporterOptions.OUTPUT_PATH, path + '/' + fileName + "_simple.dot");
+        simpleGvizSaver.save(objs, names, options);
+    }
+}

@@ -1,0 +1,29 @@
+package be.demmel.fun.jgwcaconstants.bll;
+
+@org.checkerframework.framework.qual.AnnotatedFor("org.checkerframework.checker.nullness.NullnessChecker")
+public enum Dye {
+
+    BLUE((byte) 2),
+    GREEN((byte) 3),
+    PURPLE((byte) 4),
+    RED((byte) 5),
+    YELLOW((byte) 6),
+    BROWN((byte) 7),
+    ORANGE((byte) 8),
+    SILVER((byte) 9),
+    BLACK((byte) 10),
+    GRAY((byte) 11),
+    WHITE((byte) 12);
+
+    private final  @org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.NonNull byte value;
+
+    @org.checkerframework.dataflow.qual.Impure
+    private Dye( @org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.NonNull byte value) {
+        this.value = value;
+    }
+
+    @org.checkerframework.dataflow.qual.Pure
+    public  @org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.NonNull byte getValue() {
+        return value;
+    }
+}

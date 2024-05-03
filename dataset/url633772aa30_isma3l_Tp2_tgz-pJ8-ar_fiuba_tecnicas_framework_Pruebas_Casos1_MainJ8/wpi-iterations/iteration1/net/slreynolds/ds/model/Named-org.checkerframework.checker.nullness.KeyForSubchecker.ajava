@@ -1,0 +1,152 @@
+package net.slreynolds.ds.model;
+
+import java.util.HashMap;
+import java.util.Map;
+import java.util.Set;
+
+/**
+ */
+// ---------- Generated --------------------
+// TODO some subclasses are value objects and some are not
+@org.checkerframework.framework.qual.AnnotatedFor("org.checkerframework.checker.nullness.KeyForSubchecker")
+abstract public class Named {
+
+    private final  Map<String, Object> _attributes;
+
+    private final  String _name;
+
+    private final   int _ID;
+
+    /**
+     * Denote that this Named is anonymous
+     */
+    public final static  String EMPTY_NAME = "NO NAME SPECIFIED";
+
+    /**
+     * Key for class
+     */
+    public final static  String CLASS = "Class";
+
+    /**
+     * Key for value
+     */
+    public final static  String VALUE = "Value";
+
+    /**
+     * Key for label
+     */
+    public final static  String LABEL = "Label";
+
+    /**
+     * Key for System hash
+     */
+    public final static  String SYSTEM_HASH = "SystemHash";
+
+    /**
+     * Key for array index
+     */
+    public final static  String ARRAY_INDEX = "ArrayIndex";
+
+    /**
+     * Key to make this element invisible when exported or displayed
+     */
+    public final static  String HIDDEN = "Hidden";
+
+    /**
+     * Key to  make this element a symbol
+     */
+    public final static  String SYMBOL = "Symbol";
+
+    @org.checkerframework.dataflow.qual.SideEffectFree
+    public Named( NamedID ID,  String name) {
+        if (name == null) {
+            throw new IllegalArgumentException("Cannot use null for a name");
+        }
+        if (name.length() <= 0) {
+            throw new IllegalArgumentException("Name length must be positive");
+        }
+        _name = name;
+        _ID = ID.asInt();
+        _attributes = new HashMap<String, Object>();
+    }
+
+    @org.checkerframework.dataflow.qual.SideEffectFree
+    public Named( NamedID ID) {
+        _name = EMPTY_NAME;
+        _ID = ID.asInt();
+        _attributes = new HashMap<String, Object>();
+    }
+
+    @org.checkerframework.dataflow.qual.Pure
+    public   boolean isAnonymous( Named this) {
+        return _name.equals(EMPTY_NAME);
+    }
+
+    @org.checkerframework.dataflow.qual.Pure
+    public   int getID( Named this) {
+        return _ID;
+    }
+
+    @org.checkerframework.dataflow.qual.Pure
+    public   boolean hasID() {
+        return (_ID > 0);
+    }
+
+    @org.checkerframework.dataflow.qual.Pure
+    public  String getName( Named this) {
+        return _name;
+    }
+
+    @org.checkerframework.dataflow.qual.Pure
+    public  Object getAttr( Named this,  String key) {
+        return _attributes.get(key);
+    }
+
+    @org.checkerframework.dataflow.qual.Pure
+    public   boolean hasAttr( Named this,  String key) {
+        return _attributes.containsKey(key);
+    }
+
+    @org.checkerframework.dataflow.qual.Impure
+    public  Named putAttr( Named this,  String key,  Object value) {
+        _attributes.put(key, value);
+        return this;
+    }
+
+    @org.checkerframework.dataflow.qual.Impure
+    public  Named removeAttr( Named this,  String key) {
+        _attributes.remove(key);
+        return this;
+    }
+
+    @org.checkerframework.dataflow.qual.Pure
+    public  Set<String> getAttrKeys( Named this) {
+        return _attributes.keySet();
+    }
+
+    @org.checkerframework.dataflow.qual.Impure
+    public  String attrToString( Named this) {
+        return attrToString(_attributes.size() + 1);
+    }
+
+    @org.checkerframework.dataflow.qual.Impure
+    public  String attrToString( Named this,   int numAttr) {
+        StringBuilder sb = new StringBuilder("{");
+        Set<Map.Entry<String, Object>> entries = _attributes.entrySet();
+        int i = 0;
+        for (Map.Entry<String, Object> entry : entries) {
+            i++;
+            if (i > numAttr) {
+                break;
+            }
+            if (i != 1) {
+                sb.append(", ");
+            }
+            sb.append(entry.getKey());
+            sb.append('=');
+            sb.append(entry.getValue());
+        }
+        sb.append('}');
+        return sb.toString();
+    }
+}

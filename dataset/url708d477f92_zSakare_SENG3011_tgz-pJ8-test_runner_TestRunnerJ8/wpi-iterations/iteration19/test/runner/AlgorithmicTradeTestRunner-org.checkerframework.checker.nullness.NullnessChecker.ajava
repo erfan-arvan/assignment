@@ -1,0 +1,21 @@
+package test.runner;
+
+import test.implementations.order.AlgorithmicTradeTest;
+
+@org.checkerframework.framework.qual.AnnotatedFor("org.checkerframework.checker.nullness.NullnessChecker")
+public class AlgorithmicTradeTestRunner {
+
+    @org.checkerframework.dataflow.qual.Impure
+    public static void main(String[] args) {
+        run();
+    }
+
+    @org.checkerframework.dataflow.qual.Impure
+    public static void run() {
+        AlgorithmicTradeTest algorithmicTradeTest = new AlgorithmicTradeTest();
+        // Algorithmic Trade
+        algorithmicTradeTest.testEvaluateTradeLowerAskVolume();
+        algorithmicTradeTest.testEvaluateTradeLowerBidVolume();
+        algorithmicTradeTest.testEvaluateTradeSameVolume();
+    }
+}

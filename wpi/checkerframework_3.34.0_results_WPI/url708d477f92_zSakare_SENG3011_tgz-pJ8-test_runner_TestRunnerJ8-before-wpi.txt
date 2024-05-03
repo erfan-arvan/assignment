@@ -1,0 +1,579 @@
+../dataset/url708d477f92_zSakare_SENG3011_tgz-pJ8-test_runner_TestRunnerJ8/src/main/gui/view/TradeGraphPlotter.java:35: error: (method.invocation) $$ 3 $$ createDataSet() $$ @UnderInitialization(main.gui.view.TradeGraphPlotter.class) @NonNull TradeGraphPlotter $$ @Initialized @NonNull TradeGraphPlotter $$ ( 1077, 1092 ) $$ call to createDataSet() not allowed on the given receiver.
+		XYDataset xySeries = createDataSet();
+		                                  ^
+  found   : @UnderInitialization(main.gui.view.TradeGraphPlotter.class) @NonNull TradeGraphPlotter
+  required: @Initialized @NonNull TradeGraphPlotter
+../dataset/url708d477f92_zSakare_SENG3011_tgz-pJ8-test_runner_TestRunnerJ8/src/main/gui/view/TradeGraphPlotter.java:36: error: (method.invocation) $$ 3 $$ createChart(org.jfree.data.xy.XYDataset,java.lang.String) $$ @UnderInitialization(main.gui.view.TradeGraphPlotter.class) @NonNull TradeGraphPlotter $$ @Initialized @NonNull TradeGraphPlotter $$ ( 1115, 1148 ) $$ call to createChart(org.jfree.data.xy.XYDataset,java.lang.String) not allowed on the given receiver.
+		JFreeChart chart = createChart(xySeries, chartTitle);
+		                              ^
+  found   : @UnderInitialization(main.gui.view.TradeGraphPlotter.class) @NonNull TradeGraphPlotter
+  required: @Initialized @NonNull TradeGraphPlotter
+../dataset/url708d477f92_zSakare_SENG3011_tgz-pJ8-test_runner_TestRunnerJ8/src/main/gui/view/TradeGraphPlotter.java:39: error: (method.invocation) $$ 3 $$ setContentPane(java.awt.Container) $$ @UnderInitialization(main.gui.view.TradeGraphPlotter.class) @NonNull JDialog $$ @Initialized @NonNull JDialog $$ ( 1258, 1284 ) $$ call to setContentPane(java.awt.Container) not allowed on the given receiver.
+		setContentPane(chartPanel);
+		              ^
+  found   : @UnderInitialization(main.gui.view.TradeGraphPlotter.class) @NonNull JDialog
+  required: @Initialized @NonNull JDialog
+../dataset/url708d477f92_zSakare_SENG3011_tgz-pJ8-test_runner_TestRunnerJ8/src/main/gui/view/TradeGraphPlotter.java:54: error: (dereference.of.nullable) $$ 1 $$ ask $$ ( 1822, 1825 ) $$ dereference of possibly-null reference ask
+			askData.add(new Millisecond(ask.getAskOrder().getDateTime()), ask.getAskOrder().getPrice());
+			                            ^
+../dataset/url708d477f92_zSakare_SENG3011_tgz-pJ8-test_runner_TestRunnerJ8/src/main/implementations/order/AlgorithmicTrade.java:42: error: (override.param) $$ 7 $$ o $$ @Initialized @NonNull Object $$ @Initialized @Nullable Object $$ @Initialized @NonNull AlgorithmicTrade $$ @Initialized @NonNull boolean equals(@Initialized @NonNull AlgorithmicTrade this, @Initialized @NonNull Object p0) $$ @Initialized @NonNull Object $$ @Initialized @NonNull boolean equals(@Initialized @NonNull Object this, @Initialized @Nullable Object p0) $$ ( 824, 832 ) $$ Incompatible parameter type for o.
+	public boolean equals(Object o) {
+	                             ^
+  found   : @Initialized @NonNull Object
+  required: @Initialized @Nullable Object
+  Consequence: method in @Initialized @NonNull AlgorithmicTrade
+    @Initialized @NonNull boolean equals(@Initialized @NonNull AlgorithmicTrade this, @Initialized @NonNull Object p0)
+  cannot override method in @Initialized @NonNull Object
+    @Initialized @NonNull boolean equals(@Initialized @NonNull Object this, @Initialized @Nullable Object p0)
+../dataset/url708d477f92_zSakare_SENG3011_tgz-pJ8-test_runner_TestRunnerJ8/src/main/implementations/order/Order.java:31: error: (initialization.fields.uninitialized) $$ 1 $$ instrument, dateTime, recordType, qualifiers, transactionId, bidId, askId, entryTime, buyerBrokerId, sellerBrokerId $$ ( 687, 1640 ) $$ the constructor does not initialize fields: instrument, dateTime, recordType, qualifiers, transactionId, bidId, askId, entryTime, buyerBrokerId, sellerBrokerId
+	public Order(final String instrument,
+	       ^
+../dataset/url708d477f92_zSakare_SENG3011_tgz-pJ8-test_runner_TestRunnerJ8/src/main/implementations/order/Order.java:49: error: (method.invocation) $$ 3 $$ setInstrument(java.lang.String) $$ @UnderInitialization @NonNull Order $$ @Initialized @NonNull Order $$ ( 1182, 1207 ) $$ call to setInstrument(java.lang.String) not allowed on the given receiver.
+		setInstrument(instrument);
+		             ^
+  found   : @UnderInitialization @NonNull Order
+  required: @Initialized @NonNull Order
+../dataset/url708d477f92_zSakare_SENG3011_tgz-pJ8-test_runner_TestRunnerJ8/src/main/implementations/order/Order.java:50: error: (method.invocation) $$ 3 $$ setDateTime(java.util.Date) $$ @UnderInitialization @NonNull Order $$ @Initialized @NonNull Order $$ ( 1211, 1232 ) $$ call to setDateTime(java.util.Date) not allowed on the given receiver.
+		setDateTime(dateTime);
+		           ^
+  found   : @UnderInitialization @NonNull Order
+  required: @Initialized @NonNull Order
+../dataset/url708d477f92_zSakare_SENG3011_tgz-pJ8-test_runner_TestRunnerJ8/src/main/implementations/order/Order.java:51: error: (method.invocation) $$ 3 $$ setRecordType(java.lang.String) $$ @UnderInitialization @NonNull Order $$ @Initialized @NonNull Order $$ ( 1236, 1261 ) $$ call to setRecordType(java.lang.String) not allowed on the given receiver.
+		setRecordType(recordType);
+		             ^
+  found   : @UnderInitialization @NonNull Order
+  required: @Initialized @NonNull Order
+../dataset/url708d477f92_zSakare_SENG3011_tgz-pJ8-test_runner_TestRunnerJ8/src/main/implementations/order/Order.java:52: error: (method.invocation) $$ 3 $$ setPrice(double) $$ @UnderInitialization @NonNull Order $$ @Initialized @NonNull Order $$ ( 1265, 1280 ) $$ call to setPrice(double) not allowed on the given receiver.
+		setPrice(price);
+		        ^
+  found   : @UnderInitialization @NonNull Order
+  required: @Initialized @NonNull Order
+../dataset/url708d477f92_zSakare_SENG3011_tgz-pJ8-test_runner_TestRunnerJ8/src/main/implementations/order/Order.java:53: error: (method.invocation) $$ 3 $$ setVolume(int) $$ @UnderInitialization @NonNull Order $$ @Initialized @NonNull Order $$ ( 1284, 1301 ) $$ call to setVolume(int) not allowed on the given receiver.
+		setVolume(volume);
+		         ^
+  found   : @UnderInitialization @NonNull Order
+  required: @Initialized @NonNull Order
+../dataset/url708d477f92_zSakare_SENG3011_tgz-pJ8-test_runner_TestRunnerJ8/src/main/implementations/order/Order.java:54: error: (method.invocation) $$ 3 $$ setUndisclosedVolume(int) $$ @UnderInitialization @NonNull Order $$ @Initialized @NonNull Order $$ ( 1305, 1344 ) $$ call to setUndisclosedVolume(int) not allowed on the given receiver.
+		setUndisclosedVolume(undisclosedVolume);
+		                    ^
+  found   : @UnderInitialization @NonNull Order
+  required: @Initialized @NonNull Order
+../dataset/url708d477f92_zSakare_SENG3011_tgz-pJ8-test_runner_TestRunnerJ8/src/main/implementations/order/Order.java:55: error: (method.invocation) $$ 3 $$ setValue(double) $$ @UnderInitialization @NonNull Order $$ @Initialized @NonNull Order $$ ( 1348, 1363 ) $$ call to setValue(double) not allowed on the given receiver.
+		setValue(value);
+		        ^
+  found   : @UnderInitialization @NonNull Order
+  required: @Initialized @NonNull Order
+../dataset/url708d477f92_zSakare_SENG3011_tgz-pJ8-test_runner_TestRunnerJ8/src/main/implementations/order/Order.java:56: error: (method.invocation) $$ 3 $$ setQualifiers(java.lang.String) $$ @UnderInitialization @NonNull Order $$ @Initialized @NonNull Order $$ ( 1367, 1392 ) $$ call to setQualifiers(java.lang.String) not allowed on the given receiver.
+		setQualifiers(qualifiers);
+		             ^
+  found   : @UnderInitialization @NonNull Order
+  required: @Initialized @NonNull Order
+../dataset/url708d477f92_zSakare_SENG3011_tgz-pJ8-test_runner_TestRunnerJ8/src/main/implementations/order/Order.java:57: error: (method.invocation) $$ 3 $$ setTransactionId(java.lang.String) $$ @UnderInitialization @NonNull Order $$ @Initialized @NonNull Order $$ ( 1396, 1427 ) $$ call to setTransactionId(java.lang.String) not allowed on the given receiver.
+		setTransactionId(transactionId);
+		                ^
+  found   : @UnderInitialization @NonNull Order
+  required: @Initialized @NonNull Order
+../dataset/url708d477f92_zSakare_SENG3011_tgz-pJ8-test_runner_TestRunnerJ8/src/main/implementations/order/Order.java:58: error: (method.invocation) $$ 3 $$ setBidId(java.lang.String) $$ @UnderInitialization @NonNull Order $$ @Initialized @NonNull Order $$ ( 1431, 1446 ) $$ call to setBidId(java.lang.String) not allowed on the given receiver.
+		setBidId(bidId);
+		        ^
+  found   : @UnderInitialization @NonNull Order
+  required: @Initialized @NonNull Order
+../dataset/url708d477f92_zSakare_SENG3011_tgz-pJ8-test_runner_TestRunnerJ8/src/main/implementations/order/Order.java:59: error: (method.invocation) $$ 3 $$ setAskId(java.lang.String) $$ @UnderInitialization @NonNull Order $$ @Initialized @NonNull Order $$ ( 1450, 1465 ) $$ call to setAskId(java.lang.String) not allowed on the given receiver.
+		setAskId(askId);
+		        ^
+  found   : @UnderInitialization @NonNull Order
+  required: @Initialized @NonNull Order
+../dataset/url708d477f92_zSakare_SENG3011_tgz-pJ8-test_runner_TestRunnerJ8/src/main/implementations/order/Order.java:60: error: (method.invocation) $$ 3 $$ setBid(boolean) $$ @UnderInitialization @NonNull Order $$ @Initialized @NonNull Order $$ ( 1469, 1482 ) $$ call to setBid(boolean) not allowed on the given receiver.
+		setBid(isBid);
+		      ^
+  found   : @UnderInitialization @NonNull Order
+  required: @Initialized @NonNull Order
+../dataset/url708d477f92_zSakare_SENG3011_tgz-pJ8-test_runner_TestRunnerJ8/src/main/implementations/order/Order.java:61: error: (method.invocation) $$ 3 $$ setEntryTime(java.util.Date) $$ @UnderInitialization @NonNull Order $$ @Initialized @NonNull Order $$ ( 1486, 1509 ) $$ call to setEntryTime(java.util.Date) not allowed on the given receiver.
+		setEntryTime(entryTime);
+		            ^
+  found   : @UnderInitialization @NonNull Order
+  required: @Initialized @NonNull Order
+../dataset/url708d477f92_zSakare_SENG3011_tgz-pJ8-test_runner_TestRunnerJ8/src/main/implementations/order/Order.java:62: error: (method.invocation) $$ 3 $$ setOldPrice(double) $$ @UnderInitialization @NonNull Order $$ @Initialized @NonNull Order $$ ( 1513, 1534 ) $$ call to setOldPrice(double) not allowed on the given receiver.
+		setOldPrice(oldPrice);
+		           ^
+  found   : @UnderInitialization @NonNull Order
+  required: @Initialized @NonNull Order
+../dataset/url708d477f92_zSakare_SENG3011_tgz-pJ8-test_runner_TestRunnerJ8/src/main/implementations/order/Order.java:63: error: (method.invocation) $$ 3 $$ setOldVolume(int) $$ @UnderInitialization @NonNull Order $$ @Initialized @NonNull Order $$ ( 1538, 1561 ) $$ call to setOldVolume(int) not allowed on the given receiver.
+		setOldVolume(oldVolume);
+		            ^
+  found   : @UnderInitialization @NonNull Order
+  required: @Initialized @NonNull Order
+../dataset/url708d477f92_zSakare_SENG3011_tgz-pJ8-test_runner_TestRunnerJ8/src/main/implementations/order/Order.java:64: error: (method.invocation) $$ 3 $$ setBuyerBrokerId(java.lang.String) $$ @UnderInitialization @NonNull Order $$ @Initialized @NonNull Order $$ ( 1565, 1596 ) $$ call to setBuyerBrokerId(java.lang.String) not allowed on the given receiver.
+		setBuyerBrokerId(buyerBrokerId);
+		                ^
+  found   : @UnderInitialization @NonNull Order
+  required: @Initialized @NonNull Order
+../dataset/url708d477f92_zSakare_SENG3011_tgz-pJ8-test_runner_TestRunnerJ8/src/main/implementations/order/Order.java:65: error: (method.invocation) $$ 3 $$ setSellerBrokerId(java.lang.String) $$ @UnderInitialization @NonNull Order $$ @Initialized @NonNull Order $$ ( 1600, 1633 ) $$ call to setSellerBrokerId(java.lang.String) not allowed on the given receiver.
+		setSellerBrokerId(sellerBrokerId);
+		                 ^
+  found   : @UnderInitialization @NonNull Order
+  required: @Initialized @NonNull Order
+../dataset/url708d477f92_zSakare_SENG3011_tgz-pJ8-test_runner_TestRunnerJ8/src/main/implementations/order/Order.java:175: error: (override.param) $$ 7 $$ o $$ @Initialized @NonNull Object $$ @Initialized @Nullable Object $$ @Initialized @NonNull Order $$ @Initialized @NonNull boolean equals(@Initialized @NonNull Order this, @Initialized @NonNull Object p0) $$ @Initialized @NonNull Object $$ @Initialized @NonNull boolean equals(@Initialized @NonNull Object this, @Initialized @Nullable Object p0) $$ ( 3965, 3973 ) $$ Incompatible parameter type for o.
+	public boolean equals(Object o) {
+	                             ^
+  found   : @Initialized @NonNull Object
+  required: @Initialized @Nullable Object
+  Consequence: method in @Initialized @NonNull Order
+    @Initialized @NonNull boolean equals(@Initialized @NonNull Order this, @Initialized @NonNull Object p0)
+  cannot override method in @Initialized @NonNull Object
+    @Initialized @NonNull boolean equals(@Initialized @NonNull Object this, @Initialized @Nullable Object p0)
+../dataset/url708d477f92_zSakare_SENG3011_tgz-pJ8-test_runner_TestRunnerJ8/src/main/gui/view/RunnerGUI.java:54: error: (initialization.fields.uninitialized) $$ 1 $$ frame $$ ( 1196, 1327 ) $$ the constructor does not initialize fields: frame
+	public RunnerGUI() {
+	       ^
+../dataset/url708d477f92_zSakare_SENG3011_tgz-pJ8-test_runner_TestRunnerJ8/src/main/gui/view/RunnerGUI.java:56: error: (method.invocation) $$ 3 $$ initialize() $$ @UnderInitialization @NonNull RunnerGUI $$ @Initialized @NonNull RunnerGUI $$ ( 1252, 1264 ) $$ call to initialize() not allowed on the given receiver.
+		initialize();
+		          ^
+  found   : @UnderInitialization @NonNull RunnerGUI
+  required: @Initialized @NonNull RunnerGUI
+../dataset/url708d477f92_zSakare_SENG3011_tgz-pJ8-test_runner_TestRunnerJ8/src/main/gui/controller/Controller.java:9: error: (initialization.field.uninitialized) $$ 1 $$ orderbook $$ ( 201, 229 ) $$ the default constructor does not initialize field orderbook
+	private Orderbook orderbook;
+	                  ^
+../dataset/url708d477f92_zSakare_SENG3011_tgz-pJ8-test_runner_TestRunnerJ8/src/main/gui/controller/Controller.java:10: error: (initialization.field.uninitialized) $$ 1 $$ evaluator $$ ( 231, 272 ) $$ the default constructor does not initialize field evaluator
+	private TradeStrategyEvaluator evaluator;
+	                               ^
+../dataset/url708d477f92_zSakare_SENG3011_tgz-pJ8-test_runner_TestRunnerJ8/src/main/gui/controller/Controller.java:11: error: (initialization.field.uninitialized) $$ 1 $$ strategy $$ ( 274, 300 ) $$ the default constructor does not initialize field strategy
+	private Strategy strategy;
+	                 ^
+../dataset/url708d477f92_zSakare_SENG3011_tgz-pJ8-test_runner_TestRunnerJ8/src/main/gui/controller/Controller.java:12: error: (initialization.field.uninitialized) $$ 1 $$ volume $$ ( 302, 324 ) $$ the default constructor does not initialize field volume
+	private String volume;
+	               ^
+../dataset/url708d477f92_zSakare_SENG3011_tgz-pJ8-test_runner_TestRunnerJ8/src/main/gui/controller/Controller.java:13: error: (initialization.field.uninitialized) $$ 1 $$ lookbackPeriod $$ ( 326, 357 ) $$ the default constructor does not initialize field lookbackPeriod
+	private Integer lookbackPeriod;
+	                ^
+../dataset/url708d477f92_zSakare_SENG3011_tgz-pJ8-test_runner_TestRunnerJ8/src/main/gui/controller/Controller.java:14: error: (initialization.field.uninitialized) $$ 1 $$ threshold $$ ( 359, 384 ) $$ the default constructor does not initialize field threshold
+	private Double threshold;
+	               ^
+../dataset/url708d477f92_zSakare_SENG3011_tgz-pJ8-test_runner_TestRunnerJ8/src/main/gui/controller/Controller.java:18: error: (assignment) $$ 2 $$ null (NullType) $$ @Initialized @NonNull TradeStrategyEvaluator $$ ( 496, 500 ) $$ incompatible types in assignment.
+		evaluator = null;
+		            ^
+  found   : null (NullType)
+  required: @Initialized @NonNull TradeStrategyEvaluator
+../dataset/url708d477f92_zSakare_SENG3011_tgz-pJ8-test_runner_TestRunnerJ8/src/main/gui/controller/Controller.java:19: error: (assignment) $$ 2 $$ null (NullType) $$ @Initialized @NonNull Strategy $$ ( 515, 519 ) $$ incompatible types in assignment.
+		strategy = null;
+		           ^
+  found   : null (NullType)
+  required: @Initialized @NonNull Strategy
+../dataset/url708d477f92_zSakare_SENG3011_tgz-pJ8-test_runner_TestRunnerJ8/src/main/gui/controller/Controller.java:20: error: (assignment) $$ 2 $$ null (NullType) $$ @Initialized @NonNull String $$ ( 532, 536 ) $$ incompatible types in assignment.
+		volume = null;
+		         ^
+  found   : null (NullType)
+  required: @Initialized @NonNull String
+../dataset/url708d477f92_zSakare_SENG3011_tgz-pJ8-test_runner_TestRunnerJ8/src/main/gui/controller/Controller.java:21: error: (assignment) $$ 2 $$ null (NullType) $$ @Initialized @NonNull Integer $$ ( 557, 561 ) $$ incompatible types in assignment.
+		lookbackPeriod = null;
+		                 ^
+  found   : null (NullType)
+  required: @Initialized @NonNull Integer
+../dataset/url708d477f92_zSakare_SENG3011_tgz-pJ8-test_runner_TestRunnerJ8/src/main/gui/controller/Controller.java:22: error: (assignment) $$ 2 $$ null (NullType) $$ @Initialized @NonNull Double $$ ( 577, 581 ) $$ incompatible types in assignment.
+		threshold = null;
+		            ^
+  found   : null (NullType)
+  required: @Initialized @NonNull Double
+../dataset/url708d477f92_zSakare_SENG3011_tgz-pJ8-test_runner_TestRunnerJ8/src/main/gui/controller/Controller.java:73: error: (assignment) $$ 2 $$ null (NullType) $$ @Initialized @NonNull String $$ ( 1933, 1937 ) $$ incompatible types in assignment.
+			lookbackPeriod = null;
+			                 ^
+  found   : null (NullType)
+  required: @Initialized @NonNull String
+../dataset/url708d477f92_zSakare_SENG3011_tgz-pJ8-test_runner_TestRunnerJ8/src/main/gui/controller/Controller.java:87: error: (assignment) $$ 2 $$ null (NullType) $$ @Initialized @NonNull Double $$ ( 2321, 2325 ) $$ incompatible types in assignment.
+			this.threshold = null;
+			                 ^
+  found   : null (NullType)
+  required: @Initialized @NonNull Double
+../dataset/url708d477f92_zSakare_SENG3011_tgz-pJ8-test_runner_TestRunnerJ8/src/main/evaluator/TradeStrategyEvaluator.java:30: error: (method.invocation) $$ 3 $$ setTradePairs() $$ @UnderInitialization(main.evaluator.TradeStrategyEvaluator.class) @NonNull TradeStrategyEvaluator $$ @Initialized @NonNull TradeStrategyEvaluator $$ ( 863, 878 ) $$ call to setTradePairs() not allowed on the given receiver.
+		setTradePairs();
+		             ^
+  found   : @UnderInitialization(main.evaluator.TradeStrategyEvaluator.class) @NonNull TradeStrategyEvaluator
+  required: @Initialized @NonNull TradeStrategyEvaluator
+../dataset/url708d477f92_zSakare_SENG3011_tgz-pJ8-test_runner_TestRunnerJ8/src/main/evaluator/TradeStrategyEvaluator.java:48: error: (dereference.of.nullable) $$ 1 $$ ask $$ ( 1353, 1356 ) $$ dereference of possibly-null reference ask
+			profit += ask.evaluateTrade();
+			          ^
+../dataset/url708d477f92_zSakare_SENG3011_tgz-pJ8-test_runner_TestRunnerJ8/src/main/engine/Runner.java:91: error: (argument) $$ 4 $$ strategy $$ Orderbook.runStrategy $$ @Initialized @Nullable Strategy $$ @Initialized @NonNull Strategy $$ ( 3072, 3077 ) $$ incompatible argument for parameter strategy of Orderbook.runStrategy.
+					tradeList.addAll(orderbook.runStrategy(strat, volume, lookbackPeriod, threshold));
+					                                       ^
+  found   : @Initialized @Nullable Strategy
+  required: @Initialized @NonNull Strategy
+../dataset/url708d477f92_zSakare_SENG3011_tgz-pJ8-test_runner_TestRunnerJ8/src/main/engine/Runner.java:91: error: (argument) $$ 4 $$ lookBackPeriod $$ Orderbook.runStrategy $$ @Initialized @Nullable Integer $$ @Initialized @NonNull Integer $$ ( 3087, 3101 ) $$ incompatible argument for parameter lookBackPeriod of Orderbook.runStrategy.
+					tradeList.addAll(orderbook.runStrategy(strat, volume, lookbackPeriod, threshold));
+					                                                      ^
+  found   : @Initialized @Nullable Integer
+  required: @Initialized @NonNull Integer
+../dataset/url708d477f92_zSakare_SENG3011_tgz-pJ8-test_runner_TestRunnerJ8/src/main/engine/Runner.java:91: error: (argument) $$ 4 $$ threshold $$ Orderbook.runStrategy $$ @Initialized @Nullable Double $$ @Initialized @NonNull Double $$ ( 3103, 3112 ) $$ incompatible argument for parameter threshold of Orderbook.runStrategy.
+					tradeList.addAll(orderbook.runStrategy(strat, volume, lookbackPeriod, threshold));
+					                                                                      ^
+  found   : @Initialized @Nullable Double
+  required: @Initialized @NonNull Double
+../dataset/url708d477f92_zSakare_SENG3011_tgz-pJ8-test_runner_TestRunnerJ8/src/main/implementations/OrderBuilderImpl.java:34: error: (initialization.fields.uninitialized) $$ 1 $$ security, dateTime, recordType, qualifiers, transactionId, bidId, askId, entryTime, buyerBrokerId, sellerBrokerId $$ ( 847, 1599 ) $$ the constructor does not initialize fields: security, dateTime, recordType, qualifiers, transactionId, bidId, askId, entryTime, buyerBrokerId, sellerBrokerId
+	public OrderBuilderImpl(String security, Date date, double price, String volume, 
+	       ^
+../dataset/url708d477f92_zSakare_SENG3011_tgz-pJ8-test_runner_TestRunnerJ8/src/main/implementations/OrderBuilderImpl.java:37: error: (method.invocation) $$ 3 $$ setSecurity(java.lang.String) $$ @UnderInitialization @NonNull OrderBuilderImpl $$ @Initialized @NonNull OrderBuilderImpl $$ ( 969, 990 ) $$ call to setSecurity(java.lang.String) not allowed on the given receiver.
+		setSecurity(security);
+		           ^
+  found   : @UnderInitialization @NonNull OrderBuilderImpl
+  required: @Initialized @NonNull OrderBuilderImpl
+../dataset/url708d477f92_zSakare_SENG3011_tgz-pJ8-test_runner_TestRunnerJ8/src/main/implementations/OrderBuilderImpl.java:38: error: (method.invocation) $$ 3 $$ setBid(java.lang.String) $$ @UnderInitialization @NonNull OrderBuilderImpl $$ @Initialized @NonNull OrderBuilderImpl $$ ( 994, 1007 ) $$ call to setBid(java.lang.String) not allowed on the given receiver.
+		setBid(isBid);
+		      ^
+  found   : @UnderInitialization @NonNull OrderBuilderImpl
+  required: @Initialized @NonNull OrderBuilderImpl
+../dataset/url708d477f92_zSakare_SENG3011_tgz-pJ8-test_runner_TestRunnerJ8/src/main/implementations/OrderBuilderImpl.java:40: error: (method.invocation) $$ 3 $$ setBuyerBrokerId(java.lang.String) $$ @UnderInitialization @NonNull OrderBuilderImpl $$ @Initialized @NonNull OrderBuilderImpl $$ ( 1041, 1067 ) $$ call to setBuyerBrokerId(java.lang.String) not allowed on the given receiver.
+			setBuyerBrokerId(brokerId);
+			                ^
+  found   : @UnderInitialization @NonNull OrderBuilderImpl
+  required: @Initialized @NonNull OrderBuilderImpl
+../dataset/url708d477f92_zSakare_SENG3011_tgz-pJ8-test_runner_TestRunnerJ8/src/main/implementations/OrderBuilderImpl.java:41: error: (method.invocation) $$ 3 $$ setSellerBrokerId(java.lang.String) $$ @UnderInitialization @NonNull OrderBuilderImpl $$ @Initialized @NonNull OrderBuilderImpl $$ ( 1072, 1115 ) $$ call to setSellerBrokerId(java.lang.String) not allowed on the given receiver.
+			setSellerBrokerId(DEFAULT_SELLER_BROKER_ID);
+			                 ^
+  found   : @UnderInitialization @NonNull OrderBuilderImpl
+  required: @Initialized @NonNull OrderBuilderImpl
+../dataset/url708d477f92_zSakare_SENG3011_tgz-pJ8-test_runner_TestRunnerJ8/src/main/implementations/OrderBuilderImpl.java:43: error: (method.invocation) $$ 3 $$ setSellerBrokerId(java.lang.String) $$ @UnderInitialization @NonNull OrderBuilderImpl $$ @Initialized @NonNull OrderBuilderImpl $$ ( 1131, 1158 ) $$ call to setSellerBrokerId(java.lang.String) not allowed on the given receiver.
+			setSellerBrokerId(brokerId);
+			                 ^
+  found   : @UnderInitialization @NonNull OrderBuilderImpl
+  required: @Initialized @NonNull OrderBuilderImpl
+../dataset/url708d477f92_zSakare_SENG3011_tgz-pJ8-test_runner_TestRunnerJ8/src/main/implementations/OrderBuilderImpl.java:44: error: (method.invocation) $$ 3 $$ setBuyerBrokerId(java.lang.String) $$ @UnderInitialization @NonNull OrderBuilderImpl $$ @Initialized @NonNull OrderBuilderImpl $$ ( 1163, 1204 ) $$ call to setBuyerBrokerId(java.lang.String) not allowed on the given receiver.
+			setBuyerBrokerId(DEFAULT_BUYER_BROKER_ID);
+			                ^
+  found   : @UnderInitialization @NonNull OrderBuilderImpl
+  required: @Initialized @NonNull OrderBuilderImpl
+../dataset/url708d477f92_zSakare_SENG3011_tgz-pJ8-test_runner_TestRunnerJ8/src/main/implementations/OrderBuilderImpl.java:46: error: (method.invocation) $$ 3 $$ setDateTime(java.util.Date) $$ @UnderInitialization @NonNull OrderBuilderImpl $$ @Initialized @NonNull OrderBuilderImpl $$ ( 1212, 1229 ) $$ call to setDateTime(java.util.Date) not allowed on the given receiver.
+		setDateTime(date);
+		           ^
+  found   : @UnderInitialization @NonNull OrderBuilderImpl
+  required: @Initialized @NonNull OrderBuilderImpl
+../dataset/url708d477f92_zSakare_SENG3011_tgz-pJ8-test_runner_TestRunnerJ8/src/main/implementations/OrderBuilderImpl.java:47: error: (method.invocation) $$ 3 $$ setPrice(double) $$ @UnderInitialization @NonNull OrderBuilderImpl $$ @Initialized @NonNull OrderBuilderImpl $$ ( 1233, 1248 ) $$ call to setPrice(double) not allowed on the given receiver.
+		setPrice(price);
+		        ^
+  found   : @UnderInitialization @NonNull OrderBuilderImpl
+  required: @Initialized @NonNull OrderBuilderImpl
+../dataset/url708d477f92_zSakare_SENG3011_tgz-pJ8-test_runner_TestRunnerJ8/src/main/implementations/OrderBuilderImpl.java:48: error: (method.invocation) $$ 3 $$ setVolume(java.lang.String) $$ @UnderInitialization @NonNull OrderBuilderImpl $$ @Initialized @NonNull OrderBuilderImpl $$ ( 1252, 1269 ) $$ call to setVolume(java.lang.String) not allowed on the given receiver.
+		setVolume(volume);
+		         ^
+  found   : @UnderInitialization @NonNull OrderBuilderImpl
+  required: @Initialized @NonNull OrderBuilderImpl
+../dataset/url708d477f92_zSakare_SENG3011_tgz-pJ8-test_runner_TestRunnerJ8/src/main/implementations/OrderBuilderImpl.java:49: error: (method.invocation) $$ 3 $$ setValue(double) $$ @UnderInitialization @NonNull OrderBuilderImpl $$ @Initialized @NonNull OrderBuilderImpl $$ ( 1273, 1305 ) $$ call to setValue(double) not allowed on the given receiver.
+		setValue(this.price*this.volume);
+		        ^
+  found   : @UnderInitialization @NonNull OrderBuilderImpl
+  required: @Initialized @NonNull OrderBuilderImpl
+../dataset/url708d477f92_zSakare_SENG3011_tgz-pJ8-test_runner_TestRunnerJ8/src/main/implementations/OrderBuilderImpl.java:50: error: (method.invocation) $$ 3 $$ setRecordType(java.lang.String) $$ @UnderInitialization @NonNull OrderBuilderImpl $$ @Initialized @NonNull OrderBuilderImpl $$ ( 1309, 1343 ) $$ call to setRecordType(java.lang.String) not allowed on the given receiver.
+		setRecordType(DEFAULT_RECORD_TYPE);
+		             ^
+  found   : @UnderInitialization @NonNull OrderBuilderImpl
+  required: @Initialized @NonNull OrderBuilderImpl
+../dataset/url708d477f92_zSakare_SENG3011_tgz-pJ8-test_runner_TestRunnerJ8/src/main/implementations/OrderBuilderImpl.java:51: error: (method.invocation) $$ 3 $$ setBidId(java.lang.String) $$ @UnderInitialization @NonNull OrderBuilderImpl $$ @Initialized @NonNull OrderBuilderImpl $$ ( 1347, 1370 ) $$ call to setBidId(java.lang.String) not allowed on the given receiver.
+		setBidId(DEFAULT_BIDID);
+		        ^
+  found   : @UnderInitialization @NonNull OrderBuilderImpl
+  required: @Initialized @NonNull OrderBuilderImpl
+../dataset/url708d477f92_zSakare_SENG3011_tgz-pJ8-test_runner_TestRunnerJ8/src/main/implementations/OrderBuilderImpl.java:52: error: (method.invocation) $$ 3 $$ setAskId(java.lang.String) $$ @UnderInitialization @NonNull OrderBuilderImpl $$ @Initialized @NonNull OrderBuilderImpl $$ ( 1374, 1397 ) $$ call to setAskId(java.lang.String) not allowed on the given receiver.
+		setAskId(DEFAULT_ASKID);
+		        ^
+  found   : @UnderInitialization @NonNull OrderBuilderImpl
+  required: @Initialized @NonNull OrderBuilderImpl
+../dataset/url708d477f92_zSakare_SENG3011_tgz-pJ8-test_runner_TestRunnerJ8/src/main/implementations/OrderBuilderImpl.java:53: error: (method.invocation) $$ 3 $$ setEntryTime(java.util.Date) $$ @UnderInitialization @NonNull OrderBuilderImpl $$ @Initialized @NonNull OrderBuilderImpl $$ ( 1401, 1433 ) $$ call to setEntryTime(java.util.Date) not allowed on the given receiver.
+		setEntryTime(DEFAULT_ENTRY_TIME);
+		            ^
+  found   : @UnderInitialization @NonNull OrderBuilderImpl
+  required: @Initialized @NonNull OrderBuilderImpl
+../dataset/url708d477f92_zSakare_SENG3011_tgz-pJ8-test_runner_TestRunnerJ8/src/main/implementations/OrderBuilderImpl.java:54: error: (method.invocation) $$ 3 $$ setOldPrice(java.lang.String) $$ @UnderInitialization @NonNull OrderBuilderImpl $$ @Initialized @NonNull OrderBuilderImpl $$ ( 1437, 1467 ) $$ call to setOldPrice(java.lang.String) not allowed on the given receiver.
+		setOldPrice(DEFAULT_OLD_PRICE);
+		           ^
+  found   : @UnderInitialization @NonNull OrderBuilderImpl
+  required: @Initialized @NonNull OrderBuilderImpl
+../dataset/url708d477f92_zSakare_SENG3011_tgz-pJ8-test_runner_TestRunnerJ8/src/main/implementations/OrderBuilderImpl.java:55: error: (method.invocation) $$ 3 $$ setOldVolume(java.lang.String) $$ @UnderInitialization @NonNull OrderBuilderImpl $$ @Initialized @NonNull OrderBuilderImpl $$ ( 1471, 1503 ) $$ call to setOldVolume(java.lang.String) not allowed on the given receiver.
+		setOldVolume(DEFAULT_OLD_VOLUME);
+		            ^
+  found   : @UnderInitialization @NonNull OrderBuilderImpl
+  required: @Initialized @NonNull OrderBuilderImpl
+../dataset/url708d477f92_zSakare_SENG3011_tgz-pJ8-test_runner_TestRunnerJ8/src/main/implementations/OrderBuilderImpl.java:56: error: (method.invocation) $$ 3 $$ setUndisclosedVolume(java.lang.String) $$ @UnderInitialization @NonNull OrderBuilderImpl $$ @Initialized @NonNull OrderBuilderImpl $$ ( 1507, 1555 ) $$ call to setUndisclosedVolume(java.lang.String) not allowed on the given receiver.
+		setUndisclosedVolume(DEFAULT_UNDISCLOSED_VOLUME);
+		                    ^
+  found   : @UnderInitialization @NonNull OrderBuilderImpl
+  required: @Initialized @NonNull OrderBuilderImpl
+../dataset/url708d477f92_zSakare_SENG3011_tgz-pJ8-test_runner_TestRunnerJ8/src/main/implementations/OrderBuilderImpl.java:57: error: (method.invocation) $$ 3 $$ setQualifiers(java.lang.String) $$ @UnderInitialization @NonNull OrderBuilderImpl $$ @Initialized @NonNull OrderBuilderImpl $$ ( 1559, 1592 ) $$ call to setQualifiers(java.lang.String) not allowed on the given receiver.
+		setQualifiers(DEFAULT_QUALIFIERS);
+		             ^
+  found   : @UnderInitialization @NonNull OrderBuilderImpl
+  required: @Initialized @NonNull OrderBuilderImpl
+../dataset/url708d477f92_zSakare_SENG3011_tgz-pJ8-test_runner_TestRunnerJ8/src/main/implementations/OrderBuilderImpl.java:61: error: (initialization.fields.uninitialized) $$ 1 $$ security, dateTime, recordType, qualifiers, transactionId, bidId, askId, entryTime, buyerBrokerId, sellerBrokerId $$ ( 1603, 2468 ) $$ the constructor does not initialize fields: security, dateTime, recordType, qualifiers, transactionId, bidId, askId, entryTime, buyerBrokerId, sellerBrokerId
+	public OrderBuilderImpl(SircaOrder order) {
+	       ^
+../dataset/url708d477f92_zSakare_SENG3011_tgz-pJ8-test_runner_TestRunnerJ8/src/main/implementations/OrderBuilderImpl.java:62: error: (method.invocation) $$ 3 $$ setSecurity(java.lang.String) $$ @UnderInitialization @NonNull OrderBuilderImpl $$ @Initialized @NonNull OrderBuilderImpl $$ ( 1649, 1683 ) $$ call to setSecurity(java.lang.String) not allowed on the given receiver.
+		setSecurity(order.getInstrument());
+		           ^
+  found   : @UnderInitialization @NonNull OrderBuilderImpl
+  required: @Initialized @NonNull OrderBuilderImpl
+../dataset/url708d477f92_zSakare_SENG3011_tgz-pJ8-test_runner_TestRunnerJ8/src/main/implementations/OrderBuilderImpl.java:63: error: (method.invocation) $$ 3 $$ setBid(java.lang.String) $$ @UnderInitialization @NonNull OrderBuilderImpl $$ @Initialized @NonNull OrderBuilderImpl $$ ( 1687, 1714 ) $$ call to setBid(java.lang.String) not allowed on the given receiver.
+		setBid(order.getBidOrAsk());
+		      ^
+  found   : @UnderInitialization @NonNull OrderBuilderImpl
+  required: @Initialized @NonNull OrderBuilderImpl
+../dataset/url708d477f92_zSakare_SENG3011_tgz-pJ8-test_runner_TestRunnerJ8/src/main/implementations/OrderBuilderImpl.java:64: error: (method.invocation) $$ 3 $$ setBuyerBrokerId(java.lang.String) $$ @UnderInitialization @NonNull OrderBuilderImpl $$ @Initialized @NonNull OrderBuilderImpl $$ ( 1718, 1760 ) $$ call to setBuyerBrokerId(java.lang.String) not allowed on the given receiver.
+		setBuyerBrokerId(order.getBuyerBrokerId());
+		                ^
+  found   : @UnderInitialization @NonNull OrderBuilderImpl
+  required: @Initialized @NonNull OrderBuilderImpl
+../dataset/url708d477f92_zSakare_SENG3011_tgz-pJ8-test_runner_TestRunnerJ8/src/main/implementations/OrderBuilderImpl.java:65: error: (method.invocation) $$ 3 $$ setSellerBrokerId(java.lang.String) $$ @UnderInitialization @NonNull OrderBuilderImpl $$ @Initialized @NonNull OrderBuilderImpl $$ ( 1764, 1808 ) $$ call to setSellerBrokerId(java.lang.String) not allowed on the given receiver.
+		setSellerBrokerId(order.getSellerBrokerId());
+		                 ^
+  found   : @UnderInitialization @NonNull OrderBuilderImpl
+  required: @Initialized @NonNull OrderBuilderImpl
+../dataset/url708d477f92_zSakare_SENG3011_tgz-pJ8-test_runner_TestRunnerJ8/src/main/implementations/OrderBuilderImpl.java:66: error: (method.invocation) $$ 3 $$ setDateTime(java.lang.String,java.lang.String) $$ @UnderInitialization @NonNull OrderBuilderImpl $$ @Initialized @NonNull OrderBuilderImpl $$ ( 1812, 1857 ) $$ call to setDateTime(java.lang.String,java.lang.String) not allowed on the given receiver.
+		setDateTime(order.getDate(), order.getTime());
+		           ^
+  found   : @UnderInitialization @NonNull OrderBuilderImpl
+  required: @Initialized @NonNull OrderBuilderImpl
+../dataset/url708d477f92_zSakare_SENG3011_tgz-pJ8-test_runner_TestRunnerJ8/src/main/implementations/OrderBuilderImpl.java:68: error: (method.invocation) $$ 3 $$ setPrice(java.lang.String) $$ @UnderInitialization @NonNull OrderBuilderImpl $$ @Initialized @NonNull OrderBuilderImpl $$ ( 1899, 1925 ) $$ call to setPrice(java.lang.String) not allowed on the given receiver.
+			setPrice(order.getPrice());
+			        ^
+  found   : @UnderInitialization @NonNull OrderBuilderImpl
+  required: @Initialized @NonNull OrderBuilderImpl
+../dataset/url708d477f92_zSakare_SENG3011_tgz-pJ8-test_runner_TestRunnerJ8/src/main/implementations/OrderBuilderImpl.java:70: error: (method.invocation) $$ 3 $$ setPrice(double) $$ @UnderInitialization @NonNull OrderBuilderImpl $$ @Initialized @NonNull OrderBuilderImpl $$ ( 1941, 1964 ) $$ call to setPrice(double) not allowed on the given receiver.
+			setPrice(DEFAULT_PRICE);
+			        ^
+  found   : @UnderInitialization @NonNull OrderBuilderImpl
+  required: @Initialized @NonNull OrderBuilderImpl
+../dataset/url708d477f92_zSakare_SENG3011_tgz-pJ8-test_runner_TestRunnerJ8/src/main/implementations/OrderBuilderImpl.java:73: error: (method.invocation) $$ 3 $$ setVolume(java.lang.String) $$ @UnderInitialization @NonNull OrderBuilderImpl $$ @Initialized @NonNull OrderBuilderImpl $$ ( 2011, 2039 ) $$ call to setVolume(java.lang.String) not allowed on the given receiver.
+			setVolume(order.getVolume());
+			         ^
+  found   : @UnderInitialization @NonNull OrderBuilderImpl
+  required: @Initialized @NonNull OrderBuilderImpl
+../dataset/url708d477f92_zSakare_SENG3011_tgz-pJ8-test_runner_TestRunnerJ8/src/main/implementations/OrderBuilderImpl.java:75: error: (method.invocation) $$ 3 $$ setVolume(int) $$ @UnderInitialization @NonNull OrderBuilderImpl $$ @Initialized @NonNull OrderBuilderImpl $$ ( 2055, 2080 ) $$ call to setVolume(int) not allowed on the given receiver.
+			setVolume(DEFAULT_VOLUME);
+			         ^
+  found   : @UnderInitialization @NonNull OrderBuilderImpl
+  required: @Initialized @NonNull OrderBuilderImpl
+../dataset/url708d477f92_zSakare_SENG3011_tgz-pJ8-test_runner_TestRunnerJ8/src/main/implementations/OrderBuilderImpl.java:77: error: (method.invocation) $$ 3 $$ setRecordType(java.lang.String) $$ @UnderInitialization @NonNull OrderBuilderImpl $$ @Initialized @NonNull OrderBuilderImpl $$ ( 2088, 2124 ) $$ call to setRecordType(java.lang.String) not allowed on the given receiver.
+		setRecordType(order.getRecordType());
+		             ^
+  found   : @UnderInitialization @NonNull OrderBuilderImpl
+  required: @Initialized @NonNull OrderBuilderImpl
+../dataset/url708d477f92_zSakare_SENG3011_tgz-pJ8-test_runner_TestRunnerJ8/src/main/implementations/OrderBuilderImpl.java:78: error: (method.invocation) $$ 3 $$ setUndisclosedVolume(java.lang.String) $$ @UnderInitialization @NonNull OrderBuilderImpl $$ @Initialized @NonNull OrderBuilderImpl $$ ( 2128, 2176 ) $$ call to setUndisclosedVolume(java.lang.String) not allowed on the given receiver.
+		setUndisclosedVolume(DEFAULT_UNDISCLOSED_VOLUME);
+		                    ^
+  found   : @UnderInitialization @NonNull OrderBuilderImpl
+  required: @Initialized @NonNull OrderBuilderImpl
+../dataset/url708d477f92_zSakare_SENG3011_tgz-pJ8-test_runner_TestRunnerJ8/src/main/implementations/OrderBuilderImpl.java:79: error: (method.invocation) $$ 3 $$ setQualifiers(java.lang.String) $$ @UnderInitialization @NonNull OrderBuilderImpl $$ @Initialized @NonNull OrderBuilderImpl $$ ( 2180, 2216 ) $$ call to setQualifiers(java.lang.String) not allowed on the given receiver.
+		setQualifiers(order.getQualifiers());
+		             ^
+  found   : @UnderInitialization @NonNull OrderBuilderImpl
+  required: @Initialized @NonNull OrderBuilderImpl
+../dataset/url708d477f92_zSakare_SENG3011_tgz-pJ8-test_runner_TestRunnerJ8/src/main/implementations/OrderBuilderImpl.java:80: error: (method.invocation) $$ 3 $$ setTransactionId(java.lang.String) $$ @UnderInitialization @NonNull OrderBuilderImpl $$ @Initialized @NonNull OrderBuilderImpl $$ ( 2220, 2262 ) $$ call to setTransactionId(java.lang.String) not allowed on the given receiver.
+		setTransactionId(order.getTransactionId());
+		                ^
+  found   : @UnderInitialization @NonNull OrderBuilderImpl
+  required: @Initialized @NonNull OrderBuilderImpl
+../dataset/url708d477f92_zSakare_SENG3011_tgz-pJ8-test_runner_TestRunnerJ8/src/main/implementations/OrderBuilderImpl.java:81: error: (method.invocation) $$ 3 $$ setBidId(java.lang.String) $$ @UnderInitialization @NonNull OrderBuilderImpl $$ @Initialized @NonNull OrderBuilderImpl $$ ( 2266, 2292 ) $$ call to setBidId(java.lang.String) not allowed on the given receiver.
+		setBidId(order.getBidId());
+		        ^
+  found   : @UnderInitialization @NonNull OrderBuilderImpl
+  required: @Initialized @NonNull OrderBuilderImpl
+../dataset/url708d477f92_zSakare_SENG3011_tgz-pJ8-test_runner_TestRunnerJ8/src/main/implementations/OrderBuilderImpl.java:82: error: (method.invocation) $$ 3 $$ setAskId(java.lang.String) $$ @UnderInitialization @NonNull OrderBuilderImpl $$ @Initialized @NonNull OrderBuilderImpl $$ ( 2296, 2322 ) $$ call to setAskId(java.lang.String) not allowed on the given receiver.
+		setAskId(order.getAskId());
+		        ^
+  found   : @UnderInitialization @NonNull OrderBuilderImpl
+  required: @Initialized @NonNull OrderBuilderImpl
+../dataset/url708d477f92_zSakare_SENG3011_tgz-pJ8-test_runner_TestRunnerJ8/src/main/implementations/OrderBuilderImpl.java:83: error: (method.invocation) $$ 3 $$ setEntryTime(java.util.Date) $$ @UnderInitialization @NonNull OrderBuilderImpl $$ @Initialized @NonNull OrderBuilderImpl $$ ( 2326, 2358 ) $$ call to setEntryTime(java.util.Date) not allowed on the given receiver.
+		setEntryTime(DEFAULT_ENTRY_TIME);
+		            ^
+  found   : @UnderInitialization @NonNull OrderBuilderImpl
+  required: @Initialized @NonNull OrderBuilderImpl
+../dataset/url708d477f92_zSakare_SENG3011_tgz-pJ8-test_runner_TestRunnerJ8/src/main/implementations/OrderBuilderImpl.java:84: error: (method.invocation) $$ 3 $$ setOldPrice(java.lang.String) $$ @UnderInitialization @NonNull OrderBuilderImpl $$ @Initialized @NonNull OrderBuilderImpl $$ ( 2362, 2392 ) $$ call to setOldPrice(java.lang.String) not allowed on the given receiver.
+		setOldPrice(DEFAULT_OLD_PRICE);
+		           ^
+  found   : @UnderInitialization @NonNull OrderBuilderImpl
+  required: @Initialized @NonNull OrderBuilderImpl
+../dataset/url708d477f92_zSakare_SENG3011_tgz-pJ8-test_runner_TestRunnerJ8/src/main/implementations/OrderBuilderImpl.java:85: error: (method.invocation) $$ 3 $$ setOldVolume(java.lang.String) $$ @UnderInitialization @NonNull OrderBuilderImpl $$ @Initialized @NonNull OrderBuilderImpl $$ ( 2396, 2428 ) $$ call to setOldVolume(java.lang.String) not allowed on the given receiver.
+		setOldVolume(DEFAULT_OLD_VOLUME);
+		            ^
+  found   : @UnderInitialization @NonNull OrderBuilderImpl
+  required: @Initialized @NonNull OrderBuilderImpl
+../dataset/url708d477f92_zSakare_SENG3011_tgz-pJ8-test_runner_TestRunnerJ8/src/main/implementations/OrderBuilderImpl.java:86: error: (method.invocation) $$ 3 $$ setValue(double) $$ @UnderInitialization @NonNull OrderBuilderImpl $$ @Initialized @NonNull OrderBuilderImpl $$ ( 2432, 2464 ) $$ call to setValue(double) not allowed on the given receiver.
+		setValue(this.price*this.volume);
+		        ^
+  found   : @UnderInitialization @NonNull OrderBuilderImpl
+  required: @Initialized @NonNull OrderBuilderImpl
+../dataset/url708d477f92_zSakare_SENG3011_tgz-pJ8-test_runner_TestRunnerJ8/src/main/implementations/OrderBuilderImpl.java:89: error: (initialization.fields.uninitialized) $$ 1 $$ security, dateTime, recordType, qualifiers, transactionId, bidId, askId, entryTime, buyerBrokerId, sellerBrokerId $$ ( 2472, 2671 ) $$ the constructor does not initialize fields: security, dateTime, recordType, qualifiers, transactionId, bidId, askId, entryTime, buyerBrokerId, sellerBrokerId
+	public OrderBuilderImpl (String security, Date date, double price, String volume,
+	       ^
+../dataset/url708d477f92_zSakare_SENG3011_tgz-pJ8-test_runner_TestRunnerJ8/src/main/implementations/OrderBuilderImpl.java:92: error: (method.invocation) $$ 3 $$ setSecurity(java.lang.String) $$ @UnderInitialization @NonNull OrderBuilderImpl $$ @Initialized @NonNull OrderBuilderImpl $$ ( 2582, 2603 ) $$ call to setSecurity(java.lang.String) not allowed on the given receiver.
+		setSecurity(security);
+		           ^
+  found   : @UnderInitialization @NonNull OrderBuilderImpl
+  required: @Initialized @NonNull OrderBuilderImpl
+../dataset/url708d477f92_zSakare_SENG3011_tgz-pJ8-test_runner_TestRunnerJ8/src/main/implementations/OrderBuilderImpl.java:93: error: (method.invocation) $$ 3 $$ setDateTime(java.util.Date) $$ @UnderInitialization @NonNull OrderBuilderImpl $$ @Initialized @NonNull OrderBuilderImpl $$ ( 2607, 2624 ) $$ call to setDateTime(java.util.Date) not allowed on the given receiver.
+		setDateTime(date);
+		           ^
+  found   : @UnderInitialization @NonNull OrderBuilderImpl
+  required: @Initialized @NonNull OrderBuilderImpl
+../dataset/url708d477f92_zSakare_SENG3011_tgz-pJ8-test_runner_TestRunnerJ8/src/main/implementations/OrderBuilderImpl.java:94: error: (method.invocation) $$ 3 $$ setPrice(double) $$ @UnderInitialization @NonNull OrderBuilderImpl $$ @Initialized @NonNull OrderBuilderImpl $$ ( 2628, 2643 ) $$ call to setPrice(double) not allowed on the given receiver.
+		setPrice(price);
+		        ^
+  found   : @UnderInitialization @NonNull OrderBuilderImpl
+  required: @Initialized @NonNull OrderBuilderImpl
+../dataset/url708d477f92_zSakare_SENG3011_tgz-pJ8-test_runner_TestRunnerJ8/src/main/implementations/OrderBuilderImpl.java:95: error: (method.invocation) $$ 3 $$ setVolume(java.lang.String) $$ @UnderInitialization @NonNull OrderBuilderImpl $$ @Initialized @NonNull OrderBuilderImpl $$ ( 2647, 2664 ) $$ call to setVolume(java.lang.String) not allowed on the given receiver.
+		setVolume(volume);
+		         ^
+  found   : @UnderInitialization @NonNull OrderBuilderImpl
+  required: @Initialized @NonNull OrderBuilderImpl
+../dataset/url708d477f92_zSakare_SENG3011_tgz-pJ8-test_runner_TestRunnerJ8/src/main/interfaces/OrderBuilder.java:28: error: (assignment) $$ 2 $$ null (NullType) $$ @Initialized @NonNull Date $$ ( 933, 937 ) $$ incompatible types in assignment.
+	public static final Date DEFAULT_ENTRY_TIME = null;
+	                                              ^
+  found   : null (NullType)
+  required: @Initialized @NonNull Date
+../dataset/url708d477f92_zSakare_SENG3011_tgz-pJ8-test_runner_TestRunnerJ8/src/main/parser/SircaOrder.java:8: error: (initialization.field.uninitialized) $$ 1 $$ instrument $$ ( 171, 197 ) $$ the default constructor does not initialize field instrument
+	private String instrument;
+	               ^
+../dataset/url708d477f92_zSakare_SENG3011_tgz-pJ8-test_runner_TestRunnerJ8/src/main/parser/SircaOrder.java:9: error: (initialization.field.uninitialized) $$ 1 $$ date $$ ( 199, 219 ) $$ the default constructor does not initialize field date
+	private String date;
+	               ^
+../dataset/url708d477f92_zSakare_SENG3011_tgz-pJ8-test_runner_TestRunnerJ8/src/main/parser/SircaOrder.java:10: error: (initialization.field.uninitialized) $$ 1 $$ time $$ ( 221, 241 ) $$ the default constructor does not initialize field time
+	private String time;
+	               ^
+../dataset/url708d477f92_zSakare_SENG3011_tgz-pJ8-test_runner_TestRunnerJ8/src/main/parser/SircaOrder.java:11: error: (initialization.field.uninitialized) $$ 1 $$ recordType $$ ( 243, 269 ) $$ the default constructor does not initialize field recordType
+	private String recordType;
+	               ^
+../dataset/url708d477f92_zSakare_SENG3011_tgz-pJ8-test_runner_TestRunnerJ8/src/main/parser/SircaOrder.java:12: error: (initialization.field.uninitialized) $$ 1 $$ price $$ ( 271, 292 ) $$ the default constructor does not initialize field price
+	private String price;
+	               ^
+../dataset/url708d477f92_zSakare_SENG3011_tgz-pJ8-test_runner_TestRunnerJ8/src/main/parser/SircaOrder.java:13: error: (initialization.field.uninitialized) $$ 1 $$ volume $$ ( 294, 316 ) $$ the default constructor does not initialize field volume
+	private String volume;
+	               ^
+../dataset/url708d477f92_zSakare_SENG3011_tgz-pJ8-test_runner_TestRunnerJ8/src/main/parser/SircaOrder.java:14: error: (initialization.field.uninitialized) $$ 1 $$ undisclosedVolume $$ ( 318, 351 ) $$ the default constructor does not initialize field undisclosedVolume
+	private String undisclosedVolume;
+	               ^
+../dataset/url708d477f92_zSakare_SENG3011_tgz-pJ8-test_runner_TestRunnerJ8/src/main/parser/SircaOrder.java:15: error: (initialization.field.uninitialized) $$ 1 $$ value $$ ( 353, 374 ) $$ the default constructor does not initialize field value
+	private String value;
+	               ^
+../dataset/url708d477f92_zSakare_SENG3011_tgz-pJ8-test_runner_TestRunnerJ8/src/main/parser/SircaOrder.java:16: error: (initialization.field.uninitialized) $$ 1 $$ qualifiers $$ ( 376, 402 ) $$ the default constructor does not initialize field qualifiers
+	private String qualifiers;
+	               ^
+../dataset/url708d477f92_zSakare_SENG3011_tgz-pJ8-test_runner_TestRunnerJ8/src/main/parser/SircaOrder.java:17: error: (initialization.field.uninitialized) $$ 1 $$ transactionId $$ ( 404, 433 ) $$ the default constructor does not initialize field transactionId
+	private String transactionId;
+	               ^
+../dataset/url708d477f92_zSakare_SENG3011_tgz-pJ8-test_runner_TestRunnerJ8/src/main/parser/SircaOrder.java:18: error: (initialization.field.uninitialized) $$ 1 $$ bidId $$ ( 435, 456 ) $$ the default constructor does not initialize field bidId
+	private String bidId;
+	               ^
+../dataset/url708d477f92_zSakare_SENG3011_tgz-pJ8-test_runner_TestRunnerJ8/src/main/parser/SircaOrder.java:19: error: (initialization.field.uninitialized) $$ 1 $$ askId $$ ( 458, 479 ) $$ the default constructor does not initialize field askId
+	private String askId;
+	               ^
+../dataset/url708d477f92_zSakare_SENG3011_tgz-pJ8-test_runner_TestRunnerJ8/src/main/parser/SircaOrder.java:20: error: (initialization.field.uninitialized) $$ 1 $$ bidOrAsk $$ ( 481, 505 ) $$ the default constructor does not initialize field bidOrAsk
+	private String bidOrAsk;
+	               ^
+../dataset/url708d477f92_zSakare_SENG3011_tgz-pJ8-test_runner_TestRunnerJ8/src/main/parser/SircaOrder.java:21: error: (initialization.field.uninitialized) $$ 1 $$ entryTime $$ ( 507, 532 ) $$ the default constructor does not initialize field entryTime
+	private String entryTime;
+	               ^
+../dataset/url708d477f92_zSakare_SENG3011_tgz-pJ8-test_runner_TestRunnerJ8/src/main/parser/SircaOrder.java:22: error: (initialization.field.uninitialized) $$ 1 $$ oldPrice $$ ( 534, 558 ) $$ the default constructor does not initialize field oldPrice
+	private String oldPrice;
+	               ^
+../dataset/url708d477f92_zSakare_SENG3011_tgz-pJ8-test_runner_TestRunnerJ8/src/main/parser/SircaOrder.java:23: error: (initialization.field.uninitialized) $$ 1 $$ oldVolume $$ ( 560, 585 ) $$ the default constructor does not initialize field oldVolume
+	private String oldVolume;
+	               ^
+../dataset/url708d477f92_zSakare_SENG3011_tgz-pJ8-test_runner_TestRunnerJ8/src/main/parser/SircaOrder.java:24: error: (initialization.field.uninitialized) $$ 1 $$ buyerBrokerId $$ ( 587, 616 ) $$ the default constructor does not initialize field buyerBrokerId
+	private String buyerBrokerId;
+	               ^
+../dataset/url708d477f92_zSakare_SENG3011_tgz-pJ8-test_runner_TestRunnerJ8/src/main/parser/SircaOrder.java:25: error: (initialization.field.uninitialized) $$ 1 $$ sellerBrokerId $$ ( 618, 648 ) $$ the default constructor does not initialize field sellerBrokerId
+	private String sellerBrokerId;
+	               ^
+../dataset/url708d477f92_zSakare_SENG3011_tgz-pJ8-test_runner_TestRunnerJ8/src/main/implementations/OrderbookImpl.java:100: error: (return) $$ 2 $$ @Initialized @Nullable AlgorithmicTrade $$ @Initialized @NonNull AlgorithmicTrade $$ ( 2616, 2628 ) $$ incompatible types in return.
+		return matchedTrade;
+		       ^
+  type of expression: @Initialized @Nullable AlgorithmicTrade
+  method return type: @Initialized @NonNull AlgorithmicTrade
+../dataset/url708d477f92_zSakare_SENG3011_tgz-pJ8-test_runner_TestRunnerJ8/src/main/parser/SircaCSVParser.java:36: error: (return) $$ 2 $$ null (NullType) $$ @Initialized @NonNull Orderbook $$ ( 1457, 1461 ) $$ incompatible types in return.
+			return null;
+			       ^
+  type of expression: null (NullType)
+  method return type: @Initialized @NonNull Orderbook
+../dataset/url708d477f92_zSakare_SENG3011_tgz-pJ8-test_runner_TestRunnerJ8/src/test/generator/TradeSignalGeneratorTest.java:30: error: (argument) $$ 4 $$ tradeList $$ TradeSignalGenerator constructor $$ null (NullType) $$ @Initialized @NonNull List<@Initialized @NonNull Order> $$ ( 699, 703 ) $$ incompatible argument for parameter tradeList of TradeSignalGenerator constructor.
+				null);
+				^
+  found   : null (NullType)
+  required: @Initialized @NonNull List<@Initialized @NonNull Order>
+../dataset/url708d477f92_zSakare_SENG3011_tgz-pJ8-test_runner_TestRunnerJ8/src/test/generator/TradeSignalGeneratorTest.java:43: error: (argument) $$ 4 $$ tradeList $$ TradeSignalGenerator constructor $$ null (NullType) $$ @Initialized @NonNull List<@Initialized @NonNull Order> $$ ( 1205, 1209 ) $$ incompatible argument for parameter tradeList of TradeSignalGenerator constructor.
+				null);
+				^
+  found   : null (NullType)
+  required: @Initialized @NonNull List<@Initialized @NonNull Order>
+../dataset/url708d477f92_zSakare_SENG3011_tgz-pJ8-test_runner_TestRunnerJ8/src/test/implementations/OrderbookImplTest.java:56: error: (argument) $$ 4 $$ tradeList $$ OrderbookImpl constructor $$ null (NullType) $$ @Initialized @NonNull List<@Initialized @NonNull Order> $$ ( 1348, 1352 ) $$ incompatible argument for parameter tradeList of OrderbookImpl constructor.
+				null);
+				^
+  found   : null (NullType)
+  required: @Initialized @NonNull List<@Initialized @NonNull Order>
+../dataset/url708d477f92_zSakare_SENG3011_tgz-pJ8-test_runner_TestRunnerJ8/src/test/implementations/OrderbookImplTest.java:60: error: (argument) $$ 4 $$ lookBackPeriod $$ OrderbookImpl.runStrategy $$ null (NullType) $$ @Initialized @NonNull Integer $$ ( 1519, 1523 ) $$ incompatible argument for parameter lookBackPeriod of OrderbookImpl.runStrategy.
+		List<AlgorithmicTrade> randomTradeList = randomOrderBook.runStrategy(strategy, randVolume, null, null);
+		                                                                                           ^
+  found   : null (NullType)
+  required: @Initialized @NonNull Integer
+../dataset/url708d477f92_zSakare_SENG3011_tgz-pJ8-test_runner_TestRunnerJ8/src/test/implementations/OrderbookImplTest.java:60: error: (argument) $$ 4 $$ threshold $$ OrderbookImpl.runStrategy $$ null (NullType) $$ @Initialized @NonNull Double $$ ( 1525, 1529 ) $$ incompatible argument for parameter threshold of OrderbookImpl.runStrategy.
+		List<AlgorithmicTrade> randomTradeList = randomOrderBook.runStrategy(strategy, randVolume, null, null);
+		                                                                                                 ^
+  found   : null (NullType)
+  required: @Initialized @NonNull Double
+../dataset/url708d477f92_zSakare_SENG3011_tgz-pJ8-test_runner_TestRunnerJ8/src/test/implementations/OrderbookImplTest.java:92: error: (argument) $$ 4 $$ lookBackPeriod $$ OrderbookImpl.runStrategy $$ null (NullType) $$ @Initialized @NonNull Integer $$ ( 2728, 2732 ) $$ incompatible argument for parameter lookBackPeriod of OrderbookImpl.runStrategy.
+		List<AlgorithmicTrade> posMomentumTradeList = momentumOrderbook.runStrategy(strategy, randVolume, null, null);
+		                                                                                                  ^
+  found   : null (NullType)
+  required: @Initialized @NonNull Integer
+../dataset/url708d477f92_zSakare_SENG3011_tgz-pJ8-test_runner_TestRunnerJ8/src/test/implementations/OrderbookImplTest.java:92: error: (argument) $$ 4 $$ threshold $$ OrderbookImpl.runStrategy $$ null (NullType) $$ @Initialized @NonNull Double $$ ( 2734, 2738 ) $$ incompatible argument for parameter threshold of OrderbookImpl.runStrategy.
+		List<AlgorithmicTrade> posMomentumTradeList = momentumOrderbook.runStrategy(strategy, randVolume, null, null);
+		                                                                                                        ^
+  found   : null (NullType)
+  required: @Initialized @NonNull Double
+../dataset/url708d477f92_zSakare_SENG3011_tgz-pJ8-test_runner_TestRunnerJ8/src/test/implementations/OrderbookImplTest.java:121: error: (argument) $$ 4 $$ lookBackPeriod $$ OrderbookImpl.runStrategy $$ null (NullType) $$ @Initialized @NonNull Integer $$ ( 3815, 3819 ) $$ incompatible argument for parameter lookBackPeriod of OrderbookImpl.runStrategy.
+		List<AlgorithmicTrade> negMomentumTradeList = momentumOrderbook.runStrategy(strategy, randVolume, null, null);
+		                                                                                                  ^
+  found   : null (NullType)
+  required: @Initialized @NonNull Integer
+../dataset/url708d477f92_zSakare_SENG3011_tgz-pJ8-test_runner_TestRunnerJ8/src/test/implementations/OrderbookImplTest.java:121: error: (argument) $$ 4 $$ threshold $$ OrderbookImpl.runStrategy $$ null (NullType) $$ @Initialized @NonNull Double $$ ( 3821, 3825 ) $$ incompatible argument for parameter threshold of OrderbookImpl.runStrategy.
+		List<AlgorithmicTrade> negMomentumTradeList = momentumOrderbook.runStrategy(strategy, randVolume, null, null);
+		                                                                                                        ^
+  found   : null (NullType)
+  required: @Initialized @NonNull Double
+../dataset/url708d477f92_zSakare_SENG3011_tgz-pJ8-test_runner_TestRunnerJ8/src/test/implementations/OrderbookImplTest.java:150: error: (argument) $$ 4 $$ lookBackPeriod $$ OrderbookImpl.runStrategy $$ null (NullType) $$ @Initialized @NonNull Integer $$ ( 4911, 4915 ) $$ incompatible argument for parameter lookBackPeriod of OrderbookImpl.runStrategy.
+		List<AlgorithmicTrade> posMeanRevTradeList = meanRevOrderbook.runStrategy(strategy, randVolume, null, null);
+		                                                                                                ^
+  found   : null (NullType)
+  required: @Initialized @NonNull Integer
+../dataset/url708d477f92_zSakare_SENG3011_tgz-pJ8-test_runner_TestRunnerJ8/src/test/implementations/OrderbookImplTest.java:150: error: (argument) $$ 4 $$ threshold $$ OrderbookImpl.runStrategy $$ null (NullType) $$ @Initialized @NonNull Double $$ ( 4917, 4921 ) $$ incompatible argument for parameter threshold of OrderbookImpl.runStrategy.
+		List<AlgorithmicTrade> posMeanRevTradeList = meanRevOrderbook.runStrategy(strategy, randVolume, null, null);
+		                                                                                                      ^
+  found   : null (NullType)
+  required: @Initialized @NonNull Double
+../dataset/url708d477f92_zSakare_SENG3011_tgz-pJ8-test_runner_TestRunnerJ8/src/test/implementations/OrderbookImplTest.java:179: error: (argument) $$ 4 $$ lookBackPeriod $$ OrderbookImpl.runStrategy $$ null (NullType) $$ @Initialized @NonNull Integer $$ ( 6004, 6008 ) $$ incompatible argument for parameter lookBackPeriod of OrderbookImpl.runStrategy.
+		List<AlgorithmicTrade> negMeanRevTradeList = meanRevOrderbook.runStrategy(strategy, randVolume, null, null);
+		                                                                                                ^
+  found   : null (NullType)
+  required: @Initialized @NonNull Integer
+../dataset/url708d477f92_zSakare_SENG3011_tgz-pJ8-test_runner_TestRunnerJ8/src/test/implementations/OrderbookImplTest.java:179: error: (argument) $$ 4 $$ threshold $$ OrderbookImpl.runStrategy $$ null (NullType) $$ @Initialized @NonNull Double $$ ( 6010, 6014 ) $$ incompatible argument for parameter threshold of OrderbookImpl.runStrategy.
+		List<AlgorithmicTrade> negMeanRevTradeList = meanRevOrderbook.runStrategy(strategy, randVolume, null, null);
+		                                                                                                      ^
+  found   : null (NullType)
+  required: @Initialized @NonNull Double
+../dataset/url708d477f92_zSakare_SENG3011_tgz-pJ8-test_runner_TestRunnerJ8/src/test/implementations/OrderbookImplTest.java:197: error: (argument) $$ 4 $$ tradeList $$ OrderbookImpl constructor $$ null (NullType) $$ @Initialized @NonNull List<@Initialized @NonNull Order> $$ ( 6602, 6606 ) $$ incompatible argument for parameter tradeList of OrderbookImpl constructor.
+				null);
+				^
+  found   : null (NullType)
+  required: @Initialized @NonNull List<@Initialized @NonNull Order>
+../dataset/url708d477f92_zSakare_SENG3011_tgz-pJ8-test_runner_TestRunnerJ8/src/test/implementations/OrderbookImplTest.java:221: error: (argument) $$ 4 $$ tradeList $$ OrderbookImpl constructor $$ null (NullType) $$ @Initialized @NonNull List<@Initialized @NonNull Order> $$ ( 7387, 7391 ) $$ incompatible argument for parameter tradeList of OrderbookImpl constructor.
+				null);
+				^
+  found   : null (NullType)
+  required: @Initialized @NonNull List<@Initialized @NonNull Order>
+../dataset/url708d477f92_zSakare_SENG3011_tgz-pJ8-test_runner_TestRunnerJ8/src/test/implementations/OrderbookImplTest.java:244: error: (argument) $$ 4 $$ tradeList $$ OrderbookImpl constructor $$ null (NullType) $$ @Initialized @NonNull List<@Initialized @NonNull Order> $$ ( 8005, 8009 ) $$ incompatible argument for parameter tradeList of OrderbookImpl constructor.
+				null);
+				^
+  found   : null (NullType)
+  required: @Initialized @NonNull List<@Initialized @NonNull Order>
+../dataset/url708d477f92_zSakare_SENG3011_tgz-pJ8-test_runner_TestRunnerJ8/src/test/implementations/OrderbookImplTest.java:291: error: (argument) $$ 4 $$ tradeList $$ OrderbookImpl constructor $$ null (NullType) $$ @Initialized @NonNull List<@Initialized @NonNull Order> $$ ( 9265, 9269 ) $$ incompatible argument for parameter tradeList of OrderbookImpl constructor.
+				null);
+				^
+  found   : null (NullType)
+  required: @Initialized @NonNull List<@Initialized @NonNull Order>
+Note: Some input files use unchecked or unsafe operations.
+Note: Recompile with -Xlint:unchecked for details.
+126 errors

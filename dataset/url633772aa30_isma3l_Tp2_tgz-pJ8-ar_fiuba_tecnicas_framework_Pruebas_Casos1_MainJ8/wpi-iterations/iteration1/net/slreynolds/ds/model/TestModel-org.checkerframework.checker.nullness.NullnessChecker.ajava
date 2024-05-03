@@ -1,0 +1,148 @@
+package net.slreynolds.ds.model;
+
+import static org.junit.Assert.*;
+import java.util.HashMap;
+import net.slreynolds.ds.ObjectSaver;
+import net.slreynolds.ds.model.Graph;
+import net.slreynolds.ds.model.GraphPoint;
+import net.slreynolds.ds.model.Named;
+import org.junit.Test;
+
+@org.checkerframework.framework.qual.AnnotatedFor("org.checkerframework.checker.nullness.NullnessChecker")
+public class TestModel {
+
+    public static class A {
+
+        private final @org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.NonNull B _b;
+
+        @org.checkerframework.dataflow.qual.SideEffectFree
+        public A(@org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.NonNull B b) {
+            _b = b;
+        }
+    }
+
+    public static class B {
+
+        private final @org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.NonNull C _c;
+
+        @org.checkerframework.dataflow.qual.SideEffectFree
+        public B(@org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.NonNull C c) {
+            _c = c;
+        }
+    }
+
+    public static class C {
+
+        private final  @org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.NonNull int _i;
+
+        @org.checkerframework.dataflow.qual.SideEffectFree
+        public C( @org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.NonNull int i) {
+            _i = i;
+        }
+    }
+
+    @org.checkerframework.dataflow.qual.Impure
+    public void testObjectReferences() {
+        C c = new C(2);
+        B b = new B(c);
+        A a = new A(b);
+        ExporterStub exporter = new ExporterStub();
+        ObjectSaver saver = new ObjectSaver(exporter);
+        saver.save(new Object[] { a }, new String[] { "a" }, new HashMap<String, Object>());
+        Graph g = exporter.getGraph();
+        assertEquals("num graph points", 4, g.getGraphPoints().size());
+        GraphPoint gp = g.getPrimaryGraphPoint();
+        assertTrue("primary point isa symbol", gp.hasAttr(Named.SYMBOL));
+        assertTrue("primary point isa symbol", (Boolean) gp.getAttr(Named.SYMBOL));
+        assertEquals("primary has one link", 1, gp.getNeighbors().size());
+        GraphPoint gp_a = gp.getNeighbors().get(0).getTo();
+        assertEquals("a has one link", 1, gp_a.getNeighbors().size());
+        GraphPoint gp_b = gp_a.getNeighbors().get(0).getTo();
+        assertEquals("b has one link", 1, gp_b.getNeighbors().size());
+        GraphPoint gp_c = gp_b.getNeighbors().get(0).getTo();
+        assertEquals("c has no links", 0, gp_c.getNeighbors().size());
+    }
+
+    public static class DummyClass {
+
+        private  @org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.NonNull int one;
+
+        private  @org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.NonNull double two;
+
+        private  @org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.NonNull char three;
+
+        private  @org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.NonNull float four;
+
+        private  @org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.NonNull byte five;
+
+        private  @org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.NonNull boolean six;
+
+        @org.checkerframework.dataflow.qual.SideEffectFree
+        public DummyClass( @org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.NonNull int one,  @org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.NonNull double two,  @org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.NonNull char three,  @org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.NonNull float four,  @org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.NonNull byte five,  @org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.NonNull boolean six) {
+            this.one = one;
+            this.two = two;
+            this.three = three;
+            this.four = four;
+            this.five = five;
+            this.six = six;
+        }
+    }
+
+    @org.checkerframework.dataflow.qual.Impure
+    public void testFields() {
+        DummyClass dummy = new DummyClass(1, 2.0, 'c', 4.0f, (byte) 5, true);
+        ExporterStub exporter = new ExporterStub();
+        ObjectSaver saver = new ObjectSaver(exporter);
+        saver.save(new Object[] { dummy }, new String[] { "um" }, new HashMap<String, Object>());
+        Graph g = exporter.getGraph();
+        assertEquals("num graph points", 2, g.getGraphPoints().size());
+        GraphPoint gp = g.getPrimaryGraphPoint();
+        assertTrue("primary point isa symbol", gp.hasAttr(Named.SYMBOL));
+        assertTrue("primary point isa symbol", (Boolean) gp.getAttr(Named.SYMBOL));
+        assertEquals("primary has one link", 1, gp.getNeighbors().size());
+        GraphPoint gp_dummy = gp.getNeighbors().get(0).getTo();
+        assertEquals("dummy has no links", 0, gp_dummy.getNeighbors().size());
+        assertEquals("dummy.one", 1, gp_dummy.getAttr("one"));
+        assertEquals("dummy.two", 2.0, gp_dummy.getAttr("two"));
+        assertEquals("dummy.three", 'c', gp_dummy.getAttr("three"));
+        assertEquals("dummy.four", 4.0f, gp_dummy.getAttr("four"));
+        assertEquals("dummy.five", (byte) 5, gp_dummy.getAttr("five"));
+        assertEquals("dummy.six", true, gp_dummy.getAttr("six"));
+    }
+
+    public static class D {
+
+        private @org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.MonotonicNonNull Object _o;
+
+        @org.checkerframework.framework.qual.RequiresQualifier(expression = { "this._o" }, qualifier = org.checkerframework.checker.nullness.qual.Nullable.class)
+        @org.checkerframework.framework.qual.EnsuresQualifier(expression = { "this._o" }, qualifier = org.checkerframework.checker.initialization.qual.FBCBottom.class)
+        @org.checkerframework.framework.qual.EnsuresQualifier(expression = { "this._o" }, qualifier = org.checkerframework.checker.nullness.qual.Nullable.class)
+        @org.checkerframework.dataflow.qual.SideEffectFree
+        public D() {
+            _o = null;
+        }
+
+        @org.checkerframework.framework.qual.RequiresQualifier(expression = { "this._o" }, qualifier = org.checkerframework.checker.initialization.qual.FBCBottom.class)
+        @org.checkerframework.framework.qual.RequiresQualifier(expression = { "this._o" }, qualifier = org.checkerframework.checker.nullness.qual.Nullable.class)
+        @org.checkerframework.checker.nullness.qual.EnsuresNonNull({ "this._o" })
+        @org.checkerframework.dataflow.qual.Impure
+        public void setO(@org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.NonNull Object o) {
+            _o = o;
+        }
+    }
+
+    @org.checkerframework.dataflow.qual.Impure
+    public void testObjectCycle() {
+        D d1 = new D();
+        D d2 = new D();
+        D d3 = new D();
+        d1.setO(d2);
+        d2.setO(d3);
+        d3.setO(d1);
+        ExporterStub exporter = new ExporterStub();
+        ObjectSaver saver = new ObjectSaver(exporter);
+        saver.save(new Object[] { d1 }, new String[] { "d1" }, new HashMap<String, Object>());
+        Graph g = exporter.getGraph();
+        assertEquals("num graph points", 4, g.getGraphPoints().size());
+    }
+}

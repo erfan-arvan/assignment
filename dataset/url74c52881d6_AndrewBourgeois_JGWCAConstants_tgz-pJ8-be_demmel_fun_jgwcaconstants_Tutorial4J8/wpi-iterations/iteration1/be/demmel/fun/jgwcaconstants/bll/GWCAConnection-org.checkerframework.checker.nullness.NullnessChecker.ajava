@@ -1,0 +1,19 @@
+package be.demmel.fun.jgwcaconstants.bll;
+
+import java.io.IOException;
+
+@org.checkerframework.framework.qual.AnnotatedFor("org.checkerframework.checker.nullness.NullnessChecker")
+public interface GWCAConnection {
+
+    @org.checkerframework.dataflow.qual.Impure
+    void sendPacket(@org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.NonNull GWCAPacket gwcaPacket) throws IOException;
+
+    @org.checkerframework.dataflow.qual.Impure
+    @org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.NonNull GWCAPacket receivePacket() throws IOException;
+
+    @org.checkerframework.dataflow.qual.Impure
+    void open() throws IOException;
+
+    @org.checkerframework.dataflow.qual.Impure
+    void close() throws IOException;
+}

@@ -1,0 +1,285 @@
+../dataset/url863d2ab553_themadcreator_delaunay_tgz-pJ8-org_delaunay_PoissonDiscSamplesDemoJ8/src/org/delaunay/Utils.java:44: error: (return) $$ 2 $$ null (NullType) $$ T extends @Initialized @Nullable Object $$ ( 1115, 1119 ) $$ incompatible types in return.
+			return null;
+			       ^
+  type of expression: null (NullType)
+  method return type: T extends @Initialized @Nullable Object
+../dataset/url863d2ab553_themadcreator_delaunay_tgz-pJ8-org_delaunay_PoissonDiscSamplesDemoJ8/src/org/delaunay/Utils.java:46: error: (dereference.of.nullable) $$ 1 $$ map.lastEntry() $$ ( 1134, 1149 ) $$ dereference of possibly-null reference map.lastEntry()
+		return map.lastEntry().getValue();
+		                    ^
+../dataset/url863d2ab553_themadcreator_delaunay_tgz-pJ8-org_delaunay_PoissonDiscSamplesDemoJ8/src/org/delaunay/Utils.java:52: error: (return) $$ 2 $$ null (NullType) $$ T extends @Initialized @Nullable Object $$ ( 1356, 1360 ) $$ incompatible types in return.
+			return null;
+			       ^
+  type of expression: null (NullType)
+  method return type: T extends @Initialized @Nullable Object
+../dataset/url863d2ab553_themadcreator_delaunay_tgz-pJ8-org_delaunay_PoissonDiscSamplesDemoJ8/src/org/delaunay/Utils.java:54: error: (dereference.of.nullable) $$ 1 $$ map.firstEntry() $$ ( 1375, 1391 ) $$ dereference of possibly-null reference map.firstEntry()
+		return map.firstEntry().getValue();
+		                     ^
+../dataset/url863d2ab553_themadcreator_delaunay_tgz-pJ8-org_delaunay_PoissonDiscSamplesDemoJ8/src/org/delaunay/Utils.java:71: error: (type.argument) $$ 4 $$ F extends Object $$ Iterables.transform $$ capture#01[ extends @UnknownKeyFor Vector super @KeyForBottom Void] $$ [extends @UnknownKeyFor Object super @UnknownKeyFor NullType] $$ ( 1803, 1957 ) $$ incompatible type argument for type parameter F extends Object of Iterables.transform.
+		return Iterables.transform(vectors, new Function<Vector, Vertex>() {
+		                          ^
+  found   : capture#01[ extends @UnknownKeyFor Vector super @KeyForBottom Void]
+  required: [extends @UnknownKeyFor Object super @UnknownKeyFor NullType]
+../dataset/url863d2ab553_themadcreator_delaunay_tgz-pJ8-org_delaunay_PoissonDiscSamplesDemoJ8/src/org/delaunay/Utils.java:72: error: (override.param) $$ 7 $$ vector $$ @Initialized @NonNull Vector $$ @Initialized @Nullable Vector $$ @Initialized @NonNull <anonymous org.delaunay.Utils$1> $$ @Initialized @NonNull Vertex apply(@Initialized @NonNull <anonymous org.delaunay.Utils$1> this, @Initialized @NonNull Vector p0) $$ @Initialized @NonNull Function<@Initialized @NonNull Vector, @Initialized @NonNull Vertex> $$ @Initialized @Nullable Vertex apply(@Initialized @NonNull Function<@Initialized @NonNull Vector, @Initialized @NonNull Vertex> this, @Initialized @Nullable Vector p0) $$ ( 1888, 1901 ) $$ Incompatible parameter type for vector.
+			public Vertex apply(Vector vector) {
+			                           ^
+  found   : @Initialized @NonNull Vector
+  required: @Initialized @Nullable Vector
+  Consequence: method in @Initialized @NonNull <anonymous org.delaunay.Utils$1>
+    @Initialized @NonNull Vertex apply(@Initialized @NonNull <anonymous org.delaunay.Utils$1> this, @Initialized @NonNull Vector p0)
+  cannot override method in @Initialized @NonNull Function<@Initialized @NonNull Vector, @Initialized @NonNull Vertex>
+    @Initialized @Nullable Vertex apply(@Initialized @NonNull Function<@Initialized @NonNull Vector, @Initialized @NonNull Vertex> this, @Initialized @Nullable Vector p0)
+../dataset/url863d2ab553_themadcreator_delaunay_tgz-pJ8-org_delaunay_PoissonDiscSamplesDemoJ8/src/org/delaunay/Utils.java:79: error: (type.argument) $$ 4 $$ F extends Object $$ Iterables.transform $$ capture#02[ extends @UnknownKeyFor Vector super @KeyForBottom Void] $$ [extends @UnknownKeyFor Object super @UnknownKeyFor NullType] $$ ( 2053, 2217 ) $$ incompatible type argument for type parameter F extends Object of Iterables.transform.
+		return Iterables.transform(vectors, new Function<Vector, Point2D>() {
+		                          ^
+  found   : capture#02[ extends @UnknownKeyFor Vector super @KeyForBottom Void]
+  required: [extends @UnknownKeyFor Object super @UnknownKeyFor NullType]
+../dataset/url863d2ab553_themadcreator_delaunay_tgz-pJ8-org_delaunay_PoissonDiscSamplesDemoJ8/src/org/delaunay/Utils.java:80: error: (override.param) $$ 7 $$ vector $$ @Initialized @NonNull Vector $$ @Initialized @Nullable Vector $$ @Initialized @NonNull <anonymous org.delaunay.Utils$2> $$ @Initialized @NonNull Point2D apply(@Initialized @NonNull <anonymous org.delaunay.Utils$2> this, @Initialized @NonNull Vector p0) $$ @Initialized @NonNull Function<@Initialized @NonNull Vector, @Initialized @NonNull Point2D> $$ @Initialized @Nullable Point2D apply(@Initialized @NonNull Function<@Initialized @NonNull Vector, @Initialized @NonNull Point2D> this, @Initialized @Nullable Vector p0) $$ ( 2140, 2153 ) $$ Incompatible parameter type for vector.
+			public Point2D apply(Vector vector) {
+			                            ^
+  found   : @Initialized @NonNull Vector
+  required: @Initialized @Nullable Vector
+  Consequence: method in @Initialized @NonNull <anonymous org.delaunay.Utils$2>
+    @Initialized @NonNull Point2D apply(@Initialized @NonNull <anonymous org.delaunay.Utils$2> this, @Initialized @NonNull Vector p0)
+  cannot override method in @Initialized @NonNull Function<@Initialized @NonNull Vector, @Initialized @NonNull Point2D>
+    @Initialized @Nullable Point2D apply(@Initialized @NonNull Function<@Initialized @NonNull Vector, @Initialized @NonNull Point2D> this, @Initialized @Nullable Vector p0)
+../dataset/url863d2ab553_themadcreator_delaunay_tgz-pJ8-org_delaunay_PoissonDiscSamplesDemoJ8/src/org/delaunay/model/Vector.java:86: error: (override.param) $$ 7 $$ obj $$ @Initialized @NonNull Object $$ @Initialized @Nullable Object $$ @Initialized @NonNull Vector $$ @Initialized @NonNull boolean equals(@Initialized @NonNull Vector this, @Initialized @NonNull Object p0) $$ @Initialized @NonNull Object $$ @Initialized @NonNull boolean equals(@Initialized @NonNull Object this, @Initialized @Nullable Object p0) $$ ( 1673, 1683 ) $$ Incompatible parameter type for obj.
+	public boolean equals(Object obj) {
+	                             ^
+  found   : @Initialized @NonNull Object
+  required: @Initialized @Nullable Object
+  Consequence: method in @Initialized @NonNull Vector
+    @Initialized @NonNull boolean equals(@Initialized @NonNull Vector this, @Initialized @NonNull Object p0)
+  cannot override method in @Initialized @NonNull Object
+    @Initialized @NonNull boolean equals(@Initialized @NonNull Object this, @Initialized @Nullable Object p0)
+../dataset/url863d2ab553_themadcreator_delaunay_tgz-pJ8-org_delaunay_PoissonDiscSamplesDemoJ8/src/org/delaunay/model/Vertex.java:12: error: (initialization.fields.uninitialized) $$ 1 $$ hilbertIndex $$ ( 307, 360 ) $$ the constructor does not initialize fields: hilbertIndex
+	public Vertex(double x, double y) {
+	       ^
+../dataset/url863d2ab553_themadcreator_delaunay_tgz-pJ8-org_delaunay_PoissonDiscSamplesDemoJ8/src/org/delaunay/model/Triangle.java:78: error: (return) $$ 2 $$ null (NullType) $$ @Initialized @NonNull Triangle $$ ( 2145, 2149 ) $$ incompatible types in return.
+		return null;
+		       ^
+  type of expression: null (NullType)
+  method return type: @Initialized @NonNull Triangle
+../dataset/url863d2ab553_themadcreator_delaunay_tgz-pJ8-org_delaunay_PoissonDiscSamplesDemoJ8/src/org/delaunay/model/Triangle.java:82: error: (assignment) $$ 2 $$ null (NullType) $$ @Initialized @NonNull Triangle $$ ( 2222, 2226 ) $$ incompatible types in assignment.
+	private Triangle oppositeAB = null;
+	                              ^
+  found   : null (NullType)
+  required: @Initialized @NonNull Triangle
+../dataset/url863d2ab553_themadcreator_delaunay_tgz-pJ8-org_delaunay_PoissonDiscSamplesDemoJ8/src/org/delaunay/model/Triangle.java:83: error: (assignment) $$ 2 $$ null (NullType) $$ @Initialized @NonNull Triangle $$ ( 2259, 2263 ) $$ incompatible types in assignment.
+	private Triangle oppositeBC = null;
+	                              ^
+  found   : null (NullType)
+  required: @Initialized @NonNull Triangle
+../dataset/url863d2ab553_themadcreator_delaunay_tgz-pJ8-org_delaunay_PoissonDiscSamplesDemoJ8/src/org/delaunay/model/Triangle.java:84: error: (assignment) $$ 2 $$ null (NullType) $$ @Initialized @NonNull Triangle $$ ( 2296, 2300 ) $$ incompatible types in assignment.
+	private Triangle oppositeCA = null;
+	                              ^
+  found   : null (NullType)
+  required: @Initialized @NonNull Triangle
+../dataset/url863d2ab553_themadcreator_delaunay_tgz-pJ8-org_delaunay_PoissonDiscSamplesDemoJ8/src/org/delaunay/model/Triangle.java:102: error: (assignment) $$ 2 $$ null (NullType) $$ @Initialized @NonNull Set<@Initialized @NonNull Triangle> $$ ( 2669, 2673 ) $$ incompatible types in assignment.
+	private Set<Triangle> neighbors = null;
+	                                  ^
+  found   : null (NullType)
+  required: @Initialized @NonNull Set<@Initialized @NonNull Triangle>
+../dataset/url863d2ab553_themadcreator_delaunay_tgz-pJ8-org_delaunay_PoissonDiscSamplesDemoJ8/src/org/delaunay/model/Triangle.java:122: error: (assignment) $$ 2 $$ null (NullType) $$ @Initialized @NonNull Double $$ ( 3131, 3135 ) $$ incompatible types in assignment.
+	private Double area = null;
+	                      ^
+  found   : null (NullType)
+  required: @Initialized @NonNull Double
+../dataset/url863d2ab553_themadcreator_delaunay_tgz-pJ8-org_delaunay_PoissonDiscSamplesDemoJ8/src/org/delaunay/model/Edge.java:18: error: (override.param) $$ 7 $$ obj $$ @Initialized @NonNull Object $$ @Initialized @Nullable Object $$ @Initialized @NonNull Edge $$ @Initialized @NonNull boolean equals(@Initialized @NonNull Edge this, @Initialized @NonNull Object p0) $$ @Initialized @NonNull Object $$ @Initialized @NonNull boolean equals(@Initialized @NonNull Object this, @Initialized @Nullable Object p0) $$ ( 258, 268 ) $$ Incompatible parameter type for obj.
+	public boolean equals(Object obj) {
+	                             ^
+  found   : @Initialized @NonNull Object
+  required: @Initialized @Nullable Object
+  Consequence: method in @Initialized @NonNull Edge
+    @Initialized @NonNull boolean equals(@Initialized @NonNull Edge this, @Initialized @NonNull Object p0)
+  cannot override method in @Initialized @NonNull Object
+    @Initialized @NonNull boolean equals(@Initialized @NonNull Object this, @Initialized @Nullable Object p0)
+../dataset/url863d2ab553_themadcreator_delaunay_tgz-pJ8-org_delaunay_PoissonDiscSamplesDemoJ8/src/org/delaunay/algorithm/Triangulation.java:49: error: (assignment) $$ 2 $$ null (NullType) $$ @Initialized @NonNull Triangle $$ ( 1346, 1350 ) $$ incompatible types in assignment.
+	private Triangle lastLocatedTriangle = null;
+	                                       ^
+  found   : null (NullType)
+  required: @Initialized @NonNull Triangle
+../dataset/url863d2ab553_themadcreator_delaunay_tgz-pJ8-org_delaunay_PoissonDiscSamplesDemoJ8/src/org/delaunay/algorithm/Triangulation.java:113: error: (override.param) $$ 7 $$ v $$ @Initialized @NonNull Vertex $$ @Initialized @Nullable Vertex $$ @Initialized @NonNull Triangulation.@Initialized @NonNull <anonymous org.delaunay.algorithm.Triangulation$2> $$ @Initialized @NonNull boolean apply(@Initialized @NonNull Triangulation.@Initialized @NonNull <anonymous org.delaunay.algorithm.Triangulation$2> this, @Initialized @NonNull Vertex p0) $$ @Initialized @NonNull Predicate<@Initialized @NonNull Vertex> $$ @Initialized @NonNull boolean apply(@Initialized @NonNull Predicate<@Initialized @NonNull Vertex> this, @Initialized @Nullable Vertex p0) $$ ( 3057, 3065 ) $$ Incompatible parameter type for v.
+			public boolean apply(Vertex v) {
+			                            ^
+  found   : @Initialized @NonNull Vertex
+  required: @Initialized @Nullable Vertex
+  Consequence: method in @Initialized @NonNull Triangulation.@Initialized @NonNull <anonymous org.delaunay.algorithm.Triangulation$2>
+    @Initialized @NonNull boolean apply(@Initialized @NonNull Triangulation.@Initialized @NonNull <anonymous org.delaunay.algorithm.Triangulation$2> this, @Initialized @NonNull Vertex p0)
+  cannot override method in @Initialized @NonNull Predicate<@Initialized @NonNull Vertex>
+    @Initialized @NonNull boolean apply(@Initialized @NonNull Predicate<@Initialized @NonNull Vertex> this, @Initialized @Nullable Vertex p0)
+../dataset/url863d2ab553_themadcreator_delaunay_tgz-pJ8-org_delaunay_PoissonDiscSamplesDemoJ8/src/org/delaunay/algorithm/Triangulation.java:135: error: (return) $$ 2 $$ null (NullType) $$ @Initialized @NonNull Vertex $$ ( 3610, 3614 ) $$ incompatible types in return.
+			return null;
+			       ^
+  type of expression: null (NullType)
+  method return type: @Initialized @NonNull Vertex
+../dataset/url863d2ab553_themadcreator_delaunay_tgz-pJ8-org_delaunay_PoissonDiscSamplesDemoJ8/src/org/delaunay/algorithm/Triangulation.java:150: error: (return) $$ 2 $$ @Initialized @Nullable Vertex $$ @Initialized @NonNull Vertex $$ ( 3925, 3935 ) $$ incompatible types in return.
+		return bestVertex;
+		       ^
+  type of expression: @Initialized @Nullable Vertex
+  method return type: @Initialized @NonNull Vertex
+../dataset/url863d2ab553_themadcreator_delaunay_tgz-pJ8-org_delaunay_PoissonDiscSamplesDemoJ8/src/org/delaunay/algorithm/Triangulation.java:326: error: (argument) $$ 4 $$ tris $$ Triangulation.removeTriangles $$ @Initialized @Nullable Collection<@Initialized @NonNull Triangle> $$ @Initialized @NonNull Iterable<@Initialized @NonNull Triangle> $$ ( 9565, 9570 ) $$ incompatible argument for parameter tris of Triangulation.removeTriangles.
+			removeTriangles(toAdd);
+			                ^
+  found   : @Initialized @Nullable Collection<@Initialized @NonNull Triangle>
+  required: @Initialized @NonNull Iterable<@Initialized @NonNull Triangle>
+../dataset/url863d2ab553_themadcreator_delaunay_tgz-pJ8-org_delaunay_PoissonDiscSamplesDemoJ8/src/org/delaunay/algorithm/Triangulation.java:381: error: (assignment) $$ 2 $$ null (NullType) $$ @Initialized @NonNull Triangle $$ ( 10971, 10975 ) $$ incompatible types in assignment.
+		lastLocatedTriangle = null;
+		                      ^
+  found   : null (NullType)
+  required: @Initialized @NonNull Triangle
+../dataset/url863d2ab553_themadcreator_delaunay_tgz-pJ8-org_delaunay_PoissonDiscSamplesDemoJ8/src/org/delaunay/algorithm/Triangulation.java:434: error: (return) $$ 2 $$ null (NullType) $$ @Initialized @NonNull Triangle $$ ( 12705, 12709 ) $$ incompatible types in return.
+			return null;
+			       ^
+  type of expression: null (NullType)
+  method return type: @Initialized @NonNull Triangle
+../dataset/url863d2ab553_themadcreator_delaunay_tgz-pJ8-org_delaunay_PoissonDiscSamplesDemoJ8/src/org/delaunay/algorithm/Triangulation.java:448: error: (return) $$ 2 $$ null (NullType) $$ @Initialized @NonNull Triangle $$ ( 13013, 13017 ) $$ incompatible types in return.
+				return null;
+				       ^
+  type of expression: null (NullType)
+  method return type: @Initialized @NonNull Triangle
+../dataset/url863d2ab553_themadcreator_delaunay_tgz-pJ8-org_delaunay_PoissonDiscSamplesDemoJ8/src/org/delaunay/algorithm/Triangulation.java:479: error: (override.param) $$ 7 $$ e $$ @Initialized @NonNull Edge $$ @Initialized @Nullable Edge $$ @Initialized @NonNull Triangulation.@Initialized @NonNull <anonymous org.delaunay.algorithm.Triangulation$4> $$ @Initialized @NonNull Triangle apply(@Initialized @NonNull Triangulation.@Initialized @NonNull <anonymous org.delaunay.algorithm.Triangulation$4> this, @Initialized @NonNull Edge p0) $$ @Initialized @NonNull Function<@Initialized @NonNull Edge, @Initialized @NonNull Triangle> $$ @Initialized @Nullable Triangle apply(@Initialized @NonNull Function<@Initialized @NonNull Edge, @Initialized @NonNull Triangle> this, @Initialized @Nullable Edge p0) $$ ( 13791, 13797 ) $$ Incompatible parameter type for e.
+			public Triangle apply(Edge e) {
+			                           ^
+  found   : @Initialized @NonNull Edge
+  required: @Initialized @Nullable Edge
+  Consequence: method in @Initialized @NonNull Triangulation.@Initialized @NonNull <anonymous org.delaunay.algorithm.Triangulation$4>
+    @Initialized @NonNull Triangle apply(@Initialized @NonNull Triangulation.@Initialized @NonNull <anonymous org.delaunay.algorithm.Triangulation$4> this, @Initialized @NonNull Edge p0)
+  cannot override method in @Initialized @NonNull Function<@Initialized @NonNull Edge, @Initialized @NonNull Triangle>
+    @Initialized @Nullable Triangle apply(@Initialized @NonNull Function<@Initialized @NonNull Edge, @Initialized @NonNull Triangle> this, @Initialized @Nullable Edge p0)
+../dataset/url863d2ab553_themadcreator_delaunay_tgz-pJ8-org_delaunay_PoissonDiscSamplesDemoJ8/src/org/delaunay/algorithm/Triangulation.java:505: error: (assignment) $$ 2 $$ null (NullType) $$ @Initialized @NonNull Triangle $$ ( 14469, 14473 ) $$ incompatible types in assignment.
+		lastLocatedTriangle = null;
+		                      ^
+  found   : null (NullType)
+  required: @Initialized @NonNull Triangle
+../dataset/url863d2ab553_themadcreator_delaunay_tgz-pJ8-org_delaunay_PoissonDiscSamplesDemoJ8/src/org/delaunay/dtfe/DtfeTriangulationMap.java:50: error: (assignment) $$ 2 $$ null (NullType) $$ @Initialized @NonNull Double $$ ( 1327, 1331 ) $$ incompatible types in assignment.
+	private Double maxDensity = null;
+	                            ^
+  found   : null (NullType)
+  required: @Initialized @NonNull Double
+../dataset/url863d2ab553_themadcreator_delaunay_tgz-pJ8-org_delaunay_PoissonDiscSamplesDemoJ8/src/org/delaunay/dtfe/DtfeTriangulationMap.java:59: error: (override.param) $$ 7 $$ v $$ @Initialized @NonNull Vertex $$ @Initialized @Nullable Vertex $$ @Initialized @NonNull DtfeTriangulationMap<T extends @Initialized @NonNull DensityModel>.@Initialized @NonNull <anonymous org.delaunay.dtfe.DtfeTriangulationMap$1> $$ @Initialized @NonNull Double apply(@Initialized @NonNull DtfeTriangulationMap<T extends @Initialized @NonNull DensityModel>.@Initialized @NonNull <anonymous org.delaunay.dtfe.DtfeTriangulationMap$1> this, @Initialized @NonNull Vertex p0) $$ @Initialized @NonNull Function<@Initialized @NonNull Vertex, @Initialized @NonNull Double> $$ @Initialized @Nullable Double apply(@Initialized @NonNull Function<@Initialized @NonNull Vertex, @Initialized @NonNull Double> this, @Initialized @Nullable Vertex p0) $$ ( 1590, 1598 ) $$ Incompatible parameter type for v.
+						public Double apply(Vertex v) {
+						                           ^
+  found   : @Initialized @NonNull Vertex
+  required: @Initialized @Nullable Vertex
+  Consequence: method in @Initialized @NonNull DtfeTriangulationMap<T extends @Initialized @NonNull DensityModel>.@Initialized @NonNull <anonymous org.delaunay.dtfe.DtfeTriangulationMap$1>
+    @Initialized @NonNull Double apply(@Initialized @NonNull DtfeTriangulationMap<T extends @Initialized @NonNull DensityModel>.@Initialized @NonNull <anonymous org.delaunay.dtfe.DtfeTriangulationMap$1> this, @Initialized @NonNull Vertex p0)
+  cannot override method in @Initialized @NonNull Function<@Initialized @NonNull Vertex, @Initialized @NonNull Double>
+    @Initialized @Nullable Double apply(@Initialized @NonNull Function<@Initialized @NonNull Vertex, @Initialized @NonNull Double> this, @Initialized @Nullable Vertex p0)
+../dataset/url863d2ab553_themadcreator_delaunay_tgz-pJ8-org_delaunay_PoissonDiscSamplesDemoJ8/src/org/delaunay/model/TriangulationMap.java:45: error: (return) $$ 2 $$ @Initialized @Nullable Vertex $$ @Initialized @NonNull Vertex $$ ( 1079, 1103 ) $$ incompatible types in return.
+		return map.inverse().get(value);
+		                        ^
+  type of expression: @Initialized @Nullable Vertex
+  method return type: @Initialized @NonNull Vertex
+../dataset/url863d2ab553_themadcreator_delaunay_tgz-pJ8-org_delaunay_PoissonDiscSamplesDemoJ8/src/org/delaunay/model/TriangulationMap.java:45: error: (argument) $$ 4 $$ arg0 $$ Map.get $$ T extends @Initialized @Nullable Object $$ @Initialized @NonNull Object $$ ( 1097, 1102 ) $$ incompatible argument for parameter arg0 of Map.get.
+		return map.inverse().get(value);
+		                         ^
+  found   : T extends @Initialized @Nullable Object
+  required: @Initialized @NonNull Object
+../dataset/url863d2ab553_themadcreator_delaunay_tgz-pJ8-org_delaunay_PoissonDiscSamplesDemoJ8/src/org/delaunay/model/TriangulationMap.java:49: error: (return) $$ 2 $$ T[ extends @Initialized @Nullable Object super @Initialized @Nullable Void] $$ T[ extends @Initialized @Nullable Object super @Initialized @NonNull Void] $$ ( 1144, 1154 ) $$ incompatible types in return.
+		return map.get(v);
+		              ^
+  type of expression: T[ extends @Initialized @Nullable Object super @Initialized @Nullable Void]
+  method return type: T[ extends @Initialized @Nullable Object super @Initialized @NonNull Void]
+../dataset/url863d2ab553_themadcreator_delaunay_tgz-pJ8-org_delaunay_PoissonDiscSamplesDemoJ8/src/org/delaunay/dtfe/Dtfes.java:62: error: (argument) $$ 4 $$ bChild $$ DifferenceDensityModel constructor $$ null (NullType) $$ T extends @Initialized @NonNull BasicDensityModel $$ ( 1877, 1881 ) $$ incompatible argument for parameter bChild of DifferenceDensityModel constructor.
+					null,
+					^
+  found   : null (NullType)
+  required: T extends @Initialized @NonNull BasicDensityModel
+../dataset/url863d2ab553_themadcreator_delaunay_tgz-pJ8-org_delaunay_PoissonDiscSamplesDemoJ8/src/org/delaunay/dtfe/Dtfes.java:69: error: (argument) $$ 4 $$ aChild $$ DifferenceDensityModel constructor $$ null (NullType) $$ T extends @Initialized @NonNull BasicDensityModel $$ ( 2103, 2107 ) $$ incompatible argument for parameter aChild of DifferenceDensityModel constructor.
+					null,
+					^
+  found   : null (NullType)
+  required: T extends @Initialized @NonNull BasicDensityModel
+../dataset/url863d2ab553_themadcreator_delaunay_tgz-pJ8-org_delaunay_PoissonDiscSamplesDemoJ8/src/org/delaunay/dtfe/painters/DtfePainterModel.java:14: error: (assignment) $$ 2 $$ null (NullType) $$ @Initialized @NonNull Color $$ ( 485, 489 ) $$ incompatible types in assignment.
+	private Color edgeColor = null;
+	                          ^
+  found   : null (NullType)
+  required: @Initialized @NonNull Color
+../dataset/url863d2ab553_themadcreator_delaunay_tgz-pJ8-org_delaunay_PoissonDiscSamplesDemoJ8/src/org/delaunay/model/ConvexPolygon.java:9: error: (assignment) $$ 2 $$ null (NullType) $$ @Initialized @NonNull Double $$ ( 203, 207 ) $$ incompatible types in assignment.
+	private Double area = null;
+	                      ^
+  found   : null (NullType)
+  required: @Initialized @NonNull Double
+../dataset/url863d2ab553_themadcreator_delaunay_tgz-pJ8-org_delaunay_PoissonDiscSamplesDemoJ8/src/org/delaunay/model/Vectors.java:15: error: (return) $$ 2 $$ @Initialized @Nullable Rectangle2D $$ @Initialized @NonNull Rectangle2D $$ ( 362, 366 ) $$ incompatible types in return.
+    	return rect;
+    	       ^
+  type of expression: @Initialized @Nullable Rectangle2D
+  method return type: @Initialized @NonNull Rectangle2D
+../dataset/url863d2ab553_themadcreator_delaunay_tgz-pJ8-org_delaunay_PoissonDiscSamplesDemoJ8/src/org/delaunay/model/Voronoi.java:49: error: (override.param) $$ 7 $$ t $$ @Initialized @NonNull Triangle $$ @Initialized @Nullable Triangle $$ @Initialized @NonNull <anonymous org.delaunay.model.Voronoi$2> $$ @Initialized @NonNull boolean apply(@Initialized @NonNull <anonymous org.delaunay.model.Voronoi$2> this, @Initialized @NonNull Triangle p0) $$ @Initialized @NonNull Predicate<@Initialized @NonNull Triangle> $$ @Initialized @NonNull boolean apply(@Initialized @NonNull Predicate<@Initialized @NonNull Triangle> this, @Initialized @Nullable Triangle p0) $$ ( 1741, 1751 ) $$ Incompatible parameter type for t.
+						public boolean apply(Triangle t) {
+						                              ^
+  found   : @Initialized @NonNull Triangle
+  required: @Initialized @Nullable Triangle
+  Consequence: method in @Initialized @NonNull <anonymous org.delaunay.model.Voronoi$2>
+    @Initialized @NonNull boolean apply(@Initialized @NonNull <anonymous org.delaunay.model.Voronoi$2> this, @Initialized @NonNull Triangle p0)
+  cannot override method in @Initialized @NonNull Predicate<@Initialized @NonNull Triangle>
+    @Initialized @NonNull boolean apply(@Initialized @NonNull Predicate<@Initialized @NonNull Triangle> this, @Initialized @Nullable Triangle p0)
+../dataset/url863d2ab553_themadcreator_delaunay_tgz-pJ8-org_delaunay_PoissonDiscSamplesDemoJ8/src/org/delaunay/model/TriangulationMultimap.java:51: error: (return) $$ 2 $$ @Initialized @Nullable Vertex $$ @Initialized @NonNull Vertex $$ ( 1285, 1320 ) $$ incompatible types in return.
+		return canonicalKeys.get(new Vertex(x, y));
+		                        ^
+  type of expression: @Initialized @Nullable Vertex
+  method return type: @Initialized @NonNull Vertex
+../dataset/url863d2ab553_themadcreator_delaunay_tgz-pJ8-org_delaunay_PoissonDiscSamplesDemoJ8/src/org/delaunay/dtfe/painters/DtfePainter.java:32: error: (override.param) $$ 7 $$ pattern $$ @Initialized @NonNull PaintTransform $$ @Initialized @Nullable PaintTransform $$ @Initialized @NonNull DtfePainter.@Initialized @NonNull <anonymous org.delaunay.dtfe.painters.DtfePainter$1> $$ @Initialized @NonNull BufferedImage apply(@Initialized @NonNull DtfePainter.@Initialized @NonNull <anonymous org.delaunay.dtfe.painters.DtfePainter$1> this, @Initialized @NonNull PaintTransform p0) $$ @Initialized @NonNull Function<@Initialized @NonNull PaintTransform, @Initialized @NonNull BufferedImage> $$ @Initialized @Nullable BufferedImage apply(@Initialized @NonNull Function<@Initialized @NonNull PaintTransform, @Initialized @NonNull BufferedImage> this, @Initialized @Nullable PaintTransform p0) $$ ( 862, 884 ) $$ Incompatible parameter type for pattern.
+					public BufferedImage apply(PaintTransform pattern) {
+					                                          ^
+  found   : @Initialized @NonNull PaintTransform
+  required: @Initialized @Nullable PaintTransform
+  Consequence: method in @Initialized @NonNull DtfePainter.@Initialized @NonNull <anonymous org.delaunay.dtfe.painters.DtfePainter$1>
+    @Initialized @NonNull BufferedImage apply(@Initialized @NonNull DtfePainter.@Initialized @NonNull <anonymous org.delaunay.dtfe.painters.DtfePainter$1> this, @Initialized @NonNull PaintTransform p0)
+  cannot override method in @Initialized @NonNull Function<@Initialized @NonNull PaintTransform, @Initialized @NonNull BufferedImage>
+    @Initialized @Nullable BufferedImage apply(@Initialized @NonNull Function<@Initialized @NonNull PaintTransform, @Initialized @NonNull BufferedImage> this, @Initialized @Nullable PaintTransform p0)
+../dataset/url863d2ab553_themadcreator_delaunay_tgz-pJ8-org_delaunay_PoissonDiscSamplesDemoJ8/src/org/delaunay/dtfe/painters/PaintTransform.java:71: error: (type.argument) $$ 4 $$ F extends Object $$ Iterables.transform $$ capture#03[ extends @UnknownKeyFor Vector super @KeyForBottom Void] $$ [extends @UnknownKeyFor Object super @UnknownKeyFor NullType] $$ ( 1879, 2025 ) $$ incompatible type argument for type parameter F extends Object of Iterables.transform.
+		return Iterables.transform(vectors, new Function<Vector, Point2D>() {
+		                          ^
+  found   : capture#03[ extends @UnknownKeyFor Vector super @KeyForBottom Void]
+  required: [extends @UnknownKeyFor Object super @UnknownKeyFor NullType]
+../dataset/url863d2ab553_themadcreator_delaunay_tgz-pJ8-org_delaunay_PoissonDiscSamplesDemoJ8/src/org/delaunay/dtfe/painters/PaintTransform.java:72: error: (override.param) $$ 7 $$ vector $$ @Initialized @NonNull Vector $$ @Initialized @Nullable Vector $$ @Initialized @NonNull PaintTransform.@Initialized @NonNull <anonymous org.delaunay.dtfe.painters.PaintTransform$1> $$ @Initialized @NonNull Point2D apply(@Initialized @NonNull PaintTransform.@Initialized @NonNull <anonymous org.delaunay.dtfe.painters.PaintTransform$1> this, @Initialized @NonNull Vector p0) $$ @Initialized @NonNull Function<@Initialized @NonNull Vector, @Initialized @NonNull Point2D> $$ @Initialized @Nullable Point2D apply(@Initialized @NonNull Function<@Initialized @NonNull Vector, @Initialized @NonNull Point2D> this, @Initialized @Nullable Vector p0) $$ ( 1966, 1979 ) $$ Incompatible parameter type for vector.
+			public Point2D apply(Vector vector) {
+			                            ^
+  found   : @Initialized @NonNull Vector
+  required: @Initialized @Nullable Vector
+  Consequence: method in @Initialized @NonNull PaintTransform.@Initialized @NonNull <anonymous org.delaunay.dtfe.painters.PaintTransform$1>
+    @Initialized @NonNull Point2D apply(@Initialized @NonNull PaintTransform.@Initialized @NonNull <anonymous org.delaunay.dtfe.painters.PaintTransform$1> this, @Initialized @NonNull Vector p0)
+  cannot override method in @Initialized @NonNull Function<@Initialized @NonNull Vector, @Initialized @NonNull Point2D>
+    @Initialized @Nullable Point2D apply(@Initialized @NonNull Function<@Initialized @NonNull Vector, @Initialized @NonNull Point2D> this, @Initialized @Nullable Vector p0)
+../dataset/url863d2ab553_themadcreator_delaunay_tgz-pJ8-org_delaunay_PoissonDiscSamplesDemoJ8/src/org/delaunay/dtfe/painters/TriangulationPainterModel.java:6: error: (assignment) $$ 2 $$ null (NullType) $$ @Initialized @NonNull Color $$ ( 129, 133 ) $$ incompatible types in assignment.
+	private Color edgeColor = null;
+	                          ^
+  found   : null (NullType)
+  required: @Initialized @NonNull Color
+../dataset/url863d2ab553_themadcreator_delaunay_tgz-pJ8-org_delaunay_PoissonDiscSamplesDemoJ8/src/org/delaunay/dtfe/painters/TriangulationPainterModel.java:9: error: (assignment) $$ 2 $$ null (NullType) $$ @Initialized @NonNull Color $$ ( 207, 211 ) $$ incompatible types in assignment.
+	private Color vertexDotColor = null;
+	                               ^
+  found   : null (NullType)
+  required: @Initialized @NonNull Color
+../dataset/url863d2ab553_themadcreator_delaunay_tgz-pJ8-org_delaunay_PoissonDiscSamplesDemoJ8/src/org/delaunay/algorithm/HilbertTableIndex.java:92: error: (return) $$ 2 $$ null (NullType) $$ @Initialized @NonNull Point $$ ( 2470, 2474 ) $$ incompatible types in return.
+		if (index < 0 || index > (1 << (2*order))) return null;
+		                                                  ^
+  type of expression: null (NullType)
+  method return type: @Initialized @NonNull Point
+../dataset/url863d2ab553_themadcreator_delaunay_tgz-pJ8-org_delaunay_PoissonDiscSamplesDemoJ8/src/org/delaunay/algorithm/samples/LocateStrategies.java:36: error: (override.param) $$ 7 $$ vert $$ @Initialized @NonNull Vector $$ @Initialized @Nullable Vector $$ @Initialized @NonNull NaiveLocateStrategy.@Initialized @NonNull <anonymous org.delaunay.algorithm.samples.LocateStrategies$NaiveLocateStrategy$1> $$ @Initialized @NonNull Double apply(@Initialized @NonNull NaiveLocateStrategy.@Initialized @NonNull <anonymous org.delaunay.algorithm.samples.LocateStrategies$NaiveLocateStrategy$1> this, @Initialized @NonNull Vector p0) $$ @Initialized @NonNull Function<@Initialized @NonNull Vector, @Initialized @NonNull Double> $$ @Initialized @Nullable Double apply(@Initialized @NonNull Function<@Initialized @NonNull Vector, @Initialized @NonNull Double> this, @Initialized @Nullable Vector p0) $$ ( 1098, 1109 ) $$ Incompatible parameter type for vert.
+				public Double apply(Vector vert) {
+				                           ^
+  found   : @Initialized @NonNull Vector
+  required: @Initialized @Nullable Vector
+  Consequence: method in @Initialized @NonNull NaiveLocateStrategy.@Initialized @NonNull <anonymous org.delaunay.algorithm.samples.LocateStrategies$NaiveLocateStrategy$1>
+    @Initialized @NonNull Double apply(@Initialized @NonNull NaiveLocateStrategy.@Initialized @NonNull <anonymous org.delaunay.algorithm.samples.LocateStrategies$NaiveLocateStrategy$1> this, @Initialized @NonNull Vector p0)
+  cannot override method in @Initialized @NonNull Function<@Initialized @NonNull Vector, @Initialized @NonNull Double>
+    @Initialized @Nullable Double apply(@Initialized @NonNull Function<@Initialized @NonNull Vector, @Initialized @NonNull Double> this, @Initialized @Nullable Vector p0)
+../dataset/url863d2ab553_themadcreator_delaunay_tgz-pJ8-org_delaunay_PoissonDiscSamplesDemoJ8/src/org/delaunay/algorithm/samples/SampleBuilder.java:80: error: (return) $$ 2 $$ null (NullType) $$ @Initialized @NonNull Vector $$ ( 2445, 2449 ) $$ incompatible types in return.
+		return null;
+		       ^
+  type of expression: null (NullType)
+  method return type: @Initialized @NonNull Vector
+../dataset/url863d2ab553_themadcreator_delaunay_tgz-pJ8-org_delaunay_PoissonDiscSamplesDemoJ8/src/org/delaunay/algorithm/TriangulationLocateTest.java:35: error: (override.param) $$ 7 $$ vert $$ @Initialized @NonNull Vertex $$ @Initialized @Nullable Vertex $$ @Initialized @NonNull <anonymous org.delaunay.algorithm.TriangulationLocateTest$1> $$ @Initialized @NonNull Double apply(@Initialized @NonNull <anonymous org.delaunay.algorithm.TriangulationLocateTest$1> this, @Initialized @NonNull Vertex p0) $$ @Initialized @NonNull Function<@Initialized @NonNull Vertex, @Initialized @NonNull Double> $$ @Initialized @Nullable Double apply(@Initialized @NonNull Function<@Initialized @NonNull Vertex, @Initialized @NonNull Double> this, @Initialized @Nullable Vertex p0) $$ ( 1012, 1023 ) $$ Incompatible parameter type for vert.
+						public Double apply(Vertex vert) {
+						                           ^
+  found   : @Initialized @NonNull Vertex
+  required: @Initialized @Nullable Vertex
+  Consequence: method in @Initialized @NonNull <anonymous org.delaunay.algorithm.TriangulationLocateTest$1>
+    @Initialized @NonNull Double apply(@Initialized @NonNull <anonymous org.delaunay.algorithm.TriangulationLocateTest$1> this, @Initialized @NonNull Vertex p0)
+  cannot override method in @Initialized @NonNull Function<@Initialized @NonNull Vertex, @Initialized @NonNull Double>
+    @Initialized @Nullable Double apply(@Initialized @NonNull Function<@Initialized @NonNull Vertex, @Initialized @NonNull Double> this, @Initialized @Nullable Vertex p0)
+Note: ../dataset/url863d2ab553_themadcreator_delaunay_tgz-pJ8-org_delaunay_PoissonDiscSamplesDemoJ8/src/org/delaunay/model/Vector.java uses or overrides a deprecated API.
+Note: Recompile with -Xlint:deprecation for details.
+48 errors

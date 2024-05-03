@@ -1,0 +1,13 @@
+package test.runner;
+
+@org.checkerframework.framework.qual.AnnotatedFor("org.checkerframework.checker.nullness.NullnessChecker")
+public class TestRunner {
+
+    @org.checkerframework.dataflow.qual.Impure
+    public static void main(String[] args) {
+        StrategyEvaluatorTestRunner.run();
+        AlgorithmicTradeTestRunner.run();
+        OrderbookTestRunner.run();
+        TradeSignalGeneratorTestRunner.run();
+    }
+}

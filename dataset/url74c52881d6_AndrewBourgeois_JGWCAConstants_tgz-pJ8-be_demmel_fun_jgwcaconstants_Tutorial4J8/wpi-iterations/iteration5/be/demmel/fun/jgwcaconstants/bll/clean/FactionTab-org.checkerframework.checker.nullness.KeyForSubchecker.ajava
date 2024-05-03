@@ -1,0 +1,39 @@
+package be.demmel.fun.jgwcaconstants.bll.clean;
+
+import be.demmel.fun.jgwcaconstants.bll.GWCAOperations;
+import java.io.IOException;
+
+@org.checkerframework.framework.qual.AnnotatedFor("org.checkerframework.checker.nullness.KeyForSubchecker")
+public class FactionTab {
+
+    private final  GWCAOperations gwcaOperations;
+
+    @org.checkerframework.dataflow.qual.SideEffectFree
+    public FactionTab( GWCAOperations gwcaOperations) {
+        this.gwcaOperations = gwcaOperations;
+    }
+
+    /**
+     * @return your character's Balthazar faction
+     */
+    @org.checkerframework.dataflow.qual.Impure
+    public   int getBalthazarFaction() throws IOException {
+        return this.gwcaOperations.getBalthazarFaction();
+    }
+
+    /**
+     * @return your character's Kurzick faction
+     */
+    @org.checkerframework.dataflow.qual.Impure
+    public   int getKurzickFaction() throws IOException {
+        return this.gwcaOperations.getKurzickFaction();
+    }
+
+    /**
+     * @return your character's Luxon faction
+     */
+    @org.checkerframework.dataflow.qual.Impure
+    public   int getLuxonFaction() throws IOException {
+        return this.gwcaOperations.getLuxonFaction();
+    }
+}

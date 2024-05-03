@@ -1,0 +1,14 @@
+CF_BINARY: ../scripts/tools/checker-framework-3.34.0/checker/bin/javac
+../dataset/pic/src/test/java/com/squareup/picasso3/_JavaConsumerIdeCheck.java:19: error: cannot access DefaultLifecycleObserver
+    picasso.setLoggingEnabled(true);
+           ^
+  class file for androidx.lifecycle.DefaultLifecycleObserver not found
+1 error
+entering iteration 1
+../dataset/pic/src/test/java/com/squareup/picasso3/_JavaConsumerIdeCheck.java:19: error: cannot access DefaultLifecycleObserver
+    picasso.setLoggingEnabled(true);
+           ^
+  class file for androidx.lifecycle.DefaultLifecycleObserver not found
+1 error
+realpath: iteration1.diff: No such file or directory
+putting the diff for iteration 1 into 

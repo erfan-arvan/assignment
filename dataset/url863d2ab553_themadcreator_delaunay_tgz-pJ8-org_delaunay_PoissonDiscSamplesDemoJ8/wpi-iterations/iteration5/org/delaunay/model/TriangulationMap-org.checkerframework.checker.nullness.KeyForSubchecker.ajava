@@ -1,0 +1,67 @@
+package org.delaunay.model;
+
+import org.delaunay.algorithm.Triangulation;
+import org.delaunay.algorithm.Triangulation.InvalidVertexException;
+import com.google.common.collect.BiMap;
+import com.google.common.collect.HashBiMap;
+
+/**
+ * A map that stores the models on vertices of a Delaunay Triangulation.
+ */
+@org.checkerframework.framework.qual.AnnotatedFor("org.checkerframework.checker.nullness.KeyForSubchecker")
+public class TriangulationMap<T> {
+
+    private final  BiMap<Vertex, T> map = HashBiMap.create();
+
+    private final  Triangulation triangulation = new Triangulation();
+
+    @org.checkerframework.dataflow.qual.Impure
+    public TriangulationMap() {
+        triangulation.setKeepSuperTriangle(true);
+    }
+
+    @org.checkerframework.dataflow.qual.Impure
+    public void clear() {
+        map.clear();
+        triangulation.clear();
+    }
+
+    @org.checkerframework.dataflow.qual.Pure
+    public   boolean contains(double x, double y) {
+        return map.containsKey(new Vertex(x, y));
+    }
+
+    @org.checkerframework.dataflow.qual.Impure
+    public @org.checkerframework.checker.nullness.qual.KeyFor({ "this.map" }) Vertex put( TriangulationMap<T> this,   double x,   double y, T value) {
+        Vertex vert = new Vertex(x, y);
+        triangulation.addVertex(vert);
+        map.put(vert, value);
+        return vert;
+    }
+
+    @org.checkerframework.dataflow.qual.Impure
+    public void triangulate( TriangulationMap<T> this) throws InvalidVertexException {
+        triangulation.triangulate();
+    }
+
+    @org.checkerframework.dataflow.qual.Pure
+    public  Triangulation getTriangulation( TriangulationMap<T> this) {
+        return triangulation;
+    }
+
+    @org.checkerframework.dataflow.qual.Impure
+    public  Vertex getVertex(T value) {
+        return map.inverse().get(value);
+    }
+
+    @org.checkerframework.dataflow.qual.Pure
+    public T get( TriangulationMap<T> this,  Vertex v) {
+        return map.get(v);
+    }
+
+    @org.checkerframework.dataflow.qual.Impure
+    public T locate(double x, double y) {
+        Vertex vert = triangulation.locateNearestVertex(new Vector(x, y));
+        return get(vert);
+    }
+}

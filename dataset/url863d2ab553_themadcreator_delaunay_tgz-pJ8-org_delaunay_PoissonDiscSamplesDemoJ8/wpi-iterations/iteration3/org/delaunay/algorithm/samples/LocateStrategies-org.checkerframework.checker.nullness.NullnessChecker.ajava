@@ -1,0 +1,84 @@
+package org.delaunay.algorithm.samples;
+
+import java.awt.geom.Rectangle2D;
+import java.util.List;
+import org.delaunay.Utils;
+import org.delaunay.algorithm.Triangulation;
+import org.delaunay.algorithm.Triangulation.InvalidVertexException;
+import org.delaunay.model.Vector;
+import org.delaunay.model.Vertex;
+import com.google.common.base.Function;
+import com.google.common.collect.Lists;
+
+@org.checkerframework.framework.qual.AnnotatedFor("org.checkerframework.checker.nullness.NullnessChecker")
+public class LocateStrategies {
+
+    public static interface LocateStrategy {
+
+        @org.checkerframework.dataflow.qual.Impure
+        void initialize(@org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.NonNull Iterable<Vector> samples, @org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.NonNull Rectangle2D bounds);
+
+        @org.checkerframework.dataflow.qual.Impure
+         @org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.NonNull boolean addSample(@org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.NonNull Vector v);
+
+        @org.checkerframework.dataflow.qual.Impure
+        @org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.Nullable Vector getNearest(@org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.NonNull Vector v);
+    }
+
+    public static class NaiveLocateStrategy implements LocateStrategy {
+
+        private @org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.NonNull List<Vector> locatable = Lists.newArrayList();
+
+        @org.checkerframework.dataflow.qual.Impure
+        public void initialize(@org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.NonNull NaiveLocateStrategy this, @org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.NonNull Iterable<Vector> samples, @org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.NonNull Rectangle2D bounds) {
+            locatable = Lists.newArrayList(samples);
+        }
+
+        @org.checkerframework.dataflow.qual.Impure
+        public  @org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.NonNull boolean addSample(@org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.NonNull NaiveLocateStrategy this, @org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.NonNull Vector v) {
+            locatable.add(v);
+            return true;
+        }
+
+        @org.checkerframework.dataflow.qual.Impure
+        public @org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.NonNull Vector getNearest(@org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.NonNull NaiveLocateStrategy this, final @org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.NonNull Vector v) {
+            return Utils.minObject(locatable, new Function<Vector, Double>() {
+
+                @org.checkerframework.checker.nullness.qual.EnsuresNonNull({ "#1" })
+                @org.checkerframework.dataflow.qual.Pure
+                public @org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.NonNull Double apply(@org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.Nullable Vector vert) {
+                    return vert.subtract(v).lengthSquared();
+                }
+            });
+        }
+    }
+
+    public static class TriangulationLocateStrategy implements LocateStrategy {
+
+        private @org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.NonNull Triangulation triangulation = new Triangulation();
+
+        @org.checkerframework.dataflow.qual.Impure
+        public void initialize(@org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.NonNull TriangulationLocateStrategy this, @org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.NonNull Iterable<Vector> samples, @org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.NonNull Rectangle2D bounds) {
+            triangulation = new Triangulation();
+            triangulation.createSuperTriangle(bounds);
+            for (Vector v : samples) {
+                addSample(v);
+            }
+        }
+
+        @org.checkerframework.dataflow.qual.Impure
+        public  @org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.NonNull boolean addSample(@org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.NonNull TriangulationLocateStrategy this, @org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.NonNull Vector v) {
+            try {
+                triangulation.addVertexToTriangulation(new Vertex(v.x, v.y));
+                return true;
+            } catch (InvalidVertexException e) {
+                return false;
+            }
+        }
+
+        @org.checkerframework.dataflow.qual.Impure
+        public @org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.Nullable Vector getNearest(@org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.NonNull TriangulationLocateStrategy this, final @org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.NonNull Vector v) {
+            return triangulation.locateNearestVertex(v);
+        }
+    }
+}

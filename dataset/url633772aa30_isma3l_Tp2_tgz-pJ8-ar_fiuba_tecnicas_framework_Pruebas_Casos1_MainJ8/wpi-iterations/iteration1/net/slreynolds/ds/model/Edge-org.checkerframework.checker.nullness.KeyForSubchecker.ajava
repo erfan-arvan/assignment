@@ -1,0 +1,51 @@
+package net.slreynolds.ds.model;
+
+/**
+ */
+@org.checkerframework.framework.qual.AnnotatedFor("org.checkerframework.checker.nullness.KeyForSubchecker")
+final public class Edge extends Named {
+
+    final private  GraphPoint _from;
+
+    final private  GraphPoint _to;
+
+    @org.checkerframework.dataflow.qual.SideEffectFree
+    public Edge(NamedID ID, GraphPoint from, GraphPoint to) {
+        super(ID);
+        _from = from;
+        _to = to;
+    }
+
+    @org.checkerframework.dataflow.qual.SideEffectFree
+    public Edge( NamedID ID,  String name,  GraphPoint from,  GraphPoint to) {
+        super(ID, name);
+        _from = from;
+        _to = to;
+    }
+
+    @org.checkerframework.dataflow.qual.Impure
+    public  Edge removeAttr( Edge this,  String key) {
+        return (Edge) super.removeAttr(key);
+    }
+
+    @org.checkerframework.dataflow.qual.Impure
+    public  Edge putAttr( Edge this,  String key,  Object value) {
+        return (Edge) super.putAttr(key, value);
+    }
+
+    @org.checkerframework.dataflow.qual.Pure
+    public  GraphPoint getFrom( Edge this) {
+        return _from;
+    }
+
+    @org.checkerframework.dataflow.qual.Pure
+    public  GraphPoint getTo( Edge this) {
+        return _to;
+    }
+
+    // ---------- Generated --------------------
+    @org.checkerframework.dataflow.qual.Impure
+    public  String toString( Edge this) {
+        return "Edge{name=" + getName() + ", from=" + _from + ", to=" + _to + +' ' + attrToString() + '}';
+    }
+}

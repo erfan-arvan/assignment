@@ -1,0 +1,15 @@
+package net.slreynolds.ds.export;
+
+import java.io.IOException;
+import java.util.Map;
+import net.slreynolds.ds.model.Graph;
+
+/**
+ * Export a Graph
+ */
+@org.checkerframework.framework.qual.AnnotatedFor("org.checkerframework.checker.nullness.NullnessChecker")
+public interface Exporter {
+
+    @org.checkerframework.dataflow.qual.Impure
+    public void export(@org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.NonNull Graph g, @org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.NonNull Map<String, Object> opts) throws ExportException, IOException;
+}

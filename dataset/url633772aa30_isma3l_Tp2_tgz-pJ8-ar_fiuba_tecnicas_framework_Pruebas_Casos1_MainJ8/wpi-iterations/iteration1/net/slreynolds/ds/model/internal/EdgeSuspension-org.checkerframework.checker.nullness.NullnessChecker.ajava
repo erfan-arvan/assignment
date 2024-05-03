@@ -1,0 +1,89 @@
+package net.slreynolds.ds.model.internal;
+
+@org.checkerframework.framework.qual.AnnotatedFor("org.checkerframework.checker.nullness.NullnessChecker")
+public class EdgeSuspension {
+
+    final private @org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.NonNull Object _from;
+
+    final private @org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.MonotonicNonNull Object _to;
+
+    final private @org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.NonNull String _name;
+
+    @org.checkerframework.checker.nullness.qual.EnsuresNonNull({ "#2" })
+    @org.checkerframework.checker.nullness.qual.EnsuresNonNull({ "this._to" })
+    @org.checkerframework.dataflow.qual.SideEffectFree
+    public EdgeSuspension(@org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.NonNull Object from, @org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.Nullable Object to, @org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.NonNull String name) {
+        if (from == null) {
+            throw new IllegalArgumentException("cannot suspend edge from null object");
+        }
+        if (to == null) {
+            throw new IllegalArgumentException("cannot suspend edge to null object");
+        }
+        if (name == null) {
+            throw new IllegalArgumentException("cannot suspend edge with null name");
+        }
+        this._from = from;
+        this._to = to;
+        this._name = name;
+    }
+
+    @org.checkerframework.framework.qual.EnsuresQualifier(expression = { "this._to" }, qualifier = org.checkerframework.checker.nullness.qual.Nullable.class)
+    @org.checkerframework.dataflow.qual.Pure
+    public @org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.NonNull Object getFrom() {
+        return _from;
+    }
+
+    @org.checkerframework.framework.qual.EnsuresQualifier(expression = { "this._to" }, qualifier = org.checkerframework.checker.nullness.qual.Nullable.class)
+    @org.checkerframework.dataflow.qual.Pure
+    public @org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.Nullable Object getTo() {
+        return _to;
+    }
+
+    @org.checkerframework.framework.qual.EnsuresQualifier(expression = { "this._to" }, qualifier = org.checkerframework.checker.nullness.qual.Nullable.class)
+    @org.checkerframework.dataflow.qual.Pure
+    public @org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.NonNull String getName() {
+        return _name;
+    }
+
+    @org.checkerframework.framework.qual.EnsuresQualifier(expression = { "this._to" }, qualifier = org.checkerframework.checker.nullness.qual.Nullable.class)
+    @org.checkerframework.dataflow.qual.Pure
+    public  @org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.NonNull int hashCode(@org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.NonNull EdgeSuspension this) {
+        final int prime = 31;
+        int result = 1;
+        result = prime * result + ((_from == null) ? 0 : _from.hashCode());
+        result = prime * result + ((_name == null) ? 0 : _name.hashCode());
+        result = prime * result + ((_to == null) ? 0 : _to.hashCode());
+        return result;
+    }
+
+    @org.checkerframework.framework.qual.EnsuresQualifier(expression = { "this._to" }, qualifier = org.checkerframework.checker.nullness.qual.Nullable.class)
+    @org.checkerframework.dataflow.qual.Pure
+    public  @org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.NonNull boolean equals(@org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.NonNull EdgeSuspension this, @org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.Nullable Object obj) {
+        if (this == obj) {
+            return true;
+        }
+        if (obj == null) {
+            return false;
+        }
+        if (!(obj instanceof EdgeSuspension)) {
+            return false;
+        }
+        EdgeSuspension other = (EdgeSuspension) obj;
+        /* 
+		 * To be equals two edge suspensions must satisfy the following
+		 * 1. from objects must be identical
+		 * 2. to objects must be identical
+		 * 3. names must be equals
+		 */
+        if (!(_from == other._from)) {
+            return false;
+        }
+        if (!(_to == other._to)) {
+            return false;
+        }
+        if (!_name.equals(other._name)) {
+            return false;
+        }
+        return true;
+    }
+}

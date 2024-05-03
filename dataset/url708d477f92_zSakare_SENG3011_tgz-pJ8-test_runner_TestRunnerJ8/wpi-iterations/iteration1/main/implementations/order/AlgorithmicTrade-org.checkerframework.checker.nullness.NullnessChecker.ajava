@@ -1,0 +1,62 @@
+package main.implementations.order;
+
+/**
+ * A wrapper class for two matched orders.
+ */
+@org.checkerframework.framework.qual.AnnotatedFor("org.checkerframework.checker.nullness.NullnessChecker")
+public class AlgorithmicTrade {
+
+    private @org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.NonNull Order bidOrder;
+
+    private @org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.NonNull Order askOrder;
+
+    @org.checkerframework.dataflow.qual.SideEffectFree
+    public AlgorithmicTrade(@org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.NonNull Order bidOrder, @org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.NonNull Order askOrder) {
+        this.bidOrder = bidOrder;
+        this.askOrder = askOrder;
+    }
+
+    @org.checkerframework.dataflow.qual.Pure
+    public @org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.NonNull Order getBidOrder() {
+        return bidOrder;
+    }
+
+    @org.checkerframework.dataflow.qual.Pure
+    public @org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.NonNull Order getAskOrder() {
+        return askOrder;
+    }
+
+    /**
+     * Calculate the value of the trade
+     *
+     * @return value - as dollars with type double.
+     */
+    @org.checkerframework.dataflow.qual.Impure
+    public  @org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.NonNull double evaluateTrade() {
+        // Find out which one has the lower volume.
+        int lowerVolume;
+        if (bidOrder.getVolume() < askOrder.getVolume()) {
+            lowerVolume = bidOrder.getVolume();
+        } else {
+            lowerVolume = askOrder.getVolume();
+        }
+        return bidOrder.getPrice() * lowerVolume;
+    }
+
+    @org.checkerframework.dataflow.qual.Impure
+    public  @org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.NonNull boolean equals(@org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.NonNull AlgorithmicTrade this, @org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.Nullable Object o) {
+        boolean equals = false;
+        if (o != null) {
+            AlgorithmicTrade trade = (AlgorithmicTrade) o;
+            if (this.getBidOrder().equals(trade.getBidOrder()) && this.getAskOrder().equals(trade.getAskOrder())) {
+                equals = true;
+            }
+        }
+        return equals;
+    }
+
+    @org.checkerframework.dataflow.qual.Impure
+    public  @org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.NonNull int hashCode(@org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.NonNull AlgorithmicTrade this) {
+        return (int) (this.bidOrder.getDateTime().getTime() + this.bidOrder.getPrice() + this.askOrder.getDateTime().getTime() + this.askOrder.getPrice());
+    }
+}

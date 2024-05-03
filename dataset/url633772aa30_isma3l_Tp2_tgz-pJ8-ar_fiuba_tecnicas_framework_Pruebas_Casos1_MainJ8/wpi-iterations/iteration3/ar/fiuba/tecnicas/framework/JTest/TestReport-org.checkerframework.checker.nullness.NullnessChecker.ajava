@@ -1,0 +1,260 @@
+package ar.fiuba.tecnicas.framework.JTest;
+
+import java.util.ArrayList;
+import java.util.List;
+
+@org.checkerframework.framework.qual.AnnotatedFor("org.checkerframework.checker.nullness.NullnessChecker")
+public class TestReport {
+
+    private @org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.NonNull List<TestListener> testListeners;
+
+    private  @org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.NonNull int runTests;
+
+    private  @org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.NonNull int oktest;
+
+    private  @org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.NonNull int errortest;
+
+    private  @org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.NonNull int failedtest;
+
+    private  @org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.NonNull boolean firsttimeintest;
+
+    private @org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.MonotonicNonNull PatternRecognizer recognizerExpressionsTestcase;
+
+    private @org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.MonotonicNonNull PatternRecognizer recognizerExpressionsTestsuite;
+
+    private @org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.MonotonicNonNull RecognizerTag recognizerTags;
+
+    @org.checkerframework.framework.qual.EnsuresQualifier(expression = { "this.recognizerExpressionsTestcase" }, qualifier = org.checkerframework.checker.nullness.qual.Nullable.class)
+    @org.checkerframework.framework.qual.EnsuresQualifier(expression = { "this.recognizerExpressionsTestsuite" }, qualifier = org.checkerframework.checker.nullness.qual.Nullable.class)
+    @org.checkerframework.framework.qual.EnsuresQualifier(expression = { "this.recognizerTags" }, qualifier = org.checkerframework.checker.nullness.qual.Nullable.class)
+    @org.checkerframework.dataflow.qual.Impure
+    public void setFirsttimeintest( @org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.NonNull boolean firsttimeintest) {
+        this.firsttimeintest = firsttimeintest;
+    }
+
+    @org.checkerframework.framework.qual.EnsuresQualifier(expression = { "this.recognizerExpressionsTestcase" }, qualifier = org.checkerframework.checker.initialization.qual.FBCBottom.class)
+    @org.checkerframework.framework.qual.EnsuresQualifier(expression = { "this.recognizerExpressionsTestcase" }, qualifier = org.checkerframework.checker.nullness.qual.Nullable.class)
+    @org.checkerframework.framework.qual.EnsuresQualifier(expression = { "this.recognizerExpressionsTestsuite" }, qualifier = org.checkerframework.checker.initialization.qual.FBCBottom.class)
+    @org.checkerframework.framework.qual.EnsuresQualifier(expression = { "this.recognizerExpressionsTestsuite" }, qualifier = org.checkerframework.checker.nullness.qual.Nullable.class)
+    @org.checkerframework.framework.qual.EnsuresQualifier(expression = { "this.recognizerTags" }, qualifier = org.checkerframework.checker.initialization.qual.FBCBottom.class)
+    @org.checkerframework.framework.qual.EnsuresQualifier(expression = { "this.recognizerTags" }, qualifier = org.checkerframework.checker.nullness.qual.Nullable.class)
+    @org.checkerframework.dataflow.qual.SideEffectFree
+    public TestReport() {
+        testListeners = new ArrayList<TestListener>();
+        runTests = 0;
+        oktest = 0;
+        errortest = 0;
+        failedtest = 0;
+        firsttimeintest = true;
+        recognizerExpressionsTestcase = null;
+        recognizerExpressionsTestsuite = null;
+        recognizerTags = null;
+    }
+
+    @org.checkerframework.checker.nullness.qual.EnsuresNonNull({ "this.recognizerExpressionsTestcase" })
+    @org.checkerframework.checker.nullness.qual.EnsuresNonNull({ "this.recognizerExpressionsTestsuite" })
+    @org.checkerframework.framework.qual.EnsuresQualifier(expression = { "this.recognizerTags" }, qualifier = org.checkerframework.checker.nullness.qual.Nullable.class)
+    @org.checkerframework.dataflow.qual.Impure
+    public void initializeRecognizerExpression(String testcaseregexp, String testsuiteregexp) {
+        recognizerExpressionsTestcase = new PatternRecognizer(testcaseregexp);
+        recognizerExpressionsTestsuite = new PatternRecognizer(testsuiteregexp);
+    }
+
+    @org.checkerframework.framework.qual.RequiresQualifier(expression = { "this.recognizerExpressionsTestcase" }, qualifier = org.checkerframework.checker.initialization.qual.FBCBottom.class)
+    @org.checkerframework.framework.qual.RequiresQualifier(expression = { "this.recognizerExpressionsTestcase" }, qualifier = org.checkerframework.checker.nullness.qual.Nullable.class)
+    @org.checkerframework.checker.nullness.qual.EnsuresNonNull({ "this.recognizerExpressionsTestcase" })
+    @org.checkerframework.framework.qual.EnsuresQualifier(expression = { "this.recognizerExpressionsTestsuite" }, qualifier = org.checkerframework.checker.nullness.qual.Nullable.class)
+    @org.checkerframework.framework.qual.EnsuresQualifier(expression = { "this.recognizerTags" }, qualifier = org.checkerframework.checker.nullness.qual.Nullable.class)
+    @org.checkerframework.dataflow.qual.Impure
+    public void setRecognizerExpressionsTestcase(@org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.NonNull PatternRecognizer recognizer) {
+        recognizerExpressionsTestcase = recognizer;
+    }
+
+    @org.checkerframework.framework.qual.RequiresQualifier(expression = { "this.recognizerExpressionsTestcase" }, qualifier = org.checkerframework.checker.initialization.qual.FBCBottom.class)
+    @org.checkerframework.framework.qual.RequiresQualifier(expression = { "this.recognizerExpressionsTestcase" }, qualifier = org.checkerframework.checker.nullness.qual.Nullable.class)
+    @org.checkerframework.checker.nullness.qual.EnsuresNonNull({ "this.recognizerExpressionsTestsuite" })
+    @org.checkerframework.framework.qual.EnsuresQualifier(expression = { "this.recognizerExpressionsTestcase" }, qualifier = org.checkerframework.checker.nullness.qual.Nullable.class)
+    @org.checkerframework.framework.qual.EnsuresQualifier(expression = { "this.recognizerTags" }, qualifier = org.checkerframework.checker.nullness.qual.Nullable.class)
+    @org.checkerframework.dataflow.qual.Impure
+    public void setRecognizerExpressionsTestsuite(@org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.NonNull PatternRecognizer recognizer) {
+        recognizerExpressionsTestsuite = recognizer;
+    }
+
+    @org.checkerframework.framework.qual.RequiresQualifier(expression = { "this.recognizerExpressionsTestcase" }, qualifier = org.checkerframework.checker.initialization.qual.FBCBottom.class)
+    @org.checkerframework.framework.qual.RequiresQualifier(expression = { "this.recognizerExpressionsTestcase" }, qualifier = org.checkerframework.checker.nullness.qual.Nullable.class)
+    @org.checkerframework.checker.nullness.qual.EnsuresNonNull({ "this.recognizerTags" })
+    @org.checkerframework.framework.qual.EnsuresQualifier(expression = { "this.recognizerExpressionsTestcase" }, qualifier = org.checkerframework.checker.nullness.qual.Nullable.class)
+    @org.checkerframework.framework.qual.EnsuresQualifier(expression = { "this.recognizerExpressionsTestsuite" }, qualifier = org.checkerframework.checker.nullness.qual.Nullable.class)
+    @org.checkerframework.dataflow.qual.Impure
+    public void setRecognizerTag(@org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.NonNull RecognizerTag recognizerTags) {
+        this.recognizerTags = recognizerTags;
+    }
+
+    @org.checkerframework.framework.qual.RequiresQualifier(expression = { "this.recognizerExpressionsTestcase" }, qualifier = org.checkerframework.checker.nullness.qual.Nullable.class)
+    @org.checkerframework.framework.qual.RequiresQualifier(expression = { "this.recognizerExpressionsTestsuite" }, qualifier = org.checkerframework.checker.nullness.qual.Nullable.class)
+    @org.checkerframework.framework.qual.RequiresQualifier(expression = { "this.recognizerTags" }, qualifier = org.checkerframework.checker.nullness.qual.Nullable.class)
+    @org.checkerframework.framework.qual.EnsuresQualifier(expression = { "this.recognizerExpressionsTestcase" }, qualifier = org.checkerframework.checker.nullness.qual.Nullable.class)
+    @org.checkerframework.framework.qual.EnsuresQualifier(expression = { "this.recognizerExpressionsTestsuite" }, qualifier = org.checkerframework.checker.nullness.qual.Nullable.class)
+    @org.checkerframework.framework.qual.EnsuresQualifier(expression = { "this.recognizerTags" }, qualifier = org.checkerframework.checker.nullness.qual.Nullable.class)
+    @org.checkerframework.dataflow.qual.Impure
+    public void addSuccess(@org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.NonNull TestCase test, @org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.NonNull Timer timer) {
+        runTests++;
+        for (TestListener testListener : testListeners) {
+            testListener.addSuccess(test, timer.getTime());
+        }
+    }
+
+    @org.checkerframework.framework.qual.RequiresQualifier(expression = { "this.recognizerExpressionsTestcase" }, qualifier = org.checkerframework.checker.nullness.qual.Nullable.class)
+    @org.checkerframework.framework.qual.RequiresQualifier(expression = { "this.recognizerExpressionsTestsuite" }, qualifier = org.checkerframework.checker.nullness.qual.Nullable.class)
+    @org.checkerframework.framework.qual.RequiresQualifier(expression = { "this.recognizerTags" }, qualifier = org.checkerframework.checker.nullness.qual.Nullable.class)
+    @org.checkerframework.framework.qual.EnsuresQualifier(expression = { "this.recognizerExpressionsTestcase" }, qualifier = org.checkerframework.checker.nullness.qual.Nullable.class)
+    @org.checkerframework.framework.qual.EnsuresQualifier(expression = { "this.recognizerExpressionsTestsuite" }, qualifier = org.checkerframework.checker.nullness.qual.Nullable.class)
+    @org.checkerframework.framework.qual.EnsuresQualifier(expression = { "this.recognizerTags" }, qualifier = org.checkerframework.checker.nullness.qual.Nullable.class)
+    @org.checkerframework.dataflow.qual.Impure
+    public void addFailure(@org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.NonNull Test test, @org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.NonNull Timer timer, @org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.NonNull Throwable throwable) {
+        failedtest++;
+        runTests++;
+        for (TestListener testListener : testListeners) {
+            testListener.addFailure(test, timer.getTime(), throwable);
+        }
+    }
+
+    @org.checkerframework.framework.qual.RequiresQualifier(expression = { "this.recognizerExpressionsTestcase" }, qualifier = org.checkerframework.checker.nullness.qual.Nullable.class)
+    @org.checkerframework.framework.qual.RequiresQualifier(expression = { "this.recognizerExpressionsTestsuite" }, qualifier = org.checkerframework.checker.nullness.qual.Nullable.class)
+    @org.checkerframework.framework.qual.RequiresQualifier(expression = { "this.recognizerTags" }, qualifier = org.checkerframework.checker.nullness.qual.Nullable.class)
+    @org.checkerframework.framework.qual.EnsuresQualifier(expression = { "this.recognizerExpressionsTestcase" }, qualifier = org.checkerframework.checker.nullness.qual.Nullable.class)
+    @org.checkerframework.framework.qual.EnsuresQualifier(expression = { "this.recognizerExpressionsTestsuite" }, qualifier = org.checkerframework.checker.nullness.qual.Nullable.class)
+    @org.checkerframework.framework.qual.EnsuresQualifier(expression = { "this.recognizerTags" }, qualifier = org.checkerframework.checker.nullness.qual.Nullable.class)
+    @org.checkerframework.dataflow.qual.Impure
+    public void addError(@org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.NonNull Test test, @org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.NonNull Timer timer, @org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.NonNull Throwable throwable) {
+        errortest++;
+        runTests++;
+        for (TestListener testListener : testListeners) {
+            testListener.addError(test, timer.getTime(), throwable);
+        }
+    }
+
+    @org.checkerframework.framework.qual.EnsuresQualifier(expression = { "this.recognizerExpressionsTestcase" }, qualifier = org.checkerframework.checker.nullness.qual.Nullable.class)
+    @org.checkerframework.framework.qual.EnsuresQualifier(expression = { "this.recognizerExpressionsTestsuite" }, qualifier = org.checkerframework.checker.nullness.qual.Nullable.class)
+    @org.checkerframework.framework.qual.EnsuresQualifier(expression = { "this.recognizerTags" }, qualifier = org.checkerframework.checker.nullness.qual.Nullable.class)
+    @org.checkerframework.dataflow.qual.Impure
+    public void insertHSeparator() {
+        for (TestListener testListener : testListeners) {
+            testListener.insertHSeparator();
+        }
+    }
+
+    @org.checkerframework.framework.qual.EnsuresQualifier(expression = { "this.recognizerExpressionsTestcase" }, qualifier = org.checkerframework.checker.nullness.qual.Nullable.class)
+    @org.checkerframework.framework.qual.EnsuresQualifier(expression = { "this.recognizerExpressionsTestsuite" }, qualifier = org.checkerframework.checker.nullness.qual.Nullable.class)
+    @org.checkerframework.framework.qual.EnsuresQualifier(expression = { "this.recognizerTags" }, qualifier = org.checkerframework.checker.nullness.qual.Nullable.class)
+    @org.checkerframework.dataflow.qual.Impure
+    public void print(@org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.Nullable String messsage) {
+        for (TestListener testListener : testListeners) {
+            testListener.print(messsage);
+        }
+    }
+
+    @org.checkerframework.framework.qual.RequiresQualifier(expression = { "this.recognizerExpressionsTestcase" }, qualifier = org.checkerframework.checker.initialization.qual.FBCBottom.class)
+    @org.checkerframework.framework.qual.RequiresQualifier(expression = { "this.recognizerExpressionsTestcase" }, qualifier = org.checkerframework.checker.nullness.qual.Nullable.class)
+    @org.checkerframework.framework.qual.EnsuresQualifier(expression = { "this.recognizerExpressionsTestcase" }, qualifier = org.checkerframework.checker.nullness.qual.Nullable.class)
+    @org.checkerframework.framework.qual.EnsuresQualifier(expression = { "this.recognizerExpressionsTestsuite" }, qualifier = org.checkerframework.checker.nullness.qual.Nullable.class)
+    @org.checkerframework.framework.qual.EnsuresQualifier(expression = { "this.recognizerTags" }, qualifier = org.checkerframework.checker.nullness.qual.Nullable.class)
+    @org.checkerframework.dataflow.qual.Impure
+    public void addListener(@org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.NonNull TestListener listener) {
+        testListeners.add(listener);
+    }
+
+    @org.checkerframework.framework.qual.EnsuresQualifier(expression = { "this.recognizerExpressionsTestcase" }, qualifier = org.checkerframework.checker.nullness.qual.Nullable.class)
+    @org.checkerframework.framework.qual.EnsuresQualifier(expression = { "this.recognizerExpressionsTestsuite" }, qualifier = org.checkerframework.checker.nullness.qual.Nullable.class)
+    @org.checkerframework.framework.qual.EnsuresQualifier(expression = { "this.recognizerTags" }, qualifier = org.checkerframework.checker.nullness.qual.Nullable.class)
+    @org.checkerframework.dataflow.qual.Impure
+    public void run(final @org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.NonNull TestCase test) {
+        Timer timer = new Timer(System.nanoTime());
+        if (validateTestCase(test)) {
+            try {
+                test.runTestSequence();
+                addSuccess(test, timer);
+            } catch (AssertionError assertionError) {
+                addFailure(test, timer, assertionError);
+            } catch (Throwable exception) {
+                addError(test, timer, exception);
+            }
+        }
+    }
+
+    @org.checkerframework.framework.qual.RequiresQualifier(expression = { "this.recognizerExpressionsTestcase" }, qualifier = org.checkerframework.checker.nullness.qual.Nullable.class)
+    @org.checkerframework.framework.qual.RequiresQualifier(expression = { "this.recognizerExpressionsTestsuite" }, qualifier = org.checkerframework.checker.nullness.qual.Nullable.class)
+    @org.checkerframework.framework.qual.RequiresQualifier(expression = { "this.recognizerTags" }, qualifier = org.checkerframework.checker.nullness.qual.Nullable.class)
+    @org.checkerframework.framework.qual.EnsuresQualifier(expression = { "this.recognizerExpressionsTestcase" }, qualifier = org.checkerframework.checker.nullness.qual.Nullable.class)
+    @org.checkerframework.framework.qual.EnsuresQualifier(expression = { "this.recognizerExpressionsTestsuite" }, qualifier = org.checkerframework.checker.nullness.qual.Nullable.class)
+    @org.checkerframework.framework.qual.EnsuresQualifier(expression = { "this.recognizerTags" }, qualifier = org.checkerframework.checker.nullness.qual.Nullable.class)
+    @org.checkerframework.dataflow.qual.Impure
+    private  @org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.NonNull boolean validateTestCase(@org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.NonNull TestCase test) {
+        return (testNameMatchRegularExpression(test)) && validateTagTestCase(test) && !test.getSkip();
+    }
+
+    @org.checkerframework.framework.qual.RequiresQualifier(expression = { "this.recognizerExpressionsTestcase" }, qualifier = org.checkerframework.checker.nullness.qual.Nullable.class)
+    @org.checkerframework.framework.qual.RequiresQualifier(expression = { "this.recognizerExpressionsTestsuite" }, qualifier = org.checkerframework.checker.nullness.qual.Nullable.class)
+    @org.checkerframework.framework.qual.RequiresQualifier(expression = { "this.recognizerTags" }, qualifier = org.checkerframework.checker.nullness.qual.Nullable.class)
+    @org.checkerframework.checker.nullness.qual.EnsuresNonNull({ "this.recognizerTags" })
+    @org.checkerframework.framework.qual.EnsuresQualifier(expression = { "this.recognizerExpressionsTestcase" }, qualifier = org.checkerframework.checker.nullness.qual.Nullable.class)
+    @org.checkerframework.framework.qual.EnsuresQualifier(expression = { "this.recognizerExpressionsTestsuite" }, qualifier = org.checkerframework.checker.nullness.qual.Nullable.class)
+    @org.checkerframework.dataflow.qual.Pure
+    private  @org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.NonNull boolean validateTagTestCase(@org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.NonNull TestCase test) {
+        return recognizerTags.validate(test.getTags());
+    }
+
+    @org.checkerframework.framework.qual.RequiresQualifier(expression = { "this.recognizerExpressionsTestcase" }, qualifier = org.checkerframework.checker.nullness.qual.Nullable.class)
+    @org.checkerframework.framework.qual.RequiresQualifier(expression = { "this.recognizerExpressionsTestsuite" }, qualifier = org.checkerframework.checker.nullness.qual.Nullable.class)
+    @org.checkerframework.framework.qual.RequiresQualifier(expression = { "this.recognizerTags" }, qualifier = org.checkerframework.checker.nullness.qual.Nullable.class)
+    @org.checkerframework.framework.qual.EnsuresQualifier(expression = { "this.recognizerExpressionsTestcase" }, qualifier = org.checkerframework.checker.nullness.qual.Nullable.class)
+    @org.checkerframework.framework.qual.EnsuresQualifier(expression = { "this.recognizerExpressionsTestsuite" }, qualifier = org.checkerframework.checker.nullness.qual.Nullable.class)
+    @org.checkerframework.framework.qual.EnsuresQualifier(expression = { "this.recognizerTags" }, qualifier = org.checkerframework.checker.nullness.qual.Nullable.class)
+    @org.checkerframework.dataflow.qual.Impure
+    private  @org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.NonNull boolean testNameMatchRegularExpression(@org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.NonNull Test test) {
+        return recognizerExpressionsTestcase == null || recognizerExpressionsTestcase.validate(test.toString());
+    }
+
+    @org.checkerframework.framework.qual.EnsuresQualifier(expression = { "this.recognizerExpressionsTestcase" }, qualifier = org.checkerframework.checker.nullness.qual.Nullable.class)
+    @org.checkerframework.framework.qual.EnsuresQualifier(expression = { "this.recognizerExpressionsTestsuite" }, qualifier = org.checkerframework.checker.nullness.qual.Nullable.class)
+    @org.checkerframework.framework.qual.EnsuresQualifier(expression = { "this.recognizerTags" }, qualifier = org.checkerframework.checker.nullness.qual.Nullable.class)
+    @org.checkerframework.dataflow.qual.Impure
+    public  @org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.NonNull boolean testsuiteNameMatchRegularExpression(@org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.NonNull Test test) {
+        return recognizerExpressionsTestsuite == null || recognizerExpressionsTestsuite.validate(test.toString());
+    }
+
+    @org.checkerframework.framework.qual.EnsuresQualifier(expression = { "this.recognizerExpressionsTestcase" }, qualifier = org.checkerframework.checker.nullness.qual.Nullable.class)
+    @org.checkerframework.framework.qual.EnsuresQualifier(expression = { "this.recognizerExpressionsTestsuite" }, qualifier = org.checkerframework.checker.nullness.qual.Nullable.class)
+    @org.checkerframework.framework.qual.EnsuresQualifier(expression = { "this.recognizerTags" }, qualifier = org.checkerframework.checker.nullness.qual.Nullable.class)
+    @org.checkerframework.dataflow.qual.Pure
+    public  @org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.NonNull boolean wasSuccessful() {
+        return (failureCount() == 0);
+    }
+
+    @org.checkerframework.framework.qual.RequiresQualifier(expression = { "this.recognizerExpressionsTestcase" }, qualifier = org.checkerframework.checker.nullness.qual.Nullable.class)
+    @org.checkerframework.framework.qual.RequiresQualifier(expression = { "this.recognizerExpressionsTestsuite" }, qualifier = org.checkerframework.checker.nullness.qual.Nullable.class)
+    @org.checkerframework.framework.qual.RequiresQualifier(expression = { "this.recognizerTags" }, qualifier = org.checkerframework.checker.nullness.qual.Nullable.class)
+    @org.checkerframework.framework.qual.EnsuresQualifier(expression = { "this.recognizerExpressionsTestcase" }, qualifier = org.checkerframework.checker.nullness.qual.Nullable.class)
+    @org.checkerframework.framework.qual.EnsuresQualifier(expression = { "this.recognizerExpressionsTestsuite" }, qualifier = org.checkerframework.checker.nullness.qual.Nullable.class)
+    @org.checkerframework.framework.qual.EnsuresQualifier(expression = { "this.recognizerTags" }, qualifier = org.checkerframework.checker.nullness.qual.Nullable.class)
+    @org.checkerframework.dataflow.qual.Pure
+    public  @org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.NonNull int failureCount() {
+        return failedtest;
+    }
+
+    @org.checkerframework.framework.qual.EnsuresQualifier(expression = { "this.recognizerExpressionsTestcase" }, qualifier = org.checkerframework.checker.nullness.qual.Nullable.class)
+    @org.checkerframework.framework.qual.EnsuresQualifier(expression = { "this.recognizerExpressionsTestsuite" }, qualifier = org.checkerframework.checker.nullness.qual.Nullable.class)
+    @org.checkerframework.framework.qual.EnsuresQualifier(expression = { "this.recognizerTags" }, qualifier = org.checkerframework.checker.nullness.qual.Nullable.class)
+    @org.checkerframework.dataflow.qual.Pure
+    public  @org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.NonNull int runCount() {
+        return runTests;
+    }
+
+    @org.checkerframework.framework.qual.EnsuresQualifier(expression = { "this.recognizerExpressionsTestcase" }, qualifier = org.checkerframework.checker.nullness.qual.Nullable.class)
+    @org.checkerframework.framework.qual.EnsuresQualifier(expression = { "this.recognizerExpressionsTestsuite" }, qualifier = org.checkerframework.checker.nullness.qual.Nullable.class)
+    @org.checkerframework.framework.qual.EnsuresQualifier(expression = { "this.recognizerTags" }, qualifier = org.checkerframework.checker.nullness.qual.Nullable.class)
+    @org.checkerframework.dataflow.qual.Pure
+    public  @org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.NonNull int errorCount() {
+        return errortest;
+    }
+}

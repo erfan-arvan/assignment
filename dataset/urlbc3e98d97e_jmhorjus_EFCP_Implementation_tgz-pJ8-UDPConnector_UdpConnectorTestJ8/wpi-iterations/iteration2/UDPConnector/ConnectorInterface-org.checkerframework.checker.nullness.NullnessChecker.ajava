@@ -1,0 +1,45 @@
+/* @copyright 2013 Computer Science Department, Recursive InterNetworking Architecture (RINA) laboratory, Boston University. 
+ * All rights reserved. Permission to use, copy, modify, and distribute this software and its documentation
+ * for any purpose and without fee is hereby granted, provided that the above copyright notice appear in all 
+ * copies and that both the copyright notice and this permission notice appear in supporting documentation. 
+ * The RINA laboratory of the Computer Science Department at Boston University makes no 
+ * representations about the suitability of this software for any purpose.
+ */
+package UDPConnector;
+
+import java.net.InetAddress;
+import java.util.List;
+
+/**
+ * @author Jan Horjus
+ */
+@org.checkerframework.framework.qual.AnnotatedFor("org.checkerframework.checker.nullness.NullnessChecker")
+public interface ConnectorInterface {
+
+    @org.checkerframework.dataflow.qual.Impure
+    public void SetPeerAddress(@org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.NonNull InetAddress peerAddress,  @org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.NonNull int port);
+
+    @org.checkerframework.dataflow.qual.Impure
+    public @org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.NonNull List<byte[]> Receive( @org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.NonNull int maxBlockingTimeInMs);
+
+    @org.checkerframework.dataflow.qual.Impure
+    public  @org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.NonNull boolean Send(@org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.Nullable String sendString) throws Exception;
+
+    @org.checkerframework.dataflow.qual.Impure
+    public  @org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.NonNull boolean Send( @org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.NonNull byte @org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.Nullable [] sendBuffer) throws Exception;
+
+    public interface ReceiveNotifyInterface {
+
+        @org.checkerframework.dataflow.qual.Impure
+        public void Notify(@org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.NonNull ConnectorInterface connection);
+    }
+
+    @org.checkerframework.dataflow.qual.Impure
+    public  @org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.NonNull boolean AddReceiveNotify(@org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.NonNull ReceiveNotifyInterface notifyMe);
+
+    @org.checkerframework.dataflow.qual.Impure
+    public void StartReceiveThread();
+
+    @org.checkerframework.dataflow.qual.Impure
+    public void StopReceiveThread();
+}

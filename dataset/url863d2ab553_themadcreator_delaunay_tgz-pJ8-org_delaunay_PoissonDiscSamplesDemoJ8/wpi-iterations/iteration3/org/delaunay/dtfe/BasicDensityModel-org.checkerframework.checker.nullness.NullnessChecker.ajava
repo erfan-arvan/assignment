@@ -1,0 +1,39 @@
+package org.delaunay.dtfe;
+
+@org.checkerframework.framework.qual.AnnotatedFor("org.checkerframework.checker.nullness.NullnessChecker")
+public class BasicDensityModel implements DensityModel {
+
+    protected  @org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.NonNull double density = 0.0;
+
+    protected  @org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.NonNull double weight = 1.0;
+
+    @org.checkerframework.dataflow.qual.SideEffectFree
+    public BasicDensityModel() {
+        this(1.0);
+    }
+
+    @org.checkerframework.dataflow.qual.SideEffectFree
+    public BasicDensityModel( @org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.NonNull double weight) {
+        this.weight = weight;
+    }
+
+    @org.checkerframework.dataflow.qual.Pure
+    public  @org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.NonNull double getDensity(@org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.NonNull BasicDensityModel this) {
+        return density;
+    }
+
+    @org.checkerframework.dataflow.qual.Impure
+    public void setDensity(@org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.NonNull BasicDensityModel this,  @org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.NonNull double d) {
+        this.density = d;
+    }
+
+    @org.checkerframework.dataflow.qual.Impure
+    public void setWeight(double weight) {
+        this.weight = weight;
+    }
+
+    @org.checkerframework.dataflow.qual.Pure
+    public  @org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.NonNull double getWeight(@org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.NonNull BasicDensityModel this) {
+        return weight;
+    }
+}

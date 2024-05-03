@@ -1,0 +1,322 @@
+error: SourceChecker.typeProcess: unexpected Throwable (NoSuchMethodError) while processing ../dataset/fl/src/main/java/com/leinardi/android/speeddial/SpeedDialActionItem.java; message: 'com.sun.tools.javac.tree.JCTree$JCFieldAccess com.sun.tools.javac.tree.TreeMaker.Select(com.sun.tools.javac.tree.JCTree$JCExpression, com.sun.tools.javac.code.Symbol)'
+  ; The Checker Framework crashed.  Please report the crash.  
+  Compilation unit: ../dataset/fl/src/main/java/com/leinardi/android/speeddial/SpeedDialActionItem.java
+  Last visited tree at line 40 column 1:
+  public class SpeedDialActionItem implements Parcelable {
+  Exception: java.lang.NoSuchMethodError: 'com.sun.tools.javac.tree.JCTree$JCFieldAccess com.sun.tools.javac.tree.TreeMaker.Select(com.sun.tools.javac.tree.JCTree$JCExpression, com.sun.tools.javac.code.Symbol)'; java.lang.NoSuchMethodError: 'com.sun.tools.javac.tree.JCTree$JCFieldAccess com.sun.tools.javac.tree.TreeMaker.Select(com.sun.tools.javac.tree.JCTree$JCExpression, com.sun.tools.javac.code.Symbol)'
+  	at org.checkerframework.javacutil.TreeUtils.Select(TreeUtils.java:2597)
+  	at org.checkerframework.javacutil.trees.TreeBuilder.buildPrimValueMethodAccess(TreeBuilder.java:484)
+  	at org.checkerframework.dataflow.cfg.builder.CFGTranslationPhaseOne.unbox(CFGTranslationPhaseOne.java:952)
+  	at org.checkerframework.dataflow.cfg.builder.CFGTranslationPhaseOne.commonConvert(CFGTranslationPhaseOne.java:1238)
+  	at org.checkerframework.dataflow.cfg.builder.CFGTranslationPhaseOne.assignConvert(CFGTranslationPhaseOne.java:1267)
+  	at org.checkerframework.dataflow.cfg.builder.CFGTranslationPhaseOne.visitAssignment(CFGTranslationPhaseOne.java:1776)
+  	at org.checkerframework.dataflow.cfg.builder.CFGTranslationPhaseOne.visitAssignment(CFGTranslationPhaseOne.java:213)
+  	at jdk.compiler/com.sun.tools.javac.tree.JCTree$JCAssign.accept(JCTree.java:2051)
+  	at org.checkerframework.dataflow.cfg.builder.CFGTranslationPhaseOne.scan(CFGTranslationPhaseOne.java:572)
+  	at org.checkerframework.dataflow.cfg.builder.CFGTranslationPhaseOne.visitExpressionStatement(CFGTranslationPhaseOne.java:2915)
+  	at org.checkerframework.dataflow.cfg.builder.CFGTranslationPhaseOne.visitExpressionStatement(CFGTranslationPhaseOne.java:213)
+  	at jdk.compiler/com.sun.tools.javac.tree.JCTree$JCExpressionStatement.accept(JCTree.java:1592)
+  	at org.checkerframework.dataflow.cfg.builder.CFGTranslationPhaseOne.scan(CFGTranslationPhaseOne.java:572)
+  	at org.checkerframework.dataflow.cfg.builder.CFGTranslationPhaseOne.visitBlock(CFGTranslationPhaseOne.java:2365)
+  	at org.checkerframework.dataflow.cfg.builder.CFGTranslationPhaseOne.visitBlock(CFGTranslationPhaseOne.java:213)
+  	at jdk.compiler/com.sun.tools.javac.tree.JCTree$JCBlock.accept(JCTree.java:1103)
+  	at org.checkerframework.dataflow.cfg.builder.CFGTranslationPhaseOne.scan(CFGTranslationPhaseOne.java:572)
+  	at org.checkerframework.dataflow.cfg.builder.CFGTranslationPhaseOne.visitIf(CFGTranslationPhaseOne.java:3352)
+  	at org.checkerframework.dataflow.cfg.builder.CFGTranslationPhaseOne.visitIf(CFGTranslationPhaseOne.java:213)
+  	at jdk.compiler/com.sun.tools.javac.tree.JCTree$JCIf.accept(JCTree.java:1565)
+  	at org.checkerframework.dataflow.cfg.builder.CFGTranslationPhaseOne.scan(CFGTranslationPhaseOne.java:572)
+  	at org.checkerframework.dataflow.cfg.builder.CFGTranslationPhaseOne.visitBlock(CFGTranslationPhaseOne.java:2365)
+  	at org.checkerframework.dataflow.cfg.builder.CFGTranslationPhaseOne.visitBlock(CFGTranslationPhaseOne.java:213)
+  	at jdk.compiler/com.sun.tools.javac.tree.JCTree$JCBlock.accept(JCTree.java:1103)
+  	at org.checkerframework.dataflow.cfg.builder.CFGTranslationPhaseOne.scan(CFGTranslationPhaseOne.java:572)
+  	at org.checkerframework.dataflow.cfg.builder.CFGTranslationPhaseOne.process(CFGTranslationPhaseOne.java:469)
+  	at org.checkerframework.dataflow.cfg.builder.CFGTranslationPhaseOne.process(CFGTranslationPhaseOne.java:521)
+  	at org.checkerframework.framework.flow.CFCFGBuilder.build(CFCFGBuilder.java:73)
+  	at org.checkerframework.framework.type.GenericAnnotatedTypeFactory.analyze(GenericAnnotatedTypeFactory.java:1571)
+  	at org.checkerframework.framework.type.GenericAnnotatedTypeFactory.performFlowAnalysis(GenericAnnotatedTypeFactory.java:1486)
+  	at org.checkerframework.framework.type.GenericAnnotatedTypeFactory.checkAndPerformFlowAnalysis(GenericAnnotatedTypeFactory.java:1991)
+  	at org.checkerframework.framework.type.GenericAnnotatedTypeFactory.preProcessClassTree(GenericAnnotatedTypeFactory.java:426)
+  	at org.checkerframework.common.basetype.BaseTypeVisitor.visitClass(BaseTypeVisitor.java:553)
+  	at org.checkerframework.common.basetype.BaseTypeVisitor.visitClass(BaseTypeVisitor.java:187)
+  	at jdk.compiler/com.sun.tools.javac.tree.JCTree$JCClassDecl.accept(JCTree.java:860)
+  	at jdk.compiler/com.sun.source.util.TreePathScanner.scan(TreePathScanner.java:60)
+  	at org.checkerframework.framework.source.SourceVisitor.visit(SourceVisitor.java:86)
+  	at org.checkerframework.framework.source.SourceChecker.typeProcess(SourceChecker.java:1050)
+  	at org.checkerframework.common.basetype.BaseTypeChecker.typeProcess(BaseTypeChecker.java:558)
+  	at org.checkerframework.common.basetype.BaseTypeChecker.typeProcess(BaseTypeChecker.java:551)
+  	at org.checkerframework.javacutil.AbstractTypeProcessor$AttributionTaskListener.finished(AbstractTypeProcessor.java:188)
+  	at jdk.compiler/com.sun.tools.javac.api.ClientCodeWrapper$WrappedTaskListener.finished(ClientCodeWrapper.java:854)
+  	at jdk.compiler/com.sun.tools.javac.api.MultiTaskListener.finished(MultiTaskListener.java:132)
+  	at jdk.compiler/com.sun.tools.javac.main.JavaCompiler.flow(JavaCompiler.java:1394)
+  	at jdk.compiler/com.sun.tools.javac.main.JavaCompiler.flow(JavaCompiler.java:1351)
+  	at jdk.compiler/com.sun.tools.javac.main.JavaCompiler.compile(JavaCompiler.java:946)
+  	at jdk.compiler/com.sun.tools.javac.main.Main.compile(Main.java:317)
+  	at jdk.compiler/com.sun.tools.javac.main.Main.compile(Main.java:176)
+  	at jdk.compiler/com.sun.tools.javac.Main.compile(Main.java:64)
+  	at jdk.compiler/com.sun.tools.javac.Main.main(Main.java:50)
+error: SourceChecker.typeProcess: unexpected Throwable (NoSuchMethodError) while processing ../dataset/fl/src/main/java/com/leinardi/android/speeddial/SpeedDialActionItem.java; message: 'com.sun.tools.javac.tree.JCTree$JCFieldAccess com.sun.tools.javac.tree.TreeMaker.Select(com.sun.tools.javac.tree.JCTree$JCExpression, com.sun.tools.javac.code.Symbol)'
+  ; The Checker Framework crashed.  Please report the crash.  
+  Compilation unit: ../dataset/fl/src/main/java/com/leinardi/android/speeddial/SpeedDialActionItem.java
+  Last visited tree at line 40 column 1:
+  public class SpeedDialActionItem implements Parcelable {
+  Exception: java.lang.NoSuchMethodError: 'com.sun.tools.javac.tree.JCTree$JCFieldAccess com.sun.tools.javac.tree.TreeMaker.Select(com.sun.tools.javac.tree.JCTree$JCExpression, com.sun.tools.javac.code.Symbol)'; java.lang.NoSuchMethodError: 'com.sun.tools.javac.tree.JCTree$JCFieldAccess com.sun.tools.javac.tree.TreeMaker.Select(com.sun.tools.javac.tree.JCTree$JCExpression, com.sun.tools.javac.code.Symbol)'
+  	at org.checkerframework.javacutil.TreeUtils.Select(TreeUtils.java:2597)
+  	at org.checkerframework.javacutil.trees.TreeBuilder.buildPrimValueMethodAccess(TreeBuilder.java:484)
+  	at org.checkerframework.dataflow.cfg.builder.CFGTranslationPhaseOne.unbox(CFGTranslationPhaseOne.java:952)
+  	at org.checkerframework.dataflow.cfg.builder.CFGTranslationPhaseOne.commonConvert(CFGTranslationPhaseOne.java:1238)
+  	at org.checkerframework.dataflow.cfg.builder.CFGTranslationPhaseOne.assignConvert(CFGTranslationPhaseOne.java:1267)
+  	at org.checkerframework.dataflow.cfg.builder.CFGTranslationPhaseOne.visitAssignment(CFGTranslationPhaseOne.java:1776)
+  	at org.checkerframework.dataflow.cfg.builder.CFGTranslationPhaseOne.visitAssignment(CFGTranslationPhaseOne.java:213)
+  	at jdk.compiler/com.sun.tools.javac.tree.JCTree$JCAssign.accept(JCTree.java:2051)
+  	at org.checkerframework.dataflow.cfg.builder.CFGTranslationPhaseOne.scan(CFGTranslationPhaseOne.java:572)
+  	at org.checkerframework.dataflow.cfg.builder.CFGTranslationPhaseOne.visitExpressionStatement(CFGTranslationPhaseOne.java:2915)
+  	at org.checkerframework.dataflow.cfg.builder.CFGTranslationPhaseOne.visitExpressionStatement(CFGTranslationPhaseOne.java:213)
+  	at jdk.compiler/com.sun.tools.javac.tree.JCTree$JCExpressionStatement.accept(JCTree.java:1592)
+  	at org.checkerframework.dataflow.cfg.builder.CFGTranslationPhaseOne.scan(CFGTranslationPhaseOne.java:572)
+  	at org.checkerframework.dataflow.cfg.builder.CFGTranslationPhaseOne.visitBlock(CFGTranslationPhaseOne.java:2365)
+  	at org.checkerframework.dataflow.cfg.builder.CFGTranslationPhaseOne.visitBlock(CFGTranslationPhaseOne.java:213)
+  	at jdk.compiler/com.sun.tools.javac.tree.JCTree$JCBlock.accept(JCTree.java:1103)
+  	at org.checkerframework.dataflow.cfg.builder.CFGTranslationPhaseOne.scan(CFGTranslationPhaseOne.java:572)
+  	at org.checkerframework.dataflow.cfg.builder.CFGTranslationPhaseOne.visitIf(CFGTranslationPhaseOne.java:3352)
+  	at org.checkerframework.dataflow.cfg.builder.CFGTranslationPhaseOne.visitIf(CFGTranslationPhaseOne.java:213)
+  	at jdk.compiler/com.sun.tools.javac.tree.JCTree$JCIf.accept(JCTree.java:1565)
+  	at org.checkerframework.dataflow.cfg.builder.CFGTranslationPhaseOne.scan(CFGTranslationPhaseOne.java:572)
+  	at org.checkerframework.dataflow.cfg.builder.CFGTranslationPhaseOne.visitBlock(CFGTranslationPhaseOne.java:2365)
+  	at org.checkerframework.dataflow.cfg.builder.CFGTranslationPhaseOne.visitBlock(CFGTranslationPhaseOne.java:213)
+  	at jdk.compiler/com.sun.tools.javac.tree.JCTree$JCBlock.accept(JCTree.java:1103)
+  	at org.checkerframework.dataflow.cfg.builder.CFGTranslationPhaseOne.scan(CFGTranslationPhaseOne.java:572)
+  	at org.checkerframework.dataflow.cfg.builder.CFGTranslationPhaseOne.process(CFGTranslationPhaseOne.java:469)
+  	at org.checkerframework.dataflow.cfg.builder.CFGTranslationPhaseOne.process(CFGTranslationPhaseOne.java:521)
+  	at org.checkerframework.framework.flow.CFCFGBuilder.build(CFCFGBuilder.java:73)
+  	at org.checkerframework.framework.type.GenericAnnotatedTypeFactory.analyze(GenericAnnotatedTypeFactory.java:1571)
+  	at org.checkerframework.framework.type.GenericAnnotatedTypeFactory.performFlowAnalysis(GenericAnnotatedTypeFactory.java:1486)
+  	at org.checkerframework.framework.type.GenericAnnotatedTypeFactory.checkAndPerformFlowAnalysis(GenericAnnotatedTypeFactory.java:1991)
+  	at org.checkerframework.framework.type.GenericAnnotatedTypeFactory.preProcessClassTree(GenericAnnotatedTypeFactory.java:426)
+  	at org.checkerframework.common.basetype.BaseTypeVisitor.visitClass(BaseTypeVisitor.java:553)
+  	at org.checkerframework.common.basetype.BaseTypeVisitor.visitClass(BaseTypeVisitor.java:187)
+  	at jdk.compiler/com.sun.tools.javac.tree.JCTree$JCClassDecl.accept(JCTree.java:860)
+  	at jdk.compiler/com.sun.source.util.TreePathScanner.scan(TreePathScanner.java:60)
+  	at org.checkerframework.framework.source.SourceVisitor.visit(SourceVisitor.java:86)
+  	at org.checkerframework.framework.source.SourceChecker.typeProcess(SourceChecker.java:1050)
+  	at org.checkerframework.common.basetype.BaseTypeChecker.typeProcess(BaseTypeChecker.java:558)
+  	at org.checkerframework.javacutil.AbstractTypeProcessor$AttributionTaskListener.finished(AbstractTypeProcessor.java:188)
+  	at jdk.compiler/com.sun.tools.javac.api.ClientCodeWrapper$WrappedTaskListener.finished(ClientCodeWrapper.java:854)
+  	at jdk.compiler/com.sun.tools.javac.api.MultiTaskListener.finished(MultiTaskListener.java:132)
+  	at jdk.compiler/com.sun.tools.javac.main.JavaCompiler.flow(JavaCompiler.java:1394)
+  	at jdk.compiler/com.sun.tools.javac.main.JavaCompiler.flow(JavaCompiler.java:1351)
+  	at jdk.compiler/com.sun.tools.javac.main.JavaCompiler.compile(JavaCompiler.java:946)
+  	at jdk.compiler/com.sun.tools.javac.main.Main.compile(Main.java:317)
+  	at jdk.compiler/com.sun.tools.javac.main.Main.compile(Main.java:176)
+  	at jdk.compiler/com.sun.tools.javac.Main.compile(Main.java:64)
+  	at jdk.compiler/com.sun.tools.javac.Main.main(Main.java:50)
+error: SourceChecker.typeProcess: unexpected Throwable (NoSuchMethodError) while processing ../dataset/fl/src/main/java/com/leinardi/android/speeddial/SpeedDialView.java; message: 'com.sun.tools.javac.tree.JCTree$JCFieldAccess com.sun.tools.javac.tree.TreeMaker.Select(com.sun.tools.javac.tree.JCTree$JCExpression, com.sun.tools.javac.code.Symbol)'
+  ; The Checker Framework crashed.  Please report the crash.  
+  Compilation unit: ../dataset/fl/src/main/java/com/leinardi/android/speeddial/SpeedDialView.java
+  Last visited tree at line 80 column 1:
+  public class SpeedDialView extends LinearLayout implements CoordinatorLayout.AttachedBehavior {
+  Exception: java.lang.NoSuchMethodError: 'com.sun.tools.javac.tree.JCTree$JCFieldAccess com.sun.tools.javac.tree.TreeMaker.Select(com.sun.tools.javac.tree.JCTree$JCExpression, com.sun.tools.javac.code.Symbol)'; java.lang.NoSuchMethodError: 'com.sun.tools.javac.tree.JCTree$JCFieldAccess com.sun.tools.javac.tree.TreeMaker.Select(com.sun.tools.javac.tree.JCTree$JCExpression, com.sun.tools.javac.code.Symbol)'
+  	at org.checkerframework.javacutil.TreeUtils.Select(TreeUtils.java:2597)
+  	at org.checkerframework.javacutil.trees.TreeBuilder.buildIteratorMethodAccess(TreeBuilder.java:123)
+  	at org.checkerframework.dataflow.cfg.builder.CFGTranslationPhaseOne.visitEnhancedForLoop(CFGTranslationPhaseOne.java:2961)
+  	at org.checkerframework.dataflow.cfg.builder.CFGTranslationPhaseOne.visitEnhancedForLoop(CFGTranslationPhaseOne.java:213)
+  	at jdk.compiler/com.sun.tools.javac.tree.JCTree$JCEnhancedForLoop.accept(JCTree.java:1243)
+  	at org.checkerframework.dataflow.cfg.builder.CFGTranslationPhaseOne.scan(CFGTranslationPhaseOne.java:572)
+  	at org.checkerframework.dataflow.cfg.builder.CFGTranslationPhaseOne$SwitchBuilder.buildCase(CFGTranslationPhaseOne.java:2634)
+  	at org.checkerframework.dataflow.cfg.builder.CFGTranslationPhaseOne$SwitchBuilder.build(CFGTranslationPhaseOne.java:2495)
+  	at org.checkerframework.dataflow.cfg.builder.CFGTranslationPhaseOne.visitSwitch(CFGTranslationPhaseOne.java:2391)
+  	at org.checkerframework.dataflow.cfg.builder.CFGTranslationPhaseOne.visitSwitch(CFGTranslationPhaseOne.java:213)
+  	at jdk.compiler/com.sun.tools.javac.tree.JCTree$JCSwitch.accept(JCTree.java:1304)
+  	at org.checkerframework.dataflow.cfg.builder.CFGTranslationPhaseOne.scan(CFGTranslationPhaseOne.java:572)
+  	at org.checkerframework.dataflow.cfg.builder.CFGTranslationPhaseOne.visitBlock(CFGTranslationPhaseOne.java:2365)
+  	at org.checkerframework.dataflow.cfg.builder.CFGTranslationPhaseOne.visitBlock(CFGTranslationPhaseOne.java:213)
+  	at jdk.compiler/com.sun.tools.javac.tree.JCTree$JCBlock.accept(JCTree.java:1103)
+  	at org.checkerframework.dataflow.cfg.builder.CFGTranslationPhaseOne.scan(CFGTranslationPhaseOne.java:572)
+  	at org.checkerframework.dataflow.cfg.builder.CFGTranslationPhaseOne.visitIf(CFGTranslationPhaseOne.java:3345)
+  	at org.checkerframework.dataflow.cfg.builder.CFGTranslationPhaseOne.visitIf(CFGTranslationPhaseOne.java:213)
+  	at jdk.compiler/com.sun.tools.javac.tree.JCTree$JCIf.accept(JCTree.java:1565)
+  	at org.checkerframework.dataflow.cfg.builder.CFGTranslationPhaseOne.scan(CFGTranslationPhaseOne.java:572)
+  	at org.checkerframework.dataflow.cfg.builder.CFGTranslationPhaseOne.visitBlock(CFGTranslationPhaseOne.java:2365)
+  	at org.checkerframework.dataflow.cfg.builder.CFGTranslationPhaseOne.visitBlock(CFGTranslationPhaseOne.java:213)
+  	at jdk.compiler/com.sun.tools.javac.tree.JCTree$JCBlock.accept(JCTree.java:1103)
+  	at org.checkerframework.dataflow.cfg.builder.CFGTranslationPhaseOne.scan(CFGTranslationPhaseOne.java:572)
+  	at org.checkerframework.dataflow.cfg.builder.CFGTranslationPhaseOne.process(CFGTranslationPhaseOne.java:469)
+  	at org.checkerframework.dataflow.cfg.builder.CFGTranslationPhaseOne.process(CFGTranslationPhaseOne.java:521)
+  	at org.checkerframework.framework.flow.CFCFGBuilder.build(CFCFGBuilder.java:73)
+  	at org.checkerframework.framework.type.GenericAnnotatedTypeFactory.analyze(GenericAnnotatedTypeFactory.java:1571)
+  	at org.checkerframework.framework.type.GenericAnnotatedTypeFactory.performFlowAnalysis(GenericAnnotatedTypeFactory.java:1486)
+  	at org.checkerframework.framework.type.GenericAnnotatedTypeFactory.checkAndPerformFlowAnalysis(GenericAnnotatedTypeFactory.java:1991)
+  	at org.checkerframework.framework.type.GenericAnnotatedTypeFactory.preProcessClassTree(GenericAnnotatedTypeFactory.java:426)
+  	at org.checkerframework.common.basetype.BaseTypeVisitor.visitClass(BaseTypeVisitor.java:553)
+  	at org.checkerframework.common.basetype.BaseTypeVisitor.visitClass(BaseTypeVisitor.java:187)
+  	at jdk.compiler/com.sun.tools.javac.tree.JCTree$JCClassDecl.accept(JCTree.java:860)
+  	at jdk.compiler/com.sun.source.util.TreePathScanner.scan(TreePathScanner.java:60)
+  	at org.checkerframework.framework.source.SourceVisitor.visit(SourceVisitor.java:86)
+  	at org.checkerframework.framework.source.SourceChecker.typeProcess(SourceChecker.java:1050)
+  	at org.checkerframework.common.basetype.BaseTypeChecker.typeProcess(BaseTypeChecker.java:558)
+  	at org.checkerframework.common.basetype.BaseTypeChecker.typeProcess(BaseTypeChecker.java:551)
+  	at org.checkerframework.javacutil.AbstractTypeProcessor$AttributionTaskListener.finished(AbstractTypeProcessor.java:188)
+  	at jdk.compiler/com.sun.tools.javac.api.ClientCodeWrapper$WrappedTaskListener.finished(ClientCodeWrapper.java:854)
+  	at jdk.compiler/com.sun.tools.javac.api.MultiTaskListener.finished(MultiTaskListener.java:132)
+  	at jdk.compiler/com.sun.tools.javac.main.JavaCompiler.flow(JavaCompiler.java:1394)
+  	at jdk.compiler/com.sun.tools.javac.main.JavaCompiler.flow(JavaCompiler.java:1351)
+  	at jdk.compiler/com.sun.tools.javac.main.JavaCompiler.compile(JavaCompiler.java:946)
+  	at jdk.compiler/com.sun.tools.javac.main.Main.compile(Main.java:317)
+  	at jdk.compiler/com.sun.tools.javac.main.Main.compile(Main.java:176)
+  	at jdk.compiler/com.sun.tools.javac.Main.compile(Main.java:64)
+  	at jdk.compiler/com.sun.tools.javac.Main.main(Main.java:50)
+error: SourceChecker.typeProcess: unexpected Throwable (NoSuchMethodError) while processing ../dataset/fl/src/main/java/com/leinardi/android/speeddial/SpeedDialView.java; message: 'com.sun.tools.javac.tree.JCTree$JCFieldAccess com.sun.tools.javac.tree.TreeMaker.Select(com.sun.tools.javac.tree.JCTree$JCExpression, com.sun.tools.javac.code.Symbol)'
+  ; The Checker Framework crashed.  Please report the crash.  
+  Compilation unit: ../dataset/fl/src/main/java/com/leinardi/android/speeddial/SpeedDialView.java
+  Last visited tree at line 80 column 1:
+  public class SpeedDialView extends LinearLayout implements CoordinatorLayout.AttachedBehavior {
+  Exception: java.lang.NoSuchMethodError: 'com.sun.tools.javac.tree.JCTree$JCFieldAccess com.sun.tools.javac.tree.TreeMaker.Select(com.sun.tools.javac.tree.JCTree$JCExpression, com.sun.tools.javac.code.Symbol)'; java.lang.NoSuchMethodError: 'com.sun.tools.javac.tree.JCTree$JCFieldAccess com.sun.tools.javac.tree.TreeMaker.Select(com.sun.tools.javac.tree.JCTree$JCExpression, com.sun.tools.javac.code.Symbol)'
+  	at org.checkerframework.javacutil.TreeUtils.Select(TreeUtils.java:2597)
+  	at org.checkerframework.javacutil.trees.TreeBuilder.buildIteratorMethodAccess(TreeBuilder.java:123)
+  	at org.checkerframework.dataflow.cfg.builder.CFGTranslationPhaseOne.visitEnhancedForLoop(CFGTranslationPhaseOne.java:2961)
+  	at org.checkerframework.dataflow.cfg.builder.CFGTranslationPhaseOne.visitEnhancedForLoop(CFGTranslationPhaseOne.java:213)
+  	at jdk.compiler/com.sun.tools.javac.tree.JCTree$JCEnhancedForLoop.accept(JCTree.java:1243)
+  	at org.checkerframework.dataflow.cfg.builder.CFGTranslationPhaseOne.scan(CFGTranslationPhaseOne.java:572)
+  	at org.checkerframework.dataflow.cfg.builder.CFGTranslationPhaseOne$SwitchBuilder.buildCase(CFGTranslationPhaseOne.java:2634)
+  	at org.checkerframework.dataflow.cfg.builder.CFGTranslationPhaseOne$SwitchBuilder.build(CFGTranslationPhaseOne.java:2495)
+  	at org.checkerframework.dataflow.cfg.builder.CFGTranslationPhaseOne.visitSwitch(CFGTranslationPhaseOne.java:2391)
+  	at org.checkerframework.dataflow.cfg.builder.CFGTranslationPhaseOne.visitSwitch(CFGTranslationPhaseOne.java:213)
+  	at jdk.compiler/com.sun.tools.javac.tree.JCTree$JCSwitch.accept(JCTree.java:1304)
+  	at org.checkerframework.dataflow.cfg.builder.CFGTranslationPhaseOne.scan(CFGTranslationPhaseOne.java:572)
+  	at org.checkerframework.dataflow.cfg.builder.CFGTranslationPhaseOne.visitBlock(CFGTranslationPhaseOne.java:2365)
+  	at org.checkerframework.dataflow.cfg.builder.CFGTranslationPhaseOne.visitBlock(CFGTranslationPhaseOne.java:213)
+  	at jdk.compiler/com.sun.tools.javac.tree.JCTree$JCBlock.accept(JCTree.java:1103)
+  	at org.checkerframework.dataflow.cfg.builder.CFGTranslationPhaseOne.scan(CFGTranslationPhaseOne.java:572)
+  	at org.checkerframework.dataflow.cfg.builder.CFGTranslationPhaseOne.visitIf(CFGTranslationPhaseOne.java:3345)
+  	at org.checkerframework.dataflow.cfg.builder.CFGTranslationPhaseOne.visitIf(CFGTranslationPhaseOne.java:213)
+  	at jdk.compiler/com.sun.tools.javac.tree.JCTree$JCIf.accept(JCTree.java:1565)
+  	at org.checkerframework.dataflow.cfg.builder.CFGTranslationPhaseOne.scan(CFGTranslationPhaseOne.java:572)
+  	at org.checkerframework.dataflow.cfg.builder.CFGTranslationPhaseOne.visitBlock(CFGTranslationPhaseOne.java:2365)
+  	at org.checkerframework.dataflow.cfg.builder.CFGTranslationPhaseOne.visitBlock(CFGTranslationPhaseOne.java:213)
+  	at jdk.compiler/com.sun.tools.javac.tree.JCTree$JCBlock.accept(JCTree.java:1103)
+  	at org.checkerframework.dataflow.cfg.builder.CFGTranslationPhaseOne.scan(CFGTranslationPhaseOne.java:572)
+  	at org.checkerframework.dataflow.cfg.builder.CFGTranslationPhaseOne.process(CFGTranslationPhaseOne.java:469)
+  	at org.checkerframework.dataflow.cfg.builder.CFGTranslationPhaseOne.process(CFGTranslationPhaseOne.java:521)
+  	at org.checkerframework.framework.flow.CFCFGBuilder.build(CFCFGBuilder.java:73)
+  	at org.checkerframework.framework.type.GenericAnnotatedTypeFactory.analyze(GenericAnnotatedTypeFactory.java:1571)
+  	at org.checkerframework.framework.type.GenericAnnotatedTypeFactory.performFlowAnalysis(GenericAnnotatedTypeFactory.java:1486)
+  	at org.checkerframework.framework.type.GenericAnnotatedTypeFactory.checkAndPerformFlowAnalysis(GenericAnnotatedTypeFactory.java:1991)
+  	at org.checkerframework.framework.type.GenericAnnotatedTypeFactory.preProcessClassTree(GenericAnnotatedTypeFactory.java:426)
+  	at org.checkerframework.common.basetype.BaseTypeVisitor.visitClass(BaseTypeVisitor.java:553)
+  	at org.checkerframework.common.basetype.BaseTypeVisitor.visitClass(BaseTypeVisitor.java:187)
+  	at jdk.compiler/com.sun.tools.javac.tree.JCTree$JCClassDecl.accept(JCTree.java:860)
+  	at jdk.compiler/com.sun.source.util.TreePathScanner.scan(TreePathScanner.java:60)
+  	at org.checkerframework.framework.source.SourceVisitor.visit(SourceVisitor.java:86)
+  	at org.checkerframework.framework.source.SourceChecker.typeProcess(SourceChecker.java:1050)
+  	at org.checkerframework.common.basetype.BaseTypeChecker.typeProcess(BaseTypeChecker.java:558)
+  	at org.checkerframework.javacutil.AbstractTypeProcessor$AttributionTaskListener.finished(AbstractTypeProcessor.java:188)
+  	at jdk.compiler/com.sun.tools.javac.api.ClientCodeWrapper$WrappedTaskListener.finished(ClientCodeWrapper.java:854)
+  	at jdk.compiler/com.sun.tools.javac.api.MultiTaskListener.finished(MultiTaskListener.java:132)
+  	at jdk.compiler/com.sun.tools.javac.main.JavaCompiler.flow(JavaCompiler.java:1394)
+  	at jdk.compiler/com.sun.tools.javac.main.JavaCompiler.flow(JavaCompiler.java:1351)
+  	at jdk.compiler/com.sun.tools.javac.main.JavaCompiler.compile(JavaCompiler.java:946)
+  	at jdk.compiler/com.sun.tools.javac.main.Main.compile(Main.java:317)
+  	at jdk.compiler/com.sun.tools.javac.main.Main.compile(Main.java:176)
+  	at jdk.compiler/com.sun.tools.javac.Main.compile(Main.java:64)
+  	at jdk.compiler/com.sun.tools.javac.Main.main(Main.java:50)
+../dataset/fl/src/main/java/com/leinardi/android/speeddial/FabWithLabelView.java:69: error: (initialization.fields.uninitialized) $$ 1 $$ mLabelTextView, mFab, mLabelCardView, mSpeedDialActionItem, mOnActionSelectedListener, mLabelCardViewBackground $$ ( 2554, 2655 ) $$ the constructor does not initialize fields: mLabelTextView, mFab, mLabelCardView, mSpeedDialActionItem, mOnActionSelectedListener, mLabelCardViewBackground
+    public FabWithLabelView(Context context) {
+           ^
+../dataset/fl/src/main/java/com/leinardi/android/speeddial/FabWithLabelView.java:71: error: (method.invocation) $$ 3 $$ init(android.content.Context,android.util.AttributeSet) $$ @UnderInitialization(android.widget.LinearLayout.class) @NonNull FabWithLabelView $$ @Initialized @NonNull FabWithLabelView $$ ( 2629, 2648 ) $$ call to init(android.content.Context,android.util.AttributeSet) not allowed on the given receiver.
+        init(context, null);
+            ^
+  found   : @UnderInitialization(android.widget.LinearLayout.class) @NonNull FabWithLabelView
+  required: @Initialized @NonNull FabWithLabelView
+../dataset/fl/src/main/java/com/leinardi/android/speeddial/FabWithLabelView.java:71: error: (argument) $$ 4 $$ attrs $$ FabWithLabelView.init $$ null (NullType) $$ @Initialized @NonNull AttributeSet $$ ( 2643, 2647 ) $$ incompatible argument for parameter attrs of FabWithLabelView.init.
+        init(context, null);
+                      ^
+  found   : null (NullType)
+  required: @Initialized @NonNull AttributeSet
+../dataset/fl/src/main/java/com/leinardi/android/speeddial/FabWithLabelView.java:74: error: (initialization.fields.uninitialized) $$ 1 $$ mLabelTextView, mFab, mLabelCardView, mSpeedDialActionItem, mOnActionSelectedListener, mLabelCardViewBackground $$ ( 2661, 2792 ) $$ the constructor does not initialize fields: mLabelTextView, mFab, mLabelCardView, mSpeedDialActionItem, mOnActionSelectedListener, mLabelCardViewBackground
+    public FabWithLabelView(Context context,   AttributeSet attrs) {
+           ^
+../dataset/fl/src/main/java/com/leinardi/android/speeddial/FabWithLabelView.java:76: error: (method.invocation) $$ 3 $$ init(android.content.Context,android.util.AttributeSet) $$ @UnderInitialization(android.widget.LinearLayout.class) @NonNull FabWithLabelView $$ @Initialized @NonNull FabWithLabelView $$ ( 2765, 2785 ) $$ call to init(android.content.Context,android.util.AttributeSet) not allowed on the given receiver.
+        init(context, attrs);
+            ^
+  found   : @UnderInitialization(android.widget.LinearLayout.class) @NonNull FabWithLabelView
+  required: @Initialized @NonNull FabWithLabelView
+../dataset/fl/src/main/java/com/leinardi/android/speeddial/FabWithLabelView.java:79: error: (initialization.fields.uninitialized) $$ 1 $$ mLabelTextView, mFab, mLabelCardView, mSpeedDialActionItem, mOnActionSelectedListener, mLabelCardViewBackground $$ ( 2798, 2961 ) $$ the constructor does not initialize fields: mLabelTextView, mFab, mLabelCardView, mSpeedDialActionItem, mOnActionSelectedListener, mLabelCardViewBackground
+    public FabWithLabelView(Context context,   AttributeSet attrs, int defStyleAttr) {
+           ^
+../dataset/fl/src/main/java/com/leinardi/android/speeddial/FabWithLabelView.java:81: error: (method.invocation) $$ 3 $$ init(android.content.Context,android.util.AttributeSet) $$ @UnderInitialization(android.widget.LinearLayout.class) @NonNull FabWithLabelView $$ @Initialized @NonNull FabWithLabelView $$ ( 2934, 2954 ) $$ call to init(android.content.Context,android.util.AttributeSet) not allowed on the given receiver.
+        init(context, attrs);
+            ^
+  found   : @UnderInitialization(android.widget.LinearLayout.class) @NonNull FabWithLabelView
+  required: @Initialized @NonNull FabWithLabelView
+../dataset/fl/src/main/java/com/leinardi/android/speeddial/FabWithLabelView.java:277: error: (argument) $$ 4 $$ label $$ Builder.setLabel $$ @Initialized @Nullable String $$ @Initialized @NonNull String $$ ( 10671, 10680 ) $$ incompatible argument for parameter label of Builder.setLabel.
+            builder.setLabel(labelText);
+                             ^
+  found   : @Initialized @Nullable String
+  required: @Initialized @NonNull String
+../dataset/fl/src/main/java/com/leinardi/android/speeddial/FabWithLabelView.java:413: error: (assignment) $$ 2 $$ null (NullType) $$ @Initialized @NonNull Drawable $$ ( 16327, 16331 ) $$ incompatible types in assignment.
+                    mLabelCardViewBackground = null;
+                                               ^
+  found   : null (NullType)
+  required: @Initialized @NonNull Drawable
+../dataset/fl/src/main/java/com/leinardi/android/speeddial/SpeedDialOverlayLayout.java:39: error: (initialization.fields.uninitialized) $$ 1 $$ mClickListener $$ ( 1299, 1380 ) $$ the constructor does not initialize fields: mClickListener
+    public SpeedDialOverlayLayout(   Context context) {
+           ^
+../dataset/fl/src/main/java/com/leinardi/android/speeddial/SpeedDialOverlayLayout.java:43: error: (initialization.fields.uninitialized) $$ 1 $$ mClickListener $$ ( 1386, 1526 ) $$ the constructor does not initialize fields: mClickListener
+    public SpeedDialOverlayLayout(   Context context,   AttributeSet attrs) {
+           ^
+../dataset/fl/src/main/java/com/leinardi/android/speeddial/SpeedDialOverlayLayout.java:45: error: (method.invocation) $$ 3 $$ init(android.content.Context,android.util.AttributeSet) $$ @UnderInitialization(android.widget.RelativeLayout.class) @NonNull SpeedDialOverlayLayout $$ @Initialized @NonNull SpeedDialOverlayLayout $$ ( 1499, 1519 ) $$ call to init(android.content.Context,android.util.AttributeSet) not allowed on the given receiver.
+        init(context, attrs);
+            ^
+  found   : @UnderInitialization(android.widget.RelativeLayout.class) @NonNull SpeedDialOverlayLayout
+  required: @Initialized @NonNull SpeedDialOverlayLayout
+../dataset/fl/src/main/java/com/leinardi/android/speeddial/SpeedDialOverlayLayout.java:48: error: (initialization.fields.uninitialized) $$ 1 $$ mClickListener $$ ( 1532, 1725 ) $$ the constructor does not initialize fields: mClickListener
+    public SpeedDialOverlayLayout(   Context context,   AttributeSet attrs, @AttrRes int
+           ^
+../dataset/fl/src/main/java/com/leinardi/android/speeddial/SpeedDialOverlayLayout.java:51: error: (method.invocation) $$ 3 $$ init(android.content.Context,android.util.AttributeSet) $$ @UnderInitialization(android.widget.RelativeLayout.class) @NonNull SpeedDialOverlayLayout $$ @Initialized @NonNull SpeedDialOverlayLayout $$ ( 1698, 1718 ) $$ call to init(android.content.Context,android.util.AttributeSet) not allowed on the given receiver.
+        init(context, attrs);
+            ^
+  found   : @UnderInitialization(android.widget.RelativeLayout.class) @NonNull SpeedDialOverlayLayout
+  required: @Initialized @NonNull SpeedDialOverlayLayout
+../dataset/fl/src/main/java/com/leinardi/android/speeddial/SpeedDialOverlayLayout.java:97: error: (override.param) $$ 7 $$ clickListener $$ @Initialized @NonNull OnClickListener $$ @Initialized @Nullable OnClickListener $$ @Initialized @NonNull SpeedDialOverlayLayout $$ @NonNull void setOnClickListener(@Initialized @NonNull SpeedDialOverlayLayout this, @Initialized @NonNull OnClickListener p0) $$ @Initialized @NonNull View $$ @NonNull void setOnClickListener(@Initialized @NonNull View this, @Initialized @Nullable OnClickListener p0) $$ ( 2739, 2768 ) $$ Incompatible parameter type for clickListener.
+    public void setOnClickListener(  OnClickListener clickListener) {
+                                                     ^
+  found   : @Initialized @NonNull OnClickListener
+  required: @Initialized @Nullable OnClickListener
+  Consequence: method in @Initialized @NonNull SpeedDialOverlayLayout
+    @NonNull void setOnClickListener(@Initialized @NonNull SpeedDialOverlayLayout this, @Initialized @NonNull OnClickListener p0)
+  cannot override method in @Initialized @NonNull View
+    @NonNull void setOnClickListener(@Initialized @NonNull View this, @Initialized @Nullable OnClickListener p0)
+../dataset/fl/src/main/java/com/leinardi/android/speeddial/UiUtils.java:267: error: (return) $$ 2 $$ null (NullType) $$ @Initialized @NonNull Bitmap $$ ( 9698, 9702 ) $$ incompatible types in return.
+            return null;
+                   ^
+  type of expression: null (NullType)
+  method return type: @Initialized @NonNull Bitmap
+../dataset/fl/src/main/java/com/leinardi/android/speeddial/UiUtils.java:298: error: (return) $$ 2 $$ null (NullType) $$ @Initialized @NonNull Drawable $$ ( 10852, 10856 ) $$ incompatible types in return.
+            return null;
+                   ^
+  type of expression: null (NullType)
+  method return type: @Initialized @NonNull Drawable
+../dataset/fl/src/main/java/com/leinardi/android/speeddial/ViewGroupUtils.java:27: error: (type.argument) $$ 4 $$ T $$ ThreadLocal $$ @Initialized @NonNull Matrix $$ [extends @Initialized @Nullable Object super null (NullType)] $$ ( 887, 893 ) $$ incompatible type argument for type parameter T of ThreadLocal.
+    private static final ThreadLocal<Matrix> MATRIX_THREAD_LOCAL = new ThreadLocal<>();
+                                     ^
+  found   : @Initialized @NonNull Matrix
+  required: [extends @Initialized @Nullable Object super null (NullType)]
+../dataset/fl/src/main/java/com/leinardi/android/speeddial/ViewGroupUtils.java:27: error: (assignment) $$ 2 $$ @Initialized @NonNull ThreadLocal<@Initialized @Nullable Matrix> $$ @Initialized @NonNull ThreadLocal<@Initialized @NonNull Matrix> $$ ( 917, 936 ) $$ incompatible types in assignment.
+    private static final ThreadLocal<Matrix> MATRIX_THREAD_LOCAL = new ThreadLocal<>();
+                                                                   ^
+  found   : @Initialized @NonNull ThreadLocal<@Initialized @Nullable Matrix>
+  required: @Initialized @NonNull ThreadLocal<@Initialized @NonNull Matrix>
+../dataset/fl/src/main/java/com/leinardi/android/speeddial/ViewGroupUtils.java:28: error: (type.argument) $$ 4 $$ T $$ ThreadLocal $$ @Initialized @NonNull RectF $$ [extends @Initialized @Nullable Object super null (NullType)] $$ ( 975, 980 ) $$ incompatible type argument for type parameter T of ThreadLocal.
+    private static final ThreadLocal<RectF> RECT_F = new ThreadLocal<>();
+                                     ^
+  found   : @Initialized @NonNull RectF
+  required: [extends @Initialized @Nullable Object super null (NullType)]
+../dataset/fl/src/main/java/com/leinardi/android/speeddial/ViewGroupUtils.java:28: error: (assignment) $$ 2 $$ @Initialized @NonNull ThreadLocal<@Initialized @Nullable RectF> $$ @Initialized @NonNull ThreadLocal<@Initialized @NonNull RectF> $$ ( 991, 1010 ) $$ incompatible types in assignment.
+    private static final ThreadLocal<RectF> RECT_F = new ThreadLocal<>();
+                                                     ^
+  found   : @Initialized @NonNull ThreadLocal<@Initialized @Nullable RectF>
+  required: @Initialized @NonNull ThreadLocal<@Initialized @NonNull RectF>
+Note: Some input files use or override a deprecated API.
+Note: Recompile with -Xlint:deprecation for details.
+Note: ../dataset/fl/src/main/java/com/leinardi/android/speeddial/SpeedDialView.java uses unchecked or unsafe operations.
+Note: Recompile with -Xlint:unchecked for details.
+25 errors

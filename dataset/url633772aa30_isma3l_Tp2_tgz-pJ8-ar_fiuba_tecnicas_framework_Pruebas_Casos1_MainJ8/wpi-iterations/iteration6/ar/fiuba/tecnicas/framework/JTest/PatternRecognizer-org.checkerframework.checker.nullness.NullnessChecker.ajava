@@ -1,0 +1,31 @@
+package ar.fiuba.tecnicas.framework.JTest;
+
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
+import java.util.regex.PatternSyntaxException;
+
+@org.checkerframework.framework.qual.AnnotatedFor("org.checkerframework.checker.nullness.NullnessChecker")
+public class PatternRecognizer {
+
+    private @org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.NonNull Pattern pattern;
+
+    private @org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.MonotonicNonNull Matcher matcher;
+
+    private @org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.NonNull String regularExpression;
+
+    @org.checkerframework.dataflow.qual.SideEffectFree
+    public PatternRecognizer(@org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.NonNull String expression) throws PatternSyntaxException {
+        regularExpression = expression;
+        pattern = Pattern.compile(expression);
+    }
+
+    @org.checkerframework.framework.qual.EnsuresQualifier(expression = { "this.matcher" }, qualifier = org.checkerframework.checker.nullness.qual.Nullable.class)
+    @org.checkerframework.dataflow.qual.Impure
+    public  @org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.NonNull boolean validate(@org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.NonNull String name) {
+        if (!regularExpression.equals("")) {
+            matcher = pattern.matcher(name);
+            return matcher.find();
+        } else
+            return true;
+    }
+}

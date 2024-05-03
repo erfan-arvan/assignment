@@ -1,0 +1,21 @@
+package net.slreynolds.ds.export;
+
+/**
+ * Report an exception while attempting to export a
+ * model.
+ */
+@org.checkerframework.framework.qual.AnnotatedFor("org.checkerframework.checker.nullness.KeyForSubchecker")
+public class ExportException extends Exception {
+
+    private static final   long serialVersionUID = -1766477557947499640L;
+
+    @org.checkerframework.dataflow.qual.SideEffectFree
+    public ExportException(String message) {
+        super(message);
+    }
+
+    @org.checkerframework.dataflow.qual.SideEffectFree
+    public ExportException(String message, Throwable cause) {
+        super(message, cause);
+    }
+}

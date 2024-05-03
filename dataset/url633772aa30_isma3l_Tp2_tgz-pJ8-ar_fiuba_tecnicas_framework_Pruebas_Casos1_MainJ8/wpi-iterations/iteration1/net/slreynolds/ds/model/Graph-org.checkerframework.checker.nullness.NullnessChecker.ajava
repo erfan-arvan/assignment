@@ -1,0 +1,131 @@
+package net.slreynolds.ds.model;
+
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.List;
+
+/**
+ * Represents a region of objects as a graph with nodes (GraphPoint's) and
+ * edges between them.
+ */
+@org.checkerframework.framework.qual.AnnotatedFor("org.checkerframework.checker.nullness.NullnessChecker")
+final public class Graph {
+
+    final private @org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.NonNull List<GraphPoint> _points;
+
+    private @org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.MonotonicNonNull GraphPoint _primaryNode;
+
+    @org.checkerframework.dataflow.qual.SideEffectFree
+    public Graph() {
+        _points = new ArrayList<GraphPoint>();
+    }
+
+    @org.checkerframework.framework.qual.EnsuresQualifier(expression = { "this._primaryNode" }, qualifier = org.checkerframework.checker.nullness.qual.Nullable.class)
+    @org.checkerframework.dataflow.qual.Impure
+    public @org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.NonNull List<GraphPoint> getGraphPoints() {
+        return Collections.unmodifiableList(_points);
+    }
+
+    @org.checkerframework.framework.qual.EnsuresQualifier(expression = { "this._primaryNode" }, qualifier = org.checkerframework.checker.nullness.qual.Nullable.class)
+    @org.checkerframework.dataflow.qual.Pure
+    public @org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.Nullable GraphPoint getPrimaryGraphPoint() {
+        return _primaryNode;
+    }
+
+    @org.checkerframework.checker.nullness.qual.EnsuresNonNull({ "this._primaryNode" })
+    @org.checkerframework.dataflow.qual.Impure
+    public @org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.NonNull Graph setPrimaryGraphPoint(@org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.NonNull GraphPoint n) {
+        _primaryNode = n;
+        add(n);
+        return this;
+    }
+
+    @org.checkerframework.framework.qual.RequiresQualifier(expression = { "this._primaryNode" }, qualifier = org.checkerframework.checker.nullness.qual.Nullable.class)
+    @org.checkerframework.checker.nullness.qual.EnsuresNonNull({ "#1" })
+    @org.checkerframework.framework.qual.EnsuresQualifier(expression = { "this._primaryNode" }, qualifier = org.checkerframework.checker.nullness.qual.Nullable.class)
+    @org.checkerframework.dataflow.qual.Impure
+    public @org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.NonNull Graph add(@org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.Nullable GraphPoint n) {
+        if (!_points.contains(n)) {
+            _points.add(n);
+        }
+        return this;
+    }
+
+    @org.checkerframework.checker.nullness.qual.EnsuresNonNull({ "#2" })
+    @org.checkerframework.framework.qual.EnsuresQualifier(expression = { "this._primaryNode" }, qualifier = org.checkerframework.checker.nullness.qual.Nullable.class)
+    @org.checkerframework.dataflow.qual.Impure
+    public @org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.NonNull Graph addEdge(@org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.NonNull GraphPoint from, @org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.Nullable GraphPoint to) {
+        return addEdge(Named.EMPTY_NAME, from, to);
+    }
+
+    @org.checkerframework.framework.qual.RequiresQualifier(expression = { "this._primaryNode" }, qualifier = org.checkerframework.checker.nullness.qual.Nullable.class)
+    @org.checkerframework.checker.nullness.qual.EnsuresNonNull({ "#3" })
+    @org.checkerframework.framework.qual.EnsuresQualifier(expression = { "this._primaryNode" }, qualifier = org.checkerframework.checker.nullness.qual.Nullable.class)
+    @org.checkerframework.dataflow.qual.Impure
+    public @org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.NonNull Graph addEdge(@org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.NonNull String name, @org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.NonNull GraphPoint from, @org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.Nullable GraphPoint to) {
+        add(from);
+        add(to);
+        if (!from.hasEdgeTo(to)) {
+            Edge e = new Edge(NamedIDGenerator.next(), name, from, to);
+            from.add(e);
+        }
+        return this;
+    }
+
+    @org.checkerframework.framework.qual.EnsuresQualifier(expression = { "this._primaryNode" }, qualifier = org.checkerframework.checker.nullness.qual.Nullable.class)
+    @org.checkerframework.dataflow.qual.Impure
+    public @org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.NonNull String toString(@org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.NonNull Graph this) {
+        StringBuffer sb = new StringBuffer("Graph [nodes=[");
+        nodesToString(sb, _points);
+        sb.append("\n\t, primaryNode=" + _primaryNode + "]");
+        return sb.toString();
+    }
+
+    @org.checkerframework.framework.qual.RequiresQualifier(expression = { "this._primaryNode" }, qualifier = org.checkerframework.checker.nullness.qual.Nullable.class)
+    @org.checkerframework.framework.qual.EnsuresQualifier(expression = { "this._primaryNode" }, qualifier = org.checkerframework.checker.nullness.qual.Nullable.class)
+    @org.checkerframework.dataflow.qual.Impure
+    private void nodesToString(@org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.NonNull StringBuffer sb, @org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.NonNull List<GraphPoint> nodes) {
+        int nodeNum = 0;
+        for (GraphPoint node : nodes) {
+            nodeNum++;
+            if (nodeNum > 1) {
+                sb.append("\n\t, ");
+            }
+            sb.append(node.toString());
+        }
+    }
+
+    // ----------------- Generated Code ----------------------
+    @org.checkerframework.framework.qual.EnsuresQualifier(expression = { "this._primaryNode" }, qualifier = org.checkerframework.checker.nullness.qual.Nullable.class)
+    @org.checkerframework.dataflow.qual.Pure
+    public  @org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.NonNull int hashCode(@org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.NonNull Graph this) {
+        final int prime = 31;
+        int result = 1;
+        result = prime * result + ((_points == null) ? 0 : _points.hashCode());
+        result = prime * result + ((_primaryNode == null) ? 0 : _primaryNode.hashCode());
+        return result;
+    }
+
+    @org.checkerframework.framework.qual.EnsuresQualifier(expression = { "this._primaryNode" }, qualifier = org.checkerframework.checker.nullness.qual.Nullable.class)
+    @org.checkerframework.dataflow.qual.Pure
+    public  @org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.NonNull boolean equals(@org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.NonNull Graph this, @org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.Nullable Object obj) {
+        if (this == obj)
+            return true;
+        if (obj == null)
+            return false;
+        if (getClass() != obj.getClass())
+            return false;
+        Graph other = (Graph) obj;
+        if (_points == null) {
+            if (other._points != null)
+                return false;
+        } else if (!_points.equals(other._points))
+            return false;
+        if (_primaryNode == null) {
+            if (other._primaryNode != null)
+                return false;
+        } else if (!_primaryNode.equals(other._primaryNode))
+            return false;
+        return true;
+    }
+}

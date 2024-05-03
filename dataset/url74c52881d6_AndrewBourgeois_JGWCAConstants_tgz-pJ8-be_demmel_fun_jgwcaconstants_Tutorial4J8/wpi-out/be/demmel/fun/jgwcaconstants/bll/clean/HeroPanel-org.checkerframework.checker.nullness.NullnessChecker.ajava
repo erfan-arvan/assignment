@@ -1,0 +1,39 @@
+package be.demmel.fun.jgwcaconstants.bll.clean;
+
+import be.demmel.fun.jgwcaconstants.bll.GWCAOperations;
+import java.io.IOException;
+
+@org.checkerframework.framework.qual.AnnotatedFor("org.checkerframework.checker.nullness.NullnessChecker")
+public class HeroPanel {
+
+    private final @org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.NonNull GWCAOperations gwcaOperations;
+
+    private final @org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.NonNull TitlesTab titlesTab;
+
+    private final @org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.NonNull FactionTab factionTab;
+
+    @org.checkerframework.dataflow.qual.SideEffectFree
+    public HeroPanel(@org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.NonNull GWCAOperations gwcaOperations) {
+        this.gwcaOperations = gwcaOperations;
+        this.titlesTab = new TitlesTab(gwcaOperations);
+        this.factionTab = new FactionTab(gwcaOperations);
+    }
+
+    /**
+     * @return how many experience points that you have
+     */
+    @org.checkerframework.dataflow.qual.Impure
+    public  @org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.NonNull int getExperience() throws IOException {
+        return this.gwcaOperations.getExperience();
+    }
+
+    @org.checkerframework.dataflow.qual.Pure
+    public @org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.NonNull FactionTab getFactionTab() {
+        return factionTab;
+    }
+
+    @org.checkerframework.dataflow.qual.Pure
+    public @org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.NonNull TitlesTab getTitlesTab() {
+        return titlesTab;
+    }
+}

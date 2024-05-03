@@ -1,0 +1,83 @@
+package net.slreynolds.ds.export;
+
+@org.checkerframework.framework.qual.AnnotatedFor("org.checkerframework.checker.nullness.KeyForSubchecker")
+class ExportEdge {
+
+    private final   int _ID;
+
+    // TODO should be final
+    private   int _fromID;
+
+    private final   int _toID;
+
+    private  String _label;
+
+    @org.checkerframework.dataflow.qual.SideEffectFree
+    ExportEdge(  int ID,   int fromID,   int toID,  String label) {
+        super();
+        this._ID = ID;
+        this._fromID = fromID;
+        this._toID = toID;
+        this._label = label;
+    }
+
+    @org.checkerframework.dataflow.qual.Pure
+      int getID( ExportEdge this) {
+        return _ID;
+    }
+
+    @org.checkerframework.dataflow.qual.Pure
+      int getFromID( ExportEdge this) {
+        return _fromID;
+    }
+
+    @org.checkerframework.dataflow.qual.Impure
+    void setFromID(int id) {
+        _fromID = id;
+    }
+
+    @org.checkerframework.dataflow.qual.Pure
+      int getToID( ExportEdge this) {
+        return _toID;
+    }
+
+    @org.checkerframework.dataflow.qual.Pure
+     String getLabel( ExportEdge this) {
+        return _label;
+    }
+
+    @org.checkerframework.dataflow.qual.Impure
+    void setLabel(String l) {
+        if (l == null) {
+            throw new IllegalArgumentException("label cannot be null");
+        }
+        _label = l;
+    }
+
+    @org.checkerframework.dataflow.qual.Pure
+    public  String toString( ExportEdge this) {
+        return "JungEdge [_ID=" + _ID + ", _label=" + _label + ", from " + _fromID + " to " + _toID + "]";
+    }
+
+    @org.checkerframework.dataflow.qual.Pure
+    public   int hashCode( ExportEdge this) {
+        final int prime = 31;
+        int result = 1;
+        result = prime * result + _ID;
+        return result;
+    }
+
+    @org.checkerframework.dataflow.qual.Pure
+    public   boolean equals( ExportEdge this,  Object obj) {
+        if (this == obj)
+            return true;
+        if (obj == null)
+            return false;
+        if (getClass() != obj.getClass())
+            return false;
+        ExportEdge other = (ExportEdge) obj;
+        if (_ID != other._ID)
+            return false;
+        return true;
+    }
+}

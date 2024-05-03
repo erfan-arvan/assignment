@@ -1,0 +1,36 @@
+package org.delaunay.algorithm;
+
+import java.util.List;
+import java.util.Random;
+import org.delaunay.model.Vertex;
+import com.google.common.collect.Lists;
+
+@org.checkerframework.framework.qual.AnnotatedFor("org.checkerframework.checker.nullness.NullnessChecker")
+public class Triangulations {
+
+    @org.checkerframework.dataflow.qual.Impure
+    public static @org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.NonNull List<Vertex> randomVertices( @org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.NonNull int n,  @org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.NonNull int width,  @org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.NonNull int height) {
+        Random random = new Random(System.currentTimeMillis());
+        List<Vertex> rands = Lists.newArrayList();
+        for (int i = 0; i < n; i++) {
+            double x = random.nextDouble();
+            double y = random.nextDouble();
+            x = x * x;
+            y = y * y;
+            rands.add(new Vertex(x * width, y * height));
+        }
+        return rands;
+    }
+
+    @org.checkerframework.dataflow.qual.Impure
+    public static @org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.NonNull List<Vertex> randomGaussian( @org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.NonNull int n,  @org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.NonNull int width,  @org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.NonNull int height) {
+        Random random = new Random(System.currentTimeMillis());
+        List<Vertex> rands = Lists.newArrayList();
+        for (int i = 0; i < n; i++) {
+            double x = random.nextGaussian();
+            double y = random.nextGaussian();
+            rands.add(new Vertex(x * width / 8 + width / 2, y * width / 8 + height / 2));
+        }
+        return rands;
+    }
+}

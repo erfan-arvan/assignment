@@ -1,0 +1,74 @@
+package org.delaunay.dtfe;
+
+import java.util.LinkedHashSet;
+import org.delaunay.algorithm.Triangulation.InvalidVertexException;
+import org.delaunay.dtfe.interpolation.InterpolationStrategy;
+import org.delaunay.model.Vertex;
+import com.google.common.collect.Sets;
+
+@org.checkerframework.framework.qual.AnnotatedFor("org.checkerframework.checker.nullness.NullnessChecker")
+public class Dtfes {
+
+    public static class DifferenceDensityModel<T extends BasicDensityModel> extends BasicDensityModel {
+
+        private final @org.checkerframework.checker.nullness.qual.MonotonicNonNull T aChild;
+
+        private final @org.checkerframework.checker.nullness.qual.MonotonicNonNull T bChild;
+
+        private final  @org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.NonNull double densityDiff;
+
+        @org.checkerframework.dataflow.qual.Impure
+        public DifferenceDensityModel(@org.checkerframework.checker.nullness.qual.Nullable T aChild, @org.checkerframework.checker.nullness.qual.Nullable T bChild,  @org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.NonNull double density) {
+            this.aChild = aChild;
+            this.bChild = bChild;
+            this.densityDiff = density;
+        }
+
+        @org.checkerframework.dataflow.qual.Pure
+        public  @org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.NonNull double getDensity(@org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.NonNull DifferenceDensityModel<T> this) {
+            return densityDiff;
+        }
+
+        @org.checkerframework.dataflow.qual.Pure
+        public T getAChild() {
+            return aChild;
+        }
+
+        @org.checkerframework.dataflow.qual.Pure
+        public T getBChild() {
+            return bChild;
+        }
+    }
+
+    @org.checkerframework.dataflow.qual.Impure
+    public static <T extends BasicDensityModel> @org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.NonNull DtfeTriangulationMap<DifferenceDensityModel<T>> difference(@org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.NonNull DtfeTriangulationMap<T> a, @org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.NonNull DtfeTriangulationMap<T> b, @org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.NonNull InterpolationStrategy interpolation) throws InvalidVertexException {
+        // Compute vertex partitions
+        LinkedHashSet<Vertex> averts = a.getTriangulation().getVertices();
+        LinkedHashSet<Vertex> bverts = b.getTriangulation().getVertices();
+        LinkedHashSet<Vertex> aOnly = Sets.newLinkedHashSet(averts);
+        aOnly.removeAll(bverts);
+        LinkedHashSet<Vertex> bOnly = Sets.newLinkedHashSet(bverts);
+        bOnly.removeAll(averts);
+        LinkedHashSet<Vertex> aAndB = Sets.newLinkedHashSet(averts);
+        aAndB.retainAll(bverts);
+        // Generate difference map
+        DtfeTriangulationMap<DifferenceDensityModel<T>> diff = new DtfeTriangulationMap<DifferenceDensityModel<T>>();
+        for (Vertex v : aOnly) {
+            T aChild = a.get(v);
+            double bDense = b.getInterpolatedDensity(v, interpolation);
+            diff.put(v.x, v.y, new DifferenceDensityModel<T>(aChild, null, aChild.getDensity() - bDense));
+        }
+        for (Vertex v : bOnly) {
+            T bChild = b.get(v);
+            double aDense = a.getInterpolatedDensity(v, interpolation);
+            diff.put(v.x, v.y, new DifferenceDensityModel<T>(null, bChild, aDense - bChild.getDensity()));
+        }
+        for (Vertex v : aAndB) {
+            T aChild = a.get(v);
+            T bChild = b.get(v);
+            diff.put(v.x, v.y, new DifferenceDensityModel<T>(aChild, bChild, aChild.getDensity() - bChild.getDensity()));
+        }
+        diff.triangulate();
+        return diff;
+    }
+}

@@ -1,0 +1,107 @@
+package be.demmel.fun.jgwcaconstants.bll.clean;
+
+import be.demmel.fun.jgwcaconstants.bll.GWCAOperations;
+
+@org.checkerframework.framework.qual.AnnotatedFor("org.checkerframework.checker.nullness.NullnessChecker")
+public class GuildWarsInstance {
+
+    private final @org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.NonNull GWCAOperations gwcaOperations;
+
+    private final @org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.NonNull HeroPanel heroPanel;
+
+    private final @org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.NonNull EffectsMonitor effectsMonitor;
+
+    private final @org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.NonNull InventoryPanel inventoryPanel;
+
+    private final @org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.NonNull PartyPanel partyPanel;
+
+    private final @org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.NonNull Player player;
+
+    private final @org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.NonNull QuestLogPanel questLogPanel;
+
+    private final @org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.NonNull RemainingCommands remainingCommands;
+
+    private final @org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.NonNull SkillBar skillBar;
+
+    private final @org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.NonNull SkillsPanel skillsPanel;
+
+    private final @org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.NonNull StoragePanel storagePanel;
+
+    private final @org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.NonNull TraderPanel traderPanel;
+
+    @org.checkerframework.dataflow.qual.SideEffectFree
+    public GuildWarsInstance(@org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.NonNull GWCAOperations gwcaOperations) {
+        this.gwcaOperations = gwcaOperations;
+        this.heroPanel = new HeroPanel(gwcaOperations);
+        this.effectsMonitor = new EffectsMonitor(gwcaOperations);
+        this.inventoryPanel = new InventoryPanel(gwcaOperations);
+        this.partyPanel = new PartyPanel(gwcaOperations);
+        this.player = new Player(gwcaOperations);
+        this.questLogPanel = new QuestLogPanel(gwcaOperations);
+        this.remainingCommands = new RemainingCommands(gwcaOperations);
+        this.skillBar = new SkillBar(gwcaOperations);
+        this.skillsPanel = new SkillsPanel(gwcaOperations);
+        this.storagePanel = new StoragePanel(gwcaOperations);
+        this.traderPanel = new TraderPanel(gwcaOperations);
+    }
+
+    @org.checkerframework.dataflow.qual.Pure
+    public @org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.NonNull EffectsMonitor getEffectsMonitor() {
+        return effectsMonitor;
+    }
+
+    @org.checkerframework.dataflow.qual.Pure
+    public @org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.NonNull GWCAOperations getGwcaOperations() {
+        return gwcaOperations;
+    }
+
+    @org.checkerframework.dataflow.qual.Pure
+    public @org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.NonNull HeroPanel getHeroPanel() {
+        return heroPanel;
+    }
+
+    @org.checkerframework.dataflow.qual.Pure
+    public @org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.NonNull InventoryPanel getInventoryPanel() {
+        return inventoryPanel;
+    }
+
+    @org.checkerframework.dataflow.qual.Pure
+    public @org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.NonNull PartyPanel getPartyPanel() {
+        return partyPanel;
+    }
+
+    @org.checkerframework.dataflow.qual.Pure
+    public @org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.NonNull Player getPlayer() {
+        return player;
+    }
+
+    @org.checkerframework.dataflow.qual.Pure
+    public @org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.NonNull QuestLogPanel getQuestLogPanel() {
+        return questLogPanel;
+    }
+
+    @org.checkerframework.dataflow.qual.Pure
+    public @org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.NonNull RemainingCommands getRemainingCommands() {
+        return remainingCommands;
+    }
+
+    @org.checkerframework.dataflow.qual.Pure
+    public @org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.NonNull SkillBar getSkillBar() {
+        return skillBar;
+    }
+
+    @org.checkerframework.dataflow.qual.Pure
+    public @org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.NonNull SkillsPanel getSkillsPanel() {
+        return skillsPanel;
+    }
+
+    @org.checkerframework.dataflow.qual.Pure
+    public @org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.NonNull StoragePanel getStoragePanel() {
+        return storagePanel;
+    }
+
+    @org.checkerframework.dataflow.qual.Pure
+    public @org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.NonNull TraderPanel getTraderPanel() {
+        return traderPanel;
+    }
+}

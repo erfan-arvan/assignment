@@ -1,0 +1,59 @@
+package org.delaunay.dtfe.painters;
+
+import java.awt.Color;
+
+@org.checkerframework.framework.qual.AnnotatedFor("org.checkerframework.checker.nullness.KeyForSubchecker")
+public class TriangulationPainterModel {
+
+    private  Color edgeColor = null;
+
+    private   float edgeStrokeWidth = 1.0f;
+
+    private  Color vertexDotColor = null;
+
+    private   float vertexDotRadius = 2.0f;
+
+    @org.checkerframework.dataflow.qual.Pure
+    public  Color getEdgeColor( TriangulationPainterModel this) {
+        return edgeColor;
+    }
+
+    @org.checkerframework.dataflow.qual.Impure
+    public  TriangulationPainterModel setEdgeColor( TriangulationPainterModel this,  Color edgeColor) {
+        this.edgeColor = edgeColor;
+        return this;
+    }
+
+    @org.checkerframework.dataflow.qual.Pure
+    public   float getEdgeStrokeWidth( TriangulationPainterModel this) {
+        return edgeStrokeWidth;
+    }
+
+    @org.checkerframework.dataflow.qual.Impure
+    public  TriangulationPainterModel setEdgeStrokeWidth( TriangulationPainterModel this,   float edgeStrokeWidth) {
+        this.edgeStrokeWidth = edgeStrokeWidth;
+        return this;
+    }
+
+    @org.checkerframework.dataflow.qual.Pure
+    public  Color getVertexDotColor( TriangulationPainterModel this) {
+        return vertexDotColor;
+    }
+
+    @org.checkerframework.dataflow.qual.Impure
+    public  TriangulationPainterModel setVertexDotColor( TriangulationPainterModel this,  Color vertexColor) {
+        this.vertexDotColor = vertexColor;
+        return this;
+    }
+
+    @org.checkerframework.dataflow.qual.Pure
+    public   float getVertexDotRadius( TriangulationPainterModel this) {
+        return vertexDotRadius;
+    }
+
+    @org.checkerframework.dataflow.qual.Impure
+    public  TriangulationPainterModel setVertexDotRadius(float vertexDotRadius) {
+        this.vertexDotRadius = vertexDotRadius;
+        return this;
+    }
+}

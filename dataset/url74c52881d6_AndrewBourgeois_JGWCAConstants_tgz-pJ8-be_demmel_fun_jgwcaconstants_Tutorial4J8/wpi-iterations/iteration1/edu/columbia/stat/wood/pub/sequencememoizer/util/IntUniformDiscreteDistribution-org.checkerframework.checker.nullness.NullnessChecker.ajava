@@ -1,0 +1,89 @@
+/*
+ * To change this template, choose Tools | Templates
+ * and open the template in the editor.
+ */
+package edu.columbia.stat.wood.pub.sequencememoizer.util;
+
+import java.io.Serializable;
+import java.util.Iterator;
+
+/**
+ * Uniform discrete distribution over the integers in [leftType, rightType).
+ * @author nicholasbartlett
+ */
+@org.checkerframework.framework.qual.AnnotatedFor("org.checkerframework.checker.nullness.NullnessChecker")
+public class IntUniformDiscreteDistribution implements IntDiscreteDistribution, Serializable {
+
+    static final  @org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.NonNull long serialVersionUID = 1;
+
+    private int leftType, rightType;
+
+    private  @org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.NonNull double p;
+
+    /**
+     * Creates a uniform discrete distribution over the integers [0, alphabetSize).
+     * @param alphabetSize
+     */
+    @org.checkerframework.dataflow.qual.SideEffectFree
+    public IntUniformDiscreteDistribution( @org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.NonNull int alphabetSize) {
+        leftType = 0;
+        rightType = alphabetSize - 1;
+        p = 1.0 / (double) alphabetSize;
+    }
+
+    /**
+     * Creates a uniform discrete distribution over the integers [leftType, rightType].
+     * @param leftType
+     * @param rightType
+     */
+    @org.checkerframework.dataflow.qual.SideEffectFree
+    public IntUniformDiscreteDistribution(int leftType, int rightType) {
+        this.leftType = leftType;
+        this.rightType = rightType;
+        p = 1.0 / (double) ((long) rightType - (long) leftType + (long) 1);
+    }
+
+    /**
+     * Gets the probability of an integer type.
+     * @param type
+     * @return probability of type
+     */
+    @org.checkerframework.dataflow.qual.Pure
+    public  @org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.NonNull double probability(@org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.NonNull IntUniformDiscreteDistribution this,  @org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.NonNull int type) {
+        if (type <= rightType && type >= leftType) {
+            return p;
+        } else {
+            return 0.0;
+        }
+    }
+
+    /**
+     * Gets an iterator over Integer Double pairs such that the Double value is
+     * the probability of the integer type in this discrete distribution.
+     * @return iterator
+     */
+    @org.checkerframework.dataflow.qual.Pure
+    public @org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.NonNull Iterator<Pair<Integer, Double>> iterator(@org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.NonNull IntUniformDiscreteDistribution this) {
+        return new UniformIterator();
+    }
+
+    private class UniformIterator implements Iterator<Pair<Integer, Double>> {
+
+         @org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.NonNull int type = leftType;
+
+        @org.checkerframework.dataflow.qual.Pure
+        public  @org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.NonNull boolean hasNext(@org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.NonNull UniformIterator this) {
+            return type <= rightType;
+        }
+
+        @org.checkerframework.dataflow.qual.Impure
+        public @org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.NonNull Pair<Integer, Double> next(@org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.NonNull UniformIterator this) {
+            return new Pair(type++, p);
+        }
+
+        @org.checkerframework.dataflow.qual.SideEffectFree
+        public void remove(@org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.NonNull UniformIterator this) {
+            throw new UnsupportedOperationException("Not supported.");
+        }
+    }
+}

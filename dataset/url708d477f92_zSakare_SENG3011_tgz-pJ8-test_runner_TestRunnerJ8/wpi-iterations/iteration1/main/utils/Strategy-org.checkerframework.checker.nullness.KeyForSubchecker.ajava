@@ -1,0 +1,14 @@
+package main.utils;
+
+/**
+ * Different types of strategies.
+ */
+@org.checkerframework.framework.qual.AnnotatedFor("org.checkerframework.checker.nullness.KeyForSubchecker")
+public enum Strategy {
+
+    RANDOM("R"), MOMENTUM("M"), MEAN_REVERSION("MR");
+
+    @org.checkerframework.dataflow.qual.Impure
+    Strategy( String identifier) {
+    }
+}

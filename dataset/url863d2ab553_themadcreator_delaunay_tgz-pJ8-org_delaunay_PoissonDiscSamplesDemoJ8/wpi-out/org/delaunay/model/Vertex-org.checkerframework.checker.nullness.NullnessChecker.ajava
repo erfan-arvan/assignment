@@ -1,0 +1,64 @@
+package org.delaunay.model;
+
+import java.util.Set;
+import com.google.common.collect.Sets;
+
+@org.checkerframework.framework.qual.AnnotatedFor("org.checkerframework.checker.nullness.NullnessChecker")
+public class Vertex extends Vector {
+
+    private final @org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.NonNull Set<Vertex> neighborVertices = Sets.newLinkedHashSet();
+
+    private final @org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.NonNull Set<Triangle> neighborTriangles = Sets.newLinkedHashSet();
+
+    private @org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.MonotonicNonNull Integer hilbertIndex;
+
+    @org.checkerframework.dataflow.qual.SideEffectFree
+    public Vertex( @org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.NonNull double x,  @org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.NonNull double y) {
+        super(x, y);
+    }
+
+    @org.checkerframework.framework.qual.EnsuresQualifier(expression = { "this.hilbertIndex" }, qualifier = org.checkerframework.checker.nullness.qual.Nullable.class)
+    @org.checkerframework.dataflow.qual.Pure
+    public @org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.NonNull Set<Vertex> getNeighborVertices() {
+        return neighborVertices;
+    }
+
+    @org.checkerframework.framework.qual.EnsuresQualifier(expression = { "this.hilbertIndex" }, qualifier = org.checkerframework.checker.nullness.qual.Nullable.class)
+    @org.checkerframework.dataflow.qual.Pure
+    public @org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.NonNull Set<Triangle> getNeighborTriangles() {
+        return neighborTriangles;
+    }
+
+    @org.checkerframework.framework.qual.EnsuresQualifier(expression = { "this.hilbertIndex" }, qualifier = org.checkerframework.checker.nullness.qual.Nullable.class)
+    @org.checkerframework.dataflow.qual.Impure
+    public void addTriangle(@org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.NonNull Triangle tri) {
+        neighborTriangles.add(tri);
+        neighborVertices.addAll(tri.getVertices());
+        neighborVertices.remove(this);
+        for (Triangle t : neighborTriangles) {
+            t.invalidateNeighbors();
+        }
+    }
+
+    @org.checkerframework.framework.qual.EnsuresQualifier(expression = { "this.hilbertIndex" }, qualifier = org.checkerframework.checker.nullness.qual.Nullable.class)
+    @org.checkerframework.dataflow.qual.Impure
+    public void removeTriangle(@org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.NonNull Triangle tri) {
+        neighborTriangles.remove(tri);
+        neighborVertices.removeAll(tri.getVertices());
+        for (Triangle t : neighborTriangles) {
+            t.invalidateNeighbors();
+        }
+    }
+
+    @org.checkerframework.checker.nullness.qual.EnsuresNonNull({ "this.hilbertIndex" })
+    @org.checkerframework.dataflow.qual.Impure
+    public void setHilbertIndex(@org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.NonNull Integer hilbertIndex) {
+        this.hilbertIndex = hilbertIndex;
+    }
+
+    @org.checkerframework.framework.qual.EnsuresQualifier(expression = { "this.hilbertIndex" }, qualifier = org.checkerframework.checker.nullness.qual.Nullable.class)
+    @org.checkerframework.dataflow.qual.Pure
+    public @org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.Nullable Integer getHilbertIndex() {
+        return hilbertIndex;
+    }
+}

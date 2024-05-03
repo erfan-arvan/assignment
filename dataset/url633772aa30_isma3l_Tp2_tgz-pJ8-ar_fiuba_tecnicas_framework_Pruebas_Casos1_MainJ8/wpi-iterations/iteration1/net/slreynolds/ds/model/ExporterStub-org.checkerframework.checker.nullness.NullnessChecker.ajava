@@ -1,0 +1,25 @@
+package net.slreynolds.ds.model;
+
+import java.io.IOException;
+import java.util.Map;
+import net.slreynolds.ds.export.ExportException;
+import net.slreynolds.ds.export.Exporter;
+import net.slreynolds.ds.model.Graph;
+
+@org.checkerframework.framework.qual.AnnotatedFor("org.checkerframework.checker.nullness.NullnessChecker")
+public class ExporterStub implements Exporter {
+
+    private @org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.MonotonicNonNull Graph _g;
+
+    @org.checkerframework.checker.nullness.qual.EnsuresNonNull({ "this._g" })
+    @org.checkerframework.dataflow.qual.Impure
+    public void export(@org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.NonNull ExporterStub this, @org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.NonNull Graph g, @org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.NonNull Map<String, Object> opts) throws ExportException, IOException {
+        _g = g;
+    }
+
+    @org.checkerframework.framework.qual.EnsuresQualifier(expression = { "this._g" }, qualifier = org.checkerframework.checker.nullness.qual.Nullable.class)
+    @org.checkerframework.dataflow.qual.Pure
+    public @org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.Nullable Graph getGraph() {
+        return _g;
+    }
+}

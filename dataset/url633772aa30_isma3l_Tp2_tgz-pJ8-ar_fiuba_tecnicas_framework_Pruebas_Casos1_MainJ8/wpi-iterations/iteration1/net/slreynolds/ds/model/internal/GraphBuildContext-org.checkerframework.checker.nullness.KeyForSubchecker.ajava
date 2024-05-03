@@ -1,0 +1,97 @@
+package net.slreynolds.ds.model.internal;
+
+import java.util.HashMap;
+import java.util.IdentityHashMap;
+import java.util.LinkedList;
+import java.util.Map;
+import java.util.Queue;
+import net.slreynolds.ds.model.BuilderOptions;
+import net.slreynolds.ds.model.Graph;
+import net.slreynolds.ds.model.GraphPoint;
+
+@org.checkerframework.framework.qual.AnnotatedFor("org.checkerframework.checker.nullness.KeyForSubchecker")
+public class GraphBuildContext {
+
+    private final  IdentityHashMap<Object, GraphPoint> _objectToPointMap;
+
+    private final  Map<String, Object> _opts;
+
+    private final  Queue<GraphPointSuspension> _pointsToBuild;
+
+    private final  Queue<EdgeSuspension> _edgesToBuild;
+
+    private final  Graph _graph;
+
+    @org.checkerframework.dataflow.qual.SideEffectFree
+    public GraphBuildContext( Graph graph,  Map<String, Object> opts) {
+        _objectToPointMap = new IdentityHashMap<Object, GraphPoint>();
+        _pointsToBuild = new LinkedList<GraphPointSuspension>();
+        _edgesToBuild = new LinkedList<EdgeSuspension>();
+        _opts = new HashMap<String, Object>(opts);
+        _graph = graph;
+    }
+
+    @org.checkerframework.dataflow.qual.Pure
+    public   boolean hasPoint( GraphBuildContext this,  Object o) {
+        return _objectToPointMap.containsKey(o);
+    }
+
+    @org.checkerframework.dataflow.qual.Impure
+    public void setGeneration( GraphBuildContext this,   int generation) {
+        if (generation < 0) {
+            throw new IllegalArgumentException("generation cannot be negative");
+        }
+        _opts.put(BuilderOptions.GENERATION, generation);
+    }
+
+    @org.checkerframework.dataflow.qual.Pure
+    public  Graph getGraph() {
+        return _graph;
+    }
+
+    @org.checkerframework.dataflow.qual.Pure
+    public  GraphPoint getPoint( GraphBuildContext this,  Object o) {
+        return _objectToPointMap.get(o);
+    }
+
+    @org.checkerframework.dataflow.qual.Impure
+    public void addPoint( GraphBuildContext this,  Object o,  GraphPoint pt) {
+        _objectToPointMap.put(o, pt);
+        _graph.add(pt);
+    }
+
+    @org.checkerframework.dataflow.qual.Pure
+    public  Map<String, Object> getOptions( GraphBuildContext this) {
+        return _opts;
+    }
+
+    @org.checkerframework.dataflow.qual.Impure
+    public void enqueuePointToBuild( GraphBuildContext this,  GraphPointSuspension c) {
+        _pointsToBuild.add(c);
+    }
+
+    @org.checkerframework.dataflow.qual.Impure
+    public  GraphPointSuspension dequeuePointToBuild( GraphBuildContext this) {
+        return _pointsToBuild.poll();
+    }
+
+    @org.checkerframework.dataflow.qual.Pure
+    public   boolean hasPointsToBuild( GraphBuildContext this) {
+        return !_pointsToBuild.isEmpty();
+    }
+
+    @org.checkerframework.dataflow.qual.Impure
+    public void enqueueEdgeToBuild( GraphBuildContext this,  EdgeSuspension c) {
+        _edgesToBuild.add(c);
+    }
+
+    @org.checkerframework.dataflow.qual.Impure
+    public  EdgeSuspension dequeueEdgeToBuild( GraphBuildContext this) {
+        return _edgesToBuild.poll();
+    }
+
+    @org.checkerframework.dataflow.qual.Pure
+    public   boolean hasEdgesToBuild( GraphBuildContext this) {
+        return !_edgesToBuild.isEmpty();
+    }
+}

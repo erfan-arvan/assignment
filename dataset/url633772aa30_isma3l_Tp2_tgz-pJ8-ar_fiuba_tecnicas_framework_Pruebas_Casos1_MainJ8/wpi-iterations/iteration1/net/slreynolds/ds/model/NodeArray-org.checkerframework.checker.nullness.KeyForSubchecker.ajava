@@ -1,0 +1,88 @@
+package net.slreynolds.ds.model;
+
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.List;
+
+/**
+ */
+@org.checkerframework.framework.qual.AnnotatedFor("org.checkerframework.checker.nullness.KeyForSubchecker")
+final public class NodeArray extends GraphPoint {
+
+    private final   boolean _inlineValues;
+
+    private final  GraphPoint  [] _elements;
+
+    @org.checkerframework.dataflow.qual.SideEffectFree
+    public NodeArray( NamedID ID,  String name,   int length,   int generation,   boolean inlineValues) {
+        super(ID, name, generation);
+        if (length < 0) {
+            throw new IllegalArgumentException("length must be non-negative");
+        }
+        _elements = inlineValues ? new GraphPoint[length] : null;
+        _inlineValues = inlineValues;
+    }
+
+    @org.checkerframework.dataflow.qual.Impure
+    public  List<GraphPoint> getElements( NodeArray this) {
+        return _inlineValues ? a2l(_elements) : (List<GraphPoint>) Collections.EMPTY_LIST;
+    }
+
+    @org.checkerframework.dataflow.qual.Impure
+    private static <T>  List<T> a2l( T  [] ta) {
+        List<T> ts = new ArrayList<T>();
+        for (T t : ta) {
+            ts.add(t);
+        }
+        return ts;
+    }
+
+    @org.checkerframework.dataflow.qual.Pure
+    public   boolean areValuesInlined( NodeArray this) {
+        return _inlineValues;
+    }
+
+    @org.checkerframework.dataflow.qual.Impure
+    public void set( NodeArray this,   int i,  GraphPoint gp) {
+        _elements[i] = gp;
+    }
+
+    @org.checkerframework.dataflow.qual.Pure
+    public   int getLength( NodeArray this) {
+        return _inlineValues ? _elements.length : 0;
+    }
+
+    @org.checkerframework.dataflow.qual.Impure
+    public  NodeArray putAttr( NodeArray this,  String key,  Object value) {
+        return (NodeArray) super.putAttr(key, value);
+    }
+
+    @org.checkerframework.dataflow.qual.Impure
+    public  NodeArray removeAttr( NodeArray this,  String key) {
+        return (NodeArray) super.removeAttr(key);
+    }
+
+    @org.checkerframework.dataflow.qual.Pure
+    final public   boolean isNode( NodeArray this) {
+        return false;
+    }
+
+    @org.checkerframework.dataflow.qual.Pure
+    final public   boolean isArray( NodeArray this) {
+        return true;
+    }
+
+    @org.checkerframework.dataflow.qual.Impure
+    public  String toString( NodeArray this) {
+        StringBuilder sb = new StringBuilder("NodeArray [");
+        if (this.hasAttr(Named.CLASS)) {
+            sb.append(this.getAttr(Named.CLASS));
+            sb.append(' ');
+        }
+        if (_elements != null) {
+            sb.append("# elements=" + getLength());
+        }
+        sb.append(']');
+        return sb.toString();
+    }
+}

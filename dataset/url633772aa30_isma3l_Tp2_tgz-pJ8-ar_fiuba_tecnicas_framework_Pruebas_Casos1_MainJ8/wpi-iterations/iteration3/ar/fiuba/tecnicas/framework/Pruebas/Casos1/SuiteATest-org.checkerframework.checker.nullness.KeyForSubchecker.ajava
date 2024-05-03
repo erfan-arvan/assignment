@@ -1,0 +1,65 @@
+package ar.fiuba.tecnicas.framework.Pruebas.Casos1;
+
+import ar.fiuba.tecnicas.framework.JTest.*;
+
+@org.checkerframework.framework.qual.AnnotatedFor("org.checkerframework.checker.nullness.KeyForSubchecker")
+public class SuiteATest implements TestCreator {
+
+    private  TestSuite suite;
+
+    @org.checkerframework.dataflow.qual.Impure
+    public SuiteATest() {
+        this.suite = new TestSuite("SuiteATest") {
+
+            @org.checkerframework.dataflow.qual.Impure
+            public void setUp() {
+                getContext().put("k", 2);
+                getContext().put("h", 2);
+                getContext().put("list1", new Double[] { 1.2, 9.8, 4.6 });
+                getContext().put("list2", new Double[] { 1.2, 9.8, 4.6 });
+                getContext().put("trueCondition", 2 < 3);
+            }
+        };
+    }
+
+    @org.checkerframework.dataflow.qual.SideEffectFree
+    public void assetEqualWithSetUpTest( SuiteATest this) {
+        Assert.assertEquals("Objects have different value", suite.getContext().get("k"), suite.getContext().get("h"));
+    }
+
+    @org.checkerframework.dataflow.qual.SideEffectFree
+    public void assertArrayEqualsWithSetUpTest( SuiteATest this) {
+        Assert.assertArrayEquals("Arrays have different value", (Double[]) suite.getContext().get("list1"), (Double[]) suite.getContext().get("list2"));
+    }
+
+    @org.checkerframework.dataflow.qual.SideEffectFree
+    public void assertTrueWithSetUpTest( SuiteATest this) {
+        Assert.assertTrue("The condition is false", (Boolean) suite.getContext().get("trueCondition"));
+    }
+
+    @org.checkerframework.dataflow.qual.Impure
+    public  Test getTest( SuiteATest this) throws Exception {
+        suite.addTest(new TestCase("assertArrayEqualsWithSetUpTest") {
+
+            @org.checkerframework.dataflow.qual.SideEffectFree
+            public void runTest() {
+                assertArrayEqualsWithSetUpTest();
+            }
+        });
+        suite.addTest(new TestCase("assetEqualWithSetUpTest") {
+
+            @org.checkerframework.dataflow.qual.SideEffectFree
+            public void runTest() {
+                assetEqualWithSetUpTest();
+            }
+        });
+        suite.addTest(new TestCase("assertTrueWithSetUpTest") {
+
+            @org.checkerframework.dataflow.qual.SideEffectFree
+            public void runTest() {
+                assertTrueWithSetUpTest();
+            }
+        });
+        return suite;
+    }
+}

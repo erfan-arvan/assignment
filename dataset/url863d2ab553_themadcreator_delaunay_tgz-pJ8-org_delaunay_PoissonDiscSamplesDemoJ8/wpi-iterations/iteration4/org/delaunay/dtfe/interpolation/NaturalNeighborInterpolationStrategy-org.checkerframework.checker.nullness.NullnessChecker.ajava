@@ -1,0 +1,75 @@
+package org.delaunay.dtfe.interpolation;
+
+import java.util.Collection;
+import java.util.List;
+import java.util.Map;
+import java.util.Set;
+import org.delaunay.algorithm.Triangulation;
+import org.delaunay.algorithm.Triangulation.InvalidVertexException;
+import org.delaunay.algorithm.Triangulation.NonDelaunayException;
+import org.delaunay.dtfe.DensityModel;
+import org.delaunay.dtfe.DtfeTriangulationMap;
+import org.delaunay.model.Triangle;
+import org.delaunay.model.Vector;
+import org.delaunay.model.Vertex;
+import org.delaunay.model.Voronoi;
+import com.google.common.collect.Maps;
+import com.google.common.collect.Sets;
+
+@org.checkerframework.framework.qual.AnnotatedFor("org.checkerframework.checker.nullness.NullnessChecker")
+public class NaturalNeighborInterpolationStrategy implements InterpolationStrategy {
+
+    private final @org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.NonNull Map<Vertex, Voronoi> voronoi;
+
+    @org.checkerframework.dataflow.qual.Impure
+    public NaturalNeighborInterpolationStrategy() {
+        this.voronoi = Maps.newLinkedHashMap();
+    }
+
+    @org.checkerframework.dataflow.qual.Impure
+    public @org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.NonNull Voronoi getVoronoi(@org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.NonNull Vertex v) {
+        if (voronoi.containsKey(v)) {
+            return voronoi.get(v);
+        }
+        Voronoi cell = Voronoi.createFromTriangulation(v);
+        voronoi.put(v, cell);
+        return cell;
+    }
+
+    @org.checkerframework.dataflow.qual.Impure
+    public @org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.NonNull Voronoi getSecondOrderVoronoi(@org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.NonNull Triangulation triangulation, @org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.NonNull Vertex v) throws NonDelaunayException, InvalidVertexException {
+        Collection<Triangle> cavity = triangulation.getCircumcircleTriangles(v);
+        List<Triangle> tris = triangulation.createTriangles(triangulation.getEdgeSet(cavity), v);
+        Set<Vertex> verts = Sets.newHashSet();
+        for (Triangle tri : tris) {
+            verts.addAll(tri.getVertices());
+        }
+        verts.remove(v);
+        return Voronoi.create(v, verts, tris);
+    }
+
+    @org.checkerframework.dataflow.qual.Impure
+    public  @org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.NonNull double getDensity(@org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.NonNull NaturalNeighborInterpolationStrategy this, @org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.NonNull DtfeTriangulationMap<? extends DensityModel> dtfe, @org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.NonNull Vector v) {
+        Triangle tri = dtfe.getTriangulation().locate(v);
+        if (tri == null || dtfe.getTriangulation().touchesSuperVertex(tri)) {
+            return 0.0;
+        }
+        try {
+            Voronoi vor = getSecondOrderVoronoi(dtfe.getTriangulation(), new Vertex(v.x, v.y));
+            double area = 0;
+            for (Vertex vert : vor.getNeighborVertices()) {
+                if (dtfe.getTriangulation().neighborsSuperVertex(vert)) {
+                    continue;
+                }
+                Voronoi vertVor = getVoronoi(vert);
+                if (vertVor != null) {
+                    area += vor.intersect(vertVor).getArea() * dtfe.getDensity(vert);
+                }
+            }
+            return area / vor.getArea();
+        } catch (Exception e) {
+            e.printStackTrace();
+            return 0;
+        }
+    }
+}

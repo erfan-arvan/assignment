@@ -1,0 +1,79 @@
+package net.slreynolds.ds.export;
+
+@org.checkerframework.framework.qual.AnnotatedFor("org.checkerframework.checker.nullness.NullnessChecker")
+class ExportVertex {
+
+    private final  @org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.NonNull int _ID;
+
+    private final @org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.MonotonicNonNull String _label;
+
+    private final @org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.NonNull VertexType _vertextType;
+
+    private final  @org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.NonNull int _generation;
+
+    @org.checkerframework.framework.qual.EnsuresQualifier(expression = { "this._label" }, qualifier = org.checkerframework.checker.nullness.qual.Nullable.class)
+    @org.checkerframework.dataflow.qual.SideEffectFree
+    ExportVertex( @org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.NonNull int ID, @org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.Nullable String label, @org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.NonNull VertexType vertextType,  @org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.NonNull int generation) {
+        if (generation < 0) {
+            throw new IllegalArgumentException("generation cannot be negative");
+        }
+        this._ID = ID;
+        this._label = label;
+        this._vertextType = vertextType;
+        this._generation = generation;
+    }
+
+    @org.checkerframework.framework.qual.EnsuresQualifier(expression = { "this._label" }, qualifier = org.checkerframework.checker.nullness.qual.Nullable.class)
+    @org.checkerframework.dataflow.qual.Pure
+     @org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.NonNull int getID() {
+        return _ID;
+    }
+
+    @org.checkerframework.framework.qual.EnsuresQualifier(expression = { "this._label" }, qualifier = org.checkerframework.checker.nullness.qual.Nullable.class)
+    @org.checkerframework.dataflow.qual.Pure
+    @org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.Nullable String getLabel() {
+        return _label;
+    }
+
+    @org.checkerframework.framework.qual.EnsuresQualifier(expression = { "this._label" }, qualifier = org.checkerframework.checker.nullness.qual.Nullable.class)
+    @org.checkerframework.dataflow.qual.Pure
+    @org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.NonNull VertexType getVertexType() {
+        return _vertextType;
+    }
+
+    @org.checkerframework.framework.qual.EnsuresQualifier(expression = { "this._label" }, qualifier = org.checkerframework.checker.nullness.qual.Nullable.class)
+    @org.checkerframework.dataflow.qual.Pure
+     @org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.NonNull int getGeneration() {
+        return _generation;
+    }
+
+    @org.checkerframework.framework.qual.EnsuresQualifier(expression = { "this._label" }, qualifier = org.checkerframework.checker.nullness.qual.Nullable.class)
+    @org.checkerframework.dataflow.qual.Pure
+    public @org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.NonNull String toString(@org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.NonNull ExportVertex this) {
+        return "JungVertex [_ID=" + _ID + ", _label=" + _label + ", _vertextType=" + _vertextType + "]";
+    }
+
+    @org.checkerframework.framework.qual.EnsuresQualifier(expression = { "this._label" }, qualifier = org.checkerframework.checker.nullness.qual.Nullable.class)
+    @org.checkerframework.dataflow.qual.Pure
+    public  @org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.NonNull int hashCode(@org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.NonNull ExportVertex this) {
+        final int prime = 31;
+        int result = 1;
+        result = prime * result + _ID;
+        return result;
+    }
+
+    @org.checkerframework.framework.qual.EnsuresQualifier(expression = { "this._label" }, qualifier = org.checkerframework.checker.nullness.qual.Nullable.class)
+    @org.checkerframework.dataflow.qual.Pure
+    public  @org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.NonNull boolean equals(@org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.NonNull ExportVertex this, @org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.Nullable Object obj) {
+        if (this == obj)
+            return true;
+        if (obj == null)
+            return false;
+        if (getClass() != obj.getClass())
+            return false;
+        ExportVertex other = (ExportVertex) obj;
+        if (_ID != other._ID)
+            return false;
+        return true;
+    }
+}

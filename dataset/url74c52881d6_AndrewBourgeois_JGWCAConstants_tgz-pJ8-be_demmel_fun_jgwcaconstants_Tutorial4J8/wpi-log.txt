@@ -1,0 +1,700 @@
+CF_BINARY: ../scripts/tools/checker-framework/checker/bin/javac
+../dataset/url74c52881d6_AndrewBourgeois_JGWCAConstants_tgz-pJ8-be_demmel_fun_jgwcaconstants_Tutorial4J8/src/be/demmel/fun/jgwcaconstants/Version.java:61: warning: (argument) $$ 4 $$ inStream $$ Properties.load $$ @Initialized @Nullable InputStream $$ @Initialized @NonNull InputStream $$ ( 2276, 2282 ) $$ incompatible argument for parameter inStream of Properties.load.
+            props.load(stream);
+                       ^
+  found   : @Initialized @Nullable InputStream
+  required: @Initialized @NonNull InputStream
+../dataset/url74c52881d6_AndrewBourgeois_JGWCAConstants_tgz-pJ8-be_demmel_fun_jgwcaconstants_Tutorial4J8/src/be/demmel/fun/jgwcaconstants/Tutorial2.java:44: warning: (dereference.of.nullable) $$ 1 $$ gwcaConnection $$ ( 1911, 1925 ) $$ dereference of possibly-null reference gwcaConnection
+                gwcaConnection.close();
+                ^
+../dataset/url74c52881d6_AndrewBourgeois_JGWCAConstants_tgz-pJ8-be_demmel_fun_jgwcaconstants_Tutorial4J8/src/be/demmel/fun/jgwcaconstants/Tutorial1.java:66: warning: (dereference.of.nullable) $$ 1 $$ gwcaConnection $$ ( 3074, 3088 ) $$ dereference of possibly-null reference gwcaConnection
+                gwcaConnection.close();
+                ^
+../dataset/url74c52881d6_AndrewBourgeois_JGWCAConstants_tgz-pJ8-be_demmel_fun_jgwcaconstants_Tutorial4J8/src/be/demmel/fun/jgwcaconstants/bll/GWCAOperations.java:1256: warning: (argument) $$ 4 $$ bag $$ GWCAOperations.getItemId $$ null (NullType) $$ @Initialized @NonNull BagLocation $$ ( 47610, 47614 ) $$ incompatible argument for parameter bag of GWCAOperations.getItemId.
+        return this.getItemId(itemSlot, null);
+                                        ^
+  found   : null (NullType)
+  required: @Initialized @NonNull BagLocation
+../dataset/url74c52881d6_AndrewBourgeois_JGWCAConstants_tgz-pJ8-be_demmel_fun_jgwcaconstants_Tutorial4J8/src/be/demmel/fun/jgwcaconstants/bll/GWCAOperations.java:1368: warning: (argument) $$ 4 $$ bag $$ GWCAOperations.getItemInfo $$ null (NullType) $$ @Initialized @NonNull BagLocation $$ ( 51192, 51196 ) $$ incompatible argument for parameter bag of GWCAOperations.getItemInfo.
+        return this.getItemInfo(itemSlot, null);
+                                          ^
+  found   : null (NullType)
+  required: @Initialized @NonNull BagLocation
+../dataset/url74c52881d6_AndrewBourgeois_JGWCAConstants_tgz-pJ8-be_demmel_fun_jgwcaconstants_Tutorial4J8/src/be/demmel/fun/jgwcaconstants/bll/GWCAOperations.java:1455: warning: (argument) $$ 4 $$ bag $$ GWCAOperations.findGoldItem $$ null (NullType) $$ @Initialized @NonNull BagLocation $$ ( 54231, 54235 ) $$ incompatible argument for parameter bag of GWCAOperations.findGoldItem.
+        return this.findGoldItem(null);
+                                 ^
+  found   : null (NullType)
+  required: @Initialized @NonNull BagLocation
+../dataset/url74c52881d6_AndrewBourgeois_JGWCAConstants_tgz-pJ8-be_demmel_fun_jgwcaconstants_Tutorial4J8/src/be/demmel/fun/jgwcaconstants/bll/GWCAOperations.java:1597: warning: (argument) $$ 4 $$ bag $$ GWCAOperations.getItemExtraId $$ null (NullType) $$ @Initialized @NonNull BagLocation $$ ( 59625, 59629 ) $$ incompatible argument for parameter bag of GWCAOperations.getItemExtraId.
+        return getItemExtraId(null, itemSlot);
+                              ^
+  found   : null (NullType)
+  required: @Initialized @NonNull BagLocation
+../dataset/url74c52881d6_AndrewBourgeois_JGWCAConstants_tgz-pJ8-be_demmel_fun_jgwcaconstants_Tutorial4J8/src/be/demmel/fun/jgwcaconstants/bll/GWCAOperations.java:1637: warning: (argument) $$ 4 $$ bag $$ GWCAOperations.getItemReq $$ null (NullType) $$ @Initialized @NonNull BagLocation $$ ( 61078, 61082 ) $$ incompatible argument for parameter bag of GWCAOperations.getItemReq.
+        return getItemReq(null, itemSlot);
+                          ^
+  found   : null (NullType)
+  required: @Initialized @NonNull BagLocation
+../dataset/url74c52881d6_AndrewBourgeois_JGWCAConstants_tgz-pJ8-be_demmel_fun_jgwcaconstants_Tutorial4J8/src/be/demmel/fun/jgwcaconstants/bll/GWCAOperations.java:1679: warning: (argument) $$ 4 $$ startBag $$ GWCAOperations.getDyePositionByColor $$ null (NullType) $$ @Initialized @NonNull BagLocation $$ ( 62549, 62553 ) $$ incompatible argument for parameter startBag of GWCAOperations.getDyePositionByColor.
+        return getDyePositionByColor(dye, null);
+                                          ^
+  found   : null (NullType)
+  required: @Initialized @NonNull BagLocation
+../dataset/url74c52881d6_AndrewBourgeois_JGWCAConstants_tgz-pJ8-be_demmel_fun_jgwcaconstants_Tutorial4J8/src/be/demmel/fun/jgwcaconstants/bll/GWCAOperations.java:1700: warning: (argument) $$ 4 $$ startBag $$ GWCAOperations.getItemDmgMod $$ null (NullType) $$ @Initialized @NonNull BagLocation $$ ( 63221, 63225 ) $$ incompatible argument for parameter startBag of GWCAOperations.getItemDmgMod.
+        return getItemDmgMod(itemSlot, null);
+                                       ^
+  found   : null (NullType)
+  required: @Initialized @NonNull BagLocation
+../dataset/url74c52881d6_AndrewBourgeois_JGWCAConstants_tgz-pJ8-be_demmel_fun_jgwcaconstants_Tutorial4J8/src/be/demmel/fun/jgwcaconstants/bll/SkillType.java:30: warning: (return) $$ 2 $$ @Initialized @Nullable SkillType $$ @Initialized @NonNull SkillType $$ ( 1036, 1070 ) $$ incompatible types in return.
+        return SHORT_TO_SKILL_TYPE_MAP.get(value);
+                                          ^
+  type of expression: @Initialized @Nullable SkillType
+  method return type: @Initialized @NonNull SkillType
+../dataset/url74c52881d6_AndrewBourgeois_JGWCAConstants_tgz-pJ8-be_demmel_fun_jgwcaconstants_Tutorial4J8/src/be/demmel/fun/jgwcaconstants/bll/WeaponType.java:28: warning: (return) $$ 2 $$ @Initialized @Nullable WeaponType $$ @Initialized @NonNull WeaponType $$ ( 815, 850 ) $$ incompatible types in return.
+        return SHORT_TO_WEAPON_TYPE_MAP.get(value);
+                                           ^
+  type of expression: @Initialized @Nullable WeaponType
+  method return type: @Initialized @NonNull WeaponType
+../dataset/url74c52881d6_AndrewBourgeois_JGWCAConstants_tgz-pJ8-be_demmel_fun_jgwcaconstants_Tutorial4J8/src/be/demmel/fun/jgwcaconstants/bll/GWCAOperation.java:82: warning: (return) $$ 2 $$ @Initialized @Nullable GWCAOperation $$ @Initialized @NonNull GWCAOperation $$ ( 9220, 9253 ) $$ incompatible types in return.
+        return SHORT_TO_OPERATION_MAP.get(value);
+                                         ^
+  type of expression: @Initialized @Nullable GWCAOperation
+  method return type: @Initialized @NonNull GWCAOperation
+../dataset/url74c52881d6_AndrewBourgeois_JGWCAConstants_tgz-pJ8-be_demmel_fun_jgwcaconstants_Tutorial4J8/src/be/demmel/fun/jgwcaconstants/bll/GWCAPacket.java:58: warning: (method.invocation) $$ 3 $$ intToByteArray(int) $$ @UnderInitialization @NonNull GWCAPacket $$ @Initialized @NonNull GWCAPacket $$ ( 2625, 2647 ) $$ call to intToByteArray(int) not allowed on the given receiver.
+        this.wparam = intToByteArray(wparam);
+                                    ^
+  found   : @UnderInitialization @NonNull GWCAPacket
+  required: @Initialized @NonNull GWCAPacket
+../dataset/url74c52881d6_AndrewBourgeois_JGWCAConstants_tgz-pJ8-be_demmel_fun_jgwcaconstants_Tutorial4J8/src/be/demmel/fun/jgwcaconstants/bll/GWCAPacket.java:59: warning: (method.invocation) $$ 3 $$ intToByteArray(int) $$ @UnderInitialization @NonNull GWCAPacket $$ @Initialized @NonNull GWCAPacket $$ ( 2671, 2693 ) $$ call to intToByteArray(int) not allowed on the given receiver.
+        this.lparam = intToByteArray(lparam);
+                                    ^
+  found   : @UnderInitialization @NonNull GWCAPacket
+  required: @Initialized @NonNull GWCAPacket
+../dataset/url74c52881d6_AndrewBourgeois_JGWCAConstants_tgz-pJ8-be_demmel_fun_jgwcaconstants_Tutorial4J8/src/be/demmel/fun/jgwcaconstants/bll/NamedPipeGWCAConnection.java:15: warning: (initialization.fields.uninitialized) $$ 1 $$ namedPipe $$ ( 372, 486 ) $$ the constructor does not initialize fields: namedPipe
+    public NamedPipeGWCAConnection(File namedPipeLocation) {
+           ^
+../dataset/url74c52881d6_AndrewBourgeois_JGWCAConstants_tgz-pJ8-be_demmel_fun_jgwcaconstants_Tutorial4J8/src/be/demmel/fun/jgwcaconstants/bll/NamedPipeGWCAConnection.java:19: warning: (initialization.fields.uninitialized) $$ 1 $$ namedPipe $$ ( 496, 614 ) $$ the constructor does not initialize fields: namedPipe
+    public NamedPipeGWCAConnection(int pid) {
+           ^
+../dataset/url74c52881d6_AndrewBourgeois_JGWCAConstants_tgz-pJ8-be_demmel_fun_jgwcaconstants_Tutorial4J8/src/be/demmel/fun/jgwcaconstants/MainTestingAllFunctions.java:307: warning: (dereference.of.nullable) $$ 1 $$ gwcaConnection $$ ( 21859, 21873 ) $$ dereference of possibly-null reference gwcaConnection
+                gwcaConnection.close();
+                ^
+../dataset/url74c52881d6_AndrewBourgeois_JGWCAConstants_tgz-pJ8-be_demmel_fun_jgwcaconstants_Tutorial4J8/src/be/demmel/fun/jgwcaconstants/Tutorial3.java:46: warning: (dereference.of.nullable) $$ 1 $$ gwcaConnection $$ ( 2117, 2131 ) $$ dereference of possibly-null reference gwcaConnection
+                gwcaConnection.close();
+                ^
+../dataset/url74c52881d6_AndrewBourgeois_JGWCAConstants_tgz-pJ8-be_demmel_fun_jgwcaconstants_Tutorial4J8/src/be/demmel/fun/jgwcaconstants/JCommander.java:28: warning: (initialization.static.field.uninitialized) $$ 1 $$ gwcaConnection $$ ( 914, 959 ) $$ static field gwcaConnection not initialized
+    private static GWCAConnection gwcaConnection;
+                                  ^
+../dataset/url74c52881d6_AndrewBourgeois_JGWCAConstants_tgz-pJ8-be_demmel_fun_jgwcaconstants_Tutorial4J8/src/be/demmel/fun/jgwcaconstants/JCommander.java:29: warning: (initialization.static.field.uninitialized) $$ 1 $$ cb $$ ( 964, 992 ) $$ static field cb not initialized
+    private static JComboBox cb, cbType;
+                             ^
+../dataset/url74c52881d6_AndrewBourgeois_JGWCAConstants_tgz-pJ8-be_demmel_fun_jgwcaconstants_Tutorial4J8/src/be/demmel/fun/jgwcaconstants/JCommander.java:29: warning: (initialization.static.field.uninitialized) $$ 1 $$ cbType $$ ( 964, 1000 ) $$ static field cbType not initialized
+    private static JComboBox cb, cbType;
+                                 ^
+../dataset/url74c52881d6_AndrewBourgeois_JGWCAConstants_tgz-pJ8-be_demmel_fun_jgwcaconstants_Tutorial4J8/src/be/demmel/fun/jgwcaconstants/JCommander.java:30: warning: (initialization.static.field.uninitialized) $$ 1 $$ wTextField $$ ( 1005, 1042 ) $$ static field wTextField not initialized
+    private static JTextField wTextField, lTextField;
+                              ^
+../dataset/url74c52881d6_AndrewBourgeois_JGWCAConstants_tgz-pJ8-be_demmel_fun_jgwcaconstants_Tutorial4J8/src/be/demmel/fun/jgwcaconstants/JCommander.java:30: warning: (initialization.static.field.uninitialized) $$ 1 $$ lTextField $$ ( 1005, 1054 ) $$ static field lTextField not initialized
+    private static JTextField wTextField, lTextField;
+                                          ^
+../dataset/url74c52881d6_AndrewBourgeois_JGWCAConstants_tgz-pJ8-be_demmel_fun_jgwcaconstants_Tutorial4J8/src/be/demmel/fun/jgwcaconstants/JCommander.java:31: warning: (initialization.static.field.uninitialized) $$ 1 $$ wLabel $$ ( 1059, 1088 ) $$ static field wLabel not initialized
+    private static JLabel wLabel, lLabel;
+                          ^
+../dataset/url74c52881d6_AndrewBourgeois_JGWCAConstants_tgz-pJ8-be_demmel_fun_jgwcaconstants_Tutorial4J8/src/be/demmel/fun/jgwcaconstants/JCommander.java:31: warning: (initialization.static.field.uninitialized) $$ 1 $$ lLabel $$ ( 1059, 1096 ) $$ static field lLabel not initialized
+    private static JLabel wLabel, lLabel;
+                                  ^
+../dataset/url74c52881d6_AndrewBourgeois_JGWCAConstants_tgz-pJ8-be_demmel_fun_jgwcaconstants_Tutorial4J8/src/be/demmel/fun/jgwcaconstants/JCommander.java:156: warning: (argument) $$ 4 $$ wparam $$ GWCAPacket constructor $$ @Initialized @NonNull byte @Initialized @Nullable [] $$ @Initialized @NonNull byte @Initialized @NonNull [] $$ ( 5670, 5671 ) $$ incompatible argument for parameter wparam of GWCAPacket constructor.
+            gwcaConnection.sendPacket(new GWCAPacket(operationToInvoke, w, l));
+                                                                        ^
+  found   : @Initialized @NonNull byte @Initialized @Nullable []
+  required: @Initialized @NonNull byte @Initialized @NonNull []
+../dataset/url74c52881d6_AndrewBourgeois_JGWCAConstants_tgz-pJ8-be_demmel_fun_jgwcaconstants_Tutorial4J8/src/be/demmel/fun/jgwcaconstants/JCommander.java:156: warning: (argument) $$ 4 $$ lparam $$ GWCAPacket constructor $$ @Initialized @NonNull byte @Initialized @Nullable [] $$ @Initialized @NonNull byte @Initialized @NonNull [] $$ ( 5673, 5674 ) $$ incompatible argument for parameter lparam of GWCAPacket constructor.
+            gwcaConnection.sendPacket(new GWCAPacket(operationToInvoke, w, l));
+                                                                           ^
+  found   : @Initialized @NonNull byte @Initialized @Nullable []
+  required: @Initialized @NonNull byte @Initialized @NonNull []
+Note: ../dataset/url74c52881d6_AndrewBourgeois_JGWCAConstants_tgz-pJ8-be_demmel_fun_jgwcaconstants_Tutorial4J8/src/be/demmel/fun/jgwcaconstants/JCommander.java uses unchecked or unsafe operations.
+Note: Recompile with -Xlint:unchecked for details.
+28 warnings
+entering iteration 1
+../dataset/url74c52881d6_AndrewBourgeois_JGWCAConstants_tgz-pJ8-be_demmel_fun_jgwcaconstants_Tutorial4J8/src/be/demmel/fun/jgwcaconstants/Version.java:61: warning: (argument) $$ 4 $$ inStream $$ Properties.load $$ @Initialized @Nullable InputStream $$ @Initialized @NonNull InputStream $$ ( 2276, 2282 ) $$ incompatible argument for parameter inStream of Properties.load.
+            props.load(stream);
+                       ^
+  found   : @Initialized @Nullable InputStream
+  required: @Initialized @NonNull InputStream
+../dataset/url74c52881d6_AndrewBourgeois_JGWCAConstants_tgz-pJ8-be_demmel_fun_jgwcaconstants_Tutorial4J8/src/be/demmel/fun/jgwcaconstants/Tutorial2.java:44: warning: (dereference.of.nullable) $$ 1 $$ gwcaConnection $$ ( 1911, 1925 ) $$ dereference of possibly-null reference gwcaConnection
+                gwcaConnection.close();
+                ^
+../dataset/url74c52881d6_AndrewBourgeois_JGWCAConstants_tgz-pJ8-be_demmel_fun_jgwcaconstants_Tutorial4J8/src/be/demmel/fun/jgwcaconstants/Tutorial1.java:66: warning: (dereference.of.nullable) $$ 1 $$ gwcaConnection $$ ( 3074, 3088 ) $$ dereference of possibly-null reference gwcaConnection
+                gwcaConnection.close();
+                ^
+../dataset/url74c52881d6_AndrewBourgeois_JGWCAConstants_tgz-pJ8-be_demmel_fun_jgwcaconstants_Tutorial4J8/src/be/demmel/fun/jgwcaconstants/bll/GWCAOperations.java:1256: warning: (argument) $$ 4 $$ bag $$ GWCAOperations.getItemId $$ null (NullType) $$ @Initialized @NonNull BagLocation $$ ( 47610, 47614 ) $$ incompatible argument for parameter bag of GWCAOperations.getItemId.
+        return this.getItemId(itemSlot, null);
+                                        ^
+  found   : null (NullType)
+  required: @Initialized @NonNull BagLocation
+../dataset/url74c52881d6_AndrewBourgeois_JGWCAConstants_tgz-pJ8-be_demmel_fun_jgwcaconstants_Tutorial4J8/src/be/demmel/fun/jgwcaconstants/bll/GWCAOperations.java:1368: warning: (argument) $$ 4 $$ bag $$ GWCAOperations.getItemInfo $$ null (NullType) $$ @Initialized @NonNull BagLocation $$ ( 51192, 51196 ) $$ incompatible argument for parameter bag of GWCAOperations.getItemInfo.
+        return this.getItemInfo(itemSlot, null);
+                                          ^
+  found   : null (NullType)
+  required: @Initialized @NonNull BagLocation
+../dataset/url74c52881d6_AndrewBourgeois_JGWCAConstants_tgz-pJ8-be_demmel_fun_jgwcaconstants_Tutorial4J8/src/be/demmel/fun/jgwcaconstants/bll/GWCAOperations.java:1455: warning: (argument) $$ 4 $$ bag $$ GWCAOperations.findGoldItem $$ null (NullType) $$ @Initialized @NonNull BagLocation $$ ( 54231, 54235 ) $$ incompatible argument for parameter bag of GWCAOperations.findGoldItem.
+        return this.findGoldItem(null);
+                                 ^
+  found   : null (NullType)
+  required: @Initialized @NonNull BagLocation
+../dataset/url74c52881d6_AndrewBourgeois_JGWCAConstants_tgz-pJ8-be_demmel_fun_jgwcaconstants_Tutorial4J8/src/be/demmel/fun/jgwcaconstants/bll/GWCAOperations.java:1597: warning: (argument) $$ 4 $$ bag $$ GWCAOperations.getItemExtraId $$ null (NullType) $$ @Initialized @NonNull BagLocation $$ ( 59625, 59629 ) $$ incompatible argument for parameter bag of GWCAOperations.getItemExtraId.
+        return getItemExtraId(null, itemSlot);
+                              ^
+  found   : null (NullType)
+  required: @Initialized @NonNull BagLocation
+../dataset/url74c52881d6_AndrewBourgeois_JGWCAConstants_tgz-pJ8-be_demmel_fun_jgwcaconstants_Tutorial4J8/src/be/demmel/fun/jgwcaconstants/bll/GWCAOperations.java:1637: warning: (argument) $$ 4 $$ bag $$ GWCAOperations.getItemReq $$ null (NullType) $$ @Initialized @NonNull BagLocation $$ ( 61078, 61082 ) $$ incompatible argument for parameter bag of GWCAOperations.getItemReq.
+        return getItemReq(null, itemSlot);
+                          ^
+  found   : null (NullType)
+  required: @Initialized @NonNull BagLocation
+../dataset/url74c52881d6_AndrewBourgeois_JGWCAConstants_tgz-pJ8-be_demmel_fun_jgwcaconstants_Tutorial4J8/src/be/demmel/fun/jgwcaconstants/bll/GWCAOperations.java:1679: warning: (argument) $$ 4 $$ startBag $$ GWCAOperations.getDyePositionByColor $$ null (NullType) $$ @Initialized @NonNull BagLocation $$ ( 62549, 62553 ) $$ incompatible argument for parameter startBag of GWCAOperations.getDyePositionByColor.
+        return getDyePositionByColor(dye, null);
+                                          ^
+  found   : null (NullType)
+  required: @Initialized @NonNull BagLocation
+../dataset/url74c52881d6_AndrewBourgeois_JGWCAConstants_tgz-pJ8-be_demmel_fun_jgwcaconstants_Tutorial4J8/src/be/demmel/fun/jgwcaconstants/bll/GWCAOperations.java:1700: warning: (argument) $$ 4 $$ startBag $$ GWCAOperations.getItemDmgMod $$ null (NullType) $$ @Initialized @NonNull BagLocation $$ ( 63221, 63225 ) $$ incompatible argument for parameter startBag of GWCAOperations.getItemDmgMod.
+        return getItemDmgMod(itemSlot, null);
+                                       ^
+  found   : null (NullType)
+  required: @Initialized @NonNull BagLocation
+../dataset/url74c52881d6_AndrewBourgeois_JGWCAConstants_tgz-pJ8-be_demmel_fun_jgwcaconstants_Tutorial4J8/src/be/demmel/fun/jgwcaconstants/bll/SkillType.java:30: warning: (return) $$ 2 $$ @Initialized @Nullable SkillType $$ @Initialized @NonNull SkillType $$ ( 1036, 1070 ) $$ incompatible types in return.
+        return SHORT_TO_SKILL_TYPE_MAP.get(value);
+                                          ^
+  type of expression: @Initialized @Nullable SkillType
+  method return type: @Initialized @NonNull SkillType
+../dataset/url74c52881d6_AndrewBourgeois_JGWCAConstants_tgz-pJ8-be_demmel_fun_jgwcaconstants_Tutorial4J8/src/be/demmel/fun/jgwcaconstants/bll/WeaponType.java:28: warning: (return) $$ 2 $$ @Initialized @Nullable WeaponType $$ @Initialized @NonNull WeaponType $$ ( 815, 850 ) $$ incompatible types in return.
+        return SHORT_TO_WEAPON_TYPE_MAP.get(value);
+                                           ^
+  type of expression: @Initialized @Nullable WeaponType
+  method return type: @Initialized @NonNull WeaponType
+../dataset/url74c52881d6_AndrewBourgeois_JGWCAConstants_tgz-pJ8-be_demmel_fun_jgwcaconstants_Tutorial4J8/src/be/demmel/fun/jgwcaconstants/bll/GWCAOperation.java:82: warning: (return) $$ 2 $$ @Initialized @Nullable GWCAOperation $$ @Initialized @NonNull GWCAOperation $$ ( 9220, 9253 ) $$ incompatible types in return.
+        return SHORT_TO_OPERATION_MAP.get(value);
+                                         ^
+  type of expression: @Initialized @Nullable GWCAOperation
+  method return type: @Initialized @NonNull GWCAOperation
+../dataset/url74c52881d6_AndrewBourgeois_JGWCAConstants_tgz-pJ8-be_demmel_fun_jgwcaconstants_Tutorial4J8/src/be/demmel/fun/jgwcaconstants/bll/GWCAPacket.java:58: warning: (method.invocation) $$ 3 $$ intToByteArray(int) $$ @UnderInitialization @NonNull GWCAPacket $$ @Initialized @NonNull GWCAPacket $$ ( 2625, 2647 ) $$ call to intToByteArray(int) not allowed on the given receiver.
+        this.wparam = intToByteArray(wparam);
+                                    ^
+  found   : @UnderInitialization @NonNull GWCAPacket
+  required: @Initialized @NonNull GWCAPacket
+../dataset/url74c52881d6_AndrewBourgeois_JGWCAConstants_tgz-pJ8-be_demmel_fun_jgwcaconstants_Tutorial4J8/src/be/demmel/fun/jgwcaconstants/bll/GWCAPacket.java:59: warning: (method.invocation) $$ 3 $$ intToByteArray(int) $$ @UnderInitialization @NonNull GWCAPacket $$ @Initialized @NonNull GWCAPacket $$ ( 2671, 2693 ) $$ call to intToByteArray(int) not allowed on the given receiver.
+        this.lparam = intToByteArray(lparam);
+                                    ^
+  found   : @UnderInitialization @NonNull GWCAPacket
+  required: @Initialized @NonNull GWCAPacket
+../dataset/url74c52881d6_AndrewBourgeois_JGWCAConstants_tgz-pJ8-be_demmel_fun_jgwcaconstants_Tutorial4J8/src/be/demmel/fun/jgwcaconstants/bll/NamedPipeGWCAConnection.java:15: warning: (initialization.fields.uninitialized) $$ 1 $$ namedPipe $$ ( 372, 486 ) $$ the constructor does not initialize fields: namedPipe
+    public NamedPipeGWCAConnection(File namedPipeLocation) {
+           ^
+../dataset/url74c52881d6_AndrewBourgeois_JGWCAConstants_tgz-pJ8-be_demmel_fun_jgwcaconstants_Tutorial4J8/src/be/demmel/fun/jgwcaconstants/bll/NamedPipeGWCAConnection.java:19: warning: (initialization.fields.uninitialized) $$ 1 $$ namedPipe $$ ( 496, 614 ) $$ the constructor does not initialize fields: namedPipe
+    public NamedPipeGWCAConnection(int pid) {
+           ^
+../dataset/url74c52881d6_AndrewBourgeois_JGWCAConstants_tgz-pJ8-be_demmel_fun_jgwcaconstants_Tutorial4J8/src/be/demmel/fun/jgwcaconstants/MainTestingAllFunctions.java:307: warning: (dereference.of.nullable) $$ 1 $$ gwcaConnection $$ ( 21859, 21873 ) $$ dereference of possibly-null reference gwcaConnection
+                gwcaConnection.close();
+                ^
+../dataset/url74c52881d6_AndrewBourgeois_JGWCAConstants_tgz-pJ8-be_demmel_fun_jgwcaconstants_Tutorial4J8/src/be/demmel/fun/jgwcaconstants/Tutorial3.java:46: warning: (dereference.of.nullable) $$ 1 $$ gwcaConnection $$ ( 2117, 2131 ) $$ dereference of possibly-null reference gwcaConnection
+                gwcaConnection.close();
+                ^
+../dataset/url74c52881d6_AndrewBourgeois_JGWCAConstants_tgz-pJ8-be_demmel_fun_jgwcaconstants_Tutorial4J8/src/be/demmel/fun/jgwcaconstants/JCommander.java:28: warning: (initialization.static.field.uninitialized) $$ 1 $$ gwcaConnection $$ ( 914, 959 ) $$ static field gwcaConnection not initialized
+    private static GWCAConnection gwcaConnection;
+                                  ^
+../dataset/url74c52881d6_AndrewBourgeois_JGWCAConstants_tgz-pJ8-be_demmel_fun_jgwcaconstants_Tutorial4J8/src/be/demmel/fun/jgwcaconstants/JCommander.java:29: warning: (initialization.static.field.uninitialized) $$ 1 $$ cb $$ ( 964, 992 ) $$ static field cb not initialized
+    private static JComboBox cb, cbType;
+                             ^
+../dataset/url74c52881d6_AndrewBourgeois_JGWCAConstants_tgz-pJ8-be_demmel_fun_jgwcaconstants_Tutorial4J8/src/be/demmel/fun/jgwcaconstants/JCommander.java:29: warning: (initialization.static.field.uninitialized) $$ 1 $$ cbType $$ ( 964, 1000 ) $$ static field cbType not initialized
+    private static JComboBox cb, cbType;
+                                 ^
+../dataset/url74c52881d6_AndrewBourgeois_JGWCAConstants_tgz-pJ8-be_demmel_fun_jgwcaconstants_Tutorial4J8/src/be/demmel/fun/jgwcaconstants/JCommander.java:30: warning: (initialization.static.field.uninitialized) $$ 1 $$ wTextField $$ ( 1005, 1042 ) $$ static field wTextField not initialized
+    private static JTextField wTextField, lTextField;
+                              ^
+../dataset/url74c52881d6_AndrewBourgeois_JGWCAConstants_tgz-pJ8-be_demmel_fun_jgwcaconstants_Tutorial4J8/src/be/demmel/fun/jgwcaconstants/JCommander.java:30: warning: (initialization.static.field.uninitialized) $$ 1 $$ lTextField $$ ( 1005, 1054 ) $$ static field lTextField not initialized
+    private static JTextField wTextField, lTextField;
+                                          ^
+../dataset/url74c52881d6_AndrewBourgeois_JGWCAConstants_tgz-pJ8-be_demmel_fun_jgwcaconstants_Tutorial4J8/src/be/demmel/fun/jgwcaconstants/JCommander.java:31: warning: (initialization.static.field.uninitialized) $$ 1 $$ wLabel $$ ( 1059, 1088 ) $$ static field wLabel not initialized
+    private static JLabel wLabel, lLabel;
+                          ^
+../dataset/url74c52881d6_AndrewBourgeois_JGWCAConstants_tgz-pJ8-be_demmel_fun_jgwcaconstants_Tutorial4J8/src/be/demmel/fun/jgwcaconstants/JCommander.java:31: warning: (initialization.static.field.uninitialized) $$ 1 $$ lLabel $$ ( 1059, 1096 ) $$ static field lLabel not initialized
+    private static JLabel wLabel, lLabel;
+                                  ^
+../dataset/url74c52881d6_AndrewBourgeois_JGWCAConstants_tgz-pJ8-be_demmel_fun_jgwcaconstants_Tutorial4J8/src/be/demmel/fun/jgwcaconstants/JCommander.java:156: warning: (argument) $$ 4 $$ wparam $$ GWCAPacket constructor $$ @Initialized @NonNull byte @Initialized @Nullable [] $$ @Initialized @NonNull byte @Initialized @NonNull [] $$ ( 5670, 5671 ) $$ incompatible argument for parameter wparam of GWCAPacket constructor.
+            gwcaConnection.sendPacket(new GWCAPacket(operationToInvoke, w, l));
+                                                                        ^
+  found   : @Initialized @NonNull byte @Initialized @Nullable []
+  required: @Initialized @NonNull byte @Initialized @NonNull []
+../dataset/url74c52881d6_AndrewBourgeois_JGWCAConstants_tgz-pJ8-be_demmel_fun_jgwcaconstants_Tutorial4J8/src/be/demmel/fun/jgwcaconstants/JCommander.java:156: warning: (argument) $$ 4 $$ lparam $$ GWCAPacket constructor $$ @Initialized @NonNull byte @Initialized @Nullable [] $$ @Initialized @NonNull byte @Initialized @NonNull [] $$ ( 5673, 5674 ) $$ incompatible argument for parameter lparam of GWCAPacket constructor.
+            gwcaConnection.sendPacket(new GWCAPacket(operationToInvoke, w, l));
+                                                                           ^
+  found   : @Initialized @NonNull byte @Initialized @Nullable []
+  required: @Initialized @NonNull byte @Initialized @NonNull []
+Note: ../dataset/url74c52881d6_AndrewBourgeois_JGWCAConstants_tgz-pJ8-be_demmel_fun_jgwcaconstants_Tutorial4J8/src/be/demmel/fun/jgwcaconstants/JCommander.java uses unchecked or unsafe operations.
+Note: Recompile with -Xlint:unchecked for details.
+28 warnings
+putting the diff for iteration 1 into /mmfs1/home/ea442/wpi-njr-debug/wpi/iteration1.diff
+ending iteration 1, time taken: 19 seconds
+
+entering iteration 2
+warning: /mmfs1/home/ea442/wpi-njr-debug/wpi/../dataset/url74c52881d6_AndrewBourgeois_JGWCAConstants_tgz-pJ8-be_demmel_fun_jgwcaconstants_Tutorial4J8/wpi-out/edu/columbia/stat/wood/pub/sequencememoizer/IntSequenceMemoizer-org.checkerframework.checker.nullness.KeyForSubchecker.ajava:(line 7,col 1): Imported type not found: edu.columbia.stat.wood.pub.sequencememoizer.util.Discounts
+warning: /mmfs1/home/ea442/wpi-njr-debug/wpi/../dataset/url74c52881d6_AndrewBourgeois_JGWCAConstants_tgz-pJ8-be_demmel_fun_jgwcaconstants_Tutorial4J8/wpi-out/edu/columbia/stat/wood/pub/sequencememoizer/IntSequenceMemoizer-org.checkerframework.checker.nullness.KeyForSubchecker.ajava:(line 8,col 1): Imported type not found: edu.columbia.stat.wood.pub.sequencememoizer.util.IntRestaurant
+warning: /mmfs1/home/ea442/wpi-njr-debug/wpi/../dataset/url74c52881d6_AndrewBourgeois_JGWCAConstants_tgz-pJ8-be_demmel_fun_jgwcaconstants_Tutorial4J8/wpi-out/edu/columbia/stat/wood/pub/sequencememoizer/IntSequenceMemoizer-org.checkerframework.checker.nullness.KeyForSubchecker.ajava:(line 9,col 1): Imported type not found: edu.columbia.stat.wood.pub.sequencememoizer.util.IntSamplingNode
+warning: /mmfs1/home/ea442/wpi-njr-debug/wpi/../dataset/url74c52881d6_AndrewBourgeois_JGWCAConstants_tgz-pJ8-be_demmel_fun_jgwcaconstants_Tutorial4J8/wpi-out/edu/columbia/stat/wood/pub/sequencememoizer/IntSequenceMemoizer-org.checkerframework.checker.nullness.KeyForSubchecker.ajava:(line 10,col 1): Imported type not found: edu.columbia.stat.wood.pub.sequencememoizer.util.IntSequence
+warning: /mmfs1/home/ea442/wpi-njr-debug/wpi/../dataset/url74c52881d6_AndrewBourgeois_JGWCAConstants_tgz-pJ8-be_demmel_fun_jgwcaconstants_Tutorial4J8/wpi-out/edu/columbia/stat/wood/pub/sequencememoizer/IntSequenceMemoizer-org.checkerframework.checker.nullness.KeyForSubchecker.ajava:(line 11,col 1): Imported type not found: edu.columbia.stat.wood.pub.sequencememoizer.util.IntSequence.BackwardsIterator
+warning: /mmfs1/home/ea442/wpi-njr-debug/wpi/../dataset/url74c52881d6_AndrewBourgeois_JGWCAConstants_tgz-pJ8-be_demmel_fun_jgwcaconstants_Tutorial4J8/wpi-out/edu/columbia/stat/wood/pub/sequencememoizer/IntSequenceMemoizer-org.checkerframework.checker.nullness.KeyForSubchecker.ajava:(line 12,col 1): Imported type not found: edu.columbia.stat.wood.pub.sequencememoizer.util.IntSequence.IntSeqNode
+warning: /mmfs1/home/ea442/wpi-njr-debug/wpi/../dataset/url74c52881d6_AndrewBourgeois_JGWCAConstants_tgz-pJ8-be_demmel_fun_jgwcaconstants_Tutorial4J8/wpi-out/edu/columbia/stat/wood/pub/sequencememoizer/IntSequenceMemoizer-org.checkerframework.checker.nullness.KeyForSubchecker.ajava:(line 13,col 1): Imported type not found: edu.columbia.stat.wood.pub.sequencememoizer.util.DoubleStack
+warning: /mmfs1/home/ea442/wpi-njr-debug/wpi/../dataset/url74c52881d6_AndrewBourgeois_JGWCAConstants_tgz-pJ8-be_demmel_fun_jgwcaconstants_Tutorial4J8/wpi-out/edu/columbia/stat/wood/pub/sequencememoizer/IntSequenceMemoizer-org.checkerframework.checker.nullness.KeyForSubchecker.ajava:(line 14,col 1): Imported type not found: edu.columbia.stat.wood.pub.sequencememoizer.util.IntDiscreteDistribution
+warning: /mmfs1/home/ea442/wpi-njr-debug/wpi/../dataset/url74c52881d6_AndrewBourgeois_JGWCAConstants_tgz-pJ8-be_demmel_fun_jgwcaconstants_Tutorial4J8/wpi-out/edu/columbia/stat/wood/pub/sequencememoizer/IntSequenceMemoizer-org.checkerframework.checker.nullness.KeyForSubchecker.ajava:(line 15,col 1): Imported type not found: edu.columbia.stat.wood.pub.sequencememoizer.util.IntHashMapDiscreteDistribution
+warning: /mmfs1/home/ea442/wpi-njr-debug/wpi/../dataset/url74c52881d6_AndrewBourgeois_JGWCAConstants_tgz-pJ8-be_demmel_fun_jgwcaconstants_Tutorial4J8/wpi-out/edu/columbia/stat/wood/pub/sequencememoizer/IntSequenceMemoizer-org.checkerframework.checker.nullness.KeyForSubchecker.ajava:(line 16,col 1): Imported type not found: edu.columbia.stat.wood.pub.sequencememoizer.util.IntUniformDiscreteDistribution
+warning: /mmfs1/home/ea442/wpi-njr-debug/wpi/../dataset/url74c52881d6_AndrewBourgeois_JGWCAConstants_tgz-pJ8-be_demmel_fun_jgwcaconstants_Tutorial4J8/wpi-out/edu/columbia/stat/wood/pub/sequencememoizer/IntSequenceMemoizer-org.checkerframework.checker.nullness.KeyForSubchecker.ajava:(line 17,col 1): Imported type not found: edu.columbia.stat.wood.pub.sequencememoizer.util.LogBracketFunction
+warning: /mmfs1/home/ea442/wpi-njr-debug/wpi/../dataset/url74c52881d6_AndrewBourgeois_JGWCAConstants_tgz-pJ8-be_demmel_fun_jgwcaconstants_Tutorial4J8/wpi-out/edu/columbia/stat/wood/pub/sequencememoizer/IntSequenceMemoizer-org.checkerframework.checker.nullness.KeyForSubchecker.ajava:(line 18,col 1): Imported type not found: edu.columbia.stat.wood.pub.sequencememoizer.util.LogGeneralizedSterlingNumbers
+warning: /mmfs1/home/ea442/wpi-njr-debug/wpi/../dataset/url74c52881d6_AndrewBourgeois_JGWCAConstants_tgz-pJ8-be_demmel_fun_jgwcaconstants_Tutorial4J8/wpi-out/edu/columbia/stat/wood/pub/sequencememoizer/IntSequenceMemoizer-org.checkerframework.checker.nullness.KeyForSubchecker.ajava:(line 19,col 1): Imported type not found: edu.columbia.stat.wood.pub.sequencememoizer.util.MersenneTwisterFast
+warning: /mmfs1/home/ea442/wpi-njr-debug/wpi/../dataset/url74c52881d6_AndrewBourgeois_JGWCAConstants_tgz-pJ8-be_demmel_fun_jgwcaconstants_Tutorial4J8/wpi-out/edu/columbia/stat/wood/pub/sequencememoizer/IntSequenceMemoizer-org.checkerframework.checker.nullness.KeyForSubchecker.ajava:(line 20,col 1): Imported type not found: edu.columbia.stat.wood.pub.sequencememoizer.util.MutableDouble
+warning: /mmfs1/home/ea442/wpi-njr-debug/wpi/../dataset/url74c52881d6_AndrewBourgeois_JGWCAConstants_tgz-pJ8-be_demmel_fun_jgwcaconstants_Tutorial4J8/wpi-out/edu/columbia/stat/wood/pub/sequencememoizer/IntSequenceMemoizer-org.checkerframework.checker.nullness.KeyForSubchecker.ajava:(line 21,col 1): Imported type not found: edu.columbia.stat.wood.pub.sequencememoizer.util.MutableLong
+warning: /mmfs1/home/ea442/wpi-njr-debug/wpi/../dataset/url74c52881d6_AndrewBourgeois_JGWCAConstants_tgz-pJ8-be_demmel_fun_jgwcaconstants_Tutorial4J8/wpi-out/edu/columbia/stat/wood/pub/sequencememoizer/IntSequenceMemoizer-org.checkerframework.checker.nullness.KeyForSubchecker.ajava:(line 22,col 1): Imported type not found: edu.columbia.stat.wood.pub.sequencememoizer.util.Pair
+warning: /mmfs1/home/ea442/wpi-njr-debug/wpi/../dataset/url74c52881d6_AndrewBourgeois_JGWCAConstants_tgz-pJ8-be_demmel_fun_jgwcaconstants_Tutorial4J8/wpi-out/edu/columbia/stat/wood/pub/sequencememoizer/IntSequenceMemoizer-org.checkerframework.checker.nullness.KeyForSubchecker.ajava:(line 23,col 1): Imported type not found: edu.columbia.stat.wood.pub.sequencememoizer.util.SeatingArranger
+warning: /mmfs1/home/ea442/wpi-njr-debug/wpi/../dataset/url74c52881d6_AndrewBourgeois_JGWCAConstants_tgz-pJ8-be_demmel_fun_jgwcaconstants_Tutorial4J8/wpi-out/edu/columbia/stat/wood/pub/sequencememoizer/IntSequenceMemoizer-org.checkerframework.checker.nullness.KeyForSubchecker.ajava:(line 24,col 1): Imported type not found: gnu.trove.map.hash.TIntObjectHashMap
+warning: /mmfs1/home/ea442/wpi-njr-debug/wpi/../dataset/url74c52881d6_AndrewBourgeois_JGWCAConstants_tgz-pJ8-be_demmel_fun_jgwcaconstants_Tutorial4J8/wpi-out/edu/columbia/stat/wood/pub/sequencememoizer/IntSequenceMemoizer-org.checkerframework.checker.nullness.KeyForSubchecker.ajava:(line 5,col 1): Package not found: edu.columbia.stat.wood.pub.sequencememoizer
+warning: /mmfs1/home/ea442/wpi-njr-debug/wpi/../dataset/url74c52881d6_AndrewBourgeois_JGWCAConstants_tgz-pJ8-be_demmel_fun_jgwcaconstants_Tutorial4J8/wpi-out/edu/columbia/stat/wood/pub/sequencememoizer/IntSequenceMemoizer-org.checkerframework.checker.nullness.KeyForSubchecker.ajava:(line 39,col 1): Type not found: edu.columbia.stat.wood.pub.sequencememoizer.IntSequenceMemoizer
+warning: /mmfs1/home/ea442/wpi-njr-debug/wpi/../dataset/url74c52881d6_AndrewBourgeois_JGWCAConstants_tgz-pJ8-be_demmel_fun_jgwcaconstants_Tutorial4J8/wpi-out/edu/columbia/stat/wood/pub/sequencememoizer/IntSequenceMemoizerInterface-org.checkerframework.checker.nullness.KeyForSubchecker.ajava:(line 13,col 1): Type not found: edu.columbia.stat.wood.pub.sequencememoizer.IntSequenceMemoizerInterface
+warning: /mmfs1/home/ea442/wpi-njr-debug/wpi/../dataset/url74c52881d6_AndrewBourgeois_JGWCAConstants_tgz-pJ8-be_demmel_fun_jgwcaconstants_Tutorial4J8/wpi-out/edu/columbia/stat/wood/pub/sequencememoizer/IntSequenceMemoizerParameters-org.checkerframework.checker.nullness.KeyForSubchecker.ajava:(line 14,col 1): Type not found: edu.columbia.stat.wood.pub.sequencememoizer.IntSequenceMemoizerParameters
+warning: /mmfs1/home/ea442/wpi-njr-debug/wpi/../dataset/url74c52881d6_AndrewBourgeois_JGWCAConstants_tgz-pJ8-be_demmel_fun_jgwcaconstants_Tutorial4J8/wpi-out/edu/columbia/stat/wood/pub/sequencememoizer/SequenceMemoizerParameters-org.checkerframework.checker.nullness.KeyForSubchecker.ajava:(line 16,col 1): Type not found: edu.columbia.stat.wood.pub.sequencememoizer.SequenceMemoizerParameters
+warning: /mmfs1/home/ea442/wpi-njr-debug/wpi/../dataset/url74c52881d6_AndrewBourgeois_JGWCAConstants_tgz-pJ8-be_demmel_fun_jgwcaconstants_Tutorial4J8/wpi-out/edu/columbia/stat/wood/pub/sequencememoizer/util/Discounts-org.checkerframework.checker.nullness.KeyForSubchecker.ajava:(line 5,col 1): Package not found: edu.columbia.stat.wood.pub.sequencememoizer.util
+warning: /mmfs1/home/ea442/wpi-njr-debug/wpi/../dataset/url74c52881d6_AndrewBourgeois_JGWCAConstants_tgz-pJ8-be_demmel_fun_jgwcaconstants_Tutorial4J8/wpi-out/edu/columbia/stat/wood/pub/sequencememoizer/util/Discounts-org.checkerframework.checker.nullness.KeyForSubchecker.ajava:(line 14,col 1): Type not found: edu.columbia.stat.wood.pub.sequencememoizer.util.Discounts
+warning: /mmfs1/home/ea442/wpi-njr-debug/wpi/../dataset/url74c52881d6_AndrewBourgeois_JGWCAConstants_tgz-pJ8-be_demmel_fun_jgwcaconstants_Tutorial4J8/wpi-out/edu/columbia/stat/wood/pub/sequencememoizer/util/DoubleStack-org.checkerframework.checker.nullness.KeyForSubchecker.ajava:(line 13,col 1): Type not found: edu.columbia.stat.wood.pub.sequencememoizer.util.DoubleStack
+warning: /mmfs1/home/ea442/wpi-njr-debug/wpi/../dataset/url74c52881d6_AndrewBourgeois_JGWCAConstants_tgz-pJ8-be_demmel_fun_jgwcaconstants_Tutorial4J8/wpi-out/edu/columbia/stat/wood/pub/sequencememoizer/util/IntDiscreteDistribution-org.checkerframework.checker.nullness.KeyForSubchecker.ajava:(line 13,col 1): Type not found: edu.columbia.stat.wood.pub.sequencememoizer.util.IntDiscreteDistribution
+warning: /mmfs1/home/ea442/wpi-njr-debug/wpi/../dataset/url74c52881d6_AndrewBourgeois_JGWCAConstants_tgz-pJ8-be_demmel_fun_jgwcaconstants_Tutorial4J8/wpi-out/edu/columbia/stat/wood/pub/sequencememoizer/util/IntHashMapDiscreteDistribution-org.checkerframework.checker.nullness.KeyForSubchecker.ajava:(line 7,col 1): Imported type not found: gnu.trove.iterator.TIntObjectIterator
+warning: /mmfs1/home/ea442/wpi-njr-debug/wpi/../dataset/url74c52881d6_AndrewBourgeois_JGWCAConstants_tgz-pJ8-be_demmel_fun_jgwcaconstants_Tutorial4J8/wpi-out/edu/columbia/stat/wood/pub/sequencememoizer/util/IntHashMapDiscreteDistribution-org.checkerframework.checker.nullness.KeyForSubchecker.ajava:(line 17,col 1): Type not found: edu.columbia.stat.wood.pub.sequencememoizer.util.IntHashMapDiscreteDistribution
+warning: /mmfs1/home/ea442/wpi-njr-debug/wpi/../dataset/url74c52881d6_AndrewBourgeois_JGWCAConstants_tgz-pJ8-be_demmel_fun_jgwcaconstants_Tutorial4J8/wpi-out/edu/columbia/stat/wood/pub/sequencememoizer/util/IntMap-org.checkerframework.checker.nullness.KeyForSubchecker.ajava:(line 13,col 1): Type not found: edu.columbia.stat.wood.pub.sequencememoizer.util.IntMap
+warning: /mmfs1/home/ea442/wpi-njr-debug/wpi/../dataset/url74c52881d6_AndrewBourgeois_JGWCAConstants_tgz-pJ8-be_demmel_fun_jgwcaconstants_Tutorial4J8/wpi-out/edu/columbia/stat/wood/pub/sequencememoizer/util/IntRestaurant-org.checkerframework.checker.nullness.KeyForSubchecker.ajava:(line 7,col 1): Imported type not found: edu.columbia.stat.wood.pub.sequencememoizer.IntSequenceMemoizer
+warning: /mmfs1/home/ea442/wpi-njr-debug/wpi/../dataset/url74c52881d6_AndrewBourgeois_JGWCAConstants_tgz-pJ8-be_demmel_fun_jgwcaconstants_Tutorial4J8/wpi-out/edu/columbia/stat/wood/pub/sequencememoizer/util/IntRestaurant-org.checkerframework.checker.nullness.KeyForSubchecker.ajava:(line 9,col 1): Imported type not found: edu.columbia.stat.wood.pub.sequencememoizer.IntSequenceMemoizer.SeatReturn
+warning: /mmfs1/home/ea442/wpi-njr-debug/wpi/../dataset/url74c52881d6_AndrewBourgeois_JGWCAConstants_tgz-pJ8-be_demmel_fun_jgwcaconstants_Tutorial4J8/wpi-out/edu/columbia/stat/wood/pub/sequencememoizer/util/IntRestaurant-org.checkerframework.checker.nullness.KeyForSubchecker.ajava:(line 19,col 1): Type not found: edu.columbia.stat.wood.pub.sequencememoizer.util.IntRestaurant
+warning: /mmfs1/home/ea442/wpi-njr-debug/wpi/../dataset/url74c52881d6_AndrewBourgeois_JGWCAConstants_tgz-pJ8-be_demmel_fun_jgwcaconstants_Tutorial4J8/wpi-out/edu/columbia/stat/wood/pub/sequencememoizer/util/IntSamplingNode-org.checkerframework.checker.nullness.KeyForSubchecker.ajava:(line 15,col 1): Type not found: edu.columbia.stat.wood.pub.sequencememoizer.util.IntSamplingNode
+warning: /mmfs1/home/ea442/wpi-njr-debug/wpi/../dataset/url74c52881d6_AndrewBourgeois_JGWCAConstants_tgz-pJ8-be_demmel_fun_jgwcaconstants_Tutorial4J8/wpi-out/edu/columbia/stat/wood/pub/sequencememoizer/util/IntSequence-org.checkerframework.checker.nullness.KeyForSubchecker.ajava:(line 7,col 1): Imported type not found: edu.columbia.stat.wood.pub.sequencememoizer.IntSequenceMemoizer.NewKey
+warning: /mmfs1/home/ea442/wpi-njr-debug/wpi/../dataset/url74c52881d6_AndrewBourgeois_JGWCAConstants_tgz-pJ8-be_demmel_fun_jgwcaconstants_Tutorial4J8/wpi-out/edu/columbia/stat/wood/pub/sequencememoizer/util/IntSequence-org.checkerframework.checker.nullness.KeyForSubchecker.ajava:(line 8,col 1): Imported type not found: gnu.trove.set.hash.THashSet
+warning: /mmfs1/home/ea442/wpi-njr-debug/wpi/../dataset/url74c52881d6_AndrewBourgeois_JGWCAConstants_tgz-pJ8-be_demmel_fun_jgwcaconstants_Tutorial4J8/wpi-out/edu/columbia/stat/wood/pub/sequencememoizer/util/IntSequence-org.checkerframework.checker.nullness.KeyForSubchecker.ajava:(line 20,col 1): Type not found: edu.columbia.stat.wood.pub.sequencememoizer.util.IntSequence
+warning: /mmfs1/home/ea442/wpi-njr-debug/wpi/../dataset/url74c52881d6_AndrewBourgeois_JGWCAConstants_tgz-pJ8-be_demmel_fun_jgwcaconstants_Tutorial4J8/wpi-out/edu/columbia/stat/wood/pub/sequencememoizer/util/IntUniformDiscreteDistribution-org.checkerframework.checker.nullness.KeyForSubchecker.ajava:(line 14,col 1): Type not found: edu.columbia.stat.wood.pub.sequencememoizer.util.IntUniformDiscreteDistribution
+warning: /mmfs1/home/ea442/wpi-njr-debug/wpi/../dataset/url74c52881d6_AndrewBourgeois_JGWCAConstants_tgz-pJ8-be_demmel_fun_jgwcaconstants_Tutorial4J8/wpi-out/edu/columbia/stat/wood/pub/sequencememoizer/util/LogAdd-org.checkerframework.checker.nullness.KeyForSubchecker.ajava:(line 12,col 1): Type not found: edu.columbia.stat.wood.pub.sequencememoizer.util.LogAdd
+warning: /mmfs1/home/ea442/wpi-njr-debug/wpi/../dataset/url74c52881d6_AndrewBourgeois_JGWCAConstants_tgz-pJ8-be_demmel_fun_jgwcaconstants_Tutorial4J8/wpi-out/edu/columbia/stat/wood/pub/sequencememoizer/util/LogBracketFunction-org.checkerframework.checker.nullness.KeyForSubchecker.ajava:(line 14,col 1): Type not found: edu.columbia.stat.wood.pub.sequencememoizer.util.LogBracketFunction
+warning: /mmfs1/home/ea442/wpi-njr-debug/wpi/../dataset/url74c52881d6_AndrewBourgeois_JGWCAConstants_tgz-pJ8-be_demmel_fun_jgwcaconstants_Tutorial4J8/wpi-out/edu/columbia/stat/wood/pub/sequencememoizer/util/LogGeneralizedSterlingNumbers-org.checkerframework.checker.nullness.KeyForSubchecker.ajava:(line 15,col 1): Type not found: edu.columbia.stat.wood.pub.sequencememoizer.util.LogGeneralizedSterlingNumbers
+warning: /mmfs1/home/ea442/wpi-njr-debug/wpi/../dataset/url74c52881d6_AndrewBourgeois_JGWCAConstants_tgz-pJ8-be_demmel_fun_jgwcaconstants_Tutorial4J8/wpi-out/edu/columbia/stat/wood/pub/sequencememoizer/util/MersenneTwisterFast-org.checkerframework.checker.nullness.KeyForSubchecker.ajava:(line 155,col 1): Type not found: edu.columbia.stat.wood.pub.sequencememoizer.util.MersenneTwisterFast
+warning: /mmfs1/home/ea442/wpi-njr-debug/wpi/../dataset/url74c52881d6_AndrewBourgeois_JGWCAConstants_tgz-pJ8-be_demmel_fun_jgwcaconstants_Tutorial4J8/wpi-out/edu/columbia/stat/wood/pub/sequencememoizer/util/MutableDouble-org.checkerframework.checker.nullness.KeyForSubchecker.ajava:(line 11,col 1): Type not found: edu.columbia.stat.wood.pub.sequencememoizer.util.MutableDouble
+warning: /mmfs1/home/ea442/wpi-njr-debug/wpi/../dataset/url74c52881d6_AndrewBourgeois_JGWCAConstants_tgz-pJ8-be_demmel_fun_jgwcaconstants_Tutorial4J8/wpi-out/edu/columbia/stat/wood/pub/sequencememoizer/util/MutableInt-org.checkerframework.checker.nullness.KeyForSubchecker.ajava:(line 13,col 1): Type not found: edu.columbia.stat.wood.pub.sequencememoizer.util.MutableInt
+warning: /mmfs1/home/ea442/wpi-njr-debug/wpi/../dataset/url74c52881d6_AndrewBourgeois_JGWCAConstants_tgz-pJ8-be_demmel_fun_jgwcaconstants_Tutorial4J8/wpi-out/edu/columbia/stat/wood/pub/sequencememoizer/util/MutableLong-org.checkerframework.checker.nullness.KeyForSubchecker.ajava:(line 10,col 1): Type not found: edu.columbia.stat.wood.pub.sequencememoizer.util.MutableLong
+warning: /mmfs1/home/ea442/wpi-njr-debug/wpi/../dataset/url74c52881d6_AndrewBourgeois_JGWCAConstants_tgz-pJ8-be_demmel_fun_jgwcaconstants_Tutorial4J8/wpi-out/edu/columbia/stat/wood/pub/sequencememoizer/util/Pair-org.checkerframework.checker.nullness.KeyForSubchecker.ajava:(line 11,col 1): Type not found: edu.columbia.stat.wood.pub.sequencememoizer.util.Pair
+warning: /mmfs1/home/ea442/wpi-njr-debug/wpi/../dataset/url74c52881d6_AndrewBourgeois_JGWCAConstants_tgz-pJ8-be_demmel_fun_jgwcaconstants_Tutorial4J8/wpi-out/edu/columbia/stat/wood/pub/sequencememoizer/util/SampleMultinomial-org.checkerframework.checker.nullness.KeyForSubchecker.ajava:(line 17,col 1): Type not found: edu.columbia.stat.wood.pub.sequencememoizer.util.SampleMultinomial
+warning: /mmfs1/home/ea442/wpi-njr-debug/wpi/../dataset/url74c52881d6_AndrewBourgeois_JGWCAConstants_tgz-pJ8-be_demmel_fun_jgwcaconstants_Tutorial4J8/wpi-out/edu/columbia/stat/wood/pub/sequencememoizer/util/SampleWithoutReplacement-org.checkerframework.checker.nullness.KeyForSubchecker.ajava:(line 11,col 1): Type not found: edu.columbia.stat.wood.pub.sequencememoizer.util.SampleWithoutReplacement
+warning: /mmfs1/home/ea442/wpi-njr-debug/wpi/../dataset/url74c52881d6_AndrewBourgeois_JGWCAConstants_tgz-pJ8-be_demmel_fun_jgwcaconstants_Tutorial4J8/wpi-out/edu/columbia/stat/wood/pub/sequencememoizer/util/SeatingArranger-org.checkerframework.checker.nullness.KeyForSubchecker.ajava:(line 26,col 1): Type not found: edu.columbia.stat.wood.pub.sequencememoizer.util.SeatingArranger
+../dataset/url74c52881d6_AndrewBourgeois_JGWCAConstants_tgz-pJ8-be_demmel_fun_jgwcaconstants_Tutorial4J8/src/be/demmel/fun/jgwcaconstants/Version.java:61: warning: (argument) $$ 4 $$ inStream $$ Properties.load $$ @Initialized @Nullable InputStream $$ @Initialized @NonNull InputStream $$ ( 2276, 2282 ) $$ incompatible argument for parameter inStream of Properties.load.
+            props.load(stream);
+                       ^
+  found   : @Initialized @Nullable InputStream
+  required: @Initialized @NonNull InputStream
+../dataset/url74c52881d6_AndrewBourgeois_JGWCAConstants_tgz-pJ8-be_demmel_fun_jgwcaconstants_Tutorial4J8/src/be/demmel/fun/jgwcaconstants/Tutorial2.java:44: warning: (dereference.of.nullable) $$ 1 $$ gwcaConnection $$ ( 1911, 1925 ) $$ dereference of possibly-null reference gwcaConnection
+                gwcaConnection.close();
+                ^
+../dataset/url74c52881d6_AndrewBourgeois_JGWCAConstants_tgz-pJ8-be_demmel_fun_jgwcaconstants_Tutorial4J8/src/be/demmel/fun/jgwcaconstants/Tutorial1.java:66: warning: (dereference.of.nullable) $$ 1 $$ gwcaConnection $$ ( 3074, 3088 ) $$ dereference of possibly-null reference gwcaConnection
+                gwcaConnection.close();
+                ^
+../dataset/url74c52881d6_AndrewBourgeois_JGWCAConstants_tgz-pJ8-be_demmel_fun_jgwcaconstants_Tutorial4J8/src/be/demmel/fun/jgwcaconstants/bll/GWCAOperations.java:892: warning: (return) $$ 2 $$ @Initialized @Nullable WeaponType $$ @Initialized @NonNull WeaponType $$ ( 33575, 33624 ) $$ incompatible types in return.
+        return WeaponType.toEnum((short) byteArrayToInt(lParam));
+                                ^
+  type of expression: @Initialized @Nullable WeaponType
+  method return type: @Initialized @NonNull WeaponType
+../dataset/url74c52881d6_AndrewBourgeois_JGWCAConstants_tgz-pJ8-be_demmel_fun_jgwcaconstants_Tutorial4J8/src/be/demmel/fun/jgwcaconstants/bll/GWCAOperations.java:2516: warning: (return) $$ 2 $$ @Initialized @Nullable SkillType $$ @Initialized @NonNull SkillType $$ ( 89091, 89139 ) $$ incompatible types in return.
+        return SkillType.toEnum((short) byteArrayToInt(lParam));
+                               ^
+  type of expression: @Initialized @Nullable SkillType
+  method return type: @Initialized @NonNull SkillType
+../dataset/url74c52881d6_AndrewBourgeois_JGWCAConstants_tgz-pJ8-be_demmel_fun_jgwcaconstants_Tutorial4J8/src/be/demmel/fun/jgwcaconstants/bll/GWCAPacket.java:38: warning: (assignment) $$ 2 $$ @Initialized @NonNull byte @Initialized @Nullable [] $$ @Initialized @NonNull byte @Initialized @NonNull [] $$ ( 1727, 1733 ) $$ incompatible types in assignment.
+        this.wparam = wparam;
+                      ^
+  found   : @Initialized @NonNull byte @Initialized @Nullable []
+  required: @Initialized @NonNull byte @Initialized @NonNull []
+../dataset/url74c52881d6_AndrewBourgeois_JGWCAConstants_tgz-pJ8-be_demmel_fun_jgwcaconstants_Tutorial4J8/src/be/demmel/fun/jgwcaconstants/bll/GWCAPacket.java:39: warning: (assignment) $$ 2 $$ @Initialized @NonNull byte @Initialized @Nullable [] $$ @Initialized @NonNull byte @Initialized @NonNull [] $$ ( 1757, 1763 ) $$ incompatible types in assignment.
+        this.lparam = lparam;
+                      ^
+  found   : @Initialized @NonNull byte @Initialized @Nullable []
+  required: @Initialized @NonNull byte @Initialized @NonNull []
+../dataset/url74c52881d6_AndrewBourgeois_JGWCAConstants_tgz-pJ8-be_demmel_fun_jgwcaconstants_Tutorial4J8/src/be/demmel/fun/jgwcaconstants/bll/GWCAPacket.java:58: warning: (method.invocation) $$ 3 $$ intToByteArray(int) $$ @UnderInitialization @NonNull GWCAPacket $$ @Initialized @NonNull GWCAPacket $$ ( 2625, 2647 ) $$ call to intToByteArray(int) not allowed on the given receiver.
+        this.wparam = intToByteArray(wparam);
+                                    ^
+  found   : @UnderInitialization @NonNull GWCAPacket
+  required: @Initialized @NonNull GWCAPacket
+../dataset/url74c52881d6_AndrewBourgeois_JGWCAConstants_tgz-pJ8-be_demmel_fun_jgwcaconstants_Tutorial4J8/src/be/demmel/fun/jgwcaconstants/bll/GWCAPacket.java:59: warning: (method.invocation) $$ 3 $$ intToByteArray(int) $$ @UnderInitialization @NonNull GWCAPacket $$ @Initialized @NonNull GWCAPacket $$ ( 2671, 2693 ) $$ call to intToByteArray(int) not allowed on the given receiver.
+        this.lparam = intToByteArray(lparam);
+                                    ^
+  found   : @UnderInitialization @NonNull GWCAPacket
+  required: @Initialized @NonNull GWCAPacket
+../dataset/url74c52881d6_AndrewBourgeois_JGWCAConstants_tgz-pJ8-be_demmel_fun_jgwcaconstants_Tutorial4J8/src/be/demmel/fun/jgwcaconstants/bll/NamedPipeGWCAConnection.java:40: warning: (dereference.of.nullable) $$ 1 $$ this.namedPipe $$ ( 1500, 1514 ) $$ dereference of possibly-null reference this.namedPipe
+        this.namedPipe.write(bytesToSend);
+            ^
+../dataset/url74c52881d6_AndrewBourgeois_JGWCAConstants_tgz-pJ8-be_demmel_fun_jgwcaconstants_Tutorial4J8/src/be/demmel/fun/jgwcaconstants/bll/NamedPipeGWCAConnection.java:48: warning: (dereference.of.nullable) $$ 1 $$ this.namedPipe $$ ( 1871, 1885 ) $$ dereference of possibly-null reference this.namedPipe
+        this.namedPipe.read(byteArrayBuffer);
+            ^
+../dataset/url74c52881d6_AndrewBourgeois_JGWCAConstants_tgz-pJ8-be_demmel_fun_jgwcaconstants_Tutorial4J8/src/be/demmel/fun/jgwcaconstants/bll/NamedPipeGWCAConnection.java:61: warning: (argument) $$ 4 $$ operation $$ GWCAPacket constructor $$ @Initialized @Nullable GWCAOperation $$ @Initialized @NonNull GWCAOperation $$ ( 2310, 2343 ) $$ incompatible argument for parameter operation of GWCAPacket constructor.
+        return new GWCAPacket(GWCAOperation.toEnum(operationId), operationType, wparam, lparam);
+                                                  ^
+  found   : @Initialized @Nullable GWCAOperation
+  required: @Initialized @NonNull GWCAOperation
+../dataset/url74c52881d6_AndrewBourgeois_JGWCAConstants_tgz-pJ8-be_demmel_fun_jgwcaconstants_Tutorial4J8/src/be/demmel/fun/jgwcaconstants/bll/NamedPipeGWCAConnection.java:76: warning: (dereference.of.nullable) $$ 1 $$ this.namedPipe $$ ( 2753, 2767 ) $$ dereference of possibly-null reference this.namedPipe
+        this.namedPipe.close();
+            ^
+../dataset/url74c52881d6_AndrewBourgeois_JGWCAConstants_tgz-pJ8-be_demmel_fun_jgwcaconstants_Tutorial4J8/src/be/demmel/fun/jgwcaconstants/MainTestingAllFunctions.java:307: warning: (dereference.of.nullable) $$ 1 $$ gwcaConnection $$ ( 21859, 21873 ) $$ dereference of possibly-null reference gwcaConnection
+                gwcaConnection.close();
+                ^
+../dataset/url74c52881d6_AndrewBourgeois_JGWCAConstants_tgz-pJ8-be_demmel_fun_jgwcaconstants_Tutorial4J8/src/be/demmel/fun/jgwcaconstants/Tutorial3.java:46: warning: (dereference.of.nullable) $$ 1 $$ gwcaConnection $$ ( 2117, 2131 ) $$ dereference of possibly-null reference gwcaConnection
+                gwcaConnection.close();
+                ^
+../dataset/url74c52881d6_AndrewBourgeois_JGWCAConstants_tgz-pJ8-be_demmel_fun_jgwcaconstants_Tutorial4J8/src/be/demmel/fun/jgwcaconstants/JCommander.java:29: warning: (initialization.static.field.uninitialized) $$ 1 $$ cb $$ ( 964, 992 ) $$ static field cb not initialized
+    private static JComboBox cb, cbType;
+                             ^
+../dataset/url74c52881d6_AndrewBourgeois_JGWCAConstants_tgz-pJ8-be_demmel_fun_jgwcaconstants_Tutorial4J8/src/be/demmel/fun/jgwcaconstants/JCommander.java:29: warning: (initialization.static.field.uninitialized) $$ 1 $$ cbType $$ ( 964, 1000 ) $$ static field cbType not initialized
+    private static JComboBox cb, cbType;
+                                 ^
+../dataset/url74c52881d6_AndrewBourgeois_JGWCAConstants_tgz-pJ8-be_demmel_fun_jgwcaconstants_Tutorial4J8/src/be/demmel/fun/jgwcaconstants/JCommander.java:30: warning: (initialization.static.field.uninitialized) $$ 1 $$ wTextField $$ ( 1005, 1042 ) $$ static field wTextField not initialized
+    private static JTextField wTextField, lTextField;
+                              ^
+../dataset/url74c52881d6_AndrewBourgeois_JGWCAConstants_tgz-pJ8-be_demmel_fun_jgwcaconstants_Tutorial4J8/src/be/demmel/fun/jgwcaconstants/JCommander.java:30: warning: (initialization.static.field.uninitialized) $$ 1 $$ lTextField $$ ( 1005, 1054 ) $$ static field lTextField not initialized
+    private static JTextField wTextField, lTextField;
+                                          ^
+../dataset/url74c52881d6_AndrewBourgeois_JGWCAConstants_tgz-pJ8-be_demmel_fun_jgwcaconstants_Tutorial4J8/src/be/demmel/fun/jgwcaconstants/JCommander.java:31: warning: (initialization.static.field.uninitialized) $$ 1 $$ wLabel $$ ( 1059, 1088 ) $$ static field wLabel not initialized
+    private static JLabel wLabel, lLabel;
+                          ^
+../dataset/url74c52881d6_AndrewBourgeois_JGWCAConstants_tgz-pJ8-be_demmel_fun_jgwcaconstants_Tutorial4J8/src/be/demmel/fun/jgwcaconstants/JCommander.java:31: warning: (initialization.static.field.uninitialized) $$ 1 $$ lLabel $$ ( 1059, 1096 ) $$ static field lLabel not initialized
+    private static JLabel wLabel, lLabel;
+                                  ^
+../dataset/url74c52881d6_AndrewBourgeois_JGWCAConstants_tgz-pJ8-be_demmel_fun_jgwcaconstants_Tutorial4J8/src/be/demmel/fun/jgwcaconstants/JCommander.java:156: warning: (dereference.of.nullable) $$ 1 $$ gwcaConnection $$ ( 5610, 5624 ) $$ dereference of possibly-null reference gwcaConnection
+            gwcaConnection.sendPacket(new GWCAPacket(operationToInvoke, w, l));
+            ^
+../dataset/url74c52881d6_AndrewBourgeois_JGWCAConstants_tgz-pJ8-be_demmel_fun_jgwcaconstants_Tutorial4J8/src/be/demmel/fun/jgwcaconstants/JCommander.java:170: warning: (dereference.of.nullable) $$ 1 $$ gwcaConnection $$ ( 6048, 6062 ) $$ dereference of possibly-null reference gwcaConnection
+            GWCAPacket gwcaPacket = gwcaConnection.receivePacket();
+                                    ^
+Note: ../dataset/url74c52881d6_AndrewBourgeois_JGWCAConstants_tgz-pJ8-be_demmel_fun_jgwcaconstants_Tutorial4J8/src/be/demmel/fun/jgwcaconstants/JCommander.java uses unchecked or unsafe operations.
+Note: Recompile with -Xlint:unchecked for details.
+72 warnings
+putting the diff for iteration 2 into /mmfs1/home/ea442/wpi-njr-debug/wpi/iteration2.diff
+ending iteration 2, time taken: 22 seconds
+
+entering iteration 3
+../dataset/url74c52881d6_AndrewBourgeois_JGWCAConstants_tgz-pJ8-be_demmel_fun_jgwcaconstants_Tutorial4J8/src/be/demmel/fun/jgwcaconstants/Version.java:61: warning: (argument) $$ 4 $$ inStream $$ Properties.load $$ @Initialized @Nullable InputStream $$ @Initialized @NonNull InputStream $$ ( 2276, 2282 ) $$ incompatible argument for parameter inStream of Properties.load.
+            props.load(stream);
+                       ^
+  found   : @Initialized @Nullable InputStream
+  required: @Initialized @NonNull InputStream
+../dataset/url74c52881d6_AndrewBourgeois_JGWCAConstants_tgz-pJ8-be_demmel_fun_jgwcaconstants_Tutorial4J8/src/be/demmel/fun/jgwcaconstants/Tutorial2.java:44: warning: (dereference.of.nullable) $$ 1 $$ gwcaConnection $$ ( 1911, 1925 ) $$ dereference of possibly-null reference gwcaConnection
+                gwcaConnection.close();
+                ^
+../dataset/url74c52881d6_AndrewBourgeois_JGWCAConstants_tgz-pJ8-be_demmel_fun_jgwcaconstants_Tutorial4J8/src/be/demmel/fun/jgwcaconstants/Tutorial1.java:66: warning: (dereference.of.nullable) $$ 1 $$ gwcaConnection $$ ( 3074, 3088 ) $$ dereference of possibly-null reference gwcaConnection
+                gwcaConnection.close();
+                ^
+../dataset/url74c52881d6_AndrewBourgeois_JGWCAConstants_tgz-pJ8-be_demmel_fun_jgwcaconstants_Tutorial4J8/src/be/demmel/fun/jgwcaconstants/bll/clean/Agent.java:273: warning: (return) $$ 2 $$ @Initialized @Nullable WeaponType $$ @Initialized @NonNull WeaponType $$ ( 8106, 8143 ) $$ incompatible types in return.
+        return this.gwcaOperations.getWeaponType(id);
+                                                ^
+  type of expression: @Initialized @Nullable WeaponType
+  method return type: @Initialized @NonNull WeaponType
+../dataset/url74c52881d6_AndrewBourgeois_JGWCAConstants_tgz-pJ8-be_demmel_fun_jgwcaconstants_Tutorial4J8/src/be/demmel/fun/jgwcaconstants/bll/clean/RemainingCommands.java:502: warning: (return) $$ 2 $$ @Initialized @Nullable SkillType $$ @Initialized @NonNull SkillType $$ ( 16111, 16152 ) $$ incompatible types in return.
+        return this.gwcaOperations.getSkillType(skillId);
+                                               ^
+  type of expression: @Initialized @Nullable SkillType
+  method return type: @Initialized @NonNull SkillType
+../dataset/url74c52881d6_AndrewBourgeois_JGWCAConstants_tgz-pJ8-be_demmel_fun_jgwcaconstants_Tutorial4J8/src/be/demmel/fun/jgwcaconstants/bll/GWCAPacket.java:38: warning: (assignment) $$ 2 $$ @Initialized @NonNull byte @Initialized @Nullable [] $$ @Initialized @NonNull byte @Initialized @NonNull [] $$ ( 1727, 1733 ) $$ incompatible types in assignment.
+        this.wparam = wparam;
+                      ^
+  found   : @Initialized @NonNull byte @Initialized @Nullable []
+  required: @Initialized @NonNull byte @Initialized @NonNull []
+../dataset/url74c52881d6_AndrewBourgeois_JGWCAConstants_tgz-pJ8-be_demmel_fun_jgwcaconstants_Tutorial4J8/src/be/demmel/fun/jgwcaconstants/bll/GWCAPacket.java:39: warning: (assignment) $$ 2 $$ @Initialized @NonNull byte @Initialized @Nullable [] $$ @Initialized @NonNull byte @Initialized @NonNull [] $$ ( 1757, 1763 ) $$ incompatible types in assignment.
+        this.lparam = lparam;
+                      ^
+  found   : @Initialized @NonNull byte @Initialized @Nullable []
+  required: @Initialized @NonNull byte @Initialized @NonNull []
+../dataset/url74c52881d6_AndrewBourgeois_JGWCAConstants_tgz-pJ8-be_demmel_fun_jgwcaconstants_Tutorial4J8/src/be/demmel/fun/jgwcaconstants/bll/GWCAPacket.java:58: warning: (method.invocation) $$ 3 $$ intToByteArray(int) $$ @UnderInitialization @NonNull GWCAPacket $$ @Initialized @NonNull GWCAPacket $$ ( 2625, 2647 ) $$ call to intToByteArray(int) not allowed on the given receiver.
+        this.wparam = intToByteArray(wparam);
+                                    ^
+  found   : @UnderInitialization @NonNull GWCAPacket
+  required: @Initialized @NonNull GWCAPacket
+../dataset/url74c52881d6_AndrewBourgeois_JGWCAConstants_tgz-pJ8-be_demmel_fun_jgwcaconstants_Tutorial4J8/src/be/demmel/fun/jgwcaconstants/bll/GWCAPacket.java:59: warning: (method.invocation) $$ 3 $$ intToByteArray(int) $$ @UnderInitialization @NonNull GWCAPacket $$ @Initialized @NonNull GWCAPacket $$ ( 2671, 2693 ) $$ call to intToByteArray(int) not allowed on the given receiver.
+        this.lparam = intToByteArray(lparam);
+                                    ^
+  found   : @UnderInitialization @NonNull GWCAPacket
+  required: @Initialized @NonNull GWCAPacket
+../dataset/url74c52881d6_AndrewBourgeois_JGWCAConstants_tgz-pJ8-be_demmel_fun_jgwcaconstants_Tutorial4J8/src/be/demmel/fun/jgwcaconstants/bll/GWCAPacket.java:71: warning: (assignment) $$ 2 $$ @Initialized @Nullable GWCAOperation $$ @Initialized @NonNull GWCAOperation $$ ( 3068, 3077 ) $$ incompatible types in assignment.
+        this.operation = operation;
+                         ^
+  found   : @Initialized @Nullable GWCAOperation
+  required: @Initialized @NonNull GWCAOperation
+../dataset/url74c52881d6_AndrewBourgeois_JGWCAConstants_tgz-pJ8-be_demmel_fun_jgwcaconstants_Tutorial4J8/src/be/demmel/fun/jgwcaconstants/bll/GWCAPacket.java:75: warning: (dereference.of.nullable) $$ 1 $$ operation $$ ( 3269, 3278 ) $$ dereference of possibly-null reference operation
+        short operationId = operation.getOperationId();
+                            ^
+../dataset/url74c52881d6_AndrewBourgeois_JGWCAConstants_tgz-pJ8-be_demmel_fun_jgwcaconstants_Tutorial4J8/src/be/demmel/fun/jgwcaconstants/bll/NamedPipeGWCAConnection.java:40: warning: (dereference.of.nullable) $$ 1 $$ this.namedPipe $$ ( 1500, 1514 ) $$ dereference of possibly-null reference this.namedPipe
+        this.namedPipe.write(bytesToSend);
+            ^
+../dataset/url74c52881d6_AndrewBourgeois_JGWCAConstants_tgz-pJ8-be_demmel_fun_jgwcaconstants_Tutorial4J8/src/be/demmel/fun/jgwcaconstants/bll/NamedPipeGWCAConnection.java:48: warning: (dereference.of.nullable) $$ 1 $$ this.namedPipe $$ ( 1871, 1885 ) $$ dereference of possibly-null reference this.namedPipe
+        this.namedPipe.read(byteArrayBuffer);
+            ^
+../dataset/url74c52881d6_AndrewBourgeois_JGWCAConstants_tgz-pJ8-be_demmel_fun_jgwcaconstants_Tutorial4J8/src/be/demmel/fun/jgwcaconstants/bll/NamedPipeGWCAConnection.java:76: warning: (dereference.of.nullable) $$ 1 $$ this.namedPipe $$ ( 2753, 2767 ) $$ dereference of possibly-null reference this.namedPipe
+        this.namedPipe.close();
+            ^
+../dataset/url74c52881d6_AndrewBourgeois_JGWCAConstants_tgz-pJ8-be_demmel_fun_jgwcaconstants_Tutorial4J8/src/be/demmel/fun/jgwcaconstants/MainTestingAllFunctions.java:307: warning: (dereference.of.nullable) $$ 1 $$ gwcaConnection $$ ( 21859, 21873 ) $$ dereference of possibly-null reference gwcaConnection
+                gwcaConnection.close();
+                ^
+../dataset/url74c52881d6_AndrewBourgeois_JGWCAConstants_tgz-pJ8-be_demmel_fun_jgwcaconstants_Tutorial4J8/src/be/demmel/fun/jgwcaconstants/Tutorial3.java:46: warning: (dereference.of.nullable) $$ 1 $$ gwcaConnection $$ ( 2117, 2131 ) $$ dereference of possibly-null reference gwcaConnection
+                gwcaConnection.close();
+                ^
+../dataset/url74c52881d6_AndrewBourgeois_JGWCAConstants_tgz-pJ8-be_demmel_fun_jgwcaconstants_Tutorial4J8/src/be/demmel/fun/jgwcaconstants/JCommander.java:29: warning: (initialization.static.field.uninitialized) $$ 1 $$ cb $$ ( 964, 992 ) $$ static field cb not initialized
+    private static JComboBox cb, cbType;
+                             ^
+../dataset/url74c52881d6_AndrewBourgeois_JGWCAConstants_tgz-pJ8-be_demmel_fun_jgwcaconstants_Tutorial4J8/src/be/demmel/fun/jgwcaconstants/JCommander.java:29: warning: (initialization.static.field.uninitialized) $$ 1 $$ cbType $$ ( 964, 1000 ) $$ static field cbType not initialized
+    private static JComboBox cb, cbType;
+                                 ^
+../dataset/url74c52881d6_AndrewBourgeois_JGWCAConstants_tgz-pJ8-be_demmel_fun_jgwcaconstants_Tutorial4J8/src/be/demmel/fun/jgwcaconstants/JCommander.java:30: warning: (initialization.static.field.uninitialized) $$ 1 $$ wTextField $$ ( 1005, 1042 ) $$ static field wTextField not initialized
+    private static JTextField wTextField, lTextField;
+                              ^
+../dataset/url74c52881d6_AndrewBourgeois_JGWCAConstants_tgz-pJ8-be_demmel_fun_jgwcaconstants_Tutorial4J8/src/be/demmel/fun/jgwcaconstants/JCommander.java:30: warning: (initialization.static.field.uninitialized) $$ 1 $$ lTextField $$ ( 1005, 1054 ) $$ static field lTextField not initialized
+    private static JTextField wTextField, lTextField;
+                                          ^
+../dataset/url74c52881d6_AndrewBourgeois_JGWCAConstants_tgz-pJ8-be_demmel_fun_jgwcaconstants_Tutorial4J8/src/be/demmel/fun/jgwcaconstants/JCommander.java:31: warning: (initialization.static.field.uninitialized) $$ 1 $$ wLabel $$ ( 1059, 1088 ) $$ static field wLabel not initialized
+    private static JLabel wLabel, lLabel;
+                          ^
+../dataset/url74c52881d6_AndrewBourgeois_JGWCAConstants_tgz-pJ8-be_demmel_fun_jgwcaconstants_Tutorial4J8/src/be/demmel/fun/jgwcaconstants/JCommander.java:31: warning: (initialization.static.field.uninitialized) $$ 1 $$ lLabel $$ ( 1059, 1096 ) $$ static field lLabel not initialized
+    private static JLabel wLabel, lLabel;
+                                  ^
+Note: ../dataset/url74c52881d6_AndrewBourgeois_JGWCAConstants_tgz-pJ8-be_demmel_fun_jgwcaconstants_Tutorial4J8/src/be/demmel/fun/jgwcaconstants/JCommander.java uses unchecked or unsafe operations.
+Note: Recompile with -Xlint:unchecked for details.
+22 warnings
+putting the diff for iteration 3 into /mmfs1/home/ea442/wpi-njr-debug/wpi/iteration3.diff
+ending iteration 3, time taken: 20 seconds
+
+entering iteration 4
+../dataset/url74c52881d6_AndrewBourgeois_JGWCAConstants_tgz-pJ8-be_demmel_fun_jgwcaconstants_Tutorial4J8/src/be/demmel/fun/jgwcaconstants/Version.java:61: warning: (argument) $$ 4 $$ inStream $$ Properties.load $$ @Initialized @Nullable InputStream $$ @Initialized @NonNull InputStream $$ ( 2276, 2282 ) $$ incompatible argument for parameter inStream of Properties.load.
+            props.load(stream);
+                       ^
+  found   : @Initialized @Nullable InputStream
+  required: @Initialized @NonNull InputStream
+../dataset/url74c52881d6_AndrewBourgeois_JGWCAConstants_tgz-pJ8-be_demmel_fun_jgwcaconstants_Tutorial4J8/src/be/demmel/fun/jgwcaconstants/Tutorial2.java:44: warning: (dereference.of.nullable) $$ 1 $$ gwcaConnection $$ ( 1911, 1925 ) $$ dereference of possibly-null reference gwcaConnection
+                gwcaConnection.close();
+                ^
+../dataset/url74c52881d6_AndrewBourgeois_JGWCAConstants_tgz-pJ8-be_demmel_fun_jgwcaconstants_Tutorial4J8/src/be/demmel/fun/jgwcaconstants/Tutorial1.java:66: warning: (dereference.of.nullable) $$ 1 $$ gwcaConnection $$ ( 3074, 3088 ) $$ dereference of possibly-null reference gwcaConnection
+                gwcaConnection.close();
+                ^
+../dataset/url74c52881d6_AndrewBourgeois_JGWCAConstants_tgz-pJ8-be_demmel_fun_jgwcaconstants_Tutorial4J8/src/be/demmel/fun/jgwcaconstants/bll/GWCAPacket.java:38: warning: (assignment) $$ 2 $$ @Initialized @NonNull byte @Initialized @Nullable [] $$ @Initialized @NonNull byte @Initialized @NonNull [] $$ ( 1727, 1733 ) $$ incompatible types in assignment.
+        this.wparam = wparam;
+                      ^
+  found   : @Initialized @NonNull byte @Initialized @Nullable []
+  required: @Initialized @NonNull byte @Initialized @NonNull []
+../dataset/url74c52881d6_AndrewBourgeois_JGWCAConstants_tgz-pJ8-be_demmel_fun_jgwcaconstants_Tutorial4J8/src/be/demmel/fun/jgwcaconstants/bll/GWCAPacket.java:39: warning: (assignment) $$ 2 $$ @Initialized @NonNull byte @Initialized @Nullable [] $$ @Initialized @NonNull byte @Initialized @NonNull [] $$ ( 1757, 1763 ) $$ incompatible types in assignment.
+        this.lparam = lparam;
+                      ^
+  found   : @Initialized @NonNull byte @Initialized @Nullable []
+  required: @Initialized @NonNull byte @Initialized @NonNull []
+../dataset/url74c52881d6_AndrewBourgeois_JGWCAConstants_tgz-pJ8-be_demmel_fun_jgwcaconstants_Tutorial4J8/src/be/demmel/fun/jgwcaconstants/bll/GWCAPacket.java:58: warning: (method.invocation) $$ 3 $$ intToByteArray(int) $$ @UnderInitialization @NonNull GWCAPacket $$ @Initialized @NonNull GWCAPacket $$ ( 2625, 2647 ) $$ call to intToByteArray(int) not allowed on the given receiver.
+        this.wparam = intToByteArray(wparam);
+                                    ^
+  found   : @UnderInitialization @NonNull GWCAPacket
+  required: @Initialized @NonNull GWCAPacket
+../dataset/url74c52881d6_AndrewBourgeois_JGWCAConstants_tgz-pJ8-be_demmel_fun_jgwcaconstants_Tutorial4J8/src/be/demmel/fun/jgwcaconstants/bll/GWCAPacket.java:59: warning: (method.invocation) $$ 3 $$ intToByteArray(int) $$ @UnderInitialization @NonNull GWCAPacket $$ @Initialized @NonNull GWCAPacket $$ ( 2671, 2693 ) $$ call to intToByteArray(int) not allowed on the given receiver.
+        this.lparam = intToByteArray(lparam);
+                                    ^
+  found   : @UnderInitialization @NonNull GWCAPacket
+  required: @Initialized @NonNull GWCAPacket
+../dataset/url74c52881d6_AndrewBourgeois_JGWCAConstants_tgz-pJ8-be_demmel_fun_jgwcaconstants_Tutorial4J8/src/be/demmel/fun/jgwcaconstants/bll/GWCAPacket.java:75: warning: (dereference.of.nullable) $$ 1 $$ operation $$ ( 3269, 3278 ) $$ dereference of possibly-null reference operation
+        short operationId = operation.getOperationId();
+                            ^
+../dataset/url74c52881d6_AndrewBourgeois_JGWCAConstants_tgz-pJ8-be_demmel_fun_jgwcaconstants_Tutorial4J8/src/be/demmel/fun/jgwcaconstants/bll/GWCAPacket.java:130: warning: (return) $$ 2 $$ @Initialized @MonotonicNonNull GWCAOperation $$ @Initialized @NonNull GWCAOperation $$ ( 4941, 4950 ) $$ incompatible types in return.
+        return operation;
+               ^
+  type of expression: @Initialized @MonotonicNonNull GWCAOperation
+  method return type: @Initialized @NonNull GWCAOperation
+../dataset/url74c52881d6_AndrewBourgeois_JGWCAConstants_tgz-pJ8-be_demmel_fun_jgwcaconstants_Tutorial4J8/src/be/demmel/fun/jgwcaconstants/bll/NamedPipeGWCAConnection.java:40: warning: (dereference.of.nullable) $$ 1 $$ this.namedPipe $$ ( 1500, 1514 ) $$ dereference of possibly-null reference this.namedPipe
+        this.namedPipe.write(bytesToSend);
+            ^
+../dataset/url74c52881d6_AndrewBourgeois_JGWCAConstants_tgz-pJ8-be_demmel_fun_jgwcaconstants_Tutorial4J8/src/be/demmel/fun/jgwcaconstants/bll/NamedPipeGWCAConnection.java:48: warning: (dereference.of.nullable) $$ 1 $$ this.namedPipe $$ ( 1871, 1885 ) $$ dereference of possibly-null reference this.namedPipe
+        this.namedPipe.read(byteArrayBuffer);
+            ^
+../dataset/url74c52881d6_AndrewBourgeois_JGWCAConstants_tgz-pJ8-be_demmel_fun_jgwcaconstants_Tutorial4J8/src/be/demmel/fun/jgwcaconstants/bll/NamedPipeGWCAConnection.java:76: warning: (dereference.of.nullable) $$ 1 $$ this.namedPipe $$ ( 2753, 2767 ) $$ dereference of possibly-null reference this.namedPipe
+        this.namedPipe.close();
+            ^
+../dataset/url74c52881d6_AndrewBourgeois_JGWCAConstants_tgz-pJ8-be_demmel_fun_jgwcaconstants_Tutorial4J8/src/be/demmel/fun/jgwcaconstants/MainTestingAllFunctions.java:307: warning: (dereference.of.nullable) $$ 1 $$ gwcaConnection $$ ( 21859, 21873 ) $$ dereference of possibly-null reference gwcaConnection
+                gwcaConnection.close();
+                ^
+../dataset/url74c52881d6_AndrewBourgeois_JGWCAConstants_tgz-pJ8-be_demmel_fun_jgwcaconstants_Tutorial4J8/src/be/demmel/fun/jgwcaconstants/Tutorial3.java:46: warning: (dereference.of.nullable) $$ 1 $$ gwcaConnection $$ ( 2117, 2131 ) $$ dereference of possibly-null reference gwcaConnection
+                gwcaConnection.close();
+                ^
+../dataset/url74c52881d6_AndrewBourgeois_JGWCAConstants_tgz-pJ8-be_demmel_fun_jgwcaconstants_Tutorial4J8/src/be/demmel/fun/jgwcaconstants/JCommander.java:29: warning: (initialization.static.field.uninitialized) $$ 1 $$ cb $$ ( 964, 992 ) $$ static field cb not initialized
+    private static JComboBox cb, cbType;
+                             ^
+../dataset/url74c52881d6_AndrewBourgeois_JGWCAConstants_tgz-pJ8-be_demmel_fun_jgwcaconstants_Tutorial4J8/src/be/demmel/fun/jgwcaconstants/JCommander.java:29: warning: (initialization.static.field.uninitialized) $$ 1 $$ cbType $$ ( 964, 1000 ) $$ static field cbType not initialized
+    private static JComboBox cb, cbType;
+                                 ^
+../dataset/url74c52881d6_AndrewBourgeois_JGWCAConstants_tgz-pJ8-be_demmel_fun_jgwcaconstants_Tutorial4J8/src/be/demmel/fun/jgwcaconstants/JCommander.java:30: warning: (initialization.static.field.uninitialized) $$ 1 $$ wTextField $$ ( 1005, 1042 ) $$ static field wTextField not initialized
+    private static JTextField wTextField, lTextField;
+                              ^
+../dataset/url74c52881d6_AndrewBourgeois_JGWCAConstants_tgz-pJ8-be_demmel_fun_jgwcaconstants_Tutorial4J8/src/be/demmel/fun/jgwcaconstants/JCommander.java:30: warning: (initialization.static.field.uninitialized) $$ 1 $$ lTextField $$ ( 1005, 1054 ) $$ static field lTextField not initialized
+    private static JTextField wTextField, lTextField;
+                                          ^
+../dataset/url74c52881d6_AndrewBourgeois_JGWCAConstants_tgz-pJ8-be_demmel_fun_jgwcaconstants_Tutorial4J8/src/be/demmel/fun/jgwcaconstants/JCommander.java:31: warning: (initialization.static.field.uninitialized) $$ 1 $$ wLabel $$ ( 1059, 1088 ) $$ static field wLabel not initialized
+    private static JLabel wLabel, lLabel;
+                          ^
+../dataset/url74c52881d6_AndrewBourgeois_JGWCAConstants_tgz-pJ8-be_demmel_fun_jgwcaconstants_Tutorial4J8/src/be/demmel/fun/jgwcaconstants/JCommander.java:31: warning: (initialization.static.field.uninitialized) $$ 1 $$ lLabel $$ ( 1059, 1096 ) $$ static field lLabel not initialized
+    private static JLabel wLabel, lLabel;
+                                  ^
+Note: ../dataset/url74c52881d6_AndrewBourgeois_JGWCAConstants_tgz-pJ8-be_demmel_fun_jgwcaconstants_Tutorial4J8/src/be/demmel/fun/jgwcaconstants/JCommander.java uses unchecked or unsafe operations.
+Note: Recompile with -Xlint:unchecked for details.
+20 warnings
+putting the diff for iteration 4 into /mmfs1/home/ea442/wpi-njr-debug/wpi/iteration4.diff
+ending iteration 4, time taken: 21 seconds
+
+entering iteration 5
+../dataset/url74c52881d6_AndrewBourgeois_JGWCAConstants_tgz-pJ8-be_demmel_fun_jgwcaconstants_Tutorial4J8/src/be/demmel/fun/jgwcaconstants/Version.java:61: warning: (argument) $$ 4 $$ inStream $$ Properties.load $$ @Initialized @Nullable InputStream $$ @Initialized @NonNull InputStream $$ ( 2276, 2282 ) $$ incompatible argument for parameter inStream of Properties.load.
+            props.load(stream);
+                       ^
+  found   : @Initialized @Nullable InputStream
+  required: @Initialized @NonNull InputStream
+../dataset/url74c52881d6_AndrewBourgeois_JGWCAConstants_tgz-pJ8-be_demmel_fun_jgwcaconstants_Tutorial4J8/src/be/demmel/fun/jgwcaconstants/Tutorial2.java:44: warning: (dereference.of.nullable) $$ 1 $$ gwcaConnection $$ ( 1911, 1925 ) $$ dereference of possibly-null reference gwcaConnection
+                gwcaConnection.close();
+                ^
+../dataset/url74c52881d6_AndrewBourgeois_JGWCAConstants_tgz-pJ8-be_demmel_fun_jgwcaconstants_Tutorial4J8/src/be/demmel/fun/jgwcaconstants/Tutorial1.java:66: warning: (dereference.of.nullable) $$ 1 $$ gwcaConnection $$ ( 3074, 3088 ) $$ dereference of possibly-null reference gwcaConnection
+                gwcaConnection.close();
+                ^
+../dataset/url74c52881d6_AndrewBourgeois_JGWCAConstants_tgz-pJ8-be_demmel_fun_jgwcaconstants_Tutorial4J8/src/be/demmel/fun/jgwcaconstants/bll/GWCAPacket.java:38: warning: (assignment) $$ 2 $$ @Initialized @NonNull byte @Initialized @Nullable [] $$ @Initialized @NonNull byte @Initialized @NonNull [] $$ ( 1727, 1733 ) $$ incompatible types in assignment.
+        this.wparam = wparam;
+                      ^
+  found   : @Initialized @NonNull byte @Initialized @Nullable []
+  required: @Initialized @NonNull byte @Initialized @NonNull []
+../dataset/url74c52881d6_AndrewBourgeois_JGWCAConstants_tgz-pJ8-be_demmel_fun_jgwcaconstants_Tutorial4J8/src/be/demmel/fun/jgwcaconstants/bll/GWCAPacket.java:39: warning: (assignment) $$ 2 $$ @Initialized @NonNull byte @Initialized @Nullable [] $$ @Initialized @NonNull byte @Initialized @NonNull [] $$ ( 1757, 1763 ) $$ incompatible types in assignment.
+        this.lparam = lparam;
+                      ^
+  found   : @Initialized @NonNull byte @Initialized @Nullable []
+  required: @Initialized @NonNull byte @Initialized @NonNull []
+../dataset/url74c52881d6_AndrewBourgeois_JGWCAConstants_tgz-pJ8-be_demmel_fun_jgwcaconstants_Tutorial4J8/src/be/demmel/fun/jgwcaconstants/bll/GWCAPacket.java:58: warning: (method.invocation) $$ 3 $$ intToByteArray(int) $$ @UnderInitialization @NonNull GWCAPacket $$ @Initialized @NonNull GWCAPacket $$ ( 2625, 2647 ) $$ call to intToByteArray(int) not allowed on the given receiver.
+        this.wparam = intToByteArray(wparam);
+                                    ^
+  found   : @UnderInitialization @NonNull GWCAPacket
+  required: @Initialized @NonNull GWCAPacket
+../dataset/url74c52881d6_AndrewBourgeois_JGWCAConstants_tgz-pJ8-be_demmel_fun_jgwcaconstants_Tutorial4J8/src/be/demmel/fun/jgwcaconstants/bll/GWCAPacket.java:59: warning: (method.invocation) $$ 3 $$ intToByteArray(int) $$ @UnderInitialization @NonNull GWCAPacket $$ @Initialized @NonNull GWCAPacket $$ ( 2671, 2693 ) $$ call to intToByteArray(int) not allowed on the given receiver.
+        this.lparam = intToByteArray(lparam);
+                                    ^
+  found   : @UnderInitialization @NonNull GWCAPacket
+  required: @Initialized @NonNull GWCAPacket
+../dataset/url74c52881d6_AndrewBourgeois_JGWCAConstants_tgz-pJ8-be_demmel_fun_jgwcaconstants_Tutorial4J8/src/be/demmel/fun/jgwcaconstants/bll/GWCAPacket.java:75: warning: (dereference.of.nullable) $$ 1 $$ operation $$ ( 3269, 3278 ) $$ dereference of possibly-null reference operation
+        short operationId = operation.getOperationId();
+                            ^
+../dataset/url74c52881d6_AndrewBourgeois_JGWCAConstants_tgz-pJ8-be_demmel_fun_jgwcaconstants_Tutorial4J8/src/be/demmel/fun/jgwcaconstants/bll/NamedPipeGWCAConnection.java:29: warning: (dereference.of.nullable) $$ 1 $$ gwcaPacket.getOperation() $$ ( 964, 989 ) $$ dereference of possibly-null reference gwcaPacket.getOperation()
+        byteBuffer.putShort(gwcaPacket.getOperation().getOperationId());
+                                                   ^
+../dataset/url74c52881d6_AndrewBourgeois_JGWCAConstants_tgz-pJ8-be_demmel_fun_jgwcaconstants_Tutorial4J8/src/be/demmel/fun/jgwcaconstants/bll/NamedPipeGWCAConnection.java:40: warning: (dereference.of.nullable) $$ 1 $$ this.namedPipe $$ ( 1500, 1514 ) $$ dereference of possibly-null reference this.namedPipe
+        this.namedPipe.write(bytesToSend);
+            ^
+../dataset/url74c52881d6_AndrewBourgeois_JGWCAConstants_tgz-pJ8-be_demmel_fun_jgwcaconstants_Tutorial4J8/src/be/demmel/fun/jgwcaconstants/bll/NamedPipeGWCAConnection.java:48: warning: (dereference.of.nullable) $$ 1 $$ this.namedPipe $$ ( 1871, 1885 ) $$ dereference of possibly-null reference this.namedPipe
+        this.namedPipe.read(byteArrayBuffer);
+            ^
+../dataset/url74c52881d6_AndrewBourgeois_JGWCAConstants_tgz-pJ8-be_demmel_fun_jgwcaconstants_Tutorial4J8/src/be/demmel/fun/jgwcaconstants/bll/NamedPipeGWCAConnection.java:76: warning: (dereference.of.nullable) $$ 1 $$ this.namedPipe $$ ( 2753, 2767 ) $$ dereference of possibly-null reference this.namedPipe
+        this.namedPipe.close();
+            ^
+../dataset/url74c52881d6_AndrewBourgeois_JGWCAConstants_tgz-pJ8-be_demmel_fun_jgwcaconstants_Tutorial4J8/src/be/demmel/fun/jgwcaconstants/MainTestingAllFunctions.java:307: warning: (dereference.of.nullable) $$ 1 $$ gwcaConnection $$ ( 21859, 21873 ) $$ dereference of possibly-null reference gwcaConnection
+                gwcaConnection.close();
+                ^
+../dataset/url74c52881d6_AndrewBourgeois_JGWCAConstants_tgz-pJ8-be_demmel_fun_jgwcaconstants_Tutorial4J8/src/be/demmel/fun/jgwcaconstants/Tutorial3.java:46: warning: (dereference.of.nullable) $$ 1 $$ gwcaConnection $$ ( 2117, 2131 ) $$ dereference of possibly-null reference gwcaConnection
+                gwcaConnection.close();
+                ^
+../dataset/url74c52881d6_AndrewBourgeois_JGWCAConstants_tgz-pJ8-be_demmel_fun_jgwcaconstants_Tutorial4J8/src/be/demmel/fun/jgwcaconstants/JCommander.java:29: warning: (initialization.static.field.uninitialized) $$ 1 $$ cb $$ ( 964, 992 ) $$ static field cb not initialized
+    private static JComboBox cb, cbType;
+                             ^
+../dataset/url74c52881d6_AndrewBourgeois_JGWCAConstants_tgz-pJ8-be_demmel_fun_jgwcaconstants_Tutorial4J8/src/be/demmel/fun/jgwcaconstants/JCommander.java:29: warning: (initialization.static.field.uninitialized) $$ 1 $$ cbType $$ ( 964, 1000 ) $$ static field cbType not initialized
+    private static JComboBox cb, cbType;
+                                 ^
+../dataset/url74c52881d6_AndrewBourgeois_JGWCAConstants_tgz-pJ8-be_demmel_fun_jgwcaconstants_Tutorial4J8/src/be/demmel/fun/jgwcaconstants/JCommander.java:30: warning: (initialization.static.field.uninitialized) $$ 1 $$ wTextField $$ ( 1005, 1042 ) $$ static field wTextField not initialized
+    private static JTextField wTextField, lTextField;
+                              ^
+../dataset/url74c52881d6_AndrewBourgeois_JGWCAConstants_tgz-pJ8-be_demmel_fun_jgwcaconstants_Tutorial4J8/src/be/demmel/fun/jgwcaconstants/JCommander.java:30: warning: (initialization.static.field.uninitialized) $$ 1 $$ lTextField $$ ( 1005, 1054 ) $$ static field lTextField not initialized
+    private static JTextField wTextField, lTextField;
+                                          ^
+../dataset/url74c52881d6_AndrewBourgeois_JGWCAConstants_tgz-pJ8-be_demmel_fun_jgwcaconstants_Tutorial4J8/src/be/demmel/fun/jgwcaconstants/JCommander.java:31: warning: (initialization.static.field.uninitialized) $$ 1 $$ wLabel $$ ( 1059, 1088 ) $$ static field wLabel not initialized
+    private static JLabel wLabel, lLabel;
+                          ^
+../dataset/url74c52881d6_AndrewBourgeois_JGWCAConstants_tgz-pJ8-be_demmel_fun_jgwcaconstants_Tutorial4J8/src/be/demmel/fun/jgwcaconstants/JCommander.java:31: warning: (initialization.static.field.uninitialized) $$ 1 $$ lLabel $$ ( 1059, 1096 ) $$ static field lLabel not initialized
+    private static JLabel wLabel, lLabel;
+                                  ^
+Note: ../dataset/url74c52881d6_AndrewBourgeois_JGWCAConstants_tgz-pJ8-be_demmel_fun_jgwcaconstants_Tutorial4J8/src/be/demmel/fun/jgwcaconstants/JCommander.java uses unchecked or unsafe operations.
+Note: Recompile with -Xlint:unchecked for details.
+20 warnings
+putting the diff for iteration 5 into /mmfs1/home/ea442/wpi-njr-debug/wpi/iteration5.diff
+ending iteration 5, time taken: 22 seconds
+
+entering iteration 6
+../dataset/url74c52881d6_AndrewBourgeois_JGWCAConstants_tgz-pJ8-be_demmel_fun_jgwcaconstants_Tutorial4J8/src/be/demmel/fun/jgwcaconstants/Version.java:61: warning: (argument) $$ 4 $$ inStream $$ Properties.load $$ @Initialized @Nullable InputStream $$ @Initialized @NonNull InputStream $$ ( 2276, 2282 ) $$ incompatible argument for parameter inStream of Properties.load.
+            props.load(stream);
+                       ^
+  found   : @Initialized @Nullable InputStream
+  required: @Initialized @NonNull InputStream
+../dataset/url74c52881d6_AndrewBourgeois_JGWCAConstants_tgz-pJ8-be_demmel_fun_jgwcaconstants_Tutorial4J8/src/be/demmel/fun/jgwcaconstants/Tutorial2.java:44: warning: (dereference.of.nullable) $$ 1 $$ gwcaConnection $$ ( 1911, 1925 ) $$ dereference of possibly-null reference gwcaConnection
+                gwcaConnection.close();
+                ^
+../dataset/url74c52881d6_AndrewBourgeois_JGWCAConstants_tgz-pJ8-be_demmel_fun_jgwcaconstants_Tutorial4J8/src/be/demmel/fun/jgwcaconstants/Tutorial1.java:66: warning: (dereference.of.nullable) $$ 1 $$ gwcaConnection $$ ( 3074, 3088 ) $$ dereference of possibly-null reference gwcaConnection
+                gwcaConnection.close();
+                ^
+../dataset/url74c52881d6_AndrewBourgeois_JGWCAConstants_tgz-pJ8-be_demmel_fun_jgwcaconstants_Tutorial4J8/src/be/demmel/fun/jgwcaconstants/bll/GWCAPacket.java:38: warning: (assignment) $$ 2 $$ @Initialized @NonNull byte @Initialized @Nullable [] $$ @Initialized @NonNull byte @Initialized @NonNull [] $$ ( 1727, 1733 ) $$ incompatible types in assignment.
+        this.wparam = wparam;
+                      ^
+  found   : @Initialized @NonNull byte @Initialized @Nullable []
+  required: @Initialized @NonNull byte @Initialized @NonNull []
+../dataset/url74c52881d6_AndrewBourgeois_JGWCAConstants_tgz-pJ8-be_demmel_fun_jgwcaconstants_Tutorial4J8/src/be/demmel/fun/jgwcaconstants/bll/GWCAPacket.java:39: warning: (assignment) $$ 2 $$ @Initialized @NonNull byte @Initialized @Nullable [] $$ @Initialized @NonNull byte @Initialized @NonNull [] $$ ( 1757, 1763 ) $$ incompatible types in assignment.
+        this.lparam = lparam;
+                      ^
+  found   : @Initialized @NonNull byte @Initialized @Nullable []
+  required: @Initialized @NonNull byte @Initialized @NonNull []
+../dataset/url74c52881d6_AndrewBourgeois_JGWCAConstants_tgz-pJ8-be_demmel_fun_jgwcaconstants_Tutorial4J8/src/be/demmel/fun/jgwcaconstants/bll/GWCAPacket.java:58: warning: (method.invocation) $$ 3 $$ intToByteArray(int) $$ @UnderInitialization @NonNull GWCAPacket $$ @Initialized @NonNull GWCAPacket $$ ( 2625, 2647 ) $$ call to intToByteArray(int) not allowed on the given receiver.
+        this.wparam = intToByteArray(wparam);
+                                    ^
+  found   : @UnderInitialization @NonNull GWCAPacket
+  required: @Initialized @NonNull GWCAPacket
+../dataset/url74c52881d6_AndrewBourgeois_JGWCAConstants_tgz-pJ8-be_demmel_fun_jgwcaconstants_Tutorial4J8/src/be/demmel/fun/jgwcaconstants/bll/GWCAPacket.java:59: warning: (method.invocation) $$ 3 $$ intToByteArray(int) $$ @UnderInitialization @NonNull GWCAPacket $$ @Initialized @NonNull GWCAPacket $$ ( 2671, 2693 ) $$ call to intToByteArray(int) not allowed on the given receiver.
+        this.lparam = intToByteArray(lparam);
+                                    ^
+  found   : @UnderInitialization @NonNull GWCAPacket
+  required: @Initialized @NonNull GWCAPacket
+../dataset/url74c52881d6_AndrewBourgeois_JGWCAConstants_tgz-pJ8-be_demmel_fun_jgwcaconstants_Tutorial4J8/src/be/demmel/fun/jgwcaconstants/bll/GWCAPacket.java:75: warning: (dereference.of.nullable) $$ 1 $$ operation $$ ( 3269, 3278 ) $$ dereference of possibly-null reference operation
+        short operationId = operation.getOperationId();
+                            ^
+../dataset/url74c52881d6_AndrewBourgeois_JGWCAConstants_tgz-pJ8-be_demmel_fun_jgwcaconstants_Tutorial4J8/src/be/demmel/fun/jgwcaconstants/bll/NamedPipeGWCAConnection.java:29: warning: (dereference.of.nullable) $$ 1 $$ gwcaPacket.getOperation() $$ ( 964, 989 ) $$ dereference of possibly-null reference gwcaPacket.getOperation()
+        byteBuffer.putShort(gwcaPacket.getOperation().getOperationId());
+                                                   ^
+../dataset/url74c52881d6_AndrewBourgeois_JGWCAConstants_tgz-pJ8-be_demmel_fun_jgwcaconstants_Tutorial4J8/src/be/demmel/fun/jgwcaconstants/bll/NamedPipeGWCAConnection.java:40: warning: (dereference.of.nullable) $$ 1 $$ this.namedPipe $$ ( 1500, 1514 ) $$ dereference of possibly-null reference this.namedPipe
+        this.namedPipe.write(bytesToSend);
+            ^
+../dataset/url74c52881d6_AndrewBourgeois_JGWCAConstants_tgz-pJ8-be_demmel_fun_jgwcaconstants_Tutorial4J8/src/be/demmel/fun/jgwcaconstants/bll/NamedPipeGWCAConnection.java:48: warning: (dereference.of.nullable) $$ 1 $$ this.namedPipe $$ ( 1871, 1885 ) $$ dereference of possibly-null reference this.namedPipe
+        this.namedPipe.read(byteArrayBuffer);
+            ^
+../dataset/url74c52881d6_AndrewBourgeois_JGWCAConstants_tgz-pJ8-be_demmel_fun_jgwcaconstants_Tutorial4J8/src/be/demmel/fun/jgwcaconstants/bll/NamedPipeGWCAConnection.java:76: warning: (dereference.of.nullable) $$ 1 $$ this.namedPipe $$ ( 2753, 2767 ) $$ dereference of possibly-null reference this.namedPipe
+        this.namedPipe.close();
+            ^
+../dataset/url74c52881d6_AndrewBourgeois_JGWCAConstants_tgz-pJ8-be_demmel_fun_jgwcaconstants_Tutorial4J8/src/be/demmel/fun/jgwcaconstants/MainTestingAllFunctions.java:307: warning: (dereference.of.nullable) $$ 1 $$ gwcaConnection $$ ( 21859, 21873 ) $$ dereference of possibly-null reference gwcaConnection
+                gwcaConnection.close();
+                ^
+../dataset/url74c52881d6_AndrewBourgeois_JGWCAConstants_tgz-pJ8-be_demmel_fun_jgwcaconstants_Tutorial4J8/src/be/demmel/fun/jgwcaconstants/Tutorial3.java:46: warning: (dereference.of.nullable) $$ 1 $$ gwcaConnection $$ ( 2117, 2131 ) $$ dereference of possibly-null reference gwcaConnection
+                gwcaConnection.close();
+                ^
+../dataset/url74c52881d6_AndrewBourgeois_JGWCAConstants_tgz-pJ8-be_demmel_fun_jgwcaconstants_Tutorial4J8/src/be/demmel/fun/jgwcaconstants/JCommander.java:29: warning: (initialization.static.field.uninitialized) $$ 1 $$ cb $$ ( 964, 992 ) $$ static field cb not initialized
+    private static JComboBox cb, cbType;
+                             ^
+../dataset/url74c52881d6_AndrewBourgeois_JGWCAConstants_tgz-pJ8-be_demmel_fun_jgwcaconstants_Tutorial4J8/src/be/demmel/fun/jgwcaconstants/JCommander.java:29: warning: (initialization.static.field.uninitialized) $$ 1 $$ cbType $$ ( 964, 1000 ) $$ static field cbType not initialized
+    private static JComboBox cb, cbType;
+                                 ^
+../dataset/url74c52881d6_AndrewBourgeois_JGWCAConstants_tgz-pJ8-be_demmel_fun_jgwcaconstants_Tutorial4J8/src/be/demmel/fun/jgwcaconstants/JCommander.java:30: warning: (initialization.static.field.uninitialized) $$ 1 $$ wTextField $$ ( 1005, 1042 ) $$ static field wTextField not initialized
+    private static JTextField wTextField, lTextField;
+                              ^
+../dataset/url74c52881d6_AndrewBourgeois_JGWCAConstants_tgz-pJ8-be_demmel_fun_jgwcaconstants_Tutorial4J8/src/be/demmel/fun/jgwcaconstants/JCommander.java:30: warning: (initialization.static.field.uninitialized) $$ 1 $$ lTextField $$ ( 1005, 1054 ) $$ static field lTextField not initialized
+    private static JTextField wTextField, lTextField;
+                                          ^
+../dataset/url74c52881d6_AndrewBourgeois_JGWCAConstants_tgz-pJ8-be_demmel_fun_jgwcaconstants_Tutorial4J8/src/be/demmel/fun/jgwcaconstants/JCommander.java:31: warning: (initialization.static.field.uninitialized) $$ 1 $$ wLabel $$ ( 1059, 1088 ) $$ static field wLabel not initialized
+    private static JLabel wLabel, lLabel;
+                          ^
+../dataset/url74c52881d6_AndrewBourgeois_JGWCAConstants_tgz-pJ8-be_demmel_fun_jgwcaconstants_Tutorial4J8/src/be/demmel/fun/jgwcaconstants/JCommander.java:31: warning: (initialization.static.field.uninitialized) $$ 1 $$ lLabel $$ ( 1059, 1096 ) $$ static field lLabel not initialized
+    private static JLabel wLabel, lLabel;
+                                  ^
+Note: ../dataset/url74c52881d6_AndrewBourgeois_JGWCAConstants_tgz-pJ8-be_demmel_fun_jgwcaconstants_Tutorial4J8/src/be/demmel/fun/jgwcaconstants/JCommander.java uses unchecked or unsafe operations.
+Note: Recompile with -Xlint:unchecked for details.
+20 warnings
+putting the diff for iteration 6 into /mmfs1/home/ea442/wpi-njr-debug/wpi/iteration6.diff

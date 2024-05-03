@@ -1,0 +1,82 @@
+package net.slreynolds.ds.model.internal;
+
+@org.checkerframework.framework.qual.AnnotatedFor("org.checkerframework.checker.nullness.KeyForSubchecker")
+public class EdgeSuspension {
+
+    final private  Object _from;
+
+    final private  Object _to;
+
+    final private  String _name;
+
+    @org.checkerframework.dataflow.qual.SideEffectFree
+    public EdgeSuspension( Object from,  Object to,  String name) {
+        if (from == null) {
+            throw new IllegalArgumentException("cannot suspend edge from null object");
+        }
+        if (to == null) {
+            throw new IllegalArgumentException("cannot suspend edge to null object");
+        }
+        if (name == null) {
+            throw new IllegalArgumentException("cannot suspend edge with null name");
+        }
+        this._from = from;
+        this._to = to;
+        this._name = name;
+    }
+
+    @org.checkerframework.dataflow.qual.Pure
+    public  Object getFrom( EdgeSuspension this) {
+        return _from;
+    }
+
+    @org.checkerframework.dataflow.qual.Pure
+    public  Object getTo( EdgeSuspension this) {
+        return _to;
+    }
+
+    @org.checkerframework.dataflow.qual.Pure
+    public  String getName( EdgeSuspension this) {
+        return _name;
+    }
+
+    @org.checkerframework.dataflow.qual.Pure
+    public   int hashCode( EdgeSuspension this) {
+        final int prime = 31;
+        int result = 1;
+        result = prime * result + ((_from == null) ? 0 : _from.hashCode());
+        result = prime * result + ((_name == null) ? 0 : _name.hashCode());
+        result = prime * result + ((_to == null) ? 0 : _to.hashCode());
+        return result;
+    }
+
+    @org.checkerframework.dataflow.qual.Pure
+    public   boolean equals( EdgeSuspension this,  Object obj) {
+        if (this == obj) {
+            return true;
+        }
+        if (obj == null) {
+            return false;
+        }
+        if (!(obj instanceof EdgeSuspension)) {
+            return false;
+        }
+        EdgeSuspension other = (EdgeSuspension) obj;
+        /* 
+		 * To be equals two edge suspensions must satisfy the following
+		 * 1. from objects must be identical
+		 * 2. to objects must be identical
+		 * 3. names must be equals
+		 */
+        if (!(_from == other._from)) {
+            return false;
+        }
+        if (!(_to == other._to)) {
+            return false;
+        }
+        if (!_name.equals(other._name)) {
+            return false;
+        }
+        return true;
+    }
+}

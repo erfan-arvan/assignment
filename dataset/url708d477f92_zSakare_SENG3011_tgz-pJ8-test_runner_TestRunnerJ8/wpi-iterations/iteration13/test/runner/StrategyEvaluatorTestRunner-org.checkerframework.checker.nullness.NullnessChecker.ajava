@@ -1,0 +1,22 @@
+package test.runner;
+
+import test.evaluator.TradeStrategyEvaluatorTest;
+
+@org.checkerframework.framework.qual.AnnotatedFor("org.checkerframework.checker.nullness.NullnessChecker")
+public class StrategyEvaluatorTestRunner {
+
+    @org.checkerframework.dataflow.qual.Impure
+    public static void main(String[] args) {
+        run();
+    }
+
+    @org.checkerframework.dataflow.qual.Impure
+    public static void run() {
+        TradeStrategyEvaluatorTest strategyEvaluatorTest = new TradeStrategyEvaluatorTest();
+        // Trade strategy evaluator.
+        strategyEvaluatorTest.testCalculateBreakEven();
+        strategyEvaluatorTest.testCalculateNegative();
+        strategyEvaluatorTest.testCalculatePositive();
+        strategyEvaluatorTest.testCalculateProfitLoss();
+    }
+}

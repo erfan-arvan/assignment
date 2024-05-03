@@ -1,0 +1,145 @@
+/*
+
+ */
+package ar.fiuba.tecnicas.framework.JTest;
+
+import java.util.HashMap;
+import java.util.Vector;
+
+/*
+Responsabilidad: almacenar test y testsuite en una estructura (es el la clase "composite")
+* */
+@org.checkerframework.framework.qual.AnnotatedFor("org.checkerframework.checker.nullness.KeyForSubchecker")
+public class TestSuite implements Test {
+
+    private  Vector<Test> testlineitem;
+
+    private   boolean firsttimeinsuite;
+
+    private  String testname;
+
+    private HashMap<String, Object> context;
+
+    private  TestSuite suiteFather;
+
+    @org.checkerframework.dataflow.qual.Impure
+    public void setSuiteFather( TestSuite this,  TestSuite suiteFather) {
+        this.suiteFather = suiteFather;
+    }
+
+    @org.checkerframework.dataflow.qual.Pure
+    public  TestSuite getSuiteFather( TestSuite this) {
+        return suiteFather;
+    }
+
+    @org.checkerframework.dataflow.qual.Impure
+    public void printSuiteTrace( TestSuite this,  Test test,  TestReport testReport) {
+        if (test instanceof TestCase) {
+            if (firsttimeinsuite) {
+                testReport.print(getNameFather());
+                testReport.insertHSeparator();
+            }
+            firsttimeinsuite = false;
+        } else
+            firsttimeinsuite = true;
+    }
+
+    @org.checkerframework.dataflow.qual.Pure
+    private   boolean existsTest( TestSuite this,  Test newTest) {
+        return testlineitem.contains(newTest);
+    }
+
+    @org.checkerframework.dataflow.qual.Impure
+    private  String insertAncestor( TestSuite this,  TestSuite father) {
+        StringBuilder sb = new StringBuilder(testname);
+        sb.insert(0, father.getNameFather() + ".");
+        return sb.toString();
+    }
+
+    @org.checkerframework.dataflow.qual.Impure
+    private  String getNameFather( TestSuite this) {
+        TestSuite father = getSuiteFather();
+        String retval = testname;
+        if (father != null) {
+            retval = insertAncestor(father);
+        }
+        return retval;
+    }
+
+    @org.checkerframework.dataflow.qual.SideEffectFree
+    public TestSuite( String testname) {
+        this.testname = testname;
+        this.testlineitem = new Vector<Test>();
+        this.firsttimeinsuite = true;
+    }
+
+    @org.checkerframework.dataflow.qual.SideEffectFree
+    public TestSuite() {
+        this.testname = null;
+        this.testlineitem = new Vector<Test>();
+        this.firsttimeinsuite = true;
+    }
+
+    @org.checkerframework.dataflow.qual.Impure
+    public void addTest( TestSuite this,  Test test) {
+        if (!existsTest(test)) {
+            if (test instanceof TestSuite)
+                ((TestSuite) test).setSuiteFather(this);
+            testlineitem.add(test);
+        }
+    }
+
+    @org.checkerframework.dataflow.qual.SideEffectFree
+    public void tearingDown( TestSuite this,  Throwable exception) {
+        try {
+            tearDown();
+        } catch (Throwable tearingDown) {
+            if (exception == null)
+                exception = tearingDown;
+        }
+    }
+
+    @org.checkerframework.dataflow.qual.Pure
+    public  HashMap<String, Object> getContext( TestSuite this) {
+        return context;
+    }
+
+    @org.checkerframework.dataflow.qual.Impure
+    public void setUp( TestSuite this) {
+    }
+
+    @org.checkerframework.dataflow.qual.SideEffectFree
+    public void tearDown( TestSuite this) {
+    }
+
+    @org.checkerframework.dataflow.qual.Impure
+    public   int countTestCases( TestSuite this) {
+        int count = 0;
+        for (Test test : testlineitem) {
+            count += test.countTestCases();
+        }
+        return count;
+    }
+
+    @org.checkerframework.dataflow.qual.Impure
+    public void run( TestSuite this,  TestReport testReport) throws Throwable {
+        Timer timer = new Timer(System.nanoTime());
+        if (testReport.testsuiteNameMatchRegularExpression(this)) {
+            Throwable exception = null;
+            setUp();
+            try {
+                for (Test test : testlineitem) {
+                    printSuiteTrace(test, testReport);
+                    test.run(testReport);
+                }
+            } catch (Throwable running) {
+                exception = running;
+            } finally {
+                tearingDown(exception);
+                testReport.print(testname + ": " + timer.getTime() + "\n");
+            }
+            if (exception != null)
+                throw exception;
+        }
+    }
+}

@@ -1,0 +1,145 @@
+/*
+
+ */
+package ar.fiuba.tecnicas.framework.JTest;
+
+import java.util.HashMap;
+import java.util.Vector;
+
+/*
+Responsabilidad: almacenar test y testsuite en una estructura (es el la clase "composite")
+* */
+@org.checkerframework.framework.qual.AnnotatedFor("org.checkerframework.checker.nullness.NullnessChecker")
+public class TestSuite implements Test {
+
+    private @org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.NonNull Vector<Test> testlineitem;
+
+    private  @org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.NonNull boolean firsttimeinsuite;
+
+    private @org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.MonotonicNonNull String testname;
+
+    private @org.checkerframework.checker.initialization.qual.FBCBottom @org.checkerframework.checker.nullness.qual.MonotonicNonNull HashMap<String, Object> context;
+
+    private @org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.MonotonicNonNull TestSuite suiteFather;
+
+    @org.checkerframework.dataflow.qual.Impure
+    public void setSuiteFather(@org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.NonNull TestSuite suiteFather) {
+        this.suiteFather = suiteFather;
+    }
+
+    @org.checkerframework.dataflow.qual.Pure
+    public @org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.NonNull TestSuite getSuiteFather() {
+        return suiteFather;
+    }
+
+    @org.checkerframework.dataflow.qual.Impure
+    public void printSuiteTrace(@org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.NonNull Test test, @org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.NonNull TestReport testReport) {
+        if (test instanceof TestCase) {
+            if (firsttimeinsuite) {
+                testReport.print(getNameFather());
+                testReport.insertHSeparator();
+            }
+            firsttimeinsuite = false;
+        } else
+            firsttimeinsuite = true;
+    }
+
+    @org.checkerframework.dataflow.qual.Pure
+    private  @org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.NonNull boolean existsTest(@org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.NonNull Test newTest) {
+        return testlineitem.contains(newTest);
+    }
+
+    @org.checkerframework.dataflow.qual.Impure
+    private @org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.NonNull String insertAncestor(@org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.NonNull TestSuite father) {
+        StringBuilder sb = new StringBuilder(testname);
+        sb.insert(0, father.getNameFather() + ".");
+        return sb.toString();
+    }
+
+    @org.checkerframework.dataflow.qual.Impure
+    private @org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.NonNull String getNameFather() {
+        TestSuite father = getSuiteFather();
+        String retval = testname;
+        if (father != null) {
+            retval = insertAncestor(father);
+        }
+        return retval;
+    }
+
+    @org.checkerframework.dataflow.qual.SideEffectFree
+    public TestSuite(@org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.NonNull String testname) {
+        this.testname = testname;
+        this.testlineitem = new Vector<Test>();
+        this.firsttimeinsuite = true;
+    }
+
+    @org.checkerframework.dataflow.qual.SideEffectFree
+    public TestSuite() {
+        this.testname = null;
+        this.testlineitem = new Vector<Test>();
+        this.firsttimeinsuite = true;
+    }
+
+    @org.checkerframework.dataflow.qual.Impure
+    public void addTest(@org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.NonNull Test test) {
+        if (!existsTest(test)) {
+            if (test instanceof TestSuite)
+                ((TestSuite) test).setSuiteFather(this);
+            testlineitem.add(test);
+        }
+    }
+
+    @org.checkerframework.dataflow.qual.Impure
+    public void tearingDown(@org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.Nullable Throwable exception) {
+        try {
+            tearDown();
+        } catch (Throwable tearingDown) {
+            if (exception == null)
+                exception = tearingDown;
+        }
+    }
+
+    @org.checkerframework.dataflow.qual.Pure
+    public @org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.NonNull HashMap<String, Object> getContext() {
+        return context;
+    }
+
+    @org.checkerframework.dataflow.qual.Impure
+    public void setUp(@org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.NonNull TestSuite this) {
+    }
+
+    @org.checkerframework.dataflow.qual.SideEffectFree
+    public void tearDown(@org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.NonNull TestSuite this) {
+    }
+
+    @org.checkerframework.dataflow.qual.Impure
+    public  @org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.NonNull int countTestCases(@org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.NonNull TestSuite this) {
+        int count = 0;
+        for (Test test : testlineitem) {
+            count += test.countTestCases();
+        }
+        return count;
+    }
+
+    @org.checkerframework.dataflow.qual.Impure
+    public void run(@org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.NonNull TestSuite this, @org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.NonNull TestReport testReport) throws Throwable {
+        Timer timer = new Timer(System.nanoTime());
+        if (testReport.testsuiteNameMatchRegularExpression(this)) {
+            Throwable exception = null;
+            setUp();
+            try {
+                for (Test test : testlineitem) {
+                    printSuiteTrace(test, testReport);
+                    test.run(testReport);
+                }
+            } catch (Throwable running) {
+                exception = running;
+            } finally {
+                tearingDown(exception);
+                testReport.print(testname + ": " + timer.getTime() + "\n");
+            }
+            if (exception != null)
+                throw exception;
+        }
+    }
+}

@@ -1,0 +1,128 @@
+package ar.fiuba.tecnicas.framework.JTest;
+
+import java.util.ArrayList;
+import java.util.List;
+import java.io.*;
+
+@org.checkerframework.framework.qual.AnnotatedFor("org.checkerframework.checker.nullness.KeyForSubchecker")
+public class XmlPrinter implements TestListener {
+
+    private  List<String> namesTestSuites;
+
+    private  String nameCase;
+
+    private  String time;
+
+    private  Throwable throwable;
+
+    private  FileWriter fileWriter;
+
+    private  PrintWriter printer;
+
+    @org.checkerframework.dataflow.qual.Impure
+    public XmlPrinter() {
+        namesTestSuites = new ArrayList<String>();
+        inicializar();
+    }
+
+    @org.checkerframework.dataflow.qual.Impure
+    private void inicializar( XmlPrinter this) {
+        try {
+            fileWriter = new FileWriter("ReporteXsd.xml");
+            printer = new PrintWriter(fileWriter);
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+
+    @org.checkerframework.dataflow.qual.Impure
+    private void setSuiteRaiz( XmlPrinter this,  String name) {
+        namesTestSuites.add(name);
+    }
+
+    @org.checkerframework.dataflow.qual.Impure
+    public void addFailure( XmlPrinter this,  Test test,  String time,  Throwable throwable) {
+        printTestCaseWithError(test, time, throwable, "failure");
+    }
+
+    @org.checkerframework.dataflow.qual.Impure
+    public void addError( XmlPrinter this,  Test test,  String time,  Throwable throwable) {
+        printTestCaseWithError(test, time, throwable, "error");
+    }
+
+    @org.checkerframework.dataflow.qual.Impure
+    private void printTestCaseWithError( XmlPrinter this,  Test test,  String time,  Throwable throwable,  String type) {
+        nameCase = test.toString();
+        this.time = time;
+        this.throwable = throwable;
+        printHeaderTestCase();
+        printContentException(type);
+        printAtribuesTestCase();
+    }
+
+    @org.checkerframework.dataflow.qual.Impure
+    public void addSuccess( XmlPrinter this,  TestCase test,  String time) {
+        nameCase = test.toString();
+        this.time = time;
+        printHeaderTestCase();
+        printAtribuesTestCase();
+    }
+
+    @org.checkerframework.dataflow.qual.Impure
+    private void printContentException( XmlPrinter this,  String type) {
+        printer.println("\t\t\t\t\t\t\t\t<xs:sequence>\n\t<xs:element name=\"" + type + "\">\n\t\t\t\t\t\t\t\t\t\t\t<xs:complexType mixed=\"true\">\n\t\t\t\t\t\t\t\t\t\t\t\t<xs:attribute name=\"" + throwable.toString() + "\" type=\"xs:string\" use=\"optional\"/>\n\t\t\t\t\t\t\t\t\t\t\t\t<xs:attribute name=\"" + throwable.getMessage() + "\" type=\"xs:string\" use=\"optional\"/>\n\t\t\t\t\t\t\t\t\t\t\t</xs:complexType>\n\t\t\t\t\t\t\t\t\t</xs:element> \t\t\t\t\t\t\t\t</xs:sequence>");
+    }
+
+    @org.checkerframework.dataflow.qual.Impure
+    private void printHeaderTestCase( XmlPrinter this) {
+        printer.println("\t\t\t\t<xs:element name=\"testcase\">\n\t\t\t\t\t<xs:complexType>");
+    }
+
+    @org.checkerframework.dataflow.qual.Impure
+    private void printAtribuesTestCase( XmlPrinter this) {
+        printer.print("\t\t\t\t\t\t<xs:attribute name=\"" + nameCase + "\" type=\"xs:string\" use=\"required\"/>\n\t\t\t\t\t\t<xs:attribute name=\"" + time + "\" type=\"xs:string\" use=\"optional\"/>\n\t\t\t\t\t</xs:complexType>\n\t\t\t\t</xs:element>\n");
+    }
+
+    @org.checkerframework.dataflow.qual.Impure
+    public void print( XmlPrinter this,  String messsage) {
+        if (!messsage.contains(":")) {
+            printHeader();
+            printXsdTestSuiteMain();
+            setSuiteRaiz(messsage);
+        } else {
+            String last = namesTestSuites.get(namesTestSuites.size() - 1);
+            namesTestSuites.remove(namesTestSuites.size() - 1);
+            imprimirCloseTestSuite(last);
+        }
+    }
+
+    @org.checkerframework.dataflow.qual.Impure
+    private void imprimirCloseTestSuite( XmlPrinter this,  String name) {
+        printer.print("\t\t\t<xs:attribute name=\"" + name + "\" type=\"xs:string\" use=\"optional\"/>\n\t\t</xs:complexType>\n  \t</xs:element>");
+        if (namesTestSuites.size() > 1) {
+            printer.print("</xs:sequence>");
+        }
+        if (namesTestSuites.size() == 0) {
+            printer.print("\n</xs:schema>");
+            printer.close();
+        }
+    }
+
+    @org.checkerframework.dataflow.qual.SideEffectFree
+    public void insertHSeparator( XmlPrinter this) {
+    }
+
+    @org.checkerframework.dataflow.qual.Impure
+    private void printHeader( XmlPrinter this) {
+        printer.println("<?xml version=\"1.0\" encoding=\"ISO-8859-1\" ?>\n<xs:schema xmlns:xs=\"http://www.w3.org/2001/XMLSchema\">\n");
+    }
+
+    @org.checkerframework.dataflow.qual.Impure
+    private void printXsdTestSuiteMain( XmlPrinter this) {
+        printer.print("<xs:element name=\"testsuite\"");
+        if (namesTestSuites.isEmpty()) {
+            System.out.print(" xmlns:xsi=\"http://www.w3c.org/2001/XMLSchema-instance\"");
+        }
+        printer.println(">\n\t<xs:complexType>\n\t\t<xs:sequence>");
+    }
+}

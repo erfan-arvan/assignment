@@ -1,0 +1,27 @@
+package org.delaunay.dtfe.interpolation;
+
+import org.delaunay.algorithm.Triangulation.NonDelaunayException;
+import org.delaunay.dtfe.DensityModel;
+import org.delaunay.dtfe.DtfeTriangulationMap;
+import org.delaunay.model.Vector;
+import org.delaunay.model.Vertex;
+
+@org.checkerframework.framework.qual.AnnotatedFor("org.checkerframework.checker.nullness.NullnessChecker")
+final class NearestNeighborInterpolationStrategy implements InterpolationStrategy {
+
+    @org.checkerframework.dataflow.qual.Impure
+    public  @org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.NonNull double getDensity(@org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.NonNull NearestNeighborInterpolationStrategy this, @org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.NonNull DtfeTriangulationMap<? extends DensityModel> dtfe, @org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.NonNull Vector v) {
+        Vertex vert;
+        try {
+            vert = dtfe.getTriangulation().locateNearestVertex(v);
+        } catch (NonDelaunayException e) {
+            return 0;
+        }
+        // Do not report density for triangles outside the convex hull of
+        // map vertices.
+        if (vert == null || dtfe.getTriangulation().neighborsSuperVertex(vert)) {
+            return 0.0;
+        }
+        return dtfe.getDensity(vert);
+    }
+}

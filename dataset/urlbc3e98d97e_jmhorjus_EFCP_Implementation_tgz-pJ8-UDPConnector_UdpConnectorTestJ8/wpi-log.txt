@@ -1,0 +1,963 @@
+CF_BINARY: ../scripts/tools/checker-framework/checker/bin/javac
+../dataset/urlbc3e98d97e_jmhorjus_EFCP_Implementation_tgz-pJ8-UDPConnector_UdpConnectorTestJ8/src/UDPConnector/UdpConnector.java:23: warning: (initialization.fields.uninitialized) $$ 1 $$ m_peerAddress, m_recvSocket $$ ( 1019, 1425 ) $$ the constructor does not initialize fields: m_peerAddress, m_recvSocket
+    public UdpConnector( 
+           ^
+../dataset/urlbc3e98d97e_jmhorjus_EFCP_Implementation_tgz-pJ8-UDPConnector_UdpConnectorTestJ8/src/UDPConnector/UdpConnector.java:34: warning: (assignment) $$ 2 $$ null (NullType) $$ @Initialized @NonNull Thread $$ ( 1414, 1418 ) $$ incompatible types in assignment.
+        m_receiverThread = null;
+                           ^
+  found   : null (NullType)
+  required: @Initialized @NonNull Thread
+../dataset/urlbc3e98d97e_jmhorjus_EFCP_Implementation_tgz-pJ8-UDPConnector_UdpConnectorTestJ8/src/UDPConnector/UdpConnector.java:37: warning: (initialization.fields.uninitialized) $$ 1 $$ m_peerAddress, m_recvSocket $$ ( 1435, 1960 ) $$ the constructor does not initialize fields: m_peerAddress, m_recvSocket
+    public UdpConnector( 
+           ^
+../dataset/urlbc3e98d97e_jmhorjus_EFCP_Implementation_tgz-pJ8-UDPConnector_UdpConnectorTestJ8/src/UDPConnector/UdpConnector.java:50: warning: (assignment) $$ 2 $$ null (NullType) $$ @Initialized @NonNull Thread $$ ( 1949, 1953 ) $$ incompatible types in assignment.
+        m_receiverThread = null;
+                           ^
+  found   : null (NullType)
+  required: @Initialized @NonNull Thread
+../dataset/urlbc3e98d97e_jmhorjus_EFCP_Implementation_tgz-pJ8-UDPConnector_UdpConnectorTestJ8/src/UDPConnector/UdpConnector.java:161: warning: (assignment) $$ 2 $$ null (NullType) $$ @Initialized @NonNull Thread $$ ( 7152, 7156 ) $$ incompatible types in assignment.
+                UdpConnector.this.m_receiverThread = null; // 
+                                                     ^
+  found   : null (NullType)
+  required: @Initialized @NonNull Thread
+../dataset/urlbc3e98d97e_jmhorjus_EFCP_Implementation_tgz-pJ8-UDPConnector_UdpConnectorTestJ8/src/UDPConnector/ConnectionShaper.java:87: warning: (initialization.fields.uninitialized) $$ 1 $$ m_bufferToSend $$ ( 2729, 2861 ) $$ the constructor does not initialize fields: m_bufferToSend
+        ShapedSendTask(String stringToSend)
+        ^
+../dataset/urlbc3e98d97e_jmhorjus_EFCP_Implementation_tgz-pJ8-UDPConnector_UdpConnectorTestJ8/src/UDPConnector/ConnectionShaper.java:92: warning: (initialization.fields.uninitialized) $$ 1 $$ m_stringToSend $$ ( 2870, 3001 ) $$ the constructor does not initialize fields: m_stringToSend
+        ShapedSendTask(byte[] bufferToSend)
+        ^
+../dataset/urlbc3e98d97e_jmhorjus_EFCP_Implementation_tgz-pJ8-UDPConnector_UdpConnectorTestJ8/src/UDPConnector/DtcpPacket.java:54: warning: (initialization.fields.uninitialized) $$ 1 $$ payload $$ ( 2108, 2130 ) $$ the constructor does not initialize fields: payload
+        public DtcpPacket (){}
+               ^
+../dataset/urlbc3e98d97e_jmhorjus_EFCP_Implementation_tgz-pJ8-UDPConnector_UdpConnectorTestJ8/src/UDPConnector/DtcpPacket.java:86: warning: (initialization.fields.uninitialized) $$ 1 $$ payload $$ ( 3060, 3451 ) $$ the constructor does not initialize fields: payload
+	public DtcpPacket (short destAddr, short srcAddr, short destCEPid, short srcCEPid, byte pdu_type)
+	       ^
+../dataset/urlbc3e98d97e_jmhorjus_EFCP_Implementation_tgz-pJ8-UDPConnector_UdpConnectorTestJ8/src/UDPConnector/DtcpPacket.java:127: warning: (method.invocation) $$ 3 $$ getPayloadFromBytes(byte[]) $$ @UnderInitialization @NonNull DtcpPacket $$ @Initialized @NonNull DtcpPacket $$ ( 4436, 4467 ) $$ call to getPayloadFromBytes(byte[]) not allowed on the given receiver.
+		this.payload = this.getPayloadFromBytes(bytes);
+		                                       ^
+  found   : @UnderInitialization @NonNull DtcpPacket
+  required: @Initialized @NonNull DtcpPacket
+../dataset/urlbc3e98d97e_jmhorjus_EFCP_Implementation_tgz-pJ8-UDPConnector_UdpConnectorTestJ8/src/UDPConnector/EfcpConnectorManager.java:55: warning: (dereference.of.nullable) $$ 1 $$ conn $$ ( 1993, 1997 ) $$ dereference of possibly-null reference conn
+            conn.StopReceiveThread();
+            ^
+../dataset/urlbc3e98d97e_jmhorjus_EFCP_Implementation_tgz-pJ8-UDPConnector_UdpConnectorTestJ8/src/UDPConnector/EfcpConnectorManager.java:65: warning: (dereference.of.nullable) $$ 1 $$ conn $$ ( 2259, 2263 ) $$ dereference of possibly-null reference conn
+            return conn.Send(data);
+                   ^
+../dataset/urlbc3e98d97e_jmhorjus_EFCP_Implementation_tgz-pJ8-UDPConnector_UdpConnectorTestJ8/src/UDPConnector/EfcpConnectorManager.java:76: warning: (dereference.of.nullable) $$ 1 $$ conn $$ ( 2596, 2600 ) $$ dereference of possibly-null reference conn
+            return conn.Send(data);
+                   ^
+../dataset/urlbc3e98d97e_jmhorjus_EFCP_Implementation_tgz-pJ8-UDPConnector_UdpConnectorTestJ8/src/UDPConnector/EfcpConnectorManager.java:88: warning: (dereference.of.nullable) $$ 1 $$ conn $$ ( 2948, 2952 ) $$ dereference of possibly-null reference conn
+        return conn.Receive(maxBlockTimeInMs /*no blocking*/ );
+               ^
+../dataset/urlbc3e98d97e_jmhorjus_EFCP_Implementation_tgz-pJ8-UDPConnector_UdpConnectorTestJ8/src/UDPConnector/EfcpConnector.java:227: warning: (method.invocation) $$ 3 $$ StartReceiveThread() $$ @UnderInitialization(UDPConnector.EfcpConnector.class) @NonNull EfcpConnector $$ @Initialized @NonNull EfcpConnector $$ ( 9066, 9086 ) $$ call to StartReceiveThread() not allowed on the given receiver.
+        StartReceiveThread();
+                          ^
+  found   : @UnderInitialization(UDPConnector.EfcpConnector.class) @NonNull EfcpConnector
+  required: @Initialized @NonNull EfcpConnector
+../dataset/urlbc3e98d97e_jmhorjus_EFCP_Implementation_tgz-pJ8-UDPConnector_UdpConnectorTestJ8/src/UDPConnector/EfcpConnector.java:235: warning: (initialization.fields.uninitialized) $$ 1 $$ m_selfCancelHandle $$ ( 9289, 9406 ) $$ the constructor does not initialize fields: m_selfCancelHandle
+        RetransmitEvent(DtcpPacket packetToTransmit)
+        ^
+../dataset/urlbc3e98d97e_jmhorjus_EFCP_Implementation_tgz-pJ8-UDPConnector_UdpConnectorTestJ8/src/UDPConnector/EfcpConnector.java:315: warning: (argument) $$ 4 $$ arg0 $$ List.add $$ @Initialized @NonNull byte @Initialized @Nullable [] $$ @Initialized @NonNull byte @Initialized @NonNull [] $$ ( 13229, 13291 ) $$ incompatible argument for parameter arg0 of List.add.
+                                            m_receiverPacketsOutOfOrder.get(m_receiverNextPacketToDeliver));
+                                                                           ^
+  found   : @Initialized @NonNull byte @Initialized @Nullable []
+  required: @Initialized @NonNull byte @Initialized @NonNull []
+../dataset/urlbc3e98d97e_jmhorjus_EFCP_Implementation_tgz-pJ8-UDPConnector_UdpConnectorTestJ8/src/UDPConnector/EfcpConnector.java:427: warning: (dereference.of.nullable) $$ 1 $$ task $$ ( 18577, 18581 ) $$ dereference of possibly-null reference task
+                task.cancel(false);
+                ^
+../dataset/urlbc3e98d97e_jmhorjus_EFCP_Implementation_tgz-pJ8-UDPConnector_UdpConnectorTestJ8/src/UDPConnector/EfcpConnector.java:451: warning: (dereference.of.nullable) $$ 1 $$ m_senderClosedWindowQueue.peek() $$ ( 19668, 19700 ) $$ dereference of possibly-null reference m_senderClosedWindowQueue.peek()
+                    m_senderRightWindowEdge > m_senderClosedWindowQueue.peek().getSeqNum() &&
+                                                                            ^
+../dataset/urlbc3e98d97e_jmhorjus_EFCP_Implementation_tgz-pJ8-UDPConnector_UdpConnectorTestJ8/src/UDPConnector/EfcpConnector.java:505: warning: (dereference.of.nullable) $$ 1 $$ m_senderClosedWindowQueue.peek() $$ ( 21840, 21872 ) $$ dereference of possibly-null reference m_senderClosedWindowQueue.peek()
+                    m_senderRightWindowEdge > m_senderClosedWindowQueue.peek().getSeqNum() &&
+                                                                            ^
+../dataset/urlbc3e98d97e_jmhorjus_EFCP_Implementation_tgz-pJ8-UDPConnector_UdpConnectorTestJ8/src/UDPConnector/UdpConnectionManager.java:42: warning: (dereference.of.nullable) $$ 1 $$ conn $$ ( 1561, 1565 ) $$ dereference of possibly-null reference conn
+            conn.StopReceiveThread();
+            ^
+../dataset/urlbc3e98d97e_jmhorjus_EFCP_Implementation_tgz-pJ8-UDPConnector_UdpConnectorTestJ8/src/UDPConnector/UdpConnectionManager.java:52: warning: (dereference.of.nullable) $$ 1 $$ conn $$ ( 1821, 1825 ) $$ dereference of possibly-null reference conn
+            return conn.Send(data);
+                   ^
+../dataset/urlbc3e98d97e_jmhorjus_EFCP_Implementation_tgz-pJ8-UDPConnector_UdpConnectorTestJ8/src/UDPConnector/UdpConnectionManager.java:62: warning: (dereference.of.nullable) $$ 1 $$ conn $$ ( 2064, 2068 ) $$ dereference of possibly-null reference conn
+            return conn.Send(data);
+                   ^
+../dataset/urlbc3e98d97e_jmhorjus_EFCP_Implementation_tgz-pJ8-UDPConnector_UdpConnectorTestJ8/src/UDPConnector/UdpConnectionManager.java:74: warning: (dereference.of.nullable) $$ 1 $$ conn $$ ( 2386, 2390 ) $$ dereference of possibly-null reference conn
+        return conn.Receive(0 /*no blocking*/ );
+               ^
+24 warnings
+entering iteration 1
+../dataset/urlbc3e98d97e_jmhorjus_EFCP_Implementation_tgz-pJ8-UDPConnector_UdpConnectorTestJ8/src/UDPConnector/UdpConnector.java:23: warning: (initialization.fields.uninitialized) $$ 1 $$ m_peerAddress, m_recvSocket $$ ( 1019, 1425 ) $$ the constructor does not initialize fields: m_peerAddress, m_recvSocket
+    public UdpConnector( 
+           ^
+../dataset/urlbc3e98d97e_jmhorjus_EFCP_Implementation_tgz-pJ8-UDPConnector_UdpConnectorTestJ8/src/UDPConnector/UdpConnector.java:34: warning: (assignment) $$ 2 $$ null (NullType) $$ @Initialized @NonNull Thread $$ ( 1414, 1418 ) $$ incompatible types in assignment.
+        m_receiverThread = null;
+                           ^
+  found   : null (NullType)
+  required: @Initialized @NonNull Thread
+../dataset/urlbc3e98d97e_jmhorjus_EFCP_Implementation_tgz-pJ8-UDPConnector_UdpConnectorTestJ8/src/UDPConnector/UdpConnector.java:37: warning: (initialization.fields.uninitialized) $$ 1 $$ m_peerAddress, m_recvSocket $$ ( 1435, 1960 ) $$ the constructor does not initialize fields: m_peerAddress, m_recvSocket
+    public UdpConnector( 
+           ^
+../dataset/urlbc3e98d97e_jmhorjus_EFCP_Implementation_tgz-pJ8-UDPConnector_UdpConnectorTestJ8/src/UDPConnector/UdpConnector.java:50: warning: (assignment) $$ 2 $$ null (NullType) $$ @Initialized @NonNull Thread $$ ( 1949, 1953 ) $$ incompatible types in assignment.
+        m_receiverThread = null;
+                           ^
+  found   : null (NullType)
+  required: @Initialized @NonNull Thread
+../dataset/urlbc3e98d97e_jmhorjus_EFCP_Implementation_tgz-pJ8-UDPConnector_UdpConnectorTestJ8/src/UDPConnector/UdpConnector.java:161: warning: (assignment) $$ 2 $$ null (NullType) $$ @Initialized @NonNull Thread $$ ( 7152, 7156 ) $$ incompatible types in assignment.
+                UdpConnector.this.m_receiverThread = null; // 
+                                                     ^
+  found   : null (NullType)
+  required: @Initialized @NonNull Thread
+../dataset/urlbc3e98d97e_jmhorjus_EFCP_Implementation_tgz-pJ8-UDPConnector_UdpConnectorTestJ8/src/UDPConnector/ConnectionShaper.java:87: warning: (initialization.fields.uninitialized) $$ 1 $$ m_bufferToSend $$ ( 2729, 2861 ) $$ the constructor does not initialize fields: m_bufferToSend
+        ShapedSendTask(String stringToSend)
+        ^
+../dataset/urlbc3e98d97e_jmhorjus_EFCP_Implementation_tgz-pJ8-UDPConnector_UdpConnectorTestJ8/src/UDPConnector/ConnectionShaper.java:92: warning: (initialization.fields.uninitialized) $$ 1 $$ m_stringToSend $$ ( 2870, 3001 ) $$ the constructor does not initialize fields: m_stringToSend
+        ShapedSendTask(byte[] bufferToSend)
+        ^
+../dataset/urlbc3e98d97e_jmhorjus_EFCP_Implementation_tgz-pJ8-UDPConnector_UdpConnectorTestJ8/src/UDPConnector/DtcpPacket.java:54: warning: (initialization.fields.uninitialized) $$ 1 $$ payload $$ ( 2108, 2130 ) $$ the constructor does not initialize fields: payload
+        public DtcpPacket (){}
+               ^
+../dataset/urlbc3e98d97e_jmhorjus_EFCP_Implementation_tgz-pJ8-UDPConnector_UdpConnectorTestJ8/src/UDPConnector/DtcpPacket.java:86: warning: (initialization.fields.uninitialized) $$ 1 $$ payload $$ ( 3060, 3451 ) $$ the constructor does not initialize fields: payload
+	public DtcpPacket (short destAddr, short srcAddr, short destCEPid, short srcCEPid, byte pdu_type)
+	       ^
+../dataset/urlbc3e98d97e_jmhorjus_EFCP_Implementation_tgz-pJ8-UDPConnector_UdpConnectorTestJ8/src/UDPConnector/DtcpPacket.java:127: warning: (method.invocation) $$ 3 $$ getPayloadFromBytes(byte[]) $$ @UnderInitialization @NonNull DtcpPacket $$ @Initialized @NonNull DtcpPacket $$ ( 4436, 4467 ) $$ call to getPayloadFromBytes(byte[]) not allowed on the given receiver.
+		this.payload = this.getPayloadFromBytes(bytes);
+		                                       ^
+  found   : @UnderInitialization @NonNull DtcpPacket
+  required: @Initialized @NonNull DtcpPacket
+../dataset/urlbc3e98d97e_jmhorjus_EFCP_Implementation_tgz-pJ8-UDPConnector_UdpConnectorTestJ8/src/UDPConnector/EfcpConnectorManager.java:55: warning: (dereference.of.nullable) $$ 1 $$ conn $$ ( 1993, 1997 ) $$ dereference of possibly-null reference conn
+            conn.StopReceiveThread();
+            ^
+../dataset/urlbc3e98d97e_jmhorjus_EFCP_Implementation_tgz-pJ8-UDPConnector_UdpConnectorTestJ8/src/UDPConnector/EfcpConnectorManager.java:65: warning: (dereference.of.nullable) $$ 1 $$ conn $$ ( 2259, 2263 ) $$ dereference of possibly-null reference conn
+            return conn.Send(data);
+                   ^
+../dataset/urlbc3e98d97e_jmhorjus_EFCP_Implementation_tgz-pJ8-UDPConnector_UdpConnectorTestJ8/src/UDPConnector/EfcpConnectorManager.java:76: warning: (dereference.of.nullable) $$ 1 $$ conn $$ ( 2596, 2600 ) $$ dereference of possibly-null reference conn
+            return conn.Send(data);
+                   ^
+../dataset/urlbc3e98d97e_jmhorjus_EFCP_Implementation_tgz-pJ8-UDPConnector_UdpConnectorTestJ8/src/UDPConnector/EfcpConnectorManager.java:88: warning: (dereference.of.nullable) $$ 1 $$ conn $$ ( 2948, 2952 ) $$ dereference of possibly-null reference conn
+        return conn.Receive(maxBlockTimeInMs /*no blocking*/ );
+               ^
+../dataset/urlbc3e98d97e_jmhorjus_EFCP_Implementation_tgz-pJ8-UDPConnector_UdpConnectorTestJ8/src/UDPConnector/EfcpConnector.java:227: warning: (method.invocation) $$ 3 $$ StartReceiveThread() $$ @UnderInitialization(UDPConnector.EfcpConnector.class) @NonNull EfcpConnector $$ @Initialized @NonNull EfcpConnector $$ ( 9066, 9086 ) $$ call to StartReceiveThread() not allowed on the given receiver.
+        StartReceiveThread();
+                          ^
+  found   : @UnderInitialization(UDPConnector.EfcpConnector.class) @NonNull EfcpConnector
+  required: @Initialized @NonNull EfcpConnector
+../dataset/urlbc3e98d97e_jmhorjus_EFCP_Implementation_tgz-pJ8-UDPConnector_UdpConnectorTestJ8/src/UDPConnector/EfcpConnector.java:235: warning: (initialization.fields.uninitialized) $$ 1 $$ m_selfCancelHandle $$ ( 9289, 9406 ) $$ the constructor does not initialize fields: m_selfCancelHandle
+        RetransmitEvent(DtcpPacket packetToTransmit)
+        ^
+../dataset/urlbc3e98d97e_jmhorjus_EFCP_Implementation_tgz-pJ8-UDPConnector_UdpConnectorTestJ8/src/UDPConnector/EfcpConnector.java:315: warning: (argument) $$ 4 $$ arg0 $$ List.add $$ @Initialized @NonNull byte @Initialized @Nullable [] $$ @Initialized @NonNull byte @Initialized @NonNull [] $$ ( 13229, 13291 ) $$ incompatible argument for parameter arg0 of List.add.
+                                            m_receiverPacketsOutOfOrder.get(m_receiverNextPacketToDeliver));
+                                                                           ^
+  found   : @Initialized @NonNull byte @Initialized @Nullable []
+  required: @Initialized @NonNull byte @Initialized @NonNull []
+../dataset/urlbc3e98d97e_jmhorjus_EFCP_Implementation_tgz-pJ8-UDPConnector_UdpConnectorTestJ8/src/UDPConnector/EfcpConnector.java:427: warning: (dereference.of.nullable) $$ 1 $$ task $$ ( 18577, 18581 ) $$ dereference of possibly-null reference task
+                task.cancel(false);
+                ^
+../dataset/urlbc3e98d97e_jmhorjus_EFCP_Implementation_tgz-pJ8-UDPConnector_UdpConnectorTestJ8/src/UDPConnector/EfcpConnector.java:451: warning: (dereference.of.nullable) $$ 1 $$ m_senderClosedWindowQueue.peek() $$ ( 19668, 19700 ) $$ dereference of possibly-null reference m_senderClosedWindowQueue.peek()
+                    m_senderRightWindowEdge > m_senderClosedWindowQueue.peek().getSeqNum() &&
+                                                                            ^
+../dataset/urlbc3e98d97e_jmhorjus_EFCP_Implementation_tgz-pJ8-UDPConnector_UdpConnectorTestJ8/src/UDPConnector/EfcpConnector.java:505: warning: (dereference.of.nullable) $$ 1 $$ m_senderClosedWindowQueue.peek() $$ ( 21840, 21872 ) $$ dereference of possibly-null reference m_senderClosedWindowQueue.peek()
+                    m_senderRightWindowEdge > m_senderClosedWindowQueue.peek().getSeqNum() &&
+                                                                            ^
+../dataset/urlbc3e98d97e_jmhorjus_EFCP_Implementation_tgz-pJ8-UDPConnector_UdpConnectorTestJ8/src/UDPConnector/UdpConnectionManager.java:42: warning: (dereference.of.nullable) $$ 1 $$ conn $$ ( 1561, 1565 ) $$ dereference of possibly-null reference conn
+            conn.StopReceiveThread();
+            ^
+../dataset/urlbc3e98d97e_jmhorjus_EFCP_Implementation_tgz-pJ8-UDPConnector_UdpConnectorTestJ8/src/UDPConnector/UdpConnectionManager.java:52: warning: (dereference.of.nullable) $$ 1 $$ conn $$ ( 1821, 1825 ) $$ dereference of possibly-null reference conn
+            return conn.Send(data);
+                   ^
+../dataset/urlbc3e98d97e_jmhorjus_EFCP_Implementation_tgz-pJ8-UDPConnector_UdpConnectorTestJ8/src/UDPConnector/UdpConnectionManager.java:62: warning: (dereference.of.nullable) $$ 1 $$ conn $$ ( 2064, 2068 ) $$ dereference of possibly-null reference conn
+            return conn.Send(data);
+                   ^
+../dataset/urlbc3e98d97e_jmhorjus_EFCP_Implementation_tgz-pJ8-UDPConnector_UdpConnectorTestJ8/src/UDPConnector/UdpConnectionManager.java:74: warning: (dereference.of.nullable) $$ 1 $$ conn $$ ( 2386, 2390 ) $$ dereference of possibly-null reference conn
+        return conn.Receive(0 /*no blocking*/ );
+               ^
+24 warnings
+putting the diff for iteration 1 into /mmfs1/home/ea442/wpi-njr-debug/wpi/iteration1.diff
+ending iteration 1, time taken: 7 seconds
+
+entering iteration 2
+../dataset/urlbc3e98d97e_jmhorjus_EFCP_Implementation_tgz-pJ8-UDPConnector_UdpConnectorTestJ8/src/UDPConnector/UdpConnector.java:270: warning: (argument) $$ 4 $$ address $$ DatagramPacket constructor $$ @Initialized @MonotonicNonNull InetAddress $$ @Initialized @NonNull InetAddress $$ ( 10851, 10869 ) $$ incompatible argument for parameter address of DatagramPacket constructor.
+                this.m_peerAddress, 
+                    ^
+  found   : @Initialized @MonotonicNonNull InetAddress
+  required: @Initialized @NonNull InetAddress
+../dataset/urlbc3e98d97e_jmhorjus_EFCP_Implementation_tgz-pJ8-UDPConnector_UdpConnectorTestJ8/src/UDPConnector/UdpConnector.java:288: warning: (dereference.of.nullable) $$ 1 $$ m_recvSocket $$ ( 11301, 11313 ) $$ dereference of possibly-null reference m_recvSocket
+            m_recvSocket.close();
+            ^
+../dataset/urlbc3e98d97e_jmhorjus_EFCP_Implementation_tgz-pJ8-UDPConnector_UdpConnectorTestJ8/src/UDPConnector/ConnectionShaper.java:118: warning: (argument) $$ 4 $$ sendBuffer $$ ConnectorInterface.Send $$ @Initialized @NonNull byte @Initialized @MonotonicNonNull [] $$ @Initialized @NonNull byte @Initialized @NonNull [] $$ ( 3638, 3652 ) $$ incompatible argument for parameter sendBuffer of ConnectorInterface.Send.
+                    m_connectionToShape.Send(m_bufferToSend);
+                                             ^
+  found   : @Initialized @NonNull byte @Initialized @MonotonicNonNull []
+  required: @Initialized @NonNull byte @Initialized @NonNull []
+../dataset/urlbc3e98d97e_jmhorjus_EFCP_Implementation_tgz-pJ8-UDPConnector_UdpConnectorTestJ8/src/UDPConnector/ConnectionShaper.java:120: warning: (argument) $$ 4 $$ sendString $$ ConnectorInterface.Send $$ @Initialized @MonotonicNonNull String $$ @Initialized @NonNull String $$ ( 3721, 3735 ) $$ incompatible argument for parameter sendString of ConnectorInterface.Send.
+                    m_connectionToShape.Send(m_stringToSend);
+                                             ^
+  found   : @Initialized @MonotonicNonNull String
+  required: @Initialized @NonNull String
+../dataset/urlbc3e98d97e_jmhorjus_EFCP_Implementation_tgz-pJ8-UDPConnector_UdpConnectorTestJ8/src/UDPConnector/DtcpPacket.java:127: warning: (method.invocation) $$ 3 $$ getPayloadFromBytes(byte[]) $$ @UnderInitialization(UDPConnector.DtcpPacket.class) @NonNull DtcpPacket $$ @Initialized @NonNull DtcpPacket $$ ( 4436, 4467 ) $$ call to getPayloadFromBytes(byte[]) not allowed on the given receiver.
+		this.payload = this.getPayloadFromBytes(bytes);
+		                                       ^
+  found   : @UnderInitialization(UDPConnector.DtcpPacket.class) @NonNull DtcpPacket
+  required: @Initialized @NonNull DtcpPacket
+../dataset/urlbc3e98d97e_jmhorjus_EFCP_Implementation_tgz-pJ8-UDPConnector_UdpConnectorTestJ8/src/UDPConnector/DtcpPacket.java:292: warning: (return) $$ 2 $$ @Initialized @NonNull byte @Initialized @MonotonicNonNull [] $$ @Initialized @NonNull byte @Initialized @NonNull [] $$ ( 8102, 8109 ) $$ incompatible types in return.
+		return payload;
+		       ^
+  type of expression: @Initialized @NonNull byte @Initialized @MonotonicNonNull []
+  method return type: @Initialized @NonNull byte @Initialized @NonNull []
+../dataset/urlbc3e98d97e_jmhorjus_EFCP_Implementation_tgz-pJ8-UDPConnector_UdpConnectorTestJ8/src/UDPConnector/EfcpConnectorManager.java:55: warning: (dereference.of.nullable) $$ 1 $$ conn $$ ( 1993, 1997 ) $$ dereference of possibly-null reference conn
+            conn.StopReceiveThread();
+            ^
+../dataset/urlbc3e98d97e_jmhorjus_EFCP_Implementation_tgz-pJ8-UDPConnector_UdpConnectorTestJ8/src/UDPConnector/EfcpConnectorManager.java:65: warning: (dereference.of.nullable) $$ 1 $$ conn $$ ( 2259, 2263 ) $$ dereference of possibly-null reference conn
+            return conn.Send(data);
+                   ^
+../dataset/urlbc3e98d97e_jmhorjus_EFCP_Implementation_tgz-pJ8-UDPConnector_UdpConnectorTestJ8/src/UDPConnector/EfcpConnectorManager.java:76: warning: (dereference.of.nullable) $$ 1 $$ conn $$ ( 2596, 2600 ) $$ dereference of possibly-null reference conn
+            return conn.Send(data);
+                   ^
+../dataset/urlbc3e98d97e_jmhorjus_EFCP_Implementation_tgz-pJ8-UDPConnector_UdpConnectorTestJ8/src/UDPConnector/EfcpConnectorManager.java:88: warning: (dereference.of.nullable) $$ 1 $$ conn $$ ( 2948, 2952 ) $$ dereference of possibly-null reference conn
+        return conn.Receive(maxBlockTimeInMs /*no blocking*/ );
+               ^
+../dataset/urlbc3e98d97e_jmhorjus_EFCP_Implementation_tgz-pJ8-UDPConnector_UdpConnectorTestJ8/src/UDPConnector/EfcpConnector.java:227: warning: (method.invocation) $$ 3 $$ StartReceiveThread() $$ @UnderInitialization(UDPConnector.EfcpConnector.class) @NonNull EfcpConnector $$ @Initialized @NonNull EfcpConnector $$ ( 9066, 9086 ) $$ call to StartReceiveThread() not allowed on the given receiver.
+        StartReceiveThread();
+                          ^
+  found   : @UnderInitialization(UDPConnector.EfcpConnector.class) @NonNull EfcpConnector
+  required: @Initialized @NonNull EfcpConnector
+../dataset/urlbc3e98d97e_jmhorjus_EFCP_Implementation_tgz-pJ8-UDPConnector_UdpConnectorTestJ8/src/UDPConnector/EfcpConnector.java:263: warning: (dereference.of.nullable) $$ 1 $$ m_selfCancelHandle $$ ( 10429, 10447 ) $$ dereference of possibly-null reference m_selfCancelHandle
+                m_selfCancelHandle.cancel(false);
+                ^
+../dataset/urlbc3e98d97e_jmhorjus_EFCP_Implementation_tgz-pJ8-UDPConnector_UdpConnectorTestJ8/src/UDPConnector/EfcpConnector.java:315: warning: (argument) $$ 4 $$ arg0 $$ List.add $$ @Initialized @NonNull byte @Initialized @Nullable [] $$ @Initialized @NonNull byte @Initialized @NonNull [] $$ ( 13229, 13291 ) $$ incompatible argument for parameter arg0 of List.add.
+                                            m_receiverPacketsOutOfOrder.get(m_receiverNextPacketToDeliver));
+                                                                           ^
+  found   : @Initialized @NonNull byte @Initialized @Nullable []
+  required: @Initialized @NonNull byte @Initialized @NonNull []
+../dataset/urlbc3e98d97e_jmhorjus_EFCP_Implementation_tgz-pJ8-UDPConnector_UdpConnectorTestJ8/src/UDPConnector/EfcpConnector.java:427: warning: (dereference.of.nullable) $$ 1 $$ task $$ ( 18577, 18581 ) $$ dereference of possibly-null reference task
+                task.cancel(false);
+                ^
+../dataset/urlbc3e98d97e_jmhorjus_EFCP_Implementation_tgz-pJ8-UDPConnector_UdpConnectorTestJ8/src/UDPConnector/EfcpConnector.java:451: warning: (dereference.of.nullable) $$ 1 $$ m_senderClosedWindowQueue.peek() $$ ( 19668, 19700 ) $$ dereference of possibly-null reference m_senderClosedWindowQueue.peek()
+                    m_senderRightWindowEdge > m_senderClosedWindowQueue.peek().getSeqNum() &&
+                                                                            ^
+../dataset/urlbc3e98d97e_jmhorjus_EFCP_Implementation_tgz-pJ8-UDPConnector_UdpConnectorTestJ8/src/UDPConnector/EfcpConnector.java:505: warning: (dereference.of.nullable) $$ 1 $$ m_senderClosedWindowQueue.peek() $$ ( 21840, 21872 ) $$ dereference of possibly-null reference m_senderClosedWindowQueue.peek()
+                    m_senderRightWindowEdge > m_senderClosedWindowQueue.peek().getSeqNum() &&
+                                                                            ^
+../dataset/urlbc3e98d97e_jmhorjus_EFCP_Implementation_tgz-pJ8-UDPConnector_UdpConnectorTestJ8/src/UDPConnector/UdpConnectionManager.java:42: warning: (dereference.of.nullable) $$ 1 $$ conn $$ ( 1561, 1565 ) $$ dereference of possibly-null reference conn
+            conn.StopReceiveThread();
+            ^
+../dataset/urlbc3e98d97e_jmhorjus_EFCP_Implementation_tgz-pJ8-UDPConnector_UdpConnectorTestJ8/src/UDPConnector/UdpConnectionManager.java:52: warning: (dereference.of.nullable) $$ 1 $$ conn $$ ( 1821, 1825 ) $$ dereference of possibly-null reference conn
+            return conn.Send(data);
+                   ^
+../dataset/urlbc3e98d97e_jmhorjus_EFCP_Implementation_tgz-pJ8-UDPConnector_UdpConnectorTestJ8/src/UDPConnector/UdpConnectionManager.java:62: warning: (dereference.of.nullable) $$ 1 $$ conn $$ ( 2064, 2068 ) $$ dereference of possibly-null reference conn
+            return conn.Send(data);
+                   ^
+../dataset/urlbc3e98d97e_jmhorjus_EFCP_Implementation_tgz-pJ8-UDPConnector_UdpConnectorTestJ8/src/UDPConnector/UdpConnectionManager.java:74: warning: (dereference.of.nullable) $$ 1 $$ conn $$ ( 2386, 2390 ) $$ dereference of possibly-null reference conn
+        return conn.Receive(0 /*no blocking*/ );
+               ^
+20 warnings
+putting the diff for iteration 2 into /mmfs1/home/ea442/wpi-njr-debug/wpi/iteration2.diff
+ending iteration 2, time taken: 7 seconds
+
+entering iteration 3
+../dataset/urlbc3e98d97e_jmhorjus_EFCP_Implementation_tgz-pJ8-UDPConnector_UdpConnectorTestJ8/src/UDPConnector/UdpConnector.java:251: warning: (override.param) $$ 7 $$ sendString $$ @Initialized @NonNull String $$ @Initialized @Nullable String $$ @Initialized @NonNull UdpConnector $$ @Initialized @NonNull boolean Send(@Initialized @NonNull UdpConnector this, @Initialized @NonNull String p0) throws @Initialized @NonNull Exception $$ @Initialized @NonNull ConnectorInterface $$ @Initialized @NonNull boolean Send(@Initialized @NonNull ConnectorInterface this, @Initialized @Nullable String p0) throws @Initialized @NonNull Exception $$ ( 10197, 10214 ) $$ Incompatible parameter type for sendString.
+    public boolean Send(String sendString) throws Exception
+                               ^
+  found   : @Initialized @NonNull String
+  required: @Initialized @Nullable String
+  Consequence: method in @Initialized @NonNull UdpConnector
+    @Initialized @NonNull boolean Send(@Initialized @NonNull UdpConnector this, @Initialized @NonNull String p0) throws @Initialized @NonNull Exception
+  cannot override method in @Initialized @NonNull ConnectorInterface
+    @Initialized @NonNull boolean Send(@Initialized @NonNull ConnectorInterface this, @Initialized @Nullable String p0) throws @Initialized @NonNull Exception
+../dataset/urlbc3e98d97e_jmhorjus_EFCP_Implementation_tgz-pJ8-UDPConnector_UdpConnectorTestJ8/src/UDPConnector/UdpConnector.java:257: warning: (override.param) $$ 7 $$ sendBuffer $$ @Initialized @NonNull byte @Initialized @NonNull [] $$ @Initialized @NonNull byte @Initialized @Nullable [] $$ @Initialized @NonNull UdpConnector $$ @Initialized @NonNull boolean Send(@Initialized @NonNull UdpConnector this, @Initialized @NonNull byte @Initialized @NonNull [] p0) throws @Initialized @NonNull Exception $$ @Initialized @NonNull ConnectorInterface $$ @Initialized @NonNull boolean Send(@Initialized @NonNull ConnectorInterface this, @Initialized @NonNull byte @Initialized @Nullable [] p0) throws @Initialized @NonNull Exception $$ ( 10335, 10352 ) $$ Incompatible parameter type for sendBuffer.
+    public boolean Send(byte[] sendBuffer) throws Exception
+                               ^
+  found   : @Initialized @NonNull byte @Initialized @NonNull []
+  required: @Initialized @NonNull byte @Initialized @Nullable []
+  Consequence: method in @Initialized @NonNull UdpConnector
+    @Initialized @NonNull boolean Send(@Initialized @NonNull UdpConnector this, @Initialized @NonNull byte @Initialized @NonNull [] p0) throws @Initialized @NonNull Exception
+  cannot override method in @Initialized @NonNull ConnectorInterface
+    @Initialized @NonNull boolean Send(@Initialized @NonNull ConnectorInterface this, @Initialized @NonNull byte @Initialized @Nullable [] p0) throws @Initialized @NonNull Exception
+../dataset/urlbc3e98d97e_jmhorjus_EFCP_Implementation_tgz-pJ8-UDPConnector_UdpConnectorTestJ8/src/UDPConnector/UdpConnector.java:270: warning: (argument) $$ 4 $$ address $$ DatagramPacket constructor $$ @Initialized @MonotonicNonNull InetAddress $$ @Initialized @NonNull InetAddress $$ ( 10851, 10869 ) $$ incompatible argument for parameter address of DatagramPacket constructor.
+                this.m_peerAddress, 
+                    ^
+  found   : @Initialized @MonotonicNonNull InetAddress
+  required: @Initialized @NonNull InetAddress
+../dataset/urlbc3e98d97e_jmhorjus_EFCP_Implementation_tgz-pJ8-UDPConnector_UdpConnectorTestJ8/src/UDPConnector/UdpConnector.java:288: warning: (dereference.of.nullable) $$ 1 $$ m_recvSocket $$ ( 11301, 11313 ) $$ dereference of possibly-null reference m_recvSocket
+            m_recvSocket.close();
+            ^
+../dataset/urlbc3e98d97e_jmhorjus_EFCP_Implementation_tgz-pJ8-UDPConnector_UdpConnectorTestJ8/src/UDPConnector/ConnectionShaper.java:54: warning: (override.param) $$ 7 $$ sendString $$ @Initialized @NonNull String $$ @Initialized @Nullable String $$ @Initialized @NonNull ConnectionShaper $$ @Initialized @NonNull boolean Send(@Initialized @NonNull ConnectionShaper this, @Initialized @NonNull String p0) throws @Initialized @NonNull Exception $$ @Initialized @NonNull ConnectorInterface $$ @Initialized @NonNull boolean Send(@Initialized @NonNull ConnectorInterface this, @Initialized @Nullable String p0) throws @Initialized @NonNull Exception $$ ( 1749, 1766 ) $$ Incompatible parameter type for sendString.
+    public boolean Send(String sendString) throws Exception
+                               ^
+  found   : @Initialized @NonNull String
+  required: @Initialized @Nullable String
+  Consequence: method in @Initialized @NonNull ConnectionShaper
+    @Initialized @NonNull boolean Send(@Initialized @NonNull ConnectionShaper this, @Initialized @NonNull String p0) throws @Initialized @NonNull Exception
+  cannot override method in @Initialized @NonNull ConnectorInterface
+    @Initialized @NonNull boolean Send(@Initialized @NonNull ConnectorInterface this, @Initialized @Nullable String p0) throws @Initialized @NonNull Exception
+../dataset/urlbc3e98d97e_jmhorjus_EFCP_Implementation_tgz-pJ8-UDPConnector_UdpConnectorTestJ8/src/UDPConnector/ConnectionShaper.java:60: warning: (override.param) $$ 7 $$ sendBuffer $$ @Initialized @NonNull byte @Initialized @NonNull [] $$ @Initialized @NonNull byte @Initialized @Nullable [] $$ @Initialized @NonNull ConnectionShaper $$ @Initialized @NonNull boolean Send(@Initialized @NonNull ConnectionShaper this, @Initialized @NonNull byte @Initialized @NonNull [] p0) throws @Initialized @NonNull Exception $$ @Initialized @NonNull ConnectorInterface $$ @Initialized @NonNull boolean Send(@Initialized @NonNull ConnectorInterface this, @Initialized @NonNull byte @Initialized @Nullable [] p0) throws @Initialized @NonNull Exception $$ ( 1884, 1901 ) $$ Incompatible parameter type for sendBuffer.
+    public boolean Send(byte[] sendBuffer) throws Exception
+                               ^
+  found   : @Initialized @NonNull byte @Initialized @NonNull []
+  required: @Initialized @NonNull byte @Initialized @Nullable []
+  Consequence: method in @Initialized @NonNull ConnectionShaper
+    @Initialized @NonNull boolean Send(@Initialized @NonNull ConnectionShaper this, @Initialized @NonNull byte @Initialized @NonNull [] p0) throws @Initialized @NonNull Exception
+  cannot override method in @Initialized @NonNull ConnectorInterface
+    @Initialized @NonNull boolean Send(@Initialized @NonNull ConnectorInterface this, @Initialized @NonNull byte @Initialized @Nullable [] p0) throws @Initialized @NonNull Exception
+../dataset/urlbc3e98d97e_jmhorjus_EFCP_Implementation_tgz-pJ8-UDPConnector_UdpConnectorTestJ8/src/UDPConnector/DtcpPacket.java:127: warning: (method.invocation) $$ 3 $$ getPayloadFromBytes(byte[]) $$ @UnderInitialization(UDPConnector.DtcpPacket.class) @NonNull DtcpPacket $$ @Initialized @NonNull DtcpPacket $$ ( 4436, 4467 ) $$ call to getPayloadFromBytes(byte[]) not allowed on the given receiver.
+		this.payload = this.getPayloadFromBytes(bytes);
+		                                       ^
+  found   : @UnderInitialization(UDPConnector.DtcpPacket.class) @NonNull DtcpPacket
+  required: @Initialized @NonNull DtcpPacket
+../dataset/urlbc3e98d97e_jmhorjus_EFCP_Implementation_tgz-pJ8-UDPConnector_UdpConnectorTestJ8/src/UDPConnector/EfcpConnectorManager.java:55: warning: (dereference.of.nullable) $$ 1 $$ conn $$ ( 1993, 1997 ) $$ dereference of possibly-null reference conn
+            conn.StopReceiveThread();
+            ^
+../dataset/urlbc3e98d97e_jmhorjus_EFCP_Implementation_tgz-pJ8-UDPConnector_UdpConnectorTestJ8/src/UDPConnector/EfcpConnectorManager.java:65: warning: (dereference.of.nullable) $$ 1 $$ conn $$ ( 2259, 2263 ) $$ dereference of possibly-null reference conn
+            return conn.Send(data);
+                   ^
+../dataset/urlbc3e98d97e_jmhorjus_EFCP_Implementation_tgz-pJ8-UDPConnector_UdpConnectorTestJ8/src/UDPConnector/EfcpConnectorManager.java:76: warning: (dereference.of.nullable) $$ 1 $$ conn $$ ( 2596, 2600 ) $$ dereference of possibly-null reference conn
+            return conn.Send(data);
+                   ^
+../dataset/urlbc3e98d97e_jmhorjus_EFCP_Implementation_tgz-pJ8-UDPConnector_UdpConnectorTestJ8/src/UDPConnector/EfcpConnectorManager.java:88: warning: (dereference.of.nullable) $$ 1 $$ conn $$ ( 2948, 2952 ) $$ dereference of possibly-null reference conn
+        return conn.Receive(maxBlockTimeInMs /*no blocking*/ );
+               ^
+../dataset/urlbc3e98d97e_jmhorjus_EFCP_Implementation_tgz-pJ8-UDPConnector_UdpConnectorTestJ8/src/UDPConnector/EfcpConnector.java:59: warning: (override.param) $$ 7 $$ sendString $$ @Initialized @NonNull String $$ @Initialized @Nullable String $$ @Initialized @NonNull EfcpConnector $$ @Initialized @NonNull boolean Send(@Initialized @NonNull EfcpConnector this, @Initialized @NonNull String p0) throws @Initialized @NonNull Exception $$ @Initialized @NonNull ConnectorInterface $$ @Initialized @NonNull boolean Send(@Initialized @NonNull ConnectorInterface this, @Initialized @Nullable String p0) throws @Initialized @NonNull Exception $$ ( 2192, 2209 ) $$ Incompatible parameter type for sendString.
+    public boolean Send(String sendString) throws Exception
+                               ^
+  found   : @Initialized @NonNull String
+  required: @Initialized @Nullable String
+  Consequence: method in @Initialized @NonNull EfcpConnector
+    @Initialized @NonNull boolean Send(@Initialized @NonNull EfcpConnector this, @Initialized @NonNull String p0) throws @Initialized @NonNull Exception
+  cannot override method in @Initialized @NonNull ConnectorInterface
+    @Initialized @NonNull boolean Send(@Initialized @NonNull ConnectorInterface this, @Initialized @Nullable String p0) throws @Initialized @NonNull Exception
+../dataset/urlbc3e98d97e_jmhorjus_EFCP_Implementation_tgz-pJ8-UDPConnector_UdpConnectorTestJ8/src/UDPConnector/EfcpConnector.java:106: warning: (override.param) $$ 7 $$ sendBuffer $$ @Initialized @NonNull byte @Initialized @NonNull [] $$ @Initialized @NonNull byte @Initialized @Nullable [] $$ @Initialized @NonNull EfcpConnector $$ @Initialized @NonNull boolean Send(@Initialized @NonNull EfcpConnector this, @Initialized @NonNull byte @Initialized @NonNull [] p0) throws @Initialized @NonNull Exception $$ @Initialized @NonNull ConnectorInterface $$ @Initialized @NonNull boolean Send(@Initialized @NonNull ConnectorInterface this, @Initialized @NonNull byte @Initialized @Nullable [] p0) throws @Initialized @NonNull Exception $$ ( 3947, 3964 ) $$ Incompatible parameter type for sendBuffer.
+    public boolean Send(byte[] sendBuffer) throws Exception
+                               ^
+  found   : @Initialized @NonNull byte @Initialized @NonNull []
+  required: @Initialized @NonNull byte @Initialized @Nullable []
+  Consequence: method in @Initialized @NonNull EfcpConnector
+    @Initialized @NonNull boolean Send(@Initialized @NonNull EfcpConnector this, @Initialized @NonNull byte @Initialized @NonNull [] p0) throws @Initialized @NonNull Exception
+  cannot override method in @Initialized @NonNull ConnectorInterface
+    @Initialized @NonNull boolean Send(@Initialized @NonNull ConnectorInterface this, @Initialized @NonNull byte @Initialized @Nullable [] p0) throws @Initialized @NonNull Exception
+../dataset/urlbc3e98d97e_jmhorjus_EFCP_Implementation_tgz-pJ8-UDPConnector_UdpConnectorTestJ8/src/UDPConnector/EfcpConnector.java:146: warning: (argument) $$ 4 $$ bytes $$ String constructor $$ @Initialized @NonNull byte @Initialized @Nullable [] $$ @Initialized @NonNull byte @Initialized @NonNull [] $$ ( 5682, 5707 ) $$ incompatible argument for parameter bytes of String constructor.
+                    + " Buffer="+new String(packetToSend.getPayload())+".\n");
+                                                                   ^
+  found   : @Initialized @NonNull byte @Initialized @Nullable []
+  required: @Initialized @NonNull byte @Initialized @NonNull []
+../dataset/urlbc3e98d97e_jmhorjus_EFCP_Implementation_tgz-pJ8-UDPConnector_UdpConnectorTestJ8/src/UDPConnector/EfcpConnector.java:227: warning: (method.invocation) $$ 3 $$ StartReceiveThread() $$ @UnderInitialization(UDPConnector.EfcpConnector.class) @NonNull EfcpConnector $$ @Initialized @NonNull EfcpConnector $$ ( 9066, 9086 ) $$ call to StartReceiveThread() not allowed on the given receiver.
+        StartReceiveThread();
+                          ^
+  found   : @UnderInitialization(UDPConnector.EfcpConnector.class) @NonNull EfcpConnector
+  required: @Initialized @NonNull EfcpConnector
+../dataset/urlbc3e98d97e_jmhorjus_EFCP_Implementation_tgz-pJ8-UDPConnector_UdpConnectorTestJ8/src/UDPConnector/EfcpConnector.java:263: warning: (dereference.of.nullable) $$ 1 $$ m_selfCancelHandle $$ ( 10429, 10447 ) $$ dereference of possibly-null reference m_selfCancelHandle
+                m_selfCancelHandle.cancel(false);
+                ^
+../dataset/urlbc3e98d97e_jmhorjus_EFCP_Implementation_tgz-pJ8-UDPConnector_UdpConnectorTestJ8/src/UDPConnector/EfcpConnector.java:305: warning: (argument) $$ 4 $$ arg0 $$ List.add $$ @Initialized @NonNull byte @Initialized @Nullable [] $$ @Initialized @NonNull byte @Initialized @NonNull [] $$ ( 12479, 12498 ) $$ incompatible argument for parameter arg0 of List.add.
+                                m_receiverPacketsReady.add(packet.getPayload());
+                                                                            ^
+  found   : @Initialized @NonNull byte @Initialized @Nullable []
+  required: @Initialized @NonNull byte @Initialized @NonNull []
+../dataset/urlbc3e98d97e_jmhorjus_EFCP_Implementation_tgz-pJ8-UDPConnector_UdpConnectorTestJ8/src/UDPConnector/EfcpConnector.java:315: warning: (argument) $$ 4 $$ arg0 $$ List.add $$ @Initialized @NonNull byte @Initialized @Nullable [] $$ @Initialized @NonNull byte @Initialized @NonNull [] $$ ( 13229, 13291 ) $$ incompatible argument for parameter arg0 of List.add.
+                                            m_receiverPacketsOutOfOrder.get(m_receiverNextPacketToDeliver));
+                                                                           ^
+  found   : @Initialized @NonNull byte @Initialized @Nullable []
+  required: @Initialized @NonNull byte @Initialized @NonNull []
+../dataset/urlbc3e98d97e_jmhorjus_EFCP_Implementation_tgz-pJ8-UDPConnector_UdpConnectorTestJ8/src/UDPConnector/EfcpConnector.java:332: warning: (argument) $$ 4 $$ bytes $$ String constructor $$ @Initialized @NonNull byte @Initialized @Nullable [] $$ @Initialized @NonNull byte @Initialized @NonNull [] $$ ( 14317, 14336 ) $$ incompatible argument for parameter bytes of String constructor.
+                            System.out.print("Received duplicate packet "+packet.getSeqNum()+":"+new String(packet.getPayload())+"\n");
+                                                                                                                             ^
+  found   : @Initialized @NonNull byte @Initialized @Nullable []
+  required: @Initialized @NonNull byte @Initialized @NonNull []
+../dataset/urlbc3e98d97e_jmhorjus_EFCP_Implementation_tgz-pJ8-UDPConnector_UdpConnectorTestJ8/src/UDPConnector/EfcpConnector.java:340: warning: (argument) $$ 4 $$ arg1 $$ Map.put $$ @Initialized @NonNull byte @Initialized @Nullable [] $$ @Initialized @NonNull byte @Initialized @NonNull [] $$ ( 14832, 14851 ) $$ incompatible argument for parameter arg1 of Map.put.
+                                m_receiverPacketsOutOfOrder.put(packet.getSeqNum(), packet.getPayload());
+                                                                                                     ^
+  found   : @Initialized @NonNull byte @Initialized @Nullable []
+  required: @Initialized @NonNull byte @Initialized @NonNull []
+../dataset/urlbc3e98d97e_jmhorjus_EFCP_Implementation_tgz-pJ8-UDPConnector_UdpConnectorTestJ8/src/UDPConnector/EfcpConnector.java:427: warning: (dereference.of.nullable) $$ 1 $$ task $$ ( 18577, 18581 ) $$ dereference of possibly-null reference task
+                task.cancel(false);
+                ^
+../dataset/urlbc3e98d97e_jmhorjus_EFCP_Implementation_tgz-pJ8-UDPConnector_UdpConnectorTestJ8/src/UDPConnector/EfcpConnector.java:451: warning: (dereference.of.nullable) $$ 1 $$ m_senderClosedWindowQueue.peek() $$ ( 19668, 19700 ) $$ dereference of possibly-null reference m_senderClosedWindowQueue.peek()
+                    m_senderRightWindowEdge > m_senderClosedWindowQueue.peek().getSeqNum() &&
+                                                                            ^
+../dataset/urlbc3e98d97e_jmhorjus_EFCP_Implementation_tgz-pJ8-UDPConnector_UdpConnectorTestJ8/src/UDPConnector/EfcpConnector.java:505: warning: (dereference.of.nullable) $$ 1 $$ m_senderClosedWindowQueue.peek() $$ ( 21840, 21872 ) $$ dereference of possibly-null reference m_senderClosedWindowQueue.peek()
+                    m_senderRightWindowEdge > m_senderClosedWindowQueue.peek().getSeqNum() &&
+                                                                            ^
+../dataset/urlbc3e98d97e_jmhorjus_EFCP_Implementation_tgz-pJ8-UDPConnector_UdpConnectorTestJ8/src/UDPConnector/UdpConnectionManager.java:42: warning: (dereference.of.nullable) $$ 1 $$ conn $$ ( 1561, 1565 ) $$ dereference of possibly-null reference conn
+            conn.StopReceiveThread();
+            ^
+../dataset/urlbc3e98d97e_jmhorjus_EFCP_Implementation_tgz-pJ8-UDPConnector_UdpConnectorTestJ8/src/UDPConnector/UdpConnectionManager.java:52: warning: (dereference.of.nullable) $$ 1 $$ conn $$ ( 1821, 1825 ) $$ dereference of possibly-null reference conn
+            return conn.Send(data);
+                   ^
+../dataset/urlbc3e98d97e_jmhorjus_EFCP_Implementation_tgz-pJ8-UDPConnector_UdpConnectorTestJ8/src/UDPConnector/UdpConnectionManager.java:62: warning: (dereference.of.nullable) $$ 1 $$ conn $$ ( 2064, 2068 ) $$ dereference of possibly-null reference conn
+            return conn.Send(data);
+                   ^
+../dataset/urlbc3e98d97e_jmhorjus_EFCP_Implementation_tgz-pJ8-UDPConnector_UdpConnectorTestJ8/src/UDPConnector/UdpConnectionManager.java:74: warning: (dereference.of.nullable) $$ 1 $$ conn $$ ( 2386, 2390 ) $$ dereference of possibly-null reference conn
+        return conn.Receive(0 /*no blocking*/ );
+               ^
+27 warnings
+putting the diff for iteration 3 into /mmfs1/home/ea442/wpi-njr-debug/wpi/iteration3.diff
+ending iteration 3, time taken: 7 seconds
+
+entering iteration 4
+../dataset/urlbc3e98d97e_jmhorjus_EFCP_Implementation_tgz-pJ8-UDPConnector_UdpConnectorTestJ8/src/UDPConnector/UdpConnector.java:253: warning: (dereference.of.nullable) $$ 1 $$ sendString $$ ( 10262, 10272 ) $$ dereference of possibly-null reference sendString
+        return Send(sendString.getBytes());
+                    ^
+../dataset/urlbc3e98d97e_jmhorjus_EFCP_Implementation_tgz-pJ8-UDPConnector_UdpConnectorTestJ8/src/UDPConnector/UdpConnector.java:268: warning: (argument) $$ 4 $$ buf $$ DatagramPacket constructor $$ @Initialized @NonNull byte @Initialized @Nullable [] $$ @Initialized @NonNull byte @Initialized @NonNull [] $$ ( 10786, 10796 ) $$ incompatible argument for parameter buf of DatagramPacket constructor.
+                sendBuffer, 
+                ^
+  found   : @Initialized @NonNull byte @Initialized @Nullable []
+  required: @Initialized @NonNull byte @Initialized @NonNull []
+../dataset/urlbc3e98d97e_jmhorjus_EFCP_Implementation_tgz-pJ8-UDPConnector_UdpConnectorTestJ8/src/UDPConnector/UdpConnector.java:269: warning: (dereference.of.nullable) $$ 1 $$ sendBuffer $$ ( 10815, 10825 ) $$ dereference of possibly-null reference sendBuffer
+                sendBuffer.length, 
+                ^
+../dataset/urlbc3e98d97e_jmhorjus_EFCP_Implementation_tgz-pJ8-UDPConnector_UdpConnectorTestJ8/src/UDPConnector/UdpConnector.java:270: warning: (argument) $$ 4 $$ address $$ DatagramPacket constructor $$ @Initialized @MonotonicNonNull InetAddress $$ @Initialized @NonNull InetAddress $$ ( 10851, 10869 ) $$ incompatible argument for parameter address of DatagramPacket constructor.
+                this.m_peerAddress, 
+                    ^
+  found   : @Initialized @MonotonicNonNull InetAddress
+  required: @Initialized @NonNull InetAddress
+../dataset/urlbc3e98d97e_jmhorjus_EFCP_Implementation_tgz-pJ8-UDPConnector_UdpConnectorTestJ8/src/UDPConnector/UdpConnector.java:288: warning: (dereference.of.nullable) $$ 1 $$ m_recvSocket $$ ( 11301, 11313 ) $$ dereference of possibly-null reference m_recvSocket
+            m_recvSocket.close();
+            ^
+../dataset/urlbc3e98d97e_jmhorjus_EFCP_Implementation_tgz-pJ8-UDPConnector_UdpConnectorTestJ8/src/UDPConnector/ConnectionShaper.java:56: warning: (dereference.of.nullable) $$ 1 $$ sendString $$ ( 1811, 1821 ) $$ dereference of possibly-null reference sendString
+        return Send(sendString.getBytes());
+                    ^
+../dataset/urlbc3e98d97e_jmhorjus_EFCP_Implementation_tgz-pJ8-UDPConnector_UdpConnectorTestJ8/src/UDPConnector/ConnectionShaper.java:63: warning: (argument) $$ 4 $$ bufferToSend $$ ShapedSendTask constructor $$ @Initialized @NonNull byte @Initialized @Nullable [] $$ @Initialized @NonNull byte @Initialized @NonNull [] $$ ( 2009, 2019 ) $$ incompatible argument for parameter bufferToSend of ShapedSendTask constructor.
+                this.new ShapedSendTask(sendBuffer));
+                                        ^
+  found   : @Initialized @NonNull byte @Initialized @Nullable []
+  required: @Initialized @NonNull byte @Initialized @NonNull []
+../dataset/urlbc3e98d97e_jmhorjus_EFCP_Implementation_tgz-pJ8-UDPConnector_UdpConnectorTestJ8/src/UDPConnector/DtcpPacket.java:127: warning: (method.invocation) $$ 3 $$ getPayloadFromBytes(byte[]) $$ @UnderInitialization(UDPConnector.DtcpPacket.class) @NonNull DtcpPacket $$ @Initialized @NonNull DtcpPacket $$ ( 4436, 4467 ) $$ call to getPayloadFromBytes(byte[]) not allowed on the given receiver.
+		this.payload = this.getPayloadFromBytes(bytes);
+		                                       ^
+  found   : @UnderInitialization(UDPConnector.DtcpPacket.class) @NonNull DtcpPacket
+  required: @Initialized @NonNull DtcpPacket
+../dataset/urlbc3e98d97e_jmhorjus_EFCP_Implementation_tgz-pJ8-UDPConnector_UdpConnectorTestJ8/src/UDPConnector/EfcpConnectorManager.java:55: warning: (dereference.of.nullable) $$ 1 $$ conn $$ ( 1993, 1997 ) $$ dereference of possibly-null reference conn
+            conn.StopReceiveThread();
+            ^
+../dataset/urlbc3e98d97e_jmhorjus_EFCP_Implementation_tgz-pJ8-UDPConnector_UdpConnectorTestJ8/src/UDPConnector/EfcpConnectorManager.java:65: warning: (dereference.of.nullable) $$ 1 $$ conn $$ ( 2259, 2263 ) $$ dereference of possibly-null reference conn
+            return conn.Send(data);
+                   ^
+../dataset/urlbc3e98d97e_jmhorjus_EFCP_Implementation_tgz-pJ8-UDPConnector_UdpConnectorTestJ8/src/UDPConnector/EfcpConnectorManager.java:76: warning: (dereference.of.nullable) $$ 1 $$ conn $$ ( 2596, 2600 ) $$ dereference of possibly-null reference conn
+            return conn.Send(data);
+                   ^
+../dataset/urlbc3e98d97e_jmhorjus_EFCP_Implementation_tgz-pJ8-UDPConnector_UdpConnectorTestJ8/src/UDPConnector/EfcpConnectorManager.java:88: warning: (dereference.of.nullable) $$ 1 $$ conn $$ ( 2948, 2952 ) $$ dereference of possibly-null reference conn
+        return conn.Receive(maxBlockTimeInMs /*no blocking*/ );
+               ^
+../dataset/urlbc3e98d97e_jmhorjus_EFCP_Implementation_tgz-pJ8-UDPConnector_UdpConnectorTestJ8/src/UDPConnector/EfcpConnector.java:61: warning: (dereference.of.nullable) $$ 1 $$ sendString $$ ( 2254, 2264 ) $$ dereference of possibly-null reference sendString
+        return Send(sendString.getBytes());
+                    ^
+../dataset/urlbc3e98d97e_jmhorjus_EFCP_Implementation_tgz-pJ8-UDPConnector_UdpConnectorTestJ8/src/UDPConnector/EfcpConnector.java:122: warning: (argument) $$ 4 $$ payload $$ DtcpPacket constructor $$ @Initialized @NonNull byte @Initialized @Nullable [] $$ @Initialized @NonNull byte @Initialized @NonNull [] $$ ( 4635, 4645 ) $$ incompatible argument for parameter payload of DtcpPacket constructor.
+                sendBuffer //byte[] payload
+                ^
+  found   : @Initialized @NonNull byte @Initialized @Nullable []
+  required: @Initialized @NonNull byte @Initialized @NonNull []
+../dataset/urlbc3e98d97e_jmhorjus_EFCP_Implementation_tgz-pJ8-UDPConnector_UdpConnectorTestJ8/src/UDPConnector/EfcpConnector.java:146: warning: (argument) $$ 4 $$ bytes $$ String constructor $$ @Initialized @NonNull byte @Initialized @Nullable [] $$ @Initialized @NonNull byte @Initialized @NonNull [] $$ ( 5682, 5707 ) $$ incompatible argument for parameter bytes of String constructor.
+                    + " Buffer="+new String(packetToSend.getPayload())+".\n");
+                                                                   ^
+  found   : @Initialized @NonNull byte @Initialized @Nullable []
+  required: @Initialized @NonNull byte @Initialized @NonNull []
+../dataset/urlbc3e98d97e_jmhorjus_EFCP_Implementation_tgz-pJ8-UDPConnector_UdpConnectorTestJ8/src/UDPConnector/EfcpConnector.java:227: warning: (method.invocation) $$ 3 $$ StartReceiveThread() $$ @UnderInitialization(UDPConnector.EfcpConnector.class) @NonNull EfcpConnector $$ @Initialized @NonNull EfcpConnector $$ ( 9066, 9086 ) $$ call to StartReceiveThread() not allowed on the given receiver.
+        StartReceiveThread();
+                          ^
+  found   : @UnderInitialization(UDPConnector.EfcpConnector.class) @NonNull EfcpConnector
+  required: @Initialized @NonNull EfcpConnector
+../dataset/urlbc3e98d97e_jmhorjus_EFCP_Implementation_tgz-pJ8-UDPConnector_UdpConnectorTestJ8/src/UDPConnector/EfcpConnector.java:263: warning: (dereference.of.nullable) $$ 1 $$ m_selfCancelHandle $$ ( 10429, 10447 ) $$ dereference of possibly-null reference m_selfCancelHandle
+                m_selfCancelHandle.cancel(false);
+                ^
+../dataset/urlbc3e98d97e_jmhorjus_EFCP_Implementation_tgz-pJ8-UDPConnector_UdpConnectorTestJ8/src/UDPConnector/EfcpConnector.java:296: warning: (contracts.precondition) $$ 3 $$ packet.getPdu_type $$ packet.payload is @Nullable $$ packet.payload is @NonNull $$ ( 11992, 12012 ) $$ precondition of packet.getPdu_type is not satisfied.
+                switch(packet.getPdu_type())
+                                         ^
+  found   : packet.payload is @Nullable
+  required: packet.payload is @NonNull
+../dataset/urlbc3e98d97e_jmhorjus_EFCP_Implementation_tgz-pJ8-UDPConnector_UdpConnectorTestJ8/src/UDPConnector/EfcpConnector.java:305: warning: (argument) $$ 4 $$ arg0 $$ List.add $$ @Initialized @NonNull byte @Initialized @Nullable [] $$ @Initialized @NonNull byte @Initialized @NonNull [] $$ ( 12479, 12498 ) $$ incompatible argument for parameter arg0 of List.add.
+                                m_receiverPacketsReady.add(packet.getPayload());
+                                                                            ^
+  found   : @Initialized @NonNull byte @Initialized @Nullable []
+  required: @Initialized @NonNull byte @Initialized @NonNull []
+../dataset/urlbc3e98d97e_jmhorjus_EFCP_Implementation_tgz-pJ8-UDPConnector_UdpConnectorTestJ8/src/UDPConnector/EfcpConnector.java:315: warning: (argument) $$ 4 $$ arg0 $$ List.add $$ @Initialized @NonNull byte @Initialized @Nullable [] $$ @Initialized @NonNull byte @Initialized @NonNull [] $$ ( 13229, 13291 ) $$ incompatible argument for parameter arg0 of List.add.
+                                            m_receiverPacketsOutOfOrder.get(m_receiverNextPacketToDeliver));
+                                                                           ^
+  found   : @Initialized @NonNull byte @Initialized @Nullable []
+  required: @Initialized @NonNull byte @Initialized @NonNull []
+../dataset/urlbc3e98d97e_jmhorjus_EFCP_Implementation_tgz-pJ8-UDPConnector_UdpConnectorTestJ8/src/UDPConnector/EfcpConnector.java:332: warning: (argument) $$ 4 $$ bytes $$ String constructor $$ @Initialized @NonNull byte @Initialized @Nullable [] $$ @Initialized @NonNull byte @Initialized @NonNull [] $$ ( 14317, 14336 ) $$ incompatible argument for parameter bytes of String constructor.
+                            System.out.print("Received duplicate packet "+packet.getSeqNum()+":"+new String(packet.getPayload())+"\n");
+                                                                                                                             ^
+  found   : @Initialized @NonNull byte @Initialized @Nullable []
+  required: @Initialized @NonNull byte @Initialized @NonNull []
+../dataset/urlbc3e98d97e_jmhorjus_EFCP_Implementation_tgz-pJ8-UDPConnector_UdpConnectorTestJ8/src/UDPConnector/EfcpConnector.java:340: warning: (argument) $$ 4 $$ arg1 $$ Map.put $$ @Initialized @NonNull byte @Initialized @Nullable [] $$ @Initialized @NonNull byte @Initialized @NonNull [] $$ ( 14832, 14851 ) $$ incompatible argument for parameter arg1 of Map.put.
+                                m_receiverPacketsOutOfOrder.put(packet.getSeqNum(), packet.getPayload());
+                                                                                                     ^
+  found   : @Initialized @NonNull byte @Initialized @Nullable []
+  required: @Initialized @NonNull byte @Initialized @NonNull []
+../dataset/urlbc3e98d97e_jmhorjus_EFCP_Implementation_tgz-pJ8-UDPConnector_UdpConnectorTestJ8/src/UDPConnector/EfcpConnector.java:427: warning: (dereference.of.nullable) $$ 1 $$ task $$ ( 18577, 18581 ) $$ dereference of possibly-null reference task
+                task.cancel(false);
+                ^
+../dataset/urlbc3e98d97e_jmhorjus_EFCP_Implementation_tgz-pJ8-UDPConnector_UdpConnectorTestJ8/src/UDPConnector/EfcpConnector.java:451: warning: (dereference.of.nullable) $$ 1 $$ m_senderClosedWindowQueue.peek() $$ ( 19668, 19700 ) $$ dereference of possibly-null reference m_senderClosedWindowQueue.peek()
+                    m_senderRightWindowEdge > m_senderClosedWindowQueue.peek().getSeqNum() &&
+                                                                            ^
+../dataset/urlbc3e98d97e_jmhorjus_EFCP_Implementation_tgz-pJ8-UDPConnector_UdpConnectorTestJ8/src/UDPConnector/EfcpConnector.java:505: warning: (dereference.of.nullable) $$ 1 $$ m_senderClosedWindowQueue.peek() $$ ( 21840, 21872 ) $$ dereference of possibly-null reference m_senderClosedWindowQueue.peek()
+                    m_senderRightWindowEdge > m_senderClosedWindowQueue.peek().getSeqNum() &&
+                                                                            ^
+../dataset/urlbc3e98d97e_jmhorjus_EFCP_Implementation_tgz-pJ8-UDPConnector_UdpConnectorTestJ8/src/UDPConnector/UdpConnectionManager.java:42: warning: (dereference.of.nullable) $$ 1 $$ conn $$ ( 1561, 1565 ) $$ dereference of possibly-null reference conn
+            conn.StopReceiveThread();
+            ^
+../dataset/urlbc3e98d97e_jmhorjus_EFCP_Implementation_tgz-pJ8-UDPConnector_UdpConnectorTestJ8/src/UDPConnector/UdpConnectionManager.java:52: warning: (dereference.of.nullable) $$ 1 $$ conn $$ ( 1821, 1825 ) $$ dereference of possibly-null reference conn
+            return conn.Send(data);
+                   ^
+../dataset/urlbc3e98d97e_jmhorjus_EFCP_Implementation_tgz-pJ8-UDPConnector_UdpConnectorTestJ8/src/UDPConnector/UdpConnectionManager.java:62: warning: (dereference.of.nullable) $$ 1 $$ conn $$ ( 2064, 2068 ) $$ dereference of possibly-null reference conn
+            return conn.Send(data);
+                   ^
+../dataset/urlbc3e98d97e_jmhorjus_EFCP_Implementation_tgz-pJ8-UDPConnector_UdpConnectorTestJ8/src/UDPConnector/UdpConnectionManager.java:74: warning: (dereference.of.nullable) $$ 1 $$ conn $$ ( 2386, 2390 ) $$ dereference of possibly-null reference conn
+        return conn.Receive(0 /*no blocking*/ );
+               ^
+29 warnings
+putting the diff for iteration 4 into /mmfs1/home/ea442/wpi-njr-debug/wpi/iteration4.diff
+ending iteration 4, time taken: 7 seconds
+
+entering iteration 5
+../dataset/urlbc3e98d97e_jmhorjus_EFCP_Implementation_tgz-pJ8-UDPConnector_UdpConnectorTestJ8/src/UDPConnector/UdpConnector.java:253: warning: (dereference.of.nullable) $$ 1 $$ sendString $$ ( 10262, 10272 ) $$ dereference of possibly-null reference sendString
+        return Send(sendString.getBytes());
+                    ^
+../dataset/urlbc3e98d97e_jmhorjus_EFCP_Implementation_tgz-pJ8-UDPConnector_UdpConnectorTestJ8/src/UDPConnector/UdpConnector.java:268: warning: (argument) $$ 4 $$ buf $$ DatagramPacket constructor $$ @Initialized @NonNull byte @Initialized @Nullable [] $$ @Initialized @NonNull byte @Initialized @NonNull [] $$ ( 10786, 10796 ) $$ incompatible argument for parameter buf of DatagramPacket constructor.
+                sendBuffer, 
+                ^
+  found   : @Initialized @NonNull byte @Initialized @Nullable []
+  required: @Initialized @NonNull byte @Initialized @NonNull []
+../dataset/urlbc3e98d97e_jmhorjus_EFCP_Implementation_tgz-pJ8-UDPConnector_UdpConnectorTestJ8/src/UDPConnector/UdpConnector.java:269: warning: (dereference.of.nullable) $$ 1 $$ sendBuffer $$ ( 10815, 10825 ) $$ dereference of possibly-null reference sendBuffer
+                sendBuffer.length, 
+                ^
+../dataset/urlbc3e98d97e_jmhorjus_EFCP_Implementation_tgz-pJ8-UDPConnector_UdpConnectorTestJ8/src/UDPConnector/UdpConnector.java:270: warning: (argument) $$ 4 $$ address $$ DatagramPacket constructor $$ @Initialized @MonotonicNonNull InetAddress $$ @Initialized @NonNull InetAddress $$ ( 10851, 10869 ) $$ incompatible argument for parameter address of DatagramPacket constructor.
+                this.m_peerAddress, 
+                    ^
+  found   : @Initialized @MonotonicNonNull InetAddress
+  required: @Initialized @NonNull InetAddress
+../dataset/urlbc3e98d97e_jmhorjus_EFCP_Implementation_tgz-pJ8-UDPConnector_UdpConnectorTestJ8/src/UDPConnector/UdpConnector.java:288: warning: (dereference.of.nullable) $$ 1 $$ m_recvSocket $$ ( 11301, 11313 ) $$ dereference of possibly-null reference m_recvSocket
+            m_recvSocket.close();
+            ^
+../dataset/urlbc3e98d97e_jmhorjus_EFCP_Implementation_tgz-pJ8-UDPConnector_UdpConnectorTestJ8/src/UDPConnector/ConnectionShaper.java:56: warning: (dereference.of.nullable) $$ 1 $$ sendString $$ ( 1811, 1821 ) $$ dereference of possibly-null reference sendString
+        return Send(sendString.getBytes());
+                    ^
+../dataset/urlbc3e98d97e_jmhorjus_EFCP_Implementation_tgz-pJ8-UDPConnector_UdpConnectorTestJ8/src/UDPConnector/ConnectionShaper.java:92: warning: (contracts.postcondition) $$ 3 $$ <init> $$ this.m_bufferToSend is @Nullable $$ this.m_bufferToSend is @NonNull $$ ( 2870, 3001 ) $$ postcondition of <init> is not satisfied.
+        ShapedSendTask(byte[] bufferToSend)
+        ^
+  found   : this.m_bufferToSend is @Nullable
+  required: this.m_bufferToSend is @NonNull
+../dataset/urlbc3e98d97e_jmhorjus_EFCP_Implementation_tgz-pJ8-UDPConnector_UdpConnectorTestJ8/src/UDPConnector/DtcpPacket.java:68: warning: (dereference.of.nullable) $$ 1 $$ this.payload $$ ( 2583, 2595 ) $$ dereference of possibly-null reference this.payload
+		this.length = HEADER_LENGTH + this.payload.length;
+		                                  ^
+../dataset/urlbc3e98d97e_jmhorjus_EFCP_Implementation_tgz-pJ8-UDPConnector_UdpConnectorTestJ8/src/UDPConnector/DtcpPacket.java:127: warning: (method.invocation) $$ 3 $$ getPayloadFromBytes(byte[]) $$ @UnderInitialization(UDPConnector.DtcpPacket.class) @NonNull DtcpPacket $$ @Initialized @NonNull DtcpPacket $$ ( 4436, 4467 ) $$ call to getPayloadFromBytes(byte[]) not allowed on the given receiver.
+		this.payload = this.getPayloadFromBytes(bytes);
+		                                       ^
+  found   : @UnderInitialization(UDPConnector.DtcpPacket.class) @NonNull DtcpPacket
+  required: @Initialized @NonNull DtcpPacket
+../dataset/urlbc3e98d97e_jmhorjus_EFCP_Implementation_tgz-pJ8-UDPConnector_UdpConnectorTestJ8/src/UDPConnector/EfcpConnectorManager.java:55: warning: (dereference.of.nullable) $$ 1 $$ conn $$ ( 1993, 1997 ) $$ dereference of possibly-null reference conn
+            conn.StopReceiveThread();
+            ^
+../dataset/urlbc3e98d97e_jmhorjus_EFCP_Implementation_tgz-pJ8-UDPConnector_UdpConnectorTestJ8/src/UDPConnector/EfcpConnectorManager.java:65: warning: (dereference.of.nullable) $$ 1 $$ conn $$ ( 2259, 2263 ) $$ dereference of possibly-null reference conn
+            return conn.Send(data);
+                   ^
+../dataset/urlbc3e98d97e_jmhorjus_EFCP_Implementation_tgz-pJ8-UDPConnector_UdpConnectorTestJ8/src/UDPConnector/EfcpConnectorManager.java:76: warning: (dereference.of.nullable) $$ 1 $$ conn $$ ( 2596, 2600 ) $$ dereference of possibly-null reference conn
+            return conn.Send(data);
+                   ^
+../dataset/urlbc3e98d97e_jmhorjus_EFCP_Implementation_tgz-pJ8-UDPConnector_UdpConnectorTestJ8/src/UDPConnector/EfcpConnectorManager.java:88: warning: (dereference.of.nullable) $$ 1 $$ conn $$ ( 2948, 2952 ) $$ dereference of possibly-null reference conn
+        return conn.Receive(maxBlockTimeInMs /*no blocking*/ );
+               ^
+../dataset/urlbc3e98d97e_jmhorjus_EFCP_Implementation_tgz-pJ8-UDPConnector_UdpConnectorTestJ8/src/UDPConnector/EfcpConnector.java:61: warning: (dereference.of.nullable) $$ 1 $$ sendString $$ ( 2254, 2264 ) $$ dereference of possibly-null reference sendString
+        return Send(sendString.getBytes());
+                    ^
+../dataset/urlbc3e98d97e_jmhorjus_EFCP_Implementation_tgz-pJ8-UDPConnector_UdpConnectorTestJ8/src/UDPConnector/EfcpConnector.java:146: warning: (argument) $$ 4 $$ bytes $$ String constructor $$ @Initialized @NonNull byte @Initialized @Nullable [] $$ @Initialized @NonNull byte @Initialized @NonNull [] $$ ( 5682, 5707 ) $$ incompatible argument for parameter bytes of String constructor.
+                    + " Buffer="+new String(packetToSend.getPayload())+".\n");
+                                                                   ^
+  found   : @Initialized @NonNull byte @Initialized @Nullable []
+  required: @Initialized @NonNull byte @Initialized @NonNull []
+../dataset/urlbc3e98d97e_jmhorjus_EFCP_Implementation_tgz-pJ8-UDPConnector_UdpConnectorTestJ8/src/UDPConnector/EfcpConnector.java:227: warning: (method.invocation) $$ 3 $$ StartReceiveThread() $$ @UnderInitialization(UDPConnector.EfcpConnector.class) @NonNull EfcpConnector $$ @Initialized @NonNull EfcpConnector $$ ( 9066, 9086 ) $$ call to StartReceiveThread() not allowed on the given receiver.
+        StartReceiveThread();
+                          ^
+  found   : @UnderInitialization(UDPConnector.EfcpConnector.class) @NonNull EfcpConnector
+  required: @Initialized @NonNull EfcpConnector
+../dataset/urlbc3e98d97e_jmhorjus_EFCP_Implementation_tgz-pJ8-UDPConnector_UdpConnectorTestJ8/src/UDPConnector/EfcpConnector.java:263: warning: (dereference.of.nullable) $$ 1 $$ m_selfCancelHandle $$ ( 10429, 10447 ) $$ dereference of possibly-null reference m_selfCancelHandle
+                m_selfCancelHandle.cancel(false);
+                ^
+../dataset/urlbc3e98d97e_jmhorjus_EFCP_Implementation_tgz-pJ8-UDPConnector_UdpConnectorTestJ8/src/UDPConnector/EfcpConnector.java:296: warning: (contracts.precondition) $$ 3 $$ packet.getPdu_type $$ packet.payload is @Nullable $$ packet.payload is @NonNull $$ ( 11992, 12012 ) $$ precondition of packet.getPdu_type is not satisfied.
+                switch(packet.getPdu_type())
+                                         ^
+  found   : packet.payload is @Nullable
+  required: packet.payload is @NonNull
+../dataset/urlbc3e98d97e_jmhorjus_EFCP_Implementation_tgz-pJ8-UDPConnector_UdpConnectorTestJ8/src/UDPConnector/EfcpConnector.java:305: warning: (argument) $$ 4 $$ arg0 $$ List.add $$ @Initialized @NonNull byte @Initialized @Nullable [] $$ @Initialized @NonNull byte @Initialized @NonNull [] $$ ( 12479, 12498 ) $$ incompatible argument for parameter arg0 of List.add.
+                                m_receiverPacketsReady.add(packet.getPayload());
+                                                                            ^
+  found   : @Initialized @NonNull byte @Initialized @Nullable []
+  required: @Initialized @NonNull byte @Initialized @NonNull []
+../dataset/urlbc3e98d97e_jmhorjus_EFCP_Implementation_tgz-pJ8-UDPConnector_UdpConnectorTestJ8/src/UDPConnector/EfcpConnector.java:315: warning: (argument) $$ 4 $$ arg0 $$ List.add $$ @Initialized @NonNull byte @Initialized @Nullable [] $$ @Initialized @NonNull byte @Initialized @NonNull [] $$ ( 13229, 13291 ) $$ incompatible argument for parameter arg0 of List.add.
+                                            m_receiverPacketsOutOfOrder.get(m_receiverNextPacketToDeliver));
+                                                                           ^
+  found   : @Initialized @NonNull byte @Initialized @Nullable []
+  required: @Initialized @NonNull byte @Initialized @NonNull []
+../dataset/urlbc3e98d97e_jmhorjus_EFCP_Implementation_tgz-pJ8-UDPConnector_UdpConnectorTestJ8/src/UDPConnector/EfcpConnector.java:332: warning: (argument) $$ 4 $$ bytes $$ String constructor $$ @Initialized @NonNull byte @Initialized @Nullable [] $$ @Initialized @NonNull byte @Initialized @NonNull [] $$ ( 14317, 14336 ) $$ incompatible argument for parameter bytes of String constructor.
+                            System.out.print("Received duplicate packet "+packet.getSeqNum()+":"+new String(packet.getPayload())+"\n");
+                                                                                                                             ^
+  found   : @Initialized @NonNull byte @Initialized @Nullable []
+  required: @Initialized @NonNull byte @Initialized @NonNull []
+../dataset/urlbc3e98d97e_jmhorjus_EFCP_Implementation_tgz-pJ8-UDPConnector_UdpConnectorTestJ8/src/UDPConnector/EfcpConnector.java:340: warning: (argument) $$ 4 $$ arg1 $$ Map.put $$ @Initialized @NonNull byte @Initialized @Nullable [] $$ @Initialized @NonNull byte @Initialized @NonNull [] $$ ( 14832, 14851 ) $$ incompatible argument for parameter arg1 of Map.put.
+                                m_receiverPacketsOutOfOrder.put(packet.getSeqNum(), packet.getPayload());
+                                                                                                     ^
+  found   : @Initialized @NonNull byte @Initialized @Nullable []
+  required: @Initialized @NonNull byte @Initialized @NonNull []
+../dataset/urlbc3e98d97e_jmhorjus_EFCP_Implementation_tgz-pJ8-UDPConnector_UdpConnectorTestJ8/src/UDPConnector/EfcpConnector.java:427: warning: (dereference.of.nullable) $$ 1 $$ task $$ ( 18577, 18581 ) $$ dereference of possibly-null reference task
+                task.cancel(false);
+                ^
+../dataset/urlbc3e98d97e_jmhorjus_EFCP_Implementation_tgz-pJ8-UDPConnector_UdpConnectorTestJ8/src/UDPConnector/EfcpConnector.java:451: warning: (dereference.of.nullable) $$ 1 $$ m_senderClosedWindowQueue.peek() $$ ( 19668, 19700 ) $$ dereference of possibly-null reference m_senderClosedWindowQueue.peek()
+                    m_senderRightWindowEdge > m_senderClosedWindowQueue.peek().getSeqNum() &&
+                                                                            ^
+../dataset/urlbc3e98d97e_jmhorjus_EFCP_Implementation_tgz-pJ8-UDPConnector_UdpConnectorTestJ8/src/UDPConnector/EfcpConnector.java:505: warning: (dereference.of.nullable) $$ 1 $$ m_senderClosedWindowQueue.peek() $$ ( 21840, 21872 ) $$ dereference of possibly-null reference m_senderClosedWindowQueue.peek()
+                    m_senderRightWindowEdge > m_senderClosedWindowQueue.peek().getSeqNum() &&
+                                                                            ^
+../dataset/urlbc3e98d97e_jmhorjus_EFCP_Implementation_tgz-pJ8-UDPConnector_UdpConnectorTestJ8/src/UDPConnector/UdpConnectionManager.java:42: warning: (dereference.of.nullable) $$ 1 $$ conn $$ ( 1561, 1565 ) $$ dereference of possibly-null reference conn
+            conn.StopReceiveThread();
+            ^
+../dataset/urlbc3e98d97e_jmhorjus_EFCP_Implementation_tgz-pJ8-UDPConnector_UdpConnectorTestJ8/src/UDPConnector/UdpConnectionManager.java:52: warning: (dereference.of.nullable) $$ 1 $$ conn $$ ( 1821, 1825 ) $$ dereference of possibly-null reference conn
+            return conn.Send(data);
+                   ^
+../dataset/urlbc3e98d97e_jmhorjus_EFCP_Implementation_tgz-pJ8-UDPConnector_UdpConnectorTestJ8/src/UDPConnector/UdpConnectionManager.java:62: warning: (dereference.of.nullable) $$ 1 $$ conn $$ ( 2064, 2068 ) $$ dereference of possibly-null reference conn
+            return conn.Send(data);
+                   ^
+../dataset/urlbc3e98d97e_jmhorjus_EFCP_Implementation_tgz-pJ8-UDPConnector_UdpConnectorTestJ8/src/UDPConnector/UdpConnectionManager.java:74: warning: (dereference.of.nullable) $$ 1 $$ conn $$ ( 2386, 2390 ) $$ dereference of possibly-null reference conn
+        return conn.Receive(0 /*no blocking*/ );
+               ^
+29 warnings
+putting the diff for iteration 5 into /mmfs1/home/ea442/wpi-njr-debug/wpi/iteration5.diff
+ending iteration 5, time taken: 8 seconds
+
+entering iteration 6
+../dataset/urlbc3e98d97e_jmhorjus_EFCP_Implementation_tgz-pJ8-UDPConnector_UdpConnectorTestJ8/src/UDPConnector/UdpConnector.java:253: warning: (dereference.of.nullable) $$ 1 $$ sendString $$ ( 10262, 10272 ) $$ dereference of possibly-null reference sendString
+        return Send(sendString.getBytes());
+                    ^
+../dataset/urlbc3e98d97e_jmhorjus_EFCP_Implementation_tgz-pJ8-UDPConnector_UdpConnectorTestJ8/src/UDPConnector/UdpConnector.java:268: warning: (argument) $$ 4 $$ buf $$ DatagramPacket constructor $$ @Initialized @NonNull byte @Initialized @Nullable [] $$ @Initialized @NonNull byte @Initialized @NonNull [] $$ ( 10786, 10796 ) $$ incompatible argument for parameter buf of DatagramPacket constructor.
+                sendBuffer, 
+                ^
+  found   : @Initialized @NonNull byte @Initialized @Nullable []
+  required: @Initialized @NonNull byte @Initialized @NonNull []
+../dataset/urlbc3e98d97e_jmhorjus_EFCP_Implementation_tgz-pJ8-UDPConnector_UdpConnectorTestJ8/src/UDPConnector/UdpConnector.java:269: warning: (dereference.of.nullable) $$ 1 $$ sendBuffer $$ ( 10815, 10825 ) $$ dereference of possibly-null reference sendBuffer
+                sendBuffer.length, 
+                ^
+../dataset/urlbc3e98d97e_jmhorjus_EFCP_Implementation_tgz-pJ8-UDPConnector_UdpConnectorTestJ8/src/UDPConnector/UdpConnector.java:270: warning: (argument) $$ 4 $$ address $$ DatagramPacket constructor $$ @Initialized @MonotonicNonNull InetAddress $$ @Initialized @NonNull InetAddress $$ ( 10851, 10869 ) $$ incompatible argument for parameter address of DatagramPacket constructor.
+                this.m_peerAddress, 
+                    ^
+  found   : @Initialized @MonotonicNonNull InetAddress
+  required: @Initialized @NonNull InetAddress
+../dataset/urlbc3e98d97e_jmhorjus_EFCP_Implementation_tgz-pJ8-UDPConnector_UdpConnectorTestJ8/src/UDPConnector/UdpConnector.java:288: warning: (dereference.of.nullable) $$ 1 $$ m_recvSocket $$ ( 11301, 11313 ) $$ dereference of possibly-null reference m_recvSocket
+            m_recvSocket.close();
+            ^
+../dataset/urlbc3e98d97e_jmhorjus_EFCP_Implementation_tgz-pJ8-UDPConnector_UdpConnectorTestJ8/src/UDPConnector/ConnectionShaper.java:56: warning: (dereference.of.nullable) $$ 1 $$ sendString $$ ( 1811, 1821 ) $$ dereference of possibly-null reference sendString
+        return Send(sendString.getBytes());
+                    ^
+../dataset/urlbc3e98d97e_jmhorjus_EFCP_Implementation_tgz-pJ8-UDPConnector_UdpConnectorTestJ8/src/UDPConnector/DtcpPacket.java:68: warning: (dereference.of.nullable) $$ 1 $$ this.payload $$ ( 2583, 2595 ) $$ dereference of possibly-null reference this.payload
+		this.length = HEADER_LENGTH + this.payload.length;
+		                                  ^
+../dataset/urlbc3e98d97e_jmhorjus_EFCP_Implementation_tgz-pJ8-UDPConnector_UdpConnectorTestJ8/src/UDPConnector/DtcpPacket.java:127: warning: (method.invocation) $$ 3 $$ getPayloadFromBytes(byte[]) $$ @UnderInitialization(UDPConnector.DtcpPacket.class) @NonNull DtcpPacket $$ @Initialized @NonNull DtcpPacket $$ ( 4436, 4467 ) $$ call to getPayloadFromBytes(byte[]) not allowed on the given receiver.
+		this.payload = this.getPayloadFromBytes(bytes);
+		                                       ^
+  found   : @UnderInitialization(UDPConnector.DtcpPacket.class) @NonNull DtcpPacket
+  required: @Initialized @NonNull DtcpPacket
+../dataset/urlbc3e98d97e_jmhorjus_EFCP_Implementation_tgz-pJ8-UDPConnector_UdpConnectorTestJ8/src/UDPConnector/EfcpConnectorManager.java:55: warning: (dereference.of.nullable) $$ 1 $$ conn $$ ( 1993, 1997 ) $$ dereference of possibly-null reference conn
+            conn.StopReceiveThread();
+            ^
+../dataset/urlbc3e98d97e_jmhorjus_EFCP_Implementation_tgz-pJ8-UDPConnector_UdpConnectorTestJ8/src/UDPConnector/EfcpConnectorManager.java:65: warning: (dereference.of.nullable) $$ 1 $$ conn $$ ( 2259, 2263 ) $$ dereference of possibly-null reference conn
+            return conn.Send(data);
+                   ^
+../dataset/urlbc3e98d97e_jmhorjus_EFCP_Implementation_tgz-pJ8-UDPConnector_UdpConnectorTestJ8/src/UDPConnector/EfcpConnectorManager.java:76: warning: (dereference.of.nullable) $$ 1 $$ conn $$ ( 2596, 2600 ) $$ dereference of possibly-null reference conn
+            return conn.Send(data);
+                   ^
+../dataset/urlbc3e98d97e_jmhorjus_EFCP_Implementation_tgz-pJ8-UDPConnector_UdpConnectorTestJ8/src/UDPConnector/EfcpConnectorManager.java:88: warning: (dereference.of.nullable) $$ 1 $$ conn $$ ( 2948, 2952 ) $$ dereference of possibly-null reference conn
+        return conn.Receive(maxBlockTimeInMs /*no blocking*/ );
+               ^
+../dataset/urlbc3e98d97e_jmhorjus_EFCP_Implementation_tgz-pJ8-UDPConnector_UdpConnectorTestJ8/src/UDPConnector/EfcpConnector.java:61: warning: (dereference.of.nullable) $$ 1 $$ sendString $$ ( 2254, 2264 ) $$ dereference of possibly-null reference sendString
+        return Send(sendString.getBytes());
+                    ^
+../dataset/urlbc3e98d97e_jmhorjus_EFCP_Implementation_tgz-pJ8-UDPConnector_UdpConnectorTestJ8/src/UDPConnector/EfcpConnector.java:146: warning: (argument) $$ 4 $$ bytes $$ String constructor $$ @Initialized @NonNull byte @Initialized @Nullable [] $$ @Initialized @NonNull byte @Initialized @NonNull [] $$ ( 5682, 5707 ) $$ incompatible argument for parameter bytes of String constructor.
+                    + " Buffer="+new String(packetToSend.getPayload())+".\n");
+                                                                   ^
+  found   : @Initialized @NonNull byte @Initialized @Nullable []
+  required: @Initialized @NonNull byte @Initialized @NonNull []
+../dataset/urlbc3e98d97e_jmhorjus_EFCP_Implementation_tgz-pJ8-UDPConnector_UdpConnectorTestJ8/src/UDPConnector/EfcpConnector.java:227: warning: (method.invocation) $$ 3 $$ StartReceiveThread() $$ @UnderInitialization(UDPConnector.EfcpConnector.class) @NonNull EfcpConnector $$ @Initialized @NonNull EfcpConnector $$ ( 9066, 9086 ) $$ call to StartReceiveThread() not allowed on the given receiver.
+        StartReceiveThread();
+                          ^
+  found   : @UnderInitialization(UDPConnector.EfcpConnector.class) @NonNull EfcpConnector
+  required: @Initialized @NonNull EfcpConnector
+../dataset/urlbc3e98d97e_jmhorjus_EFCP_Implementation_tgz-pJ8-UDPConnector_UdpConnectorTestJ8/src/UDPConnector/EfcpConnector.java:263: warning: (dereference.of.nullable) $$ 1 $$ m_selfCancelHandle $$ ( 10429, 10447 ) $$ dereference of possibly-null reference m_selfCancelHandle
+                m_selfCancelHandle.cancel(false);
+                ^
+../dataset/urlbc3e98d97e_jmhorjus_EFCP_Implementation_tgz-pJ8-UDPConnector_UdpConnectorTestJ8/src/UDPConnector/EfcpConnector.java:296: warning: (contracts.precondition) $$ 3 $$ packet.getPdu_type $$ packet.payload is @Nullable $$ packet.payload is @NonNull $$ ( 11992, 12012 ) $$ precondition of packet.getPdu_type is not satisfied.
+                switch(packet.getPdu_type())
+                                         ^
+  found   : packet.payload is @Nullable
+  required: packet.payload is @NonNull
+../dataset/urlbc3e98d97e_jmhorjus_EFCP_Implementation_tgz-pJ8-UDPConnector_UdpConnectorTestJ8/src/UDPConnector/EfcpConnector.java:305: warning: (argument) $$ 4 $$ arg0 $$ List.add $$ @Initialized @NonNull byte @Initialized @Nullable [] $$ @Initialized @NonNull byte @Initialized @NonNull [] $$ ( 12479, 12498 ) $$ incompatible argument for parameter arg0 of List.add.
+                                m_receiverPacketsReady.add(packet.getPayload());
+                                                                            ^
+  found   : @Initialized @NonNull byte @Initialized @Nullable []
+  required: @Initialized @NonNull byte @Initialized @NonNull []
+../dataset/urlbc3e98d97e_jmhorjus_EFCP_Implementation_tgz-pJ8-UDPConnector_UdpConnectorTestJ8/src/UDPConnector/EfcpConnector.java:315: warning: (argument) $$ 4 $$ arg0 $$ List.add $$ @Initialized @NonNull byte @Initialized @Nullable [] $$ @Initialized @NonNull byte @Initialized @NonNull [] $$ ( 13229, 13291 ) $$ incompatible argument for parameter arg0 of List.add.
+                                            m_receiverPacketsOutOfOrder.get(m_receiverNextPacketToDeliver));
+                                                                           ^
+  found   : @Initialized @NonNull byte @Initialized @Nullable []
+  required: @Initialized @NonNull byte @Initialized @NonNull []
+../dataset/urlbc3e98d97e_jmhorjus_EFCP_Implementation_tgz-pJ8-UDPConnector_UdpConnectorTestJ8/src/UDPConnector/EfcpConnector.java:332: warning: (argument) $$ 4 $$ bytes $$ String constructor $$ @Initialized @NonNull byte @Initialized @Nullable [] $$ @Initialized @NonNull byte @Initialized @NonNull [] $$ ( 14317, 14336 ) $$ incompatible argument for parameter bytes of String constructor.
+                            System.out.print("Received duplicate packet "+packet.getSeqNum()+":"+new String(packet.getPayload())+"\n");
+                                                                                                                             ^
+  found   : @Initialized @NonNull byte @Initialized @Nullable []
+  required: @Initialized @NonNull byte @Initialized @NonNull []
+../dataset/urlbc3e98d97e_jmhorjus_EFCP_Implementation_tgz-pJ8-UDPConnector_UdpConnectorTestJ8/src/UDPConnector/EfcpConnector.java:340: warning: (argument) $$ 4 $$ arg1 $$ Map.put $$ @Initialized @NonNull byte @Initialized @Nullable [] $$ @Initialized @NonNull byte @Initialized @NonNull [] $$ ( 14832, 14851 ) $$ incompatible argument for parameter arg1 of Map.put.
+                                m_receiverPacketsOutOfOrder.put(packet.getSeqNum(), packet.getPayload());
+                                                                                                     ^
+  found   : @Initialized @NonNull byte @Initialized @Nullable []
+  required: @Initialized @NonNull byte @Initialized @NonNull []
+../dataset/urlbc3e98d97e_jmhorjus_EFCP_Implementation_tgz-pJ8-UDPConnector_UdpConnectorTestJ8/src/UDPConnector/EfcpConnector.java:427: warning: (dereference.of.nullable) $$ 1 $$ task $$ ( 18577, 18581 ) $$ dereference of possibly-null reference task
+                task.cancel(false);
+                ^
+../dataset/urlbc3e98d97e_jmhorjus_EFCP_Implementation_tgz-pJ8-UDPConnector_UdpConnectorTestJ8/src/UDPConnector/EfcpConnector.java:451: warning: (dereference.of.nullable) $$ 1 $$ m_senderClosedWindowQueue.peek() $$ ( 19668, 19700 ) $$ dereference of possibly-null reference m_senderClosedWindowQueue.peek()
+                    m_senderRightWindowEdge > m_senderClosedWindowQueue.peek().getSeqNum() &&
+                                                                            ^
+../dataset/urlbc3e98d97e_jmhorjus_EFCP_Implementation_tgz-pJ8-UDPConnector_UdpConnectorTestJ8/src/UDPConnector/EfcpConnector.java:505: warning: (dereference.of.nullable) $$ 1 $$ m_senderClosedWindowQueue.peek() $$ ( 21840, 21872 ) $$ dereference of possibly-null reference m_senderClosedWindowQueue.peek()
+                    m_senderRightWindowEdge > m_senderClosedWindowQueue.peek().getSeqNum() &&
+                                                                            ^
+../dataset/urlbc3e98d97e_jmhorjus_EFCP_Implementation_tgz-pJ8-UDPConnector_UdpConnectorTestJ8/src/UDPConnector/UdpConnectionManager.java:42: warning: (dereference.of.nullable) $$ 1 $$ conn $$ ( 1561, 1565 ) $$ dereference of possibly-null reference conn
+            conn.StopReceiveThread();
+            ^
+../dataset/urlbc3e98d97e_jmhorjus_EFCP_Implementation_tgz-pJ8-UDPConnector_UdpConnectorTestJ8/src/UDPConnector/UdpConnectionManager.java:52: warning: (dereference.of.nullable) $$ 1 $$ conn $$ ( 1821, 1825 ) $$ dereference of possibly-null reference conn
+            return conn.Send(data);
+                   ^
+../dataset/urlbc3e98d97e_jmhorjus_EFCP_Implementation_tgz-pJ8-UDPConnector_UdpConnectorTestJ8/src/UDPConnector/UdpConnectionManager.java:62: warning: (dereference.of.nullable) $$ 1 $$ conn $$ ( 2064, 2068 ) $$ dereference of possibly-null reference conn
+            return conn.Send(data);
+                   ^
+../dataset/urlbc3e98d97e_jmhorjus_EFCP_Implementation_tgz-pJ8-UDPConnector_UdpConnectorTestJ8/src/UDPConnector/UdpConnectionManager.java:74: warning: (dereference.of.nullable) $$ 1 $$ conn $$ ( 2386, 2390 ) $$ dereference of possibly-null reference conn
+        return conn.Receive(0 /*no blocking*/ );
+               ^
+28 warnings
+putting the diff for iteration 6 into /mmfs1/home/ea442/wpi-njr-debug/wpi/iteration6.diff
+ending iteration 6, time taken: 7 seconds
+
+entering iteration 7
+warning: /mmfs1/home/ea442/wpi-njr-debug/wpi/../dataset/urlbc3e98d97e_jmhorjus_EFCP_Implementation_tgz-pJ8-UDPConnector_UdpConnectorTestJ8/wpi-out/de/hrw/mdbt/model/Address-org.checkerframework.checker.nullness.KeyForSubchecker.ajava:(line 1,col 1): Package not found: de.hrw.mdbt.model
+warning: /mmfs1/home/ea442/wpi-njr-debug/wpi/../dataset/urlbc3e98d97e_jmhorjus_EFCP_Implementation_tgz-pJ8-UDPConnector_UdpConnectorTestJ8/wpi-out/de/hrw/mdbt/model/Address-org.checkerframework.checker.nullness.KeyForSubchecker.ajava:(line 3,col 1): Type not found: de.hrw.mdbt.model.Address
+warning: /mmfs1/home/ea442/wpi-njr-debug/wpi/../dataset/urlbc3e98d97e_jmhorjus_EFCP_Implementation_tgz-pJ8-UDPConnector_UdpConnectorTestJ8/wpi-out/de/hrw/mdbt/model/Branch-org.checkerframework.checker.nullness.KeyForSubchecker.ajava:(line 5,col 1): Imported type not found: com.db4o.ObjectContainer
+warning: /mmfs1/home/ea442/wpi-njr-debug/wpi/../dataset/urlbc3e98d97e_jmhorjus_EFCP_Implementation_tgz-pJ8-UDPConnector_UdpConnectorTestJ8/wpi-out/de/hrw/mdbt/model/Branch-org.checkerframework.checker.nullness.KeyForSubchecker.ajava:(line 6,col 1): Imported type not found: com.db4o.config.CommonConfigurationProvider
+warning: /mmfs1/home/ea442/wpi-njr-debug/wpi/../dataset/urlbc3e98d97e_jmhorjus_EFCP_Implementation_tgz-pJ8-UDPConnector_UdpConnectorTestJ8/wpi-out/de/hrw/mdbt/model/Branch-org.checkerframework.checker.nullness.KeyForSubchecker.ajava:(line 7,col 1): Imported type not found: com.db4o.constraints.UniqueFieldValueConstraint
+warning: /mmfs1/home/ea442/wpi-njr-debug/wpi/../dataset/urlbc3e98d97e_jmhorjus_EFCP_Implementation_tgz-pJ8-UDPConnector_UdpConnectorTestJ8/wpi-out/de/hrw/mdbt/model/Branch-org.checkerframework.checker.nullness.KeyForSubchecker.ajava:(line 8,col 1): Imported type not found: de.hrw.mdbt.model.Address
+warning: /mmfs1/home/ea442/wpi-njr-debug/wpi/../dataset/urlbc3e98d97e_jmhorjus_EFCP_Implementation_tgz-pJ8-UDPConnector_UdpConnectorTestJ8/wpi-out/de/hrw/mdbt/model/Branch-org.checkerframework.checker.nullness.KeyForSubchecker.ajava:(line 9,col 1): Imported type not found: de.hrw.mdbt.model.Vehicle
+warning: /mmfs1/home/ea442/wpi-njr-debug/wpi/../dataset/urlbc3e98d97e_jmhorjus_EFCP_Implementation_tgz-pJ8-UDPConnector_UdpConnectorTestJ8/wpi-out/de/hrw/mdbt/model/Branch-org.checkerframework.checker.nullness.KeyForSubchecker.ajava:(line 11,col 1): Type not found: de.hrw.mdbt.model.Branch
+warning: /mmfs1/home/ea442/wpi-njr-debug/wpi/../dataset/urlbc3e98d97e_jmhorjus_EFCP_Implementation_tgz-pJ8-UDPConnector_UdpConnectorTestJ8/wpi-out/de/hrw/mdbt/model/Company-org.checkerframework.checker.nullness.KeyForSubchecker.ajava:(line 5,col 1): Type not found: de.hrw.mdbt.model.Company
+warning: /mmfs1/home/ea442/wpi-njr-debug/wpi/../dataset/urlbc3e98d97e_jmhorjus_EFCP_Implementation_tgz-pJ8-UDPConnector_UdpConnectorTestJ8/wpi-out/de/hrw/mdbt/model/Customer-org.checkerframework.checker.nullness.KeyForSubchecker.ajava:(line 7,col 1): Type not found: de.hrw.mdbt.model.Customer
+warning: /mmfs1/home/ea442/wpi-njr-debug/wpi/../dataset/urlbc3e98d97e_jmhorjus_EFCP_Implementation_tgz-pJ8-UDPConnector_UdpConnectorTestJ8/wpi-out/de/hrw/mdbt/model/LicenseClass-org.checkerframework.checker.nullness.KeyForSubchecker.ajava:(line 3,col 1): Type not found: de.hrw.mdbt.model.LicenseClass
+warning: /mmfs1/home/ea442/wpi-njr-debug/wpi/../dataset/urlbc3e98d97e_jmhorjus_EFCP_Implementation_tgz-pJ8-UDPConnector_UdpConnectorTestJ8/wpi-out/de/hrw/mdbt/model/Person-org.checkerframework.checker.nullness.KeyForSubchecker.ajava:(line 8,col 1): Imported type not found: com.db4o.ext.Db4oException
+warning: /mmfs1/home/ea442/wpi-njr-debug/wpi/../dataset/urlbc3e98d97e_jmhorjus_EFCP_Implementation_tgz-pJ8-UDPConnector_UdpConnectorTestJ8/wpi-out/de/hrw/mdbt/model/Person-org.checkerframework.checker.nullness.KeyForSubchecker.ajava:(line 10,col 1): Type not found: de.hrw.mdbt.model.Person
+warning: /mmfs1/home/ea442/wpi-njr-debug/wpi/../dataset/urlbc3e98d97e_jmhorjus_EFCP_Implementation_tgz-pJ8-UDPConnector_UdpConnectorTestJ8/wpi-out/de/hrw/mdbt/model/PriceClass-org.checkerframework.checker.nullness.KeyForSubchecker.ajava:(line 5,col 1): Type not found: de.hrw.mdbt.model.PriceClass
+warning: /mmfs1/home/ea442/wpi-njr-debug/wpi/../dataset/urlbc3e98d97e_jmhorjus_EFCP_Implementation_tgz-pJ8-UDPConnector_UdpConnectorTestJ8/wpi-out/de/hrw/mdbt/model/VehicleGroup-org.checkerframework.checker.nullness.KeyForSubchecker.ajava:(line 6,col 1): Imported type not found: de.hrw.mdbt.model.Model
+warning: /mmfs1/home/ea442/wpi-njr-debug/wpi/../dataset/urlbc3e98d97e_jmhorjus_EFCP_Implementation_tgz-pJ8-UDPConnector_UdpConnectorTestJ8/wpi-out/de/hrw/mdbt/model/VehicleGroup-org.checkerframework.checker.nullness.KeyForSubchecker.ajava:(line 8,col 1): Type not found: de.hrw.mdbt.model.VehicleGroup
+../dataset/urlbc3e98d97e_jmhorjus_EFCP_Implementation_tgz-pJ8-UDPConnector_UdpConnectorTestJ8/src/UDPConnector/UdpConnector.java:253: warning: (dereference.of.nullable) $$ 1 $$ sendString $$ ( 10262, 10272 ) $$ dereference of possibly-null reference sendString
+        return Send(sendString.getBytes());
+                    ^
+../dataset/urlbc3e98d97e_jmhorjus_EFCP_Implementation_tgz-pJ8-UDPConnector_UdpConnectorTestJ8/src/UDPConnector/UdpConnector.java:268: warning: (argument) $$ 4 $$ buf $$ DatagramPacket constructor $$ @Initialized @NonNull byte @Initialized @Nullable [] $$ @Initialized @NonNull byte @Initialized @NonNull [] $$ ( 10786, 10796 ) $$ incompatible argument for parameter buf of DatagramPacket constructor.
+                sendBuffer, 
+                ^
+  found   : @Initialized @NonNull byte @Initialized @Nullable []
+  required: @Initialized @NonNull byte @Initialized @NonNull []
+../dataset/urlbc3e98d97e_jmhorjus_EFCP_Implementation_tgz-pJ8-UDPConnector_UdpConnectorTestJ8/src/UDPConnector/UdpConnector.java:269: warning: (dereference.of.nullable) $$ 1 $$ sendBuffer $$ ( 10815, 10825 ) $$ dereference of possibly-null reference sendBuffer
+                sendBuffer.length, 
+                ^
+../dataset/urlbc3e98d97e_jmhorjus_EFCP_Implementation_tgz-pJ8-UDPConnector_UdpConnectorTestJ8/src/UDPConnector/UdpConnector.java:270: warning: (argument) $$ 4 $$ address $$ DatagramPacket constructor $$ @Initialized @MonotonicNonNull InetAddress $$ @Initialized @NonNull InetAddress $$ ( 10851, 10869 ) $$ incompatible argument for parameter address of DatagramPacket constructor.
+                this.m_peerAddress, 
+                    ^
+  found   : @Initialized @MonotonicNonNull InetAddress
+  required: @Initialized @NonNull InetAddress
+../dataset/urlbc3e98d97e_jmhorjus_EFCP_Implementation_tgz-pJ8-UDPConnector_UdpConnectorTestJ8/src/UDPConnector/UdpConnector.java:288: warning: (dereference.of.nullable) $$ 1 $$ m_recvSocket $$ ( 11301, 11313 ) $$ dereference of possibly-null reference m_recvSocket
+            m_recvSocket.close();
+            ^
+../dataset/urlbc3e98d97e_jmhorjus_EFCP_Implementation_tgz-pJ8-UDPConnector_UdpConnectorTestJ8/src/UDPConnector/ConnectionShaper.java:56: warning: (dereference.of.nullable) $$ 1 $$ sendString $$ ( 1811, 1821 ) $$ dereference of possibly-null reference sendString
+        return Send(sendString.getBytes());
+                    ^
+../dataset/urlbc3e98d97e_jmhorjus_EFCP_Implementation_tgz-pJ8-UDPConnector_UdpConnectorTestJ8/src/UDPConnector/DtcpPacket.java:68: warning: (dereference.of.nullable) $$ 1 $$ this.payload $$ ( 2583, 2595 ) $$ dereference of possibly-null reference this.payload
+		this.length = HEADER_LENGTH + this.payload.length;
+		                                  ^
+../dataset/urlbc3e98d97e_jmhorjus_EFCP_Implementation_tgz-pJ8-UDPConnector_UdpConnectorTestJ8/src/UDPConnector/DtcpPacket.java:127: warning: (method.invocation) $$ 3 $$ getPayloadFromBytes(byte[]) $$ @UnderInitialization(UDPConnector.DtcpPacket.class) @NonNull DtcpPacket $$ @Initialized @NonNull DtcpPacket $$ ( 4436, 4467 ) $$ call to getPayloadFromBytes(byte[]) not allowed on the given receiver.
+		this.payload = this.getPayloadFromBytes(bytes);
+		                                       ^
+  found   : @UnderInitialization(UDPConnector.DtcpPacket.class) @NonNull DtcpPacket
+  required: @Initialized @NonNull DtcpPacket
+../dataset/urlbc3e98d97e_jmhorjus_EFCP_Implementation_tgz-pJ8-UDPConnector_UdpConnectorTestJ8/src/UDPConnector/EfcpConnectorManager.java:55: warning: (dereference.of.nullable) $$ 1 $$ conn $$ ( 1993, 1997 ) $$ dereference of possibly-null reference conn
+            conn.StopReceiveThread();
+            ^
+../dataset/urlbc3e98d97e_jmhorjus_EFCP_Implementation_tgz-pJ8-UDPConnector_UdpConnectorTestJ8/src/UDPConnector/EfcpConnectorManager.java:65: warning: (dereference.of.nullable) $$ 1 $$ conn $$ ( 2259, 2263 ) $$ dereference of possibly-null reference conn
+            return conn.Send(data);
+                   ^
+../dataset/urlbc3e98d97e_jmhorjus_EFCP_Implementation_tgz-pJ8-UDPConnector_UdpConnectorTestJ8/src/UDPConnector/EfcpConnectorManager.java:76: warning: (dereference.of.nullable) $$ 1 $$ conn $$ ( 2596, 2600 ) $$ dereference of possibly-null reference conn
+            return conn.Send(data);
+                   ^
+../dataset/urlbc3e98d97e_jmhorjus_EFCP_Implementation_tgz-pJ8-UDPConnector_UdpConnectorTestJ8/src/UDPConnector/EfcpConnectorManager.java:88: warning: (dereference.of.nullable) $$ 1 $$ conn $$ ( 2948, 2952 ) $$ dereference of possibly-null reference conn
+        return conn.Receive(maxBlockTimeInMs /*no blocking*/ );
+               ^
+../dataset/urlbc3e98d97e_jmhorjus_EFCP_Implementation_tgz-pJ8-UDPConnector_UdpConnectorTestJ8/src/UDPConnector/EfcpConnector.java:61: warning: (dereference.of.nullable) $$ 1 $$ sendString $$ ( 2254, 2264 ) $$ dereference of possibly-null reference sendString
+        return Send(sendString.getBytes());
+                    ^
+../dataset/urlbc3e98d97e_jmhorjus_EFCP_Implementation_tgz-pJ8-UDPConnector_UdpConnectorTestJ8/src/UDPConnector/EfcpConnector.java:146: warning: (argument) $$ 4 $$ bytes $$ String constructor $$ @Initialized @NonNull byte @Initialized @Nullable [] $$ @Initialized @NonNull byte @Initialized @NonNull [] $$ ( 5682, 5707 ) $$ incompatible argument for parameter bytes of String constructor.
+                    + " Buffer="+new String(packetToSend.getPayload())+".\n");
+                                                                   ^
+  found   : @Initialized @NonNull byte @Initialized @Nullable []
+  required: @Initialized @NonNull byte @Initialized @NonNull []
+../dataset/urlbc3e98d97e_jmhorjus_EFCP_Implementation_tgz-pJ8-UDPConnector_UdpConnectorTestJ8/src/UDPConnector/EfcpConnector.java:227: warning: (method.invocation) $$ 3 $$ StartReceiveThread() $$ @UnderInitialization(UDPConnector.EfcpConnector.class) @NonNull EfcpConnector $$ @Initialized @NonNull EfcpConnector $$ ( 9066, 9086 ) $$ call to StartReceiveThread() not allowed on the given receiver.
+        StartReceiveThread();
+                          ^
+  found   : @UnderInitialization(UDPConnector.EfcpConnector.class) @NonNull EfcpConnector
+  required: @Initialized @NonNull EfcpConnector
+../dataset/urlbc3e98d97e_jmhorjus_EFCP_Implementation_tgz-pJ8-UDPConnector_UdpConnectorTestJ8/src/UDPConnector/EfcpConnector.java:263: warning: (dereference.of.nullable) $$ 1 $$ m_selfCancelHandle $$ ( 10429, 10447 ) $$ dereference of possibly-null reference m_selfCancelHandle
+                m_selfCancelHandle.cancel(false);
+                ^
+../dataset/urlbc3e98d97e_jmhorjus_EFCP_Implementation_tgz-pJ8-UDPConnector_UdpConnectorTestJ8/src/UDPConnector/EfcpConnector.java:296: warning: (contracts.precondition) $$ 3 $$ packet.getPdu_type $$ packet.payload is @Nullable $$ packet.payload is @NonNull $$ ( 11992, 12012 ) $$ precondition of packet.getPdu_type is not satisfied.
+                switch(packet.getPdu_type())
+                                         ^
+  found   : packet.payload is @Nullable
+  required: packet.payload is @NonNull
+../dataset/urlbc3e98d97e_jmhorjus_EFCP_Implementation_tgz-pJ8-UDPConnector_UdpConnectorTestJ8/src/UDPConnector/EfcpConnector.java:305: warning: (argument) $$ 4 $$ arg0 $$ List.add $$ @Initialized @NonNull byte @Initialized @Nullable [] $$ @Initialized @NonNull byte @Initialized @NonNull [] $$ ( 12479, 12498 ) $$ incompatible argument for parameter arg0 of List.add.
+                                m_receiverPacketsReady.add(packet.getPayload());
+                                                                            ^
+  found   : @Initialized @NonNull byte @Initialized @Nullable []
+  required: @Initialized @NonNull byte @Initialized @NonNull []
+../dataset/urlbc3e98d97e_jmhorjus_EFCP_Implementation_tgz-pJ8-UDPConnector_UdpConnectorTestJ8/src/UDPConnector/EfcpConnector.java:315: warning: (argument) $$ 4 $$ arg0 $$ List.add $$ @Initialized @NonNull byte @Initialized @Nullable [] $$ @Initialized @NonNull byte @Initialized @NonNull [] $$ ( 13229, 13291 ) $$ incompatible argument for parameter arg0 of List.add.
+                                            m_receiverPacketsOutOfOrder.get(m_receiverNextPacketToDeliver));
+                                                                           ^
+  found   : @Initialized @NonNull byte @Initialized @Nullable []
+  required: @Initialized @NonNull byte @Initialized @NonNull []
+../dataset/urlbc3e98d97e_jmhorjus_EFCP_Implementation_tgz-pJ8-UDPConnector_UdpConnectorTestJ8/src/UDPConnector/EfcpConnector.java:332: warning: (argument) $$ 4 $$ bytes $$ String constructor $$ @Initialized @NonNull byte @Initialized @Nullable [] $$ @Initialized @NonNull byte @Initialized @NonNull [] $$ ( 14317, 14336 ) $$ incompatible argument for parameter bytes of String constructor.
+                            System.out.print("Received duplicate packet "+packet.getSeqNum()+":"+new String(packet.getPayload())+"\n");
+                                                                                                                             ^
+  found   : @Initialized @NonNull byte @Initialized @Nullable []
+  required: @Initialized @NonNull byte @Initialized @NonNull []
+../dataset/urlbc3e98d97e_jmhorjus_EFCP_Implementation_tgz-pJ8-UDPConnector_UdpConnectorTestJ8/src/UDPConnector/EfcpConnector.java:340: warning: (argument) $$ 4 $$ arg1 $$ Map.put $$ @Initialized @NonNull byte @Initialized @Nullable [] $$ @Initialized @NonNull byte @Initialized @NonNull [] $$ ( 14832, 14851 ) $$ incompatible argument for parameter arg1 of Map.put.
+                                m_receiverPacketsOutOfOrder.put(packet.getSeqNum(), packet.getPayload());
+                                                                                                     ^
+  found   : @Initialized @NonNull byte @Initialized @Nullable []
+  required: @Initialized @NonNull byte @Initialized @NonNull []
+../dataset/urlbc3e98d97e_jmhorjus_EFCP_Implementation_tgz-pJ8-UDPConnector_UdpConnectorTestJ8/src/UDPConnector/EfcpConnector.java:427: warning: (dereference.of.nullable) $$ 1 $$ task $$ ( 18577, 18581 ) $$ dereference of possibly-null reference task
+                task.cancel(false);
+                ^
+../dataset/urlbc3e98d97e_jmhorjus_EFCP_Implementation_tgz-pJ8-UDPConnector_UdpConnectorTestJ8/src/UDPConnector/EfcpConnector.java:451: warning: (dereference.of.nullable) $$ 1 $$ m_senderClosedWindowQueue.peek() $$ ( 19668, 19700 ) $$ dereference of possibly-null reference m_senderClosedWindowQueue.peek()
+                    m_senderRightWindowEdge > m_senderClosedWindowQueue.peek().getSeqNum() &&
+                                                                            ^
+../dataset/urlbc3e98d97e_jmhorjus_EFCP_Implementation_tgz-pJ8-UDPConnector_UdpConnectorTestJ8/src/UDPConnector/EfcpConnector.java:505: warning: (dereference.of.nullable) $$ 1 $$ m_senderClosedWindowQueue.peek() $$ ( 21840, 21872 ) $$ dereference of possibly-null reference m_senderClosedWindowQueue.peek()
+                    m_senderRightWindowEdge > m_senderClosedWindowQueue.peek().getSeqNum() &&
+                                                                            ^
+../dataset/urlbc3e98d97e_jmhorjus_EFCP_Implementation_tgz-pJ8-UDPConnector_UdpConnectorTestJ8/src/UDPConnector/UdpConnectionManager.java:42: warning: (dereference.of.nullable) $$ 1 $$ conn $$ ( 1561, 1565 ) $$ dereference of possibly-null reference conn
+            conn.StopReceiveThread();
+            ^
+../dataset/urlbc3e98d97e_jmhorjus_EFCP_Implementation_tgz-pJ8-UDPConnector_UdpConnectorTestJ8/src/UDPConnector/UdpConnectionManager.java:52: warning: (dereference.of.nullable) $$ 1 $$ conn $$ ( 1821, 1825 ) $$ dereference of possibly-null reference conn
+            return conn.Send(data);
+                   ^
+../dataset/urlbc3e98d97e_jmhorjus_EFCP_Implementation_tgz-pJ8-UDPConnector_UdpConnectorTestJ8/src/UDPConnector/UdpConnectionManager.java:62: warning: (dereference.of.nullable) $$ 1 $$ conn $$ ( 2064, 2068 ) $$ dereference of possibly-null reference conn
+            return conn.Send(data);
+                   ^
+../dataset/urlbc3e98d97e_jmhorjus_EFCP_Implementation_tgz-pJ8-UDPConnector_UdpConnectorTestJ8/src/UDPConnector/UdpConnectionManager.java:74: warning: (dereference.of.nullable) $$ 1 $$ conn $$ ( 2386, 2390 ) $$ dereference of possibly-null reference conn
+        return conn.Receive(0 /*no blocking*/ );
+               ^
+44 warnings
+putting the diff for iteration 7 into /mmfs1/home/ea442/wpi-njr-debug/wpi/iteration7.diff
+ending iteration 7, time taken: 8 seconds
+
+entering iteration 8
+../dataset/urlbc3e98d97e_jmhorjus_EFCP_Implementation_tgz-pJ8-UDPConnector_UdpConnectorTestJ8/src/UDPConnector/UdpConnector.java:253: warning: (dereference.of.nullable) $$ 1 $$ sendString $$ ( 10262, 10272 ) $$ dereference of possibly-null reference sendString
+        return Send(sendString.getBytes());
+                    ^
+../dataset/urlbc3e98d97e_jmhorjus_EFCP_Implementation_tgz-pJ8-UDPConnector_UdpConnectorTestJ8/src/UDPConnector/UdpConnector.java:268: warning: (argument) $$ 4 $$ buf $$ DatagramPacket constructor $$ @Initialized @NonNull byte @Initialized @Nullable [] $$ @Initialized @NonNull byte @Initialized @NonNull [] $$ ( 10786, 10796 ) $$ incompatible argument for parameter buf of DatagramPacket constructor.
+                sendBuffer, 
+                ^
+  found   : @Initialized @NonNull byte @Initialized @Nullable []
+  required: @Initialized @NonNull byte @Initialized @NonNull []
+../dataset/urlbc3e98d97e_jmhorjus_EFCP_Implementation_tgz-pJ8-UDPConnector_UdpConnectorTestJ8/src/UDPConnector/UdpConnector.java:269: warning: (dereference.of.nullable) $$ 1 $$ sendBuffer $$ ( 10815, 10825 ) $$ dereference of possibly-null reference sendBuffer
+                sendBuffer.length, 
+                ^
+../dataset/urlbc3e98d97e_jmhorjus_EFCP_Implementation_tgz-pJ8-UDPConnector_UdpConnectorTestJ8/src/UDPConnector/UdpConnector.java:270: warning: (argument) $$ 4 $$ address $$ DatagramPacket constructor $$ @Initialized @MonotonicNonNull InetAddress $$ @Initialized @NonNull InetAddress $$ ( 10851, 10869 ) $$ incompatible argument for parameter address of DatagramPacket constructor.
+                this.m_peerAddress, 
+                    ^
+  found   : @Initialized @MonotonicNonNull InetAddress
+  required: @Initialized @NonNull InetAddress
+../dataset/urlbc3e98d97e_jmhorjus_EFCP_Implementation_tgz-pJ8-UDPConnector_UdpConnectorTestJ8/src/UDPConnector/UdpConnector.java:288: warning: (dereference.of.nullable) $$ 1 $$ m_recvSocket $$ ( 11301, 11313 ) $$ dereference of possibly-null reference m_recvSocket
+            m_recvSocket.close();
+            ^
+../dataset/urlbc3e98d97e_jmhorjus_EFCP_Implementation_tgz-pJ8-UDPConnector_UdpConnectorTestJ8/src/UDPConnector/ConnectionShaper.java:56: warning: (dereference.of.nullable) $$ 1 $$ sendString $$ ( 1811, 1821 ) $$ dereference of possibly-null reference sendString
+        return Send(sendString.getBytes());
+                    ^
+../dataset/urlbc3e98d97e_jmhorjus_EFCP_Implementation_tgz-pJ8-UDPConnector_UdpConnectorTestJ8/src/UDPConnector/DtcpPacket.java:68: warning: (dereference.of.nullable) $$ 1 $$ this.payload $$ ( 2583, 2595 ) $$ dereference of possibly-null reference this.payload
+		this.length = HEADER_LENGTH + this.payload.length;
+		                                  ^
+../dataset/urlbc3e98d97e_jmhorjus_EFCP_Implementation_tgz-pJ8-UDPConnector_UdpConnectorTestJ8/src/UDPConnector/DtcpPacket.java:127: warning: (method.invocation) $$ 3 $$ getPayloadFromBytes(byte[]) $$ @UnderInitialization(UDPConnector.DtcpPacket.class) @NonNull DtcpPacket $$ @Initialized @NonNull DtcpPacket $$ ( 4436, 4467 ) $$ call to getPayloadFromBytes(byte[]) not allowed on the given receiver.
+		this.payload = this.getPayloadFromBytes(bytes);
+		                                       ^
+  found   : @UnderInitialization(UDPConnector.DtcpPacket.class) @NonNull DtcpPacket
+  required: @Initialized @NonNull DtcpPacket
+../dataset/urlbc3e98d97e_jmhorjus_EFCP_Implementation_tgz-pJ8-UDPConnector_UdpConnectorTestJ8/src/UDPConnector/EfcpConnectorManager.java:55: warning: (dereference.of.nullable) $$ 1 $$ conn $$ ( 1993, 1997 ) $$ dereference of possibly-null reference conn
+            conn.StopReceiveThread();
+            ^
+../dataset/urlbc3e98d97e_jmhorjus_EFCP_Implementation_tgz-pJ8-UDPConnector_UdpConnectorTestJ8/src/UDPConnector/EfcpConnectorManager.java:65: warning: (dereference.of.nullable) $$ 1 $$ conn $$ ( 2259, 2263 ) $$ dereference of possibly-null reference conn
+            return conn.Send(data);
+                   ^
+../dataset/urlbc3e98d97e_jmhorjus_EFCP_Implementation_tgz-pJ8-UDPConnector_UdpConnectorTestJ8/src/UDPConnector/EfcpConnectorManager.java:76: warning: (dereference.of.nullable) $$ 1 $$ conn $$ ( 2596, 2600 ) $$ dereference of possibly-null reference conn
+            return conn.Send(data);
+                   ^
+../dataset/urlbc3e98d97e_jmhorjus_EFCP_Implementation_tgz-pJ8-UDPConnector_UdpConnectorTestJ8/src/UDPConnector/EfcpConnectorManager.java:88: warning: (dereference.of.nullable) $$ 1 $$ conn $$ ( 2948, 2952 ) $$ dereference of possibly-null reference conn
+        return conn.Receive(maxBlockTimeInMs /*no blocking*/ );
+               ^
+../dataset/urlbc3e98d97e_jmhorjus_EFCP_Implementation_tgz-pJ8-UDPConnector_UdpConnectorTestJ8/src/UDPConnector/EfcpConnector.java:61: warning: (dereference.of.nullable) $$ 1 $$ sendString $$ ( 2254, 2264 ) $$ dereference of possibly-null reference sendString
+        return Send(sendString.getBytes());
+                    ^
+../dataset/urlbc3e98d97e_jmhorjus_EFCP_Implementation_tgz-pJ8-UDPConnector_UdpConnectorTestJ8/src/UDPConnector/EfcpConnector.java:146: warning: (argument) $$ 4 $$ bytes $$ String constructor $$ @Initialized @NonNull byte @Initialized @Nullable [] $$ @Initialized @NonNull byte @Initialized @NonNull [] $$ ( 5682, 5707 ) $$ incompatible argument for parameter bytes of String constructor.
+                    + " Buffer="+new String(packetToSend.getPayload())+".\n");
+                                                                   ^
+  found   : @Initialized @NonNull byte @Initialized @Nullable []
+  required: @Initialized @NonNull byte @Initialized @NonNull []
+../dataset/urlbc3e98d97e_jmhorjus_EFCP_Implementation_tgz-pJ8-UDPConnector_UdpConnectorTestJ8/src/UDPConnector/EfcpConnector.java:227: warning: (method.invocation) $$ 3 $$ StartReceiveThread() $$ @UnderInitialization(UDPConnector.EfcpConnector.class) @NonNull EfcpConnector $$ @Initialized @NonNull EfcpConnector $$ ( 9066, 9086 ) $$ call to StartReceiveThread() not allowed on the given receiver.
+        StartReceiveThread();
+                          ^
+  found   : @UnderInitialization(UDPConnector.EfcpConnector.class) @NonNull EfcpConnector
+  required: @Initialized @NonNull EfcpConnector
+../dataset/urlbc3e98d97e_jmhorjus_EFCP_Implementation_tgz-pJ8-UDPConnector_UdpConnectorTestJ8/src/UDPConnector/EfcpConnector.java:263: warning: (dereference.of.nullable) $$ 1 $$ m_selfCancelHandle $$ ( 10429, 10447 ) $$ dereference of possibly-null reference m_selfCancelHandle
+                m_selfCancelHandle.cancel(false);
+                ^
+../dataset/urlbc3e98d97e_jmhorjus_EFCP_Implementation_tgz-pJ8-UDPConnector_UdpConnectorTestJ8/src/UDPConnector/EfcpConnector.java:296: warning: (contracts.precondition) $$ 3 $$ packet.getPdu_type $$ packet.payload is @Nullable $$ packet.payload is @NonNull $$ ( 11992, 12012 ) $$ precondition of packet.getPdu_type is not satisfied.
+                switch(packet.getPdu_type())
+                                         ^
+  found   : packet.payload is @Nullable
+  required: packet.payload is @NonNull
+../dataset/urlbc3e98d97e_jmhorjus_EFCP_Implementation_tgz-pJ8-UDPConnector_UdpConnectorTestJ8/src/UDPConnector/EfcpConnector.java:305: warning: (argument) $$ 4 $$ arg0 $$ List.add $$ @Initialized @NonNull byte @Initialized @Nullable [] $$ @Initialized @NonNull byte @Initialized @NonNull [] $$ ( 12479, 12498 ) $$ incompatible argument for parameter arg0 of List.add.
+                                m_receiverPacketsReady.add(packet.getPayload());
+                                                                            ^
+  found   : @Initialized @NonNull byte @Initialized @Nullable []
+  required: @Initialized @NonNull byte @Initialized @NonNull []
+../dataset/urlbc3e98d97e_jmhorjus_EFCP_Implementation_tgz-pJ8-UDPConnector_UdpConnectorTestJ8/src/UDPConnector/EfcpConnector.java:315: warning: (argument) $$ 4 $$ arg0 $$ List.add $$ @Initialized @NonNull byte @Initialized @Nullable [] $$ @Initialized @NonNull byte @Initialized @NonNull [] $$ ( 13229, 13291 ) $$ incompatible argument for parameter arg0 of List.add.
+                                            m_receiverPacketsOutOfOrder.get(m_receiverNextPacketToDeliver));
+                                                                           ^
+  found   : @Initialized @NonNull byte @Initialized @Nullable []
+  required: @Initialized @NonNull byte @Initialized @NonNull []
+../dataset/urlbc3e98d97e_jmhorjus_EFCP_Implementation_tgz-pJ8-UDPConnector_UdpConnectorTestJ8/src/UDPConnector/EfcpConnector.java:332: warning: (argument) $$ 4 $$ bytes $$ String constructor $$ @Initialized @NonNull byte @Initialized @Nullable [] $$ @Initialized @NonNull byte @Initialized @NonNull [] $$ ( 14317, 14336 ) $$ incompatible argument for parameter bytes of String constructor.
+                            System.out.print("Received duplicate packet "+packet.getSeqNum()+":"+new String(packet.getPayload())+"\n");
+                                                                                                                             ^
+  found   : @Initialized @NonNull byte @Initialized @Nullable []
+  required: @Initialized @NonNull byte @Initialized @NonNull []
+../dataset/urlbc3e98d97e_jmhorjus_EFCP_Implementation_tgz-pJ8-UDPConnector_UdpConnectorTestJ8/src/UDPConnector/EfcpConnector.java:340: warning: (argument) $$ 4 $$ arg1 $$ Map.put $$ @Initialized @NonNull byte @Initialized @Nullable [] $$ @Initialized @NonNull byte @Initialized @NonNull [] $$ ( 14832, 14851 ) $$ incompatible argument for parameter arg1 of Map.put.
+                                m_receiverPacketsOutOfOrder.put(packet.getSeqNum(), packet.getPayload());
+                                                                                                     ^
+  found   : @Initialized @NonNull byte @Initialized @Nullable []
+  required: @Initialized @NonNull byte @Initialized @NonNull []
+../dataset/urlbc3e98d97e_jmhorjus_EFCP_Implementation_tgz-pJ8-UDPConnector_UdpConnectorTestJ8/src/UDPConnector/EfcpConnector.java:427: warning: (dereference.of.nullable) $$ 1 $$ task $$ ( 18577, 18581 ) $$ dereference of possibly-null reference task
+                task.cancel(false);
+                ^
+../dataset/urlbc3e98d97e_jmhorjus_EFCP_Implementation_tgz-pJ8-UDPConnector_UdpConnectorTestJ8/src/UDPConnector/EfcpConnector.java:451: warning: (dereference.of.nullable) $$ 1 $$ m_senderClosedWindowQueue.peek() $$ ( 19668, 19700 ) $$ dereference of possibly-null reference m_senderClosedWindowQueue.peek()
+                    m_senderRightWindowEdge > m_senderClosedWindowQueue.peek().getSeqNum() &&
+                                                                            ^
+../dataset/urlbc3e98d97e_jmhorjus_EFCP_Implementation_tgz-pJ8-UDPConnector_UdpConnectorTestJ8/src/UDPConnector/EfcpConnector.java:505: warning: (dereference.of.nullable) $$ 1 $$ m_senderClosedWindowQueue.peek() $$ ( 21840, 21872 ) $$ dereference of possibly-null reference m_senderClosedWindowQueue.peek()
+                    m_senderRightWindowEdge > m_senderClosedWindowQueue.peek().getSeqNum() &&
+                                                                            ^
+../dataset/urlbc3e98d97e_jmhorjus_EFCP_Implementation_tgz-pJ8-UDPConnector_UdpConnectorTestJ8/src/UDPConnector/UdpConnectionManager.java:42: warning: (dereference.of.nullable) $$ 1 $$ conn $$ ( 1561, 1565 ) $$ dereference of possibly-null reference conn
+            conn.StopReceiveThread();
+            ^
+../dataset/urlbc3e98d97e_jmhorjus_EFCP_Implementation_tgz-pJ8-UDPConnector_UdpConnectorTestJ8/src/UDPConnector/UdpConnectionManager.java:52: warning: (dereference.of.nullable) $$ 1 $$ conn $$ ( 1821, 1825 ) $$ dereference of possibly-null reference conn
+            return conn.Send(data);
+                   ^
+../dataset/urlbc3e98d97e_jmhorjus_EFCP_Implementation_tgz-pJ8-UDPConnector_UdpConnectorTestJ8/src/UDPConnector/UdpConnectionManager.java:62: warning: (dereference.of.nullable) $$ 1 $$ conn $$ ( 2064, 2068 ) $$ dereference of possibly-null reference conn
+            return conn.Send(data);
+                   ^
+../dataset/urlbc3e98d97e_jmhorjus_EFCP_Implementation_tgz-pJ8-UDPConnector_UdpConnectorTestJ8/src/UDPConnector/UdpConnectionManager.java:74: warning: (dereference.of.nullable) $$ 1 $$ conn $$ ( 2386, 2390 ) $$ dereference of possibly-null reference conn
+        return conn.Receive(0 /*no blocking*/ );
+               ^
+28 warnings
+putting the diff for iteration 8 into /mmfs1/home/ea442/wpi-njr-debug/wpi/iteration8.diff

@@ -1,0 +1,66 @@
+package ar.fiuba.tecnicas.framework;
+
+// Responsabilidad: Valida que los argumentos ingresados sean expresiones regulares o tags
+// y se los envia a testrunner
+import ar.fiuba.tecnicas.framework.JTest.TestRunner;
+import com.sun.javaws.exceptions.InvalidArgumentException;
+import java.util.Arrays;
+import java.util.List;
+
+@org.checkerframework.framework.qual.AnnotatedFor("org.checkerframework.checker.nullness.KeyForSubchecker")
+public class ArgumentValidator {
+
+    private  TestRunner testrunner;
+
+    private  List<String> args;
+
+    public static final  String regexptestcaseopt = "-tcregexp";
+
+    public static final  String regexptestsuiteopt = "-tsregexp";
+
+    public static final  String tagstestcaseopt = "-tctags";
+
+    @org.checkerframework.dataflow.qual.SideEffectFree
+    public ArgumentValidator( TestRunner testrunner,  String  [] args) {
+        this.testrunner = testrunner;
+        this.args = Arrays.asList(args);
+    }
+
+    @org.checkerframework.dataflow.qual.Impure
+    private void setArgumentToRunner( ArgumentValidator this) {
+        int regexptestcaseidx = args.indexOf(regexptestcaseopt);
+        int regexptestsuiteidx = args.indexOf(regexptestsuiteopt);
+        int tagsidx = args.indexOf(tagstestcaseopt);
+        if (regexptestcaseidx != -1)
+            testrunner.setRegexpTestcase(args.get(regexptestcaseidx + 1));
+        if (regexptestsuiteidx != -1)
+            testrunner.setRegexpTestsuite(args.get(regexptestsuiteidx + 1));
+        if (tagsidx != -1)
+            testrunner.setArgtags(args.subList(tagsidx + 1, args.size()));
+    }
+
+    @org.checkerframework.dataflow.qual.Pure
+    private   boolean badOption( ArgumentValidator this) {
+        return (isNotRegExpOption()) && (!args.contains(tagstestcaseopt));
+    }
+
+    @org.checkerframework.dataflow.qual.Pure
+    private   boolean isNotRegExpOption( ArgumentValidator this) {
+        return ((!args.contains(regexptestcaseopt)) && (!args.contains(regexptestsuiteopt)));
+    }
+
+    @org.checkerframework.dataflow.qual.Impure
+    public void start( ArgumentValidator this) throws InvalidArgumentException {
+        if (args.size() > 0) {
+            if (badOption() || badArgAmount()) {
+                throw new InvalidArgumentException(new String[] { "Bad options" });
+            }
+            setArgumentToRunner();
+        }
+    }
+
+    @org.checkerframework.dataflow.qual.Pure
+    private   boolean badArgAmount( ArgumentValidator this) {
+        return (args.size() % 2 != 0);
+    }
+}

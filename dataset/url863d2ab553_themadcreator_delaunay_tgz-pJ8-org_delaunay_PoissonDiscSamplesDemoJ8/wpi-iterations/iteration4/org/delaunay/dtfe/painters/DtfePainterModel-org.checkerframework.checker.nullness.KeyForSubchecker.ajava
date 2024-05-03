@@ -1,0 +1,90 @@
+package org.delaunay.dtfe.painters;
+
+import java.awt.Color;
+import org.delaunay.dtfe.ColorScale;
+import org.delaunay.dtfe.ColorScales;
+import org.delaunay.dtfe.DtfeTriangulationMap.ScaleType;
+import org.delaunay.dtfe.interpolation.InterpolationStrategies;
+import org.delaunay.dtfe.interpolation.InterpolationStrategy;
+
+@org.checkerframework.framework.qual.AnnotatedFor("org.checkerframework.checker.nullness.KeyForSubchecker")
+public class DtfePainterModel {
+
+    private  ColorScale colorScale = ColorScales.PURPLE_TO_GREEN_LINEAR;
+
+    private   double densityScalar = 1.0;
+
+    private  Color edgeColor = null;
+
+    private  InterpolationStrategy interpolationStrategy = InterpolationStrategies.createNaturalNeighbor();
+
+    private   float edgeStrokeWidth = 1.0f;
+
+    private  ScaleType scaleType = ScaleType.LINEAR;
+
+    @org.checkerframework.dataflow.qual.Pure
+    public  ScaleType getScaleType( DtfePainterModel this) {
+        return scaleType;
+    }
+
+    @org.checkerframework.dataflow.qual.Impure
+    public  DtfePainterModel setScaleType(ScaleType scaleType) {
+        this.scaleType = scaleType;
+        return this;
+    }
+
+    @org.checkerframework.dataflow.qual.Pure
+    public   float getEdgeStrokeWidth( DtfePainterModel this) {
+        return edgeStrokeWidth;
+    }
+
+    @org.checkerframework.dataflow.qual.Impure
+    public  DtfePainterModel setEdgeStrokeWidth(float edgeStrokeWidth) {
+        this.edgeStrokeWidth = edgeStrokeWidth;
+        return this;
+    }
+
+    @org.checkerframework.dataflow.qual.Pure
+    public  Color getEdgeColor( DtfePainterModel this) {
+        return edgeColor;
+    }
+
+    @org.checkerframework.dataflow.qual.Impure
+    public  DtfePainterModel setEdgeColor( DtfePainterModel this,  Color edgeColor) {
+        this.edgeColor = edgeColor;
+        return this;
+    }
+
+    @org.checkerframework.dataflow.qual.Pure
+    public  ColorScale getColorScale( DtfePainterModel this) {
+        return colorScale;
+    }
+
+    @org.checkerframework.dataflow.qual.Impure
+    public  DtfePainterModel setColorScale( DtfePainterModel this,  ColorScale colorScale) {
+        this.colorScale = colorScale;
+        return this;
+    }
+
+    @org.checkerframework.dataflow.qual.Pure
+    public   double getDensityScalar( DtfePainterModel this) {
+        return densityScalar;
+    }
+
+    @org.checkerframework.dataflow.qual.Impure
+    public  DtfePainterModel setDensityScalar( DtfePainterModel this,   double densityScalar) {
+        this.densityScalar = densityScalar;
+        return this;
+    }
+
+    @org.checkerframework.dataflow.qual.Pure
+    public  InterpolationStrategy getInterpolationStrategy( DtfePainterModel this) {
+        return interpolationStrategy;
+    }
+
+    @org.checkerframework.dataflow.qual.Impure
+    public  DtfePainterModel setInterpolationStrategy( DtfePainterModel this,  InterpolationStrategy interpolationStrategy) {
+        this.interpolationStrategy = interpolationStrategy;
+        return this;
+    }
+}

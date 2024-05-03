@@ -1,0 +1,105 @@
+package org.delaunay.algorithm.samples;
+
+import java.awt.Shape;
+import java.awt.geom.Rectangle2D;
+import java.util.Random;
+import org.delaunay.model.Vector;
+
+@org.checkerframework.framework.qual.AnnotatedFor("org.checkerframework.checker.nullness.KeyForSubchecker")
+public class SampleFunctions {
+
+    public static interface SampleFunction {
+
+        @org.checkerframework.dataflow.qual.Pure
+         Shape getBoundingShape( SampleFunction this);
+
+        @org.checkerframework.dataflow.qual.Impure
+         Vector createSampleIn( SampleFunction this,  Shape shape);
+
+        @org.checkerframework.dataflow.qual.Impure
+         Vector createSampleNear( SampleFunction this,  Vector v);
+
+        @org.checkerframework.dataflow.qual.Pure
+          double getMimimumDistance( SampleFunction this,  Vector v);
+    }
+
+    public static abstract class BoundSampleFunction implements SampleFunction {
+
+        protected  Random random = new Random(System.currentTimeMillis());
+
+        protected final  Shape shape;
+
+        @org.checkerframework.dataflow.qual.SideEffectFree
+        public BoundSampleFunction( Shape shape) {
+            this.shape = shape;
+        }
+
+        @org.checkerframework.dataflow.qual.Pure
+        public  Shape getBoundingShape( BoundSampleFunction this) {
+            return shape;
+        }
+
+        @org.checkerframework.dataflow.qual.Impure
+        public  Vector createSampleIn( BoundSampleFunction this,  Shape shape) {
+            Rectangle2D b = shape.getBounds2D();
+            double x = b.getMinX() + random.nextDouble() * b.getWidth();
+            double y = b.getMinY() + random.nextDouble() * b.getHeight();
+            return new Vector(x, y);
+        }
+    }
+
+    public static class PoissonDiscSampleFunction extends BoundSampleFunction {
+
+        private final   double minDist;
+
+        private final   double maxDist;
+
+        @org.checkerframework.dataflow.qual.SideEffectFree
+        public PoissonDiscSampleFunction( Shape shape,   double minDist) {
+            this(shape, minDist, minDist * 2);
+        }
+
+        @org.checkerframework.dataflow.qual.SideEffectFree
+        public PoissonDiscSampleFunction( Shape shape,   double minDist,   double maxDist) {
+            super(shape);
+            this.minDist = minDist;
+            this.maxDist = maxDist;
+        }
+
+        @org.checkerframework.dataflow.qual.Impure
+        public  Vector createSampleNear( PoissonDiscSampleFunction this,  Vector v) {
+            // sqrt to compensate for area change
+            double rr = Math.sqrt(random.nextDouble());
+            double radius = minDist + (rr) * (maxDist - minDist);
+            double angle = 2 * Math.PI * random.nextDouble();
+            double x = v.x + radius * Math.cos(angle);
+            double y = v.y + radius * Math.sin(angle);
+            return new Vector(x, y);
+        }
+
+        @org.checkerframework.dataflow.qual.Pure
+        public   double getMimimumDistance( PoissonDiscSampleFunction this,  Vector v) {
+            return minDist;
+        }
+    }
+
+    public static abstract class VariablePoissonDiscSampleFunction extends BoundSampleFunction {
+
+        @org.checkerframework.dataflow.qual.SideEffectFree
+        public VariablePoissonDiscSampleFunction( Shape shape) {
+            super(shape);
+        }
+
+        @org.checkerframework.dataflow.qual.Impure
+        public  Vector createSampleNear( VariablePoissonDiscSampleFunction this,  Vector v) {
+            double minDist = getMimimumDistance(v);
+            // sqrt to compensate for area change
+            double rr = Math.sqrt(random.nextDouble());
+            double radius = minDist + (rr + 1);
+            double angle = 2 * Math.PI * random.nextDouble();
+            double x = v.x + radius * Math.cos(angle);
+            double y = v.y + radius * Math.sin(angle);
+            return new Vector(x, y);
+        }
+    }
+}

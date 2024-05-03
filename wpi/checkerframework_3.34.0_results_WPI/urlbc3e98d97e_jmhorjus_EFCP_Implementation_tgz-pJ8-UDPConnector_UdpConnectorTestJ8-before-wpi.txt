@@ -1,0 +1,85 @@
+../dataset/urlbc3e98d97e_jmhorjus_EFCP_Implementation_tgz-pJ8-UDPConnector_UdpConnectorTestJ8/src/UDPConnector/UdpConnector.java:23: error: (initialization.fields.uninitialized) $$ 1 $$ m_peerAddress, m_recvSocket $$ ( 1019, 1425 ) $$ the constructor does not initialize fields: m_peerAddress, m_recvSocket
+    public UdpConnector( 
+           ^
+../dataset/urlbc3e98d97e_jmhorjus_EFCP_Implementation_tgz-pJ8-UDPConnector_UdpConnectorTestJ8/src/UDPConnector/UdpConnector.java:34: error: (assignment) $$ 2 $$ null (NullType) $$ @Initialized @NonNull Thread $$ ( 1414, 1418 ) $$ incompatible types in assignment.
+        m_receiverThread = null;
+                           ^
+  found   : null (NullType)
+  required: @Initialized @NonNull Thread
+../dataset/urlbc3e98d97e_jmhorjus_EFCP_Implementation_tgz-pJ8-UDPConnector_UdpConnectorTestJ8/src/UDPConnector/UdpConnector.java:37: error: (initialization.fields.uninitialized) $$ 1 $$ m_peerAddress, m_recvSocket $$ ( 1435, 1960 ) $$ the constructor does not initialize fields: m_peerAddress, m_recvSocket
+    public UdpConnector( 
+           ^
+../dataset/urlbc3e98d97e_jmhorjus_EFCP_Implementation_tgz-pJ8-UDPConnector_UdpConnectorTestJ8/src/UDPConnector/UdpConnector.java:50: error: (assignment) $$ 2 $$ null (NullType) $$ @Initialized @NonNull Thread $$ ( 1949, 1953 ) $$ incompatible types in assignment.
+        m_receiverThread = null;
+                           ^
+  found   : null (NullType)
+  required: @Initialized @NonNull Thread
+../dataset/urlbc3e98d97e_jmhorjus_EFCP_Implementation_tgz-pJ8-UDPConnector_UdpConnectorTestJ8/src/UDPConnector/UdpConnector.java:161: error: (assignment) $$ 2 $$ null (NullType) $$ @Initialized @NonNull Thread $$ ( 7152, 7156 ) $$ incompatible types in assignment.
+                UdpConnector.this.m_receiverThread = null; // 
+                                                     ^
+  found   : null (NullType)
+  required: @Initialized @NonNull Thread
+../dataset/urlbc3e98d97e_jmhorjus_EFCP_Implementation_tgz-pJ8-UDPConnector_UdpConnectorTestJ8/src/UDPConnector/ConnectionShaper.java:87: error: (initialization.fields.uninitialized) $$ 1 $$ m_bufferToSend $$ ( 2729, 2861 ) $$ the constructor does not initialize fields: m_bufferToSend
+        ShapedSendTask(String stringToSend)
+        ^
+../dataset/urlbc3e98d97e_jmhorjus_EFCP_Implementation_tgz-pJ8-UDPConnector_UdpConnectorTestJ8/src/UDPConnector/ConnectionShaper.java:92: error: (initialization.fields.uninitialized) $$ 1 $$ m_stringToSend $$ ( 2870, 3001 ) $$ the constructor does not initialize fields: m_stringToSend
+        ShapedSendTask(byte[] bufferToSend)
+        ^
+../dataset/urlbc3e98d97e_jmhorjus_EFCP_Implementation_tgz-pJ8-UDPConnector_UdpConnectorTestJ8/src/UDPConnector/DtcpPacket.java:54: error: (initialization.fields.uninitialized) $$ 1 $$ payload $$ ( 2108, 2130 ) $$ the constructor does not initialize fields: payload
+        public DtcpPacket (){}
+               ^
+../dataset/urlbc3e98d97e_jmhorjus_EFCP_Implementation_tgz-pJ8-UDPConnector_UdpConnectorTestJ8/src/UDPConnector/DtcpPacket.java:86: error: (initialization.fields.uninitialized) $$ 1 $$ payload $$ ( 3060, 3451 ) $$ the constructor does not initialize fields: payload
+	public DtcpPacket (short destAddr, short srcAddr, short destCEPid, short srcCEPid, byte pdu_type)
+	       ^
+../dataset/urlbc3e98d97e_jmhorjus_EFCP_Implementation_tgz-pJ8-UDPConnector_UdpConnectorTestJ8/src/UDPConnector/DtcpPacket.java:127: error: (method.invocation) $$ 3 $$ getPayloadFromBytes(byte[]) $$ @UnderInitialization @NonNull DtcpPacket $$ @Initialized @NonNull DtcpPacket $$ ( 4436, 4467 ) $$ call to getPayloadFromBytes(byte[]) not allowed on the given receiver.
+		this.payload = this.getPayloadFromBytes(bytes);
+		                                       ^
+  found   : @UnderInitialization @NonNull DtcpPacket
+  required: @Initialized @NonNull DtcpPacket
+../dataset/urlbc3e98d97e_jmhorjus_EFCP_Implementation_tgz-pJ8-UDPConnector_UdpConnectorTestJ8/src/UDPConnector/EfcpConnectorManager.java:55: error: (dereference.of.nullable) $$ 1 $$ conn $$ ( 1993, 1997 ) $$ dereference of possibly-null reference conn
+            conn.StopReceiveThread();
+            ^
+../dataset/urlbc3e98d97e_jmhorjus_EFCP_Implementation_tgz-pJ8-UDPConnector_UdpConnectorTestJ8/src/UDPConnector/EfcpConnectorManager.java:65: error: (dereference.of.nullable) $$ 1 $$ conn $$ ( 2259, 2263 ) $$ dereference of possibly-null reference conn
+            return conn.Send(data);
+                   ^
+../dataset/urlbc3e98d97e_jmhorjus_EFCP_Implementation_tgz-pJ8-UDPConnector_UdpConnectorTestJ8/src/UDPConnector/EfcpConnectorManager.java:76: error: (dereference.of.nullable) $$ 1 $$ conn $$ ( 2596, 2600 ) $$ dereference of possibly-null reference conn
+            return conn.Send(data);
+                   ^
+../dataset/urlbc3e98d97e_jmhorjus_EFCP_Implementation_tgz-pJ8-UDPConnector_UdpConnectorTestJ8/src/UDPConnector/EfcpConnectorManager.java:88: error: (dereference.of.nullable) $$ 1 $$ conn $$ ( 2948, 2952 ) $$ dereference of possibly-null reference conn
+        return conn.Receive(maxBlockTimeInMs /*no blocking*/ );
+               ^
+../dataset/urlbc3e98d97e_jmhorjus_EFCP_Implementation_tgz-pJ8-UDPConnector_UdpConnectorTestJ8/src/UDPConnector/EfcpConnector.java:227: error: (method.invocation) $$ 3 $$ StartReceiveThread() $$ @UnderInitialization(UDPConnector.EfcpConnector.class) @NonNull EfcpConnector $$ @Initialized @NonNull EfcpConnector $$ ( 9066, 9086 ) $$ call to StartReceiveThread() not allowed on the given receiver.
+        StartReceiveThread();
+                          ^
+  found   : @UnderInitialization(UDPConnector.EfcpConnector.class) @NonNull EfcpConnector
+  required: @Initialized @NonNull EfcpConnector
+../dataset/urlbc3e98d97e_jmhorjus_EFCP_Implementation_tgz-pJ8-UDPConnector_UdpConnectorTestJ8/src/UDPConnector/EfcpConnector.java:235: error: (initialization.fields.uninitialized) $$ 1 $$ m_selfCancelHandle $$ ( 9289, 9406 ) $$ the constructor does not initialize fields: m_selfCancelHandle
+        RetransmitEvent(DtcpPacket packetToTransmit)
+        ^
+../dataset/urlbc3e98d97e_jmhorjus_EFCP_Implementation_tgz-pJ8-UDPConnector_UdpConnectorTestJ8/src/UDPConnector/EfcpConnector.java:315: error: (argument) $$ 4 $$ arg0 $$ List.add $$ @Initialized @NonNull byte @Initialized @Nullable [] $$ @Initialized @NonNull byte @Initialized @NonNull [] $$ ( 13229, 13291 ) $$ incompatible argument for parameter arg0 of List.add.
+                                            m_receiverPacketsOutOfOrder.get(m_receiverNextPacketToDeliver));
+                                                                           ^
+  found   : @Initialized @NonNull byte @Initialized @Nullable []
+  required: @Initialized @NonNull byte @Initialized @NonNull []
+../dataset/urlbc3e98d97e_jmhorjus_EFCP_Implementation_tgz-pJ8-UDPConnector_UdpConnectorTestJ8/src/UDPConnector/EfcpConnector.java:427: error: (dereference.of.nullable) $$ 1 $$ task $$ ( 18577, 18581 ) $$ dereference of possibly-null reference task
+                task.cancel(false);
+                ^
+../dataset/urlbc3e98d97e_jmhorjus_EFCP_Implementation_tgz-pJ8-UDPConnector_UdpConnectorTestJ8/src/UDPConnector/EfcpConnector.java:451: error: (dereference.of.nullable) $$ 1 $$ m_senderClosedWindowQueue.peek() $$ ( 19668, 19700 ) $$ dereference of possibly-null reference m_senderClosedWindowQueue.peek()
+                    m_senderRightWindowEdge > m_senderClosedWindowQueue.peek().getSeqNum() &&
+                                                                            ^
+../dataset/urlbc3e98d97e_jmhorjus_EFCP_Implementation_tgz-pJ8-UDPConnector_UdpConnectorTestJ8/src/UDPConnector/EfcpConnector.java:505: error: (dereference.of.nullable) $$ 1 $$ m_senderClosedWindowQueue.peek() $$ ( 21840, 21872 ) $$ dereference of possibly-null reference m_senderClosedWindowQueue.peek()
+                    m_senderRightWindowEdge > m_senderClosedWindowQueue.peek().getSeqNum() &&
+                                                                            ^
+../dataset/urlbc3e98d97e_jmhorjus_EFCP_Implementation_tgz-pJ8-UDPConnector_UdpConnectorTestJ8/src/UDPConnector/UdpConnectionManager.java:42: error: (dereference.of.nullable) $$ 1 $$ conn $$ ( 1561, 1565 ) $$ dereference of possibly-null reference conn
+            conn.StopReceiveThread();
+            ^
+../dataset/urlbc3e98d97e_jmhorjus_EFCP_Implementation_tgz-pJ8-UDPConnector_UdpConnectorTestJ8/src/UDPConnector/UdpConnectionManager.java:52: error: (dereference.of.nullable) $$ 1 $$ conn $$ ( 1821, 1825 ) $$ dereference of possibly-null reference conn
+            return conn.Send(data);
+                   ^
+../dataset/urlbc3e98d97e_jmhorjus_EFCP_Implementation_tgz-pJ8-UDPConnector_UdpConnectorTestJ8/src/UDPConnector/UdpConnectionManager.java:62: error: (dereference.of.nullable) $$ 1 $$ conn $$ ( 2064, 2068 ) $$ dereference of possibly-null reference conn
+            return conn.Send(data);
+                   ^
+../dataset/urlbc3e98d97e_jmhorjus_EFCP_Implementation_tgz-pJ8-UDPConnector_UdpConnectorTestJ8/src/UDPConnector/UdpConnectionManager.java:74: error: (dereference.of.nullable) $$ 1 $$ conn $$ ( 2386, 2390 ) $$ dereference of possibly-null reference conn
+        return conn.Receive(0 /*no blocking*/ );
+               ^
+24 errors

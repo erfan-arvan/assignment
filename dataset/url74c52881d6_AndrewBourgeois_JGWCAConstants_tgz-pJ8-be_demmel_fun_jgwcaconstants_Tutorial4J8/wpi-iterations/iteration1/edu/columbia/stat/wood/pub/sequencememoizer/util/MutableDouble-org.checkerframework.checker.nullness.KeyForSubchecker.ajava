@@ -1,0 +1,89 @@
+/*
+ * To change this template, choose Tools | Templates
+ * and open the template in the editor.
+ */
+package edu.columbia.stat.wood.pub.sequencememoizer.util;
+
+/**
+ * Container class for double which can be set and manipulated.
+ * @author nicholasbartlett
+ */
+@org.checkerframework.framework.qual.AnnotatedFor("org.checkerframework.checker.nullness.KeyForSubchecker")
+public class MutableDouble {
+
+    private   double value;
+
+    /**
+     * Instantiates the object with a given value.
+     * @param d double value to assign object
+     */
+    @org.checkerframework.dataflow.qual.SideEffectFree
+    public MutableDouble(  double d) {
+        value = d;
+    }
+
+    /**
+     * Sets the underlying value of the object.
+     * @param d double value to assign object
+     */
+    @org.checkerframework.dataflow.qual.Impure
+    public void set(double d) {
+        value = d;
+    }
+
+    /**
+     * Gets the value of the object.
+     * @return double value of the object
+     */
+    @org.checkerframework.dataflow.qual.Pure
+    public   double value( MutableDouble this) {
+        return value;
+    }
+
+    /**
+     * Does a *= to the underlying value.
+     * @param d value to multiply by
+     */
+    @org.checkerframework.dataflow.qual.Impure
+    public void timesEquals(double d) {
+        value *= d;
+    }
+
+    /**
+     * Does a += to the underlying value.
+     * @param d value to add to the underlying value
+     */
+    @org.checkerframework.dataflow.qual.Impure
+    public void plusEquals( MutableDouble this,   double d) {
+        value += d;
+    }
+
+    /**
+     * Overrides the hash code to only reflect the underlying double value.
+     * @return int hash code
+     */
+    @org.checkerframework.dataflow.qual.Pure
+    public   int hashCode( MutableDouble this) {
+        int hash = 3;
+        hash = 97 * hash + (int) (Double.doubleToLongBits(this.value) ^ (Double.doubleToLongBits(this.value) >>> 32));
+        return hash;
+    }
+
+    /**
+     * Overrides the equals method to only reflect the underlying double value.
+     * @param o object to compare to
+     * @return true if object is of class MutableDouble and the underlying values are equal, else false
+     */
+    @org.checkerframework.dataflow.qual.Pure
+    public   boolean equals( MutableDouble this,  Object o) {
+        if (o == null) {
+            return false;
+        } else if (o.getClass() != this.getClass()) {
+            return false;
+        } else if (((MutableDouble) o).value() == value) {
+            return true;
+        } else {
+            return false;
+        }
+    }
+}

@@ -1,0 +1,756 @@
+CF_BINARY: ../scripts/tools/checker-framework/checker/bin/javac
+../dataset/url633772aa30_isma3l_Tp2_tgz-pJ8-ar_fiuba_tecnicas_framework_Pruebas_Casos1_MainJ8/src/ar/fiuba/tecnicas/framework/JTest/TestRunner.java:22: warning: (initialization.static.field.uninitialized) $$ 1 $$ testCreator $$ ( 738, 777 ) $$ static field testCreator not initialized
+    private static TestCreator testCreator;
+                               ^
+../dataset/url633772aa30_isma3l_Tp2_tgz-pJ8-ar_fiuba_tecnicas_framework_Pruebas_Casos1_MainJ8/src/ar/fiuba/tecnicas/framework/JTest/TestReport.java:27: warning: (assignment) $$ 2 $$ null (NullType) $$ @Initialized @NonNull PatternRecognizer $$ ( 826, 830 ) $$ incompatible types in assignment.
+        recognizerExpressionsTestcase = null;
+                                        ^
+  found   : null (NullType)
+  required: @Initialized @NonNull PatternRecognizer
+../dataset/url633772aa30_isma3l_Tp2_tgz-pJ8-ar_fiuba_tecnicas_framework_Pruebas_Casos1_MainJ8/src/ar/fiuba/tecnicas/framework/JTest/TestReport.java:28: warning: (assignment) $$ 2 $$ null (NullType) $$ @Initialized @NonNull PatternRecognizer $$ ( 871, 875 ) $$ incompatible types in assignment.
+        recognizerExpressionsTestsuite=null;
+                                       ^
+  found   : null (NullType)
+  required: @Initialized @NonNull PatternRecognizer
+../dataset/url633772aa30_isma3l_Tp2_tgz-pJ8-ar_fiuba_tecnicas_framework_Pruebas_Casos1_MainJ8/src/ar/fiuba/tecnicas/framework/JTest/TestReport.java:29: warning: (assignment) $$ 2 $$ null (NullType) $$ @Initialized @NonNull RecognizerTag $$ ( 902, 906 ) $$ incompatible types in assignment.
+        recognizerTags = null;
+                         ^
+  found   : null (NullType)
+  required: @Initialized @NonNull RecognizerTag
+../dataset/url633772aa30_isma3l_Tp2_tgz-pJ8-ar_fiuba_tecnicas_framework_Pruebas_Casos1_MainJ8/src/ar/fiuba/tecnicas/framework/JTest/PatternRecognizer.java:14: warning: (initialization.fields.uninitialized) $$ 1 $$ matcher $$ ( 292, 458 ) $$ the constructor does not initialize fields: matcher
+    public PatternRecognizer(String expression)throws PatternSyntaxException{
+           ^
+../dataset/url633772aa30_isma3l_Tp2_tgz-pJ8-ar_fiuba_tecnicas_framework_Pruebas_Casos1_MainJ8/src/ar/fiuba/tecnicas/framework/JTest/TestCase.java:64: warning: (argument) $$ 4 $$ exception $$ TestCase.tearingDown $$ @Initialized @Nullable Throwable $$ @Initialized @NonNull Throwable $$ ( 1740, 1749 ) $$ incompatible argument for parameter exception of TestCase.tearingDown.
+            tearingDown(exception);
+                        ^
+  found   : @Initialized @Nullable Throwable
+  required: @Initialized @NonNull Throwable
+../dataset/url633772aa30_isma3l_Tp2_tgz-pJ8-ar_fiuba_tecnicas_framework_Pruebas_Casos1_MainJ8/src/ar/fiuba/tecnicas/framework/JTest/TestCase.java:87: warning: (purity.not.sideeffectfree.call) $$ 1 $$ getTestname $$ ( 2281, 2294 ) $$ call to side-effecting getTestname not allowed in side-effect-free method
+        return getTestname();
+                          ^
+../dataset/url633772aa30_isma3l_Tp2_tgz-pJ8-ar_fiuba_tecnicas_framework_Pruebas_Casos1_MainJ8/src/ar/fiuba/tecnicas/framework/JTest/Assert.java:23: warning: (dereference.of.nullable) $$ 1 $$ expected $$ ( 1126, 1134 ) $$ dereference of possibly-null reference expected
+        if (!expected.equals(actual)) throw new AssertionError();
+             ^
+../dataset/url633772aa30_isma3l_Tp2_tgz-pJ8-ar_fiuba_tecnicas_framework_Pruebas_Casos1_MainJ8/src/ar/fiuba/tecnicas/framework/JTest/Assert.java:26: warning: (dereference.of.nullable) $$ 1 $$ expected $$ ( 1297, 1305 ) $$ dereference of possibly-null reference expected
+        if (!expected.equals(actual)) throw new AssertionError(message);
+             ^
+../dataset/url633772aa30_isma3l_Tp2_tgz-pJ8-ar_fiuba_tecnicas_framework_Pruebas_Casos1_MainJ8/src/ar/fiuba/tecnicas/framework/JTest/Assert.java:59: warning: (argument) $$ 4 $$ arg0 $$ Matcher.matches $$ T extends @Initialized @Nullable Object $$ @Initialized @NonNull Object $$ ( 3019, 3025 ) $$ incompatible argument for parameter arg0 of Matcher.matches.
+        if (!matcher.matches(actual)) throw new AssertionError(reason);
+                             ^
+  found   : T extends @Initialized @Nullable Object
+  required: @Initialized @NonNull Object
+../dataset/url633772aa30_isma3l_Tp2_tgz-pJ8-ar_fiuba_tecnicas_framework_Pruebas_Casos1_MainJ8/src/ar/fiuba/tecnicas/framework/JTest/Assert.java:62: warning: (argument) $$ 4 $$ arg0 $$ Matcher.matches $$ T extends @Initialized @Nullable Object $$ @Initialized @NonNull Object $$ ( 3202, 3208 ) $$ incompatible argument for parameter arg0 of Matcher.matches.
+        if (!matcher.matches(actual)) throw new AssertionError();
+                             ^
+  found   : T extends @Initialized @Nullable Object
+  required: @Initialized @NonNull Object
+../dataset/url633772aa30_isma3l_Tp2_tgz-pJ8-ar_fiuba_tecnicas_framework_Pruebas_Casos1_MainJ8/src/ar/fiuba/tecnicas/framework/JTest/TestSuite.java:49: warning: (initialization.fields.uninitialized) $$ 1 $$ context, suiteFather $$ ( 1457, 1612 ) $$ the constructor does not initialize fields: context, suiteFather
+    public TestSuite(String testname) {
+           ^
+../dataset/url633772aa30_isma3l_Tp2_tgz-pJ8-ar_fiuba_tecnicas_framework_Pruebas_Casos1_MainJ8/src/ar/fiuba/tecnicas/framework/JTest/TestSuite.java:55: warning: (initialization.fields.uninitialized) $$ 1 $$ context, suiteFather $$ ( 1618, 1754 ) $$ the constructor does not initialize fields: context, suiteFather
+    public TestSuite() {
+           ^
+../dataset/url633772aa30_isma3l_Tp2_tgz-pJ8-ar_fiuba_tecnicas_framework_Pruebas_Casos1_MainJ8/src/ar/fiuba/tecnicas/framework/JTest/TestSuite.java:56: warning: (assignment) $$ 2 $$ null (NullType) $$ @Initialized @NonNull String $$ ( 1661, 1665 ) $$ incompatible types in assignment.
+        this.testname=null;
+                      ^
+  found   : null (NullType)
+  required: @Initialized @NonNull String
+../dataset/url633772aa30_isma3l_Tp2_tgz-pJ8-ar_fiuba_tecnicas_framework_Pruebas_Casos1_MainJ8/src/ar/fiuba/tecnicas/framework/JTest/TestSuite.java:103: warning: (argument) $$ 4 $$ exception $$ TestSuite.tearingDown $$ @Initialized @Nullable Throwable $$ @Initialized @NonNull Throwable $$ ( 3088, 3097 ) $$ incompatible argument for parameter exception of TestSuite.tearingDown.
+                tearingDown(exception);
+                            ^
+  found   : @Initialized @Nullable Throwable
+  required: @Initialized @NonNull Throwable
+../dataset/url633772aa30_isma3l_Tp2_tgz-pJ8-ar_fiuba_tecnicas_framework_Pruebas_Casos1_MainJ8/src/ar/fiuba/tecnicas/framework/JTest/XmlPrinter.java:17: warning: (initialization.fields.uninitialized) $$ 1 $$ nameCase, time, throwable, fileWriter, printer $$ ( 368, 469 ) $$ the constructor does not initialize fields: nameCase, time, throwable, fileWriter, printer
+    public XmlPrinter() {
+           ^
+../dataset/url633772aa30_isma3l_Tp2_tgz-pJ8-ar_fiuba_tecnicas_framework_Pruebas_Casos1_MainJ8/src/ar/fiuba/tecnicas/framework/JTest/XmlPrinter.java:19: warning: (method.invocation) $$ 3 $$ inicializar() $$ @UnderInitialization @NonNull XmlPrinter $$ @Initialized @NonNull XmlPrinter $$ ( 449, 462 ) $$ call to inicializar() not allowed on the given receiver.
+        inicializar();
+                   ^
+  found   : @UnderInitialization @NonNull XmlPrinter
+  required: @Initialized @NonNull XmlPrinter
+../dataset/url633772aa30_isma3l_Tp2_tgz-pJ8-ar_fiuba_tecnicas_framework_Pruebas_Casos1_MainJ8/src/ar/fiuba/tecnicas/framework/Pruebas/Casos1/SuiteATest.java:27: warning: (argument) $$ 4 $$ expecteds $$ Assert.assertArrayEquals $$ @Initialized @NonNull Double @Initialized @Nullable [] $$ @Initialized @NonNull Double @Initialized @NonNull [] $$ ( 903, 944 ) $$ incompatible argument for parameter expecteds of Assert.assertArrayEquals.
+        Assert.assertArrayEquals("Arrays have different value",(Double[])suite.getContext().get("list1"),(Double[])suite.getContext().get("list2"));
+                                                               ^
+  found   : @Initialized @NonNull Double @Initialized @Nullable []
+  required: @Initialized @NonNull Double @Initialized @NonNull []
+../dataset/url633772aa30_isma3l_Tp2_tgz-pJ8-ar_fiuba_tecnicas_framework_Pruebas_Casos1_MainJ8/src/ar/fiuba/tecnicas/framework/Pruebas/Casos1/SuiteATest.java:27: warning: (argument) $$ 4 $$ actuals $$ Assert.assertArrayEquals $$ @Initialized @NonNull Double @Initialized @Nullable [] $$ @Initialized @NonNull Double @Initialized @NonNull [] $$ ( 945, 986 ) $$ incompatible argument for parameter actuals of Assert.assertArrayEquals.
+        Assert.assertArrayEquals("Arrays have different value",(Double[])suite.getContext().get("list1"),(Double[])suite.getContext().get("list2"));
+                                                                                                         ^
+  found   : @Initialized @NonNull Double @Initialized @Nullable []
+  required: @Initialized @NonNull Double @Initialized @NonNull []
+../dataset/url633772aa30_isma3l_Tp2_tgz-pJ8-ar_fiuba_tecnicas_framework_Pruebas_Casos1_MainJ8/src/ar/fiuba/tecnicas/framework/Pruebas/Casos1/SuiteATest.java:30: warning: (unboxing.of.nullable) $$ 1 $$ (Boolean)suite.getContext().get("trueCondition") $$ ( 1090, 1138 ) $$ unboxing a possibly-null reference (Boolean)suite.getContext().get("trueCondition")
+        Assert.assertTrue("The condition is false",(Boolean)suite.getContext().get("trueCondition"));
+                                                   ^
+20 warnings
+entering iteration 1
+../dataset/url633772aa30_isma3l_Tp2_tgz-pJ8-ar_fiuba_tecnicas_framework_Pruebas_Casos1_MainJ8/src/ar/fiuba/tecnicas/framework/JTest/TestRunner.java:22: warning: (initialization.static.field.uninitialized) $$ 1 $$ testCreator $$ ( 738, 777 ) $$ static field testCreator not initialized
+    private static TestCreator testCreator;
+                               ^
+../dataset/url633772aa30_isma3l_Tp2_tgz-pJ8-ar_fiuba_tecnicas_framework_Pruebas_Casos1_MainJ8/src/ar/fiuba/tecnicas/framework/JTest/TestReport.java:27: warning: (assignment) $$ 2 $$ null (NullType) $$ @Initialized @NonNull PatternRecognizer $$ ( 826, 830 ) $$ incompatible types in assignment.
+        recognizerExpressionsTestcase = null;
+                                        ^
+  found   : null (NullType)
+  required: @Initialized @NonNull PatternRecognizer
+../dataset/url633772aa30_isma3l_Tp2_tgz-pJ8-ar_fiuba_tecnicas_framework_Pruebas_Casos1_MainJ8/src/ar/fiuba/tecnicas/framework/JTest/TestReport.java:28: warning: (assignment) $$ 2 $$ null (NullType) $$ @Initialized @NonNull PatternRecognizer $$ ( 871, 875 ) $$ incompatible types in assignment.
+        recognizerExpressionsTestsuite=null;
+                                       ^
+  found   : null (NullType)
+  required: @Initialized @NonNull PatternRecognizer
+../dataset/url633772aa30_isma3l_Tp2_tgz-pJ8-ar_fiuba_tecnicas_framework_Pruebas_Casos1_MainJ8/src/ar/fiuba/tecnicas/framework/JTest/TestReport.java:29: warning: (assignment) $$ 2 $$ null (NullType) $$ @Initialized @NonNull RecognizerTag $$ ( 902, 906 ) $$ incompatible types in assignment.
+        recognizerTags = null;
+                         ^
+  found   : null (NullType)
+  required: @Initialized @NonNull RecognizerTag
+../dataset/url633772aa30_isma3l_Tp2_tgz-pJ8-ar_fiuba_tecnicas_framework_Pruebas_Casos1_MainJ8/src/ar/fiuba/tecnicas/framework/JTest/PatternRecognizer.java:14: warning: (initialization.fields.uninitialized) $$ 1 $$ matcher $$ ( 292, 458 ) $$ the constructor does not initialize fields: matcher
+    public PatternRecognizer(String expression)throws PatternSyntaxException{
+           ^
+../dataset/url633772aa30_isma3l_Tp2_tgz-pJ8-ar_fiuba_tecnicas_framework_Pruebas_Casos1_MainJ8/src/ar/fiuba/tecnicas/framework/JTest/TestCase.java:64: warning: (argument) $$ 4 $$ exception $$ TestCase.tearingDown $$ @Initialized @Nullable Throwable $$ @Initialized @NonNull Throwable $$ ( 1740, 1749 ) $$ incompatible argument for parameter exception of TestCase.tearingDown.
+            tearingDown(exception);
+                        ^
+  found   : @Initialized @Nullable Throwable
+  required: @Initialized @NonNull Throwable
+../dataset/url633772aa30_isma3l_Tp2_tgz-pJ8-ar_fiuba_tecnicas_framework_Pruebas_Casos1_MainJ8/src/ar/fiuba/tecnicas/framework/JTest/TestCase.java:87: warning: (purity.not.sideeffectfree.call) $$ 1 $$ getTestname $$ ( 2281, 2294 ) $$ call to side-effecting getTestname not allowed in side-effect-free method
+        return getTestname();
+                          ^
+../dataset/url633772aa30_isma3l_Tp2_tgz-pJ8-ar_fiuba_tecnicas_framework_Pruebas_Casos1_MainJ8/src/ar/fiuba/tecnicas/framework/JTest/Assert.java:23: warning: (dereference.of.nullable) $$ 1 $$ expected $$ ( 1126, 1134 ) $$ dereference of possibly-null reference expected
+        if (!expected.equals(actual)) throw new AssertionError();
+             ^
+../dataset/url633772aa30_isma3l_Tp2_tgz-pJ8-ar_fiuba_tecnicas_framework_Pruebas_Casos1_MainJ8/src/ar/fiuba/tecnicas/framework/JTest/Assert.java:26: warning: (dereference.of.nullable) $$ 1 $$ expected $$ ( 1297, 1305 ) $$ dereference of possibly-null reference expected
+        if (!expected.equals(actual)) throw new AssertionError(message);
+             ^
+../dataset/url633772aa30_isma3l_Tp2_tgz-pJ8-ar_fiuba_tecnicas_framework_Pruebas_Casos1_MainJ8/src/ar/fiuba/tecnicas/framework/JTest/Assert.java:59: warning: (argument) $$ 4 $$ arg0 $$ Matcher.matches $$ T extends @Initialized @Nullable Object $$ @Initialized @NonNull Object $$ ( 3019, 3025 ) $$ incompatible argument for parameter arg0 of Matcher.matches.
+        if (!matcher.matches(actual)) throw new AssertionError(reason);
+                             ^
+  found   : T extends @Initialized @Nullable Object
+  required: @Initialized @NonNull Object
+../dataset/url633772aa30_isma3l_Tp2_tgz-pJ8-ar_fiuba_tecnicas_framework_Pruebas_Casos1_MainJ8/src/ar/fiuba/tecnicas/framework/JTest/Assert.java:62: warning: (argument) $$ 4 $$ arg0 $$ Matcher.matches $$ T extends @Initialized @Nullable Object $$ @Initialized @NonNull Object $$ ( 3202, 3208 ) $$ incompatible argument for parameter arg0 of Matcher.matches.
+        if (!matcher.matches(actual)) throw new AssertionError();
+                             ^
+  found   : T extends @Initialized @Nullable Object
+  required: @Initialized @NonNull Object
+../dataset/url633772aa30_isma3l_Tp2_tgz-pJ8-ar_fiuba_tecnicas_framework_Pruebas_Casos1_MainJ8/src/ar/fiuba/tecnicas/framework/JTest/TestSuite.java:49: warning: (initialization.fields.uninitialized) $$ 1 $$ context, suiteFather $$ ( 1457, 1612 ) $$ the constructor does not initialize fields: context, suiteFather
+    public TestSuite(String testname) {
+           ^
+../dataset/url633772aa30_isma3l_Tp2_tgz-pJ8-ar_fiuba_tecnicas_framework_Pruebas_Casos1_MainJ8/src/ar/fiuba/tecnicas/framework/JTest/TestSuite.java:55: warning: (initialization.fields.uninitialized) $$ 1 $$ context, suiteFather $$ ( 1618, 1754 ) $$ the constructor does not initialize fields: context, suiteFather
+    public TestSuite() {
+           ^
+../dataset/url633772aa30_isma3l_Tp2_tgz-pJ8-ar_fiuba_tecnicas_framework_Pruebas_Casos1_MainJ8/src/ar/fiuba/tecnicas/framework/JTest/TestSuite.java:56: warning: (assignment) $$ 2 $$ null (NullType) $$ @Initialized @NonNull String $$ ( 1661, 1665 ) $$ incompatible types in assignment.
+        this.testname=null;
+                      ^
+  found   : null (NullType)
+  required: @Initialized @NonNull String
+../dataset/url633772aa30_isma3l_Tp2_tgz-pJ8-ar_fiuba_tecnicas_framework_Pruebas_Casos1_MainJ8/src/ar/fiuba/tecnicas/framework/JTest/TestSuite.java:103: warning: (argument) $$ 4 $$ exception $$ TestSuite.tearingDown $$ @Initialized @Nullable Throwable $$ @Initialized @NonNull Throwable $$ ( 3088, 3097 ) $$ incompatible argument for parameter exception of TestSuite.tearingDown.
+                tearingDown(exception);
+                            ^
+  found   : @Initialized @Nullable Throwable
+  required: @Initialized @NonNull Throwable
+../dataset/url633772aa30_isma3l_Tp2_tgz-pJ8-ar_fiuba_tecnicas_framework_Pruebas_Casos1_MainJ8/src/ar/fiuba/tecnicas/framework/JTest/XmlPrinter.java:17: warning: (initialization.fields.uninitialized) $$ 1 $$ nameCase, time, throwable, fileWriter, printer $$ ( 368, 469 ) $$ the constructor does not initialize fields: nameCase, time, throwable, fileWriter, printer
+    public XmlPrinter() {
+           ^
+../dataset/url633772aa30_isma3l_Tp2_tgz-pJ8-ar_fiuba_tecnicas_framework_Pruebas_Casos1_MainJ8/src/ar/fiuba/tecnicas/framework/JTest/XmlPrinter.java:19: warning: (method.invocation) $$ 3 $$ inicializar() $$ @UnderInitialization @NonNull XmlPrinter $$ @Initialized @NonNull XmlPrinter $$ ( 449, 462 ) $$ call to inicializar() not allowed on the given receiver.
+        inicializar();
+                   ^
+  found   : @UnderInitialization @NonNull XmlPrinter
+  required: @Initialized @NonNull XmlPrinter
+../dataset/url633772aa30_isma3l_Tp2_tgz-pJ8-ar_fiuba_tecnicas_framework_Pruebas_Casos1_MainJ8/src/ar/fiuba/tecnicas/framework/Pruebas/Casos1/SuiteATest.java:27: warning: (argument) $$ 4 $$ expecteds $$ Assert.assertArrayEquals $$ @Initialized @NonNull Double @Initialized @Nullable [] $$ @Initialized @NonNull Double @Initialized @NonNull [] $$ ( 903, 944 ) $$ incompatible argument for parameter expecteds of Assert.assertArrayEquals.
+        Assert.assertArrayEquals("Arrays have different value",(Double[])suite.getContext().get("list1"),(Double[])suite.getContext().get("list2"));
+                                                               ^
+  found   : @Initialized @NonNull Double @Initialized @Nullable []
+  required: @Initialized @NonNull Double @Initialized @NonNull []
+../dataset/url633772aa30_isma3l_Tp2_tgz-pJ8-ar_fiuba_tecnicas_framework_Pruebas_Casos1_MainJ8/src/ar/fiuba/tecnicas/framework/Pruebas/Casos1/SuiteATest.java:27: warning: (argument) $$ 4 $$ actuals $$ Assert.assertArrayEquals $$ @Initialized @NonNull Double @Initialized @Nullable [] $$ @Initialized @NonNull Double @Initialized @NonNull [] $$ ( 945, 986 ) $$ incompatible argument for parameter actuals of Assert.assertArrayEquals.
+        Assert.assertArrayEquals("Arrays have different value",(Double[])suite.getContext().get("list1"),(Double[])suite.getContext().get("list2"));
+                                                                                                         ^
+  found   : @Initialized @NonNull Double @Initialized @Nullable []
+  required: @Initialized @NonNull Double @Initialized @NonNull []
+../dataset/url633772aa30_isma3l_Tp2_tgz-pJ8-ar_fiuba_tecnicas_framework_Pruebas_Casos1_MainJ8/src/ar/fiuba/tecnicas/framework/Pruebas/Casos1/SuiteATest.java:30: warning: (unboxing.of.nullable) $$ 1 $$ (Boolean)suite.getContext().get("trueCondition") $$ ( 1090, 1138 ) $$ unboxing a possibly-null reference (Boolean)suite.getContext().get("trueCondition")
+        Assert.assertTrue("The condition is false",(Boolean)suite.getContext().get("trueCondition"));
+                                                   ^
+20 warnings
+putting the diff for iteration 1 into /mmfs1/home/ea442/wpi-njr-debug/wpi/iteration1.diff
+ending iteration 1, time taken: 7 seconds
+
+entering iteration 2
+warning: /mmfs1/home/ea442/wpi-njr-debug/wpi/../dataset/url633772aa30_isma3l_Tp2_tgz-pJ8-ar_fiuba_tecnicas_framework_Pruebas_Casos1_MainJ8/wpi-out/net/slreynolds/ds/AbstractJavaTest-org.checkerframework.checker.nullness.KeyForSubchecker.ajava:(line 4,col 1): Imported type not found: net.slreynolds.ds.export.ExporterOptions
+warning: /mmfs1/home/ea442/wpi-njr-debug/wpi/../dataset/url633772aa30_isma3l_Tp2_tgz-pJ8-ar_fiuba_tecnicas_framework_Pruebas_Casos1_MainJ8/wpi-out/net/slreynolds/ds/AbstractJavaTest-org.checkerframework.checker.nullness.KeyForSubchecker.ajava:(line 5,col 1): Imported type not found: net.slreynolds.ds.export.GraphVizExporter
+warning: /mmfs1/home/ea442/wpi-njr-debug/wpi/../dataset/url633772aa30_isma3l_Tp2_tgz-pJ8-ar_fiuba_tecnicas_framework_Pruebas_Casos1_MainJ8/wpi-out/net/slreynolds/ds/AbstractJavaTest-org.checkerframework.checker.nullness.KeyForSubchecker.ajava:(line 6,col 1): Imported type not found: net.slreynolds.ds.export.SimpleGraphVizExporter
+warning: /mmfs1/home/ea442/wpi-njr-debug/wpi/../dataset/url633772aa30_isma3l_Tp2_tgz-pJ8-ar_fiuba_tecnicas_framework_Pruebas_Casos1_MainJ8/wpi-out/net/slreynolds/ds/AbstractJavaTest-org.checkerframework.checker.nullness.KeyForSubchecker.ajava:(line 7,col 1): Imported type not found: net.slreynolds.ds.model.BuilderOptions
+warning: /mmfs1/home/ea442/wpi-njr-debug/wpi/../dataset/url633772aa30_isma3l_Tp2_tgz-pJ8-ar_fiuba_tecnicas_framework_Pruebas_Casos1_MainJ8/wpi-out/net/slreynolds/ds/AbstractJavaTest-org.checkerframework.checker.nullness.KeyForSubchecker.ajava:(line 1,col 1): Package not found: net.slreynolds.ds
+warning: /mmfs1/home/ea442/wpi-njr-debug/wpi/../dataset/url633772aa30_isma3l_Tp2_tgz-pJ8-ar_fiuba_tecnicas_framework_Pruebas_Casos1_MainJ8/wpi-out/net/slreynolds/ds/AbstractJavaTest-org.checkerframework.checker.nullness.KeyForSubchecker.ajava:(line 9,col 1): Type not found: net.slreynolds.ds.AbstractJavaTest
+warning: /mmfs1/home/ea442/wpi-njr-debug/wpi/../dataset/url633772aa30_isma3l_Tp2_tgz-pJ8-ar_fiuba_tecnicas_framework_Pruebas_Casos1_MainJ8/wpi-out/net/slreynolds/ds/ArraysTest-org.checkerframework.checker.nullness.KeyForSubchecker.ajava:(line 5,col 1): Type not found: net.slreynolds.ds.ArraysTest
+warning: /mmfs1/home/ea442/wpi-njr-debug/wpi/../dataset/url633772aa30_isma3l_Tp2_tgz-pJ8-ar_fiuba_tecnicas_framework_Pruebas_Casos1_MainJ8/wpi-out/net/slreynolds/ds/Bar-org.checkerframework.checker.nullness.KeyForSubchecker.ajava:(line 3,col 1): Type not found: net.slreynolds.ds.Bar
+warning: /mmfs1/home/ea442/wpi-njr-debug/wpi/../dataset/url633772aa30_isma3l_Tp2_tgz-pJ8-ar_fiuba_tecnicas_framework_Pruebas_Casos1_MainJ8/wpi-out/net/slreynolds/ds/CustomColorsExample-org.checkerframework.checker.nullness.KeyForSubchecker.ajava:(line 13,col 1): Type not found: net.slreynolds.ds.CustomColorsExample
+warning: /mmfs1/home/ea442/wpi-njr-debug/wpi/../dataset/url633772aa30_isma3l_Tp2_tgz-pJ8-ar_fiuba_tecnicas_framework_Pruebas_Casos1_MainJ8/wpi-out/net/slreynolds/ds/FirstTest-org.checkerframework.checker.nullness.KeyForSubchecker.ajava:(line 6,col 1): Imported type not found: net.slreynolds.ds.export.ExportException
+warning: /mmfs1/home/ea442/wpi-njr-debug/wpi/../dataset/url633772aa30_isma3l_Tp2_tgz-pJ8-ar_fiuba_tecnicas_framework_Pruebas_Casos1_MainJ8/wpi-out/net/slreynolds/ds/FirstTest-org.checkerframework.checker.nullness.KeyForSubchecker.ajava:(line 8,col 1): Imported type not found: net.slreynolds.ds.export.TulipExporter
+warning: /mmfs1/home/ea442/wpi-njr-debug/wpi/../dataset/url633772aa30_isma3l_Tp2_tgz-pJ8-ar_fiuba_tecnicas_framework_Pruebas_Casos1_MainJ8/wpi-out/net/slreynolds/ds/FirstTest-org.checkerframework.checker.nullness.KeyForSubchecker.ajava:(line 10,col 1): Imported type not found: net.slreynolds.ds.model.Graph
+warning: /mmfs1/home/ea442/wpi-njr-debug/wpi/../dataset/url633772aa30_isma3l_Tp2_tgz-pJ8-ar_fiuba_tecnicas_framework_Pruebas_Casos1_MainJ8/wpi-out/net/slreynolds/ds/FirstTest-org.checkerframework.checker.nullness.KeyForSubchecker.ajava:(line 11,col 1): Imported type not found: net.slreynolds.ds.model.NamedIDGenerator
+warning: /mmfs1/home/ea442/wpi-njr-debug/wpi/../dataset/url633772aa30_isma3l_Tp2_tgz-pJ8-ar_fiuba_tecnicas_framework_Pruebas_Casos1_MainJ8/wpi-out/net/slreynolds/ds/FirstTest-org.checkerframework.checker.nullness.KeyForSubchecker.ajava:(line 12,col 1): Imported type not found: net.slreynolds.ds.model.Node
+warning: /mmfs1/home/ea442/wpi-njr-debug/wpi/../dataset/url633772aa30_isma3l_Tp2_tgz-pJ8-ar_fiuba_tecnicas_framework_Pruebas_Casos1_MainJ8/wpi-out/net/slreynolds/ds/FirstTest-org.checkerframework.checker.nullness.KeyForSubchecker.ajava:(line 14,col 1): Type not found: net.slreynolds.ds.FirstTest
+warning: /mmfs1/home/ea442/wpi-njr-debug/wpi/../dataset/url633772aa30_isma3l_Tp2_tgz-pJ8-ar_fiuba_tecnicas_framework_Pruebas_Casos1_MainJ8/wpi-out/net/slreynolds/ds/Foo-org.checkerframework.checker.nullness.KeyForSubchecker.ajava:(line 3,col 1): Type not found: net.slreynolds.ds.Foo
+warning: /mmfs1/home/ea442/wpi-njr-debug/wpi/../dataset/url633772aa30_isma3l_Tp2_tgz-pJ8-ar_fiuba_tecnicas_framework_Pruebas_Casos1_MainJ8/wpi-out/net/slreynolds/ds/ObjectSaver-org.checkerframework.checker.nullness.KeyForSubchecker.ajava:(line 8,col 1): Imported type not found: net.slreynolds.ds.export.Exporter
+warning: /mmfs1/home/ea442/wpi-njr-debug/wpi/../dataset/url633772aa30_isma3l_Tp2_tgz-pJ8-ar_fiuba_tecnicas_framework_Pruebas_Casos1_MainJ8/wpi-out/net/slreynolds/ds/ObjectSaver-org.checkerframework.checker.nullness.KeyForSubchecker.ajava:(line 9,col 1): Imported type not found: net.slreynolds.ds.model.BuildException
+warning: /mmfs1/home/ea442/wpi-njr-debug/wpi/../dataset/url633772aa30_isma3l_Tp2_tgz-pJ8-ar_fiuba_tecnicas_framework_Pruebas_Casos1_MainJ8/wpi-out/net/slreynolds/ds/ObjectSaver-org.checkerframework.checker.nullness.KeyForSubchecker.ajava:(line 10,col 1): Imported type not found: net.slreynolds.ds.model.Builder
+warning: /mmfs1/home/ea442/wpi-njr-debug/wpi/../dataset/url633772aa30_isma3l_Tp2_tgz-pJ8-ar_fiuba_tecnicas_framework_Pruebas_Casos1_MainJ8/wpi-out/net/slreynolds/ds/ObjectSaver-org.checkerframework.checker.nullness.KeyForSubchecker.ajava:(line 13,col 1): Imported type not found: net.slreynolds.ds.model.ReflectiveBuilder
+warning: /mmfs1/home/ea442/wpi-njr-debug/wpi/../dataset/url633772aa30_isma3l_Tp2_tgz-pJ8-ar_fiuba_tecnicas_framework_Pruebas_Casos1_MainJ8/wpi-out/net/slreynolds/ds/ObjectSaver-org.checkerframework.checker.nullness.KeyForSubchecker.ajava:(line 14,col 1): Imported type not found: net.slreynolds.ds.model.internal.GraphBuildContext
+warning: /mmfs1/home/ea442/wpi-njr-debug/wpi/../dataset/url633772aa30_isma3l_Tp2_tgz-pJ8-ar_fiuba_tecnicas_framework_Pruebas_Casos1_MainJ8/wpi-out/net/slreynolds/ds/ObjectSaver-org.checkerframework.checker.nullness.KeyForSubchecker.ajava:(line 19,col 1): Type not found: net.slreynolds.ds.ObjectSaver
+warning: /mmfs1/home/ea442/wpi-njr-debug/wpi/../dataset/url633772aa30_isma3l_Tp2_tgz-pJ8-ar_fiuba_tecnicas_framework_Pruebas_Casos1_MainJ8/wpi-out/net/slreynolds/ds/SecondTest-org.checkerframework.checker.nullness.KeyForSubchecker.ajava:(line 10,col 1): Type not found: net.slreynolds.ds.SecondTest
+warning: /mmfs1/home/ea442/wpi-njr-debug/wpi/../dataset/url633772aa30_isma3l_Tp2_tgz-pJ8-ar_fiuba_tecnicas_framework_Pruebas_Casos1_MainJ8/wpi-out/net/slreynolds/ds/SimpleGrapVizExporterExample-org.checkerframework.checker.nullness.KeyForSubchecker.ajava:(line 13,col 1): Type not found: net.slreynolds.ds.SimpleGrapVizExporterExample
+warning: /mmfs1/home/ea442/wpi-njr-debug/wpi/../dataset/url633772aa30_isma3l_Tp2_tgz-pJ8-ar_fiuba_tecnicas_framework_Pruebas_Casos1_MainJ8/wpi-out/net/slreynolds/ds/SimplestExample-org.checkerframework.checker.nullness.KeyForSubchecker.ajava:(line 10,col 1): Type not found: net.slreynolds.ds.SimplestExample
+warning: /mmfs1/home/ea442/wpi-njr-debug/wpi/../dataset/url633772aa30_isma3l_Tp2_tgz-pJ8-ar_fiuba_tecnicas_framework_Pruebas_Casos1_MainJ8/wpi-out/net/slreynolds/ds/export/AbstractExporter-org.checkerframework.checker.nullness.KeyForSubchecker.ajava:(line 1,col 1): Package not found: net.slreynolds.ds.export
+warning: /mmfs1/home/ea442/wpi-njr-debug/wpi/../dataset/url633772aa30_isma3l_Tp2_tgz-pJ8-ar_fiuba_tecnicas_framework_Pruebas_Casos1_MainJ8/wpi-out/net/slreynolds/ds/export/AbstractExporter-org.checkerframework.checker.nullness.KeyForSubchecker.ajava:(line 6,col 1): Type not found: net.slreynolds.ds.export.AbstractExporter
+warning: /mmfs1/home/ea442/wpi-njr-debug/wpi/../dataset/url633772aa30_isma3l_Tp2_tgz-pJ8-ar_fiuba_tecnicas_framework_Pruebas_Casos1_MainJ8/wpi-out/net/slreynolds/ds/export/AbstractSimpleExporter-org.checkerframework.checker.nullness.KeyForSubchecker.ajava:(line 9,col 1): Imported type not found: net.slreynolds.ds.internal.util.FileUtil
+warning: /mmfs1/home/ea442/wpi-njr-debug/wpi/../dataset/url633772aa30_isma3l_Tp2_tgz-pJ8-ar_fiuba_tecnicas_framework_Pruebas_Casos1_MainJ8/wpi-out/net/slreynolds/ds/export/AbstractSimpleExporter-org.checkerframework.checker.nullness.KeyForSubchecker.ajava:(line 10,col 1): Imported type not found: net.slreynolds.ds.model.Edge
+warning: /mmfs1/home/ea442/wpi-njr-debug/wpi/../dataset/url633772aa30_isma3l_Tp2_tgz-pJ8-ar_fiuba_tecnicas_framework_Pruebas_Casos1_MainJ8/wpi-out/net/slreynolds/ds/export/AbstractSimpleExporter-org.checkerframework.checker.nullness.KeyForSubchecker.ajava:(line 12,col 1): Imported type not found: net.slreynolds.ds.model.GraphPoint
+warning: /mmfs1/home/ea442/wpi-njr-debug/wpi/../dataset/url633772aa30_isma3l_Tp2_tgz-pJ8-ar_fiuba_tecnicas_framework_Pruebas_Casos1_MainJ8/wpi-out/net/slreynolds/ds/export/AbstractSimpleExporter-org.checkerframework.checker.nullness.KeyForSubchecker.ajava:(line 13,col 1): Imported type not found: net.slreynolds.ds.model.Named
+warning: /mmfs1/home/ea442/wpi-njr-debug/wpi/../dataset/url633772aa30_isma3l_Tp2_tgz-pJ8-ar_fiuba_tecnicas_framework_Pruebas_Casos1_MainJ8/wpi-out/net/slreynolds/ds/export/AbstractSimpleExporter-org.checkerframework.checker.nullness.KeyForSubchecker.ajava:(line 15,col 1): Imported type not found: net.slreynolds.ds.model.NodeArray
+warning: /mmfs1/home/ea442/wpi-njr-debug/wpi/../dataset/url633772aa30_isma3l_Tp2_tgz-pJ8-ar_fiuba_tecnicas_framework_Pruebas_Casos1_MainJ8/wpi-out/net/slreynolds/ds/export/AbstractSimpleExporter-org.checkerframework.checker.nullness.KeyForSubchecker.ajava:(line 22,col 1): Type not found: net.slreynolds.ds.export.AbstractSimpleExporter
+warning: /mmfs1/home/ea442/wpi-njr-debug/wpi/../dataset/url633772aa30_isma3l_Tp2_tgz-pJ8-ar_fiuba_tecnicas_framework_Pruebas_Casos1_MainJ8/wpi-out/net/slreynolds/ds/export/ExportEdge-org.checkerframework.checker.nullness.KeyForSubchecker.ajava:(line 3,col 1): Type not found: net.slreynolds.ds.export.ExportEdge
+warning: /mmfs1/home/ea442/wpi-njr-debug/wpi/../dataset/url633772aa30_isma3l_Tp2_tgz-pJ8-ar_fiuba_tecnicas_framework_Pruebas_Casos1_MainJ8/wpi-out/net/slreynolds/ds/export/ExportException-org.checkerframework.checker.nullness.KeyForSubchecker.ajava:(line 7,col 1): Type not found: net.slreynolds.ds.export.ExportException
+warning: /mmfs1/home/ea442/wpi-njr-debug/wpi/../dataset/url633772aa30_isma3l_Tp2_tgz-pJ8-ar_fiuba_tecnicas_framework_Pruebas_Casos1_MainJ8/wpi-out/net/slreynolds/ds/export/ExportVertex-org.checkerframework.checker.nullness.KeyForSubchecker.ajava:(line 3,col 1): Type not found: net.slreynolds.ds.export.ExportVertex
+warning: /mmfs1/home/ea442/wpi-njr-debug/wpi/../dataset/url633772aa30_isma3l_Tp2_tgz-pJ8-ar_fiuba_tecnicas_framework_Pruebas_Casos1_MainJ8/wpi-out/net/slreynolds/ds/export/Exporter-org.checkerframework.checker.nullness.KeyForSubchecker.ajava:(line 10,col 1): Type not found: net.slreynolds.ds.export.Exporter
+warning: /mmfs1/home/ea442/wpi-njr-debug/wpi/../dataset/url633772aa30_isma3l_Tp2_tgz-pJ8-ar_fiuba_tecnicas_framework_Pruebas_Casos1_MainJ8/wpi-out/net/slreynolds/ds/export/ExporterOptions-org.checkerframework.checker.nullness.KeyForSubchecker.ajava:(line 6,col 1): Type not found: net.slreynolds.ds.export.ExporterOptions
+warning: /mmfs1/home/ea442/wpi-njr-debug/wpi/../dataset/url633772aa30_isma3l_Tp2_tgz-pJ8-ar_fiuba_tecnicas_framework_Pruebas_Casos1_MainJ8/wpi-out/net/slreynolds/ds/export/ExporterUtils-org.checkerframework.checker.nullness.KeyForSubchecker.ajava:(line 8,col 1): Type not found: net.slreynolds.ds.export.ExporterUtils
+warning: /mmfs1/home/ea442/wpi-njr-debug/wpi/../dataset/url633772aa30_isma3l_Tp2_tgz-pJ8-ar_fiuba_tecnicas_framework_Pruebas_Casos1_MainJ8/wpi-out/net/slreynolds/ds/export/GraphMLExporter-org.checkerframework.checker.nullness.KeyForSubchecker.ajava:(line 11,col 1): Type not found: net.slreynolds.ds.export.GraphMLExporter
+warning: /mmfs1/home/ea442/wpi-njr-debug/wpi/../dataset/url633772aa30_isma3l_Tp2_tgz-pJ8-ar_fiuba_tecnicas_framework_Pruebas_Casos1_MainJ8/wpi-out/net/slreynolds/ds/export/GraphVizExporter-org.checkerframework.checker.nullness.KeyForSubchecker.ajava:(line 20,col 1): Type not found: net.slreynolds.ds.export.GraphVizExporter
+warning: /mmfs1/home/ea442/wpi-njr-debug/wpi/../dataset/url633772aa30_isma3l_Tp2_tgz-pJ8-ar_fiuba_tecnicas_framework_Pruebas_Casos1_MainJ8/wpi-out/net/slreynolds/ds/export/SimpleGraphVizExporter-org.checkerframework.checker.nullness.KeyForSubchecker.ajava:(line 13,col 1): Type not found: net.slreynolds.ds.export.SimpleGraphVizExporter
+warning: /mmfs1/home/ea442/wpi-njr-debug/wpi/../dataset/url633772aa30_isma3l_Tp2_tgz-pJ8-ar_fiuba_tecnicas_framework_Pruebas_Casos1_MainJ8/wpi-out/net/slreynolds/ds/export/TulipExporter-org.checkerframework.checker.nullness.KeyForSubchecker.ajava:(line 16,col 1): Type not found: net.slreynolds.ds.export.TulipExporter
+warning: /mmfs1/home/ea442/wpi-njr-debug/wpi/../dataset/url633772aa30_isma3l_Tp2_tgz-pJ8-ar_fiuba_tecnicas_framework_Pruebas_Casos1_MainJ8/wpi-out/net/slreynolds/ds/export/VertexType-org.checkerframework.checker.nullness.KeyForSubchecker.ajava:(line 3,col 1): Type not found: net.slreynolds.ds.export.VertexType
+warning: /mmfs1/home/ea442/wpi-njr-debug/wpi/../dataset/url633772aa30_isma3l_Tp2_tgz-pJ8-ar_fiuba_tecnicas_framework_Pruebas_Casos1_MainJ8/wpi-out/net/slreynolds/ds/internal/util/FileUtil-org.checkerframework.checker.nullness.KeyForSubchecker.ajava:(line 1,col 1): Package not found: net.slreynolds.ds.internal.util
+warning: /mmfs1/home/ea442/wpi-njr-debug/wpi/../dataset/url633772aa30_isma3l_Tp2_tgz-pJ8-ar_fiuba_tecnicas_framework_Pruebas_Casos1_MainJ8/wpi-out/net/slreynolds/ds/internal/util/FileUtil-org.checkerframework.checker.nullness.KeyForSubchecker.ajava:(line 9,col 1): Type not found: net.slreynolds.ds.internal.util.FileUtil
+warning: /mmfs1/home/ea442/wpi-njr-debug/wpi/../dataset/url633772aa30_isma3l_Tp2_tgz-pJ8-ar_fiuba_tecnicas_framework_Pruebas_Casos1_MainJ8/wpi-out/net/slreynolds/ds/internal/util/NodeUtil-org.checkerframework.checker.nullness.KeyForSubchecker.ajava:(line 8,col 1): Type not found: net.slreynolds.ds.internal.util.NodeUtil
+warning: /mmfs1/home/ea442/wpi-njr-debug/wpi/../dataset/url633772aa30_isma3l_Tp2_tgz-pJ8-ar_fiuba_tecnicas_framework_Pruebas_Casos1_MainJ8/wpi-out/net/slreynolds/ds/internal/util/Pair-org.checkerframework.checker.nullness.KeyForSubchecker.ajava:(line 3,col 1): Type not found: net.slreynolds.ds.internal.util.Pair
+warning: /mmfs1/home/ea442/wpi-njr-debug/wpi/../dataset/url633772aa30_isma3l_Tp2_tgz-pJ8-ar_fiuba_tecnicas_framework_Pruebas_Casos1_MainJ8/wpi-out/net/slreynolds/ds/internal/util/ReflectionUtil-org.checkerframework.checker.nullness.KeyForSubchecker.ajava:(line 3,col 1): Imported type not found: net.slreynolds.ds.model.ReflectionException
+warning: /mmfs1/home/ea442/wpi-njr-debug/wpi/../dataset/url633772aa30_isma3l_Tp2_tgz-pJ8-ar_fiuba_tecnicas_framework_Pruebas_Casos1_MainJ8/wpi-out/net/slreynolds/ds/internal/util/ReflectionUtil-org.checkerframework.checker.nullness.KeyForSubchecker.ajava:(line 8,col 1): Type not found: net.slreynolds.ds.internal.util.ReflectionUtil
+warning: /mmfs1/home/ea442/wpi-njr-debug/wpi/../dataset/url633772aa30_isma3l_Tp2_tgz-pJ8-ar_fiuba_tecnicas_framework_Pruebas_Casos1_MainJ8/wpi-out/net/slreynolds/ds/model/BuildException-org.checkerframework.checker.nullness.KeyForSubchecker.ajava:(line 1,col 1): Package not found: net.slreynolds.ds.model
+warning: /mmfs1/home/ea442/wpi-njr-debug/wpi/../dataset/url633772aa30_isma3l_Tp2_tgz-pJ8-ar_fiuba_tecnicas_framework_Pruebas_Casos1_MainJ8/wpi-out/net/slreynolds/ds/model/BuildException-org.checkerframework.checker.nullness.KeyForSubchecker.ajava:(line 6,col 1): Type not found: net.slreynolds.ds.model.BuildException
+warning: /mmfs1/home/ea442/wpi-njr-debug/wpi/../dataset/url633772aa30_isma3l_Tp2_tgz-pJ8-ar_fiuba_tecnicas_framework_Pruebas_Casos1_MainJ8/wpi-out/net/slreynolds/ds/model/Builder-org.checkerframework.checker.nullness.KeyForSubchecker.ajava:(line 6,col 1): Type not found: net.slreynolds.ds.model.Builder
+warning: /mmfs1/home/ea442/wpi-njr-debug/wpi/../dataset/url633772aa30_isma3l_Tp2_tgz-pJ8-ar_fiuba_tecnicas_framework_Pruebas_Casos1_MainJ8/wpi-out/net/slreynolds/ds/model/BuilderOptions-org.checkerframework.checker.nullness.KeyForSubchecker.ajava:(line 6,col 1): Type not found: net.slreynolds.ds.model.BuilderOptions
+warning: /mmfs1/home/ea442/wpi-njr-debug/wpi/../dataset/url633772aa30_isma3l_Tp2_tgz-pJ8-ar_fiuba_tecnicas_framework_Pruebas_Casos1_MainJ8/wpi-out/net/slreynolds/ds/model/Edge-org.checkerframework.checker.nullness.KeyForSubchecker.ajava:(line 5,col 1): Type not found: net.slreynolds.ds.model.Edge
+warning: /mmfs1/home/ea442/wpi-njr-debug/wpi/../dataset/url633772aa30_isma3l_Tp2_tgz-pJ8-ar_fiuba_tecnicas_framework_Pruebas_Casos1_MainJ8/wpi-out/net/slreynolds/ds/model/ExporterStub-org.checkerframework.checker.nullness.KeyForSubchecker.ajava:(line 9,col 1): Type not found: net.slreynolds.ds.model.ExporterStub
+warning: /mmfs1/home/ea442/wpi-njr-debug/wpi/../dataset/url633772aa30_isma3l_Tp2_tgz-pJ8-ar_fiuba_tecnicas_framework_Pruebas_Casos1_MainJ8/wpi-out/net/slreynolds/ds/model/Graph-org.checkerframework.checker.nullness.KeyForSubchecker.ajava:(line 11,col 1): Type not found: net.slreynolds.ds.model.Graph
+warning: /mmfs1/home/ea442/wpi-njr-debug/wpi/../dataset/url633772aa30_isma3l_Tp2_tgz-pJ8-ar_fiuba_tecnicas_framework_Pruebas_Casos1_MainJ8/wpi-out/net/slreynolds/ds/model/GraphBuilder-org.checkerframework.checker.nullness.KeyForSubchecker.ajava:(line 8,col 1): Type not found: net.slreynolds.ds.model.GraphBuilder
+warning: /mmfs1/home/ea442/wpi-njr-debug/wpi/../dataset/url633772aa30_isma3l_Tp2_tgz-pJ8-ar_fiuba_tecnicas_framework_Pruebas_Casos1_MainJ8/wpi-out/net/slreynolds/ds/model/GraphPoint-org.checkerframework.checker.nullness.KeyForSubchecker.ajava:(line 10,col 1): Type not found: net.slreynolds.ds.model.GraphPoint
+warning: /mmfs1/home/ea442/wpi-njr-debug/wpi/../dataset/url633772aa30_isma3l_Tp2_tgz-pJ8-ar_fiuba_tecnicas_framework_Pruebas_Casos1_MainJ8/wpi-out/net/slreynolds/ds/model/Named-org.checkerframework.checker.nullness.KeyForSubchecker.ajava:(line 11,col 1): Type not found: net.slreynolds.ds.model.Named
+warning: /mmfs1/home/ea442/wpi-njr-debug/wpi/../dataset/url633772aa30_isma3l_Tp2_tgz-pJ8-ar_fiuba_tecnicas_framework_Pruebas_Casos1_MainJ8/wpi-out/net/slreynolds/ds/model/NamedID-org.checkerframework.checker.nullness.KeyForSubchecker.ajava:(line 3,col 1): Type not found: net.slreynolds.ds.model.NamedID
+warning: /mmfs1/home/ea442/wpi-njr-debug/wpi/../dataset/url633772aa30_isma3l_Tp2_tgz-pJ8-ar_fiuba_tecnicas_framework_Pruebas_Casos1_MainJ8/wpi-out/net/slreynolds/ds/model/NamedIDGenerator-org.checkerframework.checker.nullness.KeyForSubchecker.ajava:(line 5,col 1): Type not found: net.slreynolds.ds.model.NamedIDGenerator
+warning: /mmfs1/home/ea442/wpi-njr-debug/wpi/../dataset/url633772aa30_isma3l_Tp2_tgz-pJ8-ar_fiuba_tecnicas_framework_Pruebas_Casos1_MainJ8/wpi-out/net/slreynolds/ds/model/Node-org.checkerframework.checker.nullness.KeyForSubchecker.ajava:(line 6,col 1): Type not found: net.slreynolds.ds.model.Node
+warning: /mmfs1/home/ea442/wpi-njr-debug/wpi/../dataset/url633772aa30_isma3l_Tp2_tgz-pJ8-ar_fiuba_tecnicas_framework_Pruebas_Casos1_MainJ8/wpi-out/net/slreynolds/ds/model/NodeArray-org.checkerframework.checker.nullness.KeyForSubchecker.ajava:(line 9,col 1): Type not found: net.slreynolds.ds.model.NodeArray
+warning: /mmfs1/home/ea442/wpi-njr-debug/wpi/../dataset/url633772aa30_isma3l_Tp2_tgz-pJ8-ar_fiuba_tecnicas_framework_Pruebas_Casos1_MainJ8/wpi-out/net/slreynolds/ds/model/ReflectionException-org.checkerframework.checker.nullness.KeyForSubchecker.ajava:(line 6,col 1): Type not found: net.slreynolds.ds.model.ReflectionException
+warning: /mmfs1/home/ea442/wpi-njr-debug/wpi/../dataset/url633772aa30_isma3l_Tp2_tgz-pJ8-ar_fiuba_tecnicas_framework_Pruebas_Casos1_MainJ8/wpi-out/net/slreynolds/ds/model/ReflectiveBuilder-org.checkerframework.checker.nullness.KeyForSubchecker.ajava:(line 4,col 1): Imported type not found: net.slreynolds.ds.model.internal.EdgeSuspension
+warning: /mmfs1/home/ea442/wpi-njr-debug/wpi/../dataset/url633772aa30_isma3l_Tp2_tgz-pJ8-ar_fiuba_tecnicas_framework_Pruebas_Casos1_MainJ8/wpi-out/net/slreynolds/ds/model/ReflectiveBuilder-org.checkerframework.checker.nullness.KeyForSubchecker.ajava:(line 6,col 1): Imported type not found: net.slreynolds.ds.model.internal.GraphPointSuspension
+warning: /mmfs1/home/ea442/wpi-njr-debug/wpi/../dataset/url633772aa30_isma3l_Tp2_tgz-pJ8-ar_fiuba_tecnicas_framework_Pruebas_Casos1_MainJ8/wpi-out/net/slreynolds/ds/model/ReflectiveBuilder-org.checkerframework.checker.nullness.KeyForSubchecker.ajava:(line 7,col 1): Imported type not found: net.slreynolds.ds.model.internal.NodeBuilder
+warning: /mmfs1/home/ea442/wpi-njr-debug/wpi/../dataset/url633772aa30_isma3l_Tp2_tgz-pJ8-ar_fiuba_tecnicas_framework_Pruebas_Casos1_MainJ8/wpi-out/net/slreynolds/ds/model/ReflectiveBuilder-org.checkerframework.checker.nullness.KeyForSubchecker.ajava:(line 9,col 1): Type not found: net.slreynolds.ds.model.ReflectiveBuilder
+warning: /mmfs1/home/ea442/wpi-njr-debug/wpi/../dataset/url633772aa30_isma3l_Tp2_tgz-pJ8-ar_fiuba_tecnicas_framework_Pruebas_Casos1_MainJ8/wpi-out/net/slreynolds/ds/model/TestArrays-org.checkerframework.checker.nullness.KeyForSubchecker.ajava:(line 6,col 1): Imported type not found: net.slreynolds.ds.ObjectSaver
+warning: /mmfs1/home/ea442/wpi-njr-debug/wpi/../dataset/url633772aa30_isma3l_Tp2_tgz-pJ8-ar_fiuba_tecnicas_framework_Pruebas_Casos1_MainJ8/wpi-out/net/slreynolds/ds/model/TestArrays-org.checkerframework.checker.nullness.KeyForSubchecker.ajava:(line 15,col 1): Type not found: net.slreynolds.ds.model.TestArrays
+warning: /mmfs1/home/ea442/wpi-njr-debug/wpi/../dataset/url633772aa30_isma3l_Tp2_tgz-pJ8-ar_fiuba_tecnicas_framework_Pruebas_Casos1_MainJ8/wpi-out/net/slreynolds/ds/model/TestModel-org.checkerframework.checker.nullness.KeyForSubchecker.ajava:(line 11,col 1): Type not found: net.slreynolds.ds.model.TestModel
+warning: /mmfs1/home/ea442/wpi-njr-debug/wpi/../dataset/url633772aa30_isma3l_Tp2_tgz-pJ8-ar_fiuba_tecnicas_framework_Pruebas_Casos1_MainJ8/wpi-out/net/slreynolds/ds/model/internal/EdgeSuspension-org.checkerframework.checker.nullness.KeyForSubchecker.ajava:(line 1,col 1): Package not found: net.slreynolds.ds.model.internal
+warning: /mmfs1/home/ea442/wpi-njr-debug/wpi/../dataset/url633772aa30_isma3l_Tp2_tgz-pJ8-ar_fiuba_tecnicas_framework_Pruebas_Casos1_MainJ8/wpi-out/net/slreynolds/ds/model/internal/EdgeSuspension-org.checkerframework.checker.nullness.KeyForSubchecker.ajava:(line 3,col 1): Type not found: net.slreynolds.ds.model.internal.EdgeSuspension
+warning: /mmfs1/home/ea442/wpi-njr-debug/wpi/../dataset/url633772aa30_isma3l_Tp2_tgz-pJ8-ar_fiuba_tecnicas_framework_Pruebas_Casos1_MainJ8/wpi-out/net/slreynolds/ds/model/internal/GraphBuildContext-org.checkerframework.checker.nullness.KeyForSubchecker.ajava:(line 12,col 1): Type not found: net.slreynolds.ds.model.internal.GraphBuildContext
+warning: /mmfs1/home/ea442/wpi-njr-debug/wpi/../dataset/url633772aa30_isma3l_Tp2_tgz-pJ8-ar_fiuba_tecnicas_framework_Pruebas_Casos1_MainJ8/wpi-out/net/slreynolds/ds/model/internal/GraphPointSuspension-org.checkerframework.checker.nullness.KeyForSubchecker.ajava:(line 3,col 1): Type not found: net.slreynolds.ds.model.internal.GraphPointSuspension
+warning: /mmfs1/home/ea442/wpi-njr-debug/wpi/../dataset/url633772aa30_isma3l_Tp2_tgz-pJ8-ar_fiuba_tecnicas_framework_Pruebas_Casos1_MainJ8/wpi-out/net/slreynolds/ds/model/internal/NodeBuilder-org.checkerframework.checker.nullness.KeyForSubchecker.ajava:(line 9,col 1): Imported type not found: net.slreynolds.ds.internal.util.NodeUtil
+warning: /mmfs1/home/ea442/wpi-njr-debug/wpi/../dataset/url633772aa30_isma3l_Tp2_tgz-pJ8-ar_fiuba_tecnicas_framework_Pruebas_Casos1_MainJ8/wpi-out/net/slreynolds/ds/model/internal/NodeBuilder-org.checkerframework.checker.nullness.KeyForSubchecker.ajava:(line 10,col 1): Imported type not found: net.slreynolds.ds.internal.util.Pair
+warning: /mmfs1/home/ea442/wpi-njr-debug/wpi/../dataset/url633772aa30_isma3l_Tp2_tgz-pJ8-ar_fiuba_tecnicas_framework_Pruebas_Casos1_MainJ8/wpi-out/net/slreynolds/ds/model/internal/NodeBuilder-org.checkerframework.checker.nullness.KeyForSubchecker.ajava:(line 22,col 1): Type not found: net.slreynolds.ds.model.internal.NodeBuilder
+warning: /mmfs1/home/ea442/wpi-njr-debug/wpi/../dataset/url633772aa30_isma3l_Tp2_tgz-pJ8-ar_fiuba_tecnicas_framework_Pruebas_Casos1_MainJ8/wpi-out/net/slreynolds/ds/util/FileUtilTest-org.checkerframework.checker.nullness.KeyForSubchecker.ajava:(line 1,col 1): Package not found: net.slreynolds.ds.util
+warning: /mmfs1/home/ea442/wpi-njr-debug/wpi/../dataset/url633772aa30_isma3l_Tp2_tgz-pJ8-ar_fiuba_tecnicas_framework_Pruebas_Casos1_MainJ8/wpi-out/net/slreynolds/ds/util/FileUtilTest-org.checkerframework.checker.nullness.KeyForSubchecker.ajava:(line 9,col 1): Type not found: net.slreynolds.ds.util.FileUtilTest
+warning: /mmfs1/home/ea442/wpi-njr-debug/wpi/../dataset/url633772aa30_isma3l_Tp2_tgz-pJ8-ar_fiuba_tecnicas_framework_Pruebas_Casos1_MainJ8/wpi-out/net/slreynolds/ds/util/ReflectionUtilTest-org.checkerframework.checker.nullness.KeyForSubchecker.ajava:(line 4,col 1): Imported type not found: net.slreynolds.ds.internal.util.ReflectionUtil
+warning: /mmfs1/home/ea442/wpi-njr-debug/wpi/../dataset/url633772aa30_isma3l_Tp2_tgz-pJ8-ar_fiuba_tecnicas_framework_Pruebas_Casos1_MainJ8/wpi-out/net/slreynolds/ds/util/ReflectionUtilTest-org.checkerframework.checker.nullness.KeyForSubchecker.ajava:(line 8,col 1): Type not found: net.slreynolds.ds.util.ReflectionUtilTest
+../dataset/url633772aa30_isma3l_Tp2_tgz-pJ8-ar_fiuba_tecnicas_framework_Pruebas_Casos1_MainJ8/src/ar/fiuba/tecnicas/framework/JTest/TestRunner.java:76: warning: (dereference.of.nullable) $$ 1 $$ testCreator $$ ( 2426, 2437 ) $$ dereference of possibly-null reference testCreator
+        return testCreator.getTest();
+               ^
+../dataset/url633772aa30_isma3l_Tp2_tgz-pJ8-ar_fiuba_tecnicas_framework_Pruebas_Casos1_MainJ8/src/ar/fiuba/tecnicas/framework/JTest/TestReport.java:101: warning: (dereference.of.nullable) $$ 1 $$ recognizerTags $$ ( 3408, 3422 ) $$ dereference of possibly-null reference recognizerTags
+        return recognizerTags.validate(test.getTags());
+               ^
+../dataset/url633772aa30_isma3l_Tp2_tgz-pJ8-ar_fiuba_tecnicas_framework_Pruebas_Casos1_MainJ8/src/ar/fiuba/tecnicas/framework/JTest/Assert.java:23: warning: (dereference.of.nullable) $$ 1 $$ expected $$ ( 1126, 1134 ) $$ dereference of possibly-null reference expected
+        if (!expected.equals(actual)) throw new AssertionError();
+             ^
+../dataset/url633772aa30_isma3l_Tp2_tgz-pJ8-ar_fiuba_tecnicas_framework_Pruebas_Casos1_MainJ8/src/ar/fiuba/tecnicas/framework/JTest/Assert.java:26: warning: (dereference.of.nullable) $$ 1 $$ expected $$ ( 1297, 1305 ) $$ dereference of possibly-null reference expected
+        if (!expected.equals(actual)) throw new AssertionError(message);
+             ^
+../dataset/url633772aa30_isma3l_Tp2_tgz-pJ8-ar_fiuba_tecnicas_framework_Pruebas_Casos1_MainJ8/src/ar/fiuba/tecnicas/framework/JTest/Assert.java:59: warning: (argument) $$ 4 $$ arg0 $$ Matcher.matches $$ T extends @Initialized @Nullable Object $$ @Initialized @NonNull Object $$ ( 3019, 3025 ) $$ incompatible argument for parameter arg0 of Matcher.matches.
+        if (!matcher.matches(actual)) throw new AssertionError(reason);
+                             ^
+  found   : T extends @Initialized @Nullable Object
+  required: @Initialized @NonNull Object
+../dataset/url633772aa30_isma3l_Tp2_tgz-pJ8-ar_fiuba_tecnicas_framework_Pruebas_Casos1_MainJ8/src/ar/fiuba/tecnicas/framework/JTest/Assert.java:62: warning: (argument) $$ 4 $$ arg0 $$ Matcher.matches $$ T extends @Initialized @Nullable Object $$ @Initialized @NonNull Object $$ ( 3202, 3208 ) $$ incompatible argument for parameter arg0 of Matcher.matches.
+        if (!matcher.matches(actual)) throw new AssertionError();
+                             ^
+  found   : T extends @Initialized @Nullable Object
+  required: @Initialized @NonNull Object
+../dataset/url633772aa30_isma3l_Tp2_tgz-pJ8-ar_fiuba_tecnicas_framework_Pruebas_Casos1_MainJ8/src/ar/fiuba/tecnicas/framework/JTest/TestSuite.java:22: warning: (return) $$ 2 $$ @Initialized @MonotonicNonNull TestSuite $$ @Initialized @NonNull TestSuite $$ ( 586, 597 ) $$ incompatible types in return.
+        return suiteFather;
+               ^
+  type of expression: @Initialized @MonotonicNonNull TestSuite
+  method return type: @Initialized @NonNull TestSuite
+../dataset/url633772aa30_isma3l_Tp2_tgz-pJ8-ar_fiuba_tecnicas_framework_Pruebas_Casos1_MainJ8/src/ar/fiuba/tecnicas/framework/JTest/TestSuite.java:37: warning: (argument) $$ 4 $$ str $$ StringBuilder constructor $$ @Initialized @MonotonicNonNull String $$ @Initialized @NonNull String $$ ( 1136, 1144 ) $$ incompatible argument for parameter str of StringBuilder constructor.
+        StringBuilder sb= new StringBuilder(testname);
+                                            ^
+  found   : @Initialized @MonotonicNonNull String
+  required: @Initialized @NonNull String
+../dataset/url633772aa30_isma3l_Tp2_tgz-pJ8-ar_fiuba_tecnicas_framework_Pruebas_Casos1_MainJ8/src/ar/fiuba/tecnicas/framework/JTest/TestSuite.java:47: warning: (return) $$ 2 $$ @Initialized @MonotonicNonNull String $$ @Initialized @NonNull String $$ ( 1439, 1445 ) $$ incompatible types in return.
+        return retval;
+               ^
+  type of expression: @Initialized @MonotonicNonNull String
+  method return type: @Initialized @NonNull String
+../dataset/url633772aa30_isma3l_Tp2_tgz-pJ8-ar_fiuba_tecnicas_framework_Pruebas_Casos1_MainJ8/src/ar/fiuba/tecnicas/framework/JTest/TestSuite.java:74: warning: (return) $$ 2 $$ @FBCBottom @MonotonicNonNull HashMap<@Initialized @NonNull String, @Initialized @NonNull Object> $$ @Initialized @NonNull HashMap<@Initialized @NonNull String, @Initialized @NonNull Object> $$ ( 2229, 2236 ) $$ incompatible types in return.
+        return context;
+               ^
+  type of expression: @FBCBottom @MonotonicNonNull HashMap<@Initialized @NonNull String, @Initialized @NonNull Object>
+  method return type: @Initialized @NonNull HashMap<@Initialized @NonNull String, @Initialized @NonNull Object>
+../dataset/url633772aa30_isma3l_Tp2_tgz-pJ8-ar_fiuba_tecnicas_framework_Pruebas_Casos1_MainJ8/src/ar/fiuba/tecnicas/framework/JTest/XmlPrinter.java:19: warning: (method.invocation) $$ 3 $$ inicializar() $$ @UnderInitialization(ar.fiuba.tecnicas.framework.JTest.XmlPrinter.class) @NonNull XmlPrinter $$ @Initialized @NonNull XmlPrinter $$ ( 449, 462 ) $$ call to inicializar() not allowed on the given receiver.
+        inicializar();
+                   ^
+  found   : @UnderInitialization(ar.fiuba.tecnicas.framework.JTest.XmlPrinter.class) @NonNull XmlPrinter
+  required: @Initialized @NonNull XmlPrinter
+../dataset/url633772aa30_isma3l_Tp2_tgz-pJ8-ar_fiuba_tecnicas_framework_Pruebas_Casos1_MainJ8/src/ar/fiuba/tecnicas/framework/JTest/XmlPrinter.java:62: warning: (dereference.of.nullable) $$ 1 $$ printer $$ ( 1686, 1693 ) $$ dereference of possibly-null reference printer
+        printer.println("\t\t\t\t\t\t\t\t<xs:sequence>\n\t<xs:element name=\"" + type + "\">\n" +
+        ^
+../dataset/url633772aa30_isma3l_Tp2_tgz-pJ8-ar_fiuba_tecnicas_framework_Pruebas_Casos1_MainJ8/src/ar/fiuba/tecnicas/framework/JTest/XmlPrinter.java:64: warning: (dereference.of.nullable) $$ 1 $$ throwable $$ ( 1918, 1927 ) $$ dereference of possibly-null reference throwable
+                "\t\t\t\t\t\t\t\t\t\t\t\t<xs:attribute name=\"" + throwable.toString() + "\" type=\"xs:string\" use=\"optional\"/>\n" +
+                                                                  ^
+../dataset/url633772aa30_isma3l_Tp2_tgz-pJ8-ar_fiuba_tecnicas_framework_Pruebas_Casos1_MainJ8/src/ar/fiuba/tecnicas/framework/JTest/XmlPrinter.java:71: warning: (dereference.of.nullable) $$ 1 $$ printer $$ ( 2327, 2334 ) $$ dereference of possibly-null reference printer
+        printer.println("\t\t\t\t<xs:element name=\"testcase\">\n" +
+        ^
+../dataset/url633772aa30_isma3l_Tp2_tgz-pJ8-ar_fiuba_tecnicas_framework_Pruebas_Casos1_MainJ8/src/ar/fiuba/tecnicas/framework/JTest/XmlPrinter.java:76: warning: (dereference.of.nullable) $$ 1 $$ printer $$ ( 2493, 2500 ) $$ dereference of possibly-null reference printer
+        printer.print("\t\t\t\t\t\t<xs:attribute name=\"" + nameCase + "\" type=\"xs:string\" use=\"required\"/>\n" +
+        ^
+../dataset/url633772aa30_isma3l_Tp2_tgz-pJ8-ar_fiuba_tecnicas_framework_Pruebas_Casos1_MainJ8/src/ar/fiuba/tecnicas/framework/JTest/XmlPrinter.java:97: warning: (dereference.of.nullable) $$ 1 $$ printer $$ ( 3284, 3291 ) $$ dereference of possibly-null reference printer
+        printer.print("\t\t\t<xs:attribute name=\"" + name + "\" type=\"xs:string\" use=\"optional\"/>" +
+        ^
+../dataset/url633772aa30_isma3l_Tp2_tgz-pJ8-ar_fiuba_tecnicas_framework_Pruebas_Casos1_MainJ8/src/ar/fiuba/tecnicas/framework/JTest/XmlPrinter.java:113: warning: (dereference.of.nullable) $$ 1 $$ printer $$ ( 3773, 3780 ) $$ dereference of possibly-null reference printer
+        printer.println("<?xml version=\"1.0\" encoding=\"ISO-8859-1\" ?>\n" +
+        ^
+100 warnings
+putting the diff for iteration 2 into /mmfs1/home/ea442/wpi-njr-debug/wpi/iteration2.diff
+ending iteration 2, time taken: 8 seconds
+
+entering iteration 3
+../dataset/url633772aa30_isma3l_Tp2_tgz-pJ8-ar_fiuba_tecnicas_framework_Pruebas_Casos1_MainJ8/src/ar/fiuba/tecnicas/framework/JTest/TestRunner.java:76: warning: (dereference.of.nullable) $$ 1 $$ testCreator $$ ( 2426, 2437 ) $$ dereference of possibly-null reference testCreator
+        return testCreator.getTest();
+               ^
+../dataset/url633772aa30_isma3l_Tp2_tgz-pJ8-ar_fiuba_tecnicas_framework_Pruebas_Casos1_MainJ8/src/ar/fiuba/tecnicas/framework/JTest/TestReport.java:101: warning: (dereference.of.nullable) $$ 1 $$ recognizerTags $$ ( 3408, 3422 ) $$ dereference of possibly-null reference recognizerTags
+        return recognizerTags.validate(test.getTags());
+               ^
+../dataset/url633772aa30_isma3l_Tp2_tgz-pJ8-ar_fiuba_tecnicas_framework_Pruebas_Casos1_MainJ8/src/ar/fiuba/tecnicas/framework/JTest/Assert.java:23: warning: (dereference.of.nullable) $$ 1 $$ expected $$ ( 1126, 1134 ) $$ dereference of possibly-null reference expected
+        if (!expected.equals(actual)) throw new AssertionError();
+             ^
+../dataset/url633772aa30_isma3l_Tp2_tgz-pJ8-ar_fiuba_tecnicas_framework_Pruebas_Casos1_MainJ8/src/ar/fiuba/tecnicas/framework/JTest/Assert.java:26: warning: (dereference.of.nullable) $$ 1 $$ expected $$ ( 1297, 1305 ) $$ dereference of possibly-null reference expected
+        if (!expected.equals(actual)) throw new AssertionError(message);
+             ^
+../dataset/url633772aa30_isma3l_Tp2_tgz-pJ8-ar_fiuba_tecnicas_framework_Pruebas_Casos1_MainJ8/src/ar/fiuba/tecnicas/framework/JTest/Assert.java:59: warning: (argument) $$ 4 $$ arg0 $$ Matcher.matches $$ T extends @Initialized @Nullable Object $$ @Initialized @NonNull Object $$ ( 3019, 3025 ) $$ incompatible argument for parameter arg0 of Matcher.matches.
+        if (!matcher.matches(actual)) throw new AssertionError(reason);
+                             ^
+  found   : T extends @Initialized @Nullable Object
+  required: @Initialized @NonNull Object
+../dataset/url633772aa30_isma3l_Tp2_tgz-pJ8-ar_fiuba_tecnicas_framework_Pruebas_Casos1_MainJ8/src/ar/fiuba/tecnicas/framework/JTest/Assert.java:62: warning: (argument) $$ 4 $$ arg0 $$ Matcher.matches $$ T extends @Initialized @Nullable Object $$ @Initialized @NonNull Object $$ ( 3202, 3208 ) $$ incompatible argument for parameter arg0 of Matcher.matches.
+        if (!matcher.matches(actual)) throw new AssertionError();
+                             ^
+  found   : T extends @Initialized @Nullable Object
+  required: @Initialized @NonNull Object
+../dataset/url633772aa30_isma3l_Tp2_tgz-pJ8-ar_fiuba_tecnicas_framework_Pruebas_Casos1_MainJ8/src/ar/fiuba/tecnicas/framework/JTest/TestSuite.java:27: warning: (argument) $$ 4 $$ messsage $$ TestReport.print $$ @Initialized @Nullable String $$ @Initialized @NonNull String $$ ( 781, 796 ) $$ incompatible argument for parameter messsage of TestReport.print.
+                testReport.print(getNameFather());
+                                              ^
+  found   : @Initialized @Nullable String
+  required: @Initialized @NonNull String
+../dataset/url633772aa30_isma3l_Tp2_tgz-pJ8-ar_fiuba_tecnicas_framework_Pruebas_Casos1_MainJ8/src/ar/fiuba/tecnicas/framework/JTest/TestSuite.java:37: warning: (argument) $$ 4 $$ str $$ StringBuilder constructor $$ @Initialized @MonotonicNonNull String $$ @Initialized @NonNull String $$ ( 1136, 1144 ) $$ incompatible argument for parameter str of StringBuilder constructor.
+        StringBuilder sb= new StringBuilder(testname);
+                                            ^
+  found   : @Initialized @MonotonicNonNull String
+  required: @Initialized @NonNull String
+../dataset/url633772aa30_isma3l_Tp2_tgz-pJ8-ar_fiuba_tecnicas_framework_Pruebas_Casos1_MainJ8/src/ar/fiuba/tecnicas/framework/JTest/TestSuite.java:62: warning: (contracts.precondition) $$ 3 $$ ((TestSuite)test).setSuiteFather $$ (TestSuite)test.context is @Nullable $$ (TestSuite)test.context is @Nullable $$ ( 1866, 1904 ) $$ precondition of ((TestSuite)test).setSuiteFather is not satisfied.
+            if (test instanceof TestSuite) ((TestSuite)test).setSuiteFather(this);
+                                                                           ^
+  found   : (TestSuite)test.context is @Nullable
+  required: (TestSuite)test.context is @Nullable
+../dataset/url633772aa30_isma3l_Tp2_tgz-pJ8-ar_fiuba_tecnicas_framework_Pruebas_Casos1_MainJ8/src/ar/fiuba/tecnicas/framework/JTest/XmlPrinter.java:19: warning: (method.invocation) $$ 3 $$ inicializar() $$ @UnderInitialization(ar.fiuba.tecnicas.framework.JTest.XmlPrinter.class) @NonNull XmlPrinter $$ @Initialized @NonNull XmlPrinter $$ ( 449, 462 ) $$ call to inicializar() not allowed on the given receiver.
+        inicializar();
+                   ^
+  found   : @UnderInitialization(ar.fiuba.tecnicas.framework.JTest.XmlPrinter.class) @NonNull XmlPrinter
+  required: @Initialized @NonNull XmlPrinter
+../dataset/url633772aa30_isma3l_Tp2_tgz-pJ8-ar_fiuba_tecnicas_framework_Pruebas_Casos1_MainJ8/src/ar/fiuba/tecnicas/framework/JTest/XmlPrinter.java:62: warning: (dereference.of.nullable) $$ 1 $$ printer $$ ( 1686, 1693 ) $$ dereference of possibly-null reference printer
+        printer.println("\t\t\t\t\t\t\t\t<xs:sequence>\n\t<xs:element name=\"" + type + "\">\n" +
+        ^
+../dataset/url633772aa30_isma3l_Tp2_tgz-pJ8-ar_fiuba_tecnicas_framework_Pruebas_Casos1_MainJ8/src/ar/fiuba/tecnicas/framework/JTest/XmlPrinter.java:71: warning: (dereference.of.nullable) $$ 1 $$ printer $$ ( 2327, 2334 ) $$ dereference of possibly-null reference printer
+        printer.println("\t\t\t\t<xs:element name=\"testcase\">\n" +
+        ^
+../dataset/url633772aa30_isma3l_Tp2_tgz-pJ8-ar_fiuba_tecnicas_framework_Pruebas_Casos1_MainJ8/src/ar/fiuba/tecnicas/framework/JTest/XmlPrinter.java:76: warning: (dereference.of.nullable) $$ 1 $$ printer $$ ( 2493, 2500 ) $$ dereference of possibly-null reference printer
+        printer.print("\t\t\t\t\t\t<xs:attribute name=\"" + nameCase + "\" type=\"xs:string\" use=\"required\"/>\n" +
+        ^
+../dataset/url633772aa30_isma3l_Tp2_tgz-pJ8-ar_fiuba_tecnicas_framework_Pruebas_Casos1_MainJ8/src/ar/fiuba/tecnicas/framework/JTest/XmlPrinter.java:97: warning: (dereference.of.nullable) $$ 1 $$ printer $$ ( 3284, 3291 ) $$ dereference of possibly-null reference printer
+        printer.print("\t\t\t<xs:attribute name=\"" + name + "\" type=\"xs:string\" use=\"optional\"/>" +
+        ^
+../dataset/url633772aa30_isma3l_Tp2_tgz-pJ8-ar_fiuba_tecnicas_framework_Pruebas_Casos1_MainJ8/src/ar/fiuba/tecnicas/framework/JTest/XmlPrinter.java:113: warning: (dereference.of.nullable) $$ 1 $$ printer $$ ( 3773, 3780 ) $$ dereference of possibly-null reference printer
+        printer.println("<?xml version=\"1.0\" encoding=\"ISO-8859-1\" ?>\n" +
+        ^
+../dataset/url633772aa30_isma3l_Tp2_tgz-pJ8-ar_fiuba_tecnicas_framework_Pruebas_Casos1_MainJ8/src/ar/fiuba/tecnicas/framework/JTest/XmlPrinter.java:118: warning: (dereference.of.nullable) $$ 1 $$ printer $$ ( 3982, 3989 ) $$ dereference of possibly-null reference printer
+        printer.print("<xs:element name=\"testsuite\"");
+        ^
+../dataset/url633772aa30_isma3l_Tp2_tgz-pJ8-ar_fiuba_tecnicas_framework_Pruebas_Casos1_MainJ8/src/ar/fiuba/tecnicas/framework/Pruebas/Casos1/SuiteATest.java:13: warning: (dereference.of.nullable) $$ 1 $$ getContext() $$ ( 324, 336 ) $$ dereference of possibly-null reference getContext()
+                getContext().put("k",2);
+                          ^
+../dataset/url633772aa30_isma3l_Tp2_tgz-pJ8-ar_fiuba_tecnicas_framework_Pruebas_Casos1_MainJ8/src/ar/fiuba/tecnicas/framework/Pruebas/Casos1/SuiteATest.java:24: warning: (dereference.of.nullable) $$ 1 $$ suite.getContext() $$ ( 724, 742 ) $$ dereference of possibly-null reference suite.getContext()
+        Assert.assertEquals("Objects have different value", suite.getContext().get("k"), suite.getContext().get("h"));
+                                                                            ^
+../dataset/url633772aa30_isma3l_Tp2_tgz-pJ8-ar_fiuba_tecnicas_framework_Pruebas_Casos1_MainJ8/src/ar/fiuba/tecnicas/framework/Pruebas/Casos1/SuiteATest.java:27: warning: (dereference.of.nullable) $$ 1 $$ suite.getContext() $$ ( 913, 931 ) $$ dereference of possibly-null reference suite.getContext()
+        Assert.assertArrayEquals("Arrays have different value",(Double[])suite.getContext().get("list1"),(Double[])suite.getContext().get("list2"));
+                                                                                         ^
+../dataset/url633772aa30_isma3l_Tp2_tgz-pJ8-ar_fiuba_tecnicas_framework_Pruebas_Casos1_MainJ8/src/ar/fiuba/tecnicas/framework/Pruebas/Casos1/SuiteATest.java:30: warning: (unboxing.of.nullable) $$ 1 $$ (Boolean)suite.getContext().get("trueCondition") $$ ( 1090, 1138 ) $$ unboxing a possibly-null reference (Boolean)suite.getContext().get("trueCondition")
+        Assert.assertTrue("The condition is false",(Boolean)suite.getContext().get("trueCondition"));
+                                                   ^
+../dataset/url633772aa30_isma3l_Tp2_tgz-pJ8-ar_fiuba_tecnicas_framework_Pruebas_Casos1_MainJ8/src/ar/fiuba/tecnicas/framework/Pruebas/Casos1/SuiteATest.java:30: warning: (dereference.of.nullable) $$ 1 $$ suite.getContext() $$ ( 1099, 1117 ) $$ dereference of possibly-null reference suite.getContext()
+        Assert.assertTrue("The condition is false",(Boolean)suite.getContext().get("trueCondition"));
+                                                                            ^
+21 warnings
+putting the diff for iteration 3 into /mmfs1/home/ea442/wpi-njr-debug/wpi/iteration3.diff
+ending iteration 3, time taken: 8 seconds
+
+entering iteration 4
+../dataset/url633772aa30_isma3l_Tp2_tgz-pJ8-ar_fiuba_tecnicas_framework_Pruebas_Casos1_MainJ8/src/ar/fiuba/tecnicas/framework/JTest/TestRunner.java:76: warning: (dereference.of.nullable) $$ 1 $$ testCreator $$ ( 2426, 2437 ) $$ dereference of possibly-null reference testCreator
+        return testCreator.getTest();
+               ^
+../dataset/url633772aa30_isma3l_Tp2_tgz-pJ8-ar_fiuba_tecnicas_framework_Pruebas_Casos1_MainJ8/src/ar/fiuba/tecnicas/framework/JTest/TestRunner.java:92: warning: (contracts.precondition) $$ 3 $$ result.setRecognizerExpressionsTestcase $$ result.recognizerExpressionsTestcase is @UnknownInitialization $$ result.recognizerExpressionsTestcase is @FBCBottom $$ ( 2876, 2954 ) $$ precondition of result.setRecognizerExpressionsTestcase is not satisfied.
+        result.setRecognizerExpressionsTestcase(new PatternRecognizer(regexpTestcase));
+                                               ^
+  found   : result.recognizerExpressionsTestcase is @UnknownInitialization
+  required: result.recognizerExpressionsTestcase is @FBCBottom
+../dataset/url633772aa30_isma3l_Tp2_tgz-pJ8-ar_fiuba_tecnicas_framework_Pruebas_Casos1_MainJ8/src/ar/fiuba/tecnicas/framework/JTest/TestRunner.java:93: warning: (contracts.precondition) $$ 3 $$ result.setRecognizerExpressionsTestsuite $$ result.recognizerExpressionsTestcase is @UnknownInitialization $$ result.recognizerExpressionsTestcase is @FBCBottom $$ ( 2964, 3044 ) $$ precondition of result.setRecognizerExpressionsTestsuite is not satisfied.
+        result.setRecognizerExpressionsTestsuite(new PatternRecognizer(regexpTestsuite));
+                                                ^
+  found   : result.recognizerExpressionsTestcase is @UnknownInitialization
+  required: result.recognizerExpressionsTestcase is @FBCBottom
+../dataset/url633772aa30_isma3l_Tp2_tgz-pJ8-ar_fiuba_tecnicas_framework_Pruebas_Casos1_MainJ8/src/ar/fiuba/tecnicas/framework/JTest/TestRunner.java:94: warning: (contracts.precondition) $$ 3 $$ result.setRecognizerTag $$ result.recognizerExpressionsTestcase is @UnknownInitialization $$ result.recognizerExpressionsTestcase is @FBCBottom $$ ( 3054, 3105 ) $$ precondition of result.setRecognizerTag is not satisfied.
+        result.setRecognizerTag(new RecognizerTag(argtags));
+                               ^
+  found   : result.recognizerExpressionsTestcase is @UnknownInitialization
+  required: result.recognizerExpressionsTestcase is @FBCBottom
+../dataset/url633772aa30_isma3l_Tp2_tgz-pJ8-ar_fiuba_tecnicas_framework_Pruebas_Casos1_MainJ8/src/ar/fiuba/tecnicas/framework/JTest/TestRunner.java:95: warning: (contracts.precondition) $$ 3 $$ result.addListener $$ result.recognizerExpressionsTestcase is @UnknownInitialization $$ result.recognizerExpressionsTestcase is @FBCBottom $$ ( 3115, 3148 ) $$ precondition of result.addListener is not satisfied.
+        result.addListener(resultPrinter);
+                          ^
+  found   : result.recognizerExpressionsTestcase is @UnknownInitialization
+  required: result.recognizerExpressionsTestcase is @FBCBottom
+../dataset/url633772aa30_isma3l_Tp2_tgz-pJ8-ar_fiuba_tecnicas_framework_Pruebas_Casos1_MainJ8/src/ar/fiuba/tecnicas/framework/JTest/TestRunner.java:96: warning: (contracts.precondition) $$ 3 $$ result.addListener $$ result.recognizerExpressionsTestcase is @UnknownInitialization $$ result.recognizerExpressionsTestcase is @FBCBottom $$ ( 3158, 3194 ) $$ precondition of result.addListener is not satisfied.
+        result.addListener(new XmlPrinter());
+                          ^
+  found   : result.recognizerExpressionsTestcase is @UnknownInitialization
+  required: result.recognizerExpressionsTestcase is @FBCBottom
+../dataset/url633772aa30_isma3l_Tp2_tgz-pJ8-ar_fiuba_tecnicas_framework_Pruebas_Casos1_MainJ8/src/ar/fiuba/tecnicas/framework/JTest/TestReport.java:76: warning: (argument) $$ 4 $$ messsage $$ TestListener.print $$ @Initialized @Nullable String $$ @Initialized @NonNull String $$ ( 2585, 2593 ) $$ incompatible argument for parameter messsage of TestListener.print.
+            testListener.print(messsage);
+                               ^
+  found   : @Initialized @Nullable String
+  required: @Initialized @NonNull String
+../dataset/url633772aa30_isma3l_Tp2_tgz-pJ8-ar_fiuba_tecnicas_framework_Pruebas_Casos1_MainJ8/src/ar/fiuba/tecnicas/framework/JTest/TestReport.java:101: warning: (dereference.of.nullable) $$ 1 $$ recognizerTags $$ ( 3408, 3422 ) $$ dereference of possibly-null reference recognizerTags
+        return recognizerTags.validate(test.getTags());
+               ^
+../dataset/url633772aa30_isma3l_Tp2_tgz-pJ8-ar_fiuba_tecnicas_framework_Pruebas_Casos1_MainJ8/src/ar/fiuba/tecnicas/framework/JTest/Assert.java:23: warning: (dereference.of.nullable) $$ 1 $$ expected $$ ( 1126, 1134 ) $$ dereference of possibly-null reference expected
+        if (!expected.equals(actual)) throw new AssertionError();
+             ^
+../dataset/url633772aa30_isma3l_Tp2_tgz-pJ8-ar_fiuba_tecnicas_framework_Pruebas_Casos1_MainJ8/src/ar/fiuba/tecnicas/framework/JTest/Assert.java:26: warning: (dereference.of.nullable) $$ 1 $$ expected $$ ( 1297, 1305 ) $$ dereference of possibly-null reference expected
+        if (!expected.equals(actual)) throw new AssertionError(message);
+             ^
+../dataset/url633772aa30_isma3l_Tp2_tgz-pJ8-ar_fiuba_tecnicas_framework_Pruebas_Casos1_MainJ8/src/ar/fiuba/tecnicas/framework/JTest/Assert.java:59: warning: (argument) $$ 4 $$ arg0 $$ Matcher.matches $$ T extends @Initialized @Nullable Object $$ @Initialized @NonNull Object $$ ( 3019, 3025 ) $$ incompatible argument for parameter arg0 of Matcher.matches.
+        if (!matcher.matches(actual)) throw new AssertionError(reason);
+                             ^
+  found   : T extends @Initialized @Nullable Object
+  required: @Initialized @NonNull Object
+../dataset/url633772aa30_isma3l_Tp2_tgz-pJ8-ar_fiuba_tecnicas_framework_Pruebas_Casos1_MainJ8/src/ar/fiuba/tecnicas/framework/JTest/Assert.java:62: warning: (argument) $$ 4 $$ arg0 $$ Matcher.matches $$ T extends @Initialized @Nullable Object $$ @Initialized @NonNull Object $$ ( 3202, 3208 ) $$ incompatible argument for parameter arg0 of Matcher.matches.
+        if (!matcher.matches(actual)) throw new AssertionError();
+                             ^
+  found   : T extends @Initialized @Nullable Object
+  required: @Initialized @NonNull Object
+../dataset/url633772aa30_isma3l_Tp2_tgz-pJ8-ar_fiuba_tecnicas_framework_Pruebas_Casos1_MainJ8/src/ar/fiuba/tecnicas/framework/JTest/TestSuite.java:37: warning: (argument) $$ 4 $$ str $$ StringBuilder constructor $$ @Initialized @MonotonicNonNull String $$ @Initialized @NonNull String $$ ( 1136, 1144 ) $$ incompatible argument for parameter str of StringBuilder constructor.
+        StringBuilder sb= new StringBuilder(testname);
+                                            ^
+  found   : @Initialized @MonotonicNonNull String
+  required: @Initialized @NonNull String
+../dataset/url633772aa30_isma3l_Tp2_tgz-pJ8-ar_fiuba_tecnicas_framework_Pruebas_Casos1_MainJ8/src/ar/fiuba/tecnicas/framework/JTest/TestSuite.java:62: warning: (contracts.precondition) $$ 3 $$ ((TestSuite)test).setSuiteFather $$ (TestSuite)test.context is @Nullable $$ (TestSuite)test.context is @Nullable $$ ( 1866, 1904 ) $$ precondition of ((TestSuite)test).setSuiteFather is not satisfied.
+            if (test instanceof TestSuite) ((TestSuite)test).setSuiteFather(this);
+                                                                           ^
+  found   : (TestSuite)test.context is @Nullable
+  required: (TestSuite)test.context is @Nullable
+../dataset/url633772aa30_isma3l_Tp2_tgz-pJ8-ar_fiuba_tecnicas_framework_Pruebas_Casos1_MainJ8/src/ar/fiuba/tecnicas/framework/JTest/XmlPrinter.java:19: warning: (method.invocation) $$ 3 $$ inicializar() $$ @UnderInitialization(ar.fiuba.tecnicas.framework.JTest.XmlPrinter.class) @NonNull XmlPrinter $$ @Initialized @NonNull XmlPrinter $$ ( 449, 462 ) $$ call to inicializar() not allowed on the given receiver.
+        inicializar();
+                   ^
+  found   : @UnderInitialization(ar.fiuba.tecnicas.framework.JTest.XmlPrinter.class) @NonNull XmlPrinter
+  required: @Initialized @NonNull XmlPrinter
+../dataset/url633772aa30_isma3l_Tp2_tgz-pJ8-ar_fiuba_tecnicas_framework_Pruebas_Casos1_MainJ8/src/ar/fiuba/tecnicas/framework/JTest/XmlPrinter.java:71: warning: (dereference.of.nullable) $$ 1 $$ printer $$ ( 2327, 2334 ) $$ dereference of possibly-null reference printer
+        printer.println("\t\t\t\t<xs:element name=\"testcase\">\n" +
+        ^
+../dataset/url633772aa30_isma3l_Tp2_tgz-pJ8-ar_fiuba_tecnicas_framework_Pruebas_Casos1_MainJ8/src/ar/fiuba/tecnicas/framework/JTest/XmlPrinter.java:97: warning: (dereference.of.nullable) $$ 1 $$ printer $$ ( 3284, 3291 ) $$ dereference of possibly-null reference printer
+        printer.print("\t\t\t<xs:attribute name=\"" + name + "\" type=\"xs:string\" use=\"optional\"/>" +
+        ^
+../dataset/url633772aa30_isma3l_Tp2_tgz-pJ8-ar_fiuba_tecnicas_framework_Pruebas_Casos1_MainJ8/src/ar/fiuba/tecnicas/framework/JTest/XmlPrinter.java:113: warning: (dereference.of.nullable) $$ 1 $$ printer $$ ( 3773, 3780 ) $$ dereference of possibly-null reference printer
+        printer.println("<?xml version=\"1.0\" encoding=\"ISO-8859-1\" ?>\n" +
+        ^
+../dataset/url633772aa30_isma3l_Tp2_tgz-pJ8-ar_fiuba_tecnicas_framework_Pruebas_Casos1_MainJ8/src/ar/fiuba/tecnicas/framework/Pruebas/Casos1/AssertTest.java:127: warning: (purity.not.sideeffectfree.call) $$ 1 $$ assertThatTest $$ ( 4055, 4071 ) $$ call to side-effecting assertThatTest not allowed in side-effect-free method
+                assertThatTest();
+                              ^
+../dataset/url633772aa30_isma3l_Tp2_tgz-pJ8-ar_fiuba_tecnicas_framework_Pruebas_Casos1_MainJ8/src/ar/fiuba/tecnicas/framework/Pruebas/Casos1/SuiteATest.java:13: warning: (dereference.of.nullable) $$ 1 $$ getContext() $$ ( 324, 336 ) $$ dereference of possibly-null reference getContext()
+                getContext().put("k",2);
+                          ^
+../dataset/url633772aa30_isma3l_Tp2_tgz-pJ8-ar_fiuba_tecnicas_framework_Pruebas_Casos1_MainJ8/src/ar/fiuba/tecnicas/framework/Pruebas/Casos1/SuiteATest.java:24: warning: (dereference.of.nullable) $$ 1 $$ suite.getContext() $$ ( 724, 742 ) $$ dereference of possibly-null reference suite.getContext()
+        Assert.assertEquals("Objects have different value", suite.getContext().get("k"), suite.getContext().get("h"));
+                                                                            ^
+../dataset/url633772aa30_isma3l_Tp2_tgz-pJ8-ar_fiuba_tecnicas_framework_Pruebas_Casos1_MainJ8/src/ar/fiuba/tecnicas/framework/Pruebas/Casos1/SuiteATest.java:27: warning: (dereference.of.nullable) $$ 1 $$ suite.getContext() $$ ( 913, 931 ) $$ dereference of possibly-null reference suite.getContext()
+        Assert.assertArrayEquals("Arrays have different value",(Double[])suite.getContext().get("list1"),(Double[])suite.getContext().get("list2"));
+                                                                                         ^
+../dataset/url633772aa30_isma3l_Tp2_tgz-pJ8-ar_fiuba_tecnicas_framework_Pruebas_Casos1_MainJ8/src/ar/fiuba/tecnicas/framework/Pruebas/Casos1/SuiteATest.java:30: warning: (unboxing.of.nullable) $$ 1 $$ (Boolean)suite.getContext().get("trueCondition") $$ ( 1090, 1138 ) $$ unboxing a possibly-null reference (Boolean)suite.getContext().get("trueCondition")
+        Assert.assertTrue("The condition is false",(Boolean)suite.getContext().get("trueCondition"));
+                                                   ^
+../dataset/url633772aa30_isma3l_Tp2_tgz-pJ8-ar_fiuba_tecnicas_framework_Pruebas_Casos1_MainJ8/src/ar/fiuba/tecnicas/framework/Pruebas/Casos1/SuiteATest.java:30: warning: (dereference.of.nullable) $$ 1 $$ suite.getContext() $$ ( 1099, 1117 ) $$ dereference of possibly-null reference suite.getContext()
+        Assert.assertTrue("The condition is false",(Boolean)suite.getContext().get("trueCondition"));
+                                                                            ^
+24 warnings
+putting the diff for iteration 4 into /mmfs1/home/ea442/wpi-njr-debug/wpi/iteration4.diff
+ending iteration 4, time taken: 8 seconds
+
+entering iteration 5
+../dataset/url633772aa30_isma3l_Tp2_tgz-pJ8-ar_fiuba_tecnicas_framework_Pruebas_Casos1_MainJ8/src/ar/fiuba/tecnicas/framework/JTest/TestRunner.java:76: warning: (dereference.of.nullable) $$ 1 $$ testCreator $$ ( 2426, 2437 ) $$ dereference of possibly-null reference testCreator
+        return testCreator.getTest();
+               ^
+../dataset/url633772aa30_isma3l_Tp2_tgz-pJ8-ar_fiuba_tecnicas_framework_Pruebas_Casos1_MainJ8/src/ar/fiuba/tecnicas/framework/JTest/TestRunner.java:92: warning: (contracts.precondition) $$ 3 $$ result.setRecognizerExpressionsTestcase $$ result.recognizerExpressionsTestcase is @UnknownInitialization $$ result.recognizerExpressionsTestcase is @FBCBottom $$ ( 2876, 2954 ) $$ precondition of result.setRecognizerExpressionsTestcase is not satisfied.
+        result.setRecognizerExpressionsTestcase(new PatternRecognizer(regexpTestcase));
+                                               ^
+  found   : result.recognizerExpressionsTestcase is @UnknownInitialization
+  required: result.recognizerExpressionsTestcase is @FBCBottom
+../dataset/url633772aa30_isma3l_Tp2_tgz-pJ8-ar_fiuba_tecnicas_framework_Pruebas_Casos1_MainJ8/src/ar/fiuba/tecnicas/framework/JTest/TestRunner.java:93: warning: (contracts.precondition) $$ 3 $$ result.setRecognizerExpressionsTestsuite $$ result.recognizerExpressionsTestcase is @UnknownInitialization $$ result.recognizerExpressionsTestcase is @FBCBottom $$ ( 2964, 3044 ) $$ precondition of result.setRecognizerExpressionsTestsuite is not satisfied.
+        result.setRecognizerExpressionsTestsuite(new PatternRecognizer(regexpTestsuite));
+                                                ^
+  found   : result.recognizerExpressionsTestcase is @UnknownInitialization
+  required: result.recognizerExpressionsTestcase is @FBCBottom
+../dataset/url633772aa30_isma3l_Tp2_tgz-pJ8-ar_fiuba_tecnicas_framework_Pruebas_Casos1_MainJ8/src/ar/fiuba/tecnicas/framework/JTest/ResultPrinter.java:45: warning: (override.param) $$ 7 $$ messsage $$ @Initialized @NonNull String $$ @Initialized @Nullable String $$ @Initialized @NonNull ResultPrinter $$ @NonNull void print(@Initialized @NonNull ResultPrinter this, @Initialized @NonNull String p0) $$ @Initialized @NonNull TestListener $$ @NonNull void print(@Initialized @NonNull TestListener this, @Initialized @Nullable String p0) $$ ( 1451, 1466 ) $$ Incompatible parameter type for messsage.
+    public void print(String messsage) {
+                             ^
+  found   : @Initialized @NonNull String
+  required: @Initialized @Nullable String
+  Consequence: method in @Initialized @NonNull ResultPrinter
+    @NonNull void print(@Initialized @NonNull ResultPrinter this, @Initialized @NonNull String p0)
+  cannot override method in @Initialized @NonNull TestListener
+    @NonNull void print(@Initialized @NonNull TestListener this, @Initialized @Nullable String p0)
+../dataset/url633772aa30_isma3l_Tp2_tgz-pJ8-ar_fiuba_tecnicas_framework_Pruebas_Casos1_MainJ8/src/ar/fiuba/tecnicas/framework/JTest/TestReport.java:101: warning: (dereference.of.nullable) $$ 1 $$ recognizerTags $$ ( 3408, 3422 ) $$ dereference of possibly-null reference recognizerTags
+        return recognizerTags.validate(test.getTags());
+               ^
+../dataset/url633772aa30_isma3l_Tp2_tgz-pJ8-ar_fiuba_tecnicas_framework_Pruebas_Casos1_MainJ8/src/ar/fiuba/tecnicas/framework/JTest/Assert.java:23: warning: (dereference.of.nullable) $$ 1 $$ expected $$ ( 1126, 1134 ) $$ dereference of possibly-null reference expected
+        if (!expected.equals(actual)) throw new AssertionError();
+             ^
+../dataset/url633772aa30_isma3l_Tp2_tgz-pJ8-ar_fiuba_tecnicas_framework_Pruebas_Casos1_MainJ8/src/ar/fiuba/tecnicas/framework/JTest/Assert.java:26: warning: (dereference.of.nullable) $$ 1 $$ expected $$ ( 1297, 1305 ) $$ dereference of possibly-null reference expected
+        if (!expected.equals(actual)) throw new AssertionError(message);
+             ^
+../dataset/url633772aa30_isma3l_Tp2_tgz-pJ8-ar_fiuba_tecnicas_framework_Pruebas_Casos1_MainJ8/src/ar/fiuba/tecnicas/framework/JTest/Assert.java:59: warning: (argument) $$ 4 $$ arg0 $$ Matcher.matches $$ T extends @Initialized @Nullable Object $$ @Initialized @NonNull Object $$ ( 3019, 3025 ) $$ incompatible argument for parameter arg0 of Matcher.matches.
+        if (!matcher.matches(actual)) throw new AssertionError(reason);
+                             ^
+  found   : T extends @Initialized @Nullable Object
+  required: @Initialized @NonNull Object
+../dataset/url633772aa30_isma3l_Tp2_tgz-pJ8-ar_fiuba_tecnicas_framework_Pruebas_Casos1_MainJ8/src/ar/fiuba/tecnicas/framework/JTest/Assert.java:62: warning: (argument) $$ 4 $$ arg0 $$ Matcher.matches $$ T extends @Initialized @Nullable Object $$ @Initialized @NonNull Object $$ ( 3202, 3208 ) $$ incompatible argument for parameter arg0 of Matcher.matches.
+        if (!matcher.matches(actual)) throw new AssertionError();
+                             ^
+  found   : T extends @Initialized @Nullable Object
+  required: @Initialized @NonNull Object
+../dataset/url633772aa30_isma3l_Tp2_tgz-pJ8-ar_fiuba_tecnicas_framework_Pruebas_Casos1_MainJ8/src/ar/fiuba/tecnicas/framework/JTest/TestSuite.java:37: warning: (argument) $$ 4 $$ str $$ StringBuilder constructor $$ @Initialized @MonotonicNonNull String $$ @Initialized @NonNull String $$ ( 1136, 1144 ) $$ incompatible argument for parameter str of StringBuilder constructor.
+        StringBuilder sb= new StringBuilder(testname);
+                                            ^
+  found   : @Initialized @MonotonicNonNull String
+  required: @Initialized @NonNull String
+../dataset/url633772aa30_isma3l_Tp2_tgz-pJ8-ar_fiuba_tecnicas_framework_Pruebas_Casos1_MainJ8/src/ar/fiuba/tecnicas/framework/JTest/TestSuite.java:62: warning: (contracts.precondition) $$ 3 $$ ((TestSuite)test).setSuiteFather $$ (TestSuite)test.context is @Nullable $$ (TestSuite)test.context is @Nullable $$ ( 1866, 1904 ) $$ precondition of ((TestSuite)test).setSuiteFather is not satisfied.
+            if (test instanceof TestSuite) ((TestSuite)test).setSuiteFather(this);
+                                                                           ^
+  found   : (TestSuite)test.context is @Nullable
+  required: (TestSuite)test.context is @Nullable
+../dataset/url633772aa30_isma3l_Tp2_tgz-pJ8-ar_fiuba_tecnicas_framework_Pruebas_Casos1_MainJ8/src/ar/fiuba/tecnicas/framework/JTest/XmlPrinter.java:19: warning: (method.invocation) $$ 3 $$ inicializar() $$ @UnderInitialization(ar.fiuba.tecnicas.framework.JTest.XmlPrinter.class) @NonNull XmlPrinter $$ @Initialized @NonNull XmlPrinter $$ ( 449, 462 ) $$ call to inicializar() not allowed on the given receiver.
+        inicializar();
+                   ^
+  found   : @UnderInitialization(ar.fiuba.tecnicas.framework.JTest.XmlPrinter.class) @NonNull XmlPrinter
+  required: @Initialized @NonNull XmlPrinter
+../dataset/url633772aa30_isma3l_Tp2_tgz-pJ8-ar_fiuba_tecnicas_framework_Pruebas_Casos1_MainJ8/src/ar/fiuba/tecnicas/framework/JTest/XmlPrinter.java:71: warning: (dereference.of.nullable) $$ 1 $$ printer $$ ( 2327, 2334 ) $$ dereference of possibly-null reference printer
+        printer.println("\t\t\t\t<xs:element name=\"testcase\">\n" +
+        ^
+../dataset/url633772aa30_isma3l_Tp2_tgz-pJ8-ar_fiuba_tecnicas_framework_Pruebas_Casos1_MainJ8/src/ar/fiuba/tecnicas/framework/JTest/XmlPrinter.java:83: warning: (override.param) $$ 7 $$ messsage $$ @Initialized @NonNull String $$ @Initialized @Nullable String $$ @Initialized @NonNull XmlPrinter $$ @NonNull void print(@Initialized @NonNull XmlPrinter this, @Initialized @NonNull String p0) $$ @Initialized @NonNull TestListener $$ @NonNull void print(@Initialized @NonNull TestListener this, @Initialized @Nullable String p0) $$ ( 2848, 2863 ) $$ Incompatible parameter type for messsage.
+    public void print(String messsage) {
+                             ^
+  found   : @Initialized @NonNull String
+  required: @Initialized @Nullable String
+  Consequence: method in @Initialized @NonNull XmlPrinter
+    @NonNull void print(@Initialized @NonNull XmlPrinter this, @Initialized @NonNull String p0)
+  cannot override method in @Initialized @NonNull TestListener
+    @NonNull void print(@Initialized @NonNull TestListener this, @Initialized @Nullable String p0)
+../dataset/url633772aa30_isma3l_Tp2_tgz-pJ8-ar_fiuba_tecnicas_framework_Pruebas_Casos1_MainJ8/src/ar/fiuba/tecnicas/framework/JTest/XmlPrinter.java:97: warning: (dereference.of.nullable) $$ 1 $$ printer $$ ( 3284, 3291 ) $$ dereference of possibly-null reference printer
+        printer.print("\t\t\t<xs:attribute name=\"" + name + "\" type=\"xs:string\" use=\"optional\"/>" +
+        ^
+../dataset/url633772aa30_isma3l_Tp2_tgz-pJ8-ar_fiuba_tecnicas_framework_Pruebas_Casos1_MainJ8/src/ar/fiuba/tecnicas/framework/JTest/XmlPrinter.java:113: warning: (dereference.of.nullable) $$ 1 $$ printer $$ ( 3773, 3780 ) $$ dereference of possibly-null reference printer
+        printer.println("<?xml version=\"1.0\" encoding=\"ISO-8859-1\" ?>\n" +
+        ^
+../dataset/url633772aa30_isma3l_Tp2_tgz-pJ8-ar_fiuba_tecnicas_framework_Pruebas_Casos1_MainJ8/src/ar/fiuba/tecnicas/framework/Pruebas/Casos1/AssertTest.java:127: warning: (purity.not.sideeffectfree.call) $$ 1 $$ assertThatTest $$ ( 4055, 4071 ) $$ call to side-effecting assertThatTest not allowed in side-effect-free method
+                assertThatTest();
+                              ^
+../dataset/url633772aa30_isma3l_Tp2_tgz-pJ8-ar_fiuba_tecnicas_framework_Pruebas_Casos1_MainJ8/src/ar/fiuba/tecnicas/framework/Pruebas/Casos1/SuiteATest.java:13: warning: (dereference.of.nullable) $$ 1 $$ getContext() $$ ( 324, 336 ) $$ dereference of possibly-null reference getContext()
+                getContext().put("k",2);
+                          ^
+../dataset/url633772aa30_isma3l_Tp2_tgz-pJ8-ar_fiuba_tecnicas_framework_Pruebas_Casos1_MainJ8/src/ar/fiuba/tecnicas/framework/Pruebas/Casos1/SuiteATest.java:24: warning: (dereference.of.nullable) $$ 1 $$ suite.getContext() $$ ( 724, 742 ) $$ dereference of possibly-null reference suite.getContext()
+        Assert.assertEquals("Objects have different value", suite.getContext().get("k"), suite.getContext().get("h"));
+                                                                            ^
+../dataset/url633772aa30_isma3l_Tp2_tgz-pJ8-ar_fiuba_tecnicas_framework_Pruebas_Casos1_MainJ8/src/ar/fiuba/tecnicas/framework/Pruebas/Casos1/SuiteATest.java:27: warning: (dereference.of.nullable) $$ 1 $$ suite.getContext() $$ ( 913, 931 ) $$ dereference of possibly-null reference suite.getContext()
+        Assert.assertArrayEquals("Arrays have different value",(Double[])suite.getContext().get("list1"),(Double[])suite.getContext().get("list2"));
+                                                                                         ^
+../dataset/url633772aa30_isma3l_Tp2_tgz-pJ8-ar_fiuba_tecnicas_framework_Pruebas_Casos1_MainJ8/src/ar/fiuba/tecnicas/framework/Pruebas/Casos1/SuiteATest.java:30: warning: (unboxing.of.nullable) $$ 1 $$ (Boolean)suite.getContext().get("trueCondition") $$ ( 1090, 1138 ) $$ unboxing a possibly-null reference (Boolean)suite.getContext().get("trueCondition")
+        Assert.assertTrue("The condition is false",(Boolean)suite.getContext().get("trueCondition"));
+                                                   ^
+../dataset/url633772aa30_isma3l_Tp2_tgz-pJ8-ar_fiuba_tecnicas_framework_Pruebas_Casos1_MainJ8/src/ar/fiuba/tecnicas/framework/Pruebas/Casos1/SuiteATest.java:30: warning: (dereference.of.nullable) $$ 1 $$ suite.getContext() $$ ( 1099, 1117 ) $$ dereference of possibly-null reference suite.getContext()
+        Assert.assertTrue("The condition is false",(Boolean)suite.getContext().get("trueCondition"));
+                                                                            ^
+22 warnings
+putting the diff for iteration 5 into /mmfs1/home/ea442/wpi-njr-debug/wpi/iteration5.diff
+ending iteration 5, time taken: 8 seconds
+
+entering iteration 6
+../dataset/url633772aa30_isma3l_Tp2_tgz-pJ8-ar_fiuba_tecnicas_framework_Pruebas_Casos1_MainJ8/src/ar/fiuba/tecnicas/framework/JTest/TestRunner.java:92: warning: (contracts.precondition) $$ 3 $$ result.setRecognizerExpressionsTestcase $$ result.recognizerExpressionsTestcase is @UnknownInitialization $$ result.recognizerExpressionsTestcase is @FBCBottom $$ ( 2876, 2954 ) $$ precondition of result.setRecognizerExpressionsTestcase is not satisfied.
+        result.setRecognizerExpressionsTestcase(new PatternRecognizer(regexpTestcase));
+                                               ^
+  found   : result.recognizerExpressionsTestcase is @UnknownInitialization
+  required: result.recognizerExpressionsTestcase is @FBCBottom
+../dataset/url633772aa30_isma3l_Tp2_tgz-pJ8-ar_fiuba_tecnicas_framework_Pruebas_Casos1_MainJ8/src/ar/fiuba/tecnicas/framework/JTest/TestRunner.java:93: warning: (contracts.precondition) $$ 3 $$ result.setRecognizerExpressionsTestsuite $$ result.recognizerExpressionsTestcase is @UnknownInitialization $$ result.recognizerExpressionsTestcase is @FBCBottom $$ ( 2964, 3044 ) $$ precondition of result.setRecognizerExpressionsTestsuite is not satisfied.
+        result.setRecognizerExpressionsTestsuite(new PatternRecognizer(regexpTestsuite));
+                                                ^
+  found   : result.recognizerExpressionsTestcase is @UnknownInitialization
+  required: result.recognizerExpressionsTestcase is @FBCBottom
+../dataset/url633772aa30_isma3l_Tp2_tgz-pJ8-ar_fiuba_tecnicas_framework_Pruebas_Casos1_MainJ8/src/ar/fiuba/tecnicas/framework/JTest/TestReport.java:101: warning: (dereference.of.nullable) $$ 1 $$ recognizerTags $$ ( 3408, 3422 ) $$ dereference of possibly-null reference recognizerTags
+        return recognizerTags.validate(test.getTags());
+               ^
+../dataset/url633772aa30_isma3l_Tp2_tgz-pJ8-ar_fiuba_tecnicas_framework_Pruebas_Casos1_MainJ8/src/ar/fiuba/tecnicas/framework/JTest/Assert.java:23: warning: (dereference.of.nullable) $$ 1 $$ expected $$ ( 1126, 1134 ) $$ dereference of possibly-null reference expected
+        if (!expected.equals(actual)) throw new AssertionError();
+             ^
+../dataset/url633772aa30_isma3l_Tp2_tgz-pJ8-ar_fiuba_tecnicas_framework_Pruebas_Casos1_MainJ8/src/ar/fiuba/tecnicas/framework/JTest/Assert.java:26: warning: (dereference.of.nullable) $$ 1 $$ expected $$ ( 1297, 1305 ) $$ dereference of possibly-null reference expected
+        if (!expected.equals(actual)) throw new AssertionError(message);
+             ^
+../dataset/url633772aa30_isma3l_Tp2_tgz-pJ8-ar_fiuba_tecnicas_framework_Pruebas_Casos1_MainJ8/src/ar/fiuba/tecnicas/framework/JTest/Assert.java:59: warning: (argument) $$ 4 $$ arg0 $$ Matcher.matches $$ T extends @Initialized @Nullable Object $$ @Initialized @NonNull Object $$ ( 3019, 3025 ) $$ incompatible argument for parameter arg0 of Matcher.matches.
+        if (!matcher.matches(actual)) throw new AssertionError(reason);
+                             ^
+  found   : T extends @Initialized @Nullable Object
+  required: @Initialized @NonNull Object
+../dataset/url633772aa30_isma3l_Tp2_tgz-pJ8-ar_fiuba_tecnicas_framework_Pruebas_Casos1_MainJ8/src/ar/fiuba/tecnicas/framework/JTest/Assert.java:62: warning: (argument) $$ 4 $$ arg0 $$ Matcher.matches $$ T extends @Initialized @Nullable Object $$ @Initialized @NonNull Object $$ ( 3202, 3208 ) $$ incompatible argument for parameter arg0 of Matcher.matches.
+        if (!matcher.matches(actual)) throw new AssertionError();
+                             ^
+  found   : T extends @Initialized @Nullable Object
+  required: @Initialized @NonNull Object
+../dataset/url633772aa30_isma3l_Tp2_tgz-pJ8-ar_fiuba_tecnicas_framework_Pruebas_Casos1_MainJ8/src/ar/fiuba/tecnicas/framework/JTest/TestSuite.java:37: warning: (argument) $$ 4 $$ str $$ StringBuilder constructor $$ @Initialized @MonotonicNonNull String $$ @Initialized @NonNull String $$ ( 1136, 1144 ) $$ incompatible argument for parameter str of StringBuilder constructor.
+        StringBuilder sb= new StringBuilder(testname);
+                                            ^
+  found   : @Initialized @MonotonicNonNull String
+  required: @Initialized @NonNull String
+../dataset/url633772aa30_isma3l_Tp2_tgz-pJ8-ar_fiuba_tecnicas_framework_Pruebas_Casos1_MainJ8/src/ar/fiuba/tecnicas/framework/JTest/TestSuite.java:62: warning: (contracts.precondition) $$ 3 $$ ((TestSuite)test).setSuiteFather $$ (TestSuite)test.context is @Nullable $$ (TestSuite)test.context is @Nullable $$ ( 1866, 1904 ) $$ precondition of ((TestSuite)test).setSuiteFather is not satisfied.
+            if (test instanceof TestSuite) ((TestSuite)test).setSuiteFather(this);
+                                                                           ^
+  found   : (TestSuite)test.context is @Nullable
+  required: (TestSuite)test.context is @Nullable
+../dataset/url633772aa30_isma3l_Tp2_tgz-pJ8-ar_fiuba_tecnicas_framework_Pruebas_Casos1_MainJ8/src/ar/fiuba/tecnicas/framework/JTest/XmlPrinter.java:19: warning: (method.invocation) $$ 3 $$ inicializar() $$ @UnderInitialization(ar.fiuba.tecnicas.framework.JTest.XmlPrinter.class) @NonNull XmlPrinter $$ @Initialized @NonNull XmlPrinter $$ ( 449, 462 ) $$ call to inicializar() not allowed on the given receiver.
+        inicializar();
+                   ^
+  found   : @UnderInitialization(ar.fiuba.tecnicas.framework.JTest.XmlPrinter.class) @NonNull XmlPrinter
+  required: @Initialized @NonNull XmlPrinter
+../dataset/url633772aa30_isma3l_Tp2_tgz-pJ8-ar_fiuba_tecnicas_framework_Pruebas_Casos1_MainJ8/src/ar/fiuba/tecnicas/framework/JTest/XmlPrinter.java:71: warning: (dereference.of.nullable) $$ 1 $$ printer $$ ( 2327, 2334 ) $$ dereference of possibly-null reference printer
+        printer.println("\t\t\t\t<xs:element name=\"testcase\">\n" +
+        ^
+../dataset/url633772aa30_isma3l_Tp2_tgz-pJ8-ar_fiuba_tecnicas_framework_Pruebas_Casos1_MainJ8/src/ar/fiuba/tecnicas/framework/JTest/XmlPrinter.java:84: warning: (dereference.of.nullable) $$ 1 $$ messsage $$ ( 2879, 2887 ) $$ dereference of possibly-null reference messsage
+        if(!messsage.contains(":")) {
+            ^
+../dataset/url633772aa30_isma3l_Tp2_tgz-pJ8-ar_fiuba_tecnicas_framework_Pruebas_Casos1_MainJ8/src/ar/fiuba/tecnicas/framework/JTest/XmlPrinter.java:97: warning: (dereference.of.nullable) $$ 1 $$ printer $$ ( 3284, 3291 ) $$ dereference of possibly-null reference printer
+        printer.print("\t\t\t<xs:attribute name=\"" + name + "\" type=\"xs:string\" use=\"optional\"/>" +
+        ^
+../dataset/url633772aa30_isma3l_Tp2_tgz-pJ8-ar_fiuba_tecnicas_framework_Pruebas_Casos1_MainJ8/src/ar/fiuba/tecnicas/framework/JTest/XmlPrinter.java:113: warning: (dereference.of.nullable) $$ 1 $$ printer $$ ( 3773, 3780 ) $$ dereference of possibly-null reference printer
+        printer.println("<?xml version=\"1.0\" encoding=\"ISO-8859-1\" ?>\n" +
+        ^
+../dataset/url633772aa30_isma3l_Tp2_tgz-pJ8-ar_fiuba_tecnicas_framework_Pruebas_Casos1_MainJ8/src/ar/fiuba/tecnicas/framework/Pruebas/Casos1/AssertTest.java:127: warning: (purity.not.sideeffectfree.call) $$ 1 $$ assertThatTest $$ ( 4055, 4071 ) $$ call to side-effecting assertThatTest not allowed in side-effect-free method
+                assertThatTest();
+                              ^
+../dataset/url633772aa30_isma3l_Tp2_tgz-pJ8-ar_fiuba_tecnicas_framework_Pruebas_Casos1_MainJ8/src/ar/fiuba/tecnicas/framework/Pruebas/Casos1/SuiteATest.java:13: warning: (dereference.of.nullable) $$ 1 $$ getContext() $$ ( 324, 336 ) $$ dereference of possibly-null reference getContext()
+                getContext().put("k",2);
+                          ^
+../dataset/url633772aa30_isma3l_Tp2_tgz-pJ8-ar_fiuba_tecnicas_framework_Pruebas_Casos1_MainJ8/src/ar/fiuba/tecnicas/framework/Pruebas/Casos1/SuiteATest.java:24: warning: (dereference.of.nullable) $$ 1 $$ suite.getContext() $$ ( 724, 742 ) $$ dereference of possibly-null reference suite.getContext()
+        Assert.assertEquals("Objects have different value", suite.getContext().get("k"), suite.getContext().get("h"));
+                                                                            ^
+../dataset/url633772aa30_isma3l_Tp2_tgz-pJ8-ar_fiuba_tecnicas_framework_Pruebas_Casos1_MainJ8/src/ar/fiuba/tecnicas/framework/Pruebas/Casos1/SuiteATest.java:27: warning: (dereference.of.nullable) $$ 1 $$ suite.getContext() $$ ( 913, 931 ) $$ dereference of possibly-null reference suite.getContext()
+        Assert.assertArrayEquals("Arrays have different value",(Double[])suite.getContext().get("list1"),(Double[])suite.getContext().get("list2"));
+                                                                                         ^
+../dataset/url633772aa30_isma3l_Tp2_tgz-pJ8-ar_fiuba_tecnicas_framework_Pruebas_Casos1_MainJ8/src/ar/fiuba/tecnicas/framework/Pruebas/Casos1/SuiteATest.java:30: warning: (unboxing.of.nullable) $$ 1 $$ (Boolean)suite.getContext().get("trueCondition") $$ ( 1090, 1138 ) $$ unboxing a possibly-null reference (Boolean)suite.getContext().get("trueCondition")
+        Assert.assertTrue("The condition is false",(Boolean)suite.getContext().get("trueCondition"));
+                                                   ^
+../dataset/url633772aa30_isma3l_Tp2_tgz-pJ8-ar_fiuba_tecnicas_framework_Pruebas_Casos1_MainJ8/src/ar/fiuba/tecnicas/framework/Pruebas/Casos1/SuiteATest.java:30: warning: (dereference.of.nullable) $$ 1 $$ suite.getContext() $$ ( 1099, 1117 ) $$ dereference of possibly-null reference suite.getContext()
+        Assert.assertTrue("The condition is false",(Boolean)suite.getContext().get("trueCondition"));
+                                                                            ^
+20 warnings
+putting the diff for iteration 6 into /mmfs1/home/ea442/wpi-njr-debug/wpi/iteration6.diff
+ending iteration 6, time taken: 8 seconds
+
+entering iteration 7
+../dataset/url633772aa30_isma3l_Tp2_tgz-pJ8-ar_fiuba_tecnicas_framework_Pruebas_Casos1_MainJ8/src/ar/fiuba/tecnicas/framework/JTest/TestRunner.java:92: warning: (contracts.precondition) $$ 3 $$ result.setRecognizerExpressionsTestcase $$ result.recognizerExpressionsTestcase is @UnknownInitialization $$ result.recognizerExpressionsTestcase is @FBCBottom $$ ( 2876, 2954 ) $$ precondition of result.setRecognizerExpressionsTestcase is not satisfied.
+        result.setRecognizerExpressionsTestcase(new PatternRecognizer(regexpTestcase));
+                                               ^
+  found   : result.recognizerExpressionsTestcase is @UnknownInitialization
+  required: result.recognizerExpressionsTestcase is @FBCBottom
+../dataset/url633772aa30_isma3l_Tp2_tgz-pJ8-ar_fiuba_tecnicas_framework_Pruebas_Casos1_MainJ8/src/ar/fiuba/tecnicas/framework/JTest/TestRunner.java:93: warning: (contracts.precondition) $$ 3 $$ result.setRecognizerExpressionsTestsuite $$ result.recognizerExpressionsTestcase is @UnknownInitialization $$ result.recognizerExpressionsTestcase is @FBCBottom $$ ( 2964, 3044 ) $$ precondition of result.setRecognizerExpressionsTestsuite is not satisfied.
+        result.setRecognizerExpressionsTestsuite(new PatternRecognizer(regexpTestsuite));
+                                                ^
+  found   : result.recognizerExpressionsTestcase is @UnknownInitialization
+  required: result.recognizerExpressionsTestcase is @FBCBottom
+../dataset/url633772aa30_isma3l_Tp2_tgz-pJ8-ar_fiuba_tecnicas_framework_Pruebas_Casos1_MainJ8/src/ar/fiuba/tecnicas/framework/JTest/TestReport.java:101: warning: (dereference.of.nullable) $$ 1 $$ recognizerTags $$ ( 3408, 3422 ) $$ dereference of possibly-null reference recognizerTags
+        return recognizerTags.validate(test.getTags());
+               ^
+../dataset/url633772aa30_isma3l_Tp2_tgz-pJ8-ar_fiuba_tecnicas_framework_Pruebas_Casos1_MainJ8/src/ar/fiuba/tecnicas/framework/JTest/Assert.java:23: warning: (dereference.of.nullable) $$ 1 $$ expected $$ ( 1126, 1134 ) $$ dereference of possibly-null reference expected
+        if (!expected.equals(actual)) throw new AssertionError();
+             ^
+../dataset/url633772aa30_isma3l_Tp2_tgz-pJ8-ar_fiuba_tecnicas_framework_Pruebas_Casos1_MainJ8/src/ar/fiuba/tecnicas/framework/JTest/Assert.java:26: warning: (dereference.of.nullable) $$ 1 $$ expected $$ ( 1297, 1305 ) $$ dereference of possibly-null reference expected
+        if (!expected.equals(actual)) throw new AssertionError(message);
+             ^
+../dataset/url633772aa30_isma3l_Tp2_tgz-pJ8-ar_fiuba_tecnicas_framework_Pruebas_Casos1_MainJ8/src/ar/fiuba/tecnicas/framework/JTest/Assert.java:59: warning: (argument) $$ 4 $$ arg0 $$ Matcher.matches $$ T extends @Initialized @Nullable Object $$ @Initialized @NonNull Object $$ ( 3019, 3025 ) $$ incompatible argument for parameter arg0 of Matcher.matches.
+        if (!matcher.matches(actual)) throw new AssertionError(reason);
+                             ^
+  found   : T extends @Initialized @Nullable Object
+  required: @Initialized @NonNull Object
+../dataset/url633772aa30_isma3l_Tp2_tgz-pJ8-ar_fiuba_tecnicas_framework_Pruebas_Casos1_MainJ8/src/ar/fiuba/tecnicas/framework/JTest/Assert.java:62: warning: (argument) $$ 4 $$ arg0 $$ Matcher.matches $$ T extends @Initialized @Nullable Object $$ @Initialized @NonNull Object $$ ( 3202, 3208 ) $$ incompatible argument for parameter arg0 of Matcher.matches.
+        if (!matcher.matches(actual)) throw new AssertionError();
+                             ^
+  found   : T extends @Initialized @Nullable Object
+  required: @Initialized @NonNull Object
+../dataset/url633772aa30_isma3l_Tp2_tgz-pJ8-ar_fiuba_tecnicas_framework_Pruebas_Casos1_MainJ8/src/ar/fiuba/tecnicas/framework/JTest/TestSuite.java:37: warning: (argument) $$ 4 $$ str $$ StringBuilder constructor $$ @Initialized @MonotonicNonNull String $$ @Initialized @NonNull String $$ ( 1136, 1144 ) $$ incompatible argument for parameter str of StringBuilder constructor.
+        StringBuilder sb= new StringBuilder(testname);
+                                            ^
+  found   : @Initialized @MonotonicNonNull String
+  required: @Initialized @NonNull String
+../dataset/url633772aa30_isma3l_Tp2_tgz-pJ8-ar_fiuba_tecnicas_framework_Pruebas_Casos1_MainJ8/src/ar/fiuba/tecnicas/framework/JTest/TestSuite.java:62: warning: (contracts.precondition) $$ 3 $$ ((TestSuite)test).setSuiteFather $$ (TestSuite)test.context is @Nullable $$ (TestSuite)test.context is @Nullable $$ ( 1866, 1904 ) $$ precondition of ((TestSuite)test).setSuiteFather is not satisfied.
+            if (test instanceof TestSuite) ((TestSuite)test).setSuiteFather(this);
+                                                                           ^
+  found   : (TestSuite)test.context is @Nullable
+  required: (TestSuite)test.context is @Nullable
+../dataset/url633772aa30_isma3l_Tp2_tgz-pJ8-ar_fiuba_tecnicas_framework_Pruebas_Casos1_MainJ8/src/ar/fiuba/tecnicas/framework/JTest/XmlPrinter.java:19: warning: (method.invocation) $$ 3 $$ inicializar() $$ @UnderInitialization(ar.fiuba.tecnicas.framework.JTest.XmlPrinter.class) @NonNull XmlPrinter $$ @Initialized @NonNull XmlPrinter $$ ( 449, 462 ) $$ call to inicializar() not allowed on the given receiver.
+        inicializar();
+                   ^
+  found   : @UnderInitialization(ar.fiuba.tecnicas.framework.JTest.XmlPrinter.class) @NonNull XmlPrinter
+  required: @Initialized @NonNull XmlPrinter
+../dataset/url633772aa30_isma3l_Tp2_tgz-pJ8-ar_fiuba_tecnicas_framework_Pruebas_Casos1_MainJ8/src/ar/fiuba/tecnicas/framework/JTest/XmlPrinter.java:71: warning: (dereference.of.nullable) $$ 1 $$ printer $$ ( 2327, 2334 ) $$ dereference of possibly-null reference printer
+        printer.println("\t\t\t\t<xs:element name=\"testcase\">\n" +
+        ^
+../dataset/url633772aa30_isma3l_Tp2_tgz-pJ8-ar_fiuba_tecnicas_framework_Pruebas_Casos1_MainJ8/src/ar/fiuba/tecnicas/framework/JTest/XmlPrinter.java:84: warning: (dereference.of.nullable) $$ 1 $$ messsage $$ ( 2879, 2887 ) $$ dereference of possibly-null reference messsage
+        if(!messsage.contains(":")) {
+            ^
+../dataset/url633772aa30_isma3l_Tp2_tgz-pJ8-ar_fiuba_tecnicas_framework_Pruebas_Casos1_MainJ8/src/ar/fiuba/tecnicas/framework/JTest/XmlPrinter.java:97: warning: (dereference.of.nullable) $$ 1 $$ printer $$ ( 3284, 3291 ) $$ dereference of possibly-null reference printer
+        printer.print("\t\t\t<xs:attribute name=\"" + name + "\" type=\"xs:string\" use=\"optional\"/>" +
+        ^
+../dataset/url633772aa30_isma3l_Tp2_tgz-pJ8-ar_fiuba_tecnicas_framework_Pruebas_Casos1_MainJ8/src/ar/fiuba/tecnicas/framework/JTest/XmlPrinter.java:113: warning: (dereference.of.nullable) $$ 1 $$ printer $$ ( 3773, 3780 ) $$ dereference of possibly-null reference printer
+        printer.println("<?xml version=\"1.0\" encoding=\"ISO-8859-1\" ?>\n" +
+        ^
+../dataset/url633772aa30_isma3l_Tp2_tgz-pJ8-ar_fiuba_tecnicas_framework_Pruebas_Casos1_MainJ8/src/ar/fiuba/tecnicas/framework/Pruebas/Casos1/AssertTest.java:127: warning: (purity.not.sideeffectfree.call) $$ 1 $$ assertThatTest $$ ( 4055, 4071 ) $$ call to side-effecting assertThatTest not allowed in side-effect-free method
+                assertThatTest();
+                              ^
+../dataset/url633772aa30_isma3l_Tp2_tgz-pJ8-ar_fiuba_tecnicas_framework_Pruebas_Casos1_MainJ8/src/ar/fiuba/tecnicas/framework/Pruebas/Casos1/SuiteATest.java:13: warning: (dereference.of.nullable) $$ 1 $$ getContext() $$ ( 324, 336 ) $$ dereference of possibly-null reference getContext()
+                getContext().put("k",2);
+                          ^
+../dataset/url633772aa30_isma3l_Tp2_tgz-pJ8-ar_fiuba_tecnicas_framework_Pruebas_Casos1_MainJ8/src/ar/fiuba/tecnicas/framework/Pruebas/Casos1/SuiteATest.java:24: warning: (dereference.of.nullable) $$ 1 $$ suite.getContext() $$ ( 724, 742 ) $$ dereference of possibly-null reference suite.getContext()
+        Assert.assertEquals("Objects have different value", suite.getContext().get("k"), suite.getContext().get("h"));
+                                                                            ^
+../dataset/url633772aa30_isma3l_Tp2_tgz-pJ8-ar_fiuba_tecnicas_framework_Pruebas_Casos1_MainJ8/src/ar/fiuba/tecnicas/framework/Pruebas/Casos1/SuiteATest.java:27: warning: (dereference.of.nullable) $$ 1 $$ suite.getContext() $$ ( 913, 931 ) $$ dereference of possibly-null reference suite.getContext()
+        Assert.assertArrayEquals("Arrays have different value",(Double[])suite.getContext().get("list1"),(Double[])suite.getContext().get("list2"));
+                                                                                         ^
+../dataset/url633772aa30_isma3l_Tp2_tgz-pJ8-ar_fiuba_tecnicas_framework_Pruebas_Casos1_MainJ8/src/ar/fiuba/tecnicas/framework/Pruebas/Casos1/SuiteATest.java:30: warning: (unboxing.of.nullable) $$ 1 $$ (Boolean)suite.getContext().get("trueCondition") $$ ( 1090, 1138 ) $$ unboxing a possibly-null reference (Boolean)suite.getContext().get("trueCondition")
+        Assert.assertTrue("The condition is false",(Boolean)suite.getContext().get("trueCondition"));
+                                                   ^
+../dataset/url633772aa30_isma3l_Tp2_tgz-pJ8-ar_fiuba_tecnicas_framework_Pruebas_Casos1_MainJ8/src/ar/fiuba/tecnicas/framework/Pruebas/Casos1/SuiteATest.java:30: warning: (dereference.of.nullable) $$ 1 $$ suite.getContext() $$ ( 1099, 1117 ) $$ dereference of possibly-null reference suite.getContext()
+        Assert.assertTrue("The condition is false",(Boolean)suite.getContext().get("trueCondition"));
+                                                                            ^
+20 warnings
+putting the diff for iteration 7 into /mmfs1/home/ea442/wpi-njr-debug/wpi/iteration7.diff

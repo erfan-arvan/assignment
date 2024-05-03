@@ -1,0 +1,15 @@
+package net.slreynolds.ds.export;
+
+import java.io.IOException;
+import java.util.Map;
+import net.slreynolds.ds.model.Graph;
+
+/**
+ * Export a Graph
+ */
+@org.checkerframework.framework.qual.AnnotatedFor("org.checkerframework.checker.nullness.KeyForSubchecker")
+public interface Exporter {
+
+    @org.checkerframework.dataflow.qual.Impure
+    public void export( Exporter this,  Graph g,  Map<String, Object> opts) throws ExportException, IOException;
+}

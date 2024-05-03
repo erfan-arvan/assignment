@@ -1,0 +1,58 @@
+package main.interfaces;
+
+import java.util.Date;
+import main.implementations.order.Order;
+
+/**
+ * Builder interface for orders
+ */
+@org.checkerframework.framework.qual.AnnotatedFor("org.checkerframework.checker.nullness.NullnessChecker")
+public interface OrderBuilder {
+
+    /**
+     * Default values:
+     */
+    public static final @org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.NonNull String DEFAULT_INSTRUMENT = "BHP";
+
+    public static final @org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.NonNull String DEFAULT_DATE = "20130205";
+
+    public static final @org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.NonNull String DEFAULT_TIME = "00:00";
+
+    public static final @org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.NonNull String DEFAULT_RECORD_TYPE = "ENTER";
+
+    public static final  @org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.NonNull double DEFAULT_PRICE = 0;
+
+    public static final  @org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.NonNull int DEFAULT_VOLUME = 3000;
+
+    public static final @org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.NonNull String DEFAULT_UNDISCLOSED_VOLUME = "0";
+
+    public static final  @org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.NonNull double DEFAULT_VALUE = 113250;
+
+    public static final @org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.NonNull String DEFAULT_QUALIFIERS = "";
+
+    public static final @org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.NonNull String DEFAULT_TRANSACTIONID = "";
+
+    public static final @org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.NonNull String DEFAULT_BIDID = "";
+
+    public static final @org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.NonNull String DEFAULT_ASKID = "";
+
+    public static final @org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.NonNull String DEFAULT_BID_OR_ASK = "B";
+
+    public static final @org.checkerframework.checker.initialization.qual.FBCBottom @org.checkerframework.checker.nullness.qual.MonotonicNonNull Date DEFAULT_ENTRY_TIME = null;
+
+    public static final @org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.NonNull String DEFAULT_OLD_PRICE = "0";
+
+    public static final @org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.NonNull String DEFAULT_OLD_VOLUME = "0";
+
+    public static final @org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.NonNull String DEFAULT_BUYER_BROKER_ID = "266";
+
+    public static final @org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.NonNull String DEFAULT_SELLER_BROKER_ID = "";
+
+    /**
+     * Receives all the required identifiers for a order to be created.
+     *
+     * @return - the created order with the appropriate type.
+     */
+    @org.checkerframework.dataflow.qual.Pure
+    public @org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.NonNull Order build();
+}

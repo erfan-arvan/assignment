@@ -1,0 +1,66 @@
+package ar.fiuba.tecnicas.framework;
+
+// Responsabilidad: Valida que los argumentos ingresados sean expresiones regulares o tags
+// y se los envia a testrunner
+import ar.fiuba.tecnicas.framework.JTest.TestRunner;
+import com.sun.javaws.exceptions.InvalidArgumentException;
+import java.util.Arrays;
+import java.util.List;
+
+@org.checkerframework.framework.qual.AnnotatedFor("org.checkerframework.checker.nullness.NullnessChecker")
+public class ArgumentValidator {
+
+    private @org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.NonNull TestRunner testrunner;
+
+    private @org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.NonNull List<String> args;
+
+    public static final @org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.NonNull String regexptestcaseopt = "-tcregexp";
+
+    public static final @org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.NonNull String regexptestsuiteopt = "-tsregexp";
+
+    public static final @org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.NonNull String tagstestcaseopt = "-tctags";
+
+    @org.checkerframework.dataflow.qual.SideEffectFree
+    public ArgumentValidator(@org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.NonNull TestRunner testrunner, @org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.NonNull String @org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.NonNull [] args) {
+        this.testrunner = testrunner;
+        this.args = Arrays.asList(args);
+    }
+
+    @org.checkerframework.dataflow.qual.Impure
+    private void setArgumentToRunner() {
+        int regexptestcaseidx = args.indexOf(regexptestcaseopt);
+        int regexptestsuiteidx = args.indexOf(regexptestsuiteopt);
+        int tagsidx = args.indexOf(tagstestcaseopt);
+        if (regexptestcaseidx != -1)
+            testrunner.setRegexpTestcase(args.get(regexptestcaseidx + 1));
+        if (regexptestsuiteidx != -1)
+            testrunner.setRegexpTestsuite(args.get(regexptestsuiteidx + 1));
+        if (tagsidx != -1)
+            testrunner.setArgtags(args.subList(tagsidx + 1, args.size()));
+    }
+
+    @org.checkerframework.dataflow.qual.Impure
+    private  @org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.NonNull boolean badOption() {
+        return (isNotRegExpOption()) && (!args.contains(tagstestcaseopt));
+    }
+
+    @org.checkerframework.dataflow.qual.Pure
+    private  @org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.NonNull boolean isNotRegExpOption() {
+        return ((!args.contains(regexptestcaseopt)) && (!args.contains(regexptestsuiteopt)));
+    }
+
+    @org.checkerframework.dataflow.qual.Impure
+    public void start() throws InvalidArgumentException {
+        if (args.size() > 0) {
+            if (badOption() || badArgAmount()) {
+                throw new InvalidArgumentException(new String[] { "Bad options" });
+            }
+            setArgumentToRunner();
+        }
+    }
+
+    @org.checkerframework.dataflow.qual.Pure
+    private  @org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.NonNull boolean badArgAmount() {
+        return (args.size() % 2 != 0);
+    }
+}

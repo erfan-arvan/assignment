@@ -1,0 +1,77 @@
+package net.slreynolds.ds.model;
+
+/**
+ */
+// ------------- Generated Code ------------------
+@org.checkerframework.framework.qual.AnnotatedFor("org.checkerframework.checker.nullness.NullnessChecker")
+final public class Node extends GraphPoint {
+
+    private @org.checkerframework.checker.initialization.qual.FBCBottom @org.checkerframework.checker.nullness.qual.MonotonicNonNull NodeArray _arrayParent;
+
+    @org.checkerframework.dataflow.qual.SideEffectFree
+    public Node(@org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.NonNull NamedID ID,  @org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.NonNull int generation) {
+        super(ID, generation);
+    }
+
+    @org.checkerframework.dataflow.qual.SideEffectFree
+    public Node(@org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.NonNull NamedID ID, @org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.Nullable String name,  @org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.NonNull int generation) {
+        super(ID, name, generation);
+    }
+
+    @org.checkerframework.dataflow.qual.Impure
+    public static @org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.NonNull Node createSymbol(@org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.NonNull NamedID ID, @org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.Nullable String name,  @org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.NonNull int generation) {
+        Node n = new Node(ID, name, generation);
+        n.putAttr(Named.SYMBOL, true);
+        return n;
+    }
+
+    @org.checkerframework.framework.qual.RequiresQualifier(expression = { "this._arrayParent" }, qualifier = org.checkerframework.checker.nullness.qual.Nullable.class)
+    @org.checkerframework.framework.qual.EnsuresQualifier(expression = { "this._arrayParent" }, qualifier = org.checkerframework.checker.nullness.qual.Nullable.class)
+    @org.checkerframework.dataflow.qual.Impure
+    public @org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.NonNull Node putAttr(@org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.NonNull Node this, @org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.NonNull String key, @org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.NonNull Object value) {
+        return (Node) super.putAttr(key, value);
+    }
+
+    @org.checkerframework.framework.qual.EnsuresQualifier(expression = { "this._arrayParent" }, qualifier = org.checkerframework.checker.nullness.qual.Nullable.class)
+    @org.checkerframework.dataflow.qual.Impure
+    public @org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.NonNull Node removeAttr(@org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.NonNull Node this, @org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.NonNull String key) {
+        return (Node) super.removeAttr(key);
+    }
+
+    @org.checkerframework.framework.qual.EnsuresQualifier(expression = { "this._arrayParent" }, qualifier = org.checkerframework.checker.nullness.qual.Nullable.class)
+    @org.checkerframework.dataflow.qual.Pure
+    public  @org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.NonNull boolean areValuesInlined(@org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.NonNull Node this) {
+        // meaningless for a Node
+        return false;
+    }
+
+    @org.checkerframework.framework.qual.EnsuresQualifier(expression = { "this._arrayParent" }, qualifier = org.checkerframework.checker.nullness.qual.Nullable.class)
+    @org.checkerframework.dataflow.qual.Pure
+    final public  @org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.NonNull boolean isNode(@org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.NonNull Node this) {
+        return true;
+    }
+
+    @org.checkerframework.framework.qual.EnsuresQualifier(expression = { "this._arrayParent" }, qualifier = org.checkerframework.checker.nullness.qual.Nullable.class)
+    @org.checkerframework.dataflow.qual.Pure
+    final public  @org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.NonNull boolean isArray(@org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.NonNull Node this) {
+        return false;
+    }
+
+    /**
+     * throws unsupported operation exception always
+     */
+    @org.checkerframework.dataflow.qual.Pure
+    public Node clone(@org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.NonNull Node this) {
+        throw new UnsupportedOperationException();
+    }
+
+    // ------------- Quasi- generated Code --------------------
+    @org.checkerframework.framework.qual.EnsuresQualifier(expression = { "this._arrayParent" }, qualifier = org.checkerframework.checker.nullness.qual.Nullable.class)
+    @org.checkerframework.dataflow.qual.Impure
+    public @org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.NonNull String toString(@org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.NonNull Node this) {
+        StringBuffer sb = new StringBuffer("Node{ name=" + getName() + ", ");
+        sb.append(attrToString());
+        sb.append((_arrayParent == null) ? "" : ", array element}");
+        return sb.toString();
+    }
+}

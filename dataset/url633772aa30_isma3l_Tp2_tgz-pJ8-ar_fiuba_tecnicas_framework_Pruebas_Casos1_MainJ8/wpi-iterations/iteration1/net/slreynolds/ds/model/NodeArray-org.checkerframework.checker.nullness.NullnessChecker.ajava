@@ -1,0 +1,100 @@
+package net.slreynolds.ds.model;
+
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.List;
+
+/**
+ */
+@org.checkerframework.framework.qual.AnnotatedFor("org.checkerframework.checker.nullness.NullnessChecker")
+final public class NodeArray extends GraphPoint {
+
+    private final  @org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.NonNull boolean _inlineValues;
+
+    private final @org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.NonNull GraphPoint @org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.MonotonicNonNull [] _elements;
+
+    @org.checkerframework.framework.qual.EnsuresQualifier(expression = { "this._elements" }, qualifier = org.checkerframework.checker.nullness.qual.Nullable.class)
+    @org.checkerframework.dataflow.qual.SideEffectFree
+    public NodeArray(@org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.NonNull NamedID ID, @org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.NonNull String name,  @org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.NonNull int length,  @org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.NonNull int generation,  @org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.NonNull boolean inlineValues) {
+        super(ID, name, generation);
+        if (length < 0) {
+            throw new IllegalArgumentException("length must be non-negative");
+        }
+        _elements = inlineValues ? new GraphPoint[length] : null;
+        _inlineValues = inlineValues;
+    }
+
+    @org.checkerframework.framework.qual.EnsuresQualifier(expression = { "this._elements" }, qualifier = org.checkerframework.checker.nullness.qual.Nullable.class)
+    @org.checkerframework.dataflow.qual.Impure
+    public @org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.NonNull List<GraphPoint> getElements() {
+        return _inlineValues ? a2l(_elements) : (List<GraphPoint>) Collections.EMPTY_LIST;
+    }
+
+    @org.checkerframework.dataflow.qual.Impure
+    private static <T> @org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.NonNull List<T> a2l(@org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.NonNull T @org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.Nullable [] ta) {
+        List<T> ts = new ArrayList<T>();
+        for (T t : ta) {
+            ts.add(t);
+        }
+        return ts;
+    }
+
+    @org.checkerframework.framework.qual.EnsuresQualifier(expression = { "this._elements" }, qualifier = org.checkerframework.checker.nullness.qual.Nullable.class)
+    @org.checkerframework.dataflow.qual.Pure
+    public  @org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.NonNull boolean areValuesInlined(@org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.NonNull NodeArray this) {
+        return _inlineValues;
+    }
+
+    @org.checkerframework.framework.qual.RequiresQualifier(expression = { "this._elements" }, qualifier = org.checkerframework.checker.nullness.qual.Nullable.class)
+    @org.checkerframework.framework.qual.EnsuresQualifier(expression = { "this._elements" }, qualifier = org.checkerframework.checker.nullness.qual.Nullable.class)
+    @org.checkerframework.dataflow.qual.Impure
+    public void set( @org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.NonNull int i, @org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.NonNull GraphPoint gp) {
+        _elements[i] = gp;
+    }
+
+    @org.checkerframework.framework.qual.EnsuresQualifier(expression = { "this._elements" }, qualifier = org.checkerframework.checker.nullness.qual.Nullable.class)
+    @org.checkerframework.dataflow.qual.Pure
+    public  @org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.NonNull int getLength() {
+        return _inlineValues ? _elements.length : 0;
+    }
+
+    @org.checkerframework.framework.qual.RequiresQualifier(expression = { "this._elements" }, qualifier = org.checkerframework.checker.nullness.qual.Nullable.class)
+    @org.checkerframework.framework.qual.EnsuresQualifier(expression = { "this._elements" }, qualifier = org.checkerframework.checker.nullness.qual.Nullable.class)
+    @org.checkerframework.dataflow.qual.Impure
+    public @org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.NonNull NodeArray putAttr(@org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.NonNull NodeArray this, @org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.NonNull String key, @org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.NonNull Object value) {
+        return (NodeArray) super.putAttr(key, value);
+    }
+
+    @org.checkerframework.framework.qual.EnsuresQualifier(expression = { "this._elements" }, qualifier = org.checkerframework.checker.nullness.qual.Nullable.class)
+    @org.checkerframework.dataflow.qual.Impure
+    public @org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.NonNull NodeArray removeAttr(@org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.NonNull NodeArray this, @org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.NonNull String key) {
+        return (NodeArray) super.removeAttr(key);
+    }
+
+    @org.checkerframework.framework.qual.EnsuresQualifier(expression = { "this._elements" }, qualifier = org.checkerframework.checker.nullness.qual.Nullable.class)
+    @org.checkerframework.dataflow.qual.Pure
+    final public  @org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.NonNull boolean isNode(@org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.NonNull NodeArray this) {
+        return false;
+    }
+
+    @org.checkerframework.framework.qual.EnsuresQualifier(expression = { "this._elements" }, qualifier = org.checkerframework.checker.nullness.qual.Nullable.class)
+    @org.checkerframework.dataflow.qual.Pure
+    final public  @org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.NonNull boolean isArray(@org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.NonNull NodeArray this) {
+        return true;
+    }
+
+    @org.checkerframework.framework.qual.EnsuresQualifier(expression = { "this._elements" }, qualifier = org.checkerframework.checker.nullness.qual.Nullable.class)
+    @org.checkerframework.dataflow.qual.Impure
+    public @org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.NonNull String toString(@org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.NonNull NodeArray this) {
+        StringBuilder sb = new StringBuilder("NodeArray [");
+        if (this.hasAttr(Named.CLASS)) {
+            sb.append(this.getAttr(Named.CLASS));
+            sb.append(' ');
+        }
+        if (_elements != null) {
+            sb.append("# elements=" + getLength());
+        }
+        sb.append(']');
+        return sb.toString();
+    }
+}

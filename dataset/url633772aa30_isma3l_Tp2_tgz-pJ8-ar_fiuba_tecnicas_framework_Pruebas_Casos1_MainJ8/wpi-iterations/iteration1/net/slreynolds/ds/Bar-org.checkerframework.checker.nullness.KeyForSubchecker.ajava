@@ -1,0 +1,50 @@
+package net.slreynolds.ds;
+
+@org.checkerframework.framework.qual.AnnotatedFor("org.checkerframework.checker.nullness.KeyForSubchecker")
+final public class Bar implements Comparable<Bar> {
+
+    private final   int ID;
+
+    @org.checkerframework.dataflow.qual.SideEffectFree
+    public Bar(  int id) {
+        this.ID = id;
+    }
+
+    @org.checkerframework.dataflow.qual.Pure
+    public   int getID() {
+        return ID;
+    }
+
+    @org.checkerframework.dataflow.qual.Pure
+    public   int hashCode( Bar this) {
+        // Return a smaller hashcode so that
+        // we can observe collisions. Don't do this
+        // in real life.
+        return ID & 0xFFFF;
+    }
+
+    @org.checkerframework.dataflow.qual.Pure
+    public   boolean equals( Bar this,  Object obj) {
+        if (this == obj) {
+            return true;
+        }
+        if (obj == null) {
+            return false;
+        }
+        if (!(obj instanceof Bar)) {
+            return false;
+        }
+        Bar other = (Bar) obj;
+        return (ID == other.ID);
+    }
+
+    @org.checkerframework.dataflow.qual.Pure
+    public  String toString( Bar this) {
+        return "Bar(" + ID + ")";
+    }
+
+    @org.checkerframework.dataflow.qual.Pure
+    public   int compareTo( Bar this,  Bar other) {
+        return this.ID - other.ID;
+    }
+}

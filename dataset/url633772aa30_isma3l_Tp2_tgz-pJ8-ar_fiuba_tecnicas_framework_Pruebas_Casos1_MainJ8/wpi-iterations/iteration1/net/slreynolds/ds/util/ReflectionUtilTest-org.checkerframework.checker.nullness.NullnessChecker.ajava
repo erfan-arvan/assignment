@@ -1,0 +1,52 @@
+package net.slreynolds.ds.util;
+
+import static org.junit.Assert.*;
+import net.slreynolds.ds.internal.util.ReflectionUtil;
+import net.slreynolds.ds.model.ReflectionException;
+import org.junit.Test;
+
+@org.checkerframework.framework.qual.AnnotatedFor("org.checkerframework.checker.nullness.NullnessChecker")
+public class ReflectionUtilTest {
+
+    public static class DummyClass {
+
+        private  @org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.NonNull int one;
+
+        private  @org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.NonNull double two;
+
+        private  @org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.NonNull char three;
+
+        private  @org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.NonNull float four;
+
+        private  @org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.NonNull byte five;
+
+        private  @org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.NonNull boolean six;
+
+        private @org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.MonotonicNonNull Object obj;
+
+        @org.checkerframework.dataflow.qual.SideEffectFree
+        public DummyClass( @org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.NonNull int one,  @org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.NonNull double two,  @org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.NonNull char three,  @org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.NonNull float four,  @org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.NonNull byte five,  @org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.NonNull boolean six) {
+            this.one = one;
+            this.two = two;
+            this.three = three;
+            this.four = four;
+            this.five = five;
+            this.six = six;
+        }
+
+        @org.checkerframework.checker.nullness.qual.EnsuresNonNull({ "this.obj" })
+        @org.checkerframework.dataflow.qual.Impure
+        public void setObj(@org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.NonNull Object o) {
+            this.obj = o;
+        }
+    }
+
+    @org.checkerframework.dataflow.qual.Impure
+    public void testReflectionOfDummy() throws ReflectionException {
+        DummyClass dummy = new DummyClass(1, 2.0, 'c', 4.0f, (byte) 5, true);
+        Double objForDummy = new Double(9.0);
+        dummy.setObj(objForDummy);
+        assertEquals("dummy.one", 1, ReflectionUtil.getInt(dummy, "one"));
+        assertEquals("dummy.obj", objForDummy, ReflectionUtil.getRef(Double.class, dummy, "obj"));
+    }
+}

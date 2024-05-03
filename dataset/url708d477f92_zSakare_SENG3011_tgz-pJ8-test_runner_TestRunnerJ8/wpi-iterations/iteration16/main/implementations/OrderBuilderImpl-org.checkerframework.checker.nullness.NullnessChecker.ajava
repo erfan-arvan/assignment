@@ -1,0 +1,357 @@
+package main.implementations;
+
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.util.Date;
+import main.implementations.order.Order;
+import main.interfaces.OrderBuilder;
+import main.parser.SircaOrder;
+
+/**
+ * Order helper class to build orders based on given parameters and parsed orders from csv files.
+ */
+@org.checkerframework.framework.qual.AnnotatedFor("org.checkerframework.checker.nullness.NullnessChecker")
+public class OrderBuilderImpl implements OrderBuilder {
+
+    private @org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.Nullable String security;
+
+    private @org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.MonotonicNonNull Date dateTime;
+
+    private @org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.Nullable String recordType;
+
+    private  @org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.NonNull double price;
+
+    private  @org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.NonNull int volume;
+
+    private  @org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.NonNull int undisclosedVolume;
+
+    private  @org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.NonNull double value;
+
+    private @org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.Nullable String qualifiers;
+
+    private @org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.Nullable String transactionId;
+
+    private @org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.Nullable String bidId;
+
+    private @org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.Nullable String askId;
+
+    private  @org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.NonNull boolean isBid;
+
+    private @org.checkerframework.checker.initialization.qual.FBCBottom @org.checkerframework.checker.nullness.qual.Nullable Date entryTime;
+
+    private  @org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.NonNull double oldPrice;
+
+    private  @org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.NonNull int oldVolume;
+
+    private @org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.Nullable String buyerBrokerId;
+
+    private @org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.Nullable String sellerBrokerId;
+
+    @org.checkerframework.checker.nullness.qual.EnsuresNonNull({ "this.askId" })
+    @org.checkerframework.checker.nullness.qual.EnsuresNonNull({ "this.bidId" })
+    @org.checkerframework.checker.nullness.qual.EnsuresNonNull({ "this.buyerBrokerId" })
+    @org.checkerframework.checker.nullness.qual.EnsuresNonNull({ "this.dateTime" })
+    @org.checkerframework.checker.nullness.qual.EnsuresNonNull({ "this.recordType" })
+    @org.checkerframework.checker.nullness.qual.EnsuresNonNull({ "this.sellerBrokerId" })
+    @org.checkerframework.dataflow.qual.Impure
+    public OrderBuilderImpl(@org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.Nullable String security, @org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.NonNull Date date,  @org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.NonNull double price, @org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.NonNull String volume, @org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.NonNull String isBid, @org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.NonNull String brokerId) {
+        setSecurity(security);
+        setBid(isBid);
+        if (("B").equals(isBid)) {
+            setBuyerBrokerId(brokerId);
+            setSellerBrokerId(DEFAULT_SELLER_BROKER_ID);
+        } else {
+            setSellerBrokerId(brokerId);
+            setBuyerBrokerId(DEFAULT_BUYER_BROKER_ID);
+        }
+        setDateTime(date);
+        setPrice(price);
+        setVolume(volume);
+        setValue(this.price * this.volume);
+        setRecordType(DEFAULT_RECORD_TYPE);
+        setBidId(DEFAULT_BIDID);
+        setAskId(DEFAULT_ASKID);
+        setEntryTime(DEFAULT_ENTRY_TIME);
+        setOldPrice(DEFAULT_OLD_PRICE);
+        setOldVolume(DEFAULT_OLD_VOLUME);
+        setUndisclosedVolume(DEFAULT_UNDISCLOSED_VOLUME);
+        setQualifiers(DEFAULT_QUALIFIERS);
+    }
+
+    @org.checkerframework.checker.nullness.qual.EnsuresNonNull({ "this.askId" })
+    @org.checkerframework.checker.nullness.qual.EnsuresNonNull({ "this.bidId" })
+    @org.checkerframework.checker.nullness.qual.EnsuresNonNull({ "this.buyerBrokerId" })
+    @org.checkerframework.checker.nullness.qual.EnsuresNonNull({ "this.qualifiers" })
+    @org.checkerframework.checker.nullness.qual.EnsuresNonNull({ "this.recordType" })
+    @org.checkerframework.checker.nullness.qual.EnsuresNonNull({ "this.sellerBrokerId" })
+    @org.checkerframework.framework.qual.EnsuresQualifier(expression = { "this.dateTime" }, qualifier = org.checkerframework.checker.nullness.qual.Nullable.class)
+    @org.checkerframework.dataflow.qual.Impure
+    public OrderBuilderImpl(SircaOrder order) {
+        setSecurity(order.getInstrument());
+        setBid(order.getBidOrAsk());
+        setBuyerBrokerId(order.getBuyerBrokerId());
+        setSellerBrokerId(order.getSellerBrokerId());
+        setDateTime(order.getDate(), order.getTime());
+        if (!order.getPrice().isEmpty()) {
+            setPrice(order.getPrice());
+        } else {
+            setPrice(DEFAULT_PRICE);
+        }
+        if (!order.getVolume().isEmpty()) {
+            setVolume(order.getVolume());
+        } else {
+            setVolume(DEFAULT_VOLUME);
+        }
+        setRecordType(order.getRecordType());
+        setUndisclosedVolume(DEFAULT_UNDISCLOSED_VOLUME);
+        setQualifiers(order.getQualifiers());
+        setTransactionId(order.getTransactionId());
+        setBidId(order.getBidId());
+        setAskId(order.getAskId());
+        setEntryTime(DEFAULT_ENTRY_TIME);
+        setOldPrice(DEFAULT_OLD_PRICE);
+        setOldVolume(DEFAULT_OLD_VOLUME);
+        setValue(this.price * this.volume);
+    }
+
+    @org.checkerframework.checker.nullness.qual.EnsuresNonNull({ "this.dateTime" })
+    @org.checkerframework.dataflow.qual.Impure
+    public OrderBuilderImpl(String security, Date date, double price, String volume, String brokerID) {
+        setSecurity(security);
+        setDateTime(date);
+        setPrice(price);
+        setVolume(volume);
+    }
+
+    @org.checkerframework.framework.qual.EnsuresQualifier(expression = { "this.dateTime" }, qualifier = org.checkerframework.checker.nullness.qual.Nullable.class)
+    @org.checkerframework.dataflow.qual.Pure
+    public @org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.NonNull Order build(@org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.NonNull OrderBuilderImpl this) {
+        return new Order(security, dateTime, recordType, price, volume, undisclosedVolume, value, qualifiers, transactionId, bidId, askId, isBid, entryTime, oldPrice, oldVolume, buyerBrokerId, sellerBrokerId);
+    }
+
+    @org.checkerframework.framework.qual.EnsuresQualifier(expression = { "this.dateTime" }, qualifier = org.checkerframework.checker.nullness.qual.Nullable.class)
+    @org.checkerframework.dataflow.qual.Impure
+    public void setSecurity(@org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.Nullable String security) {
+        this.security = security;
+    }
+
+    @org.checkerframework.framework.qual.RequiresQualifier(expression = { "this.dateTime" }, qualifier = org.checkerframework.checker.nullness.qual.Nullable.class)
+    @org.checkerframework.framework.qual.EnsuresQualifier(expression = { "this.dateTime" }, qualifier = org.checkerframework.checker.nullness.qual.Nullable.class)
+    @org.checkerframework.dataflow.qual.Impure
+    public void setBuyerBrokerId(@org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.Nullable String brokerId) {
+        this.buyerBrokerId = brokerId;
+    }
+
+    @org.checkerframework.framework.qual.RequiresQualifier(expression = { "this.dateTime" }, qualifier = org.checkerframework.checker.nullness.qual.Nullable.class)
+    @org.checkerframework.framework.qual.EnsuresQualifier(expression = { "this.dateTime" }, qualifier = org.checkerframework.checker.nullness.qual.Nullable.class)
+    @org.checkerframework.dataflow.qual.Impure
+    public void setSellerBrokerId(@org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.Nullable String brokerId) {
+        this.sellerBrokerId = brokerId;
+    }
+
+    @org.checkerframework.framework.qual.RequiresQualifier(expression = { "this.dateTime" }, qualifier = org.checkerframework.checker.nullness.qual.Nullable.class)
+    @org.checkerframework.framework.qual.EnsuresQualifier(expression = { "this.dateTime" }, qualifier = org.checkerframework.checker.nullness.qual.Nullable.class)
+    @org.checkerframework.dataflow.qual.Impure
+    public void setDateTime(@org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.Nullable String date, @org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.Nullable String time) {
+        // Date and time format provided is 2013020500:00:00.000
+        SimpleDateFormat sicraOrderDateFormat = new SimpleDateFormat("yyyyMMddHH:mm:ss.SSS");
+        // Combine the date and time strings.
+        String dateTime = date + time;
+        try {
+            // Save the newly created date object.
+            this.dateTime = sicraOrderDateFormat.parse(dateTime);
+        } catch (ParseException e) {
+            // TODO Auto-generated catch block
+            e.printStackTrace();
+        }
+    }
+
+    @org.checkerframework.checker.nullness.qual.RequiresNonNull({ "this.buyerBrokerId" })
+    @org.checkerframework.checker.nullness.qual.RequiresNonNull({ "this.sellerBrokerId" })
+    @org.checkerframework.framework.qual.RequiresQualifier(expression = { "this.dateTime" }, qualifier = org.checkerframework.checker.nullness.qual.Nullable.class)
+    @org.checkerframework.checker.nullness.qual.EnsuresNonNull({ "this.buyerBrokerId" })
+    @org.checkerframework.checker.nullness.qual.EnsuresNonNull({ "this.sellerBrokerId" })
+    @org.checkerframework.framework.qual.EnsuresQualifier(expression = { "this.dateTime" }, qualifier = org.checkerframework.checker.nullness.qual.Nullable.class)
+    @org.checkerframework.dataflow.qual.Impure
+    public void setPrice(@org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.NonNull String price) {
+        this.price = Double.parseDouble(price);
+    }
+
+    @org.checkerframework.framework.qual.RequiresQualifier(expression = { "this.dateTime" }, qualifier = org.checkerframework.checker.nullness.qual.Nullable.class)
+    @org.checkerframework.framework.qual.EnsuresQualifier(expression = { "this.dateTime" }, qualifier = org.checkerframework.checker.nullness.qual.Nullable.class)
+    @org.checkerframework.dataflow.qual.Impure
+    public void setBid(@org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.Nullable String bidOrAsk) {
+        if (("A").equals(bidOrAsk)) {
+            this.isBid = false;
+        } else if (("B").equals(bidOrAsk)) {
+            this.isBid = true;
+        }
+    }
+
+    @org.checkerframework.framework.qual.RequiresQualifier(expression = { "this.dateTime" }, qualifier = org.checkerframework.checker.nullness.qual.Nullable.class)
+    @org.checkerframework.framework.qual.EnsuresQualifier(expression = { "this.dateTime" }, qualifier = org.checkerframework.checker.nullness.qual.Nullable.class)
+    @org.checkerframework.dataflow.qual.Impure
+    public void setVolume(@org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.NonNull String volume) {
+        this.volume = Integer.parseInt(volume);
+    }
+
+    @org.checkerframework.framework.qual.RequiresQualifier(expression = { "this.dateTime" }, qualifier = org.checkerframework.checker.nullness.qual.Nullable.class)
+    @org.checkerframework.checker.nullness.qual.EnsuresNonNull({ "this.dateTime" })
+    @org.checkerframework.dataflow.qual.Impure
+    public void setDateTime(@org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.NonNull Date dateTime) {
+        this.dateTime = dateTime;
+    }
+
+    @org.checkerframework.checker.nullness.qual.RequiresNonNull({ "this.buyerBrokerId" })
+    @org.checkerframework.checker.nullness.qual.RequiresNonNull({ "this.sellerBrokerId" })
+    @org.checkerframework.framework.qual.RequiresQualifier(expression = { "this.dateTime" }, qualifier = org.checkerframework.checker.nullness.qual.Nullable.class)
+    @org.checkerframework.checker.nullness.qual.EnsuresNonNull({ "this.buyerBrokerId" })
+    @org.checkerframework.checker.nullness.qual.EnsuresNonNull({ "this.sellerBrokerId" })
+    @org.checkerframework.framework.qual.EnsuresQualifier(expression = { "this.dateTime" }, qualifier = org.checkerframework.checker.nullness.qual.Nullable.class)
+    @org.checkerframework.dataflow.qual.Impure
+    public void setRecordType(@org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.Nullable String recordType) {
+        this.recordType = recordType;
+    }
+
+    @org.checkerframework.framework.qual.RequiresQualifier(expression = { "this.dateTime" }, qualifier = org.checkerframework.checker.nullness.qual.Nullable.class)
+    @org.checkerframework.framework.qual.EnsuresQualifier(expression = { "this.dateTime" }, qualifier = org.checkerframework.checker.nullness.qual.Nullable.class)
+    @org.checkerframework.dataflow.qual.Impure
+    public void setPrice( @org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.NonNull double price) {
+        this.price = price;
+    }
+
+    @org.checkerframework.checker.nullness.qual.RequiresNonNull({ "this.buyerBrokerId" })
+    @org.checkerframework.checker.nullness.qual.RequiresNonNull({ "this.sellerBrokerId" })
+    @org.checkerframework.framework.qual.RequiresQualifier(expression = { "this.dateTime" }, qualifier = org.checkerframework.checker.nullness.qual.Nullable.class)
+    @org.checkerframework.checker.nullness.qual.EnsuresNonNull({ "this.buyerBrokerId" })
+    @org.checkerframework.checker.nullness.qual.EnsuresNonNull({ "this.sellerBrokerId" })
+    @org.checkerframework.framework.qual.EnsuresQualifier(expression = { "this.dateTime" }, qualifier = org.checkerframework.checker.nullness.qual.Nullable.class)
+    @org.checkerframework.dataflow.qual.Impure
+    public void setVolume( @org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.NonNull int volume) {
+        this.volume = volume;
+    }
+
+    @org.checkerframework.checker.nullness.qual.RequiresNonNull({ "this.buyerBrokerId" })
+    @org.checkerframework.checker.nullness.qual.RequiresNonNull({ "this.sellerBrokerId" })
+    @org.checkerframework.framework.qual.RequiresQualifier(expression = { "this.dateTime" }, qualifier = org.checkerframework.checker.nullness.qual.Nullable.class)
+    @org.checkerframework.checker.nullness.qual.EnsuresNonNull({ "this.buyerBrokerId" })
+    @org.checkerframework.checker.nullness.qual.EnsuresNonNull({ "this.sellerBrokerId" })
+    @org.checkerframework.framework.qual.EnsuresQualifier(expression = { "this.dateTime" }, qualifier = org.checkerframework.checker.nullness.qual.Nullable.class)
+    @org.checkerframework.dataflow.qual.Impure
+    public void setUndisclosedVolume(@org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.NonNull String undisclosedVolume) {
+        this.undisclosedVolume = Integer.parseInt(undisclosedVolume);
+    }
+
+    @org.checkerframework.framework.qual.RequiresQualifier(expression = { "this.dateTime" }, qualifier = org.checkerframework.checker.nullness.qual.Nullable.class)
+    @org.checkerframework.framework.qual.EnsuresQualifier(expression = { "this.dateTime" }, qualifier = org.checkerframework.checker.nullness.qual.Nullable.class)
+    @org.checkerframework.dataflow.qual.Impure
+    public void setValue( @org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.NonNull double value) {
+        this.value = value;
+    }
+
+    @org.checkerframework.checker.nullness.qual.RequiresNonNull({ "this.buyerBrokerId" })
+    @org.checkerframework.checker.nullness.qual.RequiresNonNull({ "this.recordType" })
+    @org.checkerframework.checker.nullness.qual.RequiresNonNull({ "this.sellerBrokerId" })
+    @org.checkerframework.framework.qual.RequiresQualifier(expression = { "this.dateTime" }, qualifier = org.checkerframework.checker.nullness.qual.Nullable.class)
+    @org.checkerframework.checker.nullness.qual.EnsuresNonNull({ "this.buyerBrokerId" })
+    @org.checkerframework.checker.nullness.qual.EnsuresNonNull({ "this.recordType" })
+    @org.checkerframework.checker.nullness.qual.EnsuresNonNull({ "this.sellerBrokerId" })
+    @org.checkerframework.framework.qual.EnsuresQualifier(expression = { "this.dateTime" }, qualifier = org.checkerframework.checker.nullness.qual.Nullable.class)
+    @org.checkerframework.dataflow.qual.Impure
+    public void setQualifiers(@org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.Nullable String qualifiers) {
+        this.qualifiers = qualifiers;
+    }
+
+    @org.checkerframework.checker.nullness.qual.RequiresNonNull({ "this.buyerBrokerId" })
+    @org.checkerframework.checker.nullness.qual.RequiresNonNull({ "this.recordType" })
+    @org.checkerframework.checker.nullness.qual.RequiresNonNull({ "this.sellerBrokerId" })
+    @org.checkerframework.framework.qual.RequiresQualifier(expression = { "this.dateTime" }, qualifier = org.checkerframework.checker.nullness.qual.Nullable.class)
+    @org.checkerframework.checker.nullness.qual.EnsuresNonNull({ "this.buyerBrokerId" })
+    @org.checkerframework.checker.nullness.qual.EnsuresNonNull({ "this.recordType" })
+    @org.checkerframework.checker.nullness.qual.EnsuresNonNull({ "this.sellerBrokerId" })
+    @org.checkerframework.framework.qual.EnsuresQualifier(expression = { "this.dateTime" }, qualifier = org.checkerframework.checker.nullness.qual.Nullable.class)
+    @org.checkerframework.dataflow.qual.Impure
+    public void setTransactionId(@org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.Nullable String transactionId) {
+        this.transactionId = transactionId;
+    }
+
+    @org.checkerframework.checker.nullness.qual.RequiresNonNull({ "this.buyerBrokerId" })
+    @org.checkerframework.checker.nullness.qual.RequiresNonNull({ "this.sellerBrokerId" })
+    @org.checkerframework.framework.qual.RequiresQualifier(expression = { "this.dateTime" }, qualifier = org.checkerframework.checker.nullness.qual.Nullable.class)
+    @org.checkerframework.checker.nullness.qual.EnsuresNonNull({ "this.buyerBrokerId" })
+    @org.checkerframework.checker.nullness.qual.EnsuresNonNull({ "this.sellerBrokerId" })
+    @org.checkerframework.framework.qual.EnsuresQualifier(expression = { "this.dateTime" }, qualifier = org.checkerframework.checker.nullness.qual.Nullable.class)
+    @org.checkerframework.dataflow.qual.Impure
+    public void setBidId(@org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.Nullable String bidId) {
+        this.bidId = bidId;
+    }
+
+    @org.checkerframework.checker.nullness.qual.RequiresNonNull({ "this.buyerBrokerId" })
+    @org.checkerframework.checker.nullness.qual.RequiresNonNull({ "this.recordType" })
+    @org.checkerframework.checker.nullness.qual.RequiresNonNull({ "this.sellerBrokerId" })
+    @org.checkerframework.framework.qual.RequiresQualifier(expression = { "this.dateTime" }, qualifier = org.checkerframework.checker.nullness.qual.Nullable.class)
+    @org.checkerframework.checker.nullness.qual.EnsuresNonNull({ "this.buyerBrokerId" })
+    @org.checkerframework.checker.nullness.qual.EnsuresNonNull({ "this.recordType" })
+    @org.checkerframework.checker.nullness.qual.EnsuresNonNull({ "this.sellerBrokerId" })
+    @org.checkerframework.framework.qual.EnsuresQualifier(expression = { "this.dateTime" }, qualifier = org.checkerframework.checker.nullness.qual.Nullable.class)
+    @org.checkerframework.dataflow.qual.Impure
+    public void setAskId(@org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.Nullable String askId) {
+        this.askId = askId;
+    }
+
+    @org.checkerframework.framework.qual.EnsuresQualifier(expression = { "this.dateTime" }, qualifier = org.checkerframework.checker.nullness.qual.Nullable.class)
+    @org.checkerframework.dataflow.qual.Impure
+    public void setBid(boolean isBid) {
+        this.isBid = isBid;
+    }
+
+    @org.checkerframework.checker.nullness.qual.RequiresNonNull({ "this.bidId" })
+    @org.checkerframework.checker.nullness.qual.RequiresNonNull({ "this.buyerBrokerId" })
+    @org.checkerframework.checker.nullness.qual.RequiresNonNull({ "this.recordType" })
+    @org.checkerframework.checker.nullness.qual.RequiresNonNull({ "this.sellerBrokerId" })
+    @org.checkerframework.framework.qual.RequiresQualifier(expression = { "this.dateTime" }, qualifier = org.checkerframework.checker.nullness.qual.Nullable.class)
+    @org.checkerframework.checker.nullness.qual.EnsuresNonNull({ "this.bidId" })
+    @org.checkerframework.checker.nullness.qual.EnsuresNonNull({ "this.buyerBrokerId" })
+    @org.checkerframework.checker.nullness.qual.EnsuresNonNull({ "this.recordType" })
+    @org.checkerframework.checker.nullness.qual.EnsuresNonNull({ "this.sellerBrokerId" })
+    @org.checkerframework.framework.qual.EnsuresQualifier(expression = { "this.dateTime" }, qualifier = org.checkerframework.checker.nullness.qual.Nullable.class)
+    @org.checkerframework.dataflow.qual.Impure
+    public void setEntryTime(@org.checkerframework.checker.initialization.qual.FBCBottom @org.checkerframework.checker.nullness.qual.Nullable Date entryTime) {
+        this.entryTime = entryTime;
+    }
+
+    @org.checkerframework.checker.nullness.qual.RequiresNonNull({ "this.askId" })
+    @org.checkerframework.checker.nullness.qual.RequiresNonNull({ "this.bidId" })
+    @org.checkerframework.checker.nullness.qual.RequiresNonNull({ "this.buyerBrokerId" })
+    @org.checkerframework.checker.nullness.qual.RequiresNonNull({ "this.recordType" })
+    @org.checkerframework.checker.nullness.qual.RequiresNonNull({ "this.sellerBrokerId" })
+    @org.checkerframework.framework.qual.RequiresQualifier(expression = { "this.dateTime" }, qualifier = org.checkerframework.checker.nullness.qual.Nullable.class)
+    @org.checkerframework.checker.nullness.qual.EnsuresNonNull({ "this.askId" })
+    @org.checkerframework.checker.nullness.qual.EnsuresNonNull({ "this.bidId" })
+    @org.checkerframework.checker.nullness.qual.EnsuresNonNull({ "this.buyerBrokerId" })
+    @org.checkerframework.checker.nullness.qual.EnsuresNonNull({ "this.recordType" })
+    @org.checkerframework.checker.nullness.qual.EnsuresNonNull({ "this.sellerBrokerId" })
+    @org.checkerframework.framework.qual.EnsuresQualifier(expression = { "this.dateTime" }, qualifier = org.checkerframework.checker.nullness.qual.Nullable.class)
+    @org.checkerframework.dataflow.qual.Impure
+    public void setOldPrice(@org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.NonNull String oldPrice) {
+        this.oldPrice = Double.parseDouble(oldPrice);
+    }
+
+    @org.checkerframework.checker.nullness.qual.RequiresNonNull({ "this.askId" })
+    @org.checkerframework.checker.nullness.qual.RequiresNonNull({ "this.bidId" })
+    @org.checkerframework.checker.nullness.qual.RequiresNonNull({ "this.buyerBrokerId" })
+    @org.checkerframework.checker.nullness.qual.RequiresNonNull({ "this.recordType" })
+    @org.checkerframework.checker.nullness.qual.RequiresNonNull({ "this.sellerBrokerId" })
+    @org.checkerframework.framework.qual.RequiresQualifier(expression = { "this.dateTime" }, qualifier = org.checkerframework.checker.nullness.qual.Nullable.class)
+    @org.checkerframework.checker.nullness.qual.EnsuresNonNull({ "this.askId" })
+    @org.checkerframework.checker.nullness.qual.EnsuresNonNull({ "this.bidId" })
+    @org.checkerframework.checker.nullness.qual.EnsuresNonNull({ "this.buyerBrokerId" })
+    @org.checkerframework.checker.nullness.qual.EnsuresNonNull({ "this.entryTime" })
+    @org.checkerframework.checker.nullness.qual.EnsuresNonNull({ "this.recordType" })
+    @org.checkerframework.checker.nullness.qual.EnsuresNonNull({ "this.sellerBrokerId" })
+    @org.checkerframework.framework.qual.EnsuresQualifier(expression = { "this.dateTime" }, qualifier = org.checkerframework.checker.nullness.qual.Nullable.class)
+    @org.checkerframework.dataflow.qual.Impure
+    public void setOldVolume(@org.checkerframework.checker.initialization.qual.Initialized @org.checkerframework.checker.nullness.qual.NonNull String oldVolume) {
+        this.oldVolume = Integer.parseInt(oldVolume);
+    }
+}
